@@ -67,6 +67,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Financien\css\main.css" />
+    <Content Include="Financien\Home.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -76,6 +78,13 @@
     </Compile>
     <Compile Include="Financien\Financien.Master.designer.cs">
       <DependentUpon>Financien.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Financien\Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Financien\Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -90,7 +99,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Financien\css\" />
     <Folder Include="Financien\js\" />
   </ItemGroup>
   <PropertyGroup>
