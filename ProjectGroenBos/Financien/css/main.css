@@ -10,7 +10,7 @@
 }
 
 body {
-    background-color: #f3f5f9;
+    background-color: #fff;
 }
 
 .wrapper {
@@ -121,3 +121,20 @@ body {
         .wrapper .main_content .info div {
             margin-bottom: 20px;
         }
+
+.container {
+    background-color: #f3f5f9;
+    width: 90%;
+    height: auto;
+    border: 1px solid rgba(14,98,81,1);
+    border-radius: 15px;
+    text-align: center;
+    margin-left: 5%;
+    margin-top: 10%;
+    min-height: 200px;
+}
+
+.center {
+    text-align: center;
+}
+
