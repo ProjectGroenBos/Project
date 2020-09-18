@@ -8,7 +8,7 @@ using System.Web.UI.WebControls;
 
 namespace ProjectGroenBos.Recreatie
 {
-    public partial class WebForm1 : System.Web.UI.Page
+    public partial class Overzicht : System.Web.UI.Page
     {
         SqlConnection cnn = new SqlConnection(Helper.HelperClass.DatabaseConnectieString);
         protected void Page_Load(object sender, EventArgs e)
@@ -37,8 +37,6 @@ namespace ProjectGroenBos.Recreatie
                 string query = "SELECT [RecreatieprogrammaDatum] FROM [Recreatieprogramma_Activiteit]";
 
                 SqlCommand cmdSchedule = new SqlCommand(query, cnn);
-
-                
 
                 SqlDataReader dr = cmdSchedule.ExecuteReader();
                 string resulaat = dr.Read().ToString();

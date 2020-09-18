@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Groenbos</title>
     <link rel="stylesheet" href="CSS/Main.css">
+     <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
 </head>
 <body>
     <div class="container">
@@ -25,7 +27,8 @@
             </div>
 
         <div class="werkgebied">
-            
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
         </div>
     </div>
 

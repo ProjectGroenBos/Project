@@ -11,7 +11,7 @@ namespace ProjectGroenBos.Recreatie
 {
 
 
-    public partial class WebForm1
+    public partial class Overzicht
     {
 
         /// <summary>
