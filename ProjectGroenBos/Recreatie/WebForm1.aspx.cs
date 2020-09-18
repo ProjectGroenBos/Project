@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -9,6 +10,7 @@ namespace ProjectGroenBos.Recreatie
 {
     public partial class WebForm1 : System.Web.UI.Page
     {
+        SqlConnection cnn = new SqlConnection(Helper.HelperClass.DatabaseConnectieString);
         protected void Page_Load(object sender, EventArgs e)
         {
             lbldatumNu.Text = DateTime.Now.ToString("dd" + "-" + "MM" + "-" + "yy");
@@ -22,6 +24,37 @@ namespace ProjectGroenBos.Recreatie
             }
             Session["datacount"] = ((int)Session["datacount"]) + 1;
             lbldatumNu.Text = DateTime.Today.AddDays((int)Session["datacount"]).ToString("dd" + "-"+ "MM" + "-" + "yy");
+            CheckDate(lbldatumNu.Text);
+           
+        }
+
+        protected void CheckDate(string DatumCount) 
+        {
+            try
+            {
+                cnn.Open();
+                string query = "SELECT [RecreatieprogrammaDatum] FROM [Recreatieprogramma_Activiteit] WHERE ([RecreatieprogrammaDatum] = @RecreatieprogrammaDatum)";
+
+                SqlCommand cmdSchedule = new SqlCommand(query, cnn);
+
+                cmdSchedule.Parameters.AddWithValue("@RecreatieprogrammaDatum", DatumCount);
+
+                SqlDataReader dr = cmdSchedule.ExecuteReader();
+                string resulaat = dr.Read().ToString();
+                if (dr["RecreatieprogrammaDatum"].ToString() == DatumCount)
+                {
+                    lbldatumNu.Text = "is gelijk";
+                }
+                dr.Close();
+            }
+            catch
+            {
+                lbldatumNu.Text = "Error";
+            }
+            finally
+            {
+                cnn.Close();
+            }
         }
     }
 }
