@@ -24,6 +24,7 @@ namespace ProjectGroenBos.Recreatie
             }
             Session["datacount"] = ((int)Session["datacount"]) + 1;
             lbldatumNu.Text = DateTime.Today.AddDays((int)Session["datacount"]).ToString("dd" + "-"+ "MM" + "-" + "yy");
+
             CheckDate(lbldatumNu.Text);
            
         }
@@ -33,14 +34,15 @@ namespace ProjectGroenBos.Recreatie
             try
             {
                 cnn.Open();
-                string query = "SELECT [RecreatieprogrammaDatum] FROM [Recreatieprogramma_Activiteit] WHERE ([RecreatieprogrammaDatum] = @RecreatieprogrammaDatum)";
+                string query = "SELECT [RecreatieprogrammaDatum] FROM [Recreatieprogramma_Activiteit]";
 
                 SqlCommand cmdSchedule = new SqlCommand(query, cnn);
 
-                cmdSchedule.Parameters.AddWithValue("@RecreatieprogrammaDatum", DatumCount);
+                
 
                 SqlDataReader dr = cmdSchedule.ExecuteReader();
                 string resulaat = dr.Read().ToString();
+                lblActiviteiten.Text = dr["RecreatieprogrammaDatum"].ToString();
                 if (dr["RecreatieprogrammaDatum"].ToString() == DatumCount)
                 {
                     lbldatumNu.Text = "is gelijk";
@@ -49,7 +51,7 @@ namespace ProjectGroenBos.Recreatie
             }
             catch
             {
-                lbldatumNu.Text = "Error";
+                //lbldatumNu.Text = "Error";
             }
             finally
             {
