@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Recreatie/Recreatie.Master" AutoEventWireup="true" CodeBehind="Start.aspx.cs" Inherits="ProjectGroenBos.Recreatie.Start" %>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">

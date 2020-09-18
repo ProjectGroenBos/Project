@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace ProjectGroenBos.Recreatie
 {
-    public partial class Site1 : System.Web.UI.MasterPage
+    public partial class Recreatie : System.Web.UI.MasterPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {

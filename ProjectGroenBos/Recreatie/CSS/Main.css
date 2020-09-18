@@ -51,18 +51,21 @@ nav {
     float: right;
     position: sticky;
 }
+.lvActiviteitenSchema {
+    text-align: center;
+}
 
-    nav li {
-        float: left;
-        background-color: transparent;
-        padding-left: 20px;
-        padding-right: 20px;
-        padding-top: 15px;
-        padding-bottom: 15px;
-        margin-left: 10px;
-        margin-right: 10px;
-        border-color: #7fb241;
-    }
+nav li {
+    float: left;
+    background-color: transparent;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-color: #7fb241;
+}
 
         nav li:hover {
             float: left;
@@ -93,3 +96,4 @@ nav {
         list-style-type: none;
         overflow: hidden;
     }
+   
