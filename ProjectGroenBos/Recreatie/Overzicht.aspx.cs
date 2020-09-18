@@ -26,7 +26,6 @@ namespace ProjectGroenBos.Recreatie
             lbldatumNu.Text = DateTime.Today.AddDays((int)Session["datacount"]).ToString("dd" + "-"+ "MM" + "-" + "yy");
 
             CheckDate(lbldatumNu.Text);
-           
         }
 
         protected void CheckDate(string DatumCount) 
