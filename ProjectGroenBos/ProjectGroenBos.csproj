@@ -70,6 +70,15 @@
     <Content Include="Financien\css\main.css" />
     <Content Include="Financien\Home.aspx" />
     <Content Include="Financien\Prijstabel.aspx" />
+    <Content Include="Recreatie\CSS\Main.css" />
+    <Content Include="Recreatie\img\Logo1.png" />
+    <Content Include="Recreatie\img\Logo2.png" />
+    <Content Include="Recreatie\img\Logo3.png" />
+    <Content Include="Recreatie\img\Logo4.png" />
+    <Content Include="Recreatie\img\Logo5.png" />
+    <Content Include="Recreatie\img\Logo6.png" />
+    <Content Include="Recreatie\Start.aspx" />
+    <Content Include="Recreatie\Overzicht.aspx" />
     <Content Include="Schoonmaak en Onderhoud\InventarisOverzicht.aspx" />
     <Content Include="Schoonmaak en Onderhoud\OffertesOverzicht.aspx" />
     <Content Include="Schoonmaak en Onderhoud\OnderhoudsOverzicht.aspx" />
@@ -100,6 +109,28 @@
       <DependentUpon>Prijstabel.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Recreatie\Helper\Helper.cs" />
+    <Compile Include="Recreatie\Recreatie.Master.cs">
+      <DependentUpon>Recreatie.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Recreatie\Recreatie.Master.designer.cs">
+      <DependentUpon>Recreatie.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Recreatie\Start.aspx.cs">
+      <DependentUpon>Start.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Recreatie\Start.aspx.designer.cs">
+      <DependentUpon>Start.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Recreatie\Overzicht.aspx.cs">
+      <DependentUpon>Overzicht.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Recreatie\Overzicht.aspx.designer.cs">
+      <DependentUpon>Overzicht.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Schoonmaak en Onderhoud\InventarisOverzicht.aspx.cs">
       <DependentUpon>InventarisOverzicht.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -147,6 +178,7 @@
     <Content Include="Financien\Financien.Master" />
     <None Include="packages.config" />
     <Content Include="Site.Master" />
+    <Content Include="Recreatie\Recreatie.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -156,7 +188,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Financien\js\" />
-    <Folder Include="Recreatie\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

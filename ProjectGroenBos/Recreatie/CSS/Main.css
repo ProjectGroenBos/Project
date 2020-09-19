@@ -1,0 +1,99 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    font-family: "Century Gothic";
+    color: #343434;
+}
+
+.container {
+    background-color: #cbcbcb;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+}
+
+.werkgebied {
+    width: 100%;
+    height: 100%;
+}
+
+/*Navigator*/
+.navigator {
+    height: 120px;
+    background-color: #343434;
+    font-weight: bold;
+    border: 2px solid #7fb241;
+}
+
+.logo {
+    margin-left: 40px;
+    width: 240px;
+    float: left;
+}
+
+.selected {
+    border: 2px solid #7fb241;
+    color: #fff;
+    border-radius: 25px;
+}
+
+.uitloggen {
+    border: 2px solid #7fb241;
+    background-color: #7fb241;
+    border-radius: 25px;
+}
+
+nav {
+    margin-right: 35px;
+    padding-top: 45px;
+    background: transparent;
+    text-align: center;
+    float: right;
+    position: sticky;
+}
+.lvActiviteitenSchema {
+    text-align: center;
+}
+
+nav li {
+    float: left;
+    background-color: transparent;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-color: #7fb241;
+}
+
+        nav li:hover {
+            float: left;
+            background: transparent;
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            margin-left: 10px;
+            margin-right: 10px;
+            margin-right: 10px;
+            border-bottom: 2px solid;
+            border-color: #7fb241;
+            border-radius: 25px;
+        }
+
+    nav a {
+        color: #fff;
+        text-decoration: none;
+    }
+
+        nav a:hover {
+            color: #fff;
+            text-decoration: none;
+        }
+
+    nav ul {
+        list-style-type: none;
+        overflow: hidden;
+    }
+   
