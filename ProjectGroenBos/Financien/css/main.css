@@ -130,9 +130,15 @@ body {
     border-radius: 15px;
     text-align: center;
     margin-left: 5%;
-    margin-top: 10%;
+    margin-top: 5%;
     min-height: 100px;
 }
+
+    .container h2 {
+        margin-top: 5px;
+        color: rgba(14,98,81,1);
+        margin-bottom: 5px;
+    }
 
 .center {
     text-align: center;
@@ -149,10 +155,10 @@ body {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
-    .content-table thead tr {
+    .content-table tbody tr th {
         background-color: #009879;
         color: #ffffff;
-        text-align: left;
+        text-align: center;
         font-weight: bold;
     }
 
@@ -173,7 +179,30 @@ body {
             border-bottom: 2px solid #009879;
         }
 
-        .content-table tbody tr:hover {
+        .content-table tbody tr td:hover {
             font-weight: bold;
             color: #009879;
         }
+
+        .content-table tbody tr td a {
+            background-color: rgba(20,143,119,1);
+            border-radius: 5px;
+            color: #ffffff;
+            padding: .5em;
+            text-decoration: none;
+        }
+
+            .content-table tbody tr td a:hover {
+                background-color: #009879;
+                color: White;
+            }
+
+.eerstetable {
+    width: 60%;
+    margin-left: 20%;
+}
+
+.tweedetable {
+    width: 80%;
+    margin-left: 10%;
+}
