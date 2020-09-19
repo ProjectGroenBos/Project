@@ -210,6 +210,10 @@ body {
                 color: #ffffff;
             }
 
+                tr > td:last-of-type {
+                width: 50px;
+                    }
+
 .eerstetable {
     width: 60%;
     margin-left: 20%;

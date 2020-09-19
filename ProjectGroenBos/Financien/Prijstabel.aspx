@@ -30,35 +30,63 @@
 
     <div class="container">
         <h2>Bungalow prijzen per type</h2>
-        <asp:GridView ID="gvBungalow" CssClass="content-table tweedetable" GridLines="None" DataKeyNames="CODE" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource2">
+        <asp:GridView ID="gvBungalow" CssClass="content-table tweedetable" GridLines="None" DataKeyNames="Code" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource2">
             <Columns>
-                <asp:BoundField DataField="Code" HeaderText="Typebungalow" ReadOnly="True" SortExpression="CODE" />
-                <asp:BoundField DataField="Prijs per Week" HeaderText="Prijs per Week" SortExpression="PrijsperWeek" />
-                <asp:BoundField DataField="Prijs per Midweek" HeaderText="Prijs per Midweek" SortExpression="PrijsperMidweek" />
-                <asp:BoundField DataField="Prijs per weekend" HeaderText="Prijs per weekend" SortExpression="PrijsperWeekend" />
+                
+                <asp:BoundField DataField="Code" HeaderText="Code" ReadOnly="True" SortExpression="Code" />
+                <asp:BoundField DataField="Prijs_per_Week" HeaderText="Prijs per Week" SortExpression="Prijs_per_Week" />
+                <asp:BoundField DataField="Prijs_per_Midweek" HeaderText="Prijs per Midweek" SortExpression="Prijs_per_Midweek" />
+                <asp:BoundField DataField="Prijs_per_weekend" HeaderText="Prijs per weekend" SortExpression="Prijs_per_weekend" />
                 <asp:CommandField ShowEditButton="True" />
             </Columns>
         </asp:GridView>
 
-        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="select * from bungalowtype" UpdateCommand="Update bungalowtype set [Prijs per Week] = @PrijsperWeek Where Code = @CODE">
+        <h2>Seizoentoeslag<asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT [Code], [Prijs per Week] AS Prijs_per_Week, [Prijs per Midweek] AS Prijs_per_Midweek, [Prijs per weekend] AS Prijs_per_weekend FROM [Bungalowtype]" UpdateCommand="UPDATE [Bungalowtype] SET [Prijs per Week] = @Prijs_per_Week, [Prijs per Midweek] = @Prijs_per_Midweek, [Prijs per weekend] = @Prijs_per_weekend WHERE [Code] = @Code" DeleteCommand="DELETE FROM [Bungalowtype] WHERE [Code] = @Code" InsertCommand="INSERT INTO [Bungalowtype] ([Code], [Prijs per Week], [Prijs per Midweek], [Prijs per weekend]) VALUES (@Code, @Prijs_per_Week, @Prijs_per_Midweek, @Prijs_per_weekend)">
+
+            <DeleteParameters>
+                <asp:Parameter Name="Code" Type="String" />
+            </DeleteParameters>
+            <InsertParameters>
+                <asp:Parameter Name="Code" Type="String" />
+                <asp:Parameter Name="Prijs_per_Week" Type="Single" />
+                <asp:Parameter Name="Prijs_per_Midweek" Type="Single" />
+                <asp:Parameter Name="Prijs_per_weekend" Type="Single" />
+            </InsertParameters>
 
             <UpdateParameters>
-                <asp:Parameter Name="PrijsperWeek" />
-                <asp:Parameter Name="PrijsperMidweek" />
-                <asp:Parameter Name="PrijsperWeekend" />
-                <asp:Parameter Name="CODE" />
+                <asp:Parameter Name="Prijs_per_Week" Type="Single" />
+                <asp:Parameter Name="Prijs_per_Midweek" Type="Single" />
+                <asp:Parameter Name="Prijs_per_weekend" Type="Single" />
+                <asp:Parameter Name="Code" Type="String" />
             </UpdateParameters>
 
         </asp:SqlDataSource>
 
-        <h2>Seizoentoeslag</h2>
-        <asp:GridView ID="gvSeizoentoeslag" CssClass="content-table tweedetable" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource3">
+        </h2>
+        <asp:GridView ID="gvSeizoentoeslag" CssClass="content-table tweedetable" GridLines="None" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource3">
             <Columns>
+                
                 <asp:BoundField DataField="BungalowtypeCode" HeaderText="Code" SortExpression="BungalowtypeCode" />
                 <asp:BoundField DataField="Seizoen" HeaderText="Seizoen" SortExpression="Seizoen" />
                 <asp:BoundField DataField="Bedrag" HeaderText="Bedrag" SortExpression="Bedrag" />
+                <asp:CommandField ShowEditButton="True" />
             </Columns>
         </asp:GridView>
-        <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="select BungalowtypeCode, Seizoen, Bedrag From Seizoensopslag"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT [BungalowtypeCode], [Seizoen], [Bedrag], [ID] FROM [Seizoensopslag]" DeleteCommand="DELETE FROM [Seizoensopslag] WHERE [ID] = @ID" InsertCommand="INSERT INTO [Seizoensopslag] ([BungalowtypeCode], [Seizoen], [Bedrag]) VALUES (@BungalowtypeCode, @Seizoen, @Bedrag)" UpdateCommand="UPDATE [Seizoensopslag] SET [BungalowtypeCode] = @BungalowtypeCode, [Seizoen] = @Seizoen, [Bedrag] = @Bedrag WHERE [ID] = @ID">
+            <DeleteParameters>
+                <asp:Parameter Name="ID" Type="Int32" />
+            </DeleteParameters>
+            <InsertParameters>
+                <asp:Parameter Name="BungalowtypeCode" Type="String" />
+                <asp:Parameter Name="Seizoen" Type="String" />
+                <asp:Parameter Name="Bedrag" Type="Single" />
+            </InsertParameters>
+            <UpdateParameters>
+                <asp:Parameter Name="BungalowtypeCode" Type="String" />
+                <asp:Parameter Name="Seizoen" Type="String" />
+                <asp:Parameter Name="Bedrag" Type="Single" />
+                <asp:Parameter Name="ID" Type="Int32" />
+            </UpdateParameters>
+        </asp:SqlDataSource>
     </div>
 </asp:Content>
