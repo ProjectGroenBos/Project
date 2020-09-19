@@ -153,6 +153,9 @@ body {
     border-radius: 5px 5px 0 0;
     overflow: hidden;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+
+    margin-left: auto;
+    margin-right: auto;
 }
 
     .content-table tbody tr th {
@@ -206,3 +209,59 @@ body {
     width: 80%;
     margin-left: 10%;
 }
+
+.mainpanel {
+    width: 70%;
+
+    margin-left: 5%;
+    margin-top: 5%;
+    min-height: 100px;
+
+    display: inline-block;
+}
+
+.sidepanel {
+    width: 20%;
+
+    margin-top: 5%;
+    min-height: 100px;
+
+    display: inline-block;
+
+    outline-color: black;
+    outline-style: solid;
+    outline-width: thin;
+}
+
+/* BUTTONS */
+.button {
+    display: block;
+    padding: 15px 30%;
+    font-size: 24px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+
+    color: #fff;
+    background-color: dimgrey;
+
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+    .button:hover {
+        background-color: darkgrey;
+    }
+
+    .button:active {
+        background-color: #3e8e41;
+        box-shadow: 0 5px #666;
+        transform: translateY(4px);
+    }
