@@ -6,7 +6,7 @@
     <div class="header">Prijsmanagement</div>
     <div class="container">
         <h2>Seizoensindeling 2020</h2>
-        <p>Dit is de indeling van elk seizoen met zijn begin en einddatum van de periuode 2020/2021.</p>
+        <p>Dit is de indeling van elk seizoen met zijn begin en einddatum van de periode 2020/2021.</p>
         <asp:GridView ID="gvSeizoenen" CssClass="content-table eerstetable" GridLines="None" DataKeyNames="id" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
             <Columns>
                 <asp:BoundField DataField="id" HeaderText="" InsertVisible="False" ReadOnly="True" SortExpression="id" />
@@ -16,7 +16,7 @@
                 <asp:CommandField ShowEditButton="True" />
             </Columns>
         </asp:GridView>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="select id, seizoen, begindatum, einddatum from seizoenen" UpdateCommand="Update Seizoenen SET [Begindatum] = Convert(datetime, @Begindatum,104), [Einddatum] = Convert(datetime,@Einddatum,104) Where [ID] = @ID">
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="select id, seizoen, begindatum, einddatum from seizoen" UpdateCommand="Update Seizoen SET [Begindatum] = Convert(datetime, @Begindatum,104), [Einddatum] = Convert(datetime,@Einddatum,104) Where [ID] = @ID">
 
             <UpdateParameters>
                 <asp:Parameter Name="ID" />
@@ -30,9 +30,9 @@
 
     <div class="container">
         <h2>Bungalow prijzen per type</h2>
-        <asp:GridView ID="gvBungalow" CssClass="content-table tweedetable" GridLines="None" DataKeyNames="Code" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource2">
+        <asp:GridView ID="gvBungalow" CssClass="content-table tweedetable" GridLines="None" DataKeyNames="CODE" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource2">
             <Columns>
-                <asp:BoundField DataField="Code" HeaderText="Typebungalow" ReadOnly="True" SortExpression="Code" />
+                <asp:BoundField DataField="Code" HeaderText="Typebungalow" ReadOnly="True" SortExpression="CODE" />
                 <asp:BoundField DataField="Prijs per Week" HeaderText="Prijs per Week" SortExpression="PrijsperWeek" />
                 <asp:BoundField DataField="Prijs per Midweek" HeaderText="Prijs per Midweek" SortExpression="PrijsperMidweek" />
                 <asp:BoundField DataField="Prijs per weekend" HeaderText="Prijs per weekend" SortExpression="PrijsperWeekend" />
