@@ -48,9 +48,17 @@
                 <asp:Parameter Name="PrijsperWeekend" />
                 <asp:Parameter Name="CODE" />
             </UpdateParameters>
+
         </asp:SqlDataSource>
 
         <h2>Seizoentoeslag</h2>
-        <asp:GridView ID="gvSeizoentoeslag" CssClass="content-table tweedetable" runat="server"></asp:GridView>
+        <asp:GridView ID="gvSeizoentoeslag" CssClass="content-table tweedetable" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource3">
+            <Columns>
+                <asp:BoundField DataField="BungalowtypeCode" HeaderText="Code" SortExpression="BungalowtypeCode" />
+                <asp:BoundField DataField="Seizoen" HeaderText="Seizoen" SortExpression="Seizoen" />
+                <asp:BoundField DataField="Bedrag" HeaderText="Bedrag" SortExpression="Bedrag" />
+            </Columns>
+        </asp:GridView>
+        <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="select BungalowtypeCode, Seizoen, Bedrag From Seizoensopslag"></asp:SqlDataSource>
     </div>
 </asp:Content>
