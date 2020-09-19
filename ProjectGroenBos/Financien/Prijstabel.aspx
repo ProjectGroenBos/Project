@@ -63,29 +63,32 @@
         </asp:SqlDataSource>
 
         </h2>
-        <asp:GridView ID="gvSeizoentoeslag" CssClass="content-table tweedetable" GridLines="None" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource3">
+        <asp:GridView ID="gvSeizoentoeslag" CssClass="content-table tweedetable" GridLines="None" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource3" DataKeyNames="ID">
             <Columns>
                 
-                <asp:BoundField DataField="BungalowtypeCode" HeaderText="Code" SortExpression="BungalowtypeCode" />
+                
+                
                 <asp:BoundField DataField="Seizoen" HeaderText="Seizoen" SortExpression="Seizoen" />
+                <asp:BoundField DataField="BungalowtypeCode" HeaderText="BungalowtypeCode" SortExpression="BungalowtypeCode" />
                 <asp:BoundField DataField="Bedrag" HeaderText="Bedrag" SortExpression="Bedrag" />
                 <asp:CommandField ShowEditButton="True" />
+                
             </Columns>
         </asp:GridView>
-        <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT [BungalowtypeCode], [Seizoen], [Bedrag], [ID] FROM [Seizoensopslag]" DeleteCommand="DELETE FROM [Seizoensopslag] WHERE [ID] = @ID" InsertCommand="INSERT INTO [Seizoensopslag] ([BungalowtypeCode], [Seizoen], [Bedrag]) VALUES (@BungalowtypeCode, @Seizoen, @Bedrag)" UpdateCommand="UPDATE [Seizoensopslag] SET [BungalowtypeCode] = @BungalowtypeCode, [Seizoen] = @Seizoen, [Bedrag] = @Bedrag WHERE [ID] = @ID">
+        <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT [Seizoen], [BungalowtypeCode], [Bedrag], [ID] FROM [Seizoensopslag]" DeleteCommand="DELETE FROM [Seizoensopslag] WHERE [ID] = @original_ID" InsertCommand="INSERT INTO [Seizoensopslag] ([Seizoen], [BungalowtypeCode], [Bedrag]) VALUES (@Seizoen, @BungalowtypeCode, @Bedrag)" UpdateCommand="UPDATE [Seizoensopslag] SET [Bedrag] = @Bedrag WHERE [ID] = @original_ID" OldValuesParameterFormatString="original_{0}">
             <DeleteParameters>
-                <asp:Parameter Name="ID" Type="Int32" />
+                <asp:Parameter Name="original_ID" Type="Int32" />
             </DeleteParameters>
             <InsertParameters>
-                <asp:Parameter Name="BungalowtypeCode" Type="String" />
                 <asp:Parameter Name="Seizoen" Type="String" />
+                <asp:Parameter Name="BungalowtypeCode" Type="String" />
                 <asp:Parameter Name="Bedrag" Type="Single" />
             </InsertParameters>
             <UpdateParameters>
-                <asp:Parameter Name="BungalowtypeCode" Type="String" />
                 <asp:Parameter Name="Seizoen" Type="String" />
+                <asp:Parameter Name="BungalowtypeCode" Type="String" />
                 <asp:Parameter Name="Bedrag" Type="Single" />
-                <asp:Parameter Name="ID" Type="Int32" />
+                <asp:Parameter Name="original_ID" Type="Int32" />
             </UpdateParameters>
         </asp:SqlDataSource>
     </div>
