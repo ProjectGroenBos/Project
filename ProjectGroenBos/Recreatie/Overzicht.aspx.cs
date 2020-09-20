@@ -24,13 +24,10 @@ namespace ProjectGroenBos.Recreatie
                 Session["datacount"] = 0;
                 Session["achteruit"] = 0;
             }
-            string dateResult = datum.ToString("MM/dd/yyy");
-            lblActiviteiten.Text = dateResult;
-            dt = DateTime.ParseExact(dateResult, "MM/dd/yyyy", null);
 
             if (!IsPostBack)
             {
-                SqlDataSource1.SelectCommand = string.Format("select dbo.Activiteit.Naam , dbo.Activiteit.Locatie,dbo.Recreatieprogramma_Activiteit.RecreatieprogrammaDatum, dbo.Activiteit.Tijd, dbo.Activiteit.[Maximaal aantal], dbo.Activiteit.FaciliteitID from dbo.Activiteit join dbo.Recreatieprogramma_Activiteit on dbo.Activiteit.Nummer = dbo.Recreatieprogramma_Activiteit.ActiviteitNummer where dbo.Recreatieprogramma_Activiteit.RecreatieprogrammaDatum = '{0}'", datum);
+                SqlDataSource1.SelectCommand = string.Format("select dbo.Activiteit.Naam , dbo.Activiteit.Locatie,dbo.Recreatieprogramma_Activiteit.RecreatieprogrammaDatum, dbo.Activiteit.Tijd, dbo.Activiteit.[Maximaal aantal], dbo.Activiteit.FaciliteitID from dbo.Activiteit join dbo.Recreatieprogramma_Activiteit on dbo.Activiteit.Nummer = dbo.Recreatieprogramma_Activiteit.ActiviteitNummer where dbo.Recreatieprogramma_Activiteit.RecreatieprogrammaDatum = '{0}'", datum.ToString("MM/dd/yyyy"));
                 gvActiveiten.DataBind();
 
             }
@@ -45,7 +42,6 @@ namespace ProjectGroenBos.Recreatie
             string buttonId = button.ID.Trim();
 
 
-
             if (buttonId == "forwards")
             {
                 Session["datacount"] = ((int)Session["datacount"]) + 1;
@@ -55,11 +51,11 @@ namespace ProjectGroenBos.Recreatie
             if (buttonId == "backwards")
             {
                 Session["achteruit"] = ((int)Session["achteruit"]) - 1;
-                Session["datacount"] = ((int)Session["achteruit"]) + 1;
                 lbldatumNu.Text = DateTime.Today.AddDays((int)Session["achteruit"]).ToString("dd" + "-" + "MM" + "-" + "yy");
                 dt = DateTime.Today.AddDays((int)Session["achteruit"]);
                
             }
+           
 
                 CheckDate(dt);
             }
@@ -68,7 +64,7 @@ namespace ProjectGroenBos.Recreatie
             {
                 try
                 {
-                    SqlDataSource1.SelectCommand = string.Format("select dbo.Activiteit.Naam , dbo.Activiteit.Locatie,dbo.Recreatieprogramma_Activiteit.RecreatieprogrammaDatum, dbo.Activiteit.Tijd, dbo.Activiteit.[Maximaal aantal], dbo.Activiteit.FaciliteitID from dbo.Activiteit join dbo.Recreatieprogramma_Activiteit on dbo.Activiteit.Nummer = dbo.Recreatieprogramma_Activiteit.ActiviteitNummer where dbo.Recreatieprogramma_Activiteit.RecreatieprogrammaDatum = '{0}'", datumactiviteit);
+                    SqlDataSource1.SelectCommand = string.Format("select dbo.Activiteit.Naam , dbo.Activiteit.Locatie,dbo.Recreatieprogramma_Activiteit.RecreatieprogrammaDatum, dbo.Activiteit.Tijd, dbo.Activiteit.[Maximaal aantal], dbo.Activiteit.FaciliteitID from dbo.Activiteit join dbo.Recreatieprogramma_Activiteit on dbo.Activiteit.Nummer = dbo.Recreatieprogramma_Activiteit.ActiviteitNummer where dbo.Recreatieprogramma_Activiteit.RecreatieprogrammaDatum = '{0}'", datumactiviteit.ToString("MM/dd/yyyy"));
                     gvActiveiten.DataBind();
 
                 }
