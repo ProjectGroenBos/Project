@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="Overzicht Onderhoud" Language="C#" AutoEventWireup="true"  MasterPageFile="~/Site.Master" CodeBehind="OnderhoudsOverzicht.aspx.cs" Inherits="ProjectGroenBos.Schoonmaak_en_Onderhoud.OnderhoudsOverzicht" %>
-<asp:Content ID="OnderhoudsOverzicht" ContentPlaceHolderID="MainContent" runat="server">
+<asp:Content ID="OnderhoudsOverzicht" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
 
 
