@@ -1,0 +1,17 @@
+diff a/ProjectGroenBos/.vs/ProjectGroenBos/config/applicationhost.config b/ProjectGroenBos/.vs/ProjectGroenBos/config/applicationhost.config	(rejected hunks)
+@@ -162,11 +162,15 @@
+             </site>
+             <site name="ProjectGroenBos" id="2">
+                 <application path="/" applicationPool="Clr4IntegratedAppPool">
++<<<<<<< HEAD
+ <<<<<<< HEAD
+                     <virtualDirectory path="/" physicalPath="D:\Default\Documenten\GitHub\Project\ProjectGroenBos" />
+ =======
+                     <virtualDirectory path="/" physicalPath="C:\Users\lucsw\Documents\GitHub\Project\ProjectGroenBos" />
+ >>>>>>> 8e9cf06a299623ea2ecf599f0b6af0fc70ec6361
++=======
++                    <virtualDirectory path="/" physicalPath="C:\Users\herman\Documents\Project\ProjectGroenBos" />
++>>>>>>> 63a0cbf75ab56a30ac8f937a16c2e9ae5501e803
+                 </application>
+                 <bindings>
+                     <binding protocol="http" bindingInformation="*:53316:localhost" />
