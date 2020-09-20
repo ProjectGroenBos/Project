@@ -18,8 +18,8 @@ namespace ProjectGroenBos.Recreatie
 
             if (!IsPostBack)
             {
-                //SqlDataSource1.SelectCommand = string.Format("select dbo.Activiteit.Naam , dbo.Activiteit.Locatie,dbo.Recreatieprogramma_Activiteit.RecreatieprogrammaDatum, dbo.Activiteit.Tijd, dbo.Activiteit.[Maximaal aantal], dbo.Activiteit.FaciliteitID from dbo.Activiteit join dbo.Recreatieprogramma_Activiteit on dbo.Activiteit.Nummer = dbo.Recreatieprogramma_Activiteit.ActiviteitNummer where dbo.Recreatieprogramma_Activiteit.RecreatieprogrammaDatum = '{0}'", DateTime.Now);
-                //gvActiveiten.DataBind();
+                SqlDataSource1.SelectCommand = string.Format("select dbo.Activiteit.Naam , dbo.Activiteit.Locatie,dbo.Recreatieprogramma_Activiteit.RecreatieprogrammaDatum, dbo.Activiteit.Tijd, dbo.Activiteit.[Maximaal aantal], dbo.Activiteit.FaciliteitID from dbo.Activiteit join dbo.Recreatieprogramma_Activiteit on dbo.Activiteit.Nummer = dbo.Recreatieprogramma_Activiteit.ActiviteitNummer where dbo.Recreatieprogramma_Activiteit.RecreatieprogrammaDatum = '{0}'", DateTime.Now.ToShortDateString());
+                gvActiveiten.DataBind();
 
             }
         }
