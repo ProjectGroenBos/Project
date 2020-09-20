@@ -182,7 +182,7 @@ body {
             border-bottom: 2px solid #009879;
         }
 
-        .content-table tbody tr td:hover {
+        .content-table tbody tr:hover {
             font-weight: bold;
             color: #009879;
         }
@@ -195,10 +195,27 @@ body {
             text-decoration: none;
         }
 
+            .content-table tbody tr td a:nth-child(2) {
+                background-color: #C0392B;
+                border-radius: 5px;
+                color: #ffffff;
+                padding: .5em;
+                text-decoration: none;
+            }
+
+                .content-table tbody tr td a:nth-child(2):hover {
+                    background-color: #CD6155;
+                    color: #ffffff;
+                }
+
             .content-table tbody tr td a:hover {
                 background-color: #009879;
-                color: White;
+                color: #ffffff;
             }
+
+                tr > td:last-of-type {
+                width: 50px;
+                    }
 
 .eerstetable {
     width: 60%;
