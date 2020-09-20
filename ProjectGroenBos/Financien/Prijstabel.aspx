@@ -65,7 +65,6 @@
         </h2>
         <asp:GridView ID="gvSeizoentoeslag" CssClass="content-table tweedetable" GridLines="None" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource3">
             <Columns>
-                
                 <asp:BoundField DataField="BungalowtypeCode" HeaderText="Code" SortExpression="BungalowtypeCode" />
                 <asp:BoundField DataField="Seizoen" HeaderText="Seizoen" SortExpression="Seizoen" />
                 <asp:BoundField DataField="Bedrag" HeaderText="Bedrag" SortExpression="Bedrag" />

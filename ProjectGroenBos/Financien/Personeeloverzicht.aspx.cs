@@ -16,7 +16,7 @@ namespace ProjectGroenBos.Financien
         {
             if (!IsPostBack)
             {
-                InvullenGridview();
+                //InvullenGridview();
             }
         }
 

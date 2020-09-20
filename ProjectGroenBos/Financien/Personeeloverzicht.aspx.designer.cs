@@ -24,30 +24,30 @@ namespace ProjectGroenBos.Financien
         protected global::System.Web.UI.WebControls.GridView PersoneelsOverzicht;
 
         /// <summary>
-        /// Button1 control.
+        /// SqlDataSource4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource4;
 
         /// <summary>
-        /// Button2 control.
+        /// ButtonToevoegen control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button2;
+        protected global::System.Web.UI.WebControls.Button ButtonToevoegen;
 
         /// <summary>
-        /// Button3 control.
+        /// ButtonVerwijderen control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button3;
+        protected global::System.Web.UI.WebControls.Button ButtonVerwijderen;
     }
 }
