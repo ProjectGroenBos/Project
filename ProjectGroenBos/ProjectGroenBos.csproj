@@ -70,7 +70,24 @@
     <Content Include="Financien\css\main.css" />
     <Content Include="Financien\Home.aspx" />
     <Content Include="Financien\Prijstabel.aspx" />
+<<<<<<< HEAD
     <Content Include="Financien\Personeeloverzicht.aspx" />
+=======
+    <Content Include="Recreatie\CSS\Main.css" />
+    <Content Include="Recreatie\img\Logo1.png" />
+    <Content Include="Recreatie\img\Logo2.png" />
+    <Content Include="Recreatie\img\Logo3.png" />
+    <Content Include="Recreatie\img\Logo4.png" />
+    <Content Include="Recreatie\img\Logo5.png" />
+    <Content Include="Recreatie\img\Logo6.png" />
+    <Content Include="Recreatie\Start.aspx" />
+    <Content Include="Recreatie\Overzicht.aspx" />
+    <Content Include="Schoonmaak en Onderhoud\InventarisOverzicht.aspx" />
+    <Content Include="Schoonmaak en Onderhoud\OffertesOverzicht.aspx" />
+    <Content Include="Schoonmaak en Onderhoud\OnderhoudsOverzicht.aspx" />
+    <Content Include="Schoonmaak en Onderhoud\PlanningsOverzicht.aspx" />
+    <Content Include="Schoonmaak en Onderhoud\SchouwingsOverzicht.aspx" />
+>>>>>>> 63a0cbf75ab56a30ac8f937a16c2e9ae5501e803
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -103,10 +120,76 @@
       <DependentUpon>Personeeloverzicht.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Recreatie\Helper\Helper.cs" />
+    <Compile Include="Recreatie\Recreatie.Master.cs">
+      <DependentUpon>Recreatie.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Recreatie\Recreatie.Master.designer.cs">
+      <DependentUpon>Recreatie.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Recreatie\Start.aspx.cs">
+      <DependentUpon>Start.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Recreatie\Start.aspx.designer.cs">
+      <DependentUpon>Start.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Recreatie\Overzicht.aspx.cs">
+      <DependentUpon>Overzicht.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Recreatie\Overzicht.aspx.designer.cs">
+      <DependentUpon>Overzicht.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Schoonmaak en Onderhoud\InventarisOverzicht.aspx.cs">
+      <DependentUpon>InventarisOverzicht.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Schoonmaak en Onderhoud\InventarisOverzicht.aspx.designer.cs">
+      <DependentUpon>InventarisOverzicht.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Schoonmaak en Onderhoud\OffertesOverzicht.aspx.cs">
+      <DependentUpon>OffertesOverzicht.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Schoonmaak en Onderhoud\OffertesOverzicht.aspx.designer.cs">
+      <DependentUpon>OffertesOverzicht.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Schoonmaak en Onderhoud\OnderhoudsOverzicht.aspx.cs">
+      <DependentUpon>OnderhoudsOverzicht.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Schoonmaak en Onderhoud\OnderhoudsOverzicht.aspx.designer.cs">
+      <DependentUpon>OnderhoudsOverzicht.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Schoonmaak en Onderhoud\PlanningsOverzicht.aspx.cs">
+      <DependentUpon>PlanningsOverzicht.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Schoonmaak en Onderhoud\PlanningsOverzicht.aspx.designer.cs">
+      <DependentUpon>PlanningsOverzicht.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Schoonmaak en Onderhoud\SchouwingsOverzicht.aspx.cs">
+      <DependentUpon>SchouwingsOverzicht.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Schoonmaak en Onderhoud\SchouwingsOverzicht.aspx.designer.cs">
+      <DependentUpon>SchouwingsOverzicht.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Financien\Financien.Master" />
     <None Include="packages.config" />
+    <Content Include="Site.Master" />
+    <Content Include="Recreatie\Recreatie.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
