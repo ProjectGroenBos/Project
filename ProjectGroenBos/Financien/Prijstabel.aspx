@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Financien/Financien.Master" AutoEventWireup="true" CodeBehind="Prijstabel.aspx.cs" Inherits="ProjectGroenBos.Financien.WebForm2" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Financien/Financien.Master" AutoEventWireup="true" MaintainScrollPositionOnPostback="true" CodeBehind="Prijstabel.aspx.cs" Inherits="ProjectGroenBos.Financien.WebForm2" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -63,15 +63,15 @@
         </asp:SqlDataSource>
 
         </h2>
-        <asp:GridView ID="gvSeizoentoeslag" CssClass="content-table tweedetable" GridLines="None" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource3" DataKeyNames="ID">
+        <asp:GridView ID="gvSeizoentoeslag" CssClass="content-table tweedetable" GridLines="None" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource3"  DataKeyNames="ID">
             <Columns>
                 
                 
                 
-                <asp:BoundField DataField="Seizoen" HeaderText="Seizoen" SortExpression="Seizoen" />
-                <asp:BoundField DataField="BungalowtypeCode" HeaderText="BungalowtypeCode" SortExpression="BungalowtypeCode" />
+                <asp:BoundField DataField="Seizoen" HeaderText="Seizoen" SortExpression="Seizoen" ReadOnly="True"/>
+                <asp:BoundField DataField="BungalowtypeCode" HeaderText="BungalowtypeCode" SortExpression="BungalowtypeCode" ReadOnly="True"/>
                 <asp:BoundField DataField="Bedrag" HeaderText="Bedrag" SortExpression="Bedrag" />
-                <asp:CommandField ShowEditButton="True" />
+                <asp:CommandField ShowEditButton="True"/>
                 
             </Columns>
         </asp:GridView>

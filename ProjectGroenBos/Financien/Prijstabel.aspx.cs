@@ -13,5 +13,14 @@ namespace ProjectGroenBos.Financien
         {
 
         }
+
+        protected void GridView4Demo_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+
+        }
+
+        protected void GridView4Demo_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+        }
     }
 }
