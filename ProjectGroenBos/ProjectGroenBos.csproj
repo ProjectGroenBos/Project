@@ -70,9 +70,6 @@
     <Content Include="Financien\css\main.css" />
     <Content Include="Financien\Home.aspx" />
     <Content Include="Financien\Prijstabel.aspx" />
-<<<<<<< HEAD
-    <Content Include="Financien\Personeeloverzicht.aspx" />
-=======
     <Content Include="Recreatie\CSS\Main.css" />
     <Content Include="Recreatie\img\Logo1.png" />
     <Content Include="Recreatie\img\Logo2.png" />
@@ -87,7 +84,6 @@
     <Content Include="Schoonmaak en Onderhoud\OnderhoudsOverzicht.aspx" />
     <Content Include="Schoonmaak en Onderhoud\PlanningsOverzicht.aspx" />
     <Content Include="Schoonmaak en Onderhoud\SchouwingsOverzicht.aspx" />
->>>>>>> 63a0cbf75ab56a30ac8f937a16c2e9ae5501e803
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -111,13 +107,6 @@
     </Compile>
     <Compile Include="Financien\Prijstabel.aspx.designer.cs">
       <DependentUpon>Prijstabel.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Financien\Personeeloverzicht.aspx.cs">
-      <DependentUpon>Personeeloverzicht.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Financien\Personeeloverzicht.aspx.designer.cs">
-      <DependentUpon>Personeeloverzicht.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Recreatie\Helper\Helper.cs" />
