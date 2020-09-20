@@ -57,5 +57,10 @@ namespace ProjectGroenBos.Financien
                 throw;
             }
         }
+
+        protected void ButtonToevoegen_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

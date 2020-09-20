@@ -40,7 +40,7 @@
     <%-- side --%>
     <div class="sidepanel">
         <div class="container">
-            <asp:Button CssClass="button buttongreen" ID="ButtonToevoegen" runat="server" Text="Toevoegen" />
+            <asp:Button CssClass="button buttongreen" ID="ButtonToevoegen" runat="server" Text="Toevoegen" OnClick="ButtonToevoegen_Click" />
             <asp:Button CssClass="button buttonred" ID="ButtonVerwijderen" runat="server" Text="Verwijderen" />
         </div>
     </div>
