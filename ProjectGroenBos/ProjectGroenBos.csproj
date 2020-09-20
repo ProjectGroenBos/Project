@@ -79,6 +79,7 @@
     <Content Include="Recreatie\img\Logo6.png" />
     <Content Include="Recreatie\Start.aspx" />
     <Content Include="Recreatie\Overzicht.aspx" />
+    <Content Include="Schoonmaak en Onderhoud\css\main.css" />
     <Content Include="Schoonmaak en Onderhoud\InventarisOverzicht.aspx" />
     <Content Include="Schoonmaak en Onderhoud\OffertesOverzicht.aspx" />
     <Content Include="Schoonmaak en Onderhoud\OnderhoudsOverzicht.aspx" />
