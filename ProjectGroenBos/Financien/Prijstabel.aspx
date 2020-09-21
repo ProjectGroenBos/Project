@@ -37,7 +37,7 @@
                 <asp:BoundField DataField="Prijs_per_Week" HeaderText="Prijs per Week" SortExpression="Prijs_per_Week" />
                 <asp:BoundField DataField="Prijs_per_Midweek" HeaderText="Prijs per Midweek" SortExpression="Prijs_per_Midweek" />
                 <asp:BoundField DataField="Prijs_per_weekend" HeaderText="Prijs per weekend" SortExpression="Prijs_per_weekend" />
-                <asp:CommandField ShowEditButton="True" />
+                <asp:CommandField ShowEditButton="True"  />
             </Columns>
         </asp:GridView>
 
