@@ -25,12 +25,12 @@
         <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT Med.Nummer, Med.Naam, Med.Geboortedatum, Med.[In dienst sinds] AS In_dienst_sinds, Med.[Salaris per maand] AS Salaris_per_maand, Fun.naam as Functie, Afd.Naam as Afdeling FROM (( dbo.Medewerker Med  inner join dbo.Functie Fun on Med.FunctieID = Fun.ID) inner join dbo.Afdeling Afd on Med.AfdelingID= Afd.ID) where Med.FunctieID= Fun.ID and Med.AfdelingID= Afd.ID" UpdateCommand="UPDATE dbo.Medewerker Med inner join dbo.Functie Fun on Med.FunctieID = Fun.ID inner join dbo.Afdeling Afd on Med.AfdelingID= Afd.ID  SET [Med.Naam] = @Naam, [Geboortedatum] = @Geboortedatum, [In_dienst_sinds] = @In_dienst_sinds, [Salaris_per_maand] = @Salaris_per_maand, [Fun.naam] = @Functie, [Afd.Naam] = @Afdeling WHERE [ID] = @ID ">
 
             <UpdateParameters>
-                <asp:Parameter Name="Naam" type="String" />
-                <asp:Parameter Name="Geboortedatum" type="DateTime" />
-                <asp:Parameter Name="In_dienst_sinds" type="DateTime" />
-                <asp:Parameter Name="Salaris_per_maand" Type="Int32" />
-                <asp:Parameter Name="Functie" type="String" />
-                <asp:Parameter Name="Afdeling" type="String" />
+                <asp:Parameter Name="Naam" />
+                <asp:Parameter Name="Geboortedatum" />
+                <asp:Parameter Name="In_dienst_sinds" />
+                <asp:Parameter Name="Salaris_per_maand" />
+                <asp:Parameter Name="Functie" />
+                <asp:Parameter Name="Afdeling" />
             </UpdateParameters>
 
         </asp:SqlDataSource>
