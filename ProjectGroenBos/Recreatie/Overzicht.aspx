@@ -34,13 +34,13 @@
 
 
         <div id="lvActiviteitenSchema">
-            <asp:Label ID="lblActiviteiten" runat="server" Text="Geplande Activiteiten"></asp:Label>
+            <asp:Label ID="lblActiviteiten" runat="server" Text="Geplande Activiteiten" CssClass="lblgeplandeactiviteiten"></asp:Label>
             <asp:Label ID="lblDatum" runat="server" Text="Datum:"></asp:Label>
             <asp:Label ID="lbldatumNu" runat="server" Text=""></asp:Label>
-            <asp:Button ID="Button1" runat="server" OnClick="OnButtonPress" Text="&lt;" />
-            <asp:Button ID="Button2" runat="server" Height="27px" OnClick="OnButtonPress" Text="&gt;" />
+            <asp:Button ID="Button1" runat="server" CssClass="vorigeknop" OnClick="OnButtonPress" Text="&lt;" />
+            <asp:Button ID="Button2" runat="server" CssClass="volgendeknop" OnClick="OnButtonPress" Text="&gt;" />
 
-            <asp:GridView ID="gvActiveiten" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
+            <asp:GridView ID="gvActiveiten" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" Height="215px" Width="1302px">
                 <Columns>
                     <asp:BoundField DataField="Naam" HeaderText="Naam" SortExpression="Naam" />
                     <asp:BoundField DataField="Locatie" HeaderText="Locatie" SortExpression="Locatie" />
