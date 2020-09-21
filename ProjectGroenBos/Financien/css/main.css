@@ -16,9 +16,6 @@ body {
 .wrapper {
     display: flex;
     position: relative;
-    top: -11184810px;
-    left: 0px;
-    height: 563px;
 }
 
     .wrapper .sidebar {
