@@ -89,7 +89,7 @@ namespace ProjectGroenBos.Recreatie
             }
             if (CbWeekOverzicht.Checked == true)
             {
-                SqlDataSource1.SelectCommand = string.Format("select dbo.Activiteit.Naam , dbo.Activiteit.Locatie,dbo.Recreatieprogramma_Activiteit.RecreatieprogrammaDatum, dbo.Activiteit.Tijd, dbo.Activiteit.[Maximaal aantal], dbo.Activiteit.FaciliteitID from dbo.Activiteit join dbo.Recreatieprogramma_Activiteit on dbo.Activiteit.Nummer = dbo.Recreatieprogramma_Activiteit.ActiviteitNummer where dbo.Recreatieprogramma_Activiteit.RecreatieprogrammaDatum = '{0}'", dt.ToString("MM/dd/yyyy"));
+                SqlDataSource1.SelectCommand = string.Format("select datepart (week, dbo.Recreatieprogramma_Activiteit.RecreatieprogrammaDatum)as Weeknummer, dbo.Activiteit.Naam , dbo.Activiteit.Locatie,dbo.Recreatieprogramma_Activiteit.RecreatieprogrammaDatum, dbo.Activiteit.Tijd, dbo.Activiteit.[Maximaal aantal], dbo.Activiteit.FaciliteitID from dbo.Activiteit join dbo.Recreatieprogramma_Activiteit on dbo.Activiteit.Nummer = dbo.Recreatieprogramma_Activiteit.ActiviteitNummer where datediff(week, getdate(), [RecreatieprogrammaDatum]) = 0", dt.ToString("MM/dd/yyyy"));
                 gvActiveiten.DataBind();
             }
         }
