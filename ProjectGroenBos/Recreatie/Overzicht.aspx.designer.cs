@@ -69,6 +69,15 @@ namespace ProjectGroenBos.Recreatie
         protected global::System.Web.UI.WebControls.Button Forward;
 
         /// <summary>
+        /// CbWeekOverzicht control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox CbWeekOverzicht;
+
+        /// <summary>
         /// gvActiveiten control.
         /// </summary>
         /// <remarks>

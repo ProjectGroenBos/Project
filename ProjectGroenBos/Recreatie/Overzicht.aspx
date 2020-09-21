@@ -40,6 +40,8 @@
             <asp:Button ID="backwards" runat="server" OnClick="OnButtonPress" Text="&lt;" />
             <asp:Button ID="Forward" runat="server" Height="27px" OnClick="OnButtonPress" Text="&gt;" />
 
+            <asp:CheckBox ID="CbWeekOverzicht" runat="server" AutoPostBack="True" OnCheckedChanged="CbWeekOverzicht_CheckedChanged" Text="WeekOverzicht" />
+
             <asp:GridView ID="gvActiveiten" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
                 <Columns>
                     <asp:BoundField DataField="Naam" HeaderText="Naam" SortExpression="Naam" />
