@@ -14,7 +14,7 @@
         <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
         <div class="wrapper">
             <div class="sidebar">
-                <h2>Groenbos</h2>
+                <h2><img src="img/Logo.png" alt="Logo" height="150"></h2>
                 <h3>Financiën</h3>
                 <ul>
                     <li><a href="/Financien/Home.aspx"><i class="fas fa-home"></i>Home</a></li>

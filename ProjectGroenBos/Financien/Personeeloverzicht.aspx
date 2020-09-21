@@ -4,8 +4,6 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 <%-- Main grid --%>
  <div class="header">Personeellijst</div>
-<div class="wrapper">
-    <div class="mainpanel">
         <div class="container">
             <h2>Personeelscherm 2020</h2>
             <p>Dit is de indeling van alle werknemers bij recreatiepark Groenbos periode 2020/2021.</p>
@@ -35,14 +33,4 @@
 
         </asp:SqlDataSource>
         </div>
-    </div>
-
-    <%-- side --%>
-    <div class="sidepanel">
-        <div class="container">
-            <asp:Button CssClass="button buttongreen" ID="ButtonToevoegen" runat="server" Text="Toevoegen" />
-            <asp:Button CssClass="button buttonred" ID="ButtonVerwijderen" runat="server" Text="Verwijderen" />
-        </div>
-    </div>
-</div>
 </asp:Content>
