@@ -130,7 +130,7 @@ body {
     border-radius: 15px;
     text-align: center;
     margin-left: 5%;
-    margin-top: 5%;
+    margin-top: 20px;
     min-height: 100px;
 }
 
@@ -229,39 +229,42 @@ body {
 
 .mainpanel {
     width: 70%;
+    height: auto;
+    min-height: 100px;
 
     margin-left: 5%;
     margin-top: 5%;
-    min-height: 100px;
 
     display: inline-block;
+    vertical-align: top;
 }
 
 .sidepanel {
-    width: 20%;
+    width: 20%; 
+    
+    height: auto;
+    min-height: 100px;
+    
+    display: inline-block;
+    vertical-align: top;
 
     margin-top: 5%;
-    min-height: 100px;
-
-    display: inline-block;
-
-    outline-color: black;
-    outline-style: solid;
-    outline-width: thin;
 }
 
 /* BUTTONS */
 .button {
     display: block;
-    padding: 15px 30%;
+
     font-size: 24px;
     cursor: pointer;
     text-align: center;
     text-decoration: none;
     outline: none;
 
+    width: 200px;
+    height: 40px;
+
     color: #fff;
-    background-color: dimgrey;
 
     border: none;
     border-radius: 15px;
@@ -273,12 +276,16 @@ body {
     margin-bottom: 15px;
 }
 
-    .button:hover {
-        background-color: darkgrey;
-    }
+.buttongreen {
+    background-color: limegreen;
+}
+
+.buttonred {
+    background-color: orangered;
+}
 
     .button:active {
-        background-color: #3e8e41;
+        background-color: ghostwhite;
         box-shadow: 0 5px #666;
         transform: translateY(4px);
     }

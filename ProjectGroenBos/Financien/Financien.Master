@@ -29,7 +29,7 @@
                                     <li><a href="#">Factuur-historie</a></li>
                                 </ul>
                             </li>
-                            <li><a href="#">Personeel-overzicht</a></li>
+                            <li><a href="/Financien/Personeeloverzicht.aspx">Personeel-overzicht</a></li>
                         </ul>
                     </li>
                     <li><a href="#"><i class="fas fa-address-card"></i>Facturering</a>
