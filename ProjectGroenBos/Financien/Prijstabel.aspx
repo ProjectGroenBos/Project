@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Financien/Financien.Master" AutoEventWireup="true" MaintainScrollPositionOnPostback="true" CodeBehind="Prijstabel.aspx.cs" Inherits="ProjectGroenBos.Financien.WebForm2" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Financien/Financien.Master" AutoEventWireup="true" CodeBehind="Prijstabel.aspx.cs" Inherits="ProjectGroenBos.Financien.WebForm2" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -63,37 +63,28 @@
         </asp:SqlDataSource>
 
         </h2>
-        <asp:GridView ID="gvSeizoentoeslag" CssClass="content-table tweedetable" GridLines="None" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource3"  DataKeyNames="ID">
+        <asp:GridView ID="gvSeizoentoeslag" CssClass="content-table tweedetable" GridLines="None" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource3">
             <Columns>
-<<<<<<< HEAD
                 <asp:BoundField DataField="BungalowtypeCode" HeaderText="Code" SortExpression="BungalowtypeCode" />
                 <asp:BoundField DataField="Seizoen" HeaderText="Seizoen" SortExpression="Seizoen" />
-=======
-                
-                
-                
-                <asp:BoundField DataField="Seizoen" HeaderText="Seizoen" SortExpression="Seizoen" ReadOnly="True"/>
-                <asp:BoundField DataField="BungalowtypeCode" HeaderText="BungalowtypeCode" SortExpression="BungalowtypeCode" ReadOnly="True"/>
->>>>>>> 8e9cf06a299623ea2ecf599f0b6af0fc70ec6361
                 <asp:BoundField DataField="Bedrag" HeaderText="Bedrag" SortExpression="Bedrag" />
-                <asp:CommandField ShowEditButton="True"/>
-                
+                <asp:CommandField ShowEditButton="True" />
             </Columns>
         </asp:GridView>
-        <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT [Seizoen], [BungalowtypeCode], [Bedrag], [ID] FROM [Seizoensopslag]" DeleteCommand="DELETE FROM [Seizoensopslag] WHERE [ID] = @original_ID" InsertCommand="INSERT INTO [Seizoensopslag] ([Seizoen], [BungalowtypeCode], [Bedrag]) VALUES (@Seizoen, @BungalowtypeCode, @Bedrag)" UpdateCommand="UPDATE [Seizoensopslag] SET [Bedrag] = @Bedrag WHERE [ID] = @original_ID" OldValuesParameterFormatString="original_{0}">
+        <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT [BungalowtypeCode], [Seizoen], [Bedrag], [ID] FROM [Seizoensopslag]" DeleteCommand="DELETE FROM [Seizoensopslag] WHERE [ID] = @ID" InsertCommand="INSERT INTO [Seizoensopslag] ([BungalowtypeCode], [Seizoen], [Bedrag]) VALUES (@BungalowtypeCode, @Seizoen, @Bedrag)" UpdateCommand="UPDATE [Seizoensopslag] SET [BungalowtypeCode] = @BungalowtypeCode, [Seizoen] = @Seizoen, [Bedrag] = @Bedrag WHERE [ID] = @ID">
             <DeleteParameters>
-                <asp:Parameter Name="original_ID" Type="Int32" />
+                <asp:Parameter Name="ID" Type="Int32" />
             </DeleteParameters>
             <InsertParameters>
-                <asp:Parameter Name="Seizoen" Type="String" />
                 <asp:Parameter Name="BungalowtypeCode" Type="String" />
+                <asp:Parameter Name="Seizoen" Type="String" />
                 <asp:Parameter Name="Bedrag" Type="Single" />
             </InsertParameters>
             <UpdateParameters>
-                <asp:Parameter Name="Seizoen" Type="String" />
                 <asp:Parameter Name="BungalowtypeCode" Type="String" />
+                <asp:Parameter Name="Seizoen" Type="String" />
                 <asp:Parameter Name="Bedrag" Type="Single" />
-                <asp:Parameter Name="original_ID" Type="Int32" />
+                <asp:Parameter Name="ID" Type="Int32" />
             </UpdateParameters>
         </asp:SqlDataSource>
     </div>
