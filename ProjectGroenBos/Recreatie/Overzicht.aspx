@@ -37,8 +37,10 @@
             <asp:Label ID="lblActiviteiten" runat="server" Text="Geplande Activiteiten"></asp:Label>
             <asp:Label ID="lblDatum" runat="server" Text="Datum:"></asp:Label>
             <asp:Label ID="lbldatumNu" runat="server" Text=""></asp:Label>
-            <asp:Button ID="Button1" runat="server" OnClick="OnButtonPress" Text="&lt;" />
-            <asp:Button ID="Button2" runat="server" Height="27px" OnClick="OnButtonPress" Text="&gt;" />
+            <asp:Button ID="backwards" runat="server" OnClick="OnButtonPress" Text="&lt;" />
+            <asp:Button ID="Forward" runat="server" Height="27px" OnClick="OnButtonPress" Text="&gt;" />
+
+            <asp:CheckBox ID="CbWeekOverzicht" runat="server" AutoPostBack="True" OnCheckedChanged="CbWeekOverzicht_CheckedChanged" Text="WeekOverzicht" />
 
             <asp:GridView ID="gvActiveiten" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
                 <Columns>
