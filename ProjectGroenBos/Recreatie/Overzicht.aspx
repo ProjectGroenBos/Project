@@ -37,6 +37,9 @@
             <asp:Label ID="lblActiviteiten" runat="server" Text="Geplande Activiteiten" CssClass="lblgeplandeactiviteiten"></asp:Label>
             <asp:Label ID="lblDatum" runat="server" Text="Datum:"></asp:Label>
             <asp:Label ID="lbldatumNu" runat="server" Text=""></asp:Label>
+
+             
+
             <asp:Button ID="backwards" runat="server" CssClass="vorigeknop" OnClick="OnButtonPress" Text="&lt;" />
             <asp:Button ID="Forward" runat="server" CssClass="volgendeknop" OnClick="OnButtonPress" Text="&gt;" />
 

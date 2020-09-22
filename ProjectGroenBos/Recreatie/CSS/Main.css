@@ -102,27 +102,34 @@ nav li {
     background-color: #cbcbcb;
     position: relative;
     border: 3px solid #73AD21;
-    
 }
 #gvActiveiten {
     background-color: white;
     margin-left: auto;
     margin-right: auto;
-    width: 800px;
+    width: 800px;   
 }
 
 .volgendeknop {
     background-color: #73AD21;
-    
+    font-size: 30px;
+    width: 60px;
+    margin-top: 150px;
+    margin-bottom: 25px;       
 }
+
 .vorigeknop {
     background-color: #73AD21;
-    
-    
+    font-size: 30px;
+    width: 60px;
+    margin-top: 150px;
+    margin-bottom: 25px; 
 }
+
 body {
     background-color: lightgray; 
 }
+
 .lblgeplandeactiviteitenz {
     display: inline-block;
     float: right;
