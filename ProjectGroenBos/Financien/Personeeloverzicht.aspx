@@ -66,7 +66,7 @@ Set [Salaris per maand] = @Salaris_per_maand, [Naam] = @Naam, [Geboortedatum] = 
                     <asp:TextBox ID="txbContracturen" Style="text-align: center" Height="50px" Width="100%" runat="server"></asp:TextBox>
                     <p>In dienst sinds</p>
                     <asp:TextBox ID="txbInDienst" Style="text-align: center" Height="50px" Width="100%" runat="server"></asp:TextBox>
-                    <asp:Button ID="btnToevoegen" CssClass="button" runat="server" Text="Toevoegen" OnClick="btnToevoegen_Click" />
+                    <asp:Button ID="btnToevoegen" CssClass="btn btn-primary btn-lg" runat="server" Text="Toevoegen" OnClick="btnToevoegen_Click" />
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Sluiten</button>
