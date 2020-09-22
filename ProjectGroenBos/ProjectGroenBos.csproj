@@ -69,6 +69,7 @@
   <ItemGroup>
     <Content Include="Financien\css\main.css" />
     <Content Include="Financien\Home.aspx" />
+    <Content Include="Financien\img\Logo.png" />
     <Content Include="Financien\Prijstabel.aspx" />
     <Content Include="Financien\Personeeloverzicht.aspx" />
     <Content Include="Web.config" />
