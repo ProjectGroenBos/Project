@@ -70,7 +70,7 @@
    
                 
                 
-                <asp:BoundField DataField="BungalowtypeCode" HeaderText="BungalowtypeCode" SortExpression="BungalowtypeCode" />
+                <asp:BoundField DataField="BungalowtypeCode" HeaderText="BungalowtypeCode" SortExpression="BungalowtypeCode"/>
                 <asp:BoundField DataField="SeizoenID" HeaderText="SeizoenID" SortExpression="SeizoenID"/>
                 <asp:BoundField DataField="Seizoen" HeaderText="Seizoen" SortExpression="Seizoen" />
                 <asp:BoundField DataField="Toeslag_week" HeaderText="Toeslag_week" SortExpression="Toeslag_week" DataFormatString="{0:C}" />
