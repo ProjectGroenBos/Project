@@ -7,13 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ProjectGroenBos.Schoonmaak_en_Onderhoud
-{
-
-
-    public partial class OnderhoudsOverzicht
-    {
-
+namespace ProjectGroenBos.Schoonmaak_en_Onderhoud {
+    
+    
+    public partial class OnderhoudsOverzicht {
+        
         /// <summary>
         /// divZoek control.
         /// </summary>
@@ -22,7 +20,7 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divZoek;
-
+        
         /// <summary>
         /// txtZoek control.
         /// </summary>
@@ -31,7 +29,7 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl txtZoek;
-
+        
         /// <summary>
         /// lblErrror control.
         /// </summary>
@@ -40,7 +38,7 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblErrror;
-
+        
         /// <summary>
         /// searchBox control.
         /// </summary>
@@ -49,7 +47,25 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox searchBox;
-
+        
+        /// <summary>
+        /// Button1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button1;
+        
+        /// <summary>
+        /// RegularExpressionValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
+        
         /// <summary>
         /// SqlDataSource1 control.
         /// </summary>
@@ -58,7 +74,7 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
-
+        
         /// <summary>
         /// PlaceHolder1 control.
         /// </summary>
