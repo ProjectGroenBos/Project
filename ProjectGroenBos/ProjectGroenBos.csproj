@@ -67,10 +67,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="images\Addnew.png" />
+    <Content Include="images\cancel.png" />
+    <Content Include="images\delete.png" />
+    <Content Include="images\edit.png" />
     <Content Include="Financien\css\main.css" />
     <Content Include="Financien\Home.aspx" />
     <Content Include="Financien\Prijstabel.aspx" />
     <Content Include="Financien\Personeeloverzicht.aspx" />
+    <Content Include="images\save.png" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

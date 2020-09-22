@@ -16,6 +16,8 @@ body {
 .wrapper {
     display: flex;
     position: relative;
+    top: 686px;
+    left: -11186px;
 }
 
     .wrapper .sidebar {
@@ -223,8 +225,8 @@ body {
 }
 
 .tweedetable {
-    width: 80%;
     margin-left: 10%;
+    margin-right: 0px;
 }
 
 .mainpanel {
