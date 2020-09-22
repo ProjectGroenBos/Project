@@ -32,12 +32,12 @@
         <h2>Bungalow prijzen per type</h2>
         <asp:GridView ID="gvBungalow" CssClass="content-table tweedetable" GridLines="None" DataKeyNames="Code" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource2">
             <Columns>
-                
+
                 <asp:BoundField DataField="Code" HeaderText="Code" ReadOnly="True" SortExpression="Code" />
                 <asp:BoundField DataField="Prijs_per_Week" HeaderText="Prijs per Week" SortExpression="Prijs_per_Week" DataFormatString="{0:C}" />
                 <asp:BoundField DataField="Prijs_per_Midweek" HeaderText="Prijs per Midweek" SortExpression="Prijs_per_Midweek" DataFormatString="{0:C}" />
                 <asp:BoundField DataField="Prijs_per_weekend" HeaderText="Prijs per weekend" SortExpression="Prijs_per_weekend" DataFormatString="{0:C}" />
-                <asp:CommandField ShowEditButton="True"  />
+                <asp:CommandField ShowEditButton="True" />
             </Columns>
         </asp:GridView>
 
@@ -63,15 +63,15 @@
         </asp:SqlDataSource>
 
         </h2>
-        <asp:GridView ID="gvSeizoentoeslag" CssClass="content-table tweedetable" GridLines="None" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource3"  DataKeyNames="ID">
+        <asp:GridView ID="gvSeizoentoeslag" CssClass="content-table tweedetable" GridLines="None" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource3" DataKeyNames="ID">
             <Columns>
-                
-                <asp:BoundField DataField="Seizoen" HeaderText="Seizoen" ReadOnly="True" SortExpression="Seizoen"/>
+
+                <asp:BoundField DataField="Seizoen" HeaderText="Seizoen" ReadOnly="True" SortExpression="Seizoen" />
                 <asp:BoundField DataField="BungalowtypeCode" HeaderText="Bungalowtype" ReadOnly="True" SortExpression="BungalowtypeCode" />
-                <asp:BoundField DataField="Toeslag_week" HeaderText="Toeslag week" SortExpression="Toeslag_week" DataFormatString="{0:C}"/>
+                <asp:BoundField DataField="Toeslag_week" HeaderText="Toeslag week" SortExpression="Toeslag_week" DataFormatString="{0:C}" />
                 <asp:BoundField DataField="Toeslag_midweek" HeaderText="Toeslag midweek" SortExpression="Toeslag_midweek" DataFormatString="{0:C}" />
                 <asp:BoundField DataField="Toeslag_weekend" HeaderText="Toeslag weekend" SortExpression="Toeslag_weekend" DataFormatString="{0:C}" />
-                
+
                 <asp:CommandField ShowEditButton="True" />
             </Columns>
         </asp:GridView>
