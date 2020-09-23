@@ -60,7 +60,9 @@ Set [Salaris per maand] = @Salaris_per_maand, [Naam] = @Naam, [Geboortedatum] = 
                     <asp:TextBox ID="txbAdres" Style="text-align: center" Height="50px" Width="100%" runat="server"></asp:TextBox>
                     <p>Postcode</p>
                     <asp:TextBox ID="txbPostcode" Style="text-align: center" Height="50px" Width="100%" runat="server"></asp:TextBox>
+                    <p>Functie</p>
                     <asp:DropDownList ID="dlFunctie" Style="text-align: center; margin-top: 10px;" Height="50px" Width="100%" runat="server"></asp:DropDownList>
+                    <p>Afdeling</p>
                     <asp:DropDownList ID="dlAfdeling" Style="text-align: center; margin-top: 10px;" Height="50px" Width="100%" runat="server"></asp:DropDownList>
                     <p>Contracturen per week</p>
                     <asp:TextBox ID="txbContracturen" Style="text-align: center" Height="50px" Width="100%" runat="server"></asp:TextBox>
