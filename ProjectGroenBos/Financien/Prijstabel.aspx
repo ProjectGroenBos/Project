@@ -71,7 +71,7 @@
                 
                 
                 <asp:BoundField DataField="BungalowtypeCode" HeaderText="BungalowtypeCode" SortExpression="BungalowtypeCode" ReadOnly="True"/>
-                <asp:BoundField DataField="SeizoenID" HeaderText="SeizoenID" SortExpression="SeizoenID" ReadOnly="True"/>
+                <asp:BoundField DataField="SeizoenID" HeaderText="SeizoenID" SortExpression="SeizoenID" ReadOnly="True" ItemStyle-CssClass="hideGridColumn" HeaderStyle-CssClass="hideGridColumn"/>
                 <asp:BoundField DataField="Seizoen" HeaderText="Seizoen" SortExpression="Seizoen" ReadOnly="True"/>
                 <asp:BoundField DataField="Toeslag_week" HeaderText="Toeslag week" SortExpression="Toeslag_week" DataFormatString="{0:C}" />
                 

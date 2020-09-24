@@ -179,6 +179,7 @@ body {
             background-color: #f3f3f3;
         }
 
+
         .content-table tbody tr:last-of-type {
             border-bottom: 2px solid #009879;
         }
@@ -226,6 +227,11 @@ body {
 .tweedetable {
     width: 80%;
     margin-left: 10%;
+}
+
+.hideGridColumn {
+    display: none;
+}
 }
 
 .mainpanel {
