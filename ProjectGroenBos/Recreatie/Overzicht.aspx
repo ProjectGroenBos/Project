@@ -42,25 +42,17 @@
 
             <asp:CheckBox ID="CbWeekOverzicht" runat="server" AutoPostBack="True" OnCheckedChanged="CbWeekOverzicht_CheckedChanged" Text="WeekOverzicht" />
 
-            <asp:GridView ID="gvActiveiten" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" Height="215px" Width="1302px">
-                <Columns>
-                    <asp:BoundField DataField="Naam" HeaderText="Naam" SortExpression="Naam" />
-                    <asp:BoundField DataField="Locatie" HeaderText="Locatie" SortExpression="Locatie" />
-                    <asp:BoundField DataField="RecreatieprogrammaDatum" DataFormatString="{0:dd/MM/yyyy}" HeaderText="RecreatieprogrammaDatum" SortExpression="RecreatieprogrammaDatum" />
-                    <asp:BoundField DataField="Tijd" HeaderText="Tijd" SortExpression="Tijd" />
-                    <asp:BoundField DataField="Maximaal aantal" HeaderText="Maximaal aantal" SortExpression="Maximaal aantal" />
-                    <asp:BoundField DataField="FaciliteitID" HeaderText="FaciliteitID" SortExpression="FaciliteitID" />
-                </Columns>
+            <asp:GridView ID="gvActiveiten" runat="server" AutoGenerateColumns="True" DataSourceID="SqlDataSource1" Height="215px" Width="1302px">
                 <EmptyDataTemplate>
                     <div align="center">Er zijn geen activiteiten op deze dag gepland.</div>
                 </EmptyDataTemplate>
             </asp:GridView>
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="select dbo.Activiteit.Naam , dbo.Activiteit.Locatie,dbo.Recreatieprogramma_Activiteit.RecreatieprogrammaDatum, dbo.Activiteit.Tijd, dbo.Activiteit.[Maximaal aantal], dbo.Activiteit.FaciliteitID
-
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="select datepart (week, dbo.Activiteit.Datum)as Weeknummer, dbo.Activiteit.Naam , dbo.Faciliteit.Omschrijving as Locatie,dbo.Activiteit.Locatie as Specificatie, dbo.Activiteit.Inschrijfkosten,
+ dbo.Activiteit.Datum, dbo.Activiteit.Begintijd, dbo.Activiteit.Eindtijd, dbo.Activiteit.[Maximaal aantal]
+ 
  from dbo.Activiteit
-
- join dbo.Recreatieprogramma_Activiteit on  dbo.Activiteit.Nummer = dbo.Recreatieprogramma_Activiteit.ActiviteitNummer
-"></asp:SqlDataSource>
+ join dbo.Faciliteit on dbo.Activiteit.FaciliteitID = dbo.Faciliteit.ID
+ where datediff(week, getdate(),dbo.Activiteit.Datum) = 0"></asp:SqlDataSource>
         </div>
     </form>
 </body>
