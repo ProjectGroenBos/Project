@@ -16,21 +16,28 @@ namespace ProjectGroenBos.Recreatie
 
         DateTime datum = DateTime.Now;
         DateTime dt;
-        int counter;
-        SqlCommand cmd = new SqlCommand();
+        SqlCommand cmdDag = new SqlCommand();
+        SqlCommand cmdWeek = new SqlCommand();
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            var cultureInfo = new CultureInfo("en-US");
+            cmdDag = new SqlCommand("sp_Recreatie_VulDagLijst", cnn);
+            cmdWeek = new SqlCommand("sp_Recreatie_VulWeekLijst", cnn);
             if (Session["datacount"] == null && Session["achteruit"] == null)
             {
                 Session["datacount"] = 0;
                 Session["achteruit"] = 0;
             }
-                
+
             if (!IsPostBack)
             {
-                SqlDataSource1.SelectCommand = string.Format("select dbo.Activiteit.Naam , dbo.Activiteit.Locatie,dbo.Recreatieprogramma_Activiteit.RecreatieprogrammaDatum, dbo.Activiteit.Tijd, dbo.Activiteit.[Maximaal aantal], dbo.Activiteit.FaciliteitID from dbo.Activiteit join dbo.Recreatieprogramma_Activiteit on dbo.Activiteit.Nummer = dbo.Recreatieprogramma_Activiteit.ActiviteitNummer where dbo.Recreatieprogramma_Activiteit.RecreatieprogrammaDatum = '{0}'", datum.ToString("MM/dd/yyyy"));
+                //cmdDag.Parameters.Add(new SqlParameter("@DatumFormat", datum.ToString("MM/dd/yyyy")));
+                //cnn.Open();
+                //cmdDag.CommandType = CommandType.StoredProcedure;
+                SqlDataSource1.SelectCommand = string.Format("select datepart (week, dbo.Activiteit.Datum)as Weeknummer, dbo.Activiteit.Naam, dbo.Faciliteit.Omschrijving as Locatie,dbo.Activiteit.Locatie as Specificatie, dbo.Activiteit.Inschrijfkosten, dbo.Activiteit.Datum, dbo.Activiteit.Begintijd, dbo.Activiteit.Eindtijd, dbo.Activiteit.[Maximaal aantal] from dbo.Activiteit join dbo.Faciliteit on dbo.Activiteit.FaciliteitID = dbo.Faciliteit.ID where dbo.Activiteit.Datum = '{0}'", datum.ToString("MM/dd/yyyy"));
+                //dataTable.Load(cmdDag.ExecuteReader());
+                //a.Fill(ds);
+                //gvActiveiten.DataSource = ds;
                 gvActiveiten.DataBind();
 
             }
@@ -55,43 +62,46 @@ namespace ProjectGroenBos.Recreatie
                 lbldatumNu.Text = DateTime.Now.AddDays((int)Session["datacount"]).ToString("dd" + "-" + "MM" + "-" + "yy");
                 dt = DateTime.Now.AddDays((int)Session["datacount"]);
             }
-            
-           
+
+
             CheckDate(dt);
         }
 
-            protected void CheckDate(DateTime datumactiviteit)
+        protected void CheckDate(DateTime datumactiviteit)
+        {
+            dt = datumactiviteit;
+            try
             {
-                dt = datumactiviteit;
-                try
-                {
-                    SqlDataSource1.SelectCommand = string.Format("select dbo.Activiteit.Naam , dbo.Activiteit.Locatie,dbo.Recreatieprogramma_Activiteit.RecreatieprogrammaDatum, dbo.Activiteit.Tijd, dbo.Activiteit.[Maximaal aantal], dbo.Activiteit.FaciliteitID from dbo.Activiteit join dbo.Recreatieprogramma_Activiteit on dbo.Activiteit.Nummer = dbo.Recreatieprogramma_Activiteit.ActiviteitNummer where dbo.Recreatieprogramma_Activiteit.RecreatieprogrammaDatum = '{0}'", dt.ToString("MM/dd/yyyy"));
-                    gvActiveiten.DataBind();
-                
-
-                }
-                catch
-                {
-                    //lbldatumNu.Text = "Error";
-                }
-                finally
-                {
-                }
+                SqlDataSource1.SelectCommand = string.Format("select datepart (week, dbo.Activiteit.Datum)as Weeknummer, dbo.Activiteit.Naam , dbo.Faciliteit.Omschrijving as Locatie,dbo.Activiteit.Locatie as Specificatie, dbo.Activiteit.Inschrijfkosten, dbo.Activiteit.Datum, dbo.Activiteit.Begintijd, dbo.Activiteit.Eindtijd, dbo.Activiteit.[Maximaal aantal] from dbo.Activiteit join dbo.Faciliteit on dbo.Activiteit.FaciliteitID = dbo.Faciliteit.ID where dbo.Activiteit.Datum = '{0}'", dt.ToString("MM/dd/yyyy"));
+                gvActiveiten.DataBind();
             }
+            catch
+            {
+                //lbldatumNu.Text = "Error";
+            }
+            finally
+            {
+            }
+        }
 
         protected void CbWeekOverzicht_CheckedChanged(object sender, EventArgs e)
         {
 
             if (CbWeekOverzicht.Checked == false)
             {
-                SqlDataSource1.SelectCommand = string.Format("select datepart (week, dbo.Recreatieprogramma_Activiteit.RecreatieprogrammaDatum)as Weeknummer, dbo.Activiteit.Naam , dbo.Faciliteit.Omschrijving as Locatie, dbo.Recreatieprogramma_Activiteit.RecreatieprogrammaDatum, dbo.Activiteit.Tijd, dbo.Activiteit.[Maximaal aantal] from dbo.Activiteit join dbo.Recreatieprogramma_Activiteit on dbo.Activiteit.Nummer = dbo.Recreatieprogramma_Activiteit.ActiviteitNummer join dbo.Faciliteit on dbo.Activiteit.FaciliteitID = dbo.Faciliteit.ID where datediff(day, getdate(), [RecreatieprogrammaDatum]) = {0}", dt.ToString("MM/dd/yyyy"));
+                Forward.Enabled = true;
+                backwards.Enabled = true;
+                SqlDataSource1.SelectCommand = string.Format("select datepart (week, dbo.Activiteit.Datum)as Weeknummer, dbo.Activiteit.Naam , dbo.Faciliteit.Omschrijving as Locatie,dbo.Activiteit.Locatie as Specificatie, dbo.Activiteit.Inschrijfkosten, dbo.Activiteit.Datum, dbo.Activiteit.Begintijd, dbo.Activiteit.Eindtijd, dbo.Activiteit.[Maximaal aantal] from dbo.Activiteit join dbo.Faciliteit on dbo.Activiteit.FaciliteitID = dbo.Faciliteit.ID where dbo.Activiteit.Datum = '{0}'", datum.ToString("MM/dd/yyyy"));
                 gvActiveiten.DataBind();
             }
             if (CbWeekOverzicht.Checked == true)
             {
-                SqlDataSource1.SelectCommand = string.Format("select datepart (week, dbo.Recreatieprogramma_Activiteit.RecreatieprogrammaDatum)as Weeknummer, dbo.Activiteit.Naam , dbo.Activiteit.Locatie,dbo.Recreatieprogramma_Activiteit.RecreatieprogrammaDatum, dbo.Activiteit.Tijd, dbo.Activiteit.[Maximaal aantal], dbo.Activiteit.FaciliteitID from dbo.Activiteit join dbo.Recreatieprogramma_Activiteit on dbo.Activiteit.Nummer = dbo.Recreatieprogramma_Activiteit.ActiviteitNummer where datediff(week, getdate(), [RecreatieprogrammaDatum]) = 0", dt.ToString("MM/dd/yyyy"));
+                lbldatumNu.Text = "Weekoverzicht";
+                Forward.Enabled = false;
+                backwards.Enabled = false;
+                SqlDataSource1.SelectCommand = string.Format("SELECT datepart (week, dbo.Activiteit.Datum)as Weeknummer, dbo.Activiteit.Naam , dbo.Faciliteit.Omschrijving as Locatie,dbo.Activiteit.Locatie as Specificatie, dbo.Activiteit.Inschrijfkosten, dbo.Activiteit.Datum, dbo.Activiteit.Begintijd, dbo.Activiteit.Eindtijd, dbo.Activiteit.[Maximaal aantal] FROM dbo.Activiteit JOIN dbo.Faciliteit on dbo.Activiteit.FaciliteitID = dbo.Faciliteit.ID WHERE datediff(week, getdate(), dbo.Activiteit.Datum) = 0", dt.ToString("MM/dd/yyyy"));
                 gvActiveiten.DataBind();
             }
         }
     }
-    } 
+}
