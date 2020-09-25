@@ -21,7 +21,7 @@ body {
     .wrapper .sidebar {
         width: 300px;
         height: 100%;
-        background: linear-gradient(160deg, rgba(14,98,81,1) 0%, rgba(20,143,119,1) 100%);
+        background: linear-gradient(180deg, rgba(14,98,81,1) 0%, rgba(20,143,119,1) 100%);
         padding: 30px 0px;
         position: fixed;
     }
@@ -281,4 +281,79 @@ body {
         background-color: ghostwhite;
         box-shadow: 0 5px #666;
         transform: translateY(4px);
+    }
+
+/*Navigator*/
+.navigator {
+    height: 120px;
+    background: linear-gradient(160deg, rgba(14,98,81,1) 0%, rgba(20,143,119,1) 100%);
+    font-weight: bold;
+}
+
+.logo {
+    margin-left: 40px;
+    width: 240px;
+    float: left;
+}
+
+.selected {
+    border: 2px solid #fff;
+    color: #fff;
+    border-radius: 25px;
+}
+
+nav {
+    margin-right: 35px;
+    padding-top: 45px;
+    background: transparent;
+    text-align: center;
+    float: right;
+    position: sticky;
+}
+
+    nav li {
+        float: left;
+        background-color: transparent;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        margin-left: 10px;
+        margin-right: 10px;
+        border-color: #7fb241;
+    }
+
+        nav li:hover {
+            float: left;
+            background: transparent;
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            margin-left: 10px;
+            margin-right: 10px;
+            border-bottom: 2px solid;
+            border-color: #fff;
+            border-radius: 25px;
+        }
+
+    nav a {
+        color: #fff;
+        text-decoration: none;
+    }
+
+        nav a:hover {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .uitloggen{
+            color: rgba(14,98,81,1);
+            background-color: #fff;
+            border-radius: 25px;
+        }
+
+    nav ul {
+        list-style-type: none;
+        overflow: hidden;
     }

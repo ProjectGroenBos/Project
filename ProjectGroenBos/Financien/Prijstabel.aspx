@@ -41,7 +41,7 @@
             </Columns>
         </asp:GridView>
 
-        <h2>Seizoentoeslag<asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT [Code], CAST([Prijs per Week] as DECIMAL(9,2)) AS Prijs_per_Week, CAST([Prijs per Midweek] as DECIMAL(9,2)) AS Prijs_per_Midweek, CAST([Prijs per weekend] as DECIMAL(9,2)) AS Prijs_per_weekend FROM [Bungalowtype]" UpdateCommand="UPDATE [Bungalowtype] SET [Prijs per Week] = @Prijs_per_Week, [Prijs per Midweek] = @Prijs_per_Midweek, [Prijs per weekend] = @Prijs_per_weekend WHERE [Code] = @Code" DeleteCommand="DELETE FROM [Bungalowtype] WHERE [Code] = @Code" InsertCommand="INSERT INTO [Bungalowtype] ([Code], [Prijs per Week], [Prijs per Midweek], [Prijs per weekend]) VALUES (@Code, @Prijs_per_Week, @Prijs_per_Midweek, @Prijs_per_weekend)">
+        <h2>Seizoensopslag<asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT [Code], CAST([Prijs per Week] as DECIMAL(9,2)) AS Prijs_per_Week, CAST([Prijs per Midweek] as DECIMAL(9,2)) AS Prijs_per_Midweek, CAST([Prijs per weekend] as DECIMAL(9,2)) AS Prijs_per_weekend FROM [Bungalowtype]" UpdateCommand="UPDATE [Bungalowtype] SET [Prijs per Week] = @Prijs_per_Week, [Prijs per Midweek] = @Prijs_per_Midweek, [Prijs per weekend] = @Prijs_per_weekend WHERE [Code] = @Code" DeleteCommand="DELETE FROM [Bungalowtype] WHERE [Code] = @Code" InsertCommand="INSERT INTO [Bungalowtype] ([Code], [Prijs per Week], [Prijs per Midweek], [Prijs per weekend]) VALUES (@Code, @Prijs_per_Week, @Prijs_per_Midweek, @Prijs_per_weekend)">
 
             <DeleteParameters>
                 <asp:Parameter Name="Code" Type="String" />
@@ -65,11 +65,6 @@
         </h2>
         <asp:GridView ID="gvSeizoentoeslag" CssClass="content-table tweedetable" GridLines="None" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource3"  DataKeyNames="ID">
             <Columns>
-                
-                
-   
-                
-                
                 <asp:BoundField DataField="BungalowtypeCode" HeaderText="BungalowtypeCode" SortExpression="BungalowtypeCode" ReadOnly="True"/>
                 <asp:BoundField DataField="SeizoenID" HeaderText="SeizoenID" SortExpression="SeizoenID" ReadOnly="True" ItemStyle-CssClass="hideGridColumn" HeaderStyle-CssClass="hideGridColumn"/>
                 <asp:BoundField DataField="Seizoen" HeaderText="Seizoen" SortExpression="Seizoen" ReadOnly="True"/>
