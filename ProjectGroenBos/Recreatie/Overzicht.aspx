@@ -39,21 +39,13 @@
             <asp:Label ID="lbldatumNu" runat="server" Text=""></asp:Label>
 
              
-
+            
             <asp:Button ID="backwards" runat="server" CssClass="vorigeknop" OnClick="OnButtonPress" Text="&lt;" />
             <asp:Button ID="Forward" runat="server" CssClass="volgendeknop" OnClick="OnButtonPress" Text="&gt;" />
 
             <asp:CheckBox ID="CbWeekOverzicht" runat="server" AutoPostBack="True" OnCheckedChanged="CbWeekOverzicht_CheckedChanged" Text="WeekOverzicht" />
 
-            <asp:GridView ID="gvActiveiten" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" Height="215px" Width="1302px">
-                <Columns>
-                    <asp:BoundField DataField="Naam" HeaderText="Naam" SortExpression="Naam" />
-                    <asp:BoundField DataField="Locatie" HeaderText="Locatie" SortExpression="Locatie" />
-                    <asp:BoundField DataField="RecreatieprogrammaDatum" DataFormatString="{0:dd/MM/yyyy}" HeaderText="RecreatieprogrammaDatum" SortExpression="RecreatieprogrammaDatum" />
-                    <asp:BoundField DataField="Tijd" HeaderText="Tijd" SortExpression="Tijd" />
-                    <asp:BoundField DataField="Maximaal aantal" HeaderText="Maximaal aantal" SortExpression="Maximaal aantal" />
-                    <asp:BoundField DataField="FaciliteitID" HeaderText="FaciliteitID" SortExpression="FaciliteitID" />
-                </Columns>
+            <asp:GridView ID="gvActiveiten" runat="server" AutoGenerateColumns="False" Height="215px" Width="1302px">
                 <EmptyDataTemplate>
                     <div align="center">Er zijn geen activiteiten op deze dag gepland.</div>
                 </EmptyDataTemplate>

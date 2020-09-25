@@ -96,9 +96,7 @@ nav li {
         list-style-type: none;
         overflow: hidden;
     }
-<<<<<<< Updated upstream
-   
-=======
+
 
 #lvActiviteitenSchema {
     background-color: #cbcbcb;
@@ -117,21 +115,33 @@ nav li {
     font-size: 30px;
     width: 60px;
     margin-top: 150px;
-    margin-bottom: 25px;       
+    margin-bottom: 25px;
+
+
+    position: absolute;
+    right: 340px;
+    
 }
+
+
+
+.volgendeknop:hover {
+    background: #925b08;
+    }
 
 .vorigeknop {
     background-color: #73AD21;
     font-size: 30px;
     width: 60px;
     margin-top: 150px;
-    margin-bottom: 25px; 
+    margin-bottom: 25px;
 
+    position: absolute;
+    right: 400px;
 }
 .vorigeknop:hover
 {
     background: #925b08;
-
 
 }
 
@@ -144,4 +154,4 @@ body {
     float: right;
     width: 70%;
 }
->>>>>>> Stashed changes;
+
