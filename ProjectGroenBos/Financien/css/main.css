@@ -229,9 +229,9 @@ body {
     margin-left: 10%;
 }
 
-.hideGridColumn {
-    display: none;
-}
+        .hideGridColumn {
+            display: none;
+                        }
 }
 
 .mainpanel {
