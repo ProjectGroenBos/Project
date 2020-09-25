@@ -96,6 +96,7 @@ namespace ProjectGroenBos.Recreatie
             }
             if (CbWeekOverzicht.Checked == true)
             {
+                lbldatumNu.Text = "Weekoverzicht";
                 Forward.Enabled = false;
                 backwards.Enabled = false;
                 SqlDataSource1.SelectCommand = string.Format("SELECT datepart (week, dbo.Activiteit.Datum)as Weeknummer, dbo.Activiteit.Naam , dbo.Faciliteit.Omschrijving as Locatie,dbo.Activiteit.Locatie as Specificatie, dbo.Activiteit.Inschrijfkosten, dbo.Activiteit.Datum, dbo.Activiteit.Begintijd, dbo.Activiteit.Eindtijd, dbo.Activiteit.[Maximaal aantal] FROM dbo.Activiteit JOIN dbo.Faciliteit on dbo.Activiteit.FaciliteitID = dbo.Faciliteit.ID WHERE datediff(week, getdate(), dbo.Activiteit.Datum) = 0", dt.ToString("MM/dd/yyyy"));
