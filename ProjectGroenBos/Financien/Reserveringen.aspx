@@ -14,7 +14,7 @@
                 <asp:BoundField DataField="Nummer" HeaderText="Nummer" InsertVisible="False" SortExpression="Nummer" ReadOnly="True" />
                 <asp:BoundField DataField="Naam" HeaderText="Naam" SortExpression="Naam" ReadOnly="True" />
                 <asp:BoundField DataField="Totaalprijs" HeaderText="Totaalprijs" SortExpression="Totaalprijs" DataFormatString="€ {0:n} " />
-                <asp:BoundField DataField="Aankomstdatum" HeaderText="Aankomstdatum" SortExpression="Aankomstdatum" />
+                <asp:BoundField DataField="Aankomstdatum" HeaderText="Aankomstdatum" SortExpression="Aankomstdatum" DataFormatString="{0:d}" />
                 <asp:TemplateField>
                     <ItemTemplate>
                         <asp:Button ID="BtnUitklap" Text="+" runat="server" />
@@ -26,4 +26,6 @@
         <asp:SqlDataSource ID="SqlDataSource6" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT Reservering.Nummer, Reservering.Totaal_prijs AS Totaalprijs, Isnull(Gast.Voornaam,' ') +' '+ Isnull(Gast.Tussenvoegsel,' ')+' '+ Isnull(Gast.Achternaam,' ') AS Naam, Reservering.Aankomstdatum FROM Reservering INNER JOIN Gast ON Reservering.GastNummer = Gast.Nummer"></asp:SqlDataSource>
         <br />
     </div>
+
+
 </asp:Content>
