@@ -23,6 +23,7 @@
             </Columns>
         </asp:GridView>
 
-        <asp:SqlDataSource ID="SqlDataSource6" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT Reservering.Nummer, Reservering.[Totaal prijs] AS Totaalprijs, Isnull(Gast.Voornaam,' ') +' '+ Isnull(Gast.Tussenvoegsel,' ')+' '+ Isnull(Gast.Achternaam,' ') AS Naam, Reservering.Aankomstdatum FROM Reservering INNER JOIN Gast ON Reservering.GastNummer = Gast.Nummer"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSource6" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT Reservering.Nummer, Reservering.Totaal_prijs AS Totaalprijs, Isnull(Gast.Voornaam,' ') +' '+ Isnull(Gast.Tussenvoegsel,' ')+' '+ Isnull(Gast.Achternaam,' ') AS Naam, Reservering.Aankomstdatum FROM Reservering INNER JOIN Gast ON Reservering.GastNummer = Gast.Nummer"></asp:SqlDataSource>
+        <br />
     </div>
 </asp:Content>
