@@ -15,13 +15,13 @@ namespace ProjectGroenBos.Financien
     {
 
         /// <summary>
-        /// gvReserveringen control.
+        /// gvRekeningen control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvReserveringen;
+        protected global::System.Web.UI.WebControls.GridView gvRekeningen;
 
         /// <summary>
         /// SqlDataSource6 control.

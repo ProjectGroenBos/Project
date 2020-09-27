@@ -8,7 +8,7 @@
         <p>Dit is een overzicht van alle opstaande rekeningen van gasten die aanwezig zijn in het park bij recreatiepark Groenbos.</p>
     
     
-         <asp:GridView ID="gvReserveringen" CssClass="content-table tweedetable" GridLines="None" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource6" DataKeyNames="Gastnummer">
+         <asp:GridView ID="gvRekeningen" CssClass="content-table tweedetable" GridLines="None" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource6" DataKeyNames="Gastnummer">
             <Columns>
                 <asp:BoundField DataField="BungalowNummer" HeaderText="BungalowNummer" SortExpression="BungalowNummer" />
                 <asp:BoundField DataField="Totaalprijs" HeaderText="Totaalprijs" SortExpression="Totaalprijs" />
@@ -17,14 +17,13 @@
                 <asp:BoundField DataField="Aankomstdatum" HeaderText="Aankomstdatum" SortExpression="Aankomstdatum"/>
                 <asp:BoundField DataField="Vertrekdatum" HeaderText="Vertrekdatum" SortExpression="Vertrekdatum"/>
                                 <asp:BoundField DataField="Gastnummer" HeaderText="Gastnummer" SortExpression="Gastnummer" />
-                <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#ToevoegenModal">Test</button>
             </Columns>
         </asp:GridView>
 
         <asp:SqlDataSource ID="SqlDataSource6" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT [BungalowNummer], [Totaalprijs], [Naam], [Aantal_personen], [Aankomstdatum], [Vertrekdatum], [Gastnummer] FROM [rekeningen]"></asp:SqlDataSource>
         <asp:SqlDataSource ID="SqlDataSource7" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT [Voornaam], [Tussenvoegsel], [Achternaam], [Telefoonnummer], [Email] FROM [Gast] WHERE ([Nummer] = @Nummer)">
             <SelectParameters>
-                <asp:ControlParameter ControlID="gvReserveringen" Name="Nummer" PropertyName="SelectedValue" Type="Int32" />
+                <asp:ControlParameter ControlID="gvRekeningen" Name="Nummer" PropertyName="SelectedValue" Type="Int32" />
             </SelectParameters>
         </asp:SqlDataSource>
         <br />
