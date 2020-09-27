@@ -17,14 +17,19 @@
                 <asp:BoundField DataField="Aankomstdatum" HeaderText="Aankomstdatum" SortExpression="Aankomstdatum"/>
                 <asp:BoundField DataField="Vertrekdatum" HeaderText="Vertrekdatum" SortExpression="Vertrekdatum"/>
                                 <asp:BoundField DataField="Gastnummer" HeaderText="Gastnummer" SortExpression="Gastnummer" />
-                <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#ToevoegenModal">Test</button>
+                <asp:TemplateField>
+                    <ItemTemplate>
+                     <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#ToevoegenModal">Peroneel toevoegen</button>
+                        </ItemTemplate>
+                </asp:TemplateField>
+               
             </Columns>
         </asp:GridView>
 
         <asp:SqlDataSource ID="SqlDataSource6" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT [BungalowNummer], [Totaalprijs], [Naam], [Aantal_personen], [Aankomstdatum], [Vertrekdatum], [Gastnummer] FROM [rekeningen]"></asp:SqlDataSource>
-        <asp:SqlDataSource ID="SqlDataSource7" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT [Voornaam], [Tussenvoegsel], [Achternaam], [Telefoonnummer], [Email] FROM [Gast] WHERE ([Nummer] = @Nummer)">
+        <asp:SqlDataSource ID="SqlDataSource7" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT [Nummer], [Voornaam], [Tussenvoegsel], [Achternaam], [Email] FROM [Gast] WHERE ([Nummer] = @Gastnummer)">
             <SelectParameters>
-                <asp:ControlParameter ControlID="gvReserveringen" Name="Nummer" PropertyName="SelectedValue" Type="Int32" />
+                <asp:ControlParameter ControlID="gvReserveringen" Name="Gastnummer" PropertyName="SelectedValue" Type="Int32" />
             </SelectParameters>
         </asp:SqlDataSource>
         <br />
@@ -45,9 +50,13 @@
                 </div>
                 <div class="modal-body">
                     
-                     <asp:GridView ID="GridView1" CssClass="content-table tweedetable" GridLines="None" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource7">
+
+
+                     <asp:GridView ID="GridView1" CssClass="content-table tweedetable" GridLines="None" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource7" DataKeyNames="Nummer">
             <Columns>
+                <asp:BoundField DataField="Nummer" HeaderText="Nummer" SortExpression="Nummer" InsertVisible="False" ReadOnly="True" />
                 <asp:BoundField DataField="Voornaam" HeaderText="Voornaam" SortExpression="Voornaam" />
+                <asp:BoundField DataField="Tussenvoegsel" HeaderText="Tussenvoegsel" SortExpression="Tussenvoegsel" />
                 <asp:BoundField DataField="Achternaam" HeaderText="Achternaam" SortExpression="Achternaam" />
                 <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" />
             </Columns>
