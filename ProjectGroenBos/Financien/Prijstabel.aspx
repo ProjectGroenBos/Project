@@ -16,6 +16,26 @@
                 <asp:CommandField ShowEditButton="True" />
             </Columns>
         </asp:GridView>
+
+        <asp:GridView ID="gvFeesdagen" CssClass="content-table eerstetable" GridLines="None" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource4">
+            <Columns>
+                <asp:BoundField DataField="ID" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="ID" />
+                <asp:BoundField DataField="Naam" HeaderText="Naam" SortExpression="Naam" ReadOnly="True"  />
+                <asp:BoundField DataField="Opslagfactor" HeaderText="Opslagfactor" SortExpression="Opslagfactor" />
+                <asp:BoundField DataField="Begindatum" HeaderText="Begindatum" SortExpression="Begindatum" DataFormatString="{0:dd/MM/yyyy}" ApplyFormatInEditMode="true"/>
+                <asp:BoundField DataField="Einddatum" HeaderText="Einddatum" SortExpression="Einddatum" DataFormatString="{0:dd/MM/yyyy}" ApplyFormatInEditMode="true"/>
+                <asp:CommandField ShowEditButton="True" />
+            </Columns>
+        </asp:GridView>
+
+        <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT * FROM [Feestdag]" UpdateCommand="Update Feestdag SET [Begindatum] = Convert(datetime, @Begindatum,104), [Einddatum] = Convert(datetime,@Einddatum,104) Where [ID] = @ID">           
+            <UpdateParameters>
+                <asp:Parameter Name="ID" />
+                <asp:Parameter Name="Begindatum" />
+                <asp:Parameter Name="Einddatum" />
+            </UpdateParameters>
+        </asp:SqlDataSource>
+
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="select id, seizoen, begindatum, einddatum from seizoen" UpdateCommand="Update Seizoen SET [Begindatum] = Convert(datetime, @Begindatum,104), [Einddatum] = Convert(datetime,@Einddatum,104) Where [ID] = @ID">
 
             <UpdateParameters>
