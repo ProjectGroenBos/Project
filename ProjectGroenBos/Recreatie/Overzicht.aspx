@@ -16,17 +16,20 @@
                     <img src="img/Logo6.png" class="logo"></a>
                 <nav>
                     <ul>
-                        <li><a href="start.aspx">Home</a></li>
-                        <li class="selected"><a href="overzicht.aspx">Overzicht</a></li>
-                        <li><a href="#">Bestellingen</a></li>
-                        <li><a href="#">Keuken</a></li>
-                        <li><a href="#">Reserveringen</a></li>
+                        
+                        <li class="selected"><a href="overzicht.aspx">Home</a></li>
+                        <li><a href="#">Beheer</a></li>
+                        <li><a href="#">Documentatie</a></li>
+                  
                         <li class="uitloggen"><a href="#">Uitloggen</a></li>
                     </ul>
                 </nav>
             </div>
 
             <div class="werkgebied">
+            
+            
+            
             </div>
         </div>
 
@@ -34,18 +37,20 @@
 
 
         <div id="lvActiviteitenSchema">
-            <asp:Label ID="lblActiviteiten" runat="server" Text="Geplande Activiteiten" CssClass="lblgeplandeactiviteiten"></asp:Label>
-            <asp:Label ID="lblDatum" runat="server" Text="Datum:"></asp:Label>
-            <asp:Label ID="lbldatumNu" runat="server" Text=""></asp:Label>
+            <asp:Label ID="lblActiviteiten" runat="server" CssClass="lblactiviteit" Text="Geplande Activiteiten" ></asp:Label>
+            <asp:Label ID="lblDatum" runat="server" CssClass="lbldatum" Text="Datum:"></asp:Label>
+            <asp:Label ID="lbldatumNu" runat="server" CssClass="lbldatumnu" Text=""></asp:Label>
 
              
             
             <asp:Button ID="backwards" runat="server" CssClass="vorigeknop" OnClick="OnButtonPress" Text="&lt;" />
             <asp:Button ID="Forward" runat="server" CssClass="volgendeknop" OnClick="OnButtonPress" Text="&gt;" />
 
-            <asp:CheckBox ID="CbWeekOverzicht" runat="server" AutoPostBack="True" OnCheckedChanged="CbWeekOverzicht_CheckedChanged" Text="WeekOverzicht" />
+            <asp:CheckBox ID="CbWeekOverzicht" runat="server" CssClass="weekcb" AutoPostBack="True" OnCheckedChanged="CbWeekOverzicht_CheckedChanged" Text="WeekOverzicht" />
 
-            <asp:GridView ID="gvActiveiten" runat="server" AutoGenerateColumns="False" Height="215px" Width="1302px">
+            <asp:Label ID="lblOverzicht" runat="server" CssClass="lbloverzicht" Text="Overzicht"></asp:Label>
+
+            <asp:GridView ID="gvActiveiten" runat="server" AutoGenerateColumns="False" Height="215px" Width="1302px" DataSourceID="SqlDataSource1">
                 <EmptyDataTemplate>
                     <div align="center">Er zijn geen activiteiten op deze dag gepland.</div>
                 </EmptyDataTemplate>

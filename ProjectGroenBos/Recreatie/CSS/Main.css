@@ -107,23 +107,21 @@ nav li {
     background-color: white;
     margin-left: auto;
     margin-right: auto;
-    width: 800px;   
+    width: 800px;
+
+    margin-top: 180px;
+    margin-bottom: 25px;
 }
 
 .volgendeknop {
     background-color: #73AD21;
     font-size: 30px;
     width: 60px;
-    margin-top: 150px;
+    margin-top: 120px;
     margin-bottom: 25px;
-
-
     position: absolute;
-    right: 340px;
-    
+    right: 306px;
 }
-
-
 
 .volgendeknop:hover {
     background: #925b08;
@@ -133,15 +131,45 @@ nav li {
     background-color: #73AD21;
     font-size: 30px;
     width: 60px;
-    margin-top: 150px;
+    margin-top: 120px;
     margin-bottom: 25px;
-
     position: absolute;
-    right: 400px;
+    right: 365px;
 }
 .vorigeknop:hover
 {
     background: #925b08;
+
+}
+.weekcb {
+   
+    margin-top: 140px;
+    margin-bottom: 25px;
+    position: absolute;
+    right: 500px;
+}
+.lbldatumnu {
+    margin-top: 140px;
+    margin-bottom: 25px;
+    position: absolute;
+    right: 1308px;
+}
+.lbldatum {
+    margin-top: 140px;
+    margin-bottom: 25px;
+    position: absolute;
+    right: 1375px;
+}
+.lblactiviteit {
+    margin-top: 140px;
+    margin-bottom: 25px;
+    position: absolute;
+    right: 1437px;
+}
+.lbloverzicht{
+    font-size: 40px; 
+    right: 1432px; 
+    position: absolute; 
 
 }
 
@@ -149,9 +177,6 @@ body {
     background-color: lightgray; 
 }
 
-.lblgeplandeactiviteitenz {
-    display: inline-block;
-    float: right;
-    width: 70%;
-}
+
+
 
