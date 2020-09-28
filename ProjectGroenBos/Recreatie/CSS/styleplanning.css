@@ -1,0 +1,29 @@
+﻿.gridviewplanning {
+    margin: auto;
+    margin-left: 5px;
+    float: left;
+    margin-top: -350px;
+    width: 200px;
+    height: 500px;
+}
+
+.textboxplanning {
+    float: right;
+    margin-right: 20px;
+}
+
+.textboxplanningb {
+    float: right;
+    margin-right: 40px;
+}
+
+.labelplanning {
+    float: left;
+    margin-left: 900px;
+}
+
+.kalenderplanning {
+    float: right;
+    margin: 20px;
+    margin-bottom: 20px;
+}

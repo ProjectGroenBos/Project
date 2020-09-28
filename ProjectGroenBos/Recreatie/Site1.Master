@@ -1,0 +1,46 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="recreatie.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+   
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="CSS/Main.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <div class="container">
+            <div class="navigator">
+                <asp:Image ID="Image1" runat="server" Height="140px" ImageUrl="Logo6.png" Width="270px" />
+                
+                <nav class="auto-style1">
+                    <ul id ="nav">
+                        <li><asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="Overzicht.aspx">Overzicht</asp:HyperLink></li>
+                        <li><asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="Beheer.aspx">Beheer</asp:HyperLink>
+                             <ul class="dropdown">
+                            
+                                <li><asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="Voorraad.aspx">Voorraad</asp:HyperLink></li>
+                                
+                                <li><asp:HyperLink ID="HyperLink6" runat="server" NavigateUrl="Planning.aspx">Planning</asp:HyperLink></li>
+                            </ul>
+                            </li>
+                        <li><asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="Documentatie.aspx">Documentatie</asp:HyperLink></li>
+                        <li><asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="Uitloggen.aspx" CssClass="uitloggen">Uitloggen</asp:HyperLink></li>
+                    </ul>
+                </nav>
+            </div>
+        <div class="werkgebied">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+
+             </div>
+             </div>
+             </div>
+    </form>
+</body>
+</html>
