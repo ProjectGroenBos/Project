@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="header">Prijsmanagement</div>
     <div class="container">
-        <h2>Seizoensindeling 2020</h2>
+        <h2>Seizoensindeling 2020-2021</h2>
         <p>Dit is de indeling van elk seizoen met zijn begin en einddatum van de periode 2020/2021.</p>
         <asp:GridView ID="gvSeizoenen" CssClass="content-table eerstetable" GridLines="None" DataKeyNames="id" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
             <Columns>
@@ -16,11 +16,11 @@
                 <asp:CommandField ShowEditButton="True" />
             </Columns>
         </asp:GridView>
-
-        <asp:GridView ID="gvFeesdagen" CssClass="content-table eerstetable" GridLines="None" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource4">
+        <h2>Feestdagen 2020-2021</h2>
+        <asp:GridView ID="gvFeesdagen" CssClass="content-table eerstetable" GridLines="None" DataKeyNames="ID" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource4">
             <Columns>
                 <asp:BoundField DataField="ID" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="ID" />
-                <asp:BoundField DataField="Naam" HeaderText="Naam" SortExpression="Naam" ReadOnly="True"  />
+                <asp:BoundField DataField="Naam" HeaderText="Naam" SortExpression="Naam"  ReadOnly="True" />
                 <asp:BoundField DataField="Opslagfactor" HeaderText="Opslagfactor" SortExpression="Opslagfactor" />
                 <asp:BoundField DataField="Begindatum" HeaderText="Begindatum" SortExpression="Begindatum" DataFormatString="{0:dd/MM/yyyy}" ApplyFormatInEditMode="true"/>
                 <asp:BoundField DataField="Einddatum" HeaderText="Einddatum" SortExpression="Einddatum" DataFormatString="{0:dd/MM/yyyy}" ApplyFormatInEditMode="true"/>
@@ -28,12 +28,20 @@
             </Columns>
         </asp:GridView>
 
-        <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT * FROM [Feestdag]" UpdateCommand="Update Feestdag SET [Begindatum] = Convert(datetime, @Begindatum,104), [Einddatum] = Convert(datetime,@Einddatum,104) Where [ID] = @ID">           
+        <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT ID, naam, Opslagfactor, Begindatum, einddatum FROM [Feestdag] ORDER BY [Begindatum], [Einddatum]" InsertCommand="INSERT INTO [Feestdag] ([Naam], [Opslagfactor], [Begindatum], [Einddatum]) VALUES (@Naam, @Opslagfactor, @Begindatum, @Einddatum)" UpdateCommand="Update Feestdag SET [Begindatum] = Convert(datetime, @Begindatum,104), [Einddatum] = Convert(datetime,@Einddatum,104), Opslagfactor = @Opslagfactor Where [ID] = @ID">
+
             <UpdateParameters>
                 <asp:Parameter Name="ID" />
+                <asp:Parameter Name="Opslagfactor" />
                 <asp:Parameter Name="Begindatum" />
                 <asp:Parameter Name="Einddatum" />
-            </UpdateParameters>
+            </UpdateParameters>         
+            <InsertParameters>
+                <asp:Parameter Name="Naam" Type="String" />
+                <asp:Parameter Name="Opslagfactor" Type="Single" />
+                <asp:Parameter DbType="Date" Name="Begindatum" />
+                <asp:Parameter DbType="Date" Name="Einddatum" />
+            </InsertParameters>
         </asp:SqlDataSource>
 
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="select id, seizoen, begindatum, einddatum from seizoen" UpdateCommand="Update Seizoen SET [Begindatum] = Convert(datetime, @Begindatum,104), [Einddatum] = Convert(datetime,@Einddatum,104) Where [ID] = @ID">
