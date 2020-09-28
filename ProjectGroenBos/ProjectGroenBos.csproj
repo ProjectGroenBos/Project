@@ -67,13 +67,44 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Restaurant\css\opnemenbestelling.css" />
+    <Content Include="Restaurant\css\style.css" />
+    <Content Include="Restaurant\img\Logo1.png" />
+    <Content Include="Restaurant\img\Logo2.png" />
+    <Content Include="Restaurant\img\Logo3.png" />
+    <Content Include="Restaurant\img\Logo4.png" />
+    <Content Include="Restaurant\img\Logo5.png" />
+    <Content Include="Restaurant\img\Logo6.png" />
+    <Content Include="Restaurant\opnemenbestelling.aspx" />
+    <Content Include="Restaurant\home.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Restaurant\Restaurant.Master.cs">
+      <DependentUpon>Restaurant.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Restaurant\Restaurant.Master.designer.cs">
+      <DependentUpon>Restaurant.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Restaurant\opnemenbestelling.aspx.cs">
+      <DependentUpon>opnemenbestelling.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Restaurant\opnemenbestelling.aspx.designer.cs">
+      <DependentUpon>opnemenbestelling.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Restaurant\home.aspx.cs">
+      <DependentUpon>home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Restaurant\home.aspx.designer.cs">
+      <DependentUpon>home.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <Content Include="Restaurant\Restaurant.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -1,0 +1,389 @@
+/*Doorklik content*/
+.doorklik-content {
+    width: 10%;
+    height: 540px;
+    margin-right: 2%;
+    display: flex;
+    flex-direction: column;
+    float: left;
+    text-align: center;
+}
+
+.doorklik-button {
+    height: 100px;
+    width: 100%;
+    text-align: center;
+    background-color: #7fb241;
+    border: none;
+    font-size: 20px;
+    margin-bottom: 52px;
+}
+    .doorklik-button:hover {
+        height: 100px;
+        width: 100%;
+        text-align: center;
+        background-color: #719c40;
+        border: none;
+        font-size: 20px;
+        margin-bottom: 52px;
+    }
+
+.doorklik-button a {
+    text-decoration: none;
+}
+
+
+/* Menukaart */
+.Productenbak {
+    display: block;
+    overflow-y: scroll;
+    height: 700px;
+    width: 65%;
+    float: left;
+    color: #343434;
+    background-color: #343434;
+    border: 2px solid #7fb241;
+    padding: 20px 40px 20px 20px;
+}
+
+.productgroepnaam {
+    text-align: center;
+    border-bottom: 2px double white;
+}
+
+.productgroepnaam{
+    color: #fff;
+}
+
+.productrow{
+    background-color: #fff;
+    margin-top: 20px;
+    float: left;
+    width: 100%;
+    height: 40px;
+    padding: 10px;
+}
+
+.productimg{
+    float: left;
+    width: 40px;
+    height: 40px;
+}
+
+.productnaam{
+    float: left;
+    width: 50%;
+}
+
+.toevoegen {
+    float: right;
+    height: 40px;
+    width: 20%;
+    text-align: center;
+    background-color: #7fb241;
+    border: none;
+    font-size: 20px;
+}
+
+    .toevoegen:hover {
+        float: right;
+        height: 40px;
+        width: 20%;
+        text-align: center;
+        background-color: #719c40;
+        border: none;
+        font-size: 20px;
+    }
+
+
+/*Winkelmandje*/
+.winkelmandje {
+    width: 15%;
+    height: 740px;
+    margin-left: 0%;
+    background: #fff;
+    border: 2px solid #7fb241;
+    display: flex;
+    flex-direction: column;
+    float: right;
+}
+
+.titel {
+    height: 25px;
+    padding: 20px 30px;
+    color: #343434;
+    background-color: #7fb241;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.cart-row {
+    display: flex;
+    text-align: center;
+    border-top: 1px solid #E1E8EE;
+    border-bottom: 1px solid #E1E8EE;
+}
+
+.cart-header {
+    font-weight: bold;
+    font-size: 1.25em;
+}
+
+.Winkelmand-image {
+    margin-right: 10px;
+}
+
+    .Winkelmand-image img {
+        height: 80px;
+        width: 80px;
+    }
+
+
+
+.Winkelmand-beschrijving {
+    margin-top: 27px;
+    padding-top: 10px;
+    margin-right: 2%;
+    width: 80px;
+}
+
+    .Winkelmand-beschrijving span {
+        margin-top: 27px;
+        display: block;
+        font-size: 14px;
+        font-weight: 400;
+    }
+
+        .Winkelmand-beschrijving span:first-child {
+            margin-bottom: 5px;
+        }
+
+        .Winkelmand-beschrijving span:last-child {
+            font-weight: 300;
+            margin-top: 8px;
+        }
+
+.Winkelmand-nummer {
+    margin-top: 27px;
+    padding-top: 10px;
+    width: 80px;
+}
+
+    .Winkelmand-nummer span {
+        margin-top: 27px;
+        display: block;
+        font-size: 14px;
+        font-weight: 400;
+    }
+
+.hoeveel {
+    margin-top: 27px;
+    padding-top: 10px;
+    margin-right: 2%;
+    width: 80px;
+}
+
+    .hoeveel span {
+        margin-top: 27px;
+        display: block;
+        font-size: 14px;
+        font-weight: 400;
+    }
+
+.Winkelmand-hoeveelheid {
+    padding-top: 27px;
+    width: 35%;
+}
+
+button[class*=btn] {
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+}
+
+.minus-btn {
+    background-color: black;
+    height: 30px;
+    width: 30px;
+    font-size: 32px;
+    font-weight: 500;
+    color: white;
+    border: none;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+    margin-top: 27px;
+    margin-right: 5px;
+}
+
+.plus-btn {
+    background-color: black;
+    height: 30px;
+    width: 30px;
+    font-size: 32px;
+    font-weight: 500;
+    border: none;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+    margin-top: 27px;
+    margin-right: 10px;
+}
+
+.delete-btn {
+    background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url( '../Afbeeldingen/Kruisteken.png' );
+    background-size: 30px 30px;
+    height: 30px;
+    width: 30px;
+    font-size: 16px;
+    letter-spacing: 2.5px;
+    font-weight: 500;
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+    margin-top: 27px;
+    padding-top: 20px;
+    margin-right: 10px;
+}
+
+.plus-btn img {
+    margin-top: 2px;
+    height: 20px;
+    width: 20px;
+}
+
+.AS_td_box {
+    width: 80%;
+    margin-bottom: 5px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+button:focus,
+input:focus {
+    outline: 0;
+}
+
+.Winkelmand-prijs {
+    font-size: 1.2em;
+    margin-top: 35px;
+    font-size: 16px; 
+    float: right;
+    font-weight: 300;
+}
+
+.cart-quantity-input {
+    height: 34px;
+    width: 45px;
+    border-radius: 5px;
+    border: 1px solid #56CCF2;
+    background-color: #eee;
+    padding: 0;
+    text-align: center;
+    font-size: 1.2em;
+}
+
+.cart-total {
+    border-bottom: 1px solid #E1E8EE;
+    text-align: end;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.betalen {
+    text-align: center;
+    background-color: #7fb241;
+    bottom: 0;
+    padding: 10px 30px;
+}
+
+.cart-total-title {
+    font-size: 1.5em;
+    margin-right: 20px;
+}
+
+.cart-total-price {
+    font-size: 1.5em;
+}
+
+.button {
+    text-align: center;
+    margin-top: 250px;
+    margin-right: 40px;
+    width: 320px;
+    height: 300px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 30px;
+    letter-spacing: 2.5px;
+    font-weight: 500;
+    background-color: #323440;
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+    display: inline-block
+}
+
+    .button:hover {
+        background-color: #323440;
+        box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+        transform: translateY(-7px);
+    }
+
+.buttonV {
+    text-align: center;
+    width: 200px;
+    height: 60px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    letter-spacing: 2.5px;
+    font-weight: 500;
+    background-color: #323440;
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+    display: inline-block
+}
+
+    .buttonV:hover {
+        background-color: #323440;
+        box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+        color: white;
+        transform: translateY(-7px);
+    }
+
+.btnbetalen {
+    text-align: center;
+    width: 200px;
+    height: 40px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    letter-spacing: 2.5px;
+    font-weight: 500;
+    background-color: #323440;
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+    display: inline-block
+}
+
+    .btnbetalen:hover {
+        background-color: #323440;
+        box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+        transform: translateY(-7px);
+    }
