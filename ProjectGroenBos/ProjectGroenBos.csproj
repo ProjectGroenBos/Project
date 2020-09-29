@@ -75,6 +75,9 @@
     <Content Include="Restaurant\img\Logo4.png" />
     <Content Include="Restaurant\img\Logo5.png" />
     <Content Include="Restaurant\img\Logo6.png" />
+    <Content Include="Restaurant\img\productimg\Cola.png" />
+    <Content Include="Restaurant\img\productimg\Fanta.png" />
+    <Content Include="Restaurant\img\productimg\Sprite.png" />
     <Content Include="Restaurant\opnemenbestelling.aspx" />
     <Content Include="Restaurant\home.aspx" />
     <Content Include="Web.config" />
