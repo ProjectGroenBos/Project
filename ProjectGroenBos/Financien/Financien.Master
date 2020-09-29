@@ -26,8 +26,8 @@
                     <li><a href="#"><i class="fas fa-user"></i>Administratie</a>
                         <ul class="submenu">
                             <li><a href="/Financien/Prijstabel.aspx">Prijsmanagement</a></li>
-                            <li><a href="#">Reserveringen-overzicht</a></li>
-                            <li><a href="#">Rekening-overzicht</a></li>
+                            <li><a href="/Financien/Reserveringen.aspx">Reserveringen-overzicht</a></li>
+                            <li><a href="/Financien/Rekeningen.aspx">Rekening-overzicht</a></li>
                             <li><a href="#">Factuur-overzicht</a>
                                 <ul class="submenu">
                                     <li><a href="#">Factuur-betaling</a></li>
@@ -69,7 +69,7 @@
                         <li><a href="#">Keuken</a></li>
                         <li><a href="#">Reserveringen</a></li>
                         <li class="selected"><a href="#">Financiën</a></li>
-                        <li class="uitloggen"><a href="#">Uitloggen</a></li>
+                        <asp:Button ID="btnUitloggen" runat="server" CssClass="btnUitloggen" Text="Uitloggen" />
                     </ul>
                 </nav>
             </div>
