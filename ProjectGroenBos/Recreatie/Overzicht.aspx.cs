@@ -34,7 +34,7 @@ namespace ProjectGroenBos.Recreatie
                 //cmdDag.Parameters.Add(new SqlParameter("@DatumFormat", datum.ToString("MM/dd/yyyy")));
                 //cnn.Open();
                 //cmdDag.CommandType = CommandType.StoredProcedure;
-                SqlDataSource1.SelectCommand = string.Format("select datepart (week, dbo.Activiteit.Datum)as Weeknummer, dbo.Activiteit.Naam, dbo.Faciliteit.Omschrijving as Locatie,dbo.Activiteit.Locatie as Specificatie, dbo.Activiteit.Inschrijfkosten, dbo.Activiteit.Datum, dbo.Activiteit.Begintijd, dbo.Activiteit.Eindtijd, dbo.Activiteit.[Maximaal aantal] from dbo.Activiteit join dbo.Faciliteit on dbo.Activiteit.FaciliteitID = dbo.Faciliteit.ID where dbo.Activiteit.Datum = '{0}'", datum.ToString("MM/dd/yyyy"));
+                SqlDataSource1.SelectCommand = string.Format("select datepart (week, dbo.Activiteit.Datum)as Weeknummer, dbo.Activiteit.Naam, dbo.Faciliteit.Omschrijving as Locatie,dbo.Activiteit.Locatie as Specificatie, dbo.Activiteit.Inschrijfkosten, dbo.Activiteit.Datum, dbo.Activiteit.Begintijd, dbo.Activiteit.Eindtijd, dbo.Activiteit.[Maximaal aantal], dbo.Medewerker.Naam as Naam_Medewerker from dbo.Activiteit join dbo.Faciliteit on dbo.Activiteit.FaciliteitID = dbo.Faciliteit.ID JOIN dbo.Medewerker on dbo.Activiteit.MedewerkerID = dbo.Medewerker.Nummer where dbo.Activiteit.Datum = '{0}'", datum.ToString("MM/dd/yyyy"));
                 //dataTable.Load(cmdDag.ExecuteReader());
                 //a.Fill(ds);
                 //gvActiveiten.DataSource = ds;
@@ -72,7 +72,7 @@ namespace ProjectGroenBos.Recreatie
             dt = datumactiviteit;
             try
             {
-                SqlDataSource1.SelectCommand = string.Format("select datepart (week, dbo.Activiteit.Datum)as Weeknummer, dbo.Activiteit.Naam , dbo.Faciliteit.Omschrijving as Locatie,dbo.Activiteit.Locatie as Specificatie, dbo.Activiteit.Inschrijfkosten, dbo.Activiteit.Datum, dbo.Activiteit.Begintijd, dbo.Activiteit.Eindtijd, dbo.Activiteit.[Maximaal aantal] from dbo.Activiteit join dbo.Faciliteit on dbo.Activiteit.FaciliteitID = dbo.Faciliteit.ID where dbo.Activiteit.Datum = '{0}'", dt.ToString("MM/dd/yyyy"));
+                SqlDataSource1.SelectCommand = string.Format("select datepart (week, dbo.Activiteit.Datum)as Weeknummer, dbo.Activiteit.Naam , dbo.Faciliteit.Omschrijving as Locatie,dbo.Activiteit.Locatie as Specificatie, dbo.Activiteit.Inschrijfkosten, dbo.Activiteit.Datum, dbo.Activiteit.Begintijd, dbo.Activiteit.Eindtijd, dbo.Activiteit.[Maximaal aantal], dbo.Medewerker.Naam as Naam_Medewerker from dbo.Activiteit join dbo.Faciliteit on dbo.Activiteit.FaciliteitID = dbo.Faciliteit.ID JOIN dbo.Medewerker on dbo.Activiteit.MedewerkerID = dbo.Medewerker.Nummer where dbo.Activiteit.Datum = '{0}'", dt.ToString("MM/dd/yyyy"));
                 gvActiveiten.DataBind();
             }
             catch
@@ -91,7 +91,7 @@ namespace ProjectGroenBos.Recreatie
             {
                 Forward.Enabled = true;
                 backwards.Enabled = true;
-                SqlDataSource1.SelectCommand = string.Format("select datepart (week, dbo.Activiteit.Datum)as Weeknummer, dbo.Activiteit.Naam , dbo.Faciliteit.Omschrijving as Locatie,dbo.Activiteit.Locatie as Specificatie, dbo.Activiteit.Inschrijfkosten, dbo.Activiteit.Datum, dbo.Activiteit.Begintijd, dbo.Activiteit.Eindtijd, dbo.Activiteit.[Maximaal aantal] from dbo.Activiteit join dbo.Faciliteit on dbo.Activiteit.FaciliteitID = dbo.Faciliteit.ID where dbo.Activiteit.Datum = '{0}'", datum.ToString("MM/dd/yyyy"));
+                SqlDataSource1.SelectCommand = string.Format("select datepart (week, dbo.Activiteit.Datum)as Weeknummer, dbo.Activiteit.Naam , dbo.Faciliteit.Omschrijving as Locatie,dbo.Activiteit.Locatie as Specificatie, dbo.Activiteit.Inschrijfkosten, dbo.Activiteit.Datum, dbo.Activiteit.Begintijd, dbo.Activiteit.Eindtijd, dbo.Activiteit.[Maximaal aantal], dbo.Medewerker.Naam as Naam_Medewerker from dbo.Activiteit join dbo.Faciliteit on dbo.Activiteit.FaciliteitID = dbo.Faciliteit.ID JOIN dbo.Medewerker on dbo.Activiteit.MedewerkerID = dbo.Medewerker.Nummer where dbo.Activiteit.Datum = '{0}'", datum.ToString("MM/dd/yyyy"));
                 gvActiveiten.DataBind();
             }
             if (CbWeekOverzicht.Checked == true)
@@ -99,7 +99,7 @@ namespace ProjectGroenBos.Recreatie
                 lbldatumNu.Text = "Weekoverzicht";
                 Forward.Enabled = false;
                 backwards.Enabled = false;
-                SqlDataSource1.SelectCommand = string.Format("SELECT datepart (week, dbo.Activiteit.Datum)as Weeknummer, dbo.Activiteit.Naam , dbo.Faciliteit.Omschrijving as Locatie,dbo.Activiteit.Locatie as Specificatie, dbo.Activiteit.Inschrijfkosten, dbo.Activiteit.Datum, dbo.Activiteit.Begintijd, dbo.Activiteit.Eindtijd, dbo.Activiteit.[Maximaal aantal] FROM dbo.Activiteit JOIN dbo.Faciliteit on dbo.Activiteit.FaciliteitID = dbo.Faciliteit.ID WHERE datediff(week, getdate(), dbo.Activiteit.Datum) = 0", dt.ToString("MM/dd/yyyy"));
+                SqlDataSource1.SelectCommand = string.Format("SELECT datepart (week, dbo.Activiteit.Datum)as Weeknummer, dbo.Activiteit.Naam , dbo.Faciliteit.Omschrijving as Locatie,dbo.Activiteit.Locatie as Specificatie, dbo.Activiteit.Inschrijfkosten, dbo.Activiteit.Datum, dbo.Activiteit.Begintijd, dbo.Activiteit.Eindtijd, dbo.Activiteit.[Maximaal aantal], dbo.Medewerker.Naam as Naam_Medewerker FROM dbo.Activiteit JOIN dbo.Faciliteit on dbo.Activiteit.FaciliteitID = dbo.Faciliteit.ID JOIN dbo.Medewerker on dbo.Activiteit.MedewerkerID = dbo.Medewerker.Nummer WHERE datediff(week, getdate(), dbo.Activiteit.Datum) = 0", dt.ToString("MM/dd/yyyy"));
                 gvActiveiten.DataBind();
             }
         }

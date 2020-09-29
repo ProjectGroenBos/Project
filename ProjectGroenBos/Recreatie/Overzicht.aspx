@@ -1,8 +1,10 @@
 ﻿<%@ Page Language="C#" MasterPageFile="Site1.Master"  AutoEventWireup="true" CodeBehind="Overzicht.aspx.cs" Inherits="ProjectGroenBos.Recreatie.Overzicht" %>
 
-
+<asp:Content runat="server" ContentPlaceHolderID="stylesheet">
+    <link rel="stylesheet" type="text/css" href="CSS/Main.css" />
+</asp:Content>
 <asp:content id="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-   <div id="lvActiviteitenSchema">
+    <div id="lvActiviteitenSchema">
             <asp:Label ID="lblActiviteiten" runat="server" Text="Geplande Activiteiten" CssClass="lblgeplandeactiviteiten"></asp:Label>
             <asp:Label ID="lblDatum" runat="server" Text="Datum:"></asp:Label>
             <asp:Label ID="lbldatumNu" runat="server" Text=""></asp:Label>

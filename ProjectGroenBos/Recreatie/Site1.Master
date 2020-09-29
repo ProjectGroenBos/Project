@@ -6,10 +6,11 @@
 <head runat="server">
     <title></title>
    
-    <link href="css/style.css" rel="stylesheet" />
-    <link href="CSS/Main.css" rel="stylesheet" />
-    <asp:ContentPlaceHolder ID="head" runat="server">
-    </asp:ContentPlaceHolder>
+    
+        <link rel="stylesheet" type="text/css" href="CSS/style.css" />
+        <asp:ContentPlaceHolder runat="server" id="stylesheet" />
+    <asp:ContentPlaceHolder runat="server" id="head" />
+
 </head>
 <body>
     <form id="form1" runat="server">
