@@ -43,7 +43,7 @@
                             <p>Aankomstdatum: <%# Eval("Aankomstdatum", "{0: dd/MM/yyyy}") %></p>
                             <p>Vertrekdatum: <%# Eval("Vertrekdatum", "{0: dd/MM/yyyy}") %></p><br />
                             <h4>Persoonlijke gegevens</h4>
-                            <p><%# Eval("Adres") %> <br />
+                            <p> <%# Eval("Adres") %> <br />
                                 <%# Eval("Postcode") %><br />
                                 <%# Eval("Land") %><br />
                                 <%# Eval("Telefoonnummer") %><br />
