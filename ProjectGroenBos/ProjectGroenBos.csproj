@@ -132,6 +132,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="bin\" />
     <Folder Include="Financien\js\" />
   </ItemGroup>
   <PropertyGroup>
