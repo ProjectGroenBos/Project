@@ -130,16 +130,12 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud
         protected void searchButton_Click(object sender, EventArgs e)
         {
 
-
-
         }
 
 
 
         protected void searchBox_TextChanged(object sender, EventArgs e)
         {
-
-
 
         }
 
@@ -204,6 +200,11 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud
             //Append the HTML string to Placeholder.
             PlaceHolder1.Controls.Add(new Literal { Text = html.ToString() });
 
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("OnderhoudToevoegen.aspx");
         }
     }
 }

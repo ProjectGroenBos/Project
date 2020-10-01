@@ -71,6 +71,7 @@
     <Content Include="Financien\Home.aspx" />
     <Content Include="Financien\Prijstabel.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="Images\Logo6.png" />
     <Content Include="Recreatie\CSS\Main.css" />
     <Content Include="Recreatie\img\Logo1.png" />
     <Content Include="Recreatie\img\Logo2.png" />
@@ -80,7 +81,6 @@
     <Content Include="Recreatie\img\Logo6.png" />
     <Content Include="Recreatie\Start.aspx" />
     <Content Include="Recreatie\Overzicht.aspx" />
-    <Content Include="Schoonmaak en Onderhoud\css\main.css" />
     <Content Include="Schoonmaak en Onderhoud\InventarisOverzicht.aspx" />
     <Content Include="Schoonmaak en Onderhoud\OffertesOverzicht.aspx" />
     <Content Include="Schoonmaak en Onderhoud\OnderhoudsOverzicht.aspx" />
@@ -90,6 +90,7 @@
     <Content Include="Scripts\jquery\jquery.min.js" />
     <Content Include="Scripts\jquery\jquery.slim.js" />
     <Content Include="Scripts\jquery\jquery.slim.min.js" />
+    <Content Include="Style\master.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -175,19 +176,19 @@
     <Compile Include="Schoonmaak en Onderhoud\SchouwingsOverzicht.aspx.designer.cs">
       <DependentUpon>SchouwingsOverzicht.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Site.Master.cs">
-      <DependentUpon>Site.Master</DependentUpon>
+    <Compile Include="Schoonmaak en Onderhoud\Schoonmaak.Master.cs">
+      <DependentUpon>Schoonmaak.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Site.Master.designer.cs">
-      <DependentUpon>Site.Master</DependentUpon>
+    <Compile Include="Schoonmaak en Onderhoud\Schoonmaak.Master.designer.cs">
+      <DependentUpon>Schoonmaak.Master</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Financien\Financien.Master" />
     <Content Include="libman.json" />
     <None Include="packages.config" />
-    <Content Include="Site.Master" />
+    <Content Include="Schoonmaak en Onderhoud\Schoonmaak.Master" />
     <Content Include="Recreatie\Recreatie.Master" />
     <Content Include="Scripts\jquery\jquery.min.map" />
     <Content Include="Scripts\jquery\jquery.slim.min.map" />
