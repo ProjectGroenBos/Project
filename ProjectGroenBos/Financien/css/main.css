@@ -379,6 +379,23 @@ nav {
     color: #fff;
 }
 
+.inline-flex {
+    display: flex;
+    justify-content: center;
+}
+
+.inline-flex > div {
+    text-align: center;
+}
+
+.logofactuur {
+    display: none;
+}
+
+.footerfactuur {
+    display: none;
+}
+
 .modal-body {
     display: flex;
     flex-direction: column;
