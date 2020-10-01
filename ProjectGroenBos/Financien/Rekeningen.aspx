@@ -181,6 +181,7 @@
                                     </div>
                                 </div>
                             </div>
+
                             <input type="button" class="btn btn-primary btn-lg btn-block" onclick="printDiv('printModal<%# Eval("Nummer") %>')" value="Print Factuur" />
 
                             <asp:Button ID="btnExport" class="btn btn-primary btn-lg btn-block" runat="server" Text="Email naar klant" OnClick="btnExport_Click" />

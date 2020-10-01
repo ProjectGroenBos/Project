@@ -36,6 +36,7 @@
 
                             <div class="modal-header">
                                 <h4 class="modal-title"><%# Eval("Nummer") %> | <%# Eval("Voornaam") %> <%# Eval("Tussenvoegsel") %> <%# Eval("Achternaam") %></h4>
+                                 <asp:Button runat="server" CssClass="btn btn-primary" Text="Sluiten"></asp:Button>
                             </div>
                         
                             <div class="modal-body">
@@ -48,6 +49,10 @@
                                             Vertrekdatum: <%# Eval("Vertrekdatum", "{0: dd/MM/yyyy}") %><br />
                                         </p>
                                     </div>
+ 
+                                    <div class="logofactuur">
+                                        <img src="img/logo3.png" style="width: 150px; height: 200px;" alt="Logo">
+                                    </div>
 
                                     <div>
                                         <h4>Persoonlijke gegevens</h4>
@@ -59,17 +64,33 @@
                                         </p>
                                     </div>
                                 </div>
+                                <hr />
+                                <br />
+                                <asp:GridView ID="gvFactuurreservering" CssClass="content-table" GridLines="None" AutoGenerateColumns="False" Style="text-align: center;" runat="server" DataSourceID="SqlDataSource6">
+                                    <Columns>
+                                        <asp:BoundField DataField="BungalowtypCode" HeaderText="Omschrijving" ReadOnly="True" SortExpression="Naam" />
+                                        <asp:BoundField DataField="Prijs" HeaderText="Prijs" ReadOnly="True" SortExpression="Prijs" />
+                                        <asp:BoundField DataField="Aantal" HeaderText="Aantal" ReadOnly="True" SortExpression="Aantal" />
+                                        <asp:BoundField DataField="Totaal" HeaderText="Totaal" ReadOnly="True" SortExpression="Totaal" />
+                                    </Columns>
+                                </asp:GridView>
 
-                                <div>
-                                    <h4>Persoonlijke gegevens</h4>
-                                    <p><%# Eval("Straatnaam") %> <%# Eval("Huisnummer") %><br />
-                                        <%# Eval("Postcode") %><br />
-                                        <%# Eval("Land") %><br />
-                                        <%# Eval("Telefoonnummer") %><br />
-                                        <%# Eval("Email") %>
-                                    </p>
-                                </div>
+                                <table class="content-table" style="margin-top: -25px">
+                                    <tbody>
+                                        <tr>
+                                            <td></td>
+                                            <td>Totaalbedrag:</td>
+                                            <td><%# Eval("Totaalbedrag") %></td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
                             </div>
+
+                            <input type="button" class="btn btn-primary btn-lg btn-block" onclick="printDiv('printModal<%# Eval("Nummer") %>')" value="Print Factuur" />
+
+                            <asp:Button ID="btnExport" class="btn btn-primary btn-lg btn-block" runat="server" Text="Email naar klant" OnClick="btnExport_Click" />
 
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Sluiten</button>
