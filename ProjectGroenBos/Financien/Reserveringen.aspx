@@ -40,14 +40,27 @@
                         
                             <div class="modal-body">
                                 <div class="inline-flex">
-                                    <h4>Reserverings gegevens</h4
-                                    <p>Naam: <%# Eval("Voornaam") %> <%# Eval("Tussenvoegsel") %> <%# Eval("Achternaam") %></p>
-                                    <p>Aantal personen: <%# Eval("Aantal_personen") %></p>
-                                    <p>Aankomstdatum: <%# Eval("Aankomstdatum", "{0: dd/MM/yyyy}") %></p>
-                                    <p>Vertrekdatum: <%# Eval("Vertrekdatum", "{0: dd/MM/yyyy}") %></p><br />
+                                    <div>
+                                        <h4>Reserverings gegevens</h4
+                                        <p> <%# Eval("Voornaam") %> <%# Eval("Tussenvoegsel") %> <%# Eval("Achternaam") %><br />
+                                            <%# Eval("Aantal_personen") %> personen <br />
+                                            Aankomstdatum: <%# Eval("Aankomstdatum", "{0: dd/MM/yyyy}") %><br />
+                                            Vertrekdatum: <%# Eval("Vertrekdatum", "{0: dd/MM/yyyy}") %><br />
+                                        </p>
+                                    </div>
+
+                                    <div>
+                                        <h4>Persoonlijke gegevens</h4>
+                                        <p><%# Eval("Straatnaam") %> <%# Eval("Huisnummer") %><br />
+                                            <%# Eval("Postcode") %><br />
+                                            <%# Eval("Land") %><br />
+                                            <%# Eval("Telefoonnummer") %><br />
+                                            <%# Eval("Email") %>
+                                        </p>
+                                    </div>
                                 </div>
 
-                                <div class="inline-flex">
+                                <div>
                                     <h4>Persoonlijke gegevens</h4>
                                     <p><%# Eval("Straatnaam") %> <%# Eval("Huisnummer") %><br />
                                         <%# Eval("Postcode") %><br />
