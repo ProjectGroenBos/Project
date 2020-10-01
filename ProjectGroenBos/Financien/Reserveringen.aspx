@@ -1,6 +1,55 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Financien/Financien.Master" AutoEventWireup="true" CodeBehind="Reserveringen.aspx.cs" Inherits="ProjectGroenBos.Financien.Reserveringen" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style>
+        @media print {
+            @page {
+            }
+
+            body {
+                margin-left: auto;
+                margin-right: auto;
+                height: auto;
+                overflow: hidden;
+                position: absolute;
+            }
+
+            .inline-flex {
+                justify-content: space-between;
+            }
+
+            .logofactuur {
+                display: inline-flex;
+            }
+
+            .content-table {
+                width: 100%;
+                font-size: 20px;
+            }
+
+            .footerfactuur {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                bottom: 0;
+                width: 100%;
+                background: #fff;
+                margin: 0 auto 0 auto;
+            }
+        }
+    </style>
+    <script>
+        function printDiv(divName) {
+            var printContents = document.getElementById(divName).innerHTML;
+            var originalContents = document.body.innerHTML;
+
+            document.body.innerHTML = printContents;
+
+            window.print();
+
+            document.body.innerHTML = originalContents;
+        }
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
      <div class="header">Reserveringen</div>
@@ -13,8 +62,10 @@
             <Columns>
                 <asp:BoundField DataField="Nummer" HeaderText="Nummer" InsertVisible="False" SortExpression="Nummer" ReadOnly="True" />
                 <asp:BoundField DataField="Naam" HeaderText="Naam" SortExpression="Naam" ReadOnly="True" />
-                <asp:BoundField DataField="Totaalprijs" HeaderText="Totaalprijs" SortExpression="Totaalprijs" DataFormatString="€ {0:n} " />
-                <asp:BoundField DataField="Aankomstdatum" HeaderText="Aankomstdatum" SortExpression="Aankomstdatum" DataFormatString="{0:d}" />
+                <asp:BoundField DataField="Aantal_personen" HeaderText="Aantal Personen" SortExpression="Aantal_personen" />
+                <asp:BoundField DataField="Aankomstdatum" DataFormatString="{0:d}" HeaderText="Aankomstdatum" SortExpression="Aankomstdatum" />
+                <asp:BoundField DataField="Vertrekdatum" DataFormatString="{0:d}" HeaderText="Vertrekdatum" SortExpression="Vertrekdatum" />
+                <asp:BoundField DataField="Gastnummer" HeaderText="Gastnummer" SortExpression="Gastnummer" />
                 <asp:TemplateField>
                     <ItemTemplate>
                          <button type="button" style="background-color:#009879; color: #fff" class="btn" data-toggle="modal" data-target="#modal<%# Eval("Nummer") %>"">Inzien reservering</button>
@@ -23,7 +74,7 @@
             </Columns>
         </asp:GridView>
 
-        <asp:SqlDataSource ID="SqlDataSource6" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT Reservering.Nummer, Reservering.Totaal_prijs AS Totaalprijs, Isnull(Gast.Voornaam,' ') +' '+ Isnull(Gast.Tussenvoegsel,' ')+' '+ Isnull(Gast.Achternaam,' ') AS Naam, Reservering.Aankomstdatum FROM Reservering INNER JOIN Gast ON Reservering.GastNummer = Gast.Nummer"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSource6" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT [Nummer], [Naam], [Aantal_personen], [Aankomstdatum], [Vertrekdatum], [Gastnummer]  FROM [rekeningen]"></asp:SqlDataSource>
         <br />
 
         <asp:Repeater ID="rpReservering" runat="server">
@@ -66,9 +117,10 @@
                                 </div>
                                 <hr />
                                 <br />
-                                <asp:GridView ID="gvFactuurreservering" CssClass="content-table" GridLines="None" AutoGenerateColumns="False" Style="text-align: center;" runat="server" DataSourceID="SqlDataSource6">
+                                <asp:GridView ID="gvFactuurreservering" CssClass="content-table" GridLines="None" AutoGenerateColumns="False" Style="text-align: center;" runat="server" DataSourceID="SqlDataSource7">
                                     <Columns>
-                                        <asp:BoundField DataField="BungalowtypCode" HeaderText="Omschrijving" ReadOnly="True" SortExpression="Naam" />
+                                        <asp:BoundField DataField=" " HeaderText="Item" ReadOnly="True" SortExpression=" " />
+                                        <asp:BoundField DataField="BungalowtypeCode" HeaderText="Omschrijving" ReadOnly="True" SortExpression="Naam" />
                                         <asp:BoundField DataField="Prijs" HeaderText="Prijs" ReadOnly="True" SortExpression="Prijs" />
                                         <asp:BoundField DataField="Aantal" HeaderText="Aantal" ReadOnly="True" SortExpression="Aantal" />
                                         <asp:BoundField DataField="Totaal" HeaderText="Totaal" ReadOnly="True" SortExpression="Totaal" />
@@ -80,27 +132,55 @@
                                         <tr>
                                             <td></td>
                                             <td>Totaalbedrag:</td>
-                                            <td><%# Eval("Totaalbedrag") %></td>
+                                            <td></td>
                                             <td></td>
                                         </tr>
                                     </tbody>
                                 </table>
 
-                            </div>
+                                <asp:SqlDataSource ID="SqlDataSource7" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="">
+                                  
+                                </asp:SqlDataSource>
+
+                          <h4 style="text-align: center">Te betalen voor: <%# Eval("Aankomstdatum", "{0: dd/MM/yyyy}") %></h4>
+
+                                <div class="fixed-bottom">
+                                    <div class="footerfactuur">
+                                        <div>
+                                            <br />
+                                            <br />
+                                            <p>
+                                                Groenbos recreatie b.v.
+                                                <br />
+                                                Noorderpark 12, 6755 VB  Aalterveld
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <p>
+                                                <br />
+                                                <br />
+                                                tel. 0625 - 918200
+                                                <br />
+                                                fax. 0625 - 918201
+                                                <br />
+                                                bank: NL32 RABO 0220.96.13.200, Rabobank Aalten
+
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
 
                             <input type="button" class="btn btn-primary btn-lg btn-block" onclick="printDiv('printModal<%# Eval("Nummer") %>')" value="Print Factuur" />
 
                             <asp:Button ID="btnExport" class="btn btn-primary btn-lg btn-block" runat="server" Text="Email naar klant" OnClick="btnExport_Click" />
+                        </div>
 
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Sluiten</button>
                             </div>
-
                         </div>
                     </div>
                 </div>
             </ItemTemplate>
         </asp:Repeater>
-
-    </div>
 </asp:Content>
