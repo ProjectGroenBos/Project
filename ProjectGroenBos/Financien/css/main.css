@@ -395,3 +395,14 @@ nav {
 .footerfactuur {
     display: none;
 }
+
+.modal-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.inline-flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
