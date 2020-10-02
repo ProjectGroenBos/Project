@@ -8,14 +8,18 @@
     <br />
     <br />
     <br />
-<div class="form-row">
-    <h1 class="text-primary">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Overzicht Onderhoud</h1>
-    <p class="text-primary">&nbsp;</p>
+    <br />
+        <br />
+
+<div class="form-row" style="text-align:center;">
+    <h1 class="text-primary"> Overzicht Onderhoud</h1>
+    <p class="text-primary"></p>
+    <br />
     <div class="row col-sm-12">
-       <div class="col-sm-12">
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:Button ID="Button2" runat="server" Text="Onderhoud Toevoegen" BackColor="#33CC33" OnClick="Button2_Click" Width="218px"/>
+       <div class="col-sm-12" style="text-align:center;">
+          <asp:Button ID="Button2" runat="server" Text="Onderhoud Toevoegen" BackColor="#7FB241" OnClick="Button2_Click" Width="218px" BorderColor="#7FB241"/>
            <br />
-&nbsp;<br />
+           <br />
            <hr />
           </div>
 
@@ -34,7 +38,7 @@
 
      <asp:Label ID="lblErrror" runat="server" ForeColor="Red"></asp:Label>
      <asp:TextBox ID="searchBox" runat="server" CssClass="form-control" TextMode="SingleLine" CausesValidation="True" OnTextChanged="searchBox_TextChanged" Width="149px"></asp:TextBox>
-    <asp:Button ID="Button1" runat="server" Text="Zoek" OnClick="Button1_Click" BackColor="#00CC00" />
+    <asp:Button ID="Button1" runat="server" Text="Zoek" OnClick="Button1_Click" BackColor="#7FB241" BorderColor="#7FB241" />
      <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="searchBox" ErrorMessage="Voer een getal in." ForeColor="Red" ValidationExpression="^[0-9]*$"></asp:RegularExpressionValidator>
 &nbsp;&nbsp;&nbsp;&nbsp;
      <br />
@@ -44,7 +48,10 @@
    <label for="ex3" style="color:rgba(0, 0, 0, 0)"></label>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:con %>" SelectCommand="SELECT * FROM [Onderhoudsopdracht]"></asp:SqlDataSource>
     <br />
-    <asp:PlaceHolder ID="PlaceHolder1" runat="server"></asp:PlaceHolder>
+    <div style="text-align:center;">
+        <asp:PlaceHolder ID="PlaceHolder1" runat="server"> </asp:PlaceHolder>
+    </div>
+
     <br />
 </div>
 
