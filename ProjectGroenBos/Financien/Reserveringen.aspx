@@ -92,101 +92,103 @@
                         </div>
 
                         <div class="modal-body">
-                            <div class="inline-flex">
-                                <div>
-                                    <h4>Reserverings gegevens</h4>
-                                    <p>
-                                        #<%# Eval("Nummer") %><br />
-                                        <%# Eval("Naam") %><br />
-                                        <%# Eval("Aantal_personen") %> personen<br />
-                                        Van <%# Eval("Aankomstdatum", "{0: dd/MM/yyyy}") %><br />
-                                        Tot <%# Eval("Vertrekdatum", "{0: dd/MM/yyyy}") %>
-                                    </p>
+                            <div class="factuur" id="printModal<%# Eval("Nummer") %>">
+                                <div class="inline-flex">
+                                    <div>
+                                        <h4>Reserverings gegevens</h4>
+                                        <p>
+                                            #<%# Eval("Nummer") %><br />
+                                            <%# Eval("Naam") %><br />
+                                            <%# Eval("Aantal_personen") %> personen<br />
+                                            Van <%# Eval("Aankomstdatum", "{0: dd/MM/yyyy}") %><br />
+                                            Tot <%# Eval("Vertrekdatum", "{0: dd/MM/yyyy}") %>
+                                        </p>
+                                    </div>
+                                    <div class="logofactuur">
+                                        <img src="img/logo3.png" style="width: 150px; height: 200px;" alt="Logo">
+                                    </div>
+                                    <div>
+                                        <h4>Persoonlijke gegevens</h4>
+                                        <p>
+                                            <%# Eval("Adres") %><br />
+                                            <%# Eval("Postcode") %><br />
+                                            <%# Eval("Land") %><br />
+                                            <%# Eval("Telefoonnummer") %><br />
+                                            <%# Eval("Email") %>
+                                        </p>
+                                    </div>
                                 </div>
-                                <div class="logofactuur">
-                                    <img src="img/logo3.png" style="width: 150px; height: 200px;" alt="Logo">
-                                </div>
-                                <div>
-                                    <h4>Persoonlijke gegevens</h4>
-                                    <p>
-                                        <%# Eval("Adres") %><br />
-                                        <%# Eval("Postcode") %><br />
-                                        <%# Eval("Land") %><br />
-                                        <%# Eval("Telefoonnummer") %><br />
-                                        <%# Eval("Email") %>
-                                    </p>
-                                </div>
-                            </div>
-                            <hr />
-                            <br />
-                            <asp:GridView ID="gvFactuurreservering" CssClass="content-table" GridLines="None" AutoGenerateColumns="False" Style="text-align: center;" runat="server" DataSourceID="SqlDataSource7">
-                                <Columns>
-                                    <asp:BoundField DataField="Naam" HeaderText="Item" ReadOnly="True" SortExpression="Naam" />
-                                    <asp:BoundField DataField="Periode" HeaderText="Periode" ReadOnly="True" SortExpression="Periode" />
-                                    <asp:BoundField DataField="Seizoen" HeaderText="Seizoen" ReadOnly="True" SortExpression="Seizoen" />
-                                    <asp:BoundField DataField="Prijs" HeaderText="Prijs per stuk" ReadOnly="True" SortExpression="Prijs" DataFormatString="{0:C}"/>
-                                    <asp:BoundField DataField="Aantal" HeaderText="Aantal" ReadOnly="True" SortExpression="Aantal" />
-                                    <asp:BoundField DataField="Totaal" HeaderText="Totaal" ReadOnly="True" SortExpression="Totaal" DataFormatString="{0:C}" HeaderStyle-Width="100px" />
-                                </Columns>
-                            </asp:GridView>
+                                <hr />
+                                <br />
+                                <asp:GridView ID="gvFactuurreservering" CssClass="content-table" GridLines="None" AutoGenerateColumns="False" Style="text-align: center;" runat="server" DataSourceID="SqlDataSource7">
+                                    <Columns>
+                                        <asp:BoundField DataField="Naam" HeaderText="Item" ReadOnly="True" SortExpression="Naam" />
+                                        <asp:BoundField DataField="Periode" HeaderText="Periode" ReadOnly="True" SortExpression="Periode" />
+                                        <asp:BoundField DataField="Seizoen" HeaderText="Seizoen" ReadOnly="True" SortExpression="Seizoen" />
+                                        <asp:BoundField DataField="Prijs" HeaderText="Prijs per stuk" ReadOnly="True" SortExpression="Prijs" DataFormatString="{0:C}" />
+                                        <asp:BoundField DataField="Aantal" HeaderText="Aantal" ReadOnly="True" SortExpression="Aantal" />
+                                        <asp:BoundField DataField="Totaal" HeaderText="Totaal" ReadOnly="True" SortExpression="Totaal" DataFormatString="{0:C}" HeaderStyle-Width="100px" />
+                                    </Columns>
+                                </asp:GridView>
 
-                            <table class="content-table" style="min-width: 656px; margin-top: -25px">
-                                <tbody>
-                                    <tr>
-                                        <td>Totaalbedrag:</td>
-                                        <td></td>
-                                        <td></td>
-                                        <td style="width: 100px">€ <%# Eval("Totaalbedrag") %></td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                                <table class="content-table" style="min-width: 656px; margin-top: -25px">
+                                    <tbody>
+                                        <tr>
+                                            <td>Totaalbedrag:</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td style="width: 100px">€ <%# Eval("Totaalbedrag") %></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
 
-                            <asp:HiddenField ID="Nummer" runat="server"
+                                <asp:HiddenField ID="Nummer" runat="server"
                                     Value='<%# Eval("Nummer") %>' />
 
-                            <asp:SqlDataSource ID="SqlDataSource7" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="select ('Bungalow Type ' + Code) AS 'Naam', Prijs, Naam AS 'Periode',  Seizoen, 1 AS 'Aantal', Prijs AS 'Totaal' from ReserveringHuis where Nummer = @Nummer
+                                <asp:SqlDataSource ID="SqlDataSource7" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="select ('Bungalow Type ' + Code) AS 'Naam', Prijs, Naam AS 'Periode',  Seizoen, 1 AS 'Aantal', Prijs AS 'Totaal' from ReserveringHuis where Nummer = @Nummer
                                 union
                                 select Naam, Prijs, Periode, Seizoen, Aantal, (Prijs * Aantal) AS 'Totaal' from ReserveringWens where Nummer = @Nummer
                                 ">
-                                <SelectParameters>
-                                    <asp:ControlParameter
-                                        Name="Nummer"
-                                        ControlID="Nummer"
-                                        PropertyName="Value" />
-                                </SelectParameters>
-                            </asp:SqlDataSource>
+                                    <SelectParameters>
+                                        <asp:ControlParameter
+                                            Name="Nummer"
+                                            ControlID="Nummer"
+                                            PropertyName="Value" />
+                                    </SelectParameters>
+                                </asp:SqlDataSource>
 
-                            <h4 style="text-align: center">Te betalen voor: <%# Eval("Aankomstdatum", "{0: dd/MM/yyyy}") %></h4>
+                                <h4 style="text-align: center">Te betalen voor: <%# Eval("Aankomstdatum", "{0: dd/MM/yyyy}") %></h4>
 
-                            <div class="fixed-bottom">
-                                <div class="footerfactuur">
-                                    <div>
-                                        <br />
-                                        <br />
-                                        <p>
-                                            Groenbos recreatie b.v.
-                                                <br />
-                                            Noorderpark 12, 6755 VB  Aalterveld
-                                        </p>
-                                    </div>
-                                    <div>
-                                        <p>
+                                <div class="fixed-bottom">
+                                    <div class="footerfactuur">
+                                        <div>
                                             <br />
                                             <br />
-                                            tel. 0625 - 918200
+                                            <p>
+                                                Groenbos recreatie b.v.
                                                 <br />
-                                            fax. 0625 - 918201
+                                                Noorderpark 12, 6755 VB  Aalterveld
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <p>
                                                 <br />
-                                            bank: NL32 RABO 0220.96.13.200, Rabobank Aalten
+                                                <br />
+                                                tel. 0625 - 918200
+                                                <br />
+                                                fax. 0625 - 918201
+                                                <br />
+                                                bank: NL32 RABO 0220.96.13.200, Rabobank Aalten
 
-                                        </p>
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
 
                             <input type="button" style="max-width: 80%; margin-left: auto; margin-right: auto;" class="btn btn-primary btn-lg btn-block" onclick="printDiv('printModal<%# Eval("Nummer") %>')" value="Print Factuur" />
 
-                            <asp:Button ID="btnExport" style="max-width: 80%; margin-left: auto; margin-right: auto;" class="btn btn-primary btn-lg btn-block" runat="server" Text="Email naar klant" OnClick="btnExport_Click" />
+                            <asp:Button ID="btnExport" Style="max-width: 80%; margin-left: auto; margin-right: auto;" class="btn btn-primary btn-lg btn-block" runat="server" Text="Email naar klant" OnClick="btnExport_Click" />
                         </div>
 
                         <div class="modal-footer">
