@@ -216,8 +216,8 @@ body {
             }
 
                 tr > td:last-of-type {
-                width: 50px;
-                    }
+                    width: 100px;
+                }
 
 .eerstetable {
     width: 60%;
@@ -283,6 +283,12 @@ body {
         box-shadow: 0 5px #666;
         transform: translateY(4px);
     }
+
+.btn btn-primary btn-lg btn-block {
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 /*Navigator*/
 .navigator {

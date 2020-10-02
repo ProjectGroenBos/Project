@@ -74,7 +74,7 @@
         </asp:GridView>
         <asp:SqlDataSource ID="SqlDataSource6" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT [Nummer], [Naam], [Aantal_personen], [Aankomstdatum], [Vertrekdatum], [Gastnummer]  FROM [rekeningen]"></asp:SqlDataSource>
     </div>
-   
+
     <asp:Repeater ID="rpModals" runat="server">
         <ItemTemplate>
             <!-- Modal -->
@@ -122,19 +122,19 @@
                                 <asp:GridView ID="gvFactuurrekening" CssClass="content-table" GridLines="None" AutoGenerateColumns="False" Style="text-align: center;" runat="server" DataSourceID="SqlDataSource1">
                                     <Columns>
                                         <asp:BoundField DataField="Naam" HeaderText="Omschrijving" ReadOnly="True" SortExpression="Naam" />
-                                        <asp:BoundField DataField="Prijs" HeaderText="Prijs" ReadOnly="True" SortExpression="Prijs" />
+                                        <asp:BoundField DataField="Prijs" HeaderText="Prijs" ReadOnly="True" SortExpression="Prijs" DataFormatString="{0:C}" />
                                         <asp:BoundField DataField="Aantal" HeaderText="Aantal" ReadOnly="True" SortExpression="Aantal" />
-                                        <asp:BoundField DataField="Totaal" HeaderText="Totaal" ReadOnly="True" SortExpression="Totaal" />
+                                        <asp:BoundField DataField="Totaal" HeaderText="Totaal" ReadOnly="True" SortExpression="Totaal" DataFormatString="{0:C}"/>
                                     </Columns>
                                 </asp:GridView>
 
                                 <table class="content-table" style="margin-top: -25px">
                                     <tbody>
                                         <tr>
-                                            <td></td>
                                             <td>Totaalbedrag:</td>
-                                            <td><%# Eval("Totaalbedrag") %></td>
                                             <td></td>
+                                            <td></td>
+                                            <td>€ <%# Eval("Totaalbedrag") %></td>
                                         </tr>
                                     </tbody>
                                 </table>

@@ -32,7 +32,7 @@ namespace ProjectGroenBos.Financien
             {
                 con.Open();
 
-                SqlCommand cmd = new SqlCommand("select * from reservering INNER JOIN Gast ON Reservering.GastNummer = Gast.Nummer INNER JOIN Adres ON Adres.GastNummer = Gast.Nummer", con);
+                SqlCommand cmd = new SqlCommand("select * from reserveringen", con);
                 DataSet ds = new DataSet();
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 da.Fill(ds);
