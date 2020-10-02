@@ -85,7 +85,7 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud
             string constr = ConfigurationManager.ConnectionStrings["con"].ConnectionString;
             using (SqlConnection con = new SqlConnection(constr))
             {
-                using (SqlCommand cmd = new SqlCommand("SELECT Nummer, Startdatum, [Verwachte einddatum], Kosten, BungalowNummer, OnderhoudsstatusID, OnderhoudtypeID, [Datum van constatering] FROM Onderhoudsopdracht"))
+                using (SqlCommand cmd = new SqlCommand("SELECT Nummer, Startdatum, [VerwachteEinddatum], Kosten, BungalowNummer, OnderhoudsstatusID, OnderhoudtypeID, [DatumvanConstatering] FROM Onderhoudsopdracht"))
                 {
                     using (SqlDataAdapter sda = new SqlDataAdapter())
                     {
@@ -108,7 +108,7 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud
             string constr = ConfigurationManager.ConnectionStrings["con"].ConnectionString;
             using (SqlConnection con = new SqlConnection(constr))
             {
-                using (SqlCommand cmd = new SqlCommand("select Nummer, Startdatum, [Verwachte einddatum], Kosten, BungalowNummer, OnderhoudsstatusID, OnderhoudtypeID, [Datum van constatering] from Onderhoudsopdracht where Nummer= '" + searchBox.Text + "'"))
+                using (SqlCommand cmd = new SqlCommand("select Nummer, Startdatum, [VerwachteEinddatum], Kosten, BungalowNummer, OnderhoudsstatusID, OnderhoudtypeID, [DatumvanConstatering] from Onderhoudsopdracht where Nummer= '" + searchBox.Text + "'"))
                 {
                     using (SqlDataAdapter sda = new SqlDataAdapter())
                     {

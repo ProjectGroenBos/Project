@@ -84,6 +84,7 @@
     <Content Include="Schoonmaak en Onderhoud\InventarisOverzicht.aspx" />
     <Content Include="Schoonmaak en Onderhoud\OffertesOverzicht.aspx" />
     <Content Include="Schoonmaak en Onderhoud\OnderhoudsOverzicht.aspx" />
+    <Content Include="Schoonmaak en Onderhoud\OnderhoudToevoegen.aspx" />
     <Content Include="Schoonmaak en Onderhoud\PlanningsOverzicht.aspx" />
     <Content Include="Schoonmaak en Onderhoud\SchouwingsOverzicht.aspx" />
     <Content Include="Scripts\jquery\jquery.js" />
@@ -161,6 +162,13 @@
     </Compile>
     <Compile Include="Schoonmaak en Onderhoud\OnderhoudsOverzicht.aspx.designer.cs">
       <DependentUpon>OnderhoudsOverzicht.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Schoonmaak en Onderhoud\OnderhoudToevoegen.aspx.cs">
+      <DependentUpon>OnderhoudToevoegen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Schoonmaak en Onderhoud\OnderhoudToevoegen.aspx.designer.cs">
+      <DependentUpon>OnderhoudToevoegen.aspx</DependentUpon>
     </Compile>
     <Compile Include="Schoonmaak en Onderhoud\PlanningsOverzicht.aspx.cs">
       <DependentUpon>PlanningsOverzicht.aspx</DependentUpon>
