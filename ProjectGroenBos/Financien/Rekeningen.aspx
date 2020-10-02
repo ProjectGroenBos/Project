@@ -74,7 +74,7 @@
         </asp:GridView>
         <asp:SqlDataSource ID="SqlDataSource6" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT [Nummer], [Naam], [Aantal_personen], [Aankomstdatum], [Vertrekdatum], [Gastnummer]  FROM [rekeningen]"></asp:SqlDataSource>
     </div>
-
+   
     <asp:Repeater ID="rpModals" runat="server">
         <ItemTemplate>
             <!-- Modal -->
@@ -181,6 +181,7 @@
                                     </div>
                                 </div>
                             </div>
+
                             <input type="button" class="btn btn-primary btn-lg btn-block" onclick="printDiv('printModal<%# Eval("Nummer") %>')" value="Print Factuur" />
 
                             <asp:Button ID="btnExport" class="btn btn-primary btn-lg btn-block" runat="server" Text="Email naar klant" OnClick="btnExport_Click" />
