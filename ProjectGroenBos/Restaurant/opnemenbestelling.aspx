@@ -69,23 +69,23 @@
             </div>
 
             <div class="productrow">
-                <img class="productimg" src="img/productimg/Fanta.png" alt="Fanta Orange" />
-                <h1 class="productnaam">Fanta Orange</h1>
+                <img class="productimg" src="img/productimg/champignonsoep.png" alt="Fanta Orange" />
+                <h1 class="productnaam">Champignonsoep</h1>
                 <asp:Button class="toevoegen" runat="server" Text="Toevoegen" />
             </div>
             <div class="productrow">
-                <img class="productimg" src="img/productimg/Cola.png" alt="Fanta Orange" />
-                <h1 class="productnaam">Coca Cola</h1>
+                <img class="productimg" src="img/productimg/tomatensoep.png" alt="Fanta Orange" />
+                <h1 class="productnaam">Tomatensoep</h1>
                 <asp:Button class="toevoegen" runat="server" Text="Toevoegen" />
             </div>
             <div class="productrow">
-                <img class="productimg" src="img/productimg/Sprite.png" alt="Fanta Orange" />
-                <h1 class="productnaam">Sprite</h1>
+                <img class="productimg" src="img/productimg/carpaccio.png" alt="Fanta Orange" />
+                <h1 class="productnaam">Carpaccio</h1>
                 <asp:Button class="toevoegen" runat="server" Text="Toevoegen" />
             </div>
             <div class="productrow">
-                <img class="productimg" src="img/productimg/Fanta.png" alt="Fanta Orange" />
-                <h1 class="productnaam">Fanta Orange</h1>
+                <img class="productimg" src="img/productimg/broodplankje.png" alt="Fanta Orange" />
+                <h1 class="productnaam">Broodplankje</h1>
                 <asp:Button class="toevoegen" runat="server" Text="Toevoegen" />
             </div>
 
@@ -96,28 +96,28 @@
             </div>
 
             <div class="productrow">
-                <img class="productimg" src="img/productimg/Fanta.png" alt="Fanta Orange" />
-                <h1 class="productnaam">Fanta Orange</h1>
+                <img class="productimg" src="img/productimg/patat.png" alt="Fanta Orange" />
+                <h1 class="productnaam">Patat</h1>
                 <asp:Button class="toevoegen" runat="server" Text="Toevoegen" />
             </div>
             <div class="productrow">
-                <img class="productimg" src="img/productimg/Cola.png" alt="Fanta Orange" />
-                <h1 class="productnaam">Coca Cola</h1>
+                <img class="productimg" src="img/productimg/sate.png" alt="Fanta Orange" />
+                <h1 class="productnaam">Saté</h1>
                 <asp:Button class="toevoegen" runat="server" Text="Toevoegen" />
             </div>
             <div class="productrow">
-                <img class="productimg" src="img/productimg/Sprite.png" alt="Fanta Orange" />
-                <h1 class="productnaam">Sprite</h1>
+                <img class="productimg" src="img/productimg/schnitzel.png" alt="Fanta Orange" />
+                <h1 class="productnaam">Schnitzel</h1>
                 <asp:Button class="toevoegen" runat="server" Text="Toevoegen" />
             </div>
             <div class="productrow">
-                <img class="productimg" src="img/productimg/Fanta.png" alt="Fanta Orange" />
-                <h1 class="productnaam">Fanta Orange</h1>
+                <img class="productimg" src="img/productimg/spareribs.png" alt="Fanta Orange" />
+                <h1 class="productnaam">Spareribs</h1>
                 <asp:Button class="toevoegen" runat="server" Text="Toevoegen" />
             </div>
             <div class="productrow">
-                <img class="productimg" src="img/productimg/Fanta.png" alt="Fanta Orange" />
-                <h1 class="productnaam">Fanta Orange</h1>
+                <img class="productimg" src="img/productimg/varkenshaas.png" alt="Fanta Orange" />
+                <h1 class="productnaam">Varkenshaassaté</h1>
                 <asp:Button class="toevoegen" runat="server" Text="Toevoegen" />
             </div>
 
@@ -128,13 +128,13 @@
             </div>
 
             <div class="productrow">
-                <img class="productimg" src="img/productimg/Fanta.png" alt="Fanta Orange" />
-                <h1 class="productnaam">Fanta Orange</h1>
+                <img class="productimg" src="img/productimg/cremebrulee.png" alt="Fanta Orange" />
+                <h1 class="productnaam">Crème brûlée</h1>
                 <asp:Button class="toevoegen" runat="server" Text="Toevoegen" />
             </div>
             <div class="productrow">
-                <img class="productimg" src="img/productimg/Cola.png" alt="Fanta Orange" />
-                <h1 class="productnaam">Coca Cola</h1>
+                <img class="productimg" src="img/productimg/chocoladetaart.png" alt="Fanta Orange" />
+                <h1 class="productnaam">Chocoladetaart</h1>
                 <asp:Button class="toevoegen" runat="server" Text="Toevoegen" />
             </div>
 
