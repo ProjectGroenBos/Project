@@ -1,37 +1,72 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="Site1.Master" AutoEventWireup="true" CodeBehind="Voorraad.aspx.cs" Inherits="recreatie.paginas.Voorraad" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="Site1.Master" AutoEventWireup="true" CodeBehind="Voorraad.aspx.cs" Inherits="recreatie.paginas.Beheer" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <p>
-        &nbsp;</p>
-    <div class="voorraad">
-    <p>
-        
-        <asp:Label ID="Label2" runat="server" Font-Bold="False" Font-Names="Century Gothic" Font-Overline="False" Font-Size="X-Large" ForeColor="#757272" Text="Voorraad" CssClass="label"></asp:Label>
-        </p>
-    </div>
-<p>
-    &nbsp;</p>
-<p>
-    <asp:Label ID="Label1" runat="server" Text="Artikelnaam:" CssClass="label"></asp:Label>
-&nbsp;&nbsp;
-    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <asp:Button ID="BtnZoek" runat="server" BackColor="#7FB241" ForeColor="#FEFEFE" Text="Zoek" />
-</p>
-<p>
-    &nbsp;</p>
-<p>
-    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="ID" DataSourceID="SqlDataSource1">
-        <Columns>
-            <asp:BoundField DataField="ID" HeaderText="ID" ReadOnly="True" SortExpression="ID" />
-            <asp:BoundField DataField="Artikelnaam" HeaderText="Artikelnaam" ReadOnly="True" SortExpression="Artikelnaam" />
-            <asp:BoundField DataField="Aantal" HeaderText="Aantal" SortExpression="Aantal" />
-            <asp:BoundField DataField="Beschikbaar" HeaderText="Beschikbaar" ReadOnly="True" SortExpression="Beschikbaar" />
-            <asp:BoundField DataField="Ingebruik" HeaderText="Ingebruik" SortExpression="Ingebruik" />
-            <asp:BoundField DataField="Minimum voorraad" HeaderText="Minimum voorraad" SortExpression="Minimum voorraad" />
-        </Columns>
-    </asp:GridView>
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:2020-BIM02-P1-P2-GroenbosConnectionString %>" SelectCommand="SELECT * FROM [vVoorraadRecreatie]"></asp:SqlDataSource>
-</p>
+<link href="CSS/stylevoorraad.css" rel="stylesheet" />
+    <asp:Label ID="Label3" runat="server" Text="Zoeken:" CssClass="labelvoorraad"></asp:Label>
+    <asp:Image ID="Image2" runat="server" CssClass="imagevoorraad" Height="171px" ImageUrl="~/Recreatie/img/Logo1.png" Width="212px" />
+    <asp:TextBox ID="txtZoekbalk" runat="server" Width="300px" placeholder="Zoek op Artikelnaam of Omschrijving..." OnTextChanged="txtZoeken_TextChanged"  AutoPostBack="True" CssClass="textboxvoorraad"></asp:TextBox>
+    <asp:GridView ID="gvVoorraad" runat="server" AutoGenerateColumns="False" ShowFooter="true" DataKeyNames="ID" ShowHeaderWhenEmpty="true"
+            OnRowCommand="gvVoorraad_RowCommand" OnRowEditing="gvVoorraad_RowEditing" OnRowCancelingEdit="gvVoorraad_RowCancelingEdit" OnRowUpdating="gvVoorraad_RowUpdating" OnRowDeleting="gvVoorraad_RowDeleting"
+            CellPadding="4" ForeColor="#333333" GridLines="none" Width="80%" AllowSorting ="true" OnSelectedIndexChanged="gvVoorraad_SelectedIndexChanged" CssClass="gridviewvoorraad">
+
+           <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+           <EditRowStyle BackColor="#999999" />
+           <FooterStyle BackColor="#7fb241" Font-Bold="True" ForeColor="White" />
+           <HeaderStyle BackColor="#7fb241" Font-Bold="True" ForeColor="White" />
+           <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+           <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+           <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+           <SortedAscendingCellStyle BackColor="#E9E7E2" />
+           <SortedAscendingHeaderStyle BackColor="#506C8C" />
+           <SortedDescendingCellStyle BackColor="#FFFDF8" />
+           <SortedDescendingHeaderStyle BackColor="#6F8DAE" /> 
+
+            <Columns>
+                <asp:TemplateField HeaderText="Artikelnummer">
+                    <ItemTemplate>
+                        <asp:Label Text='<%# Eval("ID") %>' runat="server" />
+                    </ItemTemplate>
+                    <%--  %><EditItemTemplate>
+                        <asp:TextBox ID="txtNaamRestaurant" Text='<%# Eval("NaamRestaurant") %>' runat="server" />
+                    </EditItemTemplate> --%>
+                </asp:TemplateField>
+
+                <asp:TemplateField HeaderText="Naam " >  
+                    <ItemTemplate>
+                        <asp:Label Text='<%# Eval("Artikelnaam") %>' runat="server" />
+                    </ItemTemplate>
+                </asp:TemplateField>
+
+                <asp:TemplateField HeaderText="Aantal">
+                    <ItemTemplate>
+                        <asp:Label Text='<%# Eval("Aantal") %>' runat="server" />
+                    </ItemTemplate>
+                </asp:TemplateField>
+
+                <asp:TemplateField HeaderText="In gebruik">
+                    <ItemTemplate>
+                        <asp:Label Text='<%# Eval("Beschikbaar") %>' runat="server" />
+                    </ItemTemplate>
+                </asp:TemplateField>
+
+                <asp:TemplateField HeaderText="Beschikbaar">
+                    <ItemTemplate>
+                        <asp:Label Text='<%# Eval("Ingebruik") %>' runat="server" />
+                    </ItemTemplate>
+                </asp:TemplateField>
+
+                <asp:TemplateField HeaderText="Minimale voorraad">
+                    <ItemTemplate>
+                        <asp:Label Text='<%# Eval("[Minimum voorraad]") %>' runat="server" />
+                    </ItemTemplate>
+                </asp:TemplateField>
+
+                <asp:TemplateField HeaderText="Actie">
+                    <ItemTemplate>
+                        <asp:ImageButton ImageUrl="~/img/Winkelwagenicoon.png" runat="server" CommandName="Edit" ToolTip="Bewerken" Width="20px" Height="20px" />
+                    </ItemTemplate> 
+                </asp:TemplateField>
+            </Columns>
+        </asp:GridView>
 </asp:Content>

@@ -1,29 +1,58 @@
-﻿.gridviewplanning {
-    margin: auto;
-    margin-left: 5px;
-    float: left;
-    margin-top: -350px;
-    width: 200px;
-    height: 500px;
+﻿
+.gridviewplanning {
+    
+    position:relative;
+    width: 40px;
+    height:10px;
+    top: -650px;
+    left: 20px;
+    font-size:10px;
+    
 }
 
 .textboxplanning {
+    position:relative;
     float: right;
-    margin-right: 20px;
+    margin-right: 330px;
+    margin-left:20px;
+    top: -473px;
+    left: -366px;
+    height: 132px;
+    width: 107px;
 }
 
 .textboxplanningb {
+    position:sticky;
     float: right;
-    margin-right: 40px;
+    margin-right: auto;
+    
 }
 
 .labelplanning {
+    position:relative;
     float: left;
-    margin-left: 900px;
+    margin-left: 600px;
 }
 
 .kalenderplanning {
+    position:relative;
+    left: 600px;
+  
+}
+
+.buttonplanning {
+    position:relative;
+    float: left;
+    margin-left: 600px;
+}
+
+.labelplanningb{
+    left:20px;
+    position:relative;
+}
+
+.labelbevestiging{
+    position: relative;
     float: right;
-    margin: 20px;
-    margin-bottom: 20px;
+    margin-right: 330px;
 }

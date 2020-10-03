@@ -70,10 +70,13 @@
     <Content Include="Financien\css\main.css" />
     <Content Include="Financien\Home.aspx" />
     <Content Include="Financien\Prijstabel.aspx" />
-    <Content Include="Recreatie\Beheer.aspx" />
+    <Content Include="Recreatie\CSS\styleoverzicht.css" />
+    <Content Include="Recreatie\Voorraad.aspx" />
     <Content Include="Recreatie\CSS\Main.css" />
     <Content Include="Recreatie\CSS\style.css" />
+    <Content Include="Recreatie\CSS\stylegoeie.css" />
     <Content Include="Recreatie\CSS\styleplanning.css" />
+    <Content Include="Recreatie\CSS\stylevoorraad.css" />
     <Content Include="Recreatie\Documentatie.aspx" />
     <Content Include="Recreatie\home.aspx" />
     <Content Include="Recreatie\img\Logo1.png" />
@@ -85,7 +88,7 @@
     <Content Include="Recreatie\Overzicht.aspx" />
     <Content Include="Recreatie\Planning.aspx" />
     <Content Include="Recreatie\Uitloggen.aspx" />
-    <Content Include="Recreatie\Voorraad.aspx" />
+    <Content Include="Recreatie\Voorraadfout.aspx" />
     <Content Include="Schoonmaak en Onderhoud\InventarisOverzicht.aspx" />
     <Content Include="Schoonmaak en Onderhoud\OffertesOverzicht.aspx" />
     <Content Include="Schoonmaak en Onderhoud\OnderhoudsOverzicht.aspx" />
@@ -116,12 +119,12 @@
       <DependentUpon>Prijstabel.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Recreatie\Beheer.aspx.cs">
-      <DependentUpon>Beheer.aspx</DependentUpon>
+    <Compile Include="Recreatie\Voorraad.aspx.cs">
+      <DependentUpon>Voorraad.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Recreatie\Beheer.aspx.designer.cs">
-      <DependentUpon>Beheer.aspx</DependentUpon>
+    <Compile Include="Recreatie\Voorraad.aspx.designer.cs">
+      <DependentUpon>Voorraad.aspx</DependentUpon>
     </Compile>
     <Compile Include="Recreatie\Documentatie.aspx.cs">
       <DependentUpon>Documentatie.aspx</DependentUpon>
@@ -166,12 +169,12 @@
     <Compile Include="Recreatie\Uitloggen.aspx.designer.cs">
       <DependentUpon>Uitloggen.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Recreatie\Voorraad.aspx.cs">
-      <DependentUpon>Voorraad.aspx</DependentUpon>
+    <Compile Include="Recreatie\Voorraadfout.aspx.cs">
+      <DependentUpon>Voorraadfout.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Recreatie\Voorraad.aspx.designer.cs">
-      <DependentUpon>Voorraad.aspx</DependentUpon>
+    <Compile Include="Recreatie\Voorraadfout.aspx.designer.cs">
+      <DependentUpon>Voorraadfout.aspx</DependentUpon>
     </Compile>
     <Compile Include="Schoonmaak en Onderhoud\InventarisOverzicht.aspx.cs">
       <DependentUpon>InventarisOverzicht.aspx</DependentUpon>
@@ -230,7 +233,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Financien\js\" />
-    <Folder Include="Restaurant\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

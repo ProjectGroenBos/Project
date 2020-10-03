@@ -4,13 +4,92 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace recreatie.paginas
 {
-    public partial class Voorraad : System.Web.UI.Page
+    public partial class Beheer : System.Web.UI.Page
     {
+        //string cnn = new SqlConnection(ProjectGroenBos.Recreatie.Helper.HelperClass.DatabaseConnectieString);
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            if (!IsPostBack)
+            {
+                InvullenGridview();
+            }
+        }
+
+        void InvullenGridview()
+        {
+            DataTable dtbl = new DataTable();
+            using (SqlConnection sqlCon = new SqlConnection(ProjectGroenBos.Recreatie.Helper.HelperClass.DatabaseConnectieString))
+            {
+                sqlCon.Open();
+                SqlDataAdapter sqlDa = new SqlDataAdapter("SELECT * FROM vVoorraadRecreatie", sqlCon);
+                sqlDa.Fill(dtbl);
+                Session["vDB"] = dtbl;
+            }
+            if (dtbl.Rows.Count > 0)
+            {
+
+                gvVoorraad.DataSource = dtbl;
+                gvVoorraad.DataBind();
+            }
+
+            else
+            {
+                dtbl.Rows.Add(dtbl.NewRow());
+                gvVoorraad.DataSource = dtbl;
+                gvVoorraad.DataBind();
+                gvVoorraad.Rows[0].Cells.Clear();
+                gvVoorraad.Rows[0].Cells.Add(new TableCell());
+                gvVoorraad.Rows[0].Cells[0].ColumnSpan = dtbl.Columns.Count;
+                gvVoorraad.Rows[0].Cells[0].Text = "Geen Data Gevonden!";
+                gvVoorraad.Rows[0].Cells[0].HorizontalAlign = HorizontalAlign.Center;
+            }
+
+        }
+
+        protected void gvVoorraad_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+        }
+
+        protected void gvVoorraad_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        {
+        }
+
+        protected void gvVoorraad_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+
+        }
+
+        protected void gvVoorraad_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            gvVoorraad.EditIndex = e.NewEditIndex;
+            InvullenGridview();
+        }
+
+        protected void gvVoorraad_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        {
+            gvVoorraad.EditIndex = -1;
+            InvullenGridview();
+        }
+
+        protected void gvVoorraad_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void txtZoeken_TextChanged(object sender, EventArgs e)
+        {
+            DataTable dtbl = (DataTable)Session["vDB"];
+            DataView dv = dtbl.DefaultView;
+            dv.RowFilter = string.Format("Artikelnaam like '%{0}%'", txtZoekbalk.Text);
+            gvVoorraad.DataSource = dv.ToTable();
+            gvVoorraad.DataBind();
 
         }
     }
