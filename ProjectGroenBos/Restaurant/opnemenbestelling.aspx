@@ -15,11 +15,7 @@
             </div>
 
             <!-- Producten -->
-            <div class="cart-items">
-            </div>
-            <div class="cart-total">
-                <strong class="cart-total-title">Totaal</strong>
-                <span class="cart-total-price">€0</span>
+            <div class="cart">
             </div>
             <div class="betalen">
 
