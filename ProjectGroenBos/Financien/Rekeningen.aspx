@@ -124,7 +124,7 @@
                                         <asp:BoundField DataField="Naam" HeaderText="Omschrijving" ReadOnly="True" SortExpression="Naam" />
                                         <asp:BoundField DataField="Prijs" HeaderText="Prijs" ReadOnly="True" SortExpression="Prijs" DataFormatString="{0:C}" />
                                         <asp:BoundField DataField="Aantal" HeaderText="Aantal" ReadOnly="True" SortExpression="Aantal" />
-                                        <asp:BoundField DataField="Totaal" HeaderText="Totaal" ReadOnly="True" SortExpression="Totaal" DataFormatString="{0:C}"/>
+                                        <asp:BoundField DataField="Totaal" HeaderText="Totaal" ReadOnly="True" SortExpression="Totaal" DataFormatString="{0:C}" HeaderStyle-Width="100px"/>
                                     </Columns>
                                 </asp:GridView>
 
@@ -134,7 +134,7 @@
                                             <td>Totaalbedrag:</td>
                                             <td></td>
                                             <td></td>
-                                            <td>€ <%# Eval("Totaalbedrag") %></td>
+                                            <td style="width: 100px">€ <%# Eval("Totaalbedrag") %></td>
                                         </tr>
                                     </tbody>
                                 </table>
