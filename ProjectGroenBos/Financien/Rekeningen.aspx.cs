@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Net.Mail;
 using System.Text;
 using System.Web;
@@ -45,7 +46,19 @@ namespace ProjectGroenBos.Financien
 
         protected void btnExport_Click(object sender, EventArgs e)
         {
+            StringWriter sw = new StringWriter();
+            HtmlTextWriter ht = new HtmlTextWriter(sw);
+            Panel1.RenderControl(ht);
 
+            MailMessage o = new MailMessage("groenbosfinances@hotmail.com", "telefoonkevin02@gmail.com");
+            o.Body = "<h1>Gridview</h1><hr/>" + sw.ToString();
+            o.IsBodyHtml = true;
+            o.Subject = "Factuur";
+            NetworkCredential netCred = new NetworkCredential("groenbosfinances@hotmail.com", "MarionenAndries");
+            SmtpClient smtpobj = new SmtpClient("smtp.live.com", 587);
+            smtpobj.EnableSsl = true;
+            smtpobj.Credentials = netCred;
+            smtpobj.Send(o);
         }
 
         protected void Email()
