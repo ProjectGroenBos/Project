@@ -152,7 +152,7 @@
                                             PropertyName="Value" />
                                     </SelectParameters>
                                 </asp:SqlDataSource>
-
+                                <asp:Label ID="Nummertje" runat="server" Text='<%#Eval("Nummer") %>'></asp:Label>
                                 <h4 style="text-align: center">Te betalen voor: <%# Eval("Vertrekdatum", "{0: dd/MM/yyyy}") %></h4>
 
                                 <div class="fixed-bottom">

@@ -17,6 +17,8 @@ namespace ProjectGroenBos.Financien
 {
     public partial class WebForm4 : System.Web.UI.Page
     {
+        int NUmmer = 10;
+        object TeklifId = 2;
         string constr = System.Configuration.ConfigurationManager.ConnectionStrings["dbconnectie"].ConnectionString;
 
         protected void Page_Load(object sender, EventArgs e)
@@ -48,7 +50,17 @@ namespace ProjectGroenBos.Financien
         {
             StringWriter sw = new StringWriter();
             HtmlTextWriter ht = new HtmlTextWriter(sw);
-            Panel1.RenderControl(ht);
+
+            foreach (RepeaterItem item in rpModals.Items)
+            {
+                Label lbl1 = (Label)item.FindControl("Nummertje");
+                string str = lbl1.Text;
+                NUmmer = int.Parse(str);
+            }
+
+
+            GridView gvFactuurrekening = (GridView)rpModals.Items[0].FindControl("gvFactuurrekening");
+            gvFactuurrekening.RenderControl(ht);
 
             MailMessage o = new MailMessage("groenbosfinances@hotmail.com", "telefoonkevin02@gmail.com");
             o.Body = "<h1>Gridview</h1><hr/>" + sw.ToString();
