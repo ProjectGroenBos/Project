@@ -16,10 +16,14 @@ namespace recreatie.paginas
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            DataTable dt = new DataTable();
-            dt.Columns.AddRange(new DataColumn[1] { new DataColumn("Naam")});
-            ViewState["Medewerker"] = dt;
-            this.BindGrid();
+            if (!IsPostBack)
+            {
+                DataTable dt = new DataTable();
+                dt.Columns.AddRange(new DataColumn[1] {new DataColumn("Naam")});
+                //dt.Rows.Add("Yes");
+                ViewState["Medewerker"] = dt;
+                this.BindGrid();
+            }
         }
 
         protected void BindGrid()
@@ -50,12 +54,14 @@ namespace recreatie.paginas
 
         }
 
-        protected void TxbMedewerker_SelectedIndexChanged1(object sender, EventArgs e)
+        protected void TxbMedewerker_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DataTable dt = (DataTable)ViewState["Medewerker"];
+            DataTable dt = (DataTable) ViewState["Medewerker"];
             dt.Rows.Add(TxbMedewerker.SelectedValue.Trim());
             ViewState["Medewerker"] = dt;
             this.BindGrid();
+
+
         }
-       }
+    }
 }
