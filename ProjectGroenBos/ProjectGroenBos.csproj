@@ -73,9 +73,16 @@
     <Content Include="images\edit.png" />
     <Content Include="Financien\css\main.css" />
     <Content Include="Financien\Home.aspx" />
+    <Content Include="Financien\img\Logo.png" />
+    <Content Include="Financien\img\Logo3.png" />
     <Content Include="Financien\Prijstabel.aspx" />
     <Content Include="Financien\Personeeloverzicht.aspx" />
+<<<<<<< HEAD
     <Content Include="images\save.png" />
+=======
+    <Content Include="Financien\Rekeningen.aspx" />
+    <Content Include="Financien\Reserveringen.aspx" />
+>>>>>>> FinanciënTeam/KevindeLange
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -107,6 +114,20 @@
     <Compile Include="Financien\Personeeloverzicht.aspx.designer.cs">
       <DependentUpon>Personeeloverzicht.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Financien\Rekeningen.aspx.cs">
+      <DependentUpon>Rekeningen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Financien\Rekeningen.aspx.designer.cs">
+      <DependentUpon>Rekeningen.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Financien\Reserveringen.aspx.cs">
+      <DependentUpon>Reserveringen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Financien\Reserveringen.aspx.designer.cs">
+      <DependentUpon>Reserveringen.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -120,6 +141,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="bin\" />
     <Folder Include="Financien\js\" />
   </ItemGroup>
   <PropertyGroup>
