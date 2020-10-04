@@ -23,7 +23,17 @@ namespace ProjectGroenBos.Restaurant
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+            // verstuur mensen naar het plaatsen van een bestelling
             Response.Redirect("opnemenbestelling.aspx");
+
+            // geef de tafel een andere kleur om aa nte geven dat hij bezet is
+
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            // haal de kleur van de tafel af
+
         }
     }
 }

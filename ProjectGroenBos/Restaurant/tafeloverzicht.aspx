@@ -31,8 +31,8 @@
                 <asp:button ID="btnclose" Class="close" runat="server" text="X"/>
         
 
-            <asp:button ID="Button1" runat="server" text="Bestelling maken" OnClick="Button1_Click" />
-            <asp:button ID="Button2" runat="server" text="naar afrekenen" />
+            <asp:button ID="Bestelling" runat="server" text="Bestelling maken" OnClick="Button1_Click" />
+            <asp:button ID="Button2" runat="server" text="naar afrekenen" OnClick="Button2_Click" />
         </asp:Panel>
 
             <br />
