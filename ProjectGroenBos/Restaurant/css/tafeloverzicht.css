@@ -1,2 +1,23 @@
 ﻿body {
+ 
+}
+
+.keuken{
+    background-color: greenyellow;
+}
+
+.bar{
+    background-color: greenyellow;
+}
+
+.popup {
+    width: 400px;
+    height: 500px;
+    background-color: gray;
+    color: white;
+    padding: 2px;
+}
+
+.close{
+    background-color: red;
 }

@@ -8,9 +8,9 @@
     <link rel="stylesheet" href="css/tafeloverzicht.css">
     <div class="werkgebied">
 
-        <asp:Label ID="keuken" runat="server" Text="Keuken" BackColor="#009933" />
+        <asp:Label ID="keuken" class="keuken" runat="server" Text="Keuken"/>
 
-        <asp:Label ID="bar" runat="server" Text="Bar" BackColor="#009933" />
+        <asp:Label ID="bar" class="bar" runat="server" Text="Bar"/>
 
         <asp:Button ID="btntafel1" runat="server" Text="Tafel 1" OnClick="btntafel1_Click" />
        
@@ -25,18 +25,14 @@
         </cc1:ModalPopupExtender>
 
         <!-- panel design-->
-        <asp:Panel ID="modelpantafel1" runat="server" Height="245px" Width="230px">
-            <div style="background-color:gray; color:white; padding:2px;">
-                <div id=header> tafel 1</div>
-                <asp:button ID="btnclose" runat="server" text="X" BackColor="#CC3300"/>
-            </div>
+        <asp:Panel ID="modelpantafel1" Class="popup" runat="server">
+         
+                <div ID="header" class=header> tafel 1</div>
+                <asp:button ID="btnclose" Class="close" runat="server" text="X"/>
+        
 
             <asp:button ID="Button1" runat="server" text="Bestelling maken" OnClick="Button1_Click" />
             <asp:button ID="Button2" runat="server" text="naar afrekenen" />
-
-            <div style="background-color:gray; color:white; padding:2px;">
-
-            </div>
         </asp:Panel>
 
             <br />
