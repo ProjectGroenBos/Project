@@ -20,6 +20,7 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud
 
         protected void btnToevoegen_Click1(object sender, EventArgs e)
         {
+            String nummer = DropDownList1.SelectedValue.ToString();
             RequiredFieldValidator1.Validate();
             RequiredFieldValidator2.Validate();
             RequiredFieldValidator3.Validate();
@@ -30,19 +31,19 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud
 
             if (RequiredFieldValidator1.IsValid && RequiredFieldValidator2.IsValid && RequiredFieldValidator3.IsValid && RequiredFieldValidator4.IsValid && RequiredFieldValidator5.IsValid && RequiredFieldValidator6.IsValid && RequiredFieldValidator7.IsValid)
             {
-                if (RegularExpressionValidator1.IsValid && RegularExpressionValidator2.IsValid && RegularExpressionValidator3.IsValid && RegularExpressionValidator4.IsValid)
+                if (RegularExpressionValidator1.IsValid && RegularExpressionValidator2.IsValid && RegularExpressionValidator3.IsValid)
                 {
                     con.Open();
-                    SqlCommand cmd = new SqlCommand("INSERT INTO  [dbo].[Onderhoudsopdracht] (Startdatum,VerwachteEinddatum,Kosten,BungalowNummer,OnderhoudsstatusID,OnderhoudtypeID,DatumvanConstatering)    values(@startdatum, @verwachteeinddatum, @kosten, @bungalownummer, @onderhoudsstatusID, @onderhoudtypeID, @datumvanconstatering)", con);
+                    SqlCommand cmd = new SqlCommand("INSERT INTO  [dbo].[Onderhoudsopdracht] (Startdatum,VerwachteEinddatum,Kosten,BungalowNummer,OnderhoudsstatusID,Onderhoudtype,DatumvanConstatering,MedewerkerNummer)    values(@startdatum, @verwachteeinddatum, @kosten, @bungalownummer, @onderhoudsstatusID, @onderhoudtype, @datumvanconstatering, @medewerkernummer)", con);
 
-                    cmd.Parameters.Add("@startdatum", SqlDbType.Date).Value = txtStart.Text;
-                    cmd.Parameters.Add("@verwachteeinddatum", SqlDbType.Date).Value = txtEind.Text;
-                    cmd.Parameters.Add("@kosten", SqlDbType.Real).Value = txtKosten.Text;
-                    cmd.Parameters.Add("@bungalownummer", SqlDbType.Int).Value = int.Parse(txtBungalownummer.Text);
-                    cmd.Parameters.Add("@onderhoudsstatusID", SqlDbType.Int).Value = int.Parse(txtOnderhoudsstatus.Text);
-                    cmd.Parameters.Add("@onderhoudtypeID", SqlDbType.Int).Value = int.Parse(txtOnderhoudstype.Text);
-                    cmd.Parameters.Add("@datumvanconstatering", SqlDbType.Date).Value = txtConstatering.Text;
-
+                    cmd.Parameters.AddWithValue("@startdatum", txtStart.Text);
+                    cmd.Parameters.AddWithValue("@verwachteeinddatum", txtEind.Text);
+                    cmd.Parameters.AddWithValue("@kosten", txtKosten.Text);
+                    cmd.Parameters.AddWithValue("@bungalownummer", int.Parse(txtBungalownummer.Text));
+                    cmd.Parameters.AddWithValue("@onderhoudsstatusID", txtOnderhoudsstatus.Text);
+                    cmd.Parameters.AddWithValue("@onderhoudtype", txtOnderhoudstype.Text);
+                    cmd.Parameters.AddWithValue("@datumvanconstatering", txtConstatering.Text);
+                    cmd.Parameters.AddWithValue("@medewerkernummer", int.Parse(nummer));
 
 
                     cmd.ExecuteNonQuery();

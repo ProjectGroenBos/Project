@@ -71,6 +71,7 @@
     <Content Include="Financien\Home.aspx" />
     <Content Include="Financien\Prijstabel.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="Images\deleteRow.png" />
     <Content Include="Images\Logo6.png" />
     <Content Include="Recreatie\CSS\Main.css" />
     <Content Include="Recreatie\img\Logo1.png" />

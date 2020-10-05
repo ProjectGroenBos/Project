@@ -58,7 +58,6 @@
 
                           <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtKosten" ErrorMessage="Vul in" ForeColor="Red"></asp:RequiredFieldValidator>
 &nbsp;&nbsp;&nbsp;&nbsp;
-                          <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ControlToValidate="txtEind" ErrorMessage="Alleen getallen" ForeColor="Red" ValidationExpression="^[0-9]+$"></asp:RegularExpressionValidator>
 
                      </td>
                 </tr>
@@ -108,6 +107,17 @@
 
                      </td>
                 </tr>
+                                 <tr>
+                    <td>Naam Medewerker </td>
+                    <td>
+                        <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource1" DataTextField="Naam" DataValueField="Nummer">
+                        </asp:DropDownList>
+                        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:con %>" SelectCommand="SELECT [Nummer], [Naam] FROM [Medewerker]"></asp:SqlDataSource>
+                    </td>
+                     <td>
+
+                         </td>
+                                     </tr>
                 <tr>
                      <td style="margin-left: 40px">  
                          <br />
