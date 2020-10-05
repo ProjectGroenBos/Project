@@ -64,9 +64,9 @@
                 <nav>
                     <ul>
                         <li><a href="">Home</a></li>
-                        <li><a href="">Overzicht</a></li>
-                        <li><a href="#">Bestellingen</a></li>
-                        <li><a href="#">Keuken</a></li>
+                        <li><a href="">Recreatie</a></li>
+                        <li><a href="#">Schoonmaak</a></li>
+                        <li><a href="#">Restaurant</a></li>
                         <li><a href="#">Reserveringen</a></li>
                         <li class="selected"><a href="#">Financiën</a></li>
                         <asp:Button ID="btnUitloggen" runat="server" CssClass="btnUitloggen" Text="Uitloggen" />
