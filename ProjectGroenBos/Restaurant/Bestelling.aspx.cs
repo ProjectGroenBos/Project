@@ -31,7 +31,7 @@ namespace ProjectGroenBos.Restaurant
 						dr = dt.NewRow();
 						String mycon = "Data Source=SQL.BIM.OSOX.NL;Initial Catalog=2020-BIM02-P1-P2-Groenbos;Persist Security Info=True;User ID=BIM022020;Password=BiM@IH2020";
 						SqlConnection scon = new SqlConnection(mycon);
-						String myquery = "select * from MenuDranken where ID=" + Request.QueryString["id"];
+						String myquery = "select * from Item where ID=" + Request.QueryString["id"];
 						SqlCommand cmd = new SqlCommand();
 						cmd.CommandText = myquery;
 						cmd.Connection = scon;
@@ -55,8 +55,8 @@ namespace ProjectGroenBos.Restaurant
 						GridView1.DataBind();
 
 						Session["bestelitems"] = dt;
-						GridView1.FooterRow.Cells[5].Text = "Totale Hoeveelheid";
-						GridView1.FooterRow.Cells[6].Text = grandtotal().ToString();
+						GridView1.FooterRow.Cells[4].Text = "Totale Hoeveelheid";
+						GridView1.FooterRow.Cells[5].Text = grandtotal().ToString();
 						Response.Redirect("bestellingopnemen.aspx");
 					}
 					else
@@ -68,7 +68,7 @@ namespace ProjectGroenBos.Restaurant
 						dr = dt.NewRow();
 						String mycon = "Data Source=SQL.BIM.OSOX.NL;Initial Catalog=2020-BIM02-P1-P2-Groenbos;Persist Security Info=True;User ID=BIM022020;Password=BiM@IH2020";
 						SqlConnection scon = new SqlConnection(mycon);
-						String myquery = "select * from MenuDranken where ID=" + Request.QueryString["id"];
+						String myquery = "select * from Item where ID=" + Request.QueryString["id"];
 						SqlCommand cmd = new SqlCommand();
 						cmd.CommandText = myquery;
 						cmd.Connection = scon;
@@ -92,8 +92,8 @@ namespace ProjectGroenBos.Restaurant
 						GridView1.DataBind();
 
 						Session["bestelitems"] = dt;
-						GridView1.FooterRow.Cells[5].Text = "Totale Hoeveelheid";
-						GridView1.FooterRow.Cells[6].Text = grandtotal().ToString();
+						GridView1.FooterRow.Cells[4].Text = "Totale Hoeveelheid";
+						GridView1.FooterRow.Cells[5].Text = grandtotal().ToString();
 						Response.Redirect("bestellingopnemen.aspx");
 					}
 				}
@@ -112,16 +112,16 @@ namespace ProjectGroenBos.Restaurant
 			}
 		}
 
-		public int grandtotal()
+		public double grandtotal()
 		{
 			DataTable dt = new DataTable();
 			dt = (DataTable)Session["bestelitems"];
 			int nrow = dt.Rows.Count;
 			int i = 0;
-			int gtotal = 0;
+			double gtotal = 0;
 			while (i < nrow)
 			{
-				gtotal = gtotal + Convert.ToInt32(dt.Rows[i]["TotalePrijs"].ToString());
+				gtotal = gtotal + Convert.ToDouble(dt.Rows[i]["TotalePrijs"].ToString());
 
 				i = i + 1;
 			}
