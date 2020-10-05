@@ -13,12 +13,11 @@ namespace recreatie.paginas
     public partial class Planning : System.Web.UI.Page
     {
         SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconnectie"].ConnectionString);
-
+        DataTable dt = new DataTable();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                DataTable dt = new DataTable();
                 dt.Columns.AddRange(new DataColumn[1] {new DataColumn("Naam")});
                 //dt.Rows.Add("Yes");
                 ViewState["Medewerker"] = dt;
@@ -60,8 +59,15 @@ namespace recreatie.paginas
             dt.Rows.Add(TxbMedewerker.SelectedValue.Trim());
             ViewState["Medewerker"] = dt;
             this.BindGrid();
+        }
 
-
+        protected void GridView2_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            int index = Convert.ToInt32(e.RowIndex);
+            DataTable dt = (DataTable)ViewState["Medewerker"];
+            dt.Rows[index].Delete();
+            ViewState["Medewerker"] = dt;
+            this.BindGrid();
         }
     }
 }

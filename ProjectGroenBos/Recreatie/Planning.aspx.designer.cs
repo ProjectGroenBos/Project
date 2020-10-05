@@ -132,6 +132,15 @@ namespace recreatie.paginas
         protected global::System.Web.UI.WebControls.TextBox TxbDatum;
 
         /// <summary>
+        /// TxbMedewerker control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList TxbMedewerker;
+
+        /// <summary>
         /// Label7 control.
         /// </summary>
         /// <remarks>
@@ -148,15 +157,6 @@ namespace recreatie.paginas
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TxbBegintijd;
-
-        /// <summary>
-        /// TxbMedewerker control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList TxbMedewerker;
 
         /// <summary>
         /// SqlDataSource4 control.
