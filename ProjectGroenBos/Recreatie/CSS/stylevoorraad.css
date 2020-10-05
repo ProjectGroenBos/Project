@@ -1,28 +1,36 @@
 ﻿.gridviewvoorraad {
-    position:center;
-   margin-top: 100px;
-    margin-left:auto;
-    margin-right:auto;
-}
-.labelvoorraad{
-    position: sticky;
-    float:left;
-    margin-left:100px;
-    margin-bottom:60px;
-    margin-top:60px;
-    
+    position: center;
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.textboxvoorraad{
-    position:sticky;
+.labelvoorraad {
+    position: sticky;
+    float: left;
+    margin-left: 100px;
+    margin-bottom: 60px;
+    margin-top: 60px;
+}
+
+.textboxvoorraad {
+    position: sticky;
     float: left;
     margin-left: 50px;
     margin-bottom: 60px;
-    margin-top:60px;
+    margin-top: 60px;
 }
-.imagevoorraad{
-    float:right;
-    position:sticky;
-    margin-bottom: 30px;
 
+.imagevoorraad {
+    float: right;
+    position: sticky;
+    margin-bottom: 30px;
+}
+
+.labelvoorraadz {
+    float: left;
+    font-size: xx-large;
+    font-family: 'Century Gothic';
+    margin-top: 5px;
+    margin-left: 10px;
 }

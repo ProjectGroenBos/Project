@@ -71,6 +71,8 @@
     <Content Include="Financien\Home.aspx" />
     <Content Include="Financien\Prijstabel.aspx" />
     <Content Include="Recreatie\CSS\styleoverzicht.css" />
+    <Content Include="Recreatie\img\ascArrow.png" />
+    <Content Include="Recreatie\img\descArrow.png" />
     <Content Include="Recreatie\Voorraad.aspx" />
     <Content Include="Recreatie\CSS\Main.css" />
     <Content Include="Recreatie\CSS\style.css" />

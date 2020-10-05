@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
 
 * {
-    margin: 0px 0 38px 0;
+    margin: 0;
     padding: 0;
     box-sizing: border-box;
     list-style: none;
@@ -154,7 +154,6 @@ body {
     border-radius: 5px 5px 0 0;
     overflow: hidden;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-
     margin-left: auto;
     margin-right: auto;
 }
@@ -215,9 +214,9 @@ body {
                 color: #ffffff;
             }
 
-                tr > td:last-of-type {
-                width: 50px;
-                    }
+tr > td:last-of-type {
+    width: 50px;
+}
 
 .eerstetable {
     width: 60%;
@@ -229,32 +228,28 @@ body {
     margin-left: 10%;
 }
 
-        .hideGridColumn {
-            display: none;
-        }
+.hideGridColumn {
+    display: none;
+}
 
+}
 
 .mainpanel {
     width: 70%;
     height: auto;
     min-height: 100px;
-
     margin-left: 5%;
     margin-top: 5%;
-
     display: inline-block;
     vertical-align: top;
 }
 
 .sidepanel {
-    width: 20%; 
-    
+    width: 20%;
     height: auto;
     min-height: 100px;
-    
     display: inline-block;
     vertical-align: top;
-
     margin-top: 5%;
 }
 
@@ -277,11 +272,11 @@ body {
     background-color: orangered;
 }
 
-    .button:active {
-        background-color: ghostwhite;
-        box-shadow: 0 5px #666;
-        transform: translateY(4px);
-    }
+.button:active {
+    background-color: ghostwhite;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
 
 /*Navigator*/
 .navigator {
@@ -308,7 +303,7 @@ nav {
     background: transparent;
     text-align: center;
     float: right;
-    position: sticky;
+    position: fixed;
 }
 
     nav li {
@@ -347,16 +342,16 @@ nav {
             text-decoration: none;
         }
 
-        .uitloggen{
-            color: rgba(14,98,81,1);
-            background-color: #fff;
-            border-radius: 25px;
-        }
+.uitloggen {
+    color: rgba(14,98,81,1);
+    background-color: #fff;
+    border-radius: 25px;
+}
 
-    nav ul {
-        list-style-type: none;
-        overflow: hidden;
-    }
+nav ul {
+    list-style-type: none;
+    overflow: hidden;
+}
 
 
 .btnUitloggen {
@@ -373,9 +368,13 @@ nav {
     border-color: #fff;
 }
 
-.btnUitloggen:hover {
-    background-color: transparent;
-    color: #fff;
-}
+    .btnUitloggen:hover {
+        background-color: transparent;
+        color: #fff;
+    }
 
-/* wekgebied */
+/* werkgebied */
+
+/* Documentatie */
+/* Planning */
+/* Voorraad */

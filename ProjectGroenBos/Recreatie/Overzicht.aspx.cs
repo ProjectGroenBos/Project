@@ -99,7 +99,7 @@ namespace ProjectGroenBos.Recreatie
                 lbldatumNu.Text = "Weekoverzicht";
                 Forward.Enabled = false;
                 backwards.Enabled = false;
-                SqlDataSource1.SelectCommand = string.Format("SELECT datepart (week, dbo.Activiteit.Datum)as Weeknummer, dbo.Activiteit.Naam , dbo.Faciliteit.Omschrijving as Locatie,dbo.Activiteit.Locatie as Specificatie, dbo.Activiteit.Inschrijfkosten, dbo.Activiteit.Datum, dbo.Activiteit.Begintijd, dbo.Activiteit.Eindtijd, dbo.Activiteit.[Maximaal aantal], dbo.Medewerker.Naam as Naam_Medewerker FROM dbo.Activiteit JOIN dbo.Faciliteit on dbo.Activiteit.FaciliteitID = dbo.Faciliteit.ID JOIN dbo.Medewerker on dbo.Activiteit.MedewerkerID = dbo.Medewerker.Nummer WHERE datediff(week, getdate(), dbo.Activiteit.Datum) = 0", dt.ToString("MM/dd/yyyy"));
+                SqlDataSource1.SelectCommand = string.Format("SELECT datepart (week, dbo.Activiteit.Datum)AS  Weeknummer, dbo.Activiteit.Naam , dbo.Faciliteit.Omschrijving AS Locatie,dbo.Activiteit.Locatie AS Specificatie, dbo.Activiteit.Inschrijfkosten, dbo.Activiteit.Datum, dbo.Activiteit.Begintijd, dbo.Activiteit.Eindtijd, dbo.Activiteit.[Maximaal aantal], dbo.Medewerker.Naam as Naam_Medewerker FROM dbo.Activiteit JOIN dbo.Faciliteit on dbo.Activiteit.FaciliteitID = dbo.Faciliteit.ID JOIN dbo.Medewerker on dbo.Activiteit.MedewerkerID = dbo.Medewerker.Nummer WHERE datediff(day, getdate(), dbo.Activiteit.Datum) = 0", dt.ToString("MM/dd/yyyy"));
                 gvActiveiten.DataBind();
             }
         }

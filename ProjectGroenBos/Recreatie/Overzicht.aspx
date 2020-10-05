@@ -14,15 +14,15 @@
 
             <asp:Button ID="Forward" runat="server" CssClass="volgendeknop" OnClick="OnButtonPress" Text="&gt;" />
 
-            <asp:GridView ID="gvActiveiten" runat="server" AutoGenerateColumns="True" DataSourceID="SqlDataSource1" Height="215px" Width="1302px" CssClass="gridviewoverzicht">
+            <asp:GridView ID="gvActiveiten" runat="server" DataSourceID="SqlDataSource1" Height="215px" Width="1302px" CssClass="gridviewoverzicht">
                 <EmptyDataTemplate>
-                    <div align="center>Er zijn geen activiteiten op deze dag gepland.</div>
+                    <div>Er zijn geen activiteiten op deze dag gepland.</div>
                 </EmptyDataTemplate>
             </asp:GridView>
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="select datepart (week, dbo.Activiteit.Datum)as Weeknummer, dbo.Activiteit.Naam , dbo.Faciliteit.Omschrijving as Locatie,dbo.Activiteit.Locatie as Specificatie, dbo.Activiteit.Inschrijfkosten,
- dbo.Activiteit.Datum, dbo.Activiteit.Begintijd, dbo.Activiteit.Eindtijd, dbo.Activiteit.[Maximaal aantal]
- 
- from dbo.Activiteit
- join dbo.Faciliteit on dbo.Activiteit.FaciliteitID = dbo.Faciliteit.ID
- where datediff(week, getdate(),dbo.Activiteit.Datum) = 0"></asp:SqlDataSource></div>
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:2020-BIM02-P1-P2-GroenbosConnectionString %>" SelectCommand="SELECT datepart (week, dbo.Activiteit.Datum)AS  Weeknummer, dbo.Activiteit.Naam , dbo.Faciliteit.Omschrijving AS Locatie,dbo.Activiteit.Locatie AS Specificatie, dbo.Activiteit.Inschrijfkosten,
+ dbo.Activiteit.Datum, dbo.Activiteit.Begintijd, dbo.Activiteit.Eindtijd, dbo.Activiteit.[Maximaal aantal], dbo.Medewerker.Naam as Naam_Medewerker
+ FROM dbo.Activiteit
+ JOIN dbo.Faciliteit on dbo.Activiteit.FaciliteitID = dbo.Faciliteit.ID
+ JOIN dbo.Medewerker on dbo.Activiteit.MedewerkerID = dbo.Medewerker.Nummer
+ WHERE datediff(day, getdate(),dbo.Activiteit.Datum) = 0"></asp:SqlDataSource>
 </asp:content>

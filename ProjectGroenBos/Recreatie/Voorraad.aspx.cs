@@ -21,8 +21,13 @@ namespace recreatie.paginas
                 InvullenGridview();
             }
         }
+        private string SortDirection
+        {
+            get { return ViewState["SortDirection"] != null ? ViewState["SortDirection"].ToString() : "ASC"; }
+            set { ViewState["SortDirection"] = value; }
+        }
 
-        void InvullenGridview()
+        void InvullenGridview(string sortExpression = null)
         {
             DataTable dtbl = new DataTable();
             using (SqlConnection sqlCon = new SqlConnection(ProjectGroenBos.Recreatie.Helper.HelperClass.DatabaseConnectieString))
@@ -34,8 +39,19 @@ namespace recreatie.paginas
             }
             if (dtbl.Rows.Count > 0)
             {
+                if (sortExpression != null)
+                {
+                    DataView dv = dtbl.AsDataView();
+                    this.SortDirection = this.SortDirection == "ASC" ? "DESC" : "ASC";
 
-                gvVoorraad.DataSource = dtbl;
+                    dv.Sort = sortExpression + " " + this.SortDirection;
+                    gvVoorraad.DataSource = dv;
+                }
+                else
+                {
+                    gvVoorraad.DataSource = dtbl;
+                }
+               
                 gvVoorraad.DataBind();
             }
 
@@ -91,6 +107,11 @@ namespace recreatie.paginas
             gvVoorraad.DataSource = dv.ToTable();
             gvVoorraad.DataBind();
 
+        }
+
+        protected void OnSorting(object sender, GridViewSortEventArgs e)
+        {
+            InvullenGridview(e.SortExpression);
         }
     }
 }
