@@ -48,6 +48,14 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud
 
                     cmd.ExecuteNonQuery();
                     con.Close();
+
+                    txtStart.Text = "";
+                    txtEind.Text = "";
+                    txtKosten.Text = "";
+                    txtBungalownummer.Text = "";
+                    txtOnderhoudsstatus.Text = "";
+                    txtOnderhoudstype.Text = "";
+                    txtConstatering.Text = "";
                 }
             }
 

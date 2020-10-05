@@ -23,19 +23,20 @@
           </div>
 
  <div class="col-xs-3">
-    Naam Medewerker:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <asp:TextBox ID="naamTxtbox" runat="server" Width="174px"></asp:TextBox>
     <br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <br />
+    </div>
+        <br />
+
+<div id="divZoek" runat="server" class="col-xs-6">
+        Naam Medewerker:
+    <asp:TextBox ID="naamTxtbox" runat="server" Width="174px"></asp:TextBox>
+    &nbsp;<br />
+        <br />
     <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True">
         <asp:ListItem>Startdatum</asp:ListItem>
         <asp:ListItem>Bungalownummer</asp:ListItem>
     </asp:DropDownList>
-</div>
-        <br />
-
-<div id="divZoek" runat="server" class="col-xs-6">
      &nbsp;<asp:TextBox ID="searchBox" runat="server" CssClass="form-control" TextMode="SingleLine" CausesValidation="True" Width="185px"></asp:TextBox>
      <asp:Button ID="btnZoek" runat="server" BackColor="#7FB241" BorderColor="#7FB241" Height="26px" OnClick="btnZoek_Click" Text="Zoek" />
 </div>
