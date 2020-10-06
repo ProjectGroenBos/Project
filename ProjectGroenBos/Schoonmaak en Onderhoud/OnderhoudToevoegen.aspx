@@ -101,6 +101,9 @@
 
                           <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txtOnderhoudsstatus" ErrorMessage="Vul in" ForeColor="Red"></asp:RequiredFieldValidator>
 
+                     &nbsp;&nbsp;&nbsp;
+                          <asp:RegularExpressionValidator ID="RegularExpressionValidator6" runat="server" ControlToValidate="txtOnderhoudsstatus" ErrorMessage="Alleen Letters" ForeColor="Red" ValidationExpression="^[A-Za-z]+$"></asp:RegularExpressionValidator>
+
                      </td>
                 </tr>
                  <tr>
@@ -111,6 +114,9 @@
                      <td style="width: 415px">
 
                          <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="txtOnderhoudstype" ErrorMessage="Vul in" ForeColor="Red"></asp:RequiredFieldValidator>
+
+                     &nbsp;&nbsp;&nbsp;
+                         <asp:RegularExpressionValidator ID="RegularExpressionValidator7" runat="server" ControlToValidate="txtOnderhoudstype" ErrorMessage="Alleen Letters" ForeColor="Red" ValidationExpression="^[A-Za-z]+$"></asp:RegularExpressionValidator>
 
                      </td>
                 </tr>
