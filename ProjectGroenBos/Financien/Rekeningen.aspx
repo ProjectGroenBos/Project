@@ -132,7 +132,7 @@
                                     </div>
                                     <hr />
                                     <br />
-                                    <asp:GridView ID="gvFactuurrekening" Width="60%" runat="server" CssClass="content-table" Gridlines="None"  AutoGenerateColumns="False" Style="text-align: center;" runat="server" DataSourceID="SqlDataSource1">
+                                    <asp:GridView ID="gvFactuurrekening" runat="server" CssClass="content-table" Gridlines="None"  AutoGenerateColumns="False" Style="text-align: center; margin-left: auto; margin-right: auto;" DataSourceID="SqlDataSource1">
                                         <Columns>
                                             <asp:BoundField DataField="Naam" HeaderText="Omschrijving" ReadOnly="True" SortExpression="Naam" />
                                             <asp:BoundField DataField="Prijs" HeaderText="Prijs" ReadOnly="True" SortExpression="Prijs" DataFormatString="{0:C}" />

@@ -17,8 +17,6 @@ namespace ProjectGroenBos.Financien
 {
     public partial class WebForm4 : System.Web.UI.Page
     {
-        int NUmmer = 10;
-        object TeklifId = 2;
         string constr = System.Configuration.ConfigurationManager.ConnectionStrings["dbconnectie"].ConnectionString;
 
         protected void Page_Load(object sender, EventArgs e)
@@ -96,12 +94,12 @@ namespace ProjectGroenBos.Financien
             sbEmailBody.Append("<br/>");
             sbEmailBody.Append("Noorderpark 12, 6755 VB Aalterveld");
             sbEmailBody.Append("<br/>");
-            sbEmailBody.Append("<img src='https://cdn.discordapp.com/attachments/749932863847137304/762614070687825950/Logo3.png' style='width: 100px; height: 150px; '>");
+            sbEmailBody.Append("<img src='https://cdn.discordapp.com/attachments/749932863847137304/762614070687825950/Logo3.png' width='150' height='150' >");
 
             mailMessage.IsBodyHtml = true;
             //body naar email tekst
             mailMessage.Body = sbEmailBody.ToString();
-            mailMessage.Subject = "Factuur " + nummer;
+            mailMessage.Subject = "Rekeningen Factuur " + nummer;
             SmtpClient smtpClient = new SmtpClient("smtp.live.com", 587);
 
             //email login
