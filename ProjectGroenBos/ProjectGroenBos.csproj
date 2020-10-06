@@ -91,6 +91,12 @@
     <Content Include="Recreatie\Planning.aspx" />
     <Content Include="Recreatie\Uitloggen.aspx" />
     <Content Include="Recreatie\Voorraadfout.aspx" />
+    <Content Include="Reservering\home.aspx" />
+    <Content Include="Reservering\Huisjemedewerker.aspx" />
+    <Content Include="Reservering\ReserveringenMedewerkerGegevens.aspx" />
+    <Content Include="Reservering\ReserveringenMedewerkerGelukt.aspx" />
+    <Content Include="Reservering\ReserveringMedewerkerNachtregister.aspx" />
+    <Content Include="Reservering\test.aspx" />
     <Content Include="Schoonmaak en Onderhoud\InventarisOverzicht.aspx" />
     <Content Include="Schoonmaak en Onderhoud\OffertesOverzicht.aspx" />
     <Content Include="Schoonmaak en Onderhoud\OnderhoudsOverzicht.aspx" />
@@ -178,6 +184,55 @@
     <Compile Include="Recreatie\Voorraadfout.aspx.designer.cs">
       <DependentUpon>Voorraadfout.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Reservering\home.aspx.cs">
+      <DependentUpon>home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reservering\home.aspx.designer.cs">
+      <DependentUpon>home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reservering\Huisjemedewerker.aspx.cs">
+      <DependentUpon>Huisjemedewerker.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reservering\Huisjemedewerker.aspx.designer.cs">
+      <DependentUpon>Huisjemedewerker.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reservering\ReserveringenMedewerkerGegevens.aspx.cs">
+      <DependentUpon>ReserveringenMedewerkerGegevens.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reservering\ReserveringenMedewerkerGegevens.aspx.designer.cs">
+      <DependentUpon>ReserveringenMedewerkerGegevens.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reservering\ReserveringenMedewerkerGelukt.aspx.cs">
+      <DependentUpon>ReserveringenMedewerkerGelukt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reservering\ReserveringenMedewerkerGelukt.aspx.designer.cs">
+      <DependentUpon>ReserveringenMedewerkerGelukt.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reservering\ReserveringMedewerkerNachtregister.aspx.cs">
+      <DependentUpon>ReserveringMedewerkerNachtregister.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reservering\ReserveringMedewerkerNachtregister.aspx.designer.cs">
+      <DependentUpon>ReserveringMedewerkerNachtregister.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reservering\Site1.Master.cs">
+      <DependentUpon>Site1.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reservering\Site1.Master.designer.cs">
+      <DependentUpon>Site1.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Reservering\test.aspx.cs">
+      <DependentUpon>test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reservering\test.aspx.designer.cs">
+      <DependentUpon>test.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Schoonmaak en Onderhoud\InventarisOverzicht.aspx.cs">
       <DependentUpon>InventarisOverzicht.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -226,6 +281,7 @@
     <None Include="packages.config" />
     <Content Include="Site.Master" />
     <Content Include="Recreatie\Site1.Master" />
+    <Content Include="Reservering\Site1.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
