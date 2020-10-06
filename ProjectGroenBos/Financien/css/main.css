@@ -1,4 +1,4 @@
-﻿@import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
 
 * {
     margin: 0;
@@ -215,10 +215,6 @@ body {
                 color: #ffffff;
             }
 
-                tr > td:last-of-type {
-                width: 50px;
-                    }
-
 .eerstetable {
     width: 60%;
     margin-left: auto;
@@ -377,4 +373,32 @@ nav {
 .btnUitloggen:hover {
     background-color: transparent;
     color: #fff;
+}
+
+.inline-flex {
+    display: flex;
+    justify-content: center;
+}
+
+.inline-flex > div {
+    text-align: center;
+}
+
+.logofactuur {
+    display: none;
+}
+
+.footerfactuur {
+    display: none;
+}
+
+.modal-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.inline-flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
 }
