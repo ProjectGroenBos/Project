@@ -29,16 +29,21 @@
         <br />
 
 <div id="divZoek" runat="server" class="col-xs-6">
-        Naam Medewerker:
-    <asp:TextBox ID="naamTxtbox" runat="server" Width="174px"></asp:TextBox>
+        <asp:Label ID="lblNM" runat="server" Text="Naam Medewerker:"></asp:Label>
+&nbsp;<asp:TextBox ID="naamTxtbox" runat="server" Width="174px"></asp:TextBox>
     &nbsp;<br />
         <br />
-    <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True">
+        <asp:Button ID="btnAndersZoeken" runat="server" BackColor="#7FB241" BorderColor="#7FB241" Height="26px" OnClick="btnAndersZoeken_Click1" Text="Anders Zoeken" Width="160px" />
+&nbsp;
+     <asp:Button ID="btnZoek" runat="server" BackColor="#7FB241" BorderColor="#7FB241" Height="26px" OnClick="btnZoek_Click" Text="Zoek" Width="68px" />
+        <br />
+        <br />
+    <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" Visible="False">
         <asp:ListItem>Startdatum</asp:ListItem>
         <asp:ListItem>Bungalownummer</asp:ListItem>
     </asp:DropDownList>
-     &nbsp;<asp:TextBox ID="searchBox" runat="server" CssClass="form-control" TextMode="SingleLine" CausesValidation="True" Width="185px"></asp:TextBox>
-     <asp:Button ID="btnZoek" runat="server" BackColor="#7FB241" BorderColor="#7FB241" Height="26px" OnClick="btnZoek_Click" Text="Zoek" />
+     &nbsp;<asp:TextBox ID="searchBox" runat="server" CssClass="form-control" TextMode="SingleLine" CausesValidation="True" Width="185px" Visible="False"></asp:TextBox>
+     &nbsp;&nbsp;
 </div>
 <div class="col-xs-3" style="margin-left:auto; margin-right:auto;">
    <label for="ex3" style="color:rgba(0, 0, 0, 0)"></label>

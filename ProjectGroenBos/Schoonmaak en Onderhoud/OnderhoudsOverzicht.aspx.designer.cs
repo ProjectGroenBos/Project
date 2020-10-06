@@ -31,6 +31,15 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divZoek;
         
         /// <summary>
+        /// lblNM control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNM;
+        
+        /// <summary>
         /// naamTxtbox control.
         /// </summary>
         /// <remarks>
@@ -38,6 +47,24 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox naamTxtbox;
+        
+        /// <summary>
+        /// btnAndersZoeken control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAndersZoeken;
+        
+        /// <summary>
+        /// btnZoek control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnZoek;
         
         /// <summary>
         /// DropDownList1 control.
@@ -56,15 +83,6 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox searchBox;
-        
-        /// <summary>
-        /// btnZoek control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnZoek;
         
         /// <summary>
         /// SqlDataSource1 control.

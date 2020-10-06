@@ -131,6 +131,14 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud
         {
             Response.Redirect("OnderhoudToevoegen.aspx");
         }
+
+        protected void btnAndersZoeken_Click1(object sender, EventArgs e)
+        {
+            lblNM.Visible = false;
+            naamTxtbox.Visible = false;
+            DropDownList1.Visible = true;
+            searchBox.Visible = true;
+        }
     }
 
 
