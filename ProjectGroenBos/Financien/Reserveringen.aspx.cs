@@ -84,7 +84,7 @@ namespace ProjectGroenBos.Financien
             sbEmailBody.Append("<br/><br/>");
             sbEmailBody.Append("<h4>Te betalen bedrag: " + totaal + "</h4>");
             sbEmailBody.Append("<br/><br/>");
-            sbEmailBody.Append("Wij verzoeken u vriendelijk het bedrag van " + totaal + " voor aanvang van uw bezoek over te maken naar rekeningnummer NL32 RABO 0220.96.13.200 onder vermelding van reserveringsnummer " + nummer);
+            sbEmailBody.Append("Wij verzoeken u vriendelijk het bedrag van " + totaal + " euro voor aanvang van uw bezoek over te maken naar rekeningnummer NL32 RABO 0220.96.13.200 onder vermelding van reserveringsnummer " + nummer + ".");
             sbEmailBody.Append("<br/><br/>");
             sbEmailBody.Append("Wij hopen u hierbij voldoende geïnformeerd te hebben. Als u vragen heeft kunt u deze email beantwoorden.");
             sbEmailBody.Append("<br/><br/>");
