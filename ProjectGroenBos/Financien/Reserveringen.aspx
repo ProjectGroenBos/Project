@@ -38,7 +38,19 @@
             }
         }
     </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script>
+        function emailsuccess() {
+            Swal.fire({
+                icon: 'success',
+                title: 'De email is verstuurd naar de klant.',
+                showConfirmButton: false,
+                timer: 4000
+            })
+        }
+
+
         function printDiv(divName) {
             var printContents = document.getElementById(divName).innerHTML;
             var originalContents = document.body.innerHTML;
@@ -49,6 +61,8 @@
 
             document.body.innerHTML = originalContents;
         }
+
+
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -120,7 +134,7 @@
                                 </div>
                                 <hr />
                                 <br />
-                                <asp:GridView ID="gvFactuurreservering" CssClass="content-table" GridLines="None" AutoGenerateColumns="False" Style="text-align: center;" runat="server" DataSourceID="SqlDataSource7">
+                                <asp:GridView ID="gvFactuurreservering" CssClass="content-table" GridLines="None" AutoGenerateColumns="False" Style="text-align: center; margin-left: auto; margin-right: auto;" runat="server" DataSourceID="SqlDataSource7">
                                     <Columns>
                                         <asp:BoundField DataField="Naam" HeaderText="Item" ReadOnly="True" SortExpression="Naam" />
                                         <asp:BoundField DataField="Periode" HeaderText="Periode" ReadOnly="True" SortExpression="Periode" />
@@ -129,6 +143,16 @@
                                         <asp:BoundField DataField="Aantal" HeaderText="Aantal" ReadOnly="True" SortExpression="Aantal" />
                                         <asp:BoundField DataField="Totaal" HeaderText="Totaal" ReadOnly="True" SortExpression="Totaal" DataFormatString="{0:C}" HeaderStyle-Width="100px" />
                                     </Columns>
+                                    <EditRowStyle BackColor="#009879" ForeColor="White" />
+                                    <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                                    <HeaderStyle BackColor="#009879" Font-Bold="True" ForeColor="White" />
+                                    <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                                    <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                                    <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                                    <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                                    <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                                    <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                                    <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                                 </asp:GridView>
 
                                 <table class="content-table" style="min-width: 656px; margin-top: -25px">
@@ -144,6 +168,12 @@
 
                                 <asp:HiddenField ID="Nummer" runat="server"
                                     Value='<%# Eval("Nummer") %>' />
+                                <asp:HiddenField ID="Totaalbedrag" runat="server"
+                                    Value='<%# Eval("Totaalbedrag") %>' />
+                                <asp:HiddenField ID="Naamgast" runat="server"
+                                    Value='<%# Eval("Naam") %>' />
+                                <asp:HiddenField ID="Emailgast" runat="server"
+                                    Value='<%# Eval("Email") %>' />
 
                                 <asp:SqlDataSource ID="SqlDataSource7" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="select ('Bungalow Type ' + Code) AS 'Naam', Prijs, Naam AS 'Periode',  Seizoen, 1 AS 'Aantal', Prijs AS 'Totaal' from ReserveringHuis where Nummer = @Nummer
                                 union
@@ -188,7 +218,7 @@
 
                             <input type="button" style="max-width: 80%; margin-left: auto; margin-right: auto;" class="btn btn-primary btn-lg btn-block" onclick="printDiv('printModal<%# Eval("Nummer") %>')" value="Print Factuur" />
 
-                            <asp:Button ID="btnExport" Style="max-width: 80%; margin-left: auto; margin-right: auto;" class="btn btn-primary btn-lg btn-block" runat="server" Text="Email naar klant" OnClick="btnExport_Click" />
+                            <asp:Button ID="btnExport" Style="max-width: 80%; margin-left: auto; margin-right: auto;" class="btn btn-primary btn-lg btn-block" CommandName="<%# Container.ItemIndex %>" runat="server" Text="Email naar klant" OnClick="btnExport_Click" />
                         </div>
 
                         <div class="modal-footer">
