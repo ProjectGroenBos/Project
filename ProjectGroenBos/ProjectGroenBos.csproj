@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Financien\css\main.css" />
+    <Content Include="Financien\Home.aspx" />
     <Content Include="Financien\Overzicht.aspx" />
     <Content Include="Financien\Personeeloverzicht.aspx" />
     <Content Include="Financien\Prijstabel.aspx" />
@@ -110,6 +111,13 @@
     </Compile>
     <Compile Include="Financien\Financien.Master.designer.cs">
       <DependentUpon>Financien.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Financien\Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Financien\Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
     <Compile Include="Financien\Overzicht.aspx.cs">
       <DependentUpon>Overzicht.aspx</DependentUpon>
