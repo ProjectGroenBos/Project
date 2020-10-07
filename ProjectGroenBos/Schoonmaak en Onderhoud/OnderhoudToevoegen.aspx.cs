@@ -21,17 +21,17 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud
         protected void btnToevoegen_Click1(object sender, EventArgs e)
         {
             String nummer = DropDownList1.SelectedValue.ToString();
+            String status = DropDownList2.SelectedValue.ToString();
+            String type = DropDownList3.SelectedValue.ToString();
             RequiredFieldValidator1.Validate();
             RequiredFieldValidator2.Validate();
             RequiredFieldValidator3.Validate();
             RequiredFieldValidator4.Validate();
-            RequiredFieldValidator5.Validate();
-            RequiredFieldValidator6.Validate();
             RequiredFieldValidator7.Validate();
 
-            if (RequiredFieldValidator1.IsValid && RequiredFieldValidator2.IsValid && RequiredFieldValidator3.IsValid && RequiredFieldValidator4.IsValid && RequiredFieldValidator5.IsValid && RequiredFieldValidator6.IsValid && RequiredFieldValidator7.IsValid)
+            if (RequiredFieldValidator1.IsValid && RequiredFieldValidator2.IsValid && RequiredFieldValidator3.IsValid && RequiredFieldValidator4.IsValid && RequiredFieldValidator7.IsValid)
             {
-                if (RegularExpressionValidator1.IsValid && RegularExpressionValidator2.IsValid && RegularExpressionValidator3.IsValid && RegularExpressionValidator4.IsValid && RegularExpressionValidator5.IsValid && RangeValidator1.IsValid && CompareValidator1.IsValid && RegularExpressionValidator6.IsValid && RegularExpressionValidator7.IsValid)
+                if (RegularExpressionValidator1.IsValid && RegularExpressionValidator2.IsValid && RegularExpressionValidator3.IsValid && RegularExpressionValidator4.IsValid && RegularExpressionValidator5.IsValid && RangeValidator1.IsValid && CompareValidator1.IsValid)
                 {
                     con.Open();
                     SqlCommand cmd = new SqlCommand("INSERT INTO  [dbo].[Onderhoudsopdracht] (Startdatum,VerwachteEinddatum,Kosten,BungalowNummer,OnderhoudsstatusID,Onderhoudtype,DatumvanConstatering,MedewerkerNummer)    values(@startdatum, @verwachteeinddatum, @kosten, @bungalownummer, @onderhoudsstatusID, @onderhoudtype, @datumvanconstatering, @medewerkernummer)", con);
@@ -40,8 +40,8 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud
                     cmd.Parameters.AddWithValue("@verwachteeinddatum", txtEind.Text);
                     cmd.Parameters.AddWithValue("@kosten", txtKosten.Text);
                     cmd.Parameters.AddWithValue("@bungalownummer", int.Parse(txtBungalownummer.Text));
-                    cmd.Parameters.AddWithValue("@onderhoudsstatusID", txtOnderhoudsstatus.Text);
-                    cmd.Parameters.AddWithValue("@onderhoudtype", txtOnderhoudstype.Text);
+                    cmd.Parameters.AddWithValue("@onderhoudsstatusID", status);
+                    cmd.Parameters.AddWithValue("@onderhoudtype", type);
                     cmd.Parameters.AddWithValue("@datumvanconstatering", txtConstatering.Text);
                     cmd.Parameters.AddWithValue("@medewerkernummer", int.Parse(nummer));
 
@@ -53,9 +53,9 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud
                     txtEind.Text = "";
                     txtKosten.Text = "";
                     txtBungalownummer.Text = "";
-                    txtOnderhoudsstatus.Text = "";
-                    txtOnderhoudstype.Text = "";
                     txtConstatering.Text = "";
+
+                    Response.Redirect("OnderhoudsOverzicht.aspx");
                 }
             }
 

@@ -1,15 +1,22 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="InventarisOverzicht.aspx.cs" Inherits="ProjectGroenBos.Schoonmaak_en_Onderhoud.InventarisOverzicht" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="Schoonmaak.Master" CodeBehind="InventarisOverzicht.aspx.cs" Inherits="ProjectGroenBos.Schoonmaak_en_Onderhoud.InventarisOverzicht" %>
+<asp:Content ID="InventarisOverzicht" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-<!DOCTYPE html>
+            <br />
+    <br />
+        <br />
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-        <div>
+<div class="form-row" style="text-align:center;">
+    <h1 class="text-primary">Overzicht Inventaris</h1>
+    <br />
+    <div class="row col-sm-12">
+       <div class="col-sm-12" style="text-align:center;">
+           <br />
+           <br />
+           <hr />
+          </div>
+
+        <br />
         </div>
-    </form>
-</body>
-</html>
+    </div>
+
+</asp:Content>

@@ -24,10 +24,14 @@
                 <ul>
                     <li><a href="InventarisOverzicht.aspx">Inventaris Overzicht</a></li>
                     <li><a href="OffertesOverzicht.aspx">Offerte Overzicht</a></li>
-                    <li><a href="OnderhoudsOverzicht.aspx">Onderhoud Overzicht</a></li>
+                    <li><a href="OnderhoudsOverzicht.aspx"><i class="fas fa-user"></i>Onderhoud Overzicht</a>
+                                <ul class="submenu">
+                                <li><a href="OnderhoudToevoegen.aspx">- Onderhoud Toevoegen</a></li>
+                                </ul>
                     <li><a href="PlanningsOverzicht.aspx">Planning Overzicht</a></li>
                     <li><a href="SchouwingsOverzicht.aspx">Schouwing Overzicht</a></li>
                 </ul>
+                
                 <div class="terug">
                     <a href="#">&#8249; Terug naar home</a>
                 </div>

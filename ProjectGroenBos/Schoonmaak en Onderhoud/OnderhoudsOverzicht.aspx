@@ -1,18 +1,12 @@
 ﻿<%@ Page Title="Overzicht Onderhoud" Language="C#" AutoEventWireup="true"  MasterPageFile="Schoonmaak.Master" CodeBehind="OnderhoudsOverzicht.aspx.cs" Inherits="ProjectGroenBos.Schoonmaak_en_Onderhoud.OnderhoudsOverzicht" %>
 <asp:Content ID="OnderhoudsOverzicht" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-
-
-    <br />
-    <br />
-    <br />
     <br />
     <br />
         <br />
 
 <div class="form-row" style="text-align:center;">
-    <h1 class="text-primary"> Overzicht Onderhoud</h1>
-    <p class="text-primary"></p>
+    <h1 class="text-primary">Overzicht Onderhoud</h1>
     <br />
     <div class="row col-sm-12">
        <div class="col-sm-12" style="text-align:center;">
@@ -22,19 +16,18 @@
            <hr />
           </div>
 
- <div class="col-xs-3">
-    <br />
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    </div>
         <br />
 
 <div id="divZoek" runat="server" class="col-xs-6">
         <asp:Label ID="lblNM" runat="server" Text="Naam Medewerker:"></asp:Label>
-&nbsp;<asp:TextBox ID="naamTxtbox" runat="server" Width="174px"></asp:TextBox>
-    &nbsp;<br />
+&nbsp;
+<asp:TextBox ID="naamTxtbox" runat="server" Width="174px"></asp:TextBox>
+   <br />
         <br />
         <asp:Button ID="btnAndersZoeken" runat="server" BackColor="#0E6251" BorderColor="#0E6251" Height="26px" OnClick="btnAndersZoeken_Click1" Text="Anders Zoeken" Width="160px" ForeColor="White" />
-&nbsp;
+
+     &nbsp;
+
      <asp:Button ID="btnZoek" runat="server" BackColor="#0E6251" BorderColor="#0E6251" Height="26px" OnClick="btnZoek_Click" Text="Zoek" Width="68px" ForeColor="White" />
         <br />
         <br />
@@ -42,8 +35,9 @@
         <asp:ListItem>Startdatum</asp:ListItem>
         <asp:ListItem>Bungalownummer</asp:ListItem>
     </asp:DropDownList>
-     &nbsp;<asp:TextBox ID="searchBox" runat="server" CssClass="form-control" TextMode="SingleLine" CausesValidation="True" Width="185px" Visible="False"></asp:TextBox>
-     &nbsp;&nbsp;
+   &nbsp;
+   <asp:TextBox ID="searchBox" runat="server" CssClass="form-control" TextMode="SingleLine" CausesValidation="True" Width="185px" Visible="False"></asp:TextBox>
+   
 </div>
 <div class="col-xs-3" style="margin-left:auto; margin-right:auto;">
    <label for="ex3" style="color:rgba(0, 0, 0, 0)"></label>
