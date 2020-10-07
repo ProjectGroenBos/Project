@@ -16,7 +16,7 @@
     <br />
     <div class="row col-sm-12">
        <div class="col-sm-12" style="text-align:center;">
-          <asp:Button ID="Button2" runat="server" Text="Onderhoud Toevoegen" BackColor="#7FB241" OnClick="Button2_Click" Width="218px" BorderColor="#7FB241"/>
+          <asp:Button ID="Button2" runat="server" Text="Onderhoud Toevoegen" BackColor="#0E6251" OnClick="Button2_Click" Width="218px" BorderColor="#0E6251" ForeColor="White"/>
            <br />
            <br />
            <hr />
@@ -33,9 +33,9 @@
 &nbsp;<asp:TextBox ID="naamTxtbox" runat="server" Width="174px"></asp:TextBox>
     &nbsp;<br />
         <br />
-        <asp:Button ID="btnAndersZoeken" runat="server" BackColor="#7FB241" BorderColor="#7FB241" Height="26px" OnClick="btnAndersZoeken_Click1" Text="Anders Zoeken" Width="160px" />
+        <asp:Button ID="btnAndersZoeken" runat="server" BackColor="#0E6251" BorderColor="#0E6251" Height="26px" OnClick="btnAndersZoeken_Click1" Text="Anders Zoeken" Width="160px" ForeColor="White" />
 &nbsp;
-     <asp:Button ID="btnZoek" runat="server" BackColor="#7FB241" BorderColor="#7FB241" Height="26px" OnClick="btnZoek_Click" Text="Zoek" Width="68px" />
+     <asp:Button ID="btnZoek" runat="server" BackColor="#0E6251" BorderColor="#0E6251" Height="26px" OnClick="btnZoek_Click" Text="Zoek" Width="68px" ForeColor="White" />
         <br />
         <br />
     <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" Visible="False">
@@ -50,7 +50,7 @@
     <br />
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:con %>" SelectCommand="select Onderhoudsopdracht.Nummer, Medewerker.Naam, Startdatum, VerwachteEinddatum, Kosten, BungalowNummer, OnderhoudsstatusID, Onderhoudtype, DatumvanConstatering  from Onderhoudsopdracht left join Medewerker on Medewerker.Nummer = Onderhoudsopdracht.MedewerkerNummer" DeleteCommand="delete from Onderhoudsopdracht where nummer = @nummer"></asp:SqlDataSource>
     <center>
-    <asp:GridView ID="OverzichtGrid" runat="server" AutoGenerateColumns="False" BackColor="White" Width="80%" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="5" DataKeyNames="Nummer" DataSourceID="SqlDataSource1" ForeColor="White" GridLines="Vertical" >
+    <asp:GridView ID="OverzichtGrid" runat="server" AutoGenerateColumns="False" BackColor="White" Width="80%" BorderColor="#0E6251" BorderStyle="Solid" BorderWidth="1px" CellPadding="5" DataKeyNames="Nummer" DataSourceID="SqlDataSource1" ForeColor="Black" GridLines="Vertical" >
         <AlternatingRowStyle BackColor="#f0f0f0" />
         <Columns>
             <asp:BoundField DataField="Nummer" HeaderText="Nummer" InsertVisible="False" ReadOnly="True" SortExpression="Nummer" />
@@ -65,9 +65,9 @@
             <asp:CommandField ButtonType="Image" DeleteImageUrl="~/Images/deleteRow.png" ShowDeleteButton="True" />
         </Columns>
         <FooterStyle BackColor="#CCCCCC" />
-        <HeaderStyle BackColor="#7FB241" Font-Bold="True" ForeColor="White" />
+        <HeaderStyle BackColor="#0E6251" Font-Bold="True" ForeColor="White" />
         <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
-        <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="White" />
+        <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="Black" />
         <SortedAscendingCellStyle BackColor="#F1F1F1" />
         <SortedAscendingHeaderStyle BackColor="#808080" />
         <SortedDescendingCellStyle BackColor="#CAC9C9" />
@@ -75,7 +75,7 @@
     </asp:GridView>
         </center>
     <center>
-    <asp:GridView ID="datumGrid" runat="server" AutoGenerateColumns="False" BackColor="White" Width="80%" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="5" DataKeyNames="Nummer" DataSourceID="SqlDataSource2" ForeColor="White" GridLines="Vertical">
+    <asp:GridView ID="datumGrid" runat="server" AutoGenerateColumns="False" BackColor="White" Width="80%" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="5" DataKeyNames="Nummer" DataSourceID="SqlDataSource2" ForeColor="Black" GridLines="Vertical">
         <AlternatingRowStyle BackColor="#f0f0f0" />
         <Columns>
             <asp:BoundField DataField="Nummer" HeaderText="Nummer" InsertVisible="False" ReadOnly="True" SortExpression="Nummer" />
@@ -90,9 +90,9 @@
             <asp:CommandField ButtonType="Image" DeleteImageUrl="~/Images/deleteRow.png" ShowDeleteButton="True" />
         </Columns>
         <FooterStyle BackColor="#CCCCCC" />
-        <HeaderStyle BackColor="#7FB241" Font-Bold="True" ForeColor="White" />
+        <HeaderStyle BackColor="#0E6251" Font-Bold="True" ForeColor="White" />
         <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
-        <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="White" />
+        <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="Black" />
         <SortedAscendingCellStyle BackColor="#F1F1F1" />
         <SortedAscendingHeaderStyle BackColor="#808080" />
         <SortedDescendingCellStyle BackColor="#CAC9C9" />
@@ -105,7 +105,7 @@
         </SelectParameters>
     </asp:SqlDataSource>
     <center>
-    <asp:GridView ID="bungalowGrid" runat="server" AutoGenerateColumns="False" BackColor="White" Width="80%" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="5" DataKeyNames="Nummer" DataSourceID="SqlDataSource3" ForeColor="White" GridLines="Vertical">
+    <asp:GridView ID="bungalowGrid" runat="server" AutoGenerateColumns="False" BackColor="White" Width="80%" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="5" DataKeyNames="Nummer" DataSourceID="SqlDataSource3" ForeColor="Black" GridLines="Vertical">
         <AlternatingRowStyle BackColor="#f0f0f0" />
         <Columns>
             <asp:BoundField DataField="Nummer" HeaderText="Nummer" InsertVisible="False" ReadOnly="True" SortExpression="Nummer" />
@@ -120,9 +120,9 @@
             <asp:CommandField ButtonType="Image" DeleteImageUrl="~/Images/deleteRow.png" ShowDeleteButton="True" />
         </Columns>
         <FooterStyle BackColor="#CCCCCC" />
-        <HeaderStyle BackColor="#7FB241" Font-Bold="True" ForeColor="White" />
+        <HeaderStyle BackColor="#0E6251" Font-Bold="True" ForeColor="White" />
         <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
-        <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="White" />
+        <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="Black" />
         <SortedAscendingCellStyle BackColor="#F1F1F1" />
         <SortedAscendingHeaderStyle BackColor="#808080" />
         <SortedDescendingCellStyle BackColor="#CAC9C9" />
@@ -135,7 +135,7 @@
         </SelectParameters>
     </asp:SqlDataSource>
     <center>
-    <asp:GridView ID="naamGrid" runat="server" AutoGenerateColumns="False" BackColor="White" Width="80%" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="5" DataKeyNames="Nummer" DataSourceID="SqlDataSource4" ForeColor="White" GridLines="Vertical">
+    <asp:GridView ID="naamGrid" runat="server" AutoGenerateColumns="False" BackColor="White" Width="80%" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="5" DataKeyNames="Nummer" DataSourceID="SqlDataSource4" ForeColor="Black" GridLines="Vertical">
         <AlternatingRowStyle BackColor="#f0f0f0" />
         <Columns>
             <asp:BoundField DataField="Nummer" HeaderText="Nummer" InsertVisible="False" ReadOnly="True" SortExpression="Nummer" />
@@ -150,9 +150,9 @@
             <asp:CommandField ButtonType="Image" DeleteImageUrl="~/Images/deleteRow.png" ShowDeleteButton="True" />
         </Columns>
         <FooterStyle BackColor="#CCCCCC" />
-        <HeaderStyle BackColor="#7FB241" Font-Bold="True" ForeColor="White" />
+       <HeaderStyle BackColor="#0E6251" Font-Bold="True" ForeColor="White" />
         <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
-        <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="White" />
+        <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="Black" />
         <SortedAscendingCellStyle BackColor="#F1F1F1" />
         <SortedAscendingHeaderStyle BackColor="#808080" />
         <SortedDescendingCellStyle BackColor="#CAC9C9" />
@@ -165,7 +165,7 @@
         </SelectParameters>
     </asp:SqlDataSource>
     <center>
-    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="White" Width="80%" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="5" DataKeyNames="Nummer" DataSourceID="SqlDataSource5" ForeColor="White" GridLines="Vertical">
+    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="White" Width="80%" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="5" DataKeyNames="Nummer" DataSourceID="SqlDataSource5" ForeColor="Black" GridLines="Vertical">
         <AlternatingRowStyle BackColor="#f0f0f0" />
         <Columns>
             <asp:BoundField DataField="Nummer" HeaderText="Nummer" InsertVisible="False" ReadOnly="True" SortExpression="Nummer" />
@@ -180,9 +180,9 @@
             <asp:CommandField ButtonType="Image" DeleteImageUrl="~/Images/deleteRow.png" ShowDeleteButton="True" />
         </Columns>
         <FooterStyle BackColor="#CCCCCC" />
-        <HeaderStyle BackColor="#7FB241" Font-Bold="True" ForeColor="White" />
+        <HeaderStyle BackColor="#0E6251" Font-Bold="True" ForeColor="White" />
         <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
-        <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="White" />
+        <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="Black" />
         <SortedAscendingCellStyle BackColor="#F1F1F1" />
         <SortedAscendingHeaderStyle BackColor="#808080" />
         <SortedDescendingCellStyle BackColor="#CAC9C9" />

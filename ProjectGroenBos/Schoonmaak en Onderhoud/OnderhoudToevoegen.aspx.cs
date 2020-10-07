@@ -31,7 +31,7 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud
 
             if (RequiredFieldValidator1.IsValid && RequiredFieldValidator2.IsValid && RequiredFieldValidator3.IsValid && RequiredFieldValidator4.IsValid && RequiredFieldValidator5.IsValid && RequiredFieldValidator6.IsValid && RequiredFieldValidator7.IsValid)
             {
-                if (RegularExpressionValidator1.IsValid && RegularExpressionValidator2.IsValid && RegularExpressionValidator3.IsValid && RegularExpressionValidator4.IsValid && RegularExpressionValidator5.IsValid && RangeValidator1.IsValid)
+                if (RegularExpressionValidator1.IsValid && RegularExpressionValidator2.IsValid && RegularExpressionValidator3.IsValid && RegularExpressionValidator4.IsValid && RegularExpressionValidator5.IsValid && RangeValidator1.IsValid && CompareValidator1.IsValid && RegularExpressionValidator6.IsValid && RegularExpressionValidator7.IsValid)
                 {
                     con.Open();
                     SqlCommand cmd = new SqlCommand("INSERT INTO  [dbo].[Onderhoudsopdracht] (Startdatum,VerwachteEinddatum,Kosten,BungalowNummer,OnderhoudsstatusID,Onderhoudtype,DatumvanConstatering,MedewerkerNummer)    values(@startdatum, @verwachteeinddatum, @kosten, @bungalownummer, @onderhoudsstatusID, @onderhoudtype, @datumvanconstatering, @medewerkernummer)", con);

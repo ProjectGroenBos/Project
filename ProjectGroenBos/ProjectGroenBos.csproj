@@ -72,6 +72,7 @@
     <Content Include="Financien\Prijstabel.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Images\deleteRow.png" />
+    <Content Include="Images\Logo4.png" />
     <Content Include="Images\Logo6.png" />
     <Content Include="Recreatie\CSS\Main.css" />
     <Content Include="Recreatie\img\Logo1.png" />
@@ -88,11 +89,11 @@
     <Content Include="Schoonmaak en Onderhoud\OnderhoudToevoegen.aspx" />
     <Content Include="Schoonmaak en Onderhoud\PlanningsOverzicht.aspx" />
     <Content Include="Schoonmaak en Onderhoud\SchouwingsOverzicht.aspx" />
+    <Content Include="Schoonmaak en Onderhoud\style\stylesheet.css" />
     <Content Include="Scripts\jquery\jquery.js" />
     <Content Include="Scripts\jquery\jquery.min.js" />
     <Content Include="Scripts\jquery\jquery.slim.js" />
     <Content Include="Scripts\jquery\jquery.slim.min.js" />
-    <Content Include="Style\master.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -178,13 +179,6 @@
     <Compile Include="Schoonmaak en Onderhoud\PlanningsOverzicht.aspx.designer.cs">
       <DependentUpon>PlanningsOverzicht.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Schoonmaak en Onderhoud\SchouwingsOverzicht.aspx.cs">
-      <DependentUpon>SchouwingsOverzicht.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Schoonmaak en Onderhoud\SchouwingsOverzicht.aspx.designer.cs">
-      <DependentUpon>SchouwingsOverzicht.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Schoonmaak en Onderhoud\Schoonmaak.Master.cs">
       <DependentUpon>Schoonmaak.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -192,15 +186,22 @@
     <Compile Include="Schoonmaak en Onderhoud\Schoonmaak.Master.designer.cs">
       <DependentUpon>Schoonmaak.Master</DependentUpon>
     </Compile>
+    <Compile Include="Schoonmaak en Onderhoud\SchouwingsOverzicht.aspx.cs">
+      <DependentUpon>SchouwingsOverzicht.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Schoonmaak en Onderhoud\SchouwingsOverzicht.aspx.designer.cs">
+      <DependentUpon>SchouwingsOverzicht.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Financien\Financien.Master" />
     <Content Include="libman.json" />
     <None Include="packages.config" />
-    <Content Include="Schoonmaak en Onderhoud\Schoonmaak.Master" />
     <Content Include="Recreatie\Recreatie.Master" />
     <Content Include="Scripts\jquery\jquery.min.map" />
     <Content Include="Scripts\jquery\jquery.slim.min.map" />
+    <Content Include="Schoonmaak en Onderhoud\Schoonmaak.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

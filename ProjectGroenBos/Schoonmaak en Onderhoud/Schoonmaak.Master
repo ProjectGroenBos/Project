@@ -1,141 +1,54 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Schoonmaak.Master.cs" Inherits="ProjectGroenBos.Site" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Schoonmaak.master.cs" Inherits="ProjectGroenBos.Schoonmaak_en_Onderhoud.Schoonmaak" %>
 
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<html>
+<head runat="server">
     <title>Groenbos</title>
-    <style type="text/css">
-        
-* {
-    margin: 0;
-    padding: 0;
-    font-family: "Century Gothic";
-    color: #343434;
-}
-
-body {
-    background-color: #cbcbcb;
-}
-
-.container {
-    margin: auto;
-    width: 100%;
-    height: 100%;
-}
-
-.werkgebied {
-    width: 100%;
-    height: 100%;
-}
-
-/*Navigator*/
-.navigator {
-    height: 120px;
-    background-color: #343434;
-    font-weight: bold;
-    border: 2px solid #7fb241;
-}
-
-.logo {
-    margin-left: 40px;
-    width: 240px;
-    float: left;
-}
-
-.selected {
-    border: 2px solid #7fb241;
-    color: #fff;
-    border-radius: 25px;
-}
-
-.uitloggen {
-    border: 2px solid #7fb241;
-    background-color: #7fb241;
-    border-radius: 25px;
-}
-
-nav {
-    margin-right: 35px;
-    padding-top: 45px;
-    background: transparent;
-    text-align: center;
-    float: right;
-    position: sticky;
-}
-
-    nav li {
-        float: left;
-        background-color: transparent;
-        padding-left: 20px;
-        padding-right: 20px;
-        padding-top: 15px;
-        padding-bottom: 15px;
-        margin-left: 10px;
-        margin-right: 10px;
-        border-color: #7fb241;
-    }
-
-        nav li:hover {
-            float: left;
-            background: transparent;
-            padding-left: 20px;
-            padding-right: 20px;
-            padding-top: 15px;
-            padding-bottom: 15px;
-            margin-left: 10px;
-            margin-right: 10px;
-            margin-right: 10px;
-            border-bottom: 2px solid;
-            border-color: #7fb241;
-            border-radius: 25px;
-        }
-
-    nav a {
-        color: #fff;
-        text-decoration: none;
-    }
-
-        nav a:hover {
-            color: #fff;
-            text-decoration: none;
-        }
-
-    nav ul {
-        list-style-type: none;
-        overflow: hidden;
-    }
-    </style>
-
-    <link rel="stylesheet" href="Style/master.css">
+    <link rel="stylesheet" href="style/stylesheet.css">
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
 </head>
 <body>
-        <div class="container">
-            <div class="navigator">  
-                <a href="index.html"><img src="../Images/Logo6.png" class="logo"></a>  
-                <nav>
-                    <ul>
-                        <li><a href="InventarisOverzicht.aspx">Inventaris Overzicht</a></li>
-                        <li><a href="OffertesOverzicht.aspx">Offerte Overzicht</a></li>
-                        <li><a href="OnderhoudsOverzicht.aspx">Onderhoud Overzicht</a></li>
-                        <li><a href="PlanningsOverzicht.aspx">Planning Overzicht</a></li>
-                        <li><a href="SchouwingsOverzicht.aspx">Schouwing Overzicht</a></li>
-                        <li class="uitloggen"><a href="#">Uitloggen</a></li>
-                    </ul>
-                </nav>
-            </div>
- 
-        <div class="werkgebied">
-            
-        </div>
-    </div>
- <br />
-    <script src="js/app.js"></script>
     <form id="form1" runat="server">
-        <div>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-            </asp:ContentPlaceHolder>
+
+
+
+        <div class="wrapper">
+            <div class="sidebar">
+                <h2>
+                    <img src="../Images/Logo4.png" alt="Logo" height="150"></h2>
+                <h3>SCHOONMAAK</h3>
+                <ul>
+                    <li><a href="InventarisOverzicht.aspx">Inventaris Overzicht</a></li>
+                    <li><a href="OffertesOverzicht.aspx">Offerte Overzicht</a></li>
+                    <li><a href="OnderhoudsOverzicht.aspx">Onderhoud Overzicht</a></li>
+                    <li><a href="PlanningsOverzicht.aspx">Planning Overzicht</a></li>
+                    <li><a href="SchouwingsOverzicht.aspx">Schouwing Overzicht</a></li>
+                </ul>
+                <div class="terug">
+                    <a href="#">&#8249; Terug naar home</a>
+                </div>
+            </div>
+            <div class="main_content">
+                <div class="navigator">
+                    <nav>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="#">Restraurant</a></li>
+                            <li><a href="#">Reserveringen</a></li>
+                            <li><a href="#">Recreatie</a></li>
+                            <li class="selected"><a href="#">Schoonmaak</a></li>
+                            <li><a href="#">Financiën</a></li>
+                            <asp:Button ID="btnUitloggen" runat="server" CssClass="btnUitloggen" Text="Uitloggen" />
+                        </ul>
+                    </nav>
+                </div>
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
         </div>
     </form>
 </body>
