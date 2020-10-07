@@ -75,6 +75,7 @@
     <Content Include="Financien\Personeeloverzicht.aspx" />
     <Content Include="Financien\Rekeningen.aspx" />
     <Content Include="Financien\Reserveringen.aspx" />
+    <Content Include="Financien\WebForm5.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -119,6 +120,13 @@
     </Compile>
     <Compile Include="Financien\Reserveringen.aspx.designer.cs">
       <DependentUpon>Reserveringen.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Financien\WebForm5.aspx.cs">
+      <DependentUpon>WebForm5.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Financien\WebForm5.aspx.designer.cs">
+      <DependentUpon>WebForm5.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
