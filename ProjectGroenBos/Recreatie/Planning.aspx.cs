@@ -91,15 +91,15 @@ namespace recreatie.paginas
 
         }
 
-        
-       
-      
+
+
+
 
         protected void btnActiviteitInplannen_Click(object sender, EventArgs e)
         {
-           Activteit = (DataTable)Session["Activiteit"];
-            if(Activteit == null)
-                    {
+            Activteit = (DataTable)Session["Activiteit"];
+            if (Activteit == null)
+            {
                 con.Open();
                 SqlCommand cmd = new SqlCommand("sp_Recreatie_VoegActiviteitToe", con);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -108,7 +108,7 @@ namespace recreatie.paginas
                 cmd.Parameters.AddWithValue("@Begintijd", TxbBegintijd.Text);
                 cmd.Parameters.AddWithValue("@Eindtijd", TxbEindtijd.Text);
                 cmd.Parameters.AddWithValue("@MaximaalAantal", TxbAantal.Text);
-                cmd.Parameters.AddWithValue("@Datum", TxbDatum.Text);
+                cmd.Parameters.AddWithValue("@Datum", Convert.ToDateTime(TxbDatum.Text.Trim()));
                 cmd.Parameters.AddWithValue("@FaciliteitID", ddlFaciliteit.SelectedValue);
                 cmd.Parameters.AddWithValue("@Inschrijfkosten", txbInschrijfkosten.Text);
                 cmd.Parameters.AddWithValue("@MedewerkerID", TxbMedewerker.SelectedValue);
@@ -117,19 +117,20 @@ namespace recreatie.paginas
                 GridView1.DataBind();
 
                 LblBevestiging.Text = "Activiteit toegevoegd";
-                     }
 
-                    {
+            }
+            else
+            {
                 con.Open();
                 SqlCommand cmd = new SqlCommand("sp_Recreatie_WijzigActiviteit", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Nummer", int.Parse(GridView1.SelectedRow.Cells[0].Text));
                 cmd.Parameters.AddWithValue("@Naam", TxbActiviteit.Text.Trim());
                 cmd.Parameters.AddWithValue("@Locatie", txbLocatie.Text.Trim());
-                cmd.Parameters.AddWithValue("@Begintijd",TxbBegintijd.Text.Trim());
-                cmd.Parameters.AddWithValue("@Eindtijd",TxbEindtijd.Text.Trim());
-                cmd.Parameters.AddWithValue("@MaximaalAantal",TxbAantal.Text.Trim());
-                cmd.Parameters.AddWithValue("@Datum",Convert.ToDateTime(TxbDatum.Text.Trim()));
+                cmd.Parameters.AddWithValue("@Begintijd", TxbBegintijd.Text.Trim());
+                cmd.Parameters.AddWithValue("@Eindtijd", TxbEindtijd.Text.Trim());
+                cmd.Parameters.AddWithValue("@MaximaalAantal", TxbAantal.Text.Trim());
+                cmd.Parameters.AddWithValue("@Datum", Convert.ToDateTime(TxbDatum.Text.Trim()));
                 cmd.Parameters.AddWithValue("@FaciliteitID", ddlFaciliteit.SelectedValue);
                 cmd.Parameters.AddWithValue("@Inschrijfkosten", txbInschrijfkosten.Text.Trim());
                 cmd.Parameters.AddWithValue("@MedewerkerID", TxbMedewerker.SelectedValue);
@@ -144,8 +145,6 @@ namespace recreatie.paginas
 
 
             }
-            
-
         }
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)

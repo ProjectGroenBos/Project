@@ -66,7 +66,7 @@
 
                 <asp:TemplateField HeaderText="Actie">
                     <ItemTemplate>
-                        <asp:ImageButton ImageUrl="~/img/Winkelwagenicoon.png" runat="server" CommandName="Edit" ToolTip="Bewerken" Width="20px" Height="20px" />
+                        <asp:ImageButton ImageUrl="~/img/winkelwagen.png" runat="server" CommandName="Edit" ToolTip="Bewerken" Width="20px" Height="20px" />
                     </ItemTemplate> 
                 </asp:TemplateField>
             </Columns>

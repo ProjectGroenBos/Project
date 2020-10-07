@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
+    <link href="CSS/styleplanning.css" rel="stylesheet" />
     <asp:Label ID="Label2" runat="server" Font-Bold="False" Font-Names="Century Gothic" Font-Overline="False" Font-Size="X-Large" ForeColor="#757272" Text="Planning" CssClass="labelplanningq"></asp:Label>
     <asp:Label ID="Label3" runat="server" Text="Activiteit:" CssClass="labelplanning"></asp:Label>
 
@@ -12,7 +12,7 @@
 
     <asp:Label ID="Label4" runat="server" Text="Locatie:" CssClass="labellocatie"></asp:Label>
 
-    <asp:TextBox ID="txbLocatie" runat="server" CssClass="textboxplanning"></asp:TextBox>
+    <asp:TextBox ID="txbLocatie" runat="server" CssClass="textboxlocatie"></asp:TextBox>
 
 
 
@@ -20,7 +20,7 @@
 
     <asp:TextBox ID="TxbAantal" runat="server" CssClass="textboxaantal"></asp:TextBox>
 
-    <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" CssClass="textboxplanningb" EmptyDataText="No data yet" OnRowDeleting="GridView2_RowDeleting">
+    <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" CssClass="gridviewbegeleider" EmptyDataText="No data yet" OnRowDeleting="GridView2_RowDeleting">
         <Columns>
             <asp:BoundField DataField="Naam" HeaderText="Naam" SortExpression="Naam" />
             <asp:CommandField ShowDeleteButton="True" />
@@ -30,16 +30,16 @@
 
 
     
-    <asp:Label ID="Label6" runat="server" Text="Begeleider:" CssClass="labelplanning"></asp:Label>
+    <asp:Label ID="Label6" runat="server" Text="Begeleider:" CssClass="labelbegeleider"></asp:Label>
 
-    <asp:DropDownList ID="TxbMedewerker" runat="server" OnRowCommand="gvMedewerker_RowCommand" AutoPostBack="True" CssClass="textboxplanning" DataSourceID="SqlDataSource3" DataTextField="Naam" DataValueField="Nummer" OnSelectedIndexChanged="TxbMedewerker_SelectedIndexChanged">
+    <asp:DropDownList ID="TxbMedewerker" runat="server" OnRowCommand="gvMedewerker_RowCommand" AutoPostBack="True" CssClass="textboxbegeleider" DataSourceID="SqlDataSource3" DataTextField="Naam" DataValueField="Nummer" OnSelectedIndexChanged="TxbMedewerker_SelectedIndexChanged">
     </asp:DropDownList>
     <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:2020-BIM02-P1-P2-GroenbosConnectionString %>" SelectCommand="SELECT [Nummer], [Naam] FROM [Medewerker]"></asp:SqlDataSource>
 
 
 
     <asp:Label ID="Label9" runat="server" Text="Datum:" CssClass="labelplanningdatum"></asp:Label>
-    <asp:TextBox ID="TxbDatum" runat="server" CssClass="textboxplanning" TextMode="DateTime"></asp:TextBox>
+    <asp:TextBox ID="TxbDatum" runat="server" CssClass="textboxdatum" TextMode="DateTime"></asp:TextBox>
 
 
     <asp:Label ID="Label7" runat="server" Text="Begintijd:" CssClass="labelbegintijd"></asp:Label>
@@ -49,27 +49,27 @@
 
 
 
-    <asp:Label ID="Label8" runat="server" Text="Eindtijd:" CssClass="labelplanning"></asp:Label>
+    <asp:Label ID="Label8" runat="server" Text="Eindtijd:" CssClass="labeleindtijd"></asp:Label>
 
-    <asp:TextBox ID="TxbEindtijd" runat="server" CssClass="textboxplanning" TextMode="Time"></asp:TextBox>
-    <asp:Label ID="Label10" runat="server" CssClass="labelplanning" Text="Inschrijfkosten:"></asp:Label>
+    <asp:TextBox ID="TxbEindtijd" runat="server" CssClass="textboxeindtijd" TextMode="Time"></asp:TextBox>
+    <asp:Label ID="Label10" runat="server" CssClass="labelinschrijfkosten" Text="Inschrijfkosten:"></asp:Label>
 
-    <asp:TextBox ID="txbInschrijfkosten" runat="server" CssClass="textboxfaciliteitid"></asp:TextBox>
+    <asp:TextBox ID="txbInschrijfkosten" runat="server" CssClass="textboxinschrijfkosten"></asp:TextBox>
 
 
-    <asp:Label ID="Label11" runat="server" CssClass="labelplanning" Text="Faciliteit"></asp:Label>
+    <asp:Label ID="Label11" runat="server" CssClass="labelfaciliteit" Text="Faciliteit"></asp:Label>
 
-    <asp:DropDownList ID="ddlFaciliteit" runat="server" DataSourceID="SqlDataSource4" DataTextField="Omschrijving" CssClass="textboxplanningb" DataValueField="ID"></asp:DropDownList>
+    <asp:DropDownList ID="ddlFaciliteit" runat="server" DataSourceID="SqlDataSource4" DataTextField="Omschrijving" CssClass="textboxfaciliteit" DataValueField="ID"></asp:DropDownList>
     <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:2020-BIM02-P1-P2-GroenbosConnectionString %>" SelectCommand="SELECT [ID], [Omschrijving] FROM [Faciliteit]"></asp:SqlDataSource>
 
 
 
 
-    <asp:Button ID="btnActiviteitInplannen" runat="server" BackColor="#7FB241" CssClass="buttonplanning" ForeColor="#FEFEFE" Text="Activiteiten Inplannen" OnClick="btnActiviteitInplannen_Click" />
+    <asp:Button ID="btnActiviteitInplannen" runat="server" BackColor="#7FB241" CssClass="buttonactiviteiteninplannen" ForeColor="#FEFEFE" Text="Activiteiten Inplannen" OnClick="btnActiviteitInplannen_Click" />
     <asp:Label ID="LblBevestiging" runat="server" CssClass="labelbevestiging"></asp:Label>
 
 
-    <asp:Calendar ID="Calendar1" runat="server" CssClass="kalenderplanning"></asp:Calendar>
+    <asp:Calendar ID="Calendar1" runat="server" CssClass="kalender"></asp:Calendar>
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="Nummer" DataSourceID="SqlDataSource2" ForeColor="#333333" GridLines="None" CssClass="gridviewplanning" Width="50px" Height="100px" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
