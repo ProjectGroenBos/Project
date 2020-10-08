@@ -1,15 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Net;
-using System.Net.Mail;
-using System.IO;
 
-namespace recreatie.paginas
+namespace ProjectGroenBos.Reservering
 {
     public partial class ReserveringenMedewerkerGegevens : System.Web.UI.Page
     {

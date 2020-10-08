@@ -1,6 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="Site1.Master" AutoEventWireup="true" CodeBehind="Huisjemedewerker.aspx.cs" Inherits="recreatie.paginas.Huisjemedewerker" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="Site1.Master" AutoEventWireup="true" CodeBehind="Huisjemedewerker.aspx.cs" Inherits="ProjectGroenBos.Reservering.Huisjemedewerker" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+<asp:Content ID="Content1" ContentPlaceHolderID="head2" runat="server">
     <style type="text/css">
         .auto-style1 {
             position: relative;
@@ -12,7 +12,7 @@
         }
     </style>
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <p>
         &nbsp;&nbsp;
     </p>
@@ -93,5 +93,4 @@
         <asp:Button ID="btnBevestigen" runat="server" OnClick="btnBevestigen_Click" Text="Bevestigen" CssClass="labelhuisjemedewerker" />
 
     </p>
-    </form>
 </asp:Content>

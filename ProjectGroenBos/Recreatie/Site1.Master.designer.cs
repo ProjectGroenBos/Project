@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace recreatie
+namespace ProjectGroenBos.Reservering
 {
 
 

@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Reserveringen.Pagina_s
+namespace ProjectGroenBos.Reservering
 {
 
 

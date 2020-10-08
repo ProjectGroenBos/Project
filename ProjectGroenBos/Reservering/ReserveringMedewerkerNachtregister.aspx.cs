@@ -1,18 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Data.SqlClient;
 using System.Configuration;
-using System.Collections;
-using System.Data;
-using System.Net;
-using System.Net.Mail;
+using System.Data.SqlClient;
 using System.IO;
+using System.Net.Mail;
+using System.Web.UI;
 
-namespace Reserveringen.Pagina_s
+namespace ProjectGroenBos.Reservering
 {
     public partial class ReserveringMedewerkerNachtregister : System.Web.UI.Page
     {
@@ -108,7 +101,7 @@ namespace Reserveringen.Pagina_s
             {
                 //lezen mail.html
                 string body = string.Empty;
-                using (StreamReader reader = new StreamReader(Server.MapPath("~/MailHuisReserveringGemaakt.html")))
+                using (StreamReader reader = new StreamReader(Server.MapPath("MailHuisReserveringGemaakt.html")))
                 {
                     body = reader.ReadToEnd();
                 }

@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="recreatie.Site1" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.Master.cs" Inherits="ProjectGroenBos.Reservering.Site1"  %>
 
 <!DOCTYPE html>
 
@@ -7,26 +7,24 @@
     <title></title>
    
     <link href="css/Stylejuist.css" rel="stylesheet" />
-    <asp:ContentPlaceHolder ID="head" runat="server">
+    <asp:ContentPlaceHolder ID="head2" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="form2" runat="server">
     <div class="wrapper">
                 <div class="sidebar">
                     <h2>&nbsp;</h2>
                     <h3>
-                        <asp:Image ID="Image1" runat="server" CssClass="logo" Height="95px" ImageUrl="~/img/Logo6.png" Width="156px" />
+                        <asp:Image ID="Image1" runat="server" CssClass="logo" Height="95px" ImageUrl="~/Recreatie/img/Logo6.png" Width="156px" />
                         </h3>
                     <ul>
                         <li><a href="home.aspx"><i class="fas fa-home"></i>Home</a></li>
                         <li><a href="#"><i class="fas fa-user"></i>Reserveren</a>
                             <ul class="submenu">
                                 <li><a href="Huisjemedewerker.aspx">Reservering plaatsen</a></li>
-                                
+                                </ul>
                                 </li>
-                              
-                        </li>
                         <li><a href="#"><i class="fas fa-user"></i>Optie</a>
                             <ul class="submenu">
                                 <li><a href="#">optie 1</a></li>
@@ -61,7 +59,7 @@
                     </nav>
                 </div>
         <div class="werkgebied">
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
             </asp:ContentPlaceHolder>
             
              </div>
