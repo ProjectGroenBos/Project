@@ -22,7 +22,7 @@ namespace recreatie.paginas
         {
             if (!IsPostBack)
             {
-                dt.Columns.AddRange(new DataColumn[1] { new DataColumn("Naam") }); 
+                dt.Columns.AddRange(new DataColumn[1] { new DataColumn("Naam") });
                 //dt.Rows.Add("Yes");
                 ViewState["Medewerker"] = dt;
                 this.BindGrid();
