@@ -65,7 +65,7 @@
                 <asp:BoundField DataField="Aantal_personen" HeaderText="Aantal Personen" SortExpression="Aantal_personen" />
                 <asp:BoundField DataField="Aankomstdatum" DataFormatString="{0:d}" HeaderText="Aankomstdatum" SortExpression="Aankomstdatum" />
                 <asp:BoundField DataField="Vertrekdatum" DataFormatString="{0:d}" HeaderText="Vertrekdatum" SortExpression="Vertrekdatum" />
-                <asp:BoundField DataField="Gastnummer" HeaderText="Gastnummer" SortExpression="Gastnummer" />
+                <asp:BoundField DataField="Omschrijving" HeaderText="Betaalstatus" SortExpression="Omschrijving" />
                 <asp:TemplateField>
                     <ItemTemplate>
                         <button type="button" style="background-color: #009879; color: #fff" class="btn" data-toggle="modal" data-target="#modal<%# Eval("Nummer") %>">Inzien reservering</button>
@@ -74,7 +74,12 @@
             </Columns>
         </asp:GridView>
 
-        <asp:SqlDataSource ID="SqlDataSource6" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT [Nummer], [Naam], [Aantal_personen], [Aankomstdatum], [Vertrekdatum], [Gastnummer]  FROM [Reserveringen]"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSource6" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT reserveringen.Nummer, [Naam], [Aantal_personen], [Aankomstdatum], [Vertrekdatum], Factuurstatus.Omschrijving
+FROM reserveringen 
+	inner join Debiteurenfactuur ON reserveringen.Nummer = Debiteurenfactuur.ReserveringNummer
+	inner join Factuurstatus ON Debiteurenfactuur.BetaalstatusID = Factuurstatus.ID
+	
+where FactuurtypeID = 2"></asp:SqlDataSource>
         <br />
     </div>
 
@@ -138,6 +143,20 @@
                                             <td></td>
                                             <td></td>
                                             <td style="width: 100px">€ <%# Eval("Totaalbedrag") %></td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>Betaald op:</td>
+                                            <td></td>
+                                            <td style="text-align:right">Aanbetaling:</td>
+                                            <td style="width: 100px">€ <%# Eval("Aanbetaling") %></td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>Betaald op:</td>
+                                            <td></td>
+                                            <td style="text-align:right">Restbetaling:</td>
+                                            <td style="width: 100px">€ <%# Eval("Restbetaling") %></td>
                                         </tr>
                                     </tbody>
                                 </table>
