@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="Site1.Master"  AutoEventWireup="true" CodeBehind="Overzicht.aspx.cs" Inherits="ProjectGroenBos.Recreatie.Overzicht" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Recreatie/Site1.Master"  AutoEventWireup="true" CodeBehind="Overzicht.aspx.cs" Inherits="ProjectGroenBos.Recreatie.Overzicht" %>
 
 <asp:Content runat="server" ContentPlaceHolderID="head">
     <link href="CSS/styleoverzicht.css" rel="stylesheet" />
