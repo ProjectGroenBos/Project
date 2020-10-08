@@ -69,7 +69,11 @@
   <ItemGroup>
     <Content Include="Financien\css\main.css" />
     <Content Include="Financien\Home.aspx" />
+    <Content Include="Financien\Overzicht.aspx" />
+    <Content Include="Financien\Personeeloverzicht.aspx" />
     <Content Include="Financien\Prijstabel.aspx" />
+    <Content Include="Financien\Rekeningen.aspx" />
+    <Content Include="Financien\Reserveringen.aspx" />
     <Content Include="Recreatie\CSS\styleoverzicht.css" />
     <Content Include="Recreatie\CSS\styleplanning2.css" />
     <Content Include="Recreatie\img\ascArrow.png" />
@@ -115,12 +119,40 @@
     <Compile Include="Financien\Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Financien\Overzicht.aspx.cs">
+      <DependentUpon>Overzicht.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Financien\Overzicht.aspx.designer.cs">
+      <DependentUpon>Overzicht.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Financien\Personeeloverzicht.aspx.cs">
+      <DependentUpon>Personeeloverzicht.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Financien\Personeeloverzicht.aspx.designer.cs">
+      <DependentUpon>Personeeloverzicht.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Financien\Prijstabel.aspx.cs">
       <DependentUpon>Prijstabel.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Financien\Prijstabel.aspx.designer.cs">
       <DependentUpon>Prijstabel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Financien\Rekeningen.aspx.cs">
+      <DependentUpon>Rekeningen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Financien\Rekeningen.aspx.designer.cs">
+      <DependentUpon>Rekeningen.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Financien\Reserveringen.aspx.cs">
+      <DependentUpon>Reserveringen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Financien\Reserveringen.aspx.designer.cs">
+      <DependentUpon>Reserveringen.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Recreatie\Voorraad.aspx.cs">
