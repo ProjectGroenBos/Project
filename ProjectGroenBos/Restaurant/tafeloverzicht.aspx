@@ -14,7 +14,7 @@
 
 
         <!--tafel 1 -->
-        <asp:Button ID="btntafel1" Class="tafelbutton" runat="server" Text="Tafel 1" OnClick="btntafel1_Click" />
+        <asp:Button ID="btntafel1" Class="tafelbutton" runat="server" Text="Tafel 1" OnClick="btntafel1_Click"/>
        
             <br />
          <!-- hieronder wordt een pop up aangemaakt voor de tafels met de 2 knoppen om te bestellen of af te reknenen -->   
@@ -42,9 +42,9 @@
 
 
         <!--tafel 2 -->
-        <asp:Button ID="btntafel2" Class="tafelbutton" runat="server" Text="Tafel 2" />
+        <asp:Button ID="btntafel2" Class="tafelbutton" runat="server" Text="Tafel 2" OnClick="btntafel2_Click" />
 
-             <cc1:ModalPopupExtender ID="ModalPopupExtender2" TargetControlID="btntafel2" popupControlID="modelpantafel2" CancelcontrolID="btnclose" PopupDragHandleControlID="header" runat="server">
+             <cc1:ModalPopupExtender ID="popuptafel2" TargetControlID="btntafel2" popupControlID="modelpantafel2" CancelcontrolID="btnclose" PopupDragHandleControlID="header" runat="server">
 
         </cc1:ModalPopupExtender>
 
@@ -64,7 +64,7 @@
         <!--tafel 3 -->
         <asp:Button ID="btntafel3" Class="tafelbutton" runat="server" Text="Tafel 3" />
 
-        <cc1:ModalPopupExtender ID="ModalPopupExtender3" TargetControlID="btntafel3" popupControlID="modelpantafel3" CancelcontrolID="btnclose" PopupDragHandleControlID="header" runat="server">
+        <cc1:ModalPopupExtender ID="popuptafel3" TargetControlID="btntafel3" popupControlID="modelpantafel3" CancelcontrolID="btnclose" PopupDragHandleControlID="header" runat="server">
 
         </cc1:ModalPopupExtender>
 
@@ -84,7 +84,7 @@
         <!--tafel 4 -->
         <asp:Button ID="btntafel4" Class="tafelbutton" runat="server" Text="Tafel 4" />
 
-        <cc1:ModalPopupExtender ID="ModalPopupExtender4" TargetControlID="btntafel4" popupControlID="modelpantafel4" CancelcontrolID="btnclose" PopupDragHandleControlID="header" runat="server">
+        <cc1:ModalPopupExtender ID="popuptafel4" TargetControlID="btntafel4" popupControlID="modelpantafel4" CancelcontrolID="btnclose" PopupDragHandleControlID="header" runat="server">
 
         </cc1:ModalPopupExtender>
 
@@ -104,7 +104,7 @@
         <!--tafel 5 -->
         <asp:Button ID="btntafel5" Class="tafelbutton" runat="server" Text="Tafel 5" />
 
-        <cc1:ModalPopupExtender ID="ModalPopupExtender5" TargetControlID="btntafel5" popupControlID="modelpantafel5" CancelcontrolID="btnclose" PopupDragHandleControlID="header" runat="server">
+        <cc1:ModalPopupExtender ID="popuptafel5" TargetControlID="btntafel5" popupControlID="modelpantafel5" CancelcontrolID="btnclose" PopupDragHandleControlID="header" runat="server">
 
         </cc1:ModalPopupExtender>
 

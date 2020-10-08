@@ -114,13 +114,13 @@ namespace ProjectGroenBos.Restaurant
         protected global::System.Web.UI.WebControls.Button btntafel2;
 
         /// <summary>
-        /// ModalPopupExtender2 control.
+        /// popuptafel2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.ModalPopupExtender ModalPopupExtender2;
+        protected global::AjaxControlToolkit.ModalPopupExtender popuptafel2;
 
         /// <summary>
         /// modelpantafel2 control.
@@ -177,13 +177,13 @@ namespace ProjectGroenBos.Restaurant
         protected global::System.Web.UI.WebControls.Button btntafel3;
 
         /// <summary>
-        /// ModalPopupExtender3 control.
+        /// popuptafel3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.ModalPopupExtender ModalPopupExtender3;
+        protected global::AjaxControlToolkit.ModalPopupExtender popuptafel3;
 
         /// <summary>
         /// modelpantafel3 control.
@@ -240,13 +240,13 @@ namespace ProjectGroenBos.Restaurant
         protected global::System.Web.UI.WebControls.Button btntafel4;
 
         /// <summary>
-        /// ModalPopupExtender4 control.
+        /// popuptafel4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.ModalPopupExtender ModalPopupExtender4;
+        protected global::AjaxControlToolkit.ModalPopupExtender popuptafel4;
 
         /// <summary>
         /// modelpantafel4 control.
@@ -303,13 +303,13 @@ namespace ProjectGroenBos.Restaurant
         protected global::System.Web.UI.WebControls.Button btntafel5;
 
         /// <summary>
-        /// ModalPopupExtender5 control.
+        /// popuptafel5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.ModalPopupExtender ModalPopupExtender5;
+        protected global::AjaxControlToolkit.ModalPopupExtender popuptafel5;
 
         /// <summary>
         /// modelpantafel5 control.
