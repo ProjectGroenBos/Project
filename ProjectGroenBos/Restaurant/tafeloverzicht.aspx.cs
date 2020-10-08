@@ -26,7 +26,9 @@ namespace ProjectGroenBos.Restaurant
             // verstuur mensen naar het plaatsen van een bestelling
             Response.Redirect("opnemenbestelling.aspx");
 
-            // geef de tafel een andere kleur om aa nte geven dat hij bezet is
+            
+
+            // geef de tafel een andere kleur om aan te geven dat hij bezet is
 
         }
 

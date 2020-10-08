@@ -2,11 +2,15 @@
  
 }
 
-.keuken{
+.keuken {
     background-color: greenyellow;
+    text-align: center;
+    width: 400px;
+    height: 400px;
 }
 
-.bar{
+.bar {
+    text-align: center;
     background-color: greenyellow;
 }
 
@@ -20,4 +24,10 @@
 
 .close{
     background-color: red;
+}
+
+.tafelbutton {
+    text-align: center;
+    height: 150px;
+    width: 200px;
 }
