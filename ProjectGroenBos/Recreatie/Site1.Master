@@ -45,10 +45,6 @@
                 <div class="navigator">
                     <nav>
                         <ul>
-                            <li><a href="#">Home</a></li>
-                            <li class="selected"><a href="#">Recreatie</a></li>
-                            <li><a href="#">Restaurant</a></li>
-                            <li><a href="#">Reserveringen & Balie</a></li>
                             <li><a href="">Home</a></li>
                             <li class="selected"><a href="/Recreatie/Overzicht.aspx">Recreatie</a></li>
                             <li><a href="#">Schoonmaak</a></li>
