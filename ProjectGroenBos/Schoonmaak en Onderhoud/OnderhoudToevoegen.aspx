@@ -11,7 +11,7 @@
     <div class="row col-sm-12">
        <div class="col-sm-12" style="text-align: center">
            <br />
-           <br />
+
            <hr />
            <br />
           </div>
@@ -25,13 +25,13 @@
                     <td class="auto-style3">
                         <asp:TextBox ID="txtStart" runat="server" CausesValidation="True" Width="125px"></asp:TextBox>
                     </td>
-                     <td class="auto-style1">
+                     <td class="auto-style15">
 
                          <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtStart" ErrorMessage="Vul in" ForeColor="Red"></asp:RequiredFieldValidator>
 
                          &nbsp;&nbsp;&nbsp;
 
-                         <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtStart" ErrorMessage="Invoer Ongeldig " ForeColor="Red" ValidationExpression="^(?:(?:31(\/|-|\.)(?:0?[13578]|1[02]))\1|(?:(?:29|30)(\/|-|\.)(?:0?[13-9]|1[0-2])\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:29(\/|-|\.)0?2\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8])(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:(?:1[6-9]|[2-9]\d)?\d{2})$"></asp:RegularExpressionValidator>
+                         <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtStart" ErrorMessage="Invoer ongeldig " ForeColor="Red" ValidationExpression="^(?:(?:31(\/|-|\.)(?:0?[13578]|1[02]))\1|(?:(?:29|30)(\/|-|\.)(?:0?[13-9]|1[0-2])\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:29(\/|-|\.)0?2\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8])(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:(?:1[6-9]|[2-9]\d)?\d{2})$"></asp:RegularExpressionValidator>
 
                      </td>
                 </tr>
@@ -40,13 +40,13 @@
                     <td class="auto-style3">
                         <asp:TextBox ID="txtEind" runat="server" CausesValidation="True" Width="125px"></asp:TextBox>
                     </td>
-                     <td class="auto-style1">
+                     <td class="auto-style15">
 
                          <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtEind" ErrorMessage="Vul in" ForeColor="Red"></asp:RequiredFieldValidator>
 
                          &nbsp;&nbsp;&nbsp;
 
-                         <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtEind" ErrorMessage="Invoer Ongeldig" ForeColor="Red" ValidationExpression="^(?:(?:31(\/|-|\.)(?:0?[13578]|1[02]))\1|(?:(?:29|30)(\/|-|\.)(?:0?[13-9]|1[0-2])\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:29(\/|-|\.)0?2\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8])(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:(?:1[6-9]|[2-9]\d)?\d{2})$"></asp:RegularExpressionValidator>
+                         <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtEind" ErrorMessage="Invoer ongeldig" ForeColor="Red" ValidationExpression="^(?:(?:31(\/|-|\.)(?:0?[13578]|1[02]))\1|(?:(?:29|30)(\/|-|\.)(?:0?[13-9]|1[0-2])\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:29(\/|-|\.)0?2\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8])(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:(?:1[6-9]|[2-9]\d)?\d{2})$"></asp:RegularExpressionValidator>
                          </td>
 
                      <td class="auto-style5">
@@ -77,15 +77,15 @@
                     <td class="auto-style3">
                         <asp:TextBox ID="txtBungalownummer" runat="server" CausesValidation="True" Width="125px"></asp:TextBox>
                     </td>
-                     <td class="auto-style1">
+                     <td class="auto-style15">
 
                          <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtBungalownummer" ErrorMessage="Vul in" ForeColor="Red"></asp:RequiredFieldValidator>
 
                          &nbsp;&nbsp;&nbsp;
-                         <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ControlToValidate="txtBungalownummer" ErrorMessage="Alleen Getallen" ForeColor="Red" ValidationExpression="^[0-9]*$"></asp:RegularExpressionValidator>
+                         <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ControlToValidate="txtBungalownummer" ErrorMessage="Alleen getallen" ForeColor="Red" ValidationExpression="^[0-9]*$"></asp:RegularExpressionValidator>
 &nbsp;</td>
                      <td class="auto-style5">
-                         <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="txtBungalownummer" ErrorMessage="Nummer Ongeldig" ForeColor="Red" MaximumValue="20" MinimumValue="2" Type="Integer"></asp:RangeValidator>
+                         <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="txtBungalownummer" ErrorMessage="Nummer ongeldig" ForeColor="Red" MaximumValue="20" MinimumValue="2" Type="Integer"></asp:RangeValidator>
 
                      </td>
                 </tr>
@@ -93,13 +93,15 @@
                     <td class="auto-style6">Onderhoudsstatus</td>
                     <td class="auto-style7">
                         <asp:DropDownList ID="DropDownList2" runat="server" Width="125px">
-                            <asp:ListItem></asp:ListItem>
+                            <asp:ListItem>--Selecteer--</asp:ListItem>
                             <asp:ListItem>Ingepland</asp:ListItem>
                             <asp:ListItem>Bezig</asp:ListItem>
                             <asp:ListItem>Klaar</asp:ListItem>
                         </asp:DropDownList>
                     </td>
                       <td class="auto-style8">
+
+                          <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="DropDownList2" ErrorMessage="Selecteer een optie" ForeColor="Red" InitialValue="--Selecteer--"></asp:RequiredFieldValidator>
 
                      &nbsp;&nbsp;&nbsp;
                           
@@ -109,7 +111,7 @@
                     <td class="auto-style9">Onderhoudstype</td>
                     <td class="auto-style10">
                         <asp:DropDownList ID="DropDownList3" runat="server" Width="125px">
-                            <asp:ListItem></asp:ListItem>
+                            <asp:ListItem>--Selecteer--</asp:ListItem>
                             <asp:ListItem>Dakwerk</asp:ListItem>
                             <asp:ListItem>Raamwerk</asp:ListItem>
                             <asp:ListItem>Schoonmaak</asp:ListItem>
@@ -122,7 +124,7 @@
                     </td>
                      <td class="auto-style11">
 
-                     &nbsp;&nbsp;&nbsp;
+                         <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ControlToValidate="DropDownList3" ErrorMessage="Selecteer een optie" ForeColor="Red" InitialValue="--Selecteer--"></asp:RequiredFieldValidator>
                          
                      </td>
                 </tr>
@@ -134,34 +136,40 @@
                      <td class="auto-style14">
 
                          <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="txtConstatering" ErrorMessage="Vul in" ForeColor="Red"></asp:RequiredFieldValidator>
-&nbsp;&nbsp;&nbsp;&nbsp;<asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="txtEind" ErrorMessage="Invoer Ongeldig" ForeColor="Red" ValidationExpression="^(?:(?:31(\/|-|\.)(?:0?[13578]|1[02]))\1|(?:(?:29|30)(\/|-|\.)(?:0?[13-9]|1[0-2])\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:29(\/|-|\.)0?2\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8])(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:(?:1[6-9]|[2-9]\d)?\d{2})$"></asp:RegularExpressionValidator>
+&nbsp;&nbsp;&nbsp;&nbsp;<asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="txtEind" ErrorMessage="Invoer ongeldig" ForeColor="Red" ValidationExpression="^(?:(?:31(\/|-|\.)(?:0?[13578]|1[02]))\1|(?:(?:29|30)(\/|-|\.)(?:0?[13-9]|1[0-2])\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:29(\/|-|\.)0?2\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8])(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:(?:1[6-9]|[2-9]\d)?\d{2})$"></asp:RegularExpressionValidator>
 
                      </td>
                 </tr>
                                  <tr>
                     <td>Naam Medewerker </td>
                     <td class="auto-style3">
-                        <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource1" DataTextField="Naam" DataValueField="Nummer">
-                            <asp:ListItem>--</asp:ListItem>
+                        <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource1" DataTextField="Naam" DataValueField="Nummer" AppendDataBoundItems="True">
+                            <asp:ListItem Text="--Selecteer--" Value="0" />
                         </asp:DropDownList>
                         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:con %>" SelectCommand="SELECT [Nummer], [Naam] FROM [Medewerker]"></asp:SqlDataSource>
                     </td>
-                     <td class="auto-style1">
+                     <td class="auto-style15">
+
+                         <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ControlToValidate="DropDownList1" ErrorMessage="Selecteer een optie" ForeColor="Red" InitialValue="0"></asp:RequiredFieldValidator>
 
                          </td>
                                      </tr>
                 <tr>
                      <td style="margin-left: 40px">  
                          <br />
-                         <asp:Button ID="btnToevoegen" runat="server" Text="Toevoegen" OnClick="btnToevoegen_Click1" BackColor="#0E6251" BorderColor="#0E6251" ForeColor="White" />
+                         <asp:Button ID="btnToevoegen" runat="server" Text="Toevoegen" OnClick="btnToevoegen_Click1" BackColor="#0E6251" BorderColor="#0E6251" ForeColor="White" CssClass="buttonstyle" />
                      </td>
                     <td class="auto-style3">
 
                     </td>
 
-                   <td  style="margin-left: 40px; " class="auto-style1">
-                  <asp:Button ID="btnTerugOOverzicht" runat="server" Text="Terug naar overzicht" OnClick="btnTerugOOverzicht_Click" BackColor="#0E6251" BorderColor="#0E6251" ForeColor="White" />
+                   <td class="auto-style15" >
+                 
                      </td>
+                    <td  style="margin-left: 40px; " class="auto-style1">
+                    <asp:Button ID="btnTerugOOverzicht" runat="server" Text="Terug naar overzicht" OnClick="btnTerugOOverzicht_Click" BackColor="#0E6251" BorderColor="#0E6251" ForeColor="White" CssClass="buttonstyle" />
+                    </td>
+
                 </tr>
             </table>
         </div>
@@ -182,7 +190,7 @@
         }
         .auto-style2 {
             height: 27px;
-            width: 254px;
+            width: 229px;
         }
         .auto-style3 {
             width: 101px;
@@ -203,7 +211,7 @@
         }
         .auto-style8 {
             height: 34px;
-            width: 254px;
+            width: 229px;
         }
         .auto-style9 {
             height: 30px;
@@ -214,7 +222,7 @@
         }
         .auto-style11 {
             height: 30px;
-            width: 254px;
+            width: 229px;
         }
         .auto-style12 {
             height: 52px;
@@ -224,8 +232,11 @@
             height: 52px;
         }
         .auto-style14 {
-            width: 254px;
+            width: 229px;
             height: 52px;
+        }
+        .auto-style15 {
+            width: 229px;
         }
     </style>
 </asp:Content>

@@ -10,7 +10,7 @@
     <br />
     <div class="row col-sm-12">
        <div class="col-sm-12" style="text-align:center;">
-          <asp:Button ID="Button2" runat="server" Text="Onderhoud Toevoegen" BackColor="#0E6251" OnClick="Button2_Click" Width="218px" BorderColor="#0E6251" ForeColor="White"/>
+          <asp:Button ID="Button2" runat="server" Text="Onderhoud Toevoegen" BackColor="#0E6251" OnClick="Button2_Click" Width="218px" BorderColor="#0E6251" ForeColor="White" EnableTheming="True" CssClass="buttonstyle"/>
            <br />
            <br />
            <hr />
@@ -24,11 +24,12 @@
 <asp:TextBox ID="naamTxtbox" runat="server" Width="174px"></asp:TextBox>
    <br />
         <br />
-        <asp:Button ID="btnAndersZoeken" runat="server" BackColor="#0E6251" BorderColor="#0E6251" Height="26px" OnClick="btnAndersZoeken_Click1" Text="Anders Zoeken" Width="160px" ForeColor="White" />
+        <asp:Button ID="btnAndersZoeken" runat="server" BackColor="#0E6251" BorderColor="#0E6251" Height="26px" OnClick="btnAndersZoeken_Click1" Text="Anders Zoeken" Width="160px" ForeColor="White" CssClass="buttonstyle" />
 
      &nbsp;
 
-     <asp:Button ID="btnZoek" runat="server" BackColor="#0E6251" BorderColor="#0E6251" Height="26px" OnClick="btnZoek_Click" Text="Zoek" Width="68px" ForeColor="White" />
+     <asp:Button ID="btnZoek" runat="server" BackColor="#0E6251" BorderColor="#0E6251" Height="26px" OnClick="btnZoek_Click" Text="Zoek" Width="68px" ForeColor="White" CssClass="buttonstyle" />
+        <br />
         <br />
         <br />
     <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" Visible="False">

@@ -11,7 +11,7 @@
     <div class="row col-sm-12">
        <div class="col-sm-12" style="text-align:center;">
            <br />
-           <br />
+
            <hr />
           </div>
 
