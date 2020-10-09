@@ -61,5 +61,15 @@ namespace ProjectGroenBos.Restaurant
             //Hier open je de pop up om de bestelling op de tafel te kunnen zetten of kan kiezen voor afrekenen voor de tafel
             popuptafel5.Show();
         }
+
+        protected void btnkeuken_Click(object sender, EventArgs e)
+        {
+            //bregnt je naar het keukenscherm
+        }
+
+        protected void btnbar_Click(object sender, EventArgs e)
+        {
+            //brengt je naar het barscherm
+        }
     }
 }

@@ -15,22 +15,13 @@ namespace ProjectGroenBos.Restaurant
     {
 
         /// <summary>
-        /// keuken control.
+        /// btnkeuken control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label keuken;
-
-        /// <summary>
-        /// bar control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label bar;
+        protected global::System.Web.UI.WebControls.Button btnkeuken;
 
         /// <summary>
         /// btntafel1 control.
@@ -355,5 +346,14 @@ namespace ProjectGroenBos.Restaurant
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button13;
+
+        /// <summary>
+        /// btnbar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnbar;
     }
 }

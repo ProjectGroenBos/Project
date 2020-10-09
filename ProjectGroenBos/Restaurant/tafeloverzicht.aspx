@@ -8,9 +8,8 @@
     <link rel="stylesheet" href="css/tafeloverzicht.css">
     <div class="werkgebied">
 
-        <asp:Label ID="keuken" class="keuken" runat="server" Text="Keuken"/>
-
-        <asp:Label ID="bar" class="bar" runat="server" Text="Bar"/>
+        <!-- button voor de keuken -->
+        <asp:Button ID="btnkeuken" class="keuken" runat="server" Text="Keuken" OnClick="btnkeuken_Click"/>
 
 
         <!--tafel 1 -->
@@ -119,6 +118,8 @@
             <asp:button ID="Button12" runat="server" text="Bestelling maken" OnClick="Button1_Click" />
             <asp:button ID="Button13" runat="server" text="naar afrekenen" OnClick="Button2_Click" />
         </asp:Panel>
+         <!-- button voor de bar -->
+        <asp:Button ID="btnbar" class="bar" runat="server" Text="Bar" OnClick="btnbar_Click"/>
 
     </div>
 </asp:Content>
