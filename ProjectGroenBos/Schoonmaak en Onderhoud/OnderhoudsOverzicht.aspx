@@ -43,13 +43,12 @@
 <div class="col-xs-3" style="margin-left:auto; margin-right:auto;">
    <label for="ex3" style="color:rgba(0, 0, 0, 0)"></label>
     <br />
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:con %>" SelectCommand="select Onderhoudsopdracht.Nummer, Medewerker.Naam, Startdatum, VerwachteEinddatum, Kosten, BungalowNummer, OnderhoudsstatusID, Onderhoudtype, DatumvanConstatering  from Onderhoudsopdracht left join Medewerker on Medewerker.Nummer = Onderhoudsopdracht.MedewerkerNummer" DeleteCommand="delete from Onderhoudsopdracht where nummer = @nummer"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:con %>" SelectCommand="select Nummer, Startdatum, VerwachteEinddatum, Kosten, BungalowNummer, OnderhoudsstatusID, Onderhoudtype, DatumvanConstatering  from Onderhoudsopdracht" DeleteCommand="delete from Onderhoudsopdracht where nummer = @nummer"></asp:SqlDataSource>
     <center>
     <asp:GridView ID="OverzichtGrid" runat="server" AutoGenerateColumns="False" BackColor="White" Width="80%" BorderColor="#0E6251" BorderStyle="Solid" BorderWidth="1px" CellPadding="5" DataKeyNames="Nummer" DataSourceID="SqlDataSource1" ForeColor="Black" GridLines="Vertical" >
         <AlternatingRowStyle BackColor="#f0f0f0" />
         <Columns>
             <asp:BoundField DataField="Nummer" HeaderText="Nummer" InsertVisible="False" ReadOnly="True" SortExpression="Nummer" />
-            <asp:BoundField DataField="Naam" HeaderText="Naam" SortExpression="Naam" />
             <asp:BoundField DataField="Startdatum" HeaderText="Startdatum" SortExpression="Startdatum"/>
             <asp:BoundField DataField="VerwachteEinddatum" HeaderText="Verwachte Einddatum" SortExpression="VerwachteEinddatum" />
             <asp:BoundField DataField="Kosten" HeaderText="Kosten" SortExpression="Kosten"  />
@@ -94,7 +93,7 @@
         <SortedDescendingHeaderStyle BackColor="#383838" />
     </asp:GridView>
         </center>
-    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:con %>" SelectCommand="select Onderhoudsopdracht.Nummer, Medewerker.Naam, Startdatum, VerwachteEinddatum, Kosten, BungalowNummer, OnderhoudsstatusID, Onderhoudtype, DatumvanConstatering  from Onderhoudsopdracht left join Medewerker on Medewerker.Nummer = Onderhoudsopdracht.MedewerkerNummer WHERE ([Startdatum] = @searchBox)"  DeleteCommand="delete from Onderhoudsopdracht where nummer = @nummer">
+    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:con %>" SelectCommand="select Nummer, Startdatum, VerwachteEinddatum, Kosten, BungalowNummer, OnderhoudsstatusID, Onderhoudtype, DatumvanConstatering  from Onderhoudsopdracht WHERE ([Startdatum] = @searchBox)"  DeleteCommand="delete from Onderhoudsopdracht where nummer = @nummer">
         <SelectParameters>
             <asp:ControlParameter ControlID="searchBox" Name="searchBox" PropertyName="Text" />
         </SelectParameters>
@@ -124,7 +123,7 @@
         <SortedDescendingHeaderStyle BackColor="#383838" />
     </asp:GridView>
         </center>
-    <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:con %>" SelectCommand="select Onderhoudsopdracht.Nummer, Medewerker.Naam, Startdatum, VerwachteEinddatum, Kosten, BungalowNummer, OnderhoudsstatusID, Onderhoudtype, DatumvanConstatering  from Onderhoudsopdracht left join Medewerker on Medewerker.Nummer = Onderhoudsopdracht.MedewerkerNummer WHERE ([BungalowNummer] = @searchBox)"  DeleteCommand="delete from Onderhoudsopdracht where nummer = @nummer">
+    <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:con %>" SelectCommand="select Nummer, Startdatum, VerwachteEinddatum, Kosten, BungalowNummer, OnderhoudsstatusID, Onderhoudtype, DatumvanConstatering  from Onderhoudsopdracht WHERE ([BungalowNummer] = @searchBox)"  DeleteCommand="delete from Onderhoudsopdracht where nummer = @nummer">
         <SelectParameters>
             <asp:ControlParameter ControlID="searchBox" Name="searchBox" PropertyName="Text" />
         </SelectParameters>
@@ -154,7 +153,7 @@
         <SortedDescendingHeaderStyle BackColor="#383838" />
     </asp:GridView>
     </center>
-    <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:con %>" SelectCommand="select Onderhoudsopdracht.Nummer, Medewerker.Naam, Startdatum, VerwachteEinddatum, Kosten, BungalowNummer, OnderhoudsstatusID, Onderhoudtype, DatumvanConstatering  from Onderhoudsopdracht left join Medewerker on Medewerker.Nummer = Onderhoudsopdracht.MedewerkerNummer WHERE ([Naam] = @searchBox)"  DeleteCommand="delete from Onderhoudsopdracht where nummer = @nummer">
+    <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:con %>" SelectCommand="select Nummer, Startdatum, VerwachteEinddatum, Kosten, BungalowNummer, OnderhoudsstatusID, Onderhoudtype, DatumvanConstatering  from Onderhoudsopdracht WHERE ([Naam] = @searchBox)"  DeleteCommand="delete from Onderhoudsopdracht where nummer = @nummer">
         <SelectParameters>
             <asp:ControlParameter ControlID="searchBox" Name="searchBox" PropertyName="Text" />
         </SelectParameters>
@@ -184,7 +183,7 @@
         <SortedDescendingHeaderStyle BackColor="#383838" />
     </asp:GridView>
     </center>
-    <asp:SqlDataSource ID="SqlDataSource5" runat="server" ConnectionString="<%$ ConnectionStrings:con %>" SelectCommand="select Onderhoudsopdracht.Nummer, Medewerker.Naam, Startdatum, VerwachteEinddatum, Kosten, BungalowNummer, OnderhoudsstatusID, Onderhoudtype, DatumvanConstatering  from Onderhoudsopdracht left join Medewerker on Medewerker.Nummer = Onderhoudsopdracht.MedewerkerNummer WHERE ([Naam] = @naamTxtbox)"  DeleteCommand="delete from Onderhoudsopdracht where nummer = @nummer">
+    <asp:SqlDataSource ID="SqlDataSource5" runat="server" ConnectionString="<%$ ConnectionStrings:con %>" SelectCommand="select Nummer, Startdatum, VerwachteEinddatum, Kosten, BungalowNummer, OnderhoudsstatusID, Onderhoudtype, DatumvanConstatering  from Onderhoudsopdracht WHERE ([Naam] = @naamTxtbox)"  DeleteCommand="delete from Onderhoudsopdracht where nummer = @nummer">
         <SelectParameters>
             <asp:ControlParameter ControlID="naamTxtbox" Name="naamTxtbox" PropertyName="Text" />
         </SelectParameters>

@@ -20,7 +20,6 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud
 
         protected void btnToevoegen_Click1(object sender, EventArgs e)
         {
-            String nummer = DropDownList1.SelectedValue.ToString();
             String status = DropDownList2.SelectedValue.ToString();
             String type = DropDownList3.SelectedValue.ToString();
             RequiredFieldValidator1.Validate();
@@ -34,7 +33,7 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud
                 if (RegularExpressionValidator1.IsValid && RegularExpressionValidator2.IsValid && RegularExpressionValidator3.IsValid && RegularExpressionValidator4.IsValid && RegularExpressionValidator5.IsValid && RangeValidator1.IsValid && CompareValidator1.IsValid && RequiredFieldValidator7.IsValid && RequiredFieldValidator8.IsValid && RequiredFieldValidator9.IsValid)
                 {
                     con.Open();
-                    SqlCommand cmd = new SqlCommand("INSERT INTO  [dbo].[Onderhoudsopdracht] (Startdatum,VerwachteEinddatum,Kosten,BungalowNummer,OnderhoudsstatusID,Onderhoudtype,DatumvanConstatering,MedewerkerNummer)    values(@startdatum, @verwachteeinddatum, @kosten, @bungalownummer, @onderhoudsstatusID, @onderhoudtype, @datumvanconstatering, @medewerkernummer)", con);
+                    SqlCommand cmd = new SqlCommand("INSERT INTO  [dbo].[Onderhoudsopdracht] (Startdatum,VerwachteEinddatum,Kosten,BungalowNummer,OnderhoudsstatusID,Onderhoudtype,DatumvanConstatering)    values(@startdatum, @verwachteeinddatum, @kosten, @bungalownummer, @onderhoudsstatusID, @onderhoudtype, @datumvanconstatering)", con);
 
                     cmd.Parameters.AddWithValue("@startdatum", txtStart.Text);
                     cmd.Parameters.AddWithValue("@verwachteeinddatum", txtEind.Text);
@@ -43,7 +42,6 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud
                     cmd.Parameters.AddWithValue("@onderhoudsstatusID", status);
                     cmd.Parameters.AddWithValue("@onderhoudtype", type);
                     cmd.Parameters.AddWithValue("@datumvanconstatering", txtConstatering.Text);
-                    cmd.Parameters.AddWithValue("@medewerkernummer", int.Parse(nummer));
 
 
                     cmd.ExecuteNonQuery();
@@ -76,9 +74,5 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud
             //con.Close();
         }
 
-        protected void btnTerugOOverzicht_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("OnderhoudsOverzicht.aspx");
-        }
     }
 }

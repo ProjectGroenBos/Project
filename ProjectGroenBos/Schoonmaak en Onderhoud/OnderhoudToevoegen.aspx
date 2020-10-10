@@ -140,22 +140,10 @@
 
                      </td>
                 </tr>
-                                 <tr>
-                    <td>Naam Medewerker </td>
-                    <td class="auto-style3">
-                        <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource1" DataTextField="Naam" DataValueField="Nummer" AppendDataBoundItems="True">
-                            <asp:ListItem Text="--Selecteer--" Value="0" />
-                        </asp:DropDownList>
-                        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:con %>" SelectCommand="SELECT [Nummer], [Naam] FROM [Medewerker]"></asp:SqlDataSource>
-                    </td>
-                     <td class="auto-style15">
-
-                         &nbsp;</td>
-                                     </tr>
+                                 
                 <tr>
                      <td style="margin-left: 40px">  
                          <br />
-                         <asp:Button ID="btnToevoegen" runat="server" Text="Toevoegen" OnClick="btnToevoegen_Click1" BackColor="#0E6251" BorderColor="#0E6251" ForeColor="White" CssClass="buttonstyle" />
                      </td>
                     <td class="auto-style3">
 
@@ -165,7 +153,7 @@
                  
                      </td>
                     <td  style="margin-left: 40px; " class="auto-style1">
-                    <asp:Button ID="btnTerugOOverzicht" runat="server" Text="Terug naar overzicht" OnClick="btnTerugOOverzicht_Click" BackColor="#0E6251" BorderColor="#0E6251" ForeColor="White" CssClass="buttonstyle" />
+                         <asp:Button ID="btnToevoegen" runat="server" Text="Toevoegen" OnClick="btnToevoegen_Click1" BackColor="#0E6251" BorderColor="#0E6251" ForeColor="White" CssClass="buttonstyle" />
                     </td>
 
                 </tr>

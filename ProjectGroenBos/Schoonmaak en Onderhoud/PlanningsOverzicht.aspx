@@ -10,8 +10,9 @@
     <br />
     <div class="row col-sm-12">
        <div class="col-sm-12" style="text-align:center;">
+          <asp:Button ID="Button2" runat="server" Text="Onderhoud Toevoegen" BackColor="#0E6251" OnClick="Button2_Click" Width="218px" BorderColor="#0E6251" ForeColor="White" EnableTheming="True" CssClass="buttonstyle"/>
            <br />
-
+           <br />
            <hr />
           </div>
         <br />
