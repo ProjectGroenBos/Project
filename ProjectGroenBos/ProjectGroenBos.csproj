@@ -88,6 +88,7 @@
     <Content Include="Schoonmaak en Onderhoud\OnderhoudsOverzicht.aspx" />
     <Content Include="Schoonmaak en Onderhoud\OnderhoudToevoegen.aspx" />
     <Content Include="Schoonmaak en Onderhoud\PlanningsOverzicht.aspx" />
+    <Content Include="Schoonmaak en Onderhoud\PlanningToevoegen.aspx" />
     <Content Include="Schoonmaak en Onderhoud\SchouwingsOverzicht.aspx" />
     <Content Include="Schoonmaak en Onderhoud\style\stylesheet.css" />
     <Content Include="Scripts\dhtmlxScheduler\dhtmlxscheduler.css" />
@@ -390,6 +391,13 @@
     </Compile>
     <Compile Include="Schoonmaak en Onderhoud\PlanningsOverzicht.aspx.designer.cs">
       <DependentUpon>PlanningsOverzicht.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Schoonmaak en Onderhoud\PlanningToevoegen.aspx.cs">
+      <DependentUpon>PlanningToevoegen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Schoonmaak en Onderhoud\PlanningToevoegen.aspx.designer.cs">
+      <DependentUpon>PlanningToevoegen.aspx</DependentUpon>
     </Compile>
     <Compile Include="Schoonmaak en Onderhoud\Schoonmaak.Master.cs">
       <DependentUpon>Schoonmaak.Master</DependentUpon>

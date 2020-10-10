@@ -6,7 +6,7 @@
         <br />
 
 <div class="form-row" style="text-align:center;">
-    <h1 class="text-primary">Overzicht Planning Schoonmaak</h1>
+    <h1 class="text-primary">Overzicht Schoonmaakplanning</h1>
     <br />
     <div class="row col-sm-12">
        <div class="col-sm-12" style="text-align:center;">

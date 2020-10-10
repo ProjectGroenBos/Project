@@ -150,9 +150,7 @@
                     </td>
                      <td class="auto-style15">
 
-                         <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ControlToValidate="DropDownList1" ErrorMessage="Selecteer een optie" ForeColor="Red" InitialValue="0"></asp:RequiredFieldValidator>
-
-                         </td>
+                         &nbsp;</td>
                                      </tr>
                 <tr>
                      <td style="margin-left: 40px">  

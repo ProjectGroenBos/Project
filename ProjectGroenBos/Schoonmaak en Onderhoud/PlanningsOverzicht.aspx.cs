@@ -66,7 +66,7 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud
                 {
                     LinkButton lb = new LinkButton();
 
-                    lb.Text = "Medewerker:" + "<br />" + row["Naam"] + "<br />" + "Bungalow: " + row["BungalowNummer"] as String + "</a>" + "<BR>";
+                    lb.Text = "<br />" + row["Naam"] + "<br />" + row["Onderhoudtype"] + "<br />" + "Bungalow: " + row["BungalowNummer"] as String + "</a>" + "<BR>";
 
                     e.Cell.Controls.Add(lb);
                 }

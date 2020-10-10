@@ -20,15 +20,19 @@
             <div class="sidebar">
                 <h2>
                     <img src="../Images/Logo4.png" alt="Logo" height="150"></h2>
-                <h3>SCHOONMAAK</h3>
-                <ul>
+                <h3>SCHOONMAAK & ONDERHOUD</h3>
+
+                    <ul>
+                    <li><a href="PlanningsOverzicht.aspx">Schoonmaakplanning Overzicht</a>
+                                <ul class="submenu">
+                                <li><a href="PlanningToevoegen.aspx">Planning Toevoegen</a></li>
+                                </ul> 
                     <li><a href="InventarisOverzicht.aspx">Inventaris Overzicht</a></li>
-                    <li><a href="OffertesOverzicht.aspx">Offerte Overzicht</a></li>
                     <li><a href="OnderhoudsOverzicht.aspx"><i class="fas fa-user"></i>Onderhoud Overzicht</a>
                                 <ul class="submenu">
-                                <li><a href="OnderhoudToevoegen.aspx">- Onderhoud Toevoegen</a></li>
-                                </ul>
-                    <li><a href="PlanningsOverzicht.aspx">Planning Overzicht</a></li>
+                                <li><a href="OnderhoudToevoegen.aspx">Onderhoud Toevoegen</a></li>
+                                </ul> 
+                    <li><a href="OffertesOverzicht.aspx">Offerte Overzicht</a></li>                  
                     <li><a href="SchouwingsOverzicht.aspx">Schouwing Overzicht</a></li>
                 </ul>
                 
