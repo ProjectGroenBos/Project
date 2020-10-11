@@ -28,6 +28,7 @@
 
 .close{
     background-color: red;
+    float: right;
 }
 
 .tafelbutton {
