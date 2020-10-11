@@ -22,7 +22,7 @@
         </cc1:ToolkitScriptManager>       
         <!-- modal popup extender-->
 
-         <cc1:ModalPopupExtender ID="popuptafel1" TargetControlID="btntafel1" popupControlID="modelpantafel1" CancelcontrolID="btnclose" PopupDragHandleControlID="header" runat="server">
+         <cc1:ModalPopupExtender ID="popuptafel1" TargetControlID="btntafel1" popupControlID="modelpantafel1" CancelcontrolID="btnclose1" PopupDragHandleControlID="header" runat="server">
 
         </cc1:ModalPopupExtender>
 
@@ -31,11 +31,11 @@
          
                 <div ID="header" class=header>
                     <asp:Label ID="lbltafelpopup" class="Tafelpopup" runat="server" Text="Tafel 1"/>
-                <asp:button ID="btnclose" Class="close" runat="server" text="X"/>
+                <asp:button ID="btnclose1" Class="close" runat="server" text="X"/>
                 </div>
 
-            <asp:button ID="Bestelling" runat="server" text="Bestelling maken" OnClick="Button1_Click" />
-            <asp:button ID="Button2" runat="server" text="naar afrekenen" OnClick="Button2_Click" />
+            <asp:button  runat="server" text="Bestelling maken" OnClick="Button1_Click" />
+            <asp:button  runat="server" text="naar afrekenen" OnClick="Button2_Click" />
         </asp:Panel>
 
             <br />
@@ -44,78 +44,78 @@
         <!--tafel 2 -->
         <asp:Button ID="btntafel2" Class="tafelbutton" runat="server" Text="Tafel 2" OnClick="btntafel2_Click" />
 
-             <cc1:ModalPopupExtender ID="popuptafel2" TargetControlID="btntafel2" popupControlID="modelpantafel2" CancelcontrolID="btnclose" PopupDragHandleControlID="header" runat="server">
+             <cc1:ModalPopupExtender ID="popuptafel2" TargetControlID="btntafel2" popupControlID="modelpantafel2" CancelcontrolID="btnclose2" PopupDragHandleControlID="header2" runat="server">
 
         </cc1:ModalPopupExtender>
 
         <!-- panel design-->
         <asp:Panel ID="modelpantafel2" Class="popup" runat="server">
          
-                <div  class=header>
+                <div ID="header2" class=header>
                     <asp:Label ID="Label1" class="Tafelpopup" runat="server" Text="Tafel 2"/>
-                <asp:button ID="Button1" Class="close" runat="server" text="X"/>
+                <asp:button ID="btnclose2" Class="close" runat="server" text="X"/>
                 </div>
 
-            <asp:button ID="Button3" runat="server" text="Bestelling maken" OnClick="Button1_Click" />
-            <asp:button ID="Button4" runat="server" text="naar afrekenen" OnClick="Button2_Click" />
+            <asp:button  runat="server" text="Bestelling maken" OnClick="Button1_Click" />
+            <asp:button  runat="server" text="naar afrekenen" OnClick="Button2_Click" />
         </asp:Panel>
 
 
         <!--tafel 3 -->
         <asp:Button ID="btntafel3" Class="tafelbutton" runat="server" Text="Tafel 3" />
 
-        <cc1:ModalPopupExtender ID="popuptafel3" TargetControlID="btntafel3" popupControlID="modelpantafel3" CancelcontrolID="btnclose" PopupDragHandleControlID="header" runat="server">
+        <cc1:ModalPopupExtender ID="popuptafel3" TargetControlID="btntafel3" popupControlID="modelpantafel3" CancelcontrolID="btnclose3" PopupDragHandleControlID="header3" runat="server">
 
         </cc1:ModalPopupExtender>
 
         <!-- panel design-->
         <asp:Panel ID="modelpantafel3" Class="popup" runat="server">
          
-                <div  class=header>
+                <div ID="header3" class=header>
                     <asp:Label ID="Label2" class="Tafelpopup" runat="server" Text="Tafel 3"/>
-                <asp:button ID="Button5" Class="close" runat="server" text="X"/>
+                <asp:button ID="btnclose3" Class="close" runat="server" text="X"/>
                 </div>
 
-            <asp:button ID="Button6" runat="server" text="Bestelling maken" OnClick="Button1_Click" />
-            <asp:button ID="Button7" runat="server" text="naar afrekenen" OnClick="Button2_Click" />
+            <asp:button  runat="server" text="Bestelling maken" OnClick="Button1_Click" />
+            <asp:button  runat="server" text="naar afrekenen" OnClick="Button2_Click" />
         </asp:Panel>
 
         <!--tafel 4 -->
         <asp:Button ID="btntafel4" Class="tafelbutton" runat="server" Text="Tafel 4" />
 
-        <cc1:ModalPopupExtender ID="popuptafel4" TargetControlID="btntafel4" popupControlID="modelpantafel4" CancelcontrolID="btnclose" PopupDragHandleControlID="header" runat="server">
+        <cc1:ModalPopupExtender ID="popuptafel4" TargetControlID="btntafel4" popupControlID="modelpantafel4" CancelcontrolID="btnclose4" PopupDragHandleControlID="header4" runat="server">
 
         </cc1:ModalPopupExtender>
 
         <!-- panel design-->
         <asp:Panel ID="modelpantafel4" Class="popup" runat="server">
          
-                <div  class=header>
+                <div ID="header4" class=header>
                     <asp:Label ID="Label3" class="Tafelpopup" runat="server" Text="Tafel 4"/>
-                <asp:button ID="Button8" Class="close" runat="server" text="X"/>
+                <asp:button ID="btnclose4" Class="close" runat="server" text="X"/>
                 </div>
 
-            <asp:button ID="Button9" runat="server" text="Bestelling maken" OnClick="Button1_Click" />
-            <asp:button ID="Button10" runat="server" text="naar afrekenen" OnClick="Button2_Click" />
+            <asp:button  runat="server" text="Bestelling maken" OnClick="Button1_Click" />
+            <asp:button  runat="server" text="naar afrekenen" OnClick="Button2_Click" />
         </asp:Panel>
 
         <!--tafel 5 -->
         <asp:Button ID="btntafel5" Class="tafelbutton" runat="server" Text="Tafel 5" />
 
-        <cc1:ModalPopupExtender ID="popuptafel5" TargetControlID="btntafel5" popupControlID="modelpantafel5" CancelcontrolID="btnclose" PopupDragHandleControlID="header" runat="server">
+        <cc1:ModalPopupExtender ID="popuptafel5" TargetControlID="btntafel5" popupControlID="modelpantafel5" CancelcontrolID="btnclose5" PopupDragHandleControlID="header5" runat="server">
 
         </cc1:ModalPopupExtender>
 
         <!-- panel design-->
         <asp:Panel ID="modelpantafel5" Class="popup" runat="server">
          
-                <div  class=header>
+                <div ID="header5" class=header>
                     <asp:Label ID="Label4" class="Tafelpopup" runat="server" Text="Tafel 5"/>
-                <asp:button ID="Button11" Class="close" runat="server" text="X"/>
+                <asp:button ID="btnclose5" Class="close" runat="server" text="X"/>
                 </div>
 
-            <asp:button ID="Button12" runat="server" text="Bestelling maken" OnClick="Button1_Click" />
-            <asp:button ID="Button13" runat="server" text="naar afrekenen" OnClick="Button2_Click" />
+            <asp:button  runat="server" text="Bestelling maken" OnClick="Button1_Click" />
+            <asp:button  runat="server" text="naar afrekenen" OnClick="Button2_Click" />
         </asp:Panel>
 
             <!-- button voor de bar -->
