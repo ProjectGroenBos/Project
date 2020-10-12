@@ -84,7 +84,7 @@ namespace ProjectGroenBos.Financien
             sbEmailBody.Append("<br/><br/>");
             sbEmailBody.Append("<h4>Te betalen bedrag: " + totaal + "</h4>");
             sbEmailBody.Append("<br/><br/>");
-            sbEmailBody.Append("Wij verzoeken u vriendelijk het bedrag van " + totaal + " voor aanvang van uw bezoek over te maken naar rekeningnummer NL32 RABO 0220.96.13.200 onder vermelding van reserveringsnummer " + nummer);
+            sbEmailBody.Append("Wij verzoeken u vriendelijk het bedrag van " + totaal + " euro voor aanvang van uw bezoek over te maken naar rekeningnummer NL32 RABO 0220.96.13.200 onder vermelding van reserveringsnummer " + nummer + ".");
             sbEmailBody.Append("<br/><br/>");
             sbEmailBody.Append("Wij hopen u hierbij voldoende geïnformeerd te hebben. Als u vragen heeft kunt u deze email beantwoorden.");
             sbEmailBody.Append("<br/><br/>");
@@ -94,12 +94,12 @@ namespace ProjectGroenBos.Financien
             sbEmailBody.Append("<br/>");
             sbEmailBody.Append("Noorderpark 12, 6755 VB Aalterveld");
             sbEmailBody.Append("<br/>");
-            sbEmailBody.Append("<img src='https://cdn.discordapp.com/attachments/749932863847137304/762614070687825950/Logo3.png' style='width: 100px; height: 150px; '>");
+            sbEmailBody.Append("<img src='https://cdn.discordapp.com/attachments/749932863847137304/762614070687825950/Logo3.png' width='150' height='150'>");
 
             mailMessage.IsBodyHtml = true;
             //body naar email tekst
             mailMessage.Body = sbEmailBody.ToString();
-            mailMessage.Subject = "Factuur " + nummer;
+            mailMessage.Subject = "Reservering Factuur " + nummer;
             SmtpClient smtpClient = new SmtpClient("smtp.live.com", 587);
 
             //email login

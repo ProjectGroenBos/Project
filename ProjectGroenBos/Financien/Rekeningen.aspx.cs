@@ -17,8 +17,6 @@ namespace ProjectGroenBos.Financien
 {
     public partial class WebForm4 : System.Web.UI.Page
     {
-        int NUmmer = 10;
-        object TeklifId = 2;
         string constr = System.Configuration.ConfigurationManager.ConnectionStrings["dbconnectie"].ConnectionString;
 
         protected void Page_Load(object sender, EventArgs e)
@@ -52,6 +50,10 @@ namespace ProjectGroenBos.Financien
             Button btn = sender as Button;
 
             int gridviewnr = int.Parse(btn.CommandName);
+
+            HiddenField fnummers = (HiddenField)rpModals.Items[gridviewnr].FindControl("DebiteurNr");
+            string fnummer = fnummers.Value;
+
             HiddenField nummers = (HiddenField)rpModals.Items[gridviewnr].FindControl("Nummer");
             string nummer = nummers.Value;
 
@@ -65,6 +67,23 @@ namespace ProjectGroenBos.Financien
             string email = Emails.Value;
 
             Email(gridviewnr, nummer, Totaalbedrag, Naam, email);
+
+            using (SqlConnection con = new SqlConnection(constr))
+            {
+                con.Open();
+
+                SqlCommand cmd = new SqlCommand("UPDATE debiteurenfactuur SET BetaalstatusID = '5' where nummer = @nummer", con);
+                cmd.Parameters.AddWithValue("@nummer", fnummer);
+
+                cmd.ExecuteNonQuery();
+
+                con.Close();
+            }
+
+            gvRekeningen.DataBind();
+
+            ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "emailsuccess();", true);
+
         }
 
         protected void Email(int gridviewnr, string nummer, string totaal, string naam, string email)
@@ -96,12 +115,12 @@ namespace ProjectGroenBos.Financien
             sbEmailBody.Append("<br/>");
             sbEmailBody.Append("Noorderpark 12, 6755 VB Aalterveld");
             sbEmailBody.Append("<br/>");
-            sbEmailBody.Append("<img src='https://cdn.discordapp.com/attachments/749932863847137304/762614070687825950/Logo3.png' style='width: 100px; height: 150px; '>");
+            sbEmailBody.Append("<img src='https://cdn.discordapp.com/attachments/749932863847137304/762614070687825950/Logo3.png' width='150' height='180' >");
 
             mailMessage.IsBodyHtml = true;
             //body naar email tekst
             mailMessage.Body = sbEmailBody.ToString();
-            mailMessage.Subject = "Factuur " + nummer;
+            mailMessage.Subject = "Rekeningen Factuur " + nummer;
             SmtpClient smtpClient = new SmtpClient("smtp.live.com", 587);
 
             //email login
@@ -115,7 +134,6 @@ namespace ProjectGroenBos.Financien
             smtpClient.EnableSsl = true;
             smtpClient.Send(mailMessage);
 
-            ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "emailsuccess();", true);
 
         }
 

@@ -402,3 +402,11 @@ nav {
     flex-direction: row;
     justify-content: space-evenly;
 }
+
+.Raar {
+    text-align: left;
+    float: left;
+    margin-left: 10%;
+margin-bottom: 25%;
+margin-top: 10%
+}
