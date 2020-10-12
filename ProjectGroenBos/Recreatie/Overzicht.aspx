@@ -20,7 +20,7 @@
                     <asp:BoundField DataField="Locatie" HeaderText="Locatie" SortExpression="Locatie" />
                     <asp:BoundField DataField="Specificatie" HeaderText="Specificatie" SortExpression="Specificatie" />
                     <asp:BoundField DataField="Inschrijfkosten" HeaderText="Inschrijfkosten" SortExpression="Inschrijfkosten" />
-                    <asp:BoundField DataField="Datum" HeaderText="Datum" SortExpression="Datum" DataFormatString="{0:d}/>
+                    <asp:BoundField DataField="Datum" HeaderText="Datum" SortExpression="Datum" DataFormatString="{0:d}"/>
                     <asp:BoundField DataField="Begintijd" HeaderText="Begintijd" SortExpression="Begintijd" />
                     <asp:BoundField DataField="Eindtijd" HeaderText="Eindtijd" SortExpression="Eindtijd" />
                     <asp:BoundField DataField="Maximaal aantal" HeaderText="Maximaal aantal" SortExpression="Maximaal aantal" />
