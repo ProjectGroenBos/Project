@@ -96,30 +96,39 @@
                         <!-- Modal content-->
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h4 class="modal-title">Factuur <%# Eval("Betalen aan") %></h4>
+                                <h4 class="modal-title">Inkoopfactuur <%# Eval("Betalen aan") %></h4>
                                 <asp:Button runat="server" CssClass="btn btn-primary" Text="Sluiten"></asp:Button>
                             </div>
                             <div class="modal-body">
                                 <div class="factuur" id="printModal<%# Eval("Nummer") %>">
                                     <div class="inline-flex">
-                                        <div>
-                                            <h4>Reserverings gegevens</h4>
+                                        <div class="Raar" id="Raar">
+                                            Leverancier:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp <%# Eval("Betalen aan") %>
                                             <p>
-                                                #<%# Eval("Nummer") %>
+                                               Adres:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp  <%# Eval("Adres") %>
                                                 <br />
-                                                <%# Eval("Betalen aan") %><br />
-                                                <%# Eval("IBAN") %> personen
+                                              Postcode:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp  <%# Eval("Postcode") %><br />
+                                                Plaats:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp <%# Eval("Plaats") %><br />
+                                                Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp  <%# Eval("Email") %><br />
+                                                Telefoon: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp <%# Eval("Telefoonnummer") %><br />
+                                                <%# Eval("IBAN") %> 
                                 <br />
-                                                Van <%# Eval("Termijn", "{0: dd/MM/yyyy}") %>
-                                                <br />
-                                                Tot <%# Eval("Termijn", "{0: dd/MM/yyyy}") %>
+                                                IBAN:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp <%# Eval("IBAN") %> <br />
+                                                Betalen voor:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp <%# Eval("Termijn", "{0: dd/MM/yyyy}") %>
+                                               
                                             </p>
                                         </div>
                                         <div class="logofactuur">
                                             <img src="img/logo3.png" style="width: 150px; height: 200px;" alt="Logo">
                                         </div>
-                                    </div>
+                                        Aan:		Groenbos Recreatie b.v.
+		Noorderpark 12
+		6755 VB  Aalterveld
+
+                                     </div>
                                     <hr />
+
+
                                     <br />
                                     <asp:GridView ID="gvFactuurrekening" runat="server" CssClass="content-table" Gridlines="None"  AutoGenerateColumns="False" Style="text-align: center; margin-left: auto; margin-right: auto;" DataSourceID="SqlDataSource1">
                                         <Columns>
