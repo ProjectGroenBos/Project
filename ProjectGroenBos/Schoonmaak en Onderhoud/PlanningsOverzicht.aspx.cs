@@ -65,5 +65,9 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud
         {
             Response.Redirect("PlanningToevoegen.aspx");
         }
+        protected void btnWijzig_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("PlanningWijzigen.aspx");
+        }
     }
 }

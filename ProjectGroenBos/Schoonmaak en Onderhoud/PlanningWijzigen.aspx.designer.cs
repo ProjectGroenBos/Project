@@ -11,7 +11,7 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud
 {
 
 
-    public partial class OnderhoudWijzigen
+    public partial class PlanningWijzigen
     {
 
         /// <summary>
@@ -33,49 +33,40 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
 
         /// <summary>
-        /// lblNummerO control.
+        /// lblNummerS control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNummerO;
+        protected global::System.Web.UI.WebControls.Label lblNummerS;
 
         /// <summary>
-        /// startdatumTxtbox control.
+        /// txtDatum control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox startdatumTxtbox;
+        protected global::System.Web.UI.WebControls.TextBox txtDatum;
 
         /// <summary>
-        /// einddTxtbox control.
+        /// txtOmschrijving control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox einddTxtbox;
+        protected global::System.Web.UI.WebControls.TextBox txtOmschrijving;
 
         /// <summary>
-        /// kostenTxtbox control.
+        /// txtBNummer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox kostenTxtbox;
-
-        /// <summary>
-        /// bungTxtbox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox bungTxtbox;
+        protected global::System.Web.UI.WebControls.TextBox txtBNummer;
 
         /// <summary>
         /// DropDownList1 control.
@@ -87,30 +78,30 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud
         protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
 
         /// <summary>
-        /// DropDownList2 control.
+        /// SqlDataSource2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList2;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource2;
 
         /// <summary>
-        /// constTxtbox control.
+        /// btnTerugNO control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox constTxtbox;
+        protected global::System.Web.UI.WebControls.Button btnTerugNO;
 
         /// <summary>
-        /// btnWijzig control.
+        /// btnWijzigS control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnWijzig;
+        protected global::System.Web.UI.WebControls.Button btnWijzigS;
     }
 }

@@ -114,7 +114,6 @@
                             <asp:ListItem>--Selecteer--</asp:ListItem>
                             <asp:ListItem>Dakwerk</asp:ListItem>
                             <asp:ListItem>Raamwerk</asp:ListItem>
-                            <asp:ListItem>Schoonmaak</asp:ListItem>
                             <asp:ListItem>Schouwing</asp:ListItem>
                             <asp:ListItem>Schilderwerk</asp:ListItem>
                             <asp:ListItem>Stuckwerk</asp:ListItem>

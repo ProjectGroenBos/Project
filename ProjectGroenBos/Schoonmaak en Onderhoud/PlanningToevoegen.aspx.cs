@@ -43,5 +43,10 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud
                 Response.Redirect("PlanningsOverzicht.aspx");
             }
         }
+
+        protected void btnTerugNO_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("PlanningsOverzicht.aspx");
+        }
     }
 }

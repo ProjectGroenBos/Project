@@ -33,17 +33,16 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud
             string Datum = date.ToString("yyyy-MM-dd");
             string Datum2 = date2.ToString("yyyy-MM-dd");
             string Datum3 = date3.ToString("yyyy-MM-dd");
+            String status = DropDownList1.SelectedValue.ToString();
+            String type = DropDownList2.SelectedValue.ToString();
             SqlCommand cmd = con.CreateCommand();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "update [dbo].[Onderhoudsopdracht] set [Startdatum]='" + Datum + "' ,[VerwachteEinddatum]='" + Datum2 + "' ,[Kosten]='" + kostenTxtbox.Text + "' ,[BungalowNummer]='" + bungTxtbox.Text + "' ,[OnderhoudsstatusID]='" + onderhTxtbox.Text + "' ,[Onderhoudtype]='" + ondhtypeTxtbox.Text + "' ,[DatumvanConstatering]='" + Datum3 + "'where Nummer= " + Convert.ToInt32(nmrTxtbox.Text) + "";
+            cmd.CommandText = "update [dbo].[Onderhoudsopdracht] set [Startdatum]='" + Datum + "' ,[VerwachteEinddatum]='" + Datum2 + "' ,[Kosten]='" + kostenTxtbox.Text + "' ,[BungalowNummer]='" + bungTxtbox.Text + "' ,[OnderhoudsstatusID]='" + status + "' ,[Onderhoudtype]='" + type + "' ,[DatumvanConstatering]='" + Datum3 + "'where Nummer= " + Convert.ToInt32(lblNummerO.Text) + "";
             cmd.ExecuteNonQuery();
-            nmrTxtbox.Text = "'";
             startdatumTxtbox.Text = "";
             einddTxtbox.Text = "";
             kostenTxtbox.Text = "";
             bungTxtbox.Text = "";
-            onderhTxtbox.Text = "";
-            ondhtypeTxtbox.Text = "";
             constTxtbox.Text = "";
 
             Response.Redirect("OnderhoudsOverzicht.aspx");
@@ -52,13 +51,13 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
         {
             GridViewRow gr = GridView1.SelectedRow;
-            nmrTxtbox.Text = gr.Cells[1].Text;
+            lblNummerO.Text = gr.Cells[1].Text;
             startdatumTxtbox.Text = gr.Cells[2].Text;
             einddTxtbox.Text = gr.Cells[3].Text;
             kostenTxtbox.Text = gr.Cells[4].Text;
             bungTxtbox.Text = gr.Cells[5].Text;
-            onderhTxtbox.Text = gr.Cells[6].Text;
-            ondhtypeTxtbox.Text = gr.Cells[7].Text;
+            DropDownList1.SelectedValue = gr.Cells[6].Text;
+            DropDownList2.SelectedValue = gr.Cells[7].Text;
             constTxtbox.Text = gr.Cells[8].Text;
         }
     }

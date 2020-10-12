@@ -26,6 +26,8 @@
                     <li><a href="PlanningsOverzicht.aspx">Schoonmaakplanning Overzicht</a>
                                 <ul class="submenu">
                                 <li><a href="PlanningToevoegen.aspx">Planning Toevoegen</a></li>
+                                <li><a href="PlanningWijzigen.aspx">Planning Wijzigen</a></li>
+                                <li><a href="PlanningVerwijderen.aspx">Planning Verwijderen</a></li>
                                 </ul> 
                     <li><a href="InventarisOverzicht.aspx">Inventaris Overzicht</a></li>
                     <li><a href="OnderhoudsOverzicht.aspx"><i class="fas fa-user"></i>Onderhoud Overzicht</a>

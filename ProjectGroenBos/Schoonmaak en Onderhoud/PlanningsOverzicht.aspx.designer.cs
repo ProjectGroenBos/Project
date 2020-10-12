@@ -24,6 +24,15 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud
         protected global::System.Web.UI.WebControls.Button Button2;
 
         /// <summary>
+        /// btnWijzig control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnWijzig;
+
+        /// <summary>
         /// Calendar1 control.
         /// </summary>
         /// <remarks>
