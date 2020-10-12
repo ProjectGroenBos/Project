@@ -101,7 +101,7 @@
                             </div>
                             <div class="modal-body">
                                 <div class="factuur" id="printModal<%# Eval("Nummer") %>">
-                                    <div class="inline-flex">
+                                    <div>
                                         <div class="Raar" id="Raar">
                                             Leverancier:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp <%# Eval("Betalen aan") %>
                                             <p>
@@ -112,21 +112,23 @@
                                                 Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp  <%# Eval("Email") %><br />
                                                 Telefoon: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp <%# Eval("Telefoonnummer") %><br />
                                                 <%# Eval("IBAN") %> 
-                                <br />
+                                <br /><hr />
                                                 IBAN:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp <%# Eval("IBAN") %> <br />
                                                 Betalen voor:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp <%# Eval("Termijn", "{0: dd/MM/yyyy}") %>
                                                
                                             </p>
+                                            <p>
+                                                                                        Aan:		Groenbos Recreatie b.v.
+		Noorderpark 12
+		6755 VB  Aalterveld
+                                            </p>
+                                            <hr />
                                         </div>
                                         <div class="logofactuur">
                                             <img src="img/logo3.png" style="width: 150px; height: 200px;" alt="Logo">
                                         </div>
-                                        Aan:		Groenbos Recreatie b.v.
-		Noorderpark 12
-		6755 VB  Aalterveld
-
                                      </div>
-                                    <hr />
+                                   
 
 
                                     <br />
