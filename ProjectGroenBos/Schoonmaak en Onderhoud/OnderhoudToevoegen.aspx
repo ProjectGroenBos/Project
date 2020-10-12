@@ -21,11 +21,11 @@
   <div style="width:65%; margin: 0 auto; text-align:left;">
             <table style="width:100%;">
                  <tr>
-                    <td>Startdatum </td>
+                    <td class="auto-style16">Startdatum </td>
                     <td class="auto-style3">
                         <asp:TextBox ID="txtStart" runat="server" CausesValidation="True" Width="125px"></asp:TextBox>
                     </td>
-                     <td class="auto-style15">
+                     <td class="auto-style18">
 
                          <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtStart" ErrorMessage="Vul in" ForeColor="Red"></asp:RequiredFieldValidator>
 
@@ -36,11 +36,11 @@
                      </td>
                 </tr>
                  <tr>
-                    <td>Verwachte einddatum</td>
+                    <td class="auto-style16">Verwachte einddatum</td>
                     <td class="auto-style3">
                         <asp:TextBox ID="txtEind" runat="server" CausesValidation="True" Width="125px"></asp:TextBox>
                     </td>
-                     <td class="auto-style15">
+                     <td class="auto-style18">
 
                          <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtEind" ErrorMessage="Vul in" ForeColor="Red"></asp:RequiredFieldValidator>
 
@@ -49,14 +49,14 @@
                          <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtEind" ErrorMessage="Invoer ongeldig" ForeColor="Red" ValidationExpression="^(?:(?:31(\/|-|\.)(?:0?[13578]|1[02]))\1|(?:(?:29|30)(\/|-|\.)(?:0?[13-9]|1[0-2])\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:29(\/|-|\.)0?2\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8])(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:(?:1[6-9]|[2-9]\d)?\d{2})$"></asp:RegularExpressionValidator>
                          </td>
 
-                     <td class="auto-style5">
+                     <td class="auto-style1">
 
                          <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="txtStart" ControlToValidate="txtEind" ErrorMessage="Einddatum moet later" ForeColor="Red" Operator="GreaterThanEqual" Type="Date"></asp:CompareValidator>
 
                      </td>
                 </tr>
                  <tr>
-                    <td style="height: 27px">Kosten</td>
+                    <td class="auto-style17">Kosten</td>
                     <td class="auto-style4">
                         <asp:TextBox ID="txtKosten" runat="server" CausesValidation="True" Width="125px"></asp:TextBox>
                     </td>
@@ -73,18 +73,18 @@
                      </td>
                 </tr>
                  <tr>
-                    <td>Bungalownummer</td>
+                    <td class="auto-style16">Bungalownummer</td>
                     <td class="auto-style3">
                         <asp:TextBox ID="txtBungalownummer" runat="server" CausesValidation="True" Width="125px"></asp:TextBox>
                     </td>
-                     <td class="auto-style15">
+                     <td class="auto-style18">
 
                          <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtBungalownummer" ErrorMessage="Vul in" ForeColor="Red"></asp:RequiredFieldValidator>
 
                          &nbsp;&nbsp;&nbsp;
                          <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ControlToValidate="txtBungalownummer" ErrorMessage="Alleen getallen" ForeColor="Red" ValidationExpression="^[0-9]*$"></asp:RegularExpressionValidator>
 &nbsp;</td>
-                     <td class="auto-style5">
+                     <td class="auto-style1">
                          <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="txtBungalownummer" ErrorMessage="Nummer ongeldig" ForeColor="Red" MaximumValue="20" MinimumValue="2" Type="Integer"></asp:RangeValidator>
 
                      </td>
@@ -142,14 +142,14 @@
                 </tr>
                                  
                 <tr>
-                     <td style="margin-left: 40px">  
+                     <td style="margin-left: 40px" class="auto-style16">  
                          <br />
                      </td>
                     <td class="auto-style3">
 
                     </td>
 
-                   <td class="auto-style15" >
+                   <td class="auto-style18" >
                  
                      </td>
                     <td  style="margin-left: 40px; " class="auto-style1">
@@ -172,11 +172,11 @@
 <asp:Content ID="Content1" runat="server" contentplaceholderid="head">
     <style type="text/css">
         .auto-style1 {
-            width: 254px;
+            width: 270px;
         }
         .auto-style2 {
             height: 27px;
-            width: 229px;
+            width: 241px;
         }
         .auto-style3 {
             width: 101px;
@@ -185,11 +185,9 @@
             height: 27px;
             width: 101px;
         }
-        .auto-style5 {
-            width: 132px;
-        }
         .auto-style6 {
             height: 34px;
+            width: 200px;
         }
         .auto-style7 {
             height: 34px;
@@ -197,10 +195,11 @@
         }
         .auto-style8 {
             height: 34px;
-            width: 229px;
+            width: 241px;
         }
         .auto-style9 {
             height: 30px;
+            width: 200px;
         }
         .auto-style10 {
             height: 30px;
@@ -208,21 +207,29 @@
         }
         .auto-style11 {
             height: 30px;
-            width: 229px;
+            width: 241px;
         }
         .auto-style12 {
             height: 52px;
+            width: 200px;
         }
         .auto-style13 {
             width: 101px;
             height: 52px;
         }
         .auto-style14 {
-            width: 229px;
+            width: 241px;
             height: 52px;
         }
-        .auto-style15 {
-            width: 229px;
+        .auto-style16 {
+            width: 200px;
+        }
+        .auto-style17 {
+            height: 27px;
+            width: 200px;
+        }
+        .auto-style18 {
+            width: 241px;
         }
     </style>
 </asp:Content>

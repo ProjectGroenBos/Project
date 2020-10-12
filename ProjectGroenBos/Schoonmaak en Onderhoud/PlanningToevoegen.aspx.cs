@@ -20,6 +20,7 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud
         protected void btnToevoegen_Click1(object sender, EventArgs e)
         {
             String nummer = DropDownList1.SelectedValue.ToString();
+            DateTime datum = DateTime.Parse(txtSDatum.Text);
             RequiredFieldValidator1.Validate();
             RequiredFieldValidator2.Validate();
             RequiredFieldValidator3.Validate();
@@ -31,7 +32,7 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud
                 con.Open();
                 SqlCommand cmd = new SqlCommand("INSERT INTO  [dbo].[Schoonmaakopdracht] (Datum,Omschrijving,BungalowNummer,MedewerkerNummer)    values(@datum, @omschrijving, @bungalownummer, @medewerkernummer)", con);
 
-                cmd.Parameters.AddWithValue("@datum", txtSDatum.Text);
+                cmd.Parameters.AddWithValue("@datum", datum);
                 cmd.Parameters.AddWithValue("@omschrijving", txtOmschr.Text);
                 cmd.Parameters.AddWithValue("@bungalownummer", int.Parse(txtBungalownummer.Text));
                 cmd.Parameters.AddWithValue("@medewerkernummer", int.Parse(nummer));

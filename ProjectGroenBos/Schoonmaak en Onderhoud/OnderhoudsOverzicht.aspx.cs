@@ -139,6 +139,11 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud
             DropDownList1.Visible = true;
             searchBox.Visible = true;
         }
+
+        protected void btnWijzigscherm_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("OnderhoudWijzigen.aspx");
+        }
     }
 
 
