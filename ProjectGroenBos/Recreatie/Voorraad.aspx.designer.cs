@@ -42,24 +42,6 @@ namespace recreatie.paginas
         protected global::System.Web.UI.WebControls.TextBox txtZoekbalk;
 
         /// <summary>
-        /// btnSelecteren control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSelecteren;
-
-        /// <summary>
-        /// BtnBestellen control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnBestellen;
-
-        /// <summary>
         /// gvVoorraad control.
         /// </summary>
         /// <remarks>
