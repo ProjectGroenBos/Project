@@ -14,8 +14,8 @@ namespace recreatie.paginas
 {
     public partial class Beheer : System.Web.UI.Page
     {
-        DataTable dt;
-        //string cnn = new SqlConnection(ProjectGroenBos.Recreatie.Helper.HelperClass.DatabaseConnectieString);
+        DataTable dt = new DataTable();
+        string connectionstring = ConfigurationManager.ConnectionStrings["dbconnectie"].ToString();
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -33,7 +33,7 @@ namespace recreatie.paginas
         void InvullenGridview(string sortExpression = null)
         {
             DataTable dtbl = new DataTable();
-            using (SqlConnection sqlCon = new SqlConnection(ProjectGroenBos.Recreatie.Helper.HelperClass.DatabaseConnectieString))
+            using (SqlConnection sqlCon = new SqlConnection(connectionstring))
             {
                 sqlCon.Open();
                 SqlDataAdapter sqlDa = new SqlDataAdapter("SELECT * FROM vVoorraadRecreatie", sqlCon);
@@ -133,7 +133,9 @@ namespace recreatie.paginas
 
         protected void BtnBestellen_Click(object sender, EventArgs e)
         {
-            int count = 0;
+            dt.Columns.Add(new DataColumn("ID", typeof(int)));
+            dt.Columns.Add(new DataColumn("Artikelnaam", typeof(string)));
+
             foreach (GridViewRow item in gvVoorraad.Rows)
             {
                 if (item.RowType == DataControlRowType.DataRow)
@@ -141,11 +143,28 @@ namespace recreatie.paginas
                     CheckBox chk = (item.FindControl("cbGeselecteerd") as CheckBox);
                     if (chk.Checked)
                     {
-                        Label3.Text = item.RowIndex.ToString();
+                       
+
+                        using (SqlConnection Sqlcon = new SqlConnection(connectionstring))
+                        {
+
+                            int ID = int.Parse(gvVoorraad.Rows[int.Parse(item.RowIndex.ToString())].ToString());
+                            string selectquery = "SELECT [ID],[Artikelnaam] FROM vVoorraadRecreatie WHERE ID = @ID";
+                            SqlCommand sqlComd = new SqlCommand(selectquery, Sqlcon);
+                            sqlComd.Parameters.AddWithValue("@ID", ID);
+                            SqlDataAdapter da = new SqlDataAdapter(sqlComd);
+                            da.Fill(dt);
+
+                        }
+
 
                     }
                 }
             }
+
+            
+            GridView1.DataSource = dt;
+            GridView1.DataBind();
         }
     }
 }

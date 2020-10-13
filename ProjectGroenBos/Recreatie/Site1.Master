@@ -21,7 +21,11 @@
                     <li><a href="/Recreatie/Overzicht.aspx"><i class="fas fa-home"></i>Overzicht</a></li>
                     <li><a href="#"><i class="fas fa-user"></i>Documentatie</a>
                         <ul class="submenu">
-                            <li><a href="#">Voorraadmuteren</a></li>
+                            <li><a href="#">Voorraadmuteren</a>
+                            <ul class="submenu">
+                                <li><a href="#">Opboeken</a></li>
+                                <li><a href="#">Afboeken</a></li>
+                            </ul></li>
                             <li><a href="/Financien/Reserveringen.aspx">Reserveringen-overzicht</a></li>
                             <li><a href="/Financien/Personeeloverzicht.aspx">Personeel-overzicht</a></li>
                         </ul>
