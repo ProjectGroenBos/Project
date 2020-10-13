@@ -352,3 +352,7 @@ C:\Users\herman\Desktop\ProjectGroenBos5-10-2020\obj\Debug\ProjectGroenBos.cspro
 C:\Users\herman\Desktop\ProjectGroenBos5-10-2020\obj\Debug\ProjectGroenBos.csproj.CopyComplete
 C:\Users\herman\Desktop\ProjectGroenBos5-10-2020\obj\Debug\ProjectGroenBos.dll
 C:\Users\herman\Desktop\ProjectGroenBos5-10-2020\obj\Debug\ProjectGroenBos.pdb
+C:\Users\herman\Documents\Project\ProjectGroenBos\bin\roslyn\System.Buffers.dll
+C:\Users\herman\Documents\Project\ProjectGroenBos\bin\roslyn\System.Memory.dll
+C:\Users\herman\Documents\Project\ProjectGroenBos\bin\roslyn\System.Numerics.Vectors.dll
+C:\Users\herman\Documents\Project\ProjectGroenBos\bin\roslyn\System.Runtime.CompilerServices.Unsafe.dll

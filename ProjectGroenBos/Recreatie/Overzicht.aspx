@@ -1,39 +1,65 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Recreatie/Site1.Master"  AutoEventWireup="true" CodeBehind="Overzicht.aspx.cs" Inherits="ProjectGroenBos.Recreatie.Overzicht" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Overzicht.aspx.cs" Inherits="ProjectGroenBos.Recreatie.Overzicht" %>
 
-<asp:Content runat="server" ContentPlaceHolderID="head">
-    <link href="CSS/styleoverzicht.css" rel="stylesheet" />
-</asp:Content>
-<asp:content id="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    
-            <asp:Label ID="lblActiviteiten" runat="server" Text="Geplande Activiteiten" CssClass="lblgeplandeactiviteiten"></asp:Label>
-            <asp:Label ID="lblDatum" runat="server" Text="Datum:" CssClass="lbldatum"></asp:Label>
-            <asp:Label ID="lbldatumNu" runat="server" Text="" CssClass="lbldatumnu"></asp:Label>
-            <asp:Button ID="backwards" runat="server" CssClass="vorigeknop" OnClick="OnButtonPress" Text="&lt;" />
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Groenbos</title>
+    <link rel="stylesheet" href="CSS/Main.css">
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="container">
+            <div class="navigator">
+                <a href="Start.apsx">
+                    <img src="img/Logo6.png" class="logo"></a>
+                <nav>
+                    <ul>
+                        <li><a href="start.aspx">Home</a></li>
+                        <li class="selected"><a href="overzicht.aspx">Overzicht</a></li>
+                        <li><a href="#">Bestellingen</a></li>
+                        <li><a href="#">Keuken</a></li>
+                        <li><a href="#">Reserveringen</a></li>
+                        <li class="uitloggen"><a href="#">Uitloggen</a></li>
+                    </ul>
+                </nav>
+            </div>
 
-            <asp:CheckBox ID="CbWeekOverzicht" runat="server" AutoPostBack="True" OnCheckedChanged="CbWeekOverzicht_CheckedChanged" Text="WeekOverzicht" CssClass="weekcb" />
+            <div class="werkgebied">
+            </div>
+        </div>
 
-            <asp:Button ID="Forward" runat="server" CssClass="volgendeknop" OnClick="OnButtonPress" Text="&gt;" />
-    <asp:GridView ID="gvActiveiten" runat="server" DataSourceID="SqlDataSource1" Height="215px" Width="1302px" CssClass="gridviewoverzicht" AutoGenerateColumns="False">
+        <script src="js/app.js"></script>
+
+
+        <div id="lvActiviteitenSchema">
+            <asp:Label ID="lblActiviteiten" runat="server" Text="Geplande Activiteiten"></asp:Label>
+            <asp:Label ID="lblDatum" runat="server" Text="Datum:"></asp:Label>
+            <asp:Label ID="lbldatumNu" runat="server" Text=""></asp:Label>
+            <asp:Button ID="Button1" runat="server" OnClick="OnButtonPress" Text="&lt;" />
+            <asp:Button ID="Button2" runat="server" Height="27px" OnClick="OnButtonPress" Text="&gt;" />
+
+            <asp:GridView ID="gvActiveiten" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
                 <Columns>
-                    <asp:BoundField DataField="Weeknummer" HeaderText="Weeknummer" ReadOnly="True" SortExpression="Weeknummer" />
                     <asp:BoundField DataField="Naam" HeaderText="Naam" SortExpression="Naam" />
                     <asp:BoundField DataField="Locatie" HeaderText="Locatie" SortExpression="Locatie" />
-                    <asp:BoundField DataField="Specificatie" HeaderText="Specificatie" SortExpression="Specificatie" />
-                    <asp:BoundField DataField="Inschrijfkosten" HeaderText="Inschrijfkosten" SortExpression="Inschrijfkosten" />
-                    <asp:BoundField DataField="Datum" HeaderText="Datum" SortExpression="Datum" />
-                    <asp:BoundField DataField="Begintijd" HeaderText="Begintijd" SortExpression="Begintijd" />
-                    <asp:BoundField DataField="Eindtijd" HeaderText="Eindtijd" SortExpression="Eindtijd" />
+                    <asp:BoundField DataField="RecreatieprogrammaDatum" DataFormatString="{0:dd/MM/yyyy}" HeaderText="RecreatieprogrammaDatum" SortExpression="RecreatieprogrammaDatum" />
+                    <asp:BoundField DataField="Tijd" HeaderText="Tijd" SortExpression="Tijd" />
                     <asp:BoundField DataField="Maximaal aantal" HeaderText="Maximaal aantal" SortExpression="Maximaal aantal" />
-                    <asp:BoundField DataField="Naam_Medewerker" HeaderText="Naam_Medewerker" SortExpression="Naam_Medewerker" />
+                    <asp:BoundField DataField="FaciliteitID" HeaderText="FaciliteitID" SortExpression="FaciliteitID" />
                 </Columns>
                 <EmptyDataTemplate>
-                    <div>Er zijn geen activiteiten op deze dag gepland.</div>
+                    <div align="center">Er zijn geen activiteiten op deze dag gepland.</div>
                 </EmptyDataTemplate>
             </asp:GridView>
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT datepart (week, dbo.Activiteit.Datum)AS  Weeknummer, dbo.Activiteit.Naam , dbo.Faciliteit.Omschrijving AS Locatie,dbo.Activiteit.Locatie AS Specificatie, dbo.Activiteit.Inschrijfkosten,
- dbo.Activiteit.Datum, dbo.Activiteit.Begintijd, dbo.Activiteit.Eindtijd, dbo.Activiteit.[Maximaal aantal], dbo.Medewerker.Naam as Naam_Medewerker
- FROM dbo.Activiteit
- JOIN dbo.Faciliteit on dbo.Activiteit.FaciliteitID = dbo.Faciliteit.ID
- JOIN dbo.Medewerker on dbo.Activiteit.MedewerkerID = dbo.Medewerker.Nummer
- WHERE datediff(day, getdate(),dbo.Activiteit.Datum) = 0"></asp:SqlDataSource>
-</asp:content>
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="select dbo.Activiteit.Naam , dbo.Activiteit.Locatie,dbo.Recreatieprogramma_Activiteit.RecreatieprogrammaDatum, dbo.Activiteit.Tijd, dbo.Activiteit.[Maximaal aantal], dbo.Activiteit.FaciliteitID
+
+ from dbo.Activiteit
+
+ join dbo.Recreatieprogramma_Activiteit on  dbo.Activiteit.Nummer = dbo.Recreatieprogramma_Activiteit.ActiviteitNummer
+"></asp:SqlDataSource>
+        </div>
+    </form>
+</body>
+</html>
