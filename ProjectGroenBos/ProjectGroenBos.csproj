@@ -74,6 +74,7 @@
     <Content Include="Images\deleteRow.png" />
     <Content Include="Images\Logo4.png" />
     <Content Include="Images\Logo6.png" />
+    <Content Include="Images\SelectIcon.png" />
     <Content Include="Recreatie\CSS\Main.css" />
     <Content Include="Recreatie\img\Logo1.png" />
     <Content Include="Recreatie\img\Logo2.png" />
@@ -87,8 +88,11 @@
     <Content Include="Schoonmaak en Onderhoud\OffertesOverzicht.aspx" />
     <Content Include="Schoonmaak en Onderhoud\OnderhoudsOverzicht.aspx" />
     <Content Include="Schoonmaak en Onderhoud\OnderhoudToevoegen.aspx" />
+    <Content Include="Schoonmaak en Onderhoud\OnderhoudWijzigen.aspx" />
     <Content Include="Schoonmaak en Onderhoud\PlanningsOverzicht.aspx" />
     <Content Include="Schoonmaak en Onderhoud\PlanningToevoegen.aspx" />
+    <Content Include="Schoonmaak en Onderhoud\PlanningVerwijderen.aspx" />
+    <Content Include="Schoonmaak en Onderhoud\PlanningWijzigen.aspx" />
     <Content Include="Schoonmaak en Onderhoud\SchouwingsOverzicht.aspx" />
     <Content Include="Schoonmaak en Onderhoud\style\stylesheet.css" />
     <Content Include="Scripts\dhtmlxScheduler\dhtmlxscheduler.css" />
@@ -385,6 +389,13 @@
     <Compile Include="Schoonmaak en Onderhoud\OnderhoudToevoegen.aspx.designer.cs">
       <DependentUpon>OnderhoudToevoegen.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Schoonmaak en Onderhoud\OnderhoudWijzigen.aspx.cs">
+      <DependentUpon>OnderhoudWijzigen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Schoonmaak en Onderhoud\OnderhoudWijzigen.aspx.designer.cs">
+      <DependentUpon>OnderhoudWijzigen.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Schoonmaak en Onderhoud\PlanningsOverzicht.aspx.cs">
       <DependentUpon>PlanningsOverzicht.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -398,6 +409,20 @@
     </Compile>
     <Compile Include="Schoonmaak en Onderhoud\PlanningToevoegen.aspx.designer.cs">
       <DependentUpon>PlanningToevoegen.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Schoonmaak en Onderhoud\PlanningVerwijderen.aspx.cs">
+      <DependentUpon>PlanningVerwijderen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Schoonmaak en Onderhoud\PlanningVerwijderen.aspx.designer.cs">
+      <DependentUpon>PlanningVerwijderen.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Schoonmaak en Onderhoud\PlanningWijzigen.aspx.cs">
+      <DependentUpon>PlanningWijzigen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Schoonmaak en Onderhoud\PlanningWijzigen.aspx.designer.cs">
+      <DependentUpon>PlanningWijzigen.aspx</DependentUpon>
     </Compile>
     <Compile Include="Schoonmaak en Onderhoud\Schoonmaak.Master.cs">
       <DependentUpon>Schoonmaak.Master</DependentUpon>

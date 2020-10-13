@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ProjectGroenBos.Schoonmaak_en_Onderhoud {
-    
-    
-    public partial class OnderhoudsOverzicht {
-        
+namespace ProjectGroenBos.Schoonmaak_en_Onderhoud
+{
+
+
+    public partial class OnderhoudsOverzicht
+    {
+
         /// <summary>
         /// Button2 control.
         /// </summary>
@@ -20,7 +22,16 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button2;
-        
+
+        /// <summary>
+        /// btnWijzigscherm control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnWijzigscherm;
+
         /// <summary>
         /// divZoek control.
         /// </summary>
@@ -29,7 +40,7 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divZoek;
-        
+
         /// <summary>
         /// lblNM control.
         /// </summary>
@@ -38,7 +49,7 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblNM;
-        
+
         /// <summary>
         /// naamTxtbox control.
         /// </summary>
@@ -47,7 +58,7 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox naamTxtbox;
-        
+
         /// <summary>
         /// btnAndersZoeken control.
         /// </summary>
@@ -56,7 +67,7 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnAndersZoeken;
-        
+
         /// <summary>
         /// btnZoek control.
         /// </summary>
@@ -65,7 +76,7 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnZoek;
-        
+
         /// <summary>
         /// DropDownList1 control.
         /// </summary>
@@ -74,7 +85,7 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
-        
+
         /// <summary>
         /// searchBox control.
         /// </summary>
@@ -83,7 +94,7 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox searchBox;
-        
+
         /// <summary>
         /// SqlDataSource1 control.
         /// </summary>
@@ -92,7 +103,7 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
-        
+
         /// <summary>
         /// OverzichtGrid control.
         /// </summary>
@@ -101,7 +112,7 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView OverzichtGrid;
-        
+
         /// <summary>
         /// datumGrid control.
         /// </summary>
@@ -110,7 +121,7 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView datumGrid;
-        
+
         /// <summary>
         /// SqlDataSource2 control.
         /// </summary>
@@ -119,7 +130,7 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource2;
-        
+
         /// <summary>
         /// bungalowGrid control.
         /// </summary>
@@ -128,7 +139,7 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView bungalowGrid;
-        
+
         /// <summary>
         /// SqlDataSource3 control.
         /// </summary>
@@ -137,7 +148,7 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource3;
-        
+
         /// <summary>
         /// naamGrid control.
         /// </summary>
@@ -146,7 +157,7 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView naamGrid;
-        
+
         /// <summary>
         /// SqlDataSource4 control.
         /// </summary>
@@ -155,7 +166,7 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource4;
-        
+
         /// <summary>
         /// GridView1 control.
         /// </summary>
@@ -164,7 +175,7 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView GridView1;
-        
+
         /// <summary>
         /// SqlDataSource5 control.
         /// </summary>

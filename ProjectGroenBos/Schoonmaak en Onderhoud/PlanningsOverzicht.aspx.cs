@@ -22,7 +22,7 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud
 
             SqlConnection myConnection = new SqlConnection(connectionString);
 
-            string querystring = "select Onderhoudsopdracht.Nummer, Medewerker.Naam, Startdatum, VerwachteEinddatum, Kosten, BungalowNummer, OnderhoudsstatusID, Onderhoudtype, DatumvanConstatering  from Onderhoudsopdracht left join Medewerker on Medewerker.Nummer = Onderhoudsopdracht.MedewerkerNummer";
+            string querystring = "select Schoonmaakopdracht.Nummer, Medewerker.Naam, Datum, Omschrijving, BungalowNummer, MedewerkerNummer   from Schoonmaakopdracht left join Medewerker on Medewerker.Nummer = Schoonmaakopdracht.MedewerkerNummer";
 
             using SqlDataAdapter ad = new SqlDataAdapter(querystring, myConnection);
             {
@@ -30,18 +30,6 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud
                 ad.Fill(ds);
                 return ds;
             }
-
-            //string _query = "select a.* from a where a.col1 = 3; Select b.* form b";
-
-            //using (SqlDataAdapter a = new SqlDataAdapter(_query, connectionString))
-            //{
-
-            //    /* Use DataAdapter to fill DataSet*/
-            //    DataSet ds = new DataSet();
-            //    a.Fill(ds);
-
-
-            //}
         }
 
         protected void Calendar1_DayRender(object sender, DayRenderEventArgs e)
@@ -60,17 +48,31 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud
 
             foreach (DataRow row in ds.Tables[0].Rows)
             {
-               string scheduledDate = Convert.ToDateTime(row["Startdatum"]).ToShortDateString();
+                string scheduledDate = Convert.ToDateTime(row["Datum"]).ToShortDateString();
 
                 if (scheduledDate.Equals(s))
                 {
                     LinkButton lb = new LinkButton();
 
-                    lb.Text = "<br />" + row["Naam"] + "<br />" + row["Onderhoudtype"] + "<br />" + "Bungalow: " + row["BungalowNummer"] as String + "</a>" + "<BR>";
+                    lb.Text = "<br />" + row["Naam"] + "<br />" + "Bungalow: " + row["BungalowNummer"] + "<br />" + row["Omschrijving"] as String + "</a>" + "<BR>";
 
                     e.Cell.Controls.Add(lb);
                 }
             }
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("PlanningToevoegen.aspx");
+        }
+        protected void btnWijzig_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("PlanningWijzigen.aspx");
+        }
+
+        protected void btnVerwijderenS_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("PlanningVerwijderen.aspx");
         }
     }
 }

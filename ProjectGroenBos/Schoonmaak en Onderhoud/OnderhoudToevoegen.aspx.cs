@@ -20,30 +20,39 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud
 
         protected void btnToevoegen_Click1(object sender, EventArgs e)
         {
-            String nummer = DropDownList1.SelectedValue.ToString();
-            String status = DropDownList2.SelectedValue.ToString();
-            String type = DropDownList3.SelectedValue.ToString();
+            //String status = DropDownList2.SelectedValue.ToString();
+            //String type = DropDownList3.SelectedValue.ToString();
+            //DateTime datum1 = DateTime.Parse(txtStart.Text);
+            //DateTime datum2 = DateTime.Parse(txtStart.Text);
+            //DateTime datum3 = DateTime.Parse(txtStart.Text);
+
             RequiredFieldValidator1.Validate();
             RequiredFieldValidator2.Validate();
             RequiredFieldValidator3.Validate();
             RequiredFieldValidator4.Validate();
             RequiredFieldValidator7.Validate();
+            RequiredFieldValidator8.Validate();
+            RequiredFieldValidator9.Validate();
 
             if (RequiredFieldValidator1.IsValid && RequiredFieldValidator2.IsValid && RequiredFieldValidator3.IsValid && RequiredFieldValidator4.IsValid && RequiredFieldValidator7.IsValid)
             {
                 if (RegularExpressionValidator1.IsValid && RegularExpressionValidator2.IsValid && RegularExpressionValidator3.IsValid && RegularExpressionValidator4.IsValid && RegularExpressionValidator5.IsValid && RangeValidator1.IsValid && CompareValidator1.IsValid && RequiredFieldValidator7.IsValid && RequiredFieldValidator8.IsValid && RequiredFieldValidator9.IsValid)
                 {
                     con.Open();
-                    SqlCommand cmd = new SqlCommand("INSERT INTO  [dbo].[Onderhoudsopdracht] (Startdatum,VerwachteEinddatum,Kosten,BungalowNummer,OnderhoudsstatusID,Onderhoudtype,DatumvanConstatering,MedewerkerNummer)    values(@startdatum, @verwachteeinddatum, @kosten, @bungalownummer, @onderhoudsstatusID, @onderhoudtype, @datumvanconstatering, @medewerkernummer)", con);
+                    SqlCommand cmd = new SqlCommand("INSERT INTO  [dbo].[Onderhoudsopdracht] (Startdatum,VerwachteEinddatum,Kosten,BungalowNummer,OnderhoudsstatusID,Onderhoudtype,DatumvanConstatering)    values(@startdatum, @verwachteeinddatum, @kosten, @bungalownummer, @onderhoudsstatusID, @onderhoudtype, @datumvanconstatering)", con);
 
-                    cmd.Parameters.AddWithValue("@startdatum", txtStart.Text);
-                    cmd.Parameters.AddWithValue("@verwachteeinddatum", txtEind.Text);
+                    String status = DropDownList2.SelectedValue.ToString();
+                    String type = DropDownList3.SelectedValue.ToString();
+                    DateTime datum1 = DateTime.Parse(txtStart.Text);
+                    DateTime datum2 = DateTime.Parse(txtStart.Text);
+                    DateTime datum3 = DateTime.Parse(txtStart.Text);
+                    cmd.Parameters.AddWithValue("@startdatum", datum1);
+                    cmd.Parameters.AddWithValue("@verwachteeinddatum", datum2);
                     cmd.Parameters.AddWithValue("@kosten", txtKosten.Text);
                     cmd.Parameters.AddWithValue("@bungalownummer", int.Parse(txtBungalownummer.Text));
                     cmd.Parameters.AddWithValue("@onderhoudsstatusID", status);
                     cmd.Parameters.AddWithValue("@onderhoudtype", type);
-                    cmd.Parameters.AddWithValue("@datumvanconstatering", txtConstatering.Text);
-                    cmd.Parameters.AddWithValue("@medewerkernummer", int.Parse(nummer));
+                    cmd.Parameters.AddWithValue("@datumvanconstatering", datum3);
 
 
                     cmd.ExecuteNonQuery();
@@ -76,7 +85,7 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud
             //con.Close();
         }
 
-        protected void btnTerugOOverzicht_Click(object sender, EventArgs e)
+        protected void btnTerugNaarO_Click(object sender, EventArgs e)
         {
             Response.Redirect("OnderhoudsOverzicht.aspx");
         }
