@@ -7,14 +7,11 @@ using System.Web.UI.WebControls;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Globalization;
-using System.Threading;
 
 namespace recreatie.paginas
 {
     public partial class Beheer : System.Web.UI.Page
     {
-        DataTable dt;
         //string cnn = new SqlConnection(ProjectGroenBos.Recreatie.Helper.HelperClass.DatabaseConnectieString);
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -54,7 +51,7 @@ namespace recreatie.paginas
                 {
                     gvVoorraad.DataSource = dtbl;
                 }
-
+               
                 gvVoorraad.DataBind();
             }
 
@@ -115,35 +112,6 @@ namespace recreatie.paginas
         protected void OnSorting(object sender, GridViewSortEventArgs e)
         {
             InvullenGridview(e.SortExpression);
-        }
-
-
-        protected void btnSelecteren_Click(object sender, EventArgs e)
-        {
-            if (gvVoorraad.Columns[6].Visible == true)
-            {
-                gvVoorraad.Columns[6].Visible = false;
-            }
-            else
-            {
-                gvVoorraad.Columns[6].Visible = true;
-            }
-
-        }
-
-        protected void BtnBestellen_Click(object sender, EventArgs e)
-        {
-            foreach (GridViewRow item in gvVoorraad.Rows)
-            {
-                if (item.RowType == DataControlRowType.DataRow)
-                {
-                    CheckBox chk = (item.FindControl("cbGeselecteerd") as CheckBox);
-                    if (chk.Checked)
-                    {
-
-                    }
-                }
-            }
         }
     }
 }

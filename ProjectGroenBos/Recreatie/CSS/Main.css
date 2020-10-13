@@ -53,6 +53,7 @@ nav {
 }
 .lvActiviteitenSchema {
     text-align: center;
+    
 }
 
 nav li {
@@ -96,4 +97,34 @@ nav li {
         list-style-type: none;
         overflow: hidden;
     }
-   
+
+#lvActiviteitenSchema {
+    background-color: #cbcbcb;
+    position: relative;
+    border: 3px solid #73AD21;
+    
+}
+#gvActiveiten {
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    width: 800px;
+}
+
+.volgendeknop {
+    background-color: #73AD21;
+    
+}
+.vorigeknop {
+    background-color: #73AD21;
+    
+    
+}
+body {
+    background-color: lightgray; 
+}
+.lblgeplandeactiviteitenz {
+    display: inline-block;
+    float: right;
+    width: 70%;
+}
