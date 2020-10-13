@@ -417,13 +417,6 @@
     <Compile Include="Recreatie\Planning.aspx.designer.cs">
       <DependentUpon>Planning.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Recreatie\Recreatie.Master.cs">
-      <DependentUpon>Recreatie.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Recreatie\Recreatie.Master.designer.cs">
-      <DependentUpon>Recreatie.Master</DependentUpon>
-    </Compile>
     <Compile Include="Recreatie\Site1.Master.cs">
       <DependentUpon>Site1.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -596,7 +589,6 @@
   <ItemGroup>
     <Content Include="Financien\Financien.Master" />
     <Content Include="libman.json" />
-    <Content Include="Recreatie\Recreatie.Master" />
     <Content Include="Scripts\jquery\jquery.min.map" />
     <Content Include="Scripts\jquery\jquery.slim.min.map" />
     <Content Include="Schoonmaak en Onderhoud\Schoonmaak.Master" />
