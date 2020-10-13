@@ -40,9 +40,9 @@ namespace recreatie.paginas
             GridView2.DataBind();
         }
 
-        public void GetActivityData(int Nummer )
+        public void GetActivityData(int Nummer)
         {
-           
+
             Currentactivity = Nummer;
             Activteit = new DataTable();
             Activteit.Columns.Add(new DataColumn("ID", typeof(int)));
@@ -65,8 +65,8 @@ namespace recreatie.paginas
                 da.Fill(Activteit);
                 Session["Activiteit"] = Activteit;
 
-                
-                
+
+
             }
         }
 
@@ -115,6 +115,13 @@ namespace recreatie.paginas
                 cmd.ExecuteNonQuery();
                 con.Close();
                 GridView1.DataBind();
+                TxbActiviteit.Text = "";
+                txbLocatie.Text = "";
+                TxbBegintijd.Text = "";
+                TxbEindtijd.Text = "";
+                TxbAantal.Text = "";
+                TxbDatum.Text = "";
+                txbInschrijfkosten.Text = "";
 
                 LblBevestiging.Text = "Activiteit toegevoegd";
 
@@ -137,13 +144,19 @@ namespace recreatie.paginas
                 cmd.ExecuteNonQuery();
                 con.Close();
 
+                TxbActiviteit.Text = "";
+                txbLocatie.Text = "";
+                TxbBegintijd.Text = "";
+                TxbEindtijd.Text = "";
+                TxbAantal.Text = "";
+                TxbDatum.Text = "";
+                txbInschrijfkosten.Text = "";
+
                 LblBevestiging.Text = "Activiteit gewijziged";
                 GridView1.DataBind();
                 GridView1.SelectedIndex = -1;
                 ViewState["Medewerker"] = null;
                 Activteit = (DataTable)ViewState["Medewerker"];
-
-
             }
         }
 
@@ -151,24 +164,37 @@ namespace recreatie.paginas
         {
             GetActivityData(int.Parse(GridView1.SelectedRow.Cells[0].Text));
             Textboxesvullen();
-          
+            btnActiviteitInplannen.Text = "Wijzigen";
+
         }
 
         protected void TxbMedewerker_SelectedIndexChanged(object sender, EventArgs e)
         {
+
+
             DataTable dt = (DataTable)ViewState["Medewerker"];
             dt.Rows.Add(TxbMedewerker.SelectedItem.Text.Trim());
             ViewState["Medewerker"] = dt;
             this.BindGrid();
+
         }
 
         protected void GridView2_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-            int index = int.Parse(GridView2.SelectedValue.ToString());
-            DataTable dt = (DataTable)ViewState["Medewerker"];
-            dt.Rows[index].Delete();
-            ViewState["Medewerker"] = dt;
-            this.BindGrid();
+            if (GridView2.Rows.Count == 0)
+            {
+                GridView2.EmptyDataText = "Select medewerker";
+            }
+            else
+            {
+
+                int index = int.Parse(GridView2.SelectedValue.ToString());
+                DataTable dt = (DataTable)ViewState["Medewerker"];
+                dt.Rows[index].Delete();
+                ViewState["Medewerker"] = dt;
+                this.BindGrid();
+            }
+
         }
     }
 }
