@@ -1,4 +1,4 @@
-﻿@import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
 
 * {
     margin: 0;
@@ -6,7 +6,7 @@
     box-sizing: border-box;
     list-style: none;
     text-decoration: none;
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: "Century Gothic";
 }
 
 body {
@@ -21,7 +21,7 @@ body {
     .wrapper .sidebar {
         width: 300px;
         height: 100%;
-        background: linear-gradient(160deg, rgba(14,98,81,1) 0%, rgba(20,143,119,1) 100%);
+        background: linear-gradient(180deg, rgba(14,98,81,1) 0%, rgba(20,143,119,1) 100%);
         padding: 30px 0px;
         position: fixed;
     }
@@ -30,10 +30,10 @@ body {
             color: #fff;
             text-transform: uppercase;
             text-align: center;
-            margin-bottom: 10px;
         }
 
         .wrapper .sidebar h3 {
+            margin-top: -20px;
             color: #fff;
             text-transform: uppercase;
             text-align: center;
@@ -86,6 +86,7 @@ body {
 }
 
     .wrapper .sidebar .terug a {
+        font-weight: bold;
         display: block;
         width: 100%;
         background: #fff;
@@ -130,7 +131,7 @@ body {
     border-radius: 15px;
     text-align: center;
     margin-left: 5%;
-    margin-top: 5%;
+    margin-top: 20px;
     min-height: 100px;
 }
 
@@ -153,6 +154,9 @@ body {
     border-radius: 5px 5px 0 0;
     overflow: hidden;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+
+    margin-left: auto;
+    margin-right: auto;
 }
 
     .content-table tbody tr th {
@@ -175,11 +179,12 @@ body {
             background-color: #f3f3f3;
         }
 
+
         .content-table tbody tr:last-of-type {
             border-bottom: 2px solid #009879;
         }
 
-        .content-table tbody tr td:hover {
+        .content-table tbody tr:hover {
             font-weight: bold;
             color: #009879;
         }
@@ -192,17 +197,216 @@ body {
             text-decoration: none;
         }
 
+            .content-table tbody tr td a:nth-child(2) {
+                background-color: #C0392B;
+                border-radius: 5px;
+                color: #ffffff;
+                padding: .5em;
+                text-decoration: none;
+            }
+
+                .content-table tbody tr td a:nth-child(2):hover {
+                    background-color: #CD6155;
+                    color: #ffffff;
+                }
+
             .content-table tbody tr td a:hover {
                 background-color: #009879;
-                color: White;
+                color: #ffffff;
             }
 
 .eerstetable {
     width: 60%;
-    margin-left: 20%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .tweedetable {
     width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+    .tweedetable tr:nth-child(2) input {
+        width: 80px;        
+    }
+
+.mainpanel {
+    width: 70%;
+    height: auto;
+    min-height: 100px;
+
+    margin-left: 5%;
+    margin-top: 5%;
+
+    display: inline-block;
+    vertical-align: top;
+}
+
+.sidepanel {
+    width: 20%; 
+    
+    height: auto;
+    min-height: 100px;
+    
+    display: inline-block;
+    vertical-align: top;
+
+    margin-top: 5%;
+}
+
+/* BUTTONS */
+.btnToevoegen {
+    width: 100%;
+    height: 50px;
+    margin-top: 10px;
+    background-color: rgba(20,143,119,1);
+    border-radius: 5px;
+    color: #ffffff;
+    padding: .5em;
+}
+
+.buttongreen {
+    background-color: rgba(20,143,119,1);
+}
+
+.buttonred {
+    background-color: orangered;
+}
+
+    .button:active {
+        background-color: ghostwhite;
+        box-shadow: 0 5px #666;
+        transform: translateY(4px);
+    }
+
+/*Navigator*/
+.navigator {
+    height: 120px;
+    background: linear-gradient(160deg, rgba(14,98,81,1) 0%, rgba(20,143,119,1) 100%);
+    font-weight: bold;
+}
+
+.logo {
+    margin-left: 40px;
+    width: 240px;
+    float: left;
+}
+
+.selected {
+    border: 2px solid #fff;
+    color: #fff;
+    border-radius: 25px;
+}
+
+nav {
+    margin-right: 35px;
+    padding-top: 45px;
+    background: transparent;
+    text-align: center;
+    float: right;
+    position: sticky;
+}
+
+    nav li {
+        float: left;
+        background-color: transparent;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        margin-left: 10px;
+        margin-right: 10px;
+        border-color: #7fb241;
+    }
+
+        nav li:hover {
+            float: left;
+            background: transparent;
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            margin-left: 10px;
+            margin-right: 10px;
+            border-bottom: 2px solid;
+            border-color: #fff;
+            border-radius: 25px;
+        }
+
+    nav a {
+        color: #fff;
+        text-decoration: none;
+    }
+
+        nav a:hover {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .uitloggen{
+            color: rgba(14,98,81,1);
+            background-color: #fff;
+            border-radius: 25px;
+        }
+
+    nav ul {
+        list-style-type: none;
+        overflow: hidden;
+    }
+
+
+.btnUitloggen {
+    font-weight: bold;
+    margin-left: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    color: rgba(14,98,81,1);
+    background-color: #fff;
+    border-radius: 25px;
+    border: 2px solid #fff;
+    border-color: #fff;
+}
+
+.btnUitloggen:hover {
+    background-color: transparent;
+    color: #fff;
+}
+
+.inline-flex {
+    display: flex;
+    justify-content: center;
+}
+
+.inline-flex > div {
+    text-align: center;
+}
+
+.logofactuur {
+    display: none;
+}
+
+.footerfactuur {
+    display: none;
+}
+
+.modal-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.inline-flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.Raar {
+    text-align: left;
+    float: left;
     margin-left: 10%;
+margin-bottom: 25%;
+margin-top: 10%
 }

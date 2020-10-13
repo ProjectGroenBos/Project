@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Financien/Financien.Master" AutoEventWireup="true" CodeBehind="Rekeningen.aspx.cs" Inherits="ProjectGroenBos.Financien.WebForm4" EnableEventValidation="false" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Financien/Financien.Master" CodeBehind="Betaalscherm.aspx.cs" Inherits="ProjectGroenBos.Financien.Betaalscherm" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
@@ -70,15 +70,14 @@
         <h2>Rekeningen-overzicht</h2>
         <p>Dit is een overzicht van alle opstaande rekeningen van gasten die aanwezig zijn in het park bij recreatiepark Groenbos.</p>
 
-        <asp:GridView ID="gvRekeningen" runat="server" CssClass="content-table tweedetable" GridLines="None" AutoGenerateColumns="False" DataSourceID="SqlDataSource6" DataKeyNames="Gastnummer">
+        <asp:GridView ID="gvRekeningen" runat="server" CssClass="content-table tweedetable" GridLines="None" AutoGenerateColumns="False" DataSourceID="SqlDataSource6" DataKeyNames="Nummer">
             <Columns>
-                <asp:BoundField DataField="Nummer" HeaderText="Reserveringsnummer" SortExpression="Nummer" ReadOnly="True" />
-                <asp:BoundField DataField="Naam" HeaderText="Naam" SortExpression="Naam" ReadOnly="True" />
-                <asp:BoundField DataField="Aantal_personen" HeaderText="Aantal Personen" SortExpression="Aantal_personen" />
-                <asp:BoundField DataField="Aankomstdatum" DataFormatString="{0:d}" HeaderText="Aankomstdatum" SortExpression="Aankomstdatum" />
-                <asp:BoundField DataField="Vertrekdatum" DataFormatString="{0:d}" HeaderText="Vertrekdatum" SortExpression="Vertrekdatum" />
-                <asp:BoundField DataField="Gastnummer" HeaderText="Gastnummer" SortExpression="Gastnummer" />
-                <asp:BoundField DataField="Omschrijving" HeaderText="Status" SortExpression="Omschrijving" />
+                <asp:BoundField DataField="Nummer" HeaderText="Factuurnummer" SortExpression="Nummer" ReadOnly="True" />
+                <asp:BoundField DataField="Betalen aan" HeaderText="Betalen aan" SortExpression="Betalen aan" ReadOnly="True" />
+                <asp:BoundField DataField="Totaal bedrag" HeaderText="Totaal Bedrag" SortExpression="Totaal bedrag" />
+                <asp:BoundField DataField="Reeds betaald" HeaderText="Reeds betaald" SortExpression="Reeds betaald" />
+                <asp:BoundField DataField="Termijn" DataFormatString="{0:d}" HeaderText="Termijn" SortExpression="Termijn" />
+                <asp:BoundField DataField="Omschrijving betaalcondities" HeaderText="Omschrijving betaalcondities" SortExpression="Omschrijving betaalcondities" />
                 <asp:TemplateField>
                     <ItemTemplate>
                         <button type="button" style="background-color: #009879; color: #fff" class="btn" data-toggle="modal" data-target="#modal<%# Eval("Nummer") %>">Zie rekeningen</button>
@@ -86,7 +85,7 @@
                 </asp:TemplateField>
             </Columns>
         </asp:GridView>
-        <asp:SqlDataSource ID="SqlDataSource6" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT [Nummer], [Naam], [Aantal_personen], [Aankomstdatum], [Vertrekdatum], [Gastnummer], [Omschrijving]  FROM [rekeningen]"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSource6" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="select Nummer, [Betalen aan], [Totaal bedrag], [Reeds betaald], Termijn, [Omschrijving betaalcondities] from Crediteurenfactuur"></asp:SqlDataSource>
     </div>
     <asp:Panel ID="Panel1" runat="server">
         <asp:Repeater ID="rpModals" runat="server">
@@ -97,47 +96,45 @@
                         <!-- Modal content-->
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h4 class="modal-title">Rekeningen <%# Eval("Naam") %></h4>
+                                <h4 class="modal-title">Inkoopfactuur <%# Eval("Betalen aan") %></h4>
                                 <asp:Button runat="server" CssClass="btn btn-primary" Text="Sluiten"></asp:Button>
                             </div>
                             <div class="modal-body">
                                 <div class="factuur" id="printModal<%# Eval("Nummer") %>">
                                     <div class="inline-flex">
-                                        <div>
-                                            <h4>Reserverings gegevens</h4>
+                                        <div class="Raar" id="Raar">
+                                            Leverancier:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp <%# Eval("Betalen aan") %>
                                             <p>
-                                                #<%# Eval("Nummer") %>
+                                               Adres:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp  <%# Eval("Adres") %>
                                                 <br />
-                                                <%# Eval("Naam") %><br />
-                                                <%# Eval("Aantal_personen") %> personen
+                                              Postcode:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp  <%# Eval("Postcode") %><br />
+                                                Plaats:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp <%# Eval("Plaats") %><br />
+                                                Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp  <%# Eval("Email") %><br />
+                                                Telefoon: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp <%# Eval("Telefoonnummer") %><br />
+                                                <%# Eval("IBAN") %> 
                                 <br />
-                                                Van <%# Eval("Aankomstdatum", "{0: dd/MM/yyyy}") %>
-                                                <br />
-                                                Tot <%# Eval("Vertrekdatum", "{0: dd/MM/yyyy}") %>
+                                                IBAN:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp <%# Eval("IBAN") %> <br />
+                                                Betalen voor:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp <%# Eval("Termijn", "{0: dd/MM/yyyy}") %>
+                                               
                                             </p>
                                         </div>
                                         <div class="logofactuur">
                                             <img src="img/logo3.png" style="width: 150px; height: 200px;" alt="Logo">
                                         </div>
-                                        <div>
-                                            <h4>Persoonlijke gegevens</h4>
-                                            <p>
-                                                <%# Eval("Adres") %>
-                                                <br />
-                                                <%# Eval("Postcode") %><br />
-                                                <%# Eval("Land") %><br />
-                                                <%# Eval("Telefoonnummer") %><br />
-                                                <%# Eval("Email") %>
-                                            </p>
-                                        </div>
-                                    </div>
+                                        Aan:		Groenbos Recreatie b.v.
+		Noorderpark 12
+		6755 VB  Aalterveld
+
+                                     </div>
                                     <hr />
+
+
                                     <br />
                                     <asp:GridView ID="gvFactuurrekening" runat="server" CssClass="content-table" Gridlines="None"  AutoGenerateColumns="False" Style="text-align: center; margin-left: auto; margin-right: auto;" DataSourceID="SqlDataSource1">
                                         <Columns>
                                             <asp:BoundField DataField="Naam" HeaderText="Omschrijving" ReadOnly="True" SortExpression="Naam" />
                                             <asp:BoundField DataField="Prijs" HeaderText="Prijs" ReadOnly="True" SortExpression="Prijs" DataFormatString="{0:C}" />
-                                            <asp:BoundField DataField="Aantal" HeaderText="Aantal" ReadOnly="True" SortExpression="Aantal" />
+                                            <asp:BoundField DataField="Hoeveelheid" HeaderText="Hoeveelheid" ReadOnly="True" SortExpression="Hoeveelheid" />
                                             <asp:BoundField DataField="Totaal" HeaderText="Totaal" ReadOnly="True" SortExpression="Totaal" DataFormatString="{0:C}" HeaderStyle-Width="100px" />
                                         </Columns>
                                         <EditRowStyle BackColor="#009879" ForeColor="White" />
@@ -158,24 +155,17 @@
                                                 <td>Totaalbedrag:</td>
                                                 <td></td>
                                                 <td></td>
-                                                <td style="width: 100px">€ <%# Eval("Totaalbedrag") %></td>
+                                                <td style="width: 100px">€ <%# Eval("Totaal bedrag") %></td>
                                             </tr>
                                         </tbody>
                                     </table>
-                                     <asp:HiddenField ID="DebiteurNr" runat="server"
-                                        Value='<%# Eval("DebiteurenFactuurNummer") %>' />
+
                                     <asp:HiddenField ID="Nummer" runat="server"
                                         Value='<%# Eval("Nummer") %>' />
-                                    <asp:HiddenField ID="Totaalbedrag" runat="server"
-                                        Value='<%# Eval("Totaalbedrag") %>' />
-                                    <asp:HiddenField ID="Naamgast" runat="server"
-                                        Value='<%# Eval("Naam") %>' />
-                                    <asp:HiddenField ID="Emailgast" runat="server"
-                                        Value='<%# Eval("Email") %>' />
 
-                                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="select Naam, Prijs, Aantal, (Prijs * Aantal) AS 'Totaal' from RekeningAct where ReserveringNummer = @Nummer
-                                    union
-                                select Naam, Prijs, Aantal, (Prijs * Aantal) AS 'Totaal' from RekeningHuur where Reserveringnummer = @Nummer">
+                                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="select onderhoudtype as Naam, 1 as Hoeveelheid, Prijs, (Prijs * 1) AS 'Totaal' from CreditOnderhoud where Nummer = @Nummer
+								union
+								select Naam, Hoeveelheid, Prijs, (Prijs * hoeveelheid) AS 'Totaal' from creditinkoop where Nummer = @Nummer">
                                         <SelectParameters>
                                             <asp:ControlParameter
                                                 Name="Nummer"
@@ -183,7 +173,7 @@
                                                 PropertyName="Value" />
                                         </SelectParameters>
                                     </asp:SqlDataSource>
-                                    <h4 style="text-align: center">Te betalen voor: <%# Eval("Vertrekdatum", "{0: dd/MM/yyyy}") %></h4>
+                                    <h4 style="text-align: center">Te betalen voor: <%# Eval("Termijn", "{0: dd/MM/yyyy}") %></h4>
 
                                     <div class="fixed-bottom">
                                         <div class="footerfactuur">
@@ -214,7 +204,7 @@
 
                                 <input type="button" class="btn btn-primary btn-lg btn-block" onclick="printDiv('printModal<%# Eval("Nummer") %>')" value="Print Factuur" />
 
-                                <asp:Button ID="btnExport" class="btn btn-primary btn-lg btn-block" CommandName="<%# Container.ItemIndex %>" runat="server" Text="Email naar klant" OnClick="btnExport_Click" />
+                                <asp:Button ID="btnExport" class="btn btn-primary btn-lg btn-block" CommandName="<%# Container.ItemIndex %>" runat="server" Text="Betaal factuur"/>
 
                             </div>
                             <div class="modal-footer">
