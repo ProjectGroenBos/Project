@@ -23,15 +23,15 @@ namespace ProjectGroenBos.Reservering
                 int aantal = int.Parse(personen);
 
                 btnBevestigen.Enabled = false;
-                lblOutput.Text = "Geregistreerde bezoekers";
+                lblOutput.Text = "Geregistreerde bezoekers: ";
                 btnToevoegen.Enabled = true;
 
-
+                
             }
             else
             {
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Uw sessie is verlopen, u moet helaas de gegevens opnieuw invullen.')", true);
-                Response.Redirect("ReserveringenMedewerkerHuisje.aspx");
+                Response.Redirect("Huisjemedewerker.aspx");
             }
         }
 
@@ -46,6 +46,7 @@ namespace ProjectGroenBos.Reservering
             string achternaam = Session["Achternaam"].ToString();
             string email = Session["Email"].ToString();
             string telefoonnummer = Session["Telefoonnummer"].ToString();
+            string geboortedatum = Session["Geboortedatum"].ToString();
             string opmerkingen = Session["Opmerkingen"].ToString();
 
             string straat = Session["Straat"].ToString();
@@ -54,15 +55,20 @@ namespace ProjectGroenBos.Reservering
             string land = Session["Land"].ToString();
             int reserveringsStatus = 1;
 
+            string bungalow = Session["Bungalow"].ToString();
+            int bungalowGetal = int.Parse(bungalow);
+
             DateTime vandaag = DateTime.Today;
             vandaag.ToShortDateString();
+
+            ReserveerderToevoegen(voornaam, tussenvoegsel, achternaam, geboortedatum, bungalow);
 
             InsGast(voornaam, tussenvoegsel, achternaam, telefoonnummer, email);
             int nummer = GetNummer();
             InsAdres(straat, huisnummer, postcode, land, nummer);
             InsReservering(personen, opmerkingen, vandaag, vertrekdatum, aankomstdatum, reserveringsStatus, nummer);
-            //int reservering = GetReservering();
-            //InsReserveringBungalow(nummer, reservering);
+            int reservering = GetReservering();
+            InsReserveringBungalow(reservering, bungalowGetal);
 
             StuurMail();
 
@@ -126,6 +132,36 @@ namespace ProjectGroenBos.Reservering
             }
         }
 
+        private void ReserveerderToevoegen(string voornaam, string tussenvoegsel, string achternaam, string geboortedatum, string bungalow)
+        {
+            using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["2020-BIM02-P1-P2-GroenbosConnectionString"].ConnectionString))
+            {
+
+                try
+                {
+                    con.Open();
+
+                    SqlCommand sqlquery = new SqlCommand("[dbo].[InsertNachtRegister]");
+
+                    sqlquery.Parameters.AddWithValue("@Voornaam", voornaam);
+                    sqlquery.Parameters.AddWithValue("@Tussenvoegsel", tussenvoegsel);
+                    sqlquery.Parameters.AddWithValue("@Achternaam", achternaam);
+                    sqlquery.Parameters.AddWithValue("@Geboortedatum", geboortedatum);
+                    sqlquery.Parameters.AddWithValue("@BungalowNummer2", bungalow);
+
+                    sqlquery.CommandType = System.Data.CommandType.StoredProcedure;
+                    sqlquery.Connection = con;
+                    sqlquery.ExecuteNonQuery();
+
+                    con.Close();
+                }
+
+                catch
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Er ging iets mis, neem contact met ons op.')", true);
+                }
+            }
+        }
 
         private void InsGast(string voornaam, string tussenvoegsel, string achternaam, string telefoonnummer, string email)
         {
@@ -261,7 +297,7 @@ namespace ProjectGroenBos.Reservering
             string geboortedatum = TxBGeboortedatum.Text;
             string bungalow = Session["Bungalow"].ToString();
 
-            aantalPersonen = int.Parse(Session["Personen"].ToString()) - 1;
+            aantalPersonen = int.Parse(Session["Personen"].ToString()) - 2;
 
             lblOutput.Text = lblOutput.Text + Voornaam + " " + Tussenvoegsel + " " + Achternaam + " " + geboortedatum + "<br/>";
 
@@ -291,16 +327,40 @@ namespace ProjectGroenBos.Reservering
                     sqlquery.Connection = con;
                     sqlquery.ExecuteNonQuery();
 
+                    con.Close();
+                }
 
+                catch
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Er ging iets mis, neem contact met ons op.')", true);
+                }
+            }
+        }
+
+        private void InsReserveringBungalow(int nummer, int reservering)
+        {
+            using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["2020-BIM02-P1-P2-GroenbosConnectionString"].ConnectionString))
+            {
+
+                try
+                {
+                    con.Open();
+
+                    SqlCommand sqlquery = new SqlCommand("[dbo].[InsertReservering_Bungalow]");
+
+                    sqlquery.Parameters.AddWithValue("@ReserveringNummer", reservering);
+                    sqlquery.Parameters.AddWithValue("@BungalowNummer", nummer);
+
+                    sqlquery.CommandType = System.Data.CommandType.StoredProcedure;
+                    sqlquery.Connection = con;
+                    sqlquery.ExecuteNonQuery();
 
                     con.Close();
                 }
 
-                catch(Exception ex)
+                catch
                 {
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Er ging iets mis, neem contact met ons op.')", true);
-                    Console.WriteLine(ex.ToString());
-
                 }
             }
         }
