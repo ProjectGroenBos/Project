@@ -42,26 +42,31 @@
     </div>
     <br />
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:con %>" SelectCommand="SELECT Medewerker.Naam, Schoonmaakopdracht.Nummer, Datum, Omschrijving, BungalowNummer, MedewerkerNummer  FROM [Schoonmaakopdracht] left join Medewerker on Medewerker.Nummer = Schoonmaakopdracht.MedewerkerNummer"></asp:SqlDataSource>
+
+                        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:con %>" SelectCommand="SELECT [Nummer], [Naam] FROM [Medewerker]"></asp:SqlDataSource>
+
         <div style="text-align:center;">
   <div style="width:65%; margin: 0 auto; text-align:left;">
             <table style="width:100%;">
                  <tr>
-                    <td class="auto-style16">Nummer</td>
-                    <td class="auto-style3">
+                    <td class="auto-style6">Nummer</td>
+                    <td class="auto-style11">
                         <asp:Label ID="lblNummerS" runat="server"></asp:Label>
                     </td>
-                     <td class="auto-style18">
+                     <td class="auto-style12">
 
                          &nbsp;&nbsp;&nbsp;
 
                          </td>
                 </tr>
                  <tr>
-                    <td class="auto-style15">Schoonmaakdatum</td>
-                    <td class="auto-style7">
+                    <td class="auto-style5">Schoonmaakdatum</td>
+                    <td class="auto-style11">
                         <asp:TextBox ID="txtDatum" runat="server" Width="125px"></asp:TextBox>
                      </td>
-                     <td class="auto-style8">
+                     <td class="auto-style13">
+
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtDatum" ErrorMessage="Vul in" ForeColor="Red"></asp:RequiredFieldValidator>
 
                          &nbsp;&nbsp;&nbsp;
 
@@ -72,39 +77,47 @@
                          </td>
                 </tr>
                  <tr>
-                    <td class="auto-style16">Omschrijving</td>
-                    <td class="auto-style4">
-                        <asp:TextBox ID="txtOmschrijving" runat="server" TextMode="MultiLine" Width="125px"></asp:TextBox>
-                     </td>
-                      <td class="auto-style2">
+                    <td class="auto-style5">Medewerker</td>
+                    <td class="auto-style11">
+        <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource2" DataTextField="Naam" DataValueField="Nummer" AppendDataBoundItems="True">
+            <asp:ListItem Text="--Selecteer--" Value="0" />
+        </asp:DropDownList>
+
+                         &nbsp;
+
+&nbsp;</td>
+                      <td class="auto-style12">
 
 
-                          &nbsp;&nbsp;&nbsp;
+                         <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="DropDownList1" ErrorMessage="Selecteer iets" ForeColor="Red" InitialValue="0"></asp:RequiredFieldValidator>
+
+                          &nbsp;&nbsp;
 
 
                           </td>
                 </tr>
                  <tr>
-                    <td class="auto-style16">Bungalownummer</td>
-                    <td class="auto-style3">
+                    <td class="auto-style5">Bungalownummer</td>
+                    <td class="auto-style10">
                         <asp:TextBox ID="txtBNummer" runat="server" Width="125px"></asp:TextBox>
                      </td>
-                     <td class="auto-style18">
+                     <td class="auto-style13">
 
-                         &nbsp;&nbsp;&nbsp;
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="txtBNummer" ErrorMessage="Vul in" ForeColor="Red"></asp:RequiredFieldValidator>
+                         &nbsp;&nbsp;
                          &nbsp;</td>
                      <td class="auto-style1">
-                         &nbsp;</td>
+
+                         <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="txtBNummer" ErrorMessage="Nummer ongeldig" ForeColor="Red" MaximumValue="20" MinimumValue="2" Type="Integer"></asp:RangeValidator>
+
+                         </td>
                 </tr>
                  <tr>
-                    <td class="auto-style16">Medewerker</td>
-                    <td class="auto-style7">
-        <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource2" DataTextField="Naam" DataValueField="Nummer" AppendDataBoundItems="True">
-            <asp:ListItem Text="--Selecteer--" Value="0" />
-        </asp:DropDownList>
-                        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:con %>" SelectCommand="SELECT [Nummer], [Naam] FROM [Medewerker]"></asp:SqlDataSource>
+                    <td class="auto-style5">Omschrijving</td>
+                    <td class="auto-style11">
+                        <asp:TextBox ID="txtOmschrijving" runat="server" TextMode="MultiLine" Width="125px" Height="53px"></asp:TextBox>
                      </td>
-                      <td class="auto-style8">
+                      <td class="auto-style13">
 
                      &nbsp;&nbsp;&nbsp;
                           
@@ -115,10 +128,18 @@
                     <td>
 
                     </td>
+                </tr>
+                <tr>
+                    <td class="auto-style5">
+
+                        &nbsp;</td>
+                    <td class="auto-style10">
+
+                        &nbsp;</td>
+                    <td class="auto-style13">
+                        &nbsp;</td>
                     <td>
 
-                    </td>
-                    <td>
                         <asp:Button ID="btnTerugNO" runat="server" BackColor="#0E6251" BorderColor="#0E6251" CssClass="buttonstyle" ForeColor="White" OnClick="btnTerugNO_Click" Text="Terug naar overzicht" />
 
                     </td>
@@ -128,9 +149,41 @@
 
                     </td>
                 </tr>
+
             </table>
       </div>
         <br />
 &nbsp;<br />
 
+</asp:Content>
+<asp:Content ID="Content1" runat="server" contentplaceholderid="head">
+    <style type="text/css">
+        .auto-style1 {
+            height: 25px;
+        }
+        .auto-style5 {
+            width: 270px;
+        }
+        .auto-style6 {
+            height: 25px;
+            width: 270px;
+        }
+        .auto-style9 {
+            width: 273px;
+        }
+        .auto-style10 {
+            width: 132px;
+        }
+        .auto-style11 {
+            height: 25px;
+            width: 132px;
+        }
+        .auto-style12 {
+            height: 25px;
+            width: 172px;
+        }
+        .auto-style13 {
+            width: 172px;
+        }
+    </style>
 </asp:Content>

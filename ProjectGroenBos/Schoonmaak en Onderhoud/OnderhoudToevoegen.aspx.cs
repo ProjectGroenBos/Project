@@ -85,5 +85,9 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud
             //con.Close();
         }
 
+        protected void btnTerugNaarO_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("OnderhoudsOverzicht.aspx");
+        }
     }
 }

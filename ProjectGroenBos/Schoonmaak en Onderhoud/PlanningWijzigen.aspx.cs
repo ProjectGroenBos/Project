@@ -21,32 +21,43 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud
             }
         }
 
-        protected void GridView1_SelectedIndexChanged1(object sender, EventArgs e)
-        {
-            GridViewRow gr = GridView1.SelectedRow;
-            lblNummerS.Text = gr.Cells[1].Text;
-            txtDatum.Text = gr.Cells[2].Text;
-            txtOmschrijving.Text = gr.Cells[4].Text;
-            txtBNummer.Text = gr.Cells[3].Text;
-        }
 
         protected void btnWijzigS_Click1(object sender, EventArgs e)
         {
-            DateTime date = DateTime.Parse(txtDatum.Text);
-            string Datum = date.ToString("yyyy-MM-dd");
-            String naam = DropDownList1.SelectedValue.ToString();
+            RequiredFieldValidator1.Validate();
+            RequiredFieldValidator6.Validate();
+            RequiredFieldValidator7.Validate();
+            RangeValidator1.Validate();
 
-            SqlCommand cmd = con.CreateCommand();
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "update [dbo].[Schoonmaakopdracht] set [Datum]='" + Datum + "' ,[Omschrijving]='" + txtOmschrijving.Text + "' ,[BungalowNummer]='" + txtBNummer.Text + "' ,[MedewerkerNummer]='" + naam + "'where Nummer= " + Convert.ToInt32(lblNummerS.Text) + "";
-            cmd.ExecuteNonQuery();
+            if (RangeValidator1.IsValid &&RequiredFieldValidator1.IsValid && RequiredFieldValidator6.IsValid && RequiredFieldValidator7.IsValid)
+            {
+                DateTime date = DateTime.Parse(txtDatum.Text);
+                string Datum = date.ToString("yyyy-MM-dd");
+                String naam = DropDownList1.SelectedValue.ToString();
 
-            Response.Redirect("PlanningsOverzicht.aspx");
+                SqlCommand cmd = con.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "update [dbo].[Schoonmaakopdracht] set [Datum]='" + Datum + "' ,[Omschrijving]='" + txtOmschrijving.Text + "' ,[BungalowNummer]='" + txtBNummer.Text + "' ,[MedewerkerNummer]='" + naam + "'where Nummer= " + Convert.ToInt32(lblNummerS.Text) + "";
+                cmd.ExecuteNonQuery();
+
+                Response.Redirect("PlanningsOverzicht.aspx");
+            }
         }
 
         protected void btnTerugNO_Click(object sender, EventArgs e)
         {
             Response.Redirect("PlanningsOverzicht.aspx");
+        }
+
+        protected void GridView1_SelectedIndexChanged1(object sender, EventArgs e)
+        {
+            GridViewRow gr = GridView1.SelectedRow;
+            String naam = DropDownList1.SelectedValue.ToString();
+            lblNummerS.Text = gr.Cells[1].Text;
+            txtDatum.Text = gr.Cells[2].Text;
+            txtOmschrijving.Text = gr.Cells[3].Text;
+            txtBNummer.Text = gr.Cells[4].Text;
+            naam = gr.Cells[5].Text;
         }
     }
 }
