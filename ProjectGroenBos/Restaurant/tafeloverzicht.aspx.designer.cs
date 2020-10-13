@@ -60,13 +60,13 @@ namespace ProjectGroenBos.Restaurant
         protected global::System.Web.UI.WebControls.Panel modelpantafel1;
 
         /// <summary>
-        /// lbltafelpopup control.
+        /// lbltafel1popup control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbltafelpopup;
+        protected global::System.Web.UI.WebControls.Label lbltafel1popup;
 
         /// <summary>
         /// btnclose1 control.
@@ -105,13 +105,13 @@ namespace ProjectGroenBos.Restaurant
         protected global::System.Web.UI.WebControls.Panel modelpantafel2;
 
         /// <summary>
-        /// Label1 control.
+        /// lbltafel2popup control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Label lbltafel2popup;
 
         /// <summary>
         /// btnclose2 control.
@@ -150,13 +150,13 @@ namespace ProjectGroenBos.Restaurant
         protected global::System.Web.UI.WebControls.Panel modelpantafel3;
 
         /// <summary>
-        /// Label2 control.
+        /// lbltafel3popup control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.WebControls.Label lbltafel3popup;
 
         /// <summary>
         /// btnclose3 control.
@@ -195,13 +195,13 @@ namespace ProjectGroenBos.Restaurant
         protected global::System.Web.UI.WebControls.Panel modelpantafel4;
 
         /// <summary>
-        /// Label3 control.
+        /// lbltafel4popup control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
+        protected global::System.Web.UI.WebControls.Label lbltafel4popup;
 
         /// <summary>
         /// btnclose4 control.
@@ -240,13 +240,13 @@ namespace ProjectGroenBos.Restaurant
         protected global::System.Web.UI.WebControls.Panel modelpantafel5;
 
         /// <summary>
-        /// Label4 control.
+        /// lbltafel5popup control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label4;
+        protected global::System.Web.UI.WebControls.Label lbltafel5popup;
 
         /// <summary>
         /// btnclose5 control.

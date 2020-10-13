@@ -23,12 +23,6 @@ namespace ProjectGroenBos.Restaurant
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            // verstuur mensen naar het plaatsen van een bestelling
-            Response.Redirect("opnemenbestelling.aspx");
-
-            
-
-            // geef de tafel een andere kleur om aan te geven dat hij bezet is
 
         }
 
@@ -70,6 +64,67 @@ namespace ProjectGroenBos.Restaurant
         protected void btnbar_Click(object sender, EventArgs e)
         {
             //brengt je naar het barscherm
+        }
+
+        protected void Bestelling1_Click(object sender, EventArgs e)
+        {
+            //Neem tafelnummer mee
+            Session["Tafelnr"] = lbltafel1popup.Text;
+            // verstuur mensen naar het plaatsen van een bestelling
+            Response.Redirect("opnemenbestelling.aspx");
+
+
+
+            // geef de tafel een andere kleur om aan te geven dat hij bezet is
+
+        }
+
+        protected void Bestelling2_Click(object sender, EventArgs e)
+        {
+            //Neem tafelnummer mee
+            Session["Tafelnr"] = lbltafel2popup.Text;
+            // verstuur mensen naar het plaatsen van een bestelling
+            Response.Redirect("opnemenbestelling.aspx");
+
+
+
+            // geef de tafel een andere kleur om aan te geven dat hij bezet is
+        }
+
+        protected void Bestelling3_Click(object sender, EventArgs e)
+        {
+            //Neem tafelnummer mee
+            Session["Tafelnr"] = lbltafel3popup.Text;
+            // verstuur mensen naar het plaatsen van een bestelling
+            Response.Redirect("opnemenbestelling.aspx");
+
+
+
+            // geef de tafel een andere kleur om aan te geven dat hij bezet is
+        }
+
+        protected void Bestelling4_Click(object sender, EventArgs e)
+        {
+            //Neem tafelnummer mee
+            Session["Tafelnr"] = lbltafel4popup.Text;
+            // verstuur mensen naar het plaatsen van een bestelling
+            Response.Redirect("opnemenbestelling.aspx");
+
+
+
+            // geef de tafel een andere kleur om aan te geven dat hij bezet is
+        }
+
+        protected void Bestelling5_Click(object sender, EventArgs e)
+        {
+            //Neem tafelnummer mee
+            Session["Tafelnr"] = lbltafel5popup.Text;
+            // verstuur mensen naar het plaatsen van een bestelling
+            Response.Redirect("opnemenbestelling.aspx");
+
+
+
+            // geef de tafel een andere kleur om aan te geven dat hij bezet is
         }
     }
 }

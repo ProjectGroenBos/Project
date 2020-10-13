@@ -30,12 +30,12 @@
         <asp:Panel ID="modelpantafel1" Class="popup" runat="server">
          
                 <div ID="header" class=header>
-                    <asp:Label ID="lbltafelpopup" class="Tafelpopup" runat="server" Text="Tafel 1"/>
+                    <asp:Label ID="lbltafel1popup" class="Tafelpopup" runat="server" Text="1"/>
                 <asp:button ID="btnclose1" Class="close" runat="server" text="X"/>
                 </div>
 
             <div class="center">
-            <asp:button  runat="server" class="popupbutton" text="Bestelling maken" OnClick="Button1_Click" />
+            <asp:button  runat="server" class="popupbutton" text="Bestelling maken" OnClick="Bestelling1_Click" />
             <asp:button  runat="server" class="popupbutton" text="naar afrekenen" OnClick="Button2_Click" />
             </div>
         </asp:Panel>
@@ -52,12 +52,12 @@
         <asp:Panel ID="modelpantafel2" Class="popup" runat="server">
          
                 <div ID="header2" class=header>
-                    <asp:Label ID="Label1" class="Tafelpopup" runat="server" Text="Tafel 2"/>
+                    <asp:Label ID="lbltafel2popup" class="Tafelpopup" runat="server" Text="2"/>
                 <asp:button ID="btnclose2" Class="close" runat="server" text="X"/>
                 </div>
 
             <div class="center">
-            <asp:button  runat="server" class="popupbutton" text="Bestelling maken" OnClick="Button1_Click" />
+            <asp:button  runat="server" class="popupbutton" text="Bestelling maken" OnClick="Bestelling2_Click" />
             <asp:button  runat="server" class="popupbutton" text="naar afrekenen" OnClick="Button2_Click" />
             </div>
         </asp:Panel>
@@ -74,12 +74,12 @@
         <asp:Panel ID="modelpantafel3" Class="popup" runat="server">
          
                 <div ID="header3" class=header>
-                    <asp:Label ID="Label2" class="Tafelpopup" runat="server" Text="Tafel 3"/>
+                    <asp:Label ID="lbltafel3popup" class="Tafelpopup" runat="server" Text="3"/>
                 <asp:button ID="btnclose3" Class="close" runat="server" text="X"/>
                 </div>
 
             <div class="center">
-            <asp:button  runat="server" class="popupbutton" text="Bestelling maken" OnClick="Button1_Click" />
+            <asp:button  runat="server" class="popupbutton" text="Bestelling maken" OnClick="Bestelling3_Click" />
             <asp:button  runat="server" class="popupbutton" text="naar afrekenen" OnClick="Button2_Click" />
             </div>
         </asp:Panel>
@@ -95,12 +95,12 @@
         <asp:Panel ID="modelpantafel4" Class="popup" runat="server">
          
                 <div ID="header4" class=header>
-                    <asp:Label ID="Label3" class="Tafelpopup" runat="server" Text="Tafel 4"/>
+                    <asp:Label ID="lbltafel4popup" class="Tafelpopup" runat="server" Text="4"/>
                 <asp:button ID="btnclose4" Class="close" runat="server" text="X"/>
                 </div>
 
             <div class="center">
-            <asp:button  runat="server" class="popupbutton" text="Bestelling maken" OnClick="Button1_Click" />
+            <asp:button  runat="server" class="popupbutton" text="Bestelling maken" OnClick="Bestelling4_Click" />
             <asp:button  runat="server" class="popupbutton" text="naar afrekenen" OnClick="Button2_Click" />
             </div>
         </asp:Panel>
@@ -116,11 +116,11 @@
         <asp:Panel ID="modelpantafel5" Class="popup" runat="server">
          
                 <div ID="header5" class=header>
-                    <asp:Label ID="Label4" class="Tafelpopup" runat="server" Text="Tafel 5"/>
+                    <asp:Label ID="lbltafel5popup" class="Tafelpopup" runat="server" Text="5"/>
                 <asp:button ID="btnclose5" Class="close" runat="server" text="X"/>
                 </div>
             <div class="center">
-            <asp:button  runat="server" class="popupbutton" text="Bestelling maken" OnClick="Button1_Click" />
+            <asp:button  runat="server" class="popupbutton" text="Bestelling maken" OnClick="Bestelling5_Click" />
             <asp:button  runat="server" class="popupbutton" text="naar afrekenen" OnClick="Button2_Click" />
             </div>
         </asp:Panel>

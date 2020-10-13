@@ -11,7 +11,7 @@
 
 
             <div class="titel">
-                Besteld:
+                <asp:Label ID="lbltafel" runat="server" Text=""></asp:Label>
             </div>
 
             <!-- Producten -->
