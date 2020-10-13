@@ -133,6 +133,7 @@ namespace recreatie.paginas
 
         protected void BtnBestellen_Click(object sender, EventArgs e)
         {
+            int count = 0;
             foreach (GridViewRow item in gvVoorraad.Rows)
             {
                 if (item.RowType == DataControlRowType.DataRow)
@@ -140,6 +141,7 @@ namespace recreatie.paginas
                     CheckBox chk = (item.FindControl("cbGeselecteerd") as CheckBox);
                     if (chk.Checked)
                     {
+                        Label3.Text = item.RowIndex.ToString();
 
                     }
                 }
