@@ -44,15 +44,13 @@
     <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <ItemGroup>
-<<<<<<< HEAD
     <Reference Include="AjaxControlToolkit, Version=3.0.20820.6783, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\Downloads\AjaxControlToolkit\AjaxControlToolkit.dll</HintPath>
-=======
-    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=3.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      </Reference>
+      <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=3.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
->>>>>>> 14984a8c34454c8ab9f0b2cef8ae30e322fa3756
-    </Reference>
+      </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.Web.DynamicData" />
@@ -73,7 +71,6 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
       <HintPath>packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
@@ -114,9 +111,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Restaurant\Restaurant.Master.cs">
-      <DependentUpon>Restaurant.Master</DependentUpon>
-=======
+    
     <Content Include="Financien\css\main.css" />
     <Content Include="Financien\Home.aspx" />
     <Content Include="Financien\Overzicht.aspx" />
@@ -560,7 +555,6 @@
     </Compile>
     <Compile Include="Schoonmaak en Onderhoud\InventarisOverzicht.aspx.cs">
       <DependentUpon>InventarisOverzicht.aspx</DependentUpon>
->>>>>>> 14984a8c34454c8ab9f0b2cef8ae30e322fa3756
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Restaurant\Restaurant.Master.designer.cs">
@@ -580,18 +574,20 @@
     <Compile Include="Restaurant\home.aspx.designer.cs">
       <DependentUpon>home.aspx</DependentUpon>
     </Compile>
-<<<<<<< HEAD
     <Compile Include="Restaurant\tafeloverzicht.aspx.cs">
       <DependentUpon>tafeloverzicht.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Restaurant\Restaurant.Master.cs">
+      <DependentUpon>Restaurant.Master</DependentUpon>
     </Compile>
     <Compile Include="Restaurant\tafeloverzicht.aspx.designer.cs">
       <DependentUpon>tafeloverzicht.aspx</DependentUpon>
       </Compile>
       <Compile Include="Restaurant\bestellingopnemen.aspx.cs">
       <DependentUpon>bestellingopnemen.aspx</DependentUpon>
-=======
-    <Compile Include="Schoonmaak en Onderhoud\OnderhoudToevoegen.aspx.cs">
+        </Compile>>
+        <Compile Include="Schoonmaak en Onderhoud\OnderhoudToevoegen.aspx.cs">
       <DependentUpon>OnderhoudToevoegen.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
@@ -642,14 +638,12 @@
     </Compile>
     <Compile Include="Schoonmaak en Onderhoud\SchouwingsOverzicht.aspx.cs">
       <DependentUpon>SchouwingsOverzicht.aspx</DependentUpon>
->>>>>>> 14984a8c34454c8ab9f0b2cef8ae30e322fa3756
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Restaurant\bestellingopnemen.aspx.designer.cs">
       <DependentUpon>bestellingopnemen.aspx</DependentUpon>
     </Compile>
-<<<<<<< HEAD
-    <Compile Include="Restaurant\Bestelling.aspx.cs">
+        <Compile Include="Restaurant\Bestelling.aspx.cs">
       <DependentUpon>Bestelling.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
@@ -660,7 +654,6 @@
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Restaurant\Restaurant.Master" />
-=======
   </ItemGroup>
   <ItemGroup>
     <Content Include="Financien\Financien.Master" />
@@ -671,7 +664,6 @@
     <None Include="packages.config" />
     <Content Include="Reservering\Site1.Master" />
     <Content Include="Recreatie\Site1.Master" />
->>>>>>> 14984a8c34454c8ab9f0b2cef8ae30e322fa3756
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -679,15 +671,12 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-<<<<<<< HEAD
-=======
   <ItemGroup>
     <Folder Include="Financien\js\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
->>>>>>> 14984a8c34454c8ab9f0b2cef8ae30e322fa3756
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
