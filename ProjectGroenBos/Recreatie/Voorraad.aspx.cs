@@ -120,12 +120,15 @@ namespace recreatie.paginas
 
         protected void btnSelecteren_Click(object sender, EventArgs e)
         {
+            System.Diagnostics.Debug.WriteLine(gvVoorraad.Rows[1].Cells[1].Text); 
             if (gvVoorraad.Columns[6].Visible == true)
             {
+                gvVoorraad.Columns[0].Visible = false;
                 gvVoorraad.Columns[6].Visible = false;
             }
             else
             {
+                gvVoorraad.Columns[0].Visible = true;
                 gvVoorraad.Columns[6].Visible = true;
             }
 
@@ -133,8 +136,6 @@ namespace recreatie.paginas
 
         protected void BtnBestellen_Click(object sender, EventArgs e)
         {
-            dt.Columns.Add(new DataColumn("ID", typeof(int)));
-            dt.Columns.Add(new DataColumn("Artikelnaam", typeof(string)));
 
             foreach (GridViewRow item in gvVoorraad.Rows)
             {
@@ -143,17 +144,26 @@ namespace recreatie.paginas
                     CheckBox chk = (item.FindControl("cbGeselecteerd") as CheckBox);
                     if (chk.Checked)
                     {
-                       
-
-                        using (SqlConnection Sqlcon = new SqlConnection(connectionstring))
+                        for (int i = 0; i < item.Cells.Count; i++)
                         {
+                            String header = gvVoorraad.Columns[i].HeaderText;
+                            String cellText = item.Cells[0].Text;
 
-                            int ID = int.Parse(gvVoorraad.Rows[int.Parse(item.RowIndex.ToString())].ToString());
-                            string selectquery = "SELECT [ID],[Artikelnaam] FROM vVoorraadRecreatie WHERE ID = @ID";
-                            SqlCommand sqlComd = new SqlCommand(selectquery, Sqlcon);
-                            sqlComd.Parameters.AddWithValue("@ID", ID);
-                            SqlDataAdapter da = new SqlDataAdapter(sqlComd);
-                            da.Fill(dt);
+                            // using (SqlConnection Sqlcon = new SqlConnection(connectionstring))
+                            // {
+                            //     string a = gvVoorraad.Rows[int.Parse(item.RowIndex.ToString())].Cells[0].Text;
+                            //
+                            //
+                            //     //Label3.Text = item.Cells[0].Text;
+                            //     // dt.Columns.Add(new DataColumn("ID", typeof(int)));
+                            //     // dt.Columns.Add(new DataColumn("Artikelnaam", typeof(string)));
+                            //     // string selectquery = "SELECT [ID],[Artikelnaam] FROM vVoorraadRecreatie WHERE ID = @ID";
+                            //     // SqlCommand sqlComd = new SqlCommand(selectquery, Sqlcon);
+                            //     // sqlComd.Parameters.AddWithValue("@ID", ID);
+                            //     // SqlDataAdapter da = new SqlDataAdapter(sqlComd);
+                            //     // da.Fill(dt);
+                             
+                            // }
 
                         }
 
@@ -162,7 +172,7 @@ namespace recreatie.paginas
                 }
             }
 
-            
+
             GridView1.DataSource = dt;
             GridView1.DataBind();
         }

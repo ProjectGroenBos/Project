@@ -19,7 +19,7 @@
           
 
             <Columns>
-                <asp:TemplateField HeaderText="Artikelnummer" SortExpression="ID" Visible ="False">
+                <asp:TemplateField HeaderText="Artikelnummer" SortExpression="ID" Visible ="False" >
                     <ItemTemplate>
                         <asp:Label Text='<%# Eval("ID") %>' runat="server"/>
                     </ItemTemplate>
