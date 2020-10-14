@@ -152,7 +152,7 @@ namespace recreatie.paginas
                 TxbDatum.Text = "";
                 txbInschrijfkosten.Text = "";
 
-                LblBevestiging.Text = "Activiteit gewijziged";
+                LblBevestiging.Text = "Activiteit gewijzigd";
                 GridView1.DataBind();
                 GridView1.SelectedIndex = -1;
                 ViewState["Medewerker"] = null;
@@ -218,6 +218,48 @@ namespace recreatie.paginas
                 ViewState["Medewerker"] = dt;
                 this.BindGrid();
             }
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            TxbActiviteit.Text = "";
+            txbLocatie.Text = "";
+            TxbBegintijd.Text = "";
+            TxbEindtijd.Text = "";
+            TxbAantal.Text = "";
+            TxbDatum.Text = "";
+            txbInschrijfkosten.Text = "";
+
+            GridView2.DataSource = null;
+            ViewState["Medewerker"] = null;
+            GridView2.DataBind();
+            dt.Columns.AddRange(new DataColumn[1] { new DataColumn("Naam") });
+            ViewState["Medewerker"] = dt;
+            this.BindGrid();
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            TxbActiviteit.Text = "";
+            txbLocatie.Text = "";
+            TxbBegintijd.Text = "";
+            TxbEindtijd.Text = "";
+            TxbAantal.Text = "";
+            TxbDatum.Text = "";
+            txbInschrijfkosten.Text = "";
+
+            GridView1.SelectedIndex = -1;
+
+            GridView2.DataSource = null;
+            ViewState["Medewerker"] = null;
+            GridView2.DataBind();
+            dt.Columns.AddRange(new DataColumn[1] { new DataColumn("Naam") });
+            ViewState["Medewerker"] = dt;
+            this.BindGrid();
+
+            Activteit = (DataTable)ViewState["Medewerker"];
+
+            btnActiviteitInplannen.Text = "Activiteit inplannen";
         }
     }
 }
