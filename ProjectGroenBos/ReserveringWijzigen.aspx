@@ -10,23 +10,24 @@
     <form id="form1" runat="server">
         Zoek op de achternaam en kijk of diegene een reservering heeft staan om de reservering te wijzigen als ze bellen of aal de balie staan.<br />
         <br />
-        <asp:Label ID="Label1" runat="server" Text="Zoek op: "></asp:Label>
-        <asp:TextBox ID="txbAchternaam" runat="server" AutoPostBack="True" OnTextChanged="txbAchternaam_TextChanged"></asp:TextBox>
-        <br />
-        <br />
         <asp:RadioButton ID="rdbVoornaam" runat="server" GroupName="Sort" Text="gesorteerd op voornaam" />
         <br />
         <asp:RadioButton ID="rdbAchternaam" runat="server" GroupName="Sort" Text="gesorteerd op achternaam" />
         <br />
         <asp:RadioButton ID="rdbReserveringsNummer" runat="server" Checked="True" GroupName="Sort" Text="gesorteerd op reserveringsnummer" />
         <br />
-        <asp:GridView ID="GridView1" runat="server">
+        <br />
+        <asp:Label ID="Label1" runat="server" Text="Zoek op: "></asp:Label>
+        <asp:TextBox ID="txbAchternaam" runat="server" AutoPostBack="True" OnTextChanged="txbAchternaam_TextChanged"></asp:TextBox>
+        <br />
+        <br />
+        <asp:GridView ID="GridView1" runat="server" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
             <Columns>
                 <asp:ButtonField Text="Selecteren" />
             </Columns>
         </asp:GridView>
         <br />
-        <asp:Label ID="lblUitkomst" runat="server" Text="Label"></asp:Label>
+        <asp:Label ID="lblUitkomst" runat="server"></asp:Label>
     </form>
 </body>
 </html>

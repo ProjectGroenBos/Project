@@ -22,12 +22,13 @@ namespace ProjectGroenBos
 
         protected void txbAchternaam_TextChanged(object sender, EventArgs e)
         {
-            zoek = txbAchternaam.ToString();
+            zoek = txbAchternaam.Text;
 
             using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["2020-BIM02-P1-P2-GroenbosConnectionString"].ConnectionString))
             {
                 try
                 {
+                    //radiobuttons om te kijken waarop de tabel gesorteerd moet worden
                     if (rdbVoornaam.Checked == true)
                     {
                         querieadres = "select res.Nummer as Reserveringsnummer, gst.Voornaam, gst.Tussenvoegsel, gst.Achternaam, gst.Email, res.Aantal_personen as [Aantal personen], res.Aankomstdatum, res.Vertrekdatum from Gast gst inner join Reservering res on gst.Nummer = res.GastNummer where gst.Voornaam like @zoek or gst.Achternaam like @zoek order by gst.Voornaam";
@@ -43,6 +44,7 @@ namespace ProjectGroenBos
                         querieadres = "select res.Nummer as Reserveringsnummer, gst.Voornaam, gst.Tussenvoegsel, gst.Achternaam, gst.Email, res.Aantal_personen as [Aantal personen], res.Aankomstdatum, res.Vertrekdatum from Gast gst inner join Reservering res on gst.Nummer = res.GastNummer where gst.Voornaam like @zoek or gst.Achternaam like @zoek order by res.Nummer";
                     }
 
+                    //laden van de info uit de database
                     DataSet ds = Data();
 
                     GridView1.DataSource = ds;
@@ -110,6 +112,19 @@ namespace ProjectGroenBos
 
                 return trueset;
             }
+        }
+
+        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Session["Reserveringsnummer"] = (string)GridView1.DataKeys[GridView1.SelectedIndex][0];
+            Session["Aantal_Personen"] = (string)GridView1.DataKeys[GridView1.SelectedIndex][5];
+            Session["Aankomstdatum"] = (string)GridView1.DataKeys[GridView1.SelectedIndex][6];
+            Session["Vertrekdatum"] = (string)GridView1.DataKeys[GridView1.SelectedIndex][7];
+
+            //test of het werkt, nog niet
+            lblUitkomst.Text = Session["Reserveringsnummer"].ToString() + Session["Aantal personen"].ToString() + Session["Aankomstdatum"].ToString() + Session["Vertrekdatum"].ToString();
+
+            Response.Redirect("ReserveringRijzigen2.aspx");
         }
     }
 }
