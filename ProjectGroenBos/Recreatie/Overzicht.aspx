@@ -13,14 +13,15 @@
             <asp:CheckBox ID="CbWeekOverzicht" runat="server" AutoPostBack="True" OnCheckedChanged="CbWeekOverzicht_CheckedChanged" Text="WeekOverzicht" CssClass="weekcb" />
 
             <asp:Button ID="Forward" runat="server" CssClass="volgendeknop" OnClick="OnButtonPress" Text="&gt;" />
-    <asp:GridView ID="gvActiveiten" runat="server" DataSourceID="SqlDataSource1" Height="215px" Width="1302px" CssClass="gridviewoverzicht" AutoGenerateColumns="False">
+
+            <asp:GridView ID="gvActiveiten" runat="server" DataSourceID="SqlDataSource1" Height="215px" Width="1302px" CssClass="gridviewoverzicht" AutoGenerateColumns="False">
                 <Columns>
                     <asp:BoundField DataField="Weeknummer" HeaderText="Weeknummer" ReadOnly="True" SortExpression="Weeknummer" />
                     <asp:BoundField DataField="Naam" HeaderText="Naam" SortExpression="Naam" />
                     <asp:BoundField DataField="Locatie" HeaderText="Locatie" SortExpression="Locatie" />
                     <asp:BoundField DataField="Specificatie" HeaderText="Specificatie" SortExpression="Specificatie" />
                     <asp:BoundField DataField="Inschrijfkosten" HeaderText="Inschrijfkosten" SortExpression="Inschrijfkosten" />
-                    <asp:BoundField DataField="Datum" HeaderText="Datum" SortExpression="Datum" />
+                    <asp:BoundField DataField="Datum" HeaderText="Datum" SortExpression="Datum" DataFormatString="{0:d}"/>
                     <asp:BoundField DataField="Begintijd" HeaderText="Begintijd" SortExpression="Begintijd" />
                     <asp:BoundField DataField="Eindtijd" HeaderText="Eindtijd" SortExpression="Eindtijd" />
                     <asp:BoundField DataField="Maximaal aantal" HeaderText="Maximaal aantal" SortExpression="Maximaal aantal" />
