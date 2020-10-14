@@ -103,8 +103,11 @@
                                 <div class="factuur" id="printModal<%# Eval("Nummer") %>">
                                     <div>
                                         <div class="Raar" id="Raar">
+                                             <table class="content-table" style="margin-top: -25px">
+                                                 <tbody>
+                                                <tr>
                                             Leverancier:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp <%# Eval("Betalen aan") %>
-                                            <p>
+           </tr>
                                                Adres:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp  <%# Eval("Adres") %>
                                                 <br />
                                               Postcode:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp  <%# Eval("Postcode") %><br />
@@ -115,13 +118,18 @@
                                 <br /><hr />
                                                 IBAN:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp <%# Eval("IBAN") %> <br />
                                                 Betalen voor:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp <%# Eval("Termijn", "{0: dd/MM/yyyy}") %>
-                                               
-                                            </p>
-                                            <p>
+
+                                                <div class="Aan" id="Aan">
                                                                                         Aan:		Groenbos Recreatie b.v.
 		Noorderpark 12
 		6755 VB  Aalterveld
-                                            </p>
+                                                    </div>
+                                                <br />
+                                                Datum: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp <%# Eval("Datum") %><br />
+                                                Ordernummer: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp <%# Eval("InkooporderID") %><br />
+                                                     </tbody>
+                                                </table>
+                      
                                             <hr />
                                         </div>
                                         <div class="logofactuur">
