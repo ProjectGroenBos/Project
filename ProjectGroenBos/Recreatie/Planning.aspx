@@ -20,7 +20,7 @@
 
     <asp:TextBox ID="TxbAantal" runat="server" CssClass="textboxaantal"></asp:TextBox>
 
-    <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" CssClass="gridviewbegeleider" EmptyDataText="No data yet" OnRowDeleting="GridView2_RowDeleting">
+    <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" CssClass="gridviewbegeleider" EmptyDataText="Selecteer Medewerker" OnRowDeleting="GridView2_RowDeleting">
         <Columns>
             <asp:BoundField DataField="Naam" HeaderText="Naam" SortExpression="Naam" />
             <asp:CommandField ShowDeleteButton="True" />

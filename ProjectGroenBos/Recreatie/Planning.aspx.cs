@@ -157,6 +157,15 @@ namespace recreatie.paginas
                 GridView1.SelectedIndex = -1;
                 ViewState["Medewerker"] = null;
                 Activteit = (DataTable)ViewState["Medewerker"];
+
+                GridView2.DataSource = null;
+                ViewState["Medewerker"] = null;
+                GridView2.DataBind();
+                dt.Columns.AddRange(new DataColumn[1] { new DataColumn("Naam") });
+                ViewState["Medewerker"] = dt;
+                this.BindGrid();
+
+                btnActiviteitInplannen.Text = "Activiteit inplannen";
             }
         }
 
@@ -181,20 +190,34 @@ namespace recreatie.paginas
 
         protected void GridView2_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-            if (GridView2.Rows.Count == 0)
-            {
-                GridView2.EmptyDataText = "Select medewerker";
-            }
-            else
+            try
             {
 
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception);
+                throw;
+            }
+
+            if (GridView2.Rows.Count < 0)
+            {
                 int index = int.Parse(GridView2.SelectedValue.ToString());
                 DataTable dt = (DataTable)ViewState["Medewerker"];
                 dt.Rows[index].Delete();
                 ViewState["Medewerker"] = dt;
+                BindGrid();
+              
+            }
+            else
+            {
+                GridView2.DataSource = null;
+                ViewState["Medewerker"] = null;
+                GridView2.DataBind();
+                dt.Columns.AddRange(new DataColumn[1] { new DataColumn("Naam") });
+                ViewState["Medewerker"] = dt;
                 this.BindGrid();
             }
-
         }
     }
 }
