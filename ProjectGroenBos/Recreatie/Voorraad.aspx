@@ -23,7 +23,11 @@
                     <ItemTemplate>
                         <asp:Label Text='<%# Eval("ID") %>' runat="server"/>
                     </ItemTemplate>
+                     <ItemTemplate>  
+                         <asp:Label ID="Label1" runat="server" Text='<%# Bind("ID") %>'></asp:Label>  
+                     </ItemTemplate>   
                 </asp:TemplateField>
+
 
                 <asp:TemplateField HeaderText="Artikelnaam | Omschrijving " SortExpression="Artikelnaam" >  
                     <ItemTemplate>

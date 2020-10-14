@@ -120,7 +120,6 @@ namespace recreatie.paginas
 
         protected void btnSelecteren_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Debug.WriteLine(gvVoorraad.Rows[1].Cells[1].Text); 
             if (gvVoorraad.Columns[6].Visible == true)
             {
                 gvVoorraad.Columns[0].Visible = false;
@@ -144,28 +143,23 @@ namespace recreatie.paginas
                     CheckBox chk = (item.FindControl("cbGeselecteerd") as CheckBox);
                     if (chk.Checked)
                     {
-                        for (int i = 0; i < item.Cells.Count; i++)
+                        using (SqlConnection sqlCon = new SqlConnection(connectionstring))
                         {
-                            String header = gvVoorraad.Columns[i].HeaderText;
-                            String cellText = item.Cells[0].Text;
+                            var Label = gvVoorraad.FindControl("Label1") as Label;
 
-                            // using (SqlConnection Sqlcon = new SqlConnection(connectionstring))
-                            // {
-                            //     string a = gvVoorraad.Rows[int.Parse(item.RowIndex.ToString())].Cells[0].Text;
-                            //
-                            //
-                            //     //Label3.Text = item.Cells[0].Text;
-                            //     // dt.Columns.Add(new DataColumn("ID", typeof(int)));
-                            //     // dt.Columns.Add(new DataColumn("Artikelnaam", typeof(string)));
-                            //     // string selectquery = "SELECT [ID],[Artikelnaam] FROM vVoorraadRecreatie WHERE ID = @ID";
-                            //     // SqlCommand sqlComd = new SqlCommand(selectquery, Sqlcon);
-                            //     // sqlComd.Parameters.AddWithValue("@ID", ID);
-                            //     // SqlDataAdapter da = new SqlDataAdapter(sqlComd);
-                            //     // da.Fill(dt);
-                             
-                            // }
-
+                            DataTable Aanvraag = new DataTable();
+                            Aanvraag.Columns.Add(new DataColumn("ID", typeof(int)));
+                            Aanvraag.Columns.Add(new DataColumn("Naam", typeof(string)));
+                            SqlCommand cmd = new SqlCommand("Select [ID], [Artikelnaam] FROM vVoorraadRecreatie where ID=@id", sqlCon);
+                            cmd.Parameters.AddWithValue("id", int.Parse(Label.Text));
+                            sqlCon.Open();
+                            int id = cmd.ExecuteNonQuery();
+                            SqlDataAdapter da = new SqlDataAdapter(cmd);
+                            da.Fill(Aanvraag);
+                            sqlCon.Close();
+                            
                         }
+                   
 
 
                     }
@@ -173,8 +167,6 @@ namespace recreatie.paginas
             }
 
 
-            GridView1.DataSource = dt;
-            GridView1.DataBind();
         }
     }
 }
