@@ -15,7 +15,6 @@ namespace ProjectGroenBos.Restaurant
     {
 
         /// <summary>
-<<<<<<< HEAD
         /// lbltafel control.
         /// </summary>
         /// <remarks>
@@ -25,8 +24,6 @@ namespace ProjectGroenBos.Restaurant
         protected global::System.Web.UI.WebControls.Label lbltafel;
 
         /// <summary>
-=======
->>>>>>> RestaurantTeam/Jibbe
         /// btnBetalen control.
         /// </summary>
         /// <remarks>
