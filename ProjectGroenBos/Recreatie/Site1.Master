@@ -1,0 +1,61 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="recreatie.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+
+    <link href="CSS/stylegoeie.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="wrapper">
+            <div class="sidebar">
+                <h2>
+                    <img src="img/Logo4.png" alt="Logo" height="150"></h2>
+                <h3>Recreatie</h3>
+                <ul>
+                    <li><a href="/Recreatie/Overzicht.aspx"><i class="fas fa-home"></i>Overzicht</a></li>
+                    <li><a href="#"><i class="fas fa-user"></i>Documentatie</a>
+                        <ul class="submenu">
+                            <li><a href="#">Voorraadmuteren</a></li>
+                            <li><a href="/Financien/Reserveringen.aspx">Reserveringen-overzicht</a></li>
+                            <li><a href="/Financien/Personeeloverzicht.aspx">Personeel-overzicht</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#"><i class="fas fa-address-card"></i>Beheer</a>
+                        <ul class="submenu">
+                            <li><a href="/Recreatie/Planning.aspx">Planning</a></li>
+                            <li><a href="/Recreatie/Voorraad.aspx">Voorraad</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="terug">
+                    <a href="#">&#8249; Terug naar home</a>
+                </div>
+            </div>
+            <div class="main_content">
+                <div class="navigator">
+                    <nav>
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li class="selected"><a href="#">Recreatie</a></li>
+                            <li><a href="#">Restaurant</a></li>
+                            <li><a href="/Reservering/home.aspx">Reserveringen & Balie</a></li>
+                            <li><a href="/Financien/Home.aspx">Financiën</a></li>
+                            <li><a href="/Schoonmaak en Onderhoud/InventarisOverzicht.aspx">Schoonmaak</a></li>
+                            <asp:Button ID="btnUitloggen" runat="server" CssClass="btnUitloggen" Text="Uitloggen" />
+                        </ul>
+                    </nav>
+                </div>
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+
+            </div>
+        </div>
+    </form>
+</body>
+</html>
