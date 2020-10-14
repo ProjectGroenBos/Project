@@ -11,7 +11,11 @@ namespace ProjectGroenBos.Restaurant
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             lbltafel.Text = Session["Tafelnr"].ToString();
+=======
+
+>>>>>>> RestaurantTeam/Jibbe
         }
     }
 }

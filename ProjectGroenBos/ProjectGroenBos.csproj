@@ -43,10 +43,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Reference Include="AjaxControlToolkit, Version=3.0.20820.6783, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\Downloads\AjaxControlToolkit\AjaxControlToolkit.dll</HintPath>
     </Reference>
+=======
+>>>>>>> RestaurantTeam/Jibbe
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -71,9 +74,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Content Include="Restaurant\css\opnemenbestelling.css" />
     <Content Include="Restaurant\css\style.css" />
     <Content Include="Restaurant\css\tafeloverzicht.css" />
+=======
+    <Content Include="Restaurant\css\test.css" />
+    <Content Include="Restaurant\css\opnemenbestelling.css" />
+    <Content Include="Restaurant\css\style.css" />
+>>>>>>> RestaurantTeam/Jibbe
     <Content Include="Restaurant\img\Logo1.png" />
     <Content Include="Restaurant\img\Logo2.png" />
     <Content Include="Restaurant\img\Logo3.png" />
@@ -96,14 +105,22 @@
     <Content Include="Restaurant\img\productimg\varkenshaas.png" />
     <Content Include="Restaurant\opnemenbestelling.aspx" />
     <Content Include="Restaurant\home.aspx" />
+<<<<<<< HEAD
     <Content Include="Restaurant\tafeloverzicht.aspx" />
+=======
+    <Content Include="Restaurant\bestellingopnemen.aspx" />
+    <Content Include="Restaurant\Bestelling.aspx" />
+>>>>>>> RestaurantTeam/Jibbe
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Restaurant\Restaurant.Master.cs">
       <DependentUpon>Restaurant.Master</DependentUpon>
+<<<<<<< HEAD
       <SubType>ASPXCodeBehind</SubType>
+=======
+>>>>>>> RestaurantTeam/Jibbe
     </Compile>
     <Compile Include="Restaurant\Restaurant.Master.designer.cs">
       <DependentUpon>Restaurant.Master</DependentUpon>
@@ -122,12 +139,28 @@
     <Compile Include="Restaurant\home.aspx.designer.cs">
       <DependentUpon>home.aspx</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="Restaurant\tafeloverzicht.aspx.cs">
       <DependentUpon>tafeloverzicht.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Restaurant\tafeloverzicht.aspx.designer.cs">
       <DependentUpon>tafeloverzicht.aspx</DependentUpon>
+=======
+    <Compile Include="Restaurant\bestellingopnemen.aspx.cs">
+      <DependentUpon>bestellingopnemen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Restaurant\bestellingopnemen.aspx.designer.cs">
+      <DependentUpon>bestellingopnemen.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Restaurant\Bestelling.aspx.cs">
+      <DependentUpon>Bestelling.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Restaurant\Bestelling.aspx.designer.cs">
+      <DependentUpon>Bestelling.aspx</DependentUpon>
+>>>>>>> RestaurantTeam/Jibbe
     </Compile>
   </ItemGroup>
   <ItemGroup>
