@@ -71,6 +71,7 @@
 
 
             <asp:DropDownList ID="DropDownList1" runat="server" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
+                <asp:ListItem Selected="True">Leeg</asp:ListItem>
                 <asp:ListItem>Nederland</asp:ListItem>
                 <asp:ListItem>Duitsland</asp:ListItem>
                 <asp:ListItem>Frankrijk</asp:ListItem>
@@ -126,17 +127,27 @@
 
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-            <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ErrorMessage="Telefoonnummer is niet geldig." ControlToValidate="txbTelefoonnummer" ValidationExpression="^[0-9]{9}$"></asp:RegularExpressionValidator>
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ErrorMessage="Telefoonnummer bestaat uit 9 getallen. De eerste 0 mag u weglaten." ControlToValidate="txbTelefoonnummer" ValidationExpression="^[0-9]{9}$"></asp:RegularExpressionValidator>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txbTelefoonnummer" ErrorMessage="Dit veld is verplicht."></asp:RequiredFieldValidator>
         </p>
         <br />
+
         <p>
+
+       
+        <asp:Label ID="Label2" runat="server" Text="Geboortedatum"></asp:Label>
+        <asp:TextBox ID="txbGeboortedatum" runat="server"></asp:TextBox>
+        <asp:RegularExpressionValidator ID="RegularExpressionValidator6" runat="server" ControlToValidate="txbGeboortedatum" ErrorMessage="Vul geboortedatum in als jjjj-mm-dd. Bijvoorbeeld: 2021-06-16" ValidationExpression ="^(19|20){1}\d\d[-](0[1-9]|1[012])[-](0[1-9]|[12][0-9]|3[01])$"></asp:RegularExpressionValidator>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Dit veld is verplicht." ControlToValidate="txbGeboortedatum"></asp:RequiredFieldValidator>
+        </p>
+        <p><br /></p>
+       <p>
             <asp:Label ID="lblOpmerkingen" runat="server" Text="Opmerkingen" CssClass="labelhuisjemedewerker"></asp:Label>
 
 
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-
+        
             <asp:TextBox ID="txbOpmerkingen" runat="server"></asp:TextBox>
         </p>
 

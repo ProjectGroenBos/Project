@@ -91,6 +91,8 @@
     <Content Include="Recreatie\Planning.aspx" />
     <Content Include="Recreatie\Uitloggen.aspx" />
     <Content Include="Recreatie\Voorraadfout.aspx" />
+    <Content Include="ReserveringWijzigen.aspx" />
+    <Content Include="ReserveringWijzigen2.aspx" />
     <Content Include="Reservering\css\Stylejuist.css" />
     <Content Include="Reservering\home.aspx" />
     <Content Include="Reservering\Huisjemedewerker.aspx" />
@@ -185,6 +187,20 @@
     </Compile>
     <Compile Include="Recreatie\Voorraadfout.aspx.designer.cs">
       <DependentUpon>Voorraadfout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ReserveringWijzigen.aspx.cs">
+      <DependentUpon>ReserveringWijzigen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReserveringWijzigen.aspx.designer.cs">
+      <DependentUpon>ReserveringWijzigen.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ReserveringWijzigen2.aspx.cs">
+      <DependentUpon>ReserveringWijzigen2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReserveringWijzigen2.aspx.designer.cs">
+      <DependentUpon>ReserveringWijzigen2.aspx</DependentUpon>
     </Compile>
     <Compile Include="Reservering\home.aspx.cs">
       <DependentUpon>home.aspx</DependentUpon>
