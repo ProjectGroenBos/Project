@@ -76,54 +76,41 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud
 
         protected void btnZoek_Click(object sender, EventArgs e)
         {
+            if (DropDownList1.SelectedItem.Value == "Startdatum")
             {
-                //if (string.IsNullOrWhiteSpace(datumTxtbox.Text))
-                //{
-                //    datumGrid.Visible = false;
+                OverzichtGrid.Visible = false;
+                statusgrid.Visible = false;
+                bungalowGrid.Visible = false;
+                typegrid.Visible = false;
+                datumGrid.Visible = true;
+            }
 
-                //}
+            if (DropDownList1.SelectedItem.Value == "Bungalownummer")
+            {
+                OverzichtGrid.Visible = false;
+                statusgrid.Visible = false;
+                datumGrid.Visible = false;
+                typegrid.Visible = false;
+                bungalowGrid.Visible = true;
+            }
 
-                //if(string.IsNullOrWhiteSpace(bungalowTxtbox.Text))
-                //{
-                //    bungalowGrid.Visible = false;
-                //}
+            if (DropDownList1.SelectedItem.Value == "Status")
+            {
+                OverzichtGrid.Visible = false;
+                bungalowGrid.Visible = false;
+                datumGrid.Visible = false;
+                typegrid.Visible = false;
+                statusgrid.Visible = true;
 
-                //if(string.IsNullOrWhiteSpace(onderhoudTxtbox.Text))
-                //{
-                //    onderhoudGrid.Visible = false;
-                //}
+            }
 
-                if (DropDownList1.SelectedItem.Value == "Startdatum")
-                {
-                    OverzichtGrid.Visible = false;
-                    naamGrid.Visible = false;
-                    bungalowGrid.Visible = false;
-
-                }
-
-                if (DropDownList1.SelectedItem.Value == "Bungalownummer")
-                {
-                    OverzichtGrid.Visible = false;
-                    naamGrid.Visible = false;
-                    datumGrid.Visible = false;
-                }
-
-                if (DropDownList1.SelectedItem.Value == "Naam Medewerker")
-                {
-                    OverzichtGrid.Visible = false;
-                    bungalowGrid.Visible = false;
-                    datumGrid.Visible = false;
-
-                }
-
-                if (string.IsNullOrEmpty(naamTxtbox.Text))
-                {
-
-                }
-                else
-                {
-                    OverzichtGrid.Visible = false;
-                }
+            if (DropDownList1.SelectedItem.Value == "Type")
+            {
+                OverzichtGrid.Visible = false;
+                bungalowGrid.Visible = false;
+                datumGrid.Visible = false;
+                statusgrid.Visible = false;
+                typegrid.Visible = true;
             }
         }
 
@@ -132,13 +119,6 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud
             Response.Redirect("OnderhoudToevoegen.aspx");
         }
 
-        protected void btnAndersZoeken_Click1(object sender, EventArgs e)
-        {
-            lblNM.Visible = false;
-            naamTxtbox.Visible = false;
-            DropDownList1.Visible = true;
-            searchBox.Visible = true;
-        }
 
         protected void btnWijzigscherm_Click(object sender, EventArgs e)
         {

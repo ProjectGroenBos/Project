@@ -21,33 +21,25 @@
         <br />
 
 <div id="divZoek" runat="server" class="col-xs-6">
-        <asp:Label ID="lblNM" runat="server" Text="Naam Medewerker:"></asp:Label>
-&nbsp;
-<asp:TextBox ID="naamTxtbox" runat="server" Width="174px"></asp:TextBox>
-   <br />
-        <br />
-        <asp:Button ID="btnAndersZoeken" runat="server" BackColor="#0E6251" BorderColor="#0E6251" Height="26px" OnClick="btnAndersZoeken_Click1" Text="Anders Zoeken" Width="160px" ForeColor="White" CssClass="buttonstyle" />
-
-     &nbsp;
-
-     <asp:Button ID="btnZoek" runat="server" BackColor="#0E6251" BorderColor="#0E6251" Height="26px" OnClick="btnZoek_Click" Text="Zoek" Width="68px" ForeColor="White" CssClass="buttonstyle" />
-        <br />
-        <br />
-        <br />
-    <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" Visible="False">
+<br />
+    <asp:DropDownList ID="DropDownList1" runat="server" OnSelectedIndexChanged="btnZoek_Click">
         <asp:ListItem>Startdatum</asp:ListItem>
         <asp:ListItem>Bungalownummer</asp:ListItem>
+        <asp:ListItem>Status</asp:ListItem>
+        <asp:ListItem>Type</asp:ListItem>
     </asp:DropDownList>
-   &nbsp;
-   <asp:TextBox ID="searchBox" runat="server" CssClass="form-control" TextMode="SingleLine" CausesValidation="True" Width="185px" Visible="False"></asp:TextBox>
+     &nbsp;<asp:TextBox ID="searchBox" runat="server" CssClass="form-control" TextMode="SingleLine" CausesValidation="True" Width="185px"></asp:TextBox>
+   
+&nbsp;<asp:Button ID="btnZoek" runat="server" BackColor="#0E6251" BorderColor="#0E6251" OnClick="btnZoek_Click" Text="Zoek" ForeColor="White" CssClass="buttonstyle" />
    
 </div>
+        <br />
 <div class="col-xs-3" style="margin-left:auto; margin-right:auto;">
    <label for="ex3" style="color:rgba(0, 0, 0, 0)"></label>
     <br />
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:con %>" SelectCommand="select Nummer, Startdatum, VerwachteEinddatum, Kosten, BungalowNummer, OnderhoudsstatusID, Onderhoudtype, DatumvanConstatering  from Onderhoudsopdracht" DeleteCommand="delete from Onderhoudsopdracht where nummer = @nummer"></asp:SqlDataSource>
     <center>
-    <asp:GridView ID="OverzichtGrid" runat="server" AutoGenerateColumns="False" BackColor="White" Width="80%" BorderColor="#0E6251" BorderStyle="Solid" BorderWidth="1px" CellPadding="5" DataKeyNames="Nummer" DataSourceID="SqlDataSource1" ForeColor="Black" GridLines="Vertical" >
+    <asp:GridView ID="OverzichtGrid" runat="server" AutoGenerateColumns="False" BackColor="White" Width="80%" BorderColor="#0E6251" BorderStyle="Solid" BorderWidth="1px" CellPadding="5" DataKeyNames="Nummer" DataSourceID="SqlDataSource1" ForeColor="Black" GridLines="Vertical" AllowPaging="True" >
         <AlternatingRowStyle BackColor="#f0f0f0" />
         <Columns>
             <asp:BoundField DataField="Nummer" HeaderText="Nummer" InsertVisible="False" ReadOnly="True" SortExpression="Nummer" />
@@ -62,7 +54,7 @@
         </Columns>
         <FooterStyle BackColor="#CCCCCC" />
         <HeaderStyle BackColor="#0E6251" Font-Bold="True" ForeColor="White" />
-        <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
+        <PagerStyle BackColor="#0E6251" ForeColor="Black" HorizontalAlign="Center" />
         <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="Black" />
         <SortedAscendingCellStyle BackColor="#F1F1F1" />
         <SortedAscendingHeaderStyle BackColor="#808080" />
@@ -71,7 +63,7 @@
     </asp:GridView>
         </center>
     <center>
-    <asp:GridView ID="datumGrid" runat="server" AutoGenerateColumns="False" BackColor="White" Width="80%" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="5" DataKeyNames="Nummer" DataSourceID="SqlDataSource2" ForeColor="Black" GridLines="Vertical">
+    <asp:GridView ID="datumGrid" runat="server" AutoGenerateColumns="False" BackColor="White" Width="80%" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="5" DataKeyNames="Nummer" DataSourceID="SqlDataSource2" ForeColor="Black" GridLines="Vertical" AllowPaging="True">
         <AlternatingRowStyle BackColor="#f0f0f0" />
         <Columns>
             <asp:BoundField DataField="Nummer" HeaderText="Nummer" InsertVisible="False" ReadOnly="True" SortExpression="Nummer" />
@@ -86,7 +78,7 @@
         </Columns>
         <FooterStyle BackColor="#CCCCCC" />
         <HeaderStyle BackColor="#0E6251" Font-Bold="True" ForeColor="White" />
-        <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
+        <PagerStyle BackColor="#0E6251" ForeColor="Black" HorizontalAlign="Center" />
         <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="Black" />
         <SortedAscendingCellStyle BackColor="#F1F1F1" />
         <SortedAscendingHeaderStyle BackColor="#808080" />
@@ -94,13 +86,13 @@
         <SortedDescendingHeaderStyle BackColor="#383838" />
     </asp:GridView>
         </center>
-    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:con %>" SelectCommand="select Nummer, Startdatum, VerwachteEinddatum, Kosten, BungalowNummer, OnderhoudsstatusID, Onderhoudtype, DatumvanConstatering  from Onderhoudsopdracht WHERE ([Startdatum] = @searchBox)"  DeleteCommand="delete from Onderhoudsopdracht where nummer = @nummer">
+    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:con %>" SelectCommand="SELECT * FROM [Onderhoudsopdracht] WHERE ([Startdatum] = @Startdatum)" DeleteCommand="delete from Onderhoudsopdracht where nummer = @nummer">
         <SelectParameters>
-            <asp:ControlParameter ControlID="searchBox" Name="searchBox" PropertyName="Text" />
+            <asp:ControlParameter ControlID="searchBox" Name="Startdatum" PropertyName="Text" DbType="Date" />
         </SelectParameters>
     </asp:SqlDataSource>
     <center>
-    <asp:GridView ID="bungalowGrid" runat="server" AutoGenerateColumns="False" BackColor="White" Width="80%" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="5" DataKeyNames="Nummer" DataSourceID="SqlDataSource3" ForeColor="Black" GridLines="Vertical">
+    <asp:GridView ID="bungalowGrid" runat="server" AutoGenerateColumns="False" BackColor="White" Width="80%" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="5" DataKeyNames="Nummer" DataSourceID="SqlDataSource3" ForeColor="Black" GridLines="Vertical" AllowPaging="True">
         <AlternatingRowStyle BackColor="#f0f0f0" />
         <Columns>
             <asp:BoundField DataField="Nummer" HeaderText="Nummer" InsertVisible="False" ReadOnly="True" SortExpression="Nummer" />
@@ -115,7 +107,7 @@
         </Columns>
         <FooterStyle BackColor="#CCCCCC" />
         <HeaderStyle BackColor="#0E6251" Font-Bold="True" ForeColor="White" />
-        <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
+        <PagerStyle BackColor="#0E6251" ForeColor="Black" HorizontalAlign="Center" />
         <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="Black" />
         <SortedAscendingCellStyle BackColor="#F1F1F1" />
         <SortedAscendingHeaderStyle BackColor="#808080" />
@@ -123,13 +115,13 @@
         <SortedDescendingHeaderStyle BackColor="#383838" />
     </asp:GridView>
         </center>
-    <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:con %>" SelectCommand="select Nummer, Startdatum, VerwachteEinddatum, Kosten, BungalowNummer, OnderhoudsstatusID, Onderhoudtype, DatumvanConstatering  from Onderhoudsopdracht WHERE ([BungalowNummer] = @searchBox)"  DeleteCommand="delete from Onderhoudsopdracht where nummer = @nummer">
+    <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:con %>" SelectCommand="SELECT * FROM [Onderhoudsopdracht] WHERE ([BungalowNummer] = @BungalowNummer)"  DeleteCommand="delete from Onderhoudsopdracht where nummer = @nummer">
         <SelectParameters>
-            <asp:ControlParameter ControlID="searchBox" Name="searchBox" PropertyName="Text" />
+            <asp:ControlParameter ControlID="searchBox" Name="BungalowNummer" PropertyName="Text" Type="Int32" />
         </SelectParameters>
     </asp:SqlDataSource>
     <center>
-    <asp:GridView ID="naamGrid" runat="server" AutoGenerateColumns="False" BackColor="White" Width="80%" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="5" DataKeyNames="Nummer" DataSourceID="SqlDataSource4" ForeColor="Black" GridLines="Vertical">
+    <asp:GridView ID="statusgrid" runat="server" AutoGenerateColumns="False" BackColor="White" Width="80%" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="5" DataKeyNames="Nummer" DataSourceID="SqlDataSource4" ForeColor="Black" GridLines="Vertical" AllowPaging="True">
         <AlternatingRowStyle BackColor="#f0f0f0" />
         <Columns>
             <asp:BoundField DataField="Nummer" HeaderText="Nummer" InsertVisible="False" ReadOnly="True" SortExpression="Nummer" />
@@ -144,7 +136,7 @@
         </Columns>
         <FooterStyle BackColor="#CCCCCC" />
        <HeaderStyle BackColor="#0E6251" Font-Bold="True" ForeColor="White" />
-        <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
+        <PagerStyle BackColor="#0E6251" ForeColor="Black" HorizontalAlign="Center" />
         <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="Black" />
         <SortedAscendingCellStyle BackColor="#F1F1F1" />
         <SortedAscendingHeaderStyle BackColor="#808080" />
@@ -152,13 +144,13 @@
         <SortedDescendingHeaderStyle BackColor="#383838" />
     </asp:GridView>
     </center>
-    <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:con %>" SelectCommand="select Nummer, Startdatum, VerwachteEinddatum, Kosten, BungalowNummer, OnderhoudsstatusID, Onderhoudtype, DatumvanConstatering  from Onderhoudsopdracht WHERE ([Naam] = @searchBox)"  DeleteCommand="delete from Onderhoudsopdracht where nummer = @nummer">
+    <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:con %>" SelectCommand="SELECT * FROM [Onderhoudsopdracht] WHERE ([OnderhoudsstatusID] = @OnderhoudsstatusID)"  DeleteCommand="delete from Onderhoudsopdracht where nummer = @nummer">
         <SelectParameters>
-            <asp:ControlParameter ControlID="searchBox" Name="searchBox" PropertyName="Text" />
+            <asp:ControlParameter ControlID="searchBox" Name="OnderhoudsstatusID" PropertyName="Text" Type="String" />
         </SelectParameters>
     </asp:SqlDataSource>
     <center>
-    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="White" Width="80%" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="5" DataKeyNames="Nummer" DataSourceID="SqlDataSource5" ForeColor="Black" GridLines="Vertical">
+    <asp:GridView ID="typegrid" runat="server" AutoGenerateColumns="False" BackColor="White" Width="80%" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="5" DataKeyNames="Nummer" DataSourceID="SqlDataSource5" ForeColor="Black" GridLines="Vertical" AllowPaging="True">
         <AlternatingRowStyle BackColor="#f0f0f0" />
         <Columns>
             <asp:BoundField DataField="Nummer" HeaderText="Nummer" InsertVisible="False" ReadOnly="True" SortExpression="Nummer" />
@@ -173,7 +165,7 @@
         </Columns>
         <FooterStyle BackColor="#CCCCCC" />
         <HeaderStyle BackColor="#0E6251" Font-Bold="True" ForeColor="White" />
-        <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
+        <PagerStyle BackColor="#0E6251" ForeColor="Black" HorizontalAlign="Center" />
         <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="Black" />
         <SortedAscendingCellStyle BackColor="#F1F1F1" />
         <SortedAscendingHeaderStyle BackColor="#808080" />
@@ -181,9 +173,9 @@
         <SortedDescendingHeaderStyle BackColor="#383838" />
     </asp:GridView>
     </center>
-    <asp:SqlDataSource ID="SqlDataSource5" runat="server" ConnectionString="<%$ ConnectionStrings:con %>" SelectCommand="select Nummer, Startdatum, VerwachteEinddatum, Kosten, BungalowNummer, OnderhoudsstatusID, Onderhoudtype, DatumvanConstatering  from Onderhoudsopdracht WHERE ([Naam] = @naamTxtbox)"  DeleteCommand="delete from Onderhoudsopdracht where nummer = @nummer">
+    <asp:SqlDataSource ID="SqlDataSource5" runat="server" ConnectionString="<%$ ConnectionStrings:con %>" SelectCommand="SELECT * FROM [Onderhoudsopdracht] WHERE ([Onderhoudtype] = @Onderhoudtype)"  DeleteCommand="delete from Onderhoudsopdracht where nummer = @nummer">
         <SelectParameters>
-            <asp:ControlParameter ControlID="naamTxtbox" Name="naamTxtbox" PropertyName="Text" />
+            <asp:ControlParameter ControlID="searchBox" Name="Onderhoudtype" PropertyName="Text" Type="String" />
         </SelectParameters>
     </asp:SqlDataSource>
     <br />
