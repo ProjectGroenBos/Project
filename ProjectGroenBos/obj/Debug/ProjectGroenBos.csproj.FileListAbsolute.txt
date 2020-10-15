@@ -356,3 +356,13 @@ C:\Users\herman\Documents\Project\ProjectGroenBos\bin\roslyn\System.Buffers.dll
 C:\Users\herman\Documents\Project\ProjectGroenBos\bin\roslyn\System.Memory.dll
 C:\Users\herman\Documents\Project\ProjectGroenBos\bin\roslyn\System.Numerics.Vectors.dll
 C:\Users\herman\Documents\Project\ProjectGroenBos\bin\roslyn\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\renen\OneDrive\Desktop\Project2\ProjectGroenBos\bin\ProjectGroenBos.dll.config
+C:\Users\renen\OneDrive\Desktop\Project2\ProjectGroenBos\bin\ProjectGroenBos.dll
+C:\Users\renen\OneDrive\Desktop\Project2\ProjectGroenBos\bin\ProjectGroenBos.pdb
+C:\Users\renen\OneDrive\Desktop\Project2\ProjectGroenBos\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\renen\OneDrive\Desktop\Project2\ProjectGroenBos\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\renen\OneDrive\Desktop\Project2\ProjectGroenBos\obj\Debug\ProjectGroenBos.csprojAssemblyReference.cache
+C:\Users\renen\OneDrive\Desktop\Project2\ProjectGroenBos\obj\Debug\ProjectGroenBos.csproj.CoreCompileInputs.cache
+C:\Users\renen\OneDrive\Desktop\Project2\ProjectGroenBos\obj\Debug\ProjectGroenBos.csproj.CopyComplete
+C:\Users\renen\OneDrive\Desktop\Project2\ProjectGroenBos\obj\Debug\ProjectGroenBos.dll
+C:\Users\renen\OneDrive\Desktop\Project2\ProjectGroenBos\obj\Debug\ProjectGroenBos.pdb
