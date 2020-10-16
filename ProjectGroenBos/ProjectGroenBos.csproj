@@ -67,40 +67,87 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Restaurant\bestellinggelukt.aspx" />
+    <Content Include="Restaurant\css\test.css" />
     <Content Include="Restaurant\css\opnemenbestelling.css" />
     <Content Include="Restaurant\css\style.css" />
-    <Content Include="Restaurant\home.aspx" />
     <Content Include="Restaurant\img\Logo1.png" />
     <Content Include="Restaurant\img\Logo2.png" />
     <Content Include="Restaurant\img\Logo3.png" />
     <Content Include="Restaurant\img\Logo4.png" />
     <Content Include="Restaurant\img\Logo5.png" />
     <Content Include="Restaurant\img\Logo6.png" />
+    <Content Include="Restaurant\img\productimg\broodplankje.png" />
+    <Content Include="Restaurant\img\productimg\carpaccio.png" />
+    <Content Include="Restaurant\img\productimg\champignonsoep.png" />
+    <Content Include="Restaurant\img\productimg\chocoladetaart.png" />
     <Content Include="Restaurant\img\productimg\Cola.png" />
+    <Content Include="Restaurant\img\productimg\cremebrulee.png" />
     <Content Include="Restaurant\img\productimg\Fanta.png" />
+    <Content Include="Restaurant\img\productimg\patat.png" />
+    <Content Include="Restaurant\img\productimg\sate.png" />
+    <Content Include="Restaurant\img\productimg\schnitzel.png" />
+    <Content Include="Restaurant\img\productimg\spareribs.png" />
     <Content Include="Restaurant\img\productimg\Sprite.png" />
+    <Content Include="Restaurant\img\productimg\tomatensoep.png" />
+    <Content Include="Restaurant\img\productimg\varkenshaas.png" />
     <Content Include="Restaurant\opnemenbestelling.aspx" />
+    <Content Include="Restaurant\home.aspx" />
+    <Content Include="Restaurant\bestellingopnemen.aspx" />
+    <Content Include="Restaurant\Bestelling.aspx" />
+    <Content Include="Restaurant\WebForm5.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Restaurant\home.aspx.cs">
-      <DependentUpon>home.aspx</DependentUpon>
+    <Compile Include="Restaurant\bestellinggelukt.aspx.cs">
+      <DependentUpon>bestellinggelukt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Restaurant\home.aspx.designer.cs">
-      <DependentUpon>home.aspx</DependentUpon>
+    <Compile Include="Restaurant\bestellinggelukt.aspx.designer.cs">
+      <DependentUpon>bestellinggelukt.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Restaurant\Restaurant.Master.cs">
+      <DependentUpon>Restaurant.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Restaurant\Restaurant.Master.designer.cs">
+      <DependentUpon>Restaurant.Master</DependentUpon>
     </Compile>
     <Compile Include="Restaurant\opnemenbestelling.aspx.cs">
       <DependentUpon>opnemenbestelling.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Restaurant\opnemenbestelling.aspx.designer.cs">
       <DependentUpon>opnemenbestelling.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Restaurant\Restaurant.Master.cs">
-      <DependentUpon>Restaurant.Master</DependentUpon>
+    <Compile Include="Restaurant\home.aspx.cs">
+      <DependentUpon>home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Restaurant\Restaurant.Master.designer.cs">
-      <DependentUpon>Restaurant.Master</DependentUpon>
+    <Compile Include="Restaurant\home.aspx.designer.cs">
+      <DependentUpon>home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Restaurant\bestellingopnemen.aspx.cs">
+      <DependentUpon>bestellingopnemen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Restaurant\bestellingopnemen.aspx.designer.cs">
+      <DependentUpon>bestellingopnemen.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Restaurant\Bestelling.aspx.cs">
+      <DependentUpon>Bestelling.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Restaurant\Bestelling.aspx.designer.cs">
+      <DependentUpon>Bestelling.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Restaurant\WebForm5.aspx.cs">
+      <DependentUpon>WebForm5.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Restaurant\WebForm5.aspx.designer.cs">
+      <DependentUpon>WebForm5.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
