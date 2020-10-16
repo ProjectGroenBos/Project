@@ -21,7 +21,7 @@
                     <li><a href="home.aspx"><i class="fas fa-home"></i>Home</a></li>
                     <li><a href="#"><i class="fas fa-user"></i>Bestellingen</a>
                         <ul class="submenu">
-                            <li><a href="opnemenbestelling.aspx">Bestelling opnemen</a></li>
+                            <li><a href="tafeloverzicht.aspx">Bestelling opnemen</a></li>
                             <li><a href="#">Bestellingen overzicht</a>
                                 <ul class="submenu">
                                     <li><a href="#">Dranken overzicht</a></li>
