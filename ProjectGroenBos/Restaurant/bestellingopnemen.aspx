@@ -52,7 +52,11 @@
             </div>
             <div class="betalen">
 
+<<<<<<< HEAD
                 <asp:Button ID="btnBetalen" runat="server" Text="Bestellen" />
+=======
+                <asp:Button ID="btnBestellen" runat="server" Text="Bestellen" OnClick="btnBestellen_Click" />
+>>>>>>> origin/RestaurantTeam/Timo
 
             </div>
         </div>
