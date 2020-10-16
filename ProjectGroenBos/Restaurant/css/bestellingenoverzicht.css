@@ -1,0 +1,8 @@
+﻿::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* make scrollbar transparent */
+}
+
+.werkgebied {
+    padding: 20px 20px 20px 20px;
+}
