@@ -7,30 +7,12 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ProjectGroenBos.Restaurant
+namespace ProjectGroenBos
 {
 
 
-    public partial class WebForm5
+    public partial class bestellingenoverzicht
     {
-
-        /// <summary>
-        /// btnWijzigen control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnWijzigen;
-
-        /// <summary>
-        /// btnBestellingGereed control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnBestellingGereed;
 
         /// <summary>
         /// GridView1 control.
@@ -42,12 +24,21 @@ namespace ProjectGroenBos.Restaurant
         protected global::System.Web.UI.WebControls.GridView GridView1;
 
         /// <summary>
-        /// SqlDataSource1 control.
+        /// btnBestellingGereed control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
+        protected global::System.Web.UI.WebControls.Button btnBestellingGereed;
+
+        /// <summary>
+        /// btnWijzigen control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnWijzigen;
     }
 }
