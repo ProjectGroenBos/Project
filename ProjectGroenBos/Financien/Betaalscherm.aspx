@@ -74,10 +74,11 @@
             <Columns>
                 <asp:BoundField DataField="Nummer" HeaderText="Factuurnummer" SortExpression="Nummer" ReadOnly="True" />
                 <asp:BoundField DataField="Betalen aan" HeaderText="Betalen aan" SortExpression="Betalen aan" ReadOnly="True" />
-                <asp:BoundField DataField="Totaal bedrag" HeaderText="Totaal Bedrag" SortExpression="Totaal bedrag" />
-                <asp:BoundField DataField="Reeds betaald" HeaderText="Reeds betaald" SortExpression="Reeds betaald" />
+                <asp:BoundField DataField="Totaal bedrag" HeaderText="Totaal Bedrag" SortExpression="Totaal bedrag" DataFormatString="{0:C}"/>
+                <asp:BoundField DataField="Reeds betaald" HeaderText="Reeds betaald" SortExpression="Reeds betaald" DataFormatString="{0:C}"/>
                 <asp:BoundField DataField="Termijn" DataFormatString="{0:d}" HeaderText="Termijn" SortExpression="Termijn" />
                 <asp:BoundField DataField="Omschrijving betaalcondities" HeaderText="Omschrijving betaalcondities" SortExpression="Omschrijving betaalcondities" />
+                 <asp:BoundField DataField="Omschrijving" HeaderText="Omschrijving" SortExpression="Omschrijving" />
                 <asp:TemplateField>
                     <ItemTemplate>
                         <button type="button" style="background-color: #009879; color: #fff" class="btn" data-toggle="modal" data-target="#modal<%# Eval("Nummer") %>">Zie rekeningen</button>
@@ -85,7 +86,7 @@
                 </asp:TemplateField>
             </Columns>
         </asp:GridView>
-        <asp:SqlDataSource ID="SqlDataSource6" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="select Nummer, [Betalen aan], [Totaal bedrag], [Reeds betaald], Termijn, [Omschrijving betaalcondities] from Crediteurenfactuur"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSource6" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="select Nummer, [Betalen aan], [Totaal bedrag], [Reeds betaald], Termijn, [Omschrijving betaalcondities], Omschrijving from Crediteurenfactuur inner join Factuurstatus on Factuurstatus.ID = Crediteurenfactuur.FactuurstatusID"></asp:SqlDataSource>
     </div>
     <asp:Panel ID="Panel1" runat="server">
         <asp:Repeater ID="rpModals" runat="server">
@@ -106,29 +107,48 @@
                                              <table class="content-table" style="margin-top: -25px">
                                                  <tbody>
                                                 <tr>
-                                            Leverancier:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp <%# Eval("Betalen aan") %>
-           </tr>
-                                               Adres:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp  <%# Eval("Adres") %>
-                                                <br />
-                                              Postcode:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp  <%# Eval("Postcode") %><br />
-                                                Plaats:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp <%# Eval("Plaats") %><br />
-                                                Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp  <%# Eval("Email") %><br />
-                                                Telefoon: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp <%# Eval("Telefoonnummer") %><br />
-                                                <%# Eval("IBAN") %> 
-                                <br /><hr />
-                                                IBAN:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp <%# Eval("IBAN") %> <br />
-                                                Betalen voor:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp <%# Eval("Termijn", "{0: dd/MM/yyyy}") %>
+                                           <td>Leverancier</td> <td><%# Eval("Betalen aan") %></td>
+                                               </tr>
+<tr>
+                                              <td>Adres:</td><td><%# Eval("Adres") %></td>
+    </tr>
+                                               <tr>
+                                              <td>Postcode:</td>  <td><%# Eval("Postcode") %></td>
+                                                   </tr>
+                                                     <tr>
+                                                <td>Plaats:</td><td> <%# Eval("Plaats") %></td>
+                                                         </tr>
+                                                     <tr>
+                                                <td>Email:</td> <td><%# Eval("Email") %></td>
+                                                         </tr>
+                                                     <tr>
+                                                <td>Telefoon:</td> <td><%# Eval("Telefoonnummer") %></td>
+                                                         </tr>
 
-                                                <div class="Aan" id="Aan">
-                                                                                        Aan:		Groenbos Recreatie b.v.
-		Noorderpark 12
-		6755 VB  Aalterveld
-                                                    </div>
-                                                <br />
-                                                Datum: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp <%# Eval("Datum") %><br />
-                                                Ordernummer: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp <%# Eval("InkooporderID") %><br />
-                                                     </tbody>
+                    
+                                                <td>IBAN:</td>  <td><%# Eval("IBAN") %></td> 
+                                                         </tr>
+                                                     <tr>
+                                                <td>Betalen voor:</td> <td><%# Eval("Termijn", "{0: dd/MM/yyyy}") %></td>
+                                                         </tr>
+                                                     <tr>
+                                                                                                              </tbody>
                                                 </table>
+                                                <table class="content-table" style="margin-top: +25px">
+                                                 <tbody>
+                                                                                        <td>Aan:</td>		<td>Groenbos Recreatie b.v.
+		Noorderpark 12
+		6755 VB  Aalterveld</td>
+                                            </tr>
+                                               <tr>
+                                                <td>Datum:</td> <td><%# Eval("Datum", "{0: dd/MM/yyyy}") %></td>
+                                                    </tr>
+                                                      <tr>
+                                                <td>Ordernummer:</td> <td><%# Eval("InkooporderID") %></td>
+
+                                                           </tr>                                                             </tbody>
+                                                </table>
+
                       
                                             <hr />
                                         </div>
@@ -215,6 +235,85 @@
                                 <input type="button" class="btn btn-primary btn-lg btn-block" onclick="printDiv('printModal<%# Eval("Nummer") %>')" value="Print Factuur" />
 
                                 <asp:Button ID="btnExport" class="btn btn-primary btn-lg btn-block" CommandName="<%# Container.ItemIndex %>" runat="server" Text="Betaal factuur"/>
+
+                                 <ItemTemplate>
+                        <button type="button"  class="btn btn-primary btn-lg btn-block" data-dismiss="modal" data-toggle="modal" data-target="#modal2<%# Eval("Nummer") %>">Zie rekeningen</button>
+                    </ItemTemplate>
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Sluiten</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ItemTemplate>
+        </asp:Repeater>
+    </asp:Panel>
+
+
+
+
+
+
+
+
+
+
+
+
+
+     <asp:Panel ID="Panel2" runat="server">
+        <asp:Repeater ID="Repeater1" runat="server">
+            <ItemTemplate>
+                <!-- Modal -->
+                <div id="modal2<%# Eval("Nummer") %>" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Inkoopfactuur <%# Eval("Betalen aan") %></h4>
+                                <asp:Button runat="server" CssClass="btn btn-primary" Text="Sluiten"></asp:Button>
+                            </div>
+                            <div class="modal-body">
+                                 <table class="content-table" style="margin-top: +25px">
+                                                 <tbody>
+                                                     <tr>
+                                                         <td>Te betalen bedrag</td><td>€ <%# Eval("Totaal bedrag") %></td>
+                                                     </tr>
+                                                     <tr>
+                                                         <td>Geld overmaken naar</td><td><%# Eval("Betalen aan") %> <%# Eval("IBAN") %></td>
+                                                     </tr>
+                                                 </tbody>
+                                                </table>
+
+                                <table class="content-table" style="margin-top: +25px">
+                                                 <tbody>
+                                                     <tr>
+                                                     <td>Bedrag overgemaakt</td>
+                                                     <td>
+                                                         <asp:TextBox ID="txtBedrag" runat="server"> </asp:TextBox>
+                                                     </td>
+                                                         </tr>
+                                                 </tbody>
+                                                </table>
+
+                                 <asp:HiddenField ID="Winkel" runat="server"
+                                        Value='<%# Eval("Betalen aan") %>' />
+                                    <asp:HiddenField ID="Nummer" runat="server"
+                                        Value='<%# Eval("Nummer") %>' />
+                                    <asp:HiddenField ID="Totaalbedrag" runat="server"
+                                        Value='<%# Eval("Totaal bedrag") %>' />
+                                <asp:HiddenField ID="Bedrag" runat="server"
+                                        Value='<%# Eval("Totaal bedrag") %>' />
+ 
+
+                                          
+                                          
+                                        
+                                <input type="button" class="btn btn-primary btn-lg btn-block" onclick="printDiv('printModal<%# Eval("Nummer") %>')" value="Print Factuur" />
+
+                                <asp:Button ID="btnBetaal" class="btn btn-primary btn-lg btn-block" OnClick="btnToevoegen_Click" runat="server" Text="Betaal factuur"/>
 
                             </div>
                             <div class="modal-footer">

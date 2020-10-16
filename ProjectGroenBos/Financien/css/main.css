@@ -145,6 +145,8 @@ body {
     text-align: center;
 }
 
+
+
 /* table */
 .content-table {
     border-collapse: collapse;
@@ -215,16 +217,19 @@ body {
                 color: #ffffff;
             }
 
+
 .eerstetable {
     width: 60%;
     margin-left: auto;
     margin-right: auto;
+
 }
 
 .tweedetable {
     width: 80%;
     margin-left: auto;
     margin-right: auto;
+
 }
 
     .tweedetable tr:nth-child(2) input {
@@ -375,6 +380,7 @@ nav {
     color: #fff;
 }
 
+
 .inline-flex {
     display: flex;
     justify-content: center;
@@ -410,3 +416,20 @@ nav {
 margin-bottom: 5%;
 margin-top: 10%
 }
+
+
+.levering {
+    background: gray;
+}
+
+.levering td {
+    display: block;
+    float: left;
+    padding: 10px 0;
+    margin-right: 50px;
+    background: white;
+}
+
+    .levering td:last-child {
+        margin-right: 0;
+    }
