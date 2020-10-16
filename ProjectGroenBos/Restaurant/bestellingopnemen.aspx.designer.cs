@@ -33,21 +33,21 @@ namespace ProjectGroenBos.Restaurant
         protected global::System.Web.UI.WebControls.GridView GridView2;
 
         /// <summary>
-<<<<<<< HEAD
+
         /// btnBetalen control.
-=======
+
         /// btnBestellen control.
->>>>>>> origin/RestaurantTeam/Timo
+
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-<<<<<<< HEAD
+
         protected global::System.Web.UI.WebControls.Button btnBetalen;
-=======
+
         protected global::System.Web.UI.WebControls.Button btnBestellen;
->>>>>>> origin/RestaurantTeam/Timo
+
 
         /// <summary>
         /// DataList1 control.

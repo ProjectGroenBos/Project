@@ -35,10 +35,9 @@ namespace ProjectGroenBos.Restaurant
 				dt2.Columns.Add("Prijs");
 				dt2.Columns.Add("Hoeveelheid");
 				dt2.Columns.Add("TotalePrijs");
-<<<<<<< HEAD
-=======
+
 				dt2.Columns.Add("Id");
->>>>>>> origin/RestaurantTeam/Timo
+
 
 				if (Request.QueryString["id"] != null)
 				{
@@ -60,10 +59,9 @@ namespace ProjectGroenBos.Restaurant
 						dr["Naam"] = ds.Tables[0].Rows[0]["Naam"].ToString();
 						dr["€ " + "Prijs"] = ds.Tables[0].Rows[0]["Prijs"].ToString();
 						dr["Hoeveelheid"] = Request.QueryString["Hoeveelheid"];
-<<<<<<< HEAD
-=======
+
 						dr["Id"] = Request.QueryString["id"];
->>>>>>> origin/RestaurantTeam/Timo
+
 
 						double prijs = Convert.ToDouble(ds.Tables[0].Rows[0]["Prijs"].ToString());
 						double hoeveelheid = Convert.ToInt16(Request.QueryString["Hoeveelheid"].ToString());
@@ -101,10 +99,9 @@ namespace ProjectGroenBos.Restaurant
 						dr["Naam"] = ds.Tables[0].Rows[0]["Naam"].ToString();
 						dr["Prijs"] = ds.Tables[0].Rows[0]["Prijs"].ToString();
 						dr["Hoeveelheid"] = Request.QueryString["Hoeveelheid"];
-<<<<<<< HEAD
-=======
+
 						dr["Id"] = Request.QueryString["id"];
->>>>>>> origin/RestaurantTeam/Timo
+
 
 						double prijs = Convert.ToDouble(ds.Tables[0].Rows[0]["Prijs"].ToString());
 						double hoeveelheid = Convert.ToInt16(Request.QueryString["Hoeveelheid"].ToString());
@@ -136,11 +133,7 @@ namespace ProjectGroenBos.Restaurant
 
 		}
 
-<<<<<<< HEAD
-        
 
-=======
->>>>>>> origin/RestaurantTeam/Timo
         protected void DataList1_ItemCommand(object source, DataListCommandEventArgs e)
         {
             if (e.CommandName == "toevoegen")
@@ -206,8 +199,7 @@ namespace ProjectGroenBos.Restaurant
 			Session["bestelitems"] = dt2;
 			Response.Redirect("bestellingopnemen.aspx");
 		}
-<<<<<<< HEAD
-=======
+
 
 		private int GetResNr()
         {
@@ -311,6 +303,6 @@ namespace ProjectGroenBos.Restaurant
 			Response.Redirect("bestellinggelukt.aspx");
 
 		}
->>>>>>> origin/RestaurantTeam/Timo
+
     }
 }
