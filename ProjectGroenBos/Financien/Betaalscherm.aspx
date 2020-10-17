@@ -104,7 +104,7 @@
                                 <div class="factuur" id="printModal<%# Eval("Nummer") %>">
                                     <div>
                                         <div class="Raar" id="Raar">
-                                             <table class="content-table" style="margin-top: -25px">
+                                             <table class="content-table" style="margin-top: -25px; margin-left: auto; margin-right: auto;">
                                                  <tbody>
                                                 <tr>
                                            <td>Leverancier</td> <td><%# Eval("Betalen aan") %></td>

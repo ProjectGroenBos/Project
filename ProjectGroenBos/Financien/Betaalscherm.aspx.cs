@@ -56,16 +56,16 @@ namespace ProjectGroenBos.Financien
 
             HiddenField Totaalbedragen = (HiddenField)Repeater1.Items[0].FindControl("Totaalbedrag");
             string Totaalbedrag = Totaalbedragen.Value;
+            string bedrag = txtbedrag.ToString();
 
 
-
-            string commandText = "insert into Transactie (Datum, Aan, Bedrag, Omschrijving, CrediteurenfactuurNummer, BankrekeningBanknummer, TypeID) Values ((SELECT CONVERT(date, getdate())), '@Winkel', CAST(@bedrag AS REAL), '@omschrijving', @Nummer, 1, 1)";
+            string commandText = "insert into Transactie (Datum, Aan, Bedrag, Omschrijving, CrediteurenfactuurNummer, BankrekeningBanknummer, TypeID) Values ((SELECT CONVERT(date, getdate())), '@Winkel', CAST(@bedrag AS double), '@omschrijving', @Nummer, 1, 1)";
 
             using (SqlConnection connection = new SqlConnection(constr))
             {
                 SqlCommand command = new SqlCommand(commandText, connection);
                 command.Parameters.AddWithValue("@Winkel", Winkel);
-                command.Parameters.AddWithValue("@Bedrag", txtbedrag.ToString());
+                command.Parameters.AddWithValue("@Bedrag", bedrag);
                 command.Parameters.AddWithValue("@Omschrijving", Winkel);
                 command.Parameters.AddWithValue("@Nummer", nummer);
 
