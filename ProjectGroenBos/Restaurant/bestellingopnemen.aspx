@@ -9,8 +9,9 @@
         <div class="winkelmandje" id="winkelmand">
 
             <div class="titel">
-                Besteld:
+                
                 <br />
+                <asp:Label ID="lblTafel" runat="server"></asp:Label>
             <asp:Label ID="lblSelectedProducts" runat="server" Font-Bold="True" Font-Size="X-Large" ForeColor="White"></asp:Label>
             </div>
 
@@ -52,11 +53,11 @@
             </div>
             <div class="betalen">
 
-<<<<<<< HEAD
+
                 <asp:Button ID="btnBetalen" runat="server" Text="Bestellen" />
-=======
+
                 <asp:Button ID="btnBestellen" runat="server" Text="Bestellen" OnClick="btnBestellen_Click" />
->>>>>>> origin/RestaurantTeam/Timo
+
 
             </div>
         </div>
