@@ -56,10 +56,11 @@ namespace ProjectGroenBos.Financien
 
             HiddenField Totaalbedragen = (HiddenField)Repeater1.Items[0].FindControl("Totaalbedrag");
             string Totaalbedrag = Totaalbedragen.Value;
-            string bedrag = txtbedrag.ToString();
+            string bedrag = txtbedrag.Text;
 
+            bedrag = bedrag.Replace(",", ".");
 
-            string commandText = "insert into Transactie (Datum, Aan, Bedrag, Omschrijving, CrediteurenfactuurNummer, BankrekeningBanknummer, TypeID) Values ((SELECT CONVERT(date, getdate())), '@Winkel', CAST(@bedrag AS double), '@omschrijving', @Nummer, 1, 1)";
+            string commandText = "insert into Transactie (Datum, Aan, Bedrag, Omschrijving, CrediteurenfactuurNummer, BankrekeningBanknummer, TypeID) Values ((SELECT CONVERT(date, getdate())), @Winkel, convert(real, @bedrag), @omschrijving, @Nummer, 1, 1)";
 
             using (SqlConnection connection = new SqlConnection(constr))
             {
@@ -74,6 +75,8 @@ namespace ProjectGroenBos.Financien
 
                 command.ExecuteNonQuery();
             }
+
+            ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "betalingsuccess();", true);
 
         }
     }

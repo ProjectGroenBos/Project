@@ -1,17 +1,28 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Financien/Financien.Master" CodeBehind="Betaalscherm.aspx.cs" Inherits="ProjectGroenBos.Financien.Betaalscherm" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Financien/Financien.Master" CodeBehind="Openstaandecreditnota.aspx.cs" Inherits="ProjectGroenBos.Financien.Betaalscherm" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
         @media print {
             @page {
+                size: auto; /* auto is the initial value */
+                /* this affects the margin in the printer settings */
+                margin: 25mm 25mm 25mm 25mm;
             }
 
             body {
-                margin-left: auto;
-                margin-right: auto;
-                height: auto;
-                overflow: hidden;
-                position: absolute;
+                /* this affects the margin on the content before sending to printer */
+                margin: 0px;
+            }
+
+            .factuur_text {
+                width: 90%;
+                margin-top: 10px;
+                display: block;
+            }
+
+            .gegevens_factuur {
+                margin-left: 0;
+                width: 30%;
             }
 
             .inline-flex {
@@ -23,7 +34,7 @@
             }
 
             .content-table {
-                width: 100%;
+                width: 80%;
                 font-size: 20px;
             }
 
@@ -37,13 +48,17 @@
                 margin: 0 auto 0 auto;
             }
         }
+
+        .blauw {
+            color: blue;
+        }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script>
-        function emailsuccess() {
+        function betalingsuccess() {
             Swal.fire({
                 icon: 'success',
-                title: 'De email is verstuurd naar de klant.',
+                title: 'Betaling succesvol in database gezet.',
                 showConfirmButton: false,
                 timer: 4000
             })
@@ -65,20 +80,20 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="header">Rekeningen</div>
+    <div class="header">Inkoopfacturen</div>
     <div class="container" runat="server" id="pdfbody">
-        <h2>Rekeningen-overzicht</h2>
-        <p>Dit is een overzicht van alle opstaande rekeningen van gasten die aanwezig zijn in het park bij recreatiepark Groenbos.</p>
+        <h2>Inkoopfactuur-overzicht</h2>
+        <p>Overzicht van alle inkoopfacturen.</p>
 
         <asp:GridView ID="gvRekeningen" runat="server" CssClass="content-table tweedetable" GridLines="None" AutoGenerateColumns="False" DataSourceID="SqlDataSource6" DataKeyNames="Nummer">
             <Columns>
                 <asp:BoundField DataField="Nummer" HeaderText="Factuurnummer" SortExpression="Nummer" ReadOnly="True" />
                 <asp:BoundField DataField="Betalen aan" HeaderText="Betalen aan" SortExpression="Betalen aan" ReadOnly="True" />
-                <asp:BoundField DataField="Totaal bedrag" HeaderText="Totaal Bedrag" SortExpression="Totaal bedrag" DataFormatString="{0:C}"/>
-                <asp:BoundField DataField="Reeds betaald" HeaderText="Reeds betaald" SortExpression="Reeds betaald" DataFormatString="{0:C}"/>
+                <asp:BoundField DataField="Totaal bedrag" HeaderText="Totaal Bedrag" SortExpression="Totaal bedrag" DataFormatString="{0:C}" />
+                <asp:BoundField DataField="Reeds betaald" HeaderText="Reeds betaald" SortExpression="Reeds betaald" DataFormatString="{0:C}" />
                 <asp:BoundField DataField="Termijn" DataFormatString="{0:d}" HeaderText="Termijn" SortExpression="Termijn" />
                 <asp:BoundField DataField="Omschrijving betaalcondities" HeaderText="Omschrijving betaalcondities" SortExpression="Omschrijving betaalcondities" />
-                 <asp:BoundField DataField="Omschrijving" HeaderText="Omschrijving" SortExpression="Omschrijving" />
+                <asp:BoundField DataField="Omschrijving" HeaderText="Status" SortExpression="Omschrijving" />
                 <asp:TemplateField>
                     <ItemTemplate>
                         <button type="button" style="background-color: #009879; color: #fff" class="btn" data-toggle="modal" data-target="#modal<%# Eval("Nummer") %>">Zie rekeningen</button>
@@ -103,64 +118,75 @@
                             <div class="modal-body">
                                 <div class="factuur" id="printModal<%# Eval("Nummer") %>">
                                     <div>
-                                        <div class="Raar" id="Raar">
-                                             <table class="content-table" style="margin-top: -25px; margin-left: auto; margin-right: auto;">
-                                                 <tbody>
-                                                <tr>
-                                           <td>Leverancier</td> <td><%# Eval("Betalen aan") %></td>
-                                               </tr>
-<tr>
-                                              <td>Adres:</td><td><%# Eval("Adres") %></td>
-    </tr>
-                                               <tr>
-                                              <td>Postcode:</td>  <td><%# Eval("Postcode") %></td>
-                                                   </tr>
-                                                     <tr>
-                                                <td>Plaats:</td><td> <%# Eval("Plaats") %></td>
-                                                         </tr>
-                                                     <tr>
-                                                <td>Email:</td> <td><%# Eval("Email") %></td>
-                                                         </tr>
-                                                     <tr>
-                                                <td>Telefoon:</td> <td><%# Eval("Telefoonnummer") %></td>
-                                                         </tr>
-
-                    
-                                                <td>IBAN:</td>  <td><%# Eval("IBAN") %></td> 
-                                                         </tr>
-                                                     <tr>
-                                                <td>Betalen voor:</td> <td><%# Eval("Termijn", "{0: dd/MM/yyyy}") %></td>
-                                                         </tr>
-                                                     <tr>
-                                                                                                              </tbody>
-                                                </table>
-                                                <table class="content-table" style="margin-top: +25px">
-                                                 <tbody>
-                                                                                        <td>Aan:</td>		<td>Groenbos Recreatie b.v.
-		Noorderpark 12
-		6755 VB  Aalterveld</td>
-                                            </tr>
-                                               <tr>
-                                                <td>Datum:</td> <td><%# Eval("Datum", "{0: dd/MM/yyyy}") %></td>
-                                                    </tr>
-                                                      <tr>
-                                                <td>Ordernummer:</td> <td><%# Eval("InkooporderID") %></td>
-
-                                                           </tr>                                                             </tbody>
-                                                </table>
-
-                      
-                                            <hr />
+                                        <div class="gegevens_factuur">
+                                            <p><b>Leverancier:</b></p>
+                                            <p><%# Eval("Betalen aan") %></p>
                                         </div>
-                                        <div class="logofactuur">
-                                            <img src="img/logo3.png" style="width: 150px; height: 200px;" alt="Logo">
+                                        <div class="gegevens_factuur">
+                                            <p><b>Adres:</b></p>
+                                            <p><%# Eval("Adres") %></p>
                                         </div>
-                                     </div>
-                                   
+                                        <div class="gegevens_factuur">
+                                            <p><b>Postcode:</b></p>
+                                            <p><%# Eval("Postcode") %></p>
+                                        </div>
+                                        <div class="gegevens_factuur">
+                                            <p><b>Plaats:</b></p>
+                                            <p><%# Eval("Plaats") %></p>
+                                        </div>
+                                        <div class="gegevens_factuur">
+                                            <p><b>Email:</b></p>
+                                            <p><%# Eval("Email") %></p>
+                                        </div>
+                                        <div class="gegevens_factuur">
+                                            <p><b>Telefoon:</b></p>
+                                            <p><%# Eval("Telefoonnummer") %></p>
+                                        </div>
+                                        <div class="gegevens_factuur">
+                                            <p><b>Telefoon:</b></p>
+                                            <p><%# Eval("Telefoonnummer") %></p>
+                                        </div>
+                                        <div class="gegevens_factuur">
+                                            <p><b>IBAN:</b></p>
+                                            <p><%# Eval("IBAN") %></p>
+                                        </div>
+                                        <div class="gegevens_factuur">
+                                            <p><b>Betalen voor:</b></p>
+                                            <p><%# Eval("Termijn", "{0: dd/MM/yyyy}") %></p>
+                                        </div>
+
+                                        <div class="factuur_text blauw">
+                                            <p>Factuur/Invoice</p>
+                                        </div>
+
+                                        <div class="gegevens_factuur">
+                                            <p><b>Aan:</b></p>
+                                            <p>Groenbos Recreatie b.v. Noorderpark 12 6755 VB Aalterveld</p>
+                                        </div>
+                                        <div class="gegevens_factuur">
+                                            <p><b>Datum:</b></p>
+                                            <p><%# Eval("Datum", "{0: dd/MM/yyyy}") %></p>
+                                        </div>
+                                        <div class="gegevens_factuur">
+                                            <p><b>Ordernummer:</b></p>
+                                            <p><%# Eval("InkooporderID") %></p>
+                                        </div>
+
+                                        <hr />
+
+                                        <div class="factuur_text">
+                                            <p>
+                                                Hierbij debiteren wij u wegens geleverde artikelen volgens onderstaand overzicht. 
+                                                Wij verzoeken u het totaalbedrag ons binnen veertien dagen na dagtekening te doen toekomen via onze bankrelatie. 
+                                                Na verstrijken van de vervaldatum zien wij ons genoodzaakt u administratiekosten in rekening te brengen.
+                                            </p>
+                                        </div>
+                                    </div>
+
 
 
                                     <br />
-                                    <asp:GridView ID="gvFactuurrekening" runat="server" CssClass="content-table" Gridlines="None"  AutoGenerateColumns="False" Style="text-align: center; margin-left: auto; margin-right: auto;" DataSourceID="SqlDataSource1">
+                                    <asp:GridView ID="gvFactuurrekening" runat="server" CssClass="content-table" GridLines="None" AutoGenerateColumns="False" Style="text-align: center; margin-left: auto; margin-right: auto;" DataSourceID="SqlDataSource1">
                                         <Columns>
                                             <asp:BoundField DataField="Naam" HeaderText="Omschrijving" ReadOnly="True" SortExpression="Naam" />
                                             <asp:BoundField DataField="Prijs" HeaderText="Prijs" ReadOnly="True" SortExpression="Prijs" DataFormatString="{0:C}" />
@@ -205,40 +231,16 @@
                                     </asp:SqlDataSource>
                                     <h4 style="text-align: center">Te betalen voor: <%# Eval("Termijn", "{0: dd/MM/yyyy}") %></h4>
 
-                                    <div class="fixed-bottom">
-                                        <div class="footerfactuur">
-                                            <div>
-                                                <br />
-                                                <br />
-                                                <p>
-                                                    Groenbos recreatie b.v.
-                                                <br />
-                                                    Noorderpark 12, 6755 VB  Aalterveld
-                                                </p>
-                                            </div>
-                                            <div>
-                                                <p>
-                                                    <br />
-                                                    <br />
-                                                    tel. 0625 - 918200
-                                                <br />
-                                                    fax. 0625 - 918201
-                                                <br />
-                                                    bank: NL32 RABO 0220.96.13.200, Rabobank Aalten
 
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
 
                                 <input type="button" class="btn btn-primary btn-lg btn-block" onclick="printDiv('printModal<%# Eval("Nummer") %>')" value="Print Factuur" />
 
-                                <asp:Button ID="btnExport" class="btn btn-primary btn-lg btn-block" CommandName="<%# Container.ItemIndex %>" runat="server" Text="Betaal factuur"/>
+                                <br />
 
-                                 <ItemTemplate>
-                        <button type="button"  class="btn btn-primary btn-lg btn-block" data-dismiss="modal" data-toggle="modal" data-target="#modal2<%# Eval("Nummer") %>">Zie rekeningen</button>
-                    </ItemTemplate>
+                                <itemtemplate>
+                                    <button type="button"  class="btn btn-primary btn-lg btn-block" data-dismiss="modal" data-toggle="modal" data-target="#modal2<%# Eval("Nummer") %>">Betaal factuur</button>
+                                </itemtemplate>
 
                             </div>
                             <div class="modal-footer">
@@ -251,19 +253,7 @@
         </asp:Repeater>
     </asp:Panel>
 
-
-
-
-
-
-
-
-
-
-
-
-
-     <asp:Panel ID="Panel2" runat="server">
+    <asp:Panel ID="Panel2" runat="server">
         <asp:Repeater ID="Repeater1" runat="server">
             <ItemTemplate>
                 <!-- Modal -->
@@ -276,44 +266,42 @@
                                 <asp:Button runat="server" CssClass="btn btn-primary" Text="Sluiten"></asp:Button>
                             </div>
                             <div class="modal-body">
-                                 <table class="content-table" style="margin-top: +25px">
-                                                 <tbody>
-                                                     <tr>
-                                                         <td>Te betalen bedrag</td><td>€ <%# Eval("Totaal bedrag") %></td>
-                                                     </tr>
-                                                     <tr>
-                                                         <td>Geld overmaken naar</td><td><%# Eval("Betalen aan") %> <%# Eval("IBAN") %></td>
-                                                     </tr>
-                                                 </tbody>
-                                                </table>
+                                <table class="content-table" style="margin-top: +25px">
+                                    <tbody>
+                                        <tr>
+                                            <td>Te betalen bedrag</td>
+                                            <td>€ <%# Eval("Totaal bedrag") %></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Geld overmaken naar</td>
+                                            <td><%# Eval("Betalen aan") %> <%# Eval("IBAN") %></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
 
                                 <table class="content-table" style="margin-top: +25px">
-                                                 <tbody>
-                                                     <tr>
-                                                     <td>Bedrag overgemaakt</td>
-                                                     <td>
-                                                         <asp:TextBox ID="txtBedrag" runat="server"> </asp:TextBox>
-                                                     </td>
-                                                         </tr>
-                                                 </tbody>
-                                                </table>
+                                    <tbody>
+                                        <tr>
+                                            <td>Bedrag overgemaakt</td>
+                                            <td>
+                                                <asp:TextBox ID="txtBedrag" runat="server"> </asp:TextBox>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
 
-                                 <asp:HiddenField ID="Winkel" runat="server"
-                                        Value='<%# Eval("Betalen aan") %>' />
-                                    <asp:HiddenField ID="Nummer" runat="server"
-                                        Value='<%# Eval("Nummer") %>' />
-                                    <asp:HiddenField ID="Totaalbedrag" runat="server"
-                                        Value='<%# Eval("Totaal bedrag") %>' />
+                                <asp:HiddenField ID="Winkel" runat="server"
+                                    Value='<%# Eval("Betalen aan") %>' />
+                                <asp:HiddenField ID="Nummer" runat="server"
+                                    Value='<%# Eval("Nummer") %>' />
+                                <asp:HiddenField ID="Totaalbedrag" runat="server"
+                                    Value='<%# Eval("Totaal bedrag") %>' />
                                 <asp:HiddenField ID="Bedrag" runat="server"
-                                        Value='<%# Eval("Totaal bedrag") %>' />
- 
+                                    Value='<%# Eval("Totaal bedrag") %>' />
 
-                                          
-                                          
-                                        
-                                <input type="button" class="btn btn-primary btn-lg btn-block" onclick="printDiv('printModal<%# Eval("Nummer") %>')" value="Print Factuur" />
 
-                                <asp:Button ID="btnBetaal" class="btn btn-primary btn-lg btn-block" OnClick="btnToevoegen_Click" runat="server" Text="Betaal factuur"/>
+
+                                <asp:Button ID="btnBetaal" class="btn btn-primary btn-lg btn-block" OnClick="btnToevoegen_Click" runat="server" Text="Betaal factuur" />
 
                             </div>
                             <div class="modal-footer">

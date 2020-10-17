@@ -409,27 +409,15 @@ nav {
     justify-content: space-evenly;
 }
 
-.Raar {
-    text-align: left;
-    float: left;
-    margin-left: 10%;
-margin-bottom: 5%;
-margin-top: 10%
+.gegevens_factuur {
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+    width: 60%;
+    margin-left: 20%;
 }
 
 
-.levering {
-    background: gray;
+.factuur_text {
+    display: none;
 }
-
-.levering td {
-    display: block;
-    float: left;
-    padding: 10px 0;
-    margin-right: 50px;
-    background: white;
-}
-
-    .levering td:last-child {
-        margin-right: 0;
-    }
