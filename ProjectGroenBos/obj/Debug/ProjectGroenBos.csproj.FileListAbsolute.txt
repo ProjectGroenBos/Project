@@ -294,6 +294,7 @@ C:\Users\herman\Desktop\ProjectGroenBos5-10-2020\obj\Debug\ProjectGroenBos.cspro
 C:\Users\herman\Desktop\ProjectGroenBos5-10-2020\obj\Debug\ProjectGroenBos.dll
 C:\Users\herman\Desktop\ProjectGroenBos5-10-2020\obj\Debug\ProjectGroenBos.pdb
 C:\Users\herman\Documents\Project\ProjectGroenBos\obj\Debug\ProjectGroenBos.csproj.CoreCompileInputs.cache
+<<<<<<< HEAD
 C:\Users\herman\Documents\Project\ProjectGroenBos\bin\ProjectGroenBos.dll.config
 C:\Users\herman\Documents\Project\ProjectGroenBos\bin\ProjectGroenBos.dll
 C:\Users\herman\Documents\Project\ProjectGroenBos\bin\ProjectGroenBos.pdb
@@ -333,3 +334,5 @@ C:\Users\herman\Documents\Project\ProjectGroenBos\obj\Debug\ProjectGroenBos.cspr
 C:\Users\herman\Documents\Project\ProjectGroenBos\obj\Debug\ProjectGroenBos.dll
 C:\Users\herman\Documents\Project\ProjectGroenBos\obj\Debug\ProjectGroenBos.pdb
 C:\Users\herman\Documents\Project\ProjectGroenBos\obj\Debug\ProjectGroenBos.csprojAssemblyReference.cache
+=======
+>>>>>>> d735d2829b43ff8d5f116cbff02a5b1a4efbbe37

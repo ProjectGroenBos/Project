@@ -43,6 +43,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=20.1.0.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <HintPath>packages\AjaxControlToolkit.20.1.0\lib\net40\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=3.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -62,11 +69,6 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
-      <HintPath>packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Financien\Betaalscherm.aspx" />
     <Content Include="Financien\Openstaandecreditnota.aspx" />
     <Content Include="Financien\css\main.css" />
@@ -80,6 +82,304 @@
     <Content Include="Financien\Rekeningen.aspx" />
     <Content Include="Financien\Reserveringen.aspx" />
     <Content Include="Financien\WebForm5.aspx" />
+    <Content Include="packages\AjaxControlToolkit.20.1.0\lib\net40\AjaxControlToolkit.dll" />
+    <Content Include="packages\AjaxControlToolkit.20.1.0\readme.txt" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\dhtmlxscheduler.css" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\dhtmlxscheduler.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\dhtmlxscheduler_contrast_black.css" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\dhtmlxscheduler_contrast_white.css" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\dhtmlxscheduler_custom_lightbox.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\dhtmlxscheduler_flat.css" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\dhtmlxscheduler_material.css" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\dhtmlxscheduler_terrace.css" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\ext\dhtmlxscheduler_active_links.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\ext\dhtmlxscheduler_agenda_view.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\ext\dhtmlxscheduler_all_timed.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\ext\dhtmlxscheduler_collision.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\ext\dhtmlxscheduler_container_autoresize.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\ext\dhtmlxscheduler_cookie.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\ext\dhtmlxscheduler_csp.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\ext\dhtmlxscheduler_daytimeline.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\ext\dhtmlxscheduler_drag_between.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\ext\dhtmlxscheduler_editors.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\ext\dhtmlxscheduler_expand.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\ext\dhtmlxscheduler_grid_view.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\ext\dhtmlxscheduler_html_templates.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\ext\dhtmlxscheduler_key_nav.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\ext\dhtmlxscheduler_layer.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\ext\dhtmlxscheduler_limit.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\ext\dhtmlxscheduler_live_updates.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\ext\dhtmlxscheduler_map_view.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\ext\dhtmlxscheduler_minical.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\ext\dhtmlxscheduler_monthheight.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\ext\dhtmlxscheduler_multisection.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\ext\dhtmlxscheduler_multiselect.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\ext\dhtmlxscheduler_multisource.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\ext\dhtmlxscheduler_mvc.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\ext\dhtmlxscheduler_offline.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\ext\dhtmlxscheduler_outerdrag.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\ext\dhtmlxscheduler_pdf.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\ext\dhtmlxscheduler_quick_info.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\ext\dhtmlxscheduler_readonly.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\ext\dhtmlxscheduler_recurring.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\ext\dhtmlxscheduler_serialize.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\ext\dhtmlxscheduler_timeline.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\ext\dhtmlxscheduler_tooltip.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\ext\dhtmlxscheduler_treetimeline.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\ext\dhtmlxscheduler_units.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\ext\dhtmlxscheduler_url.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\ext\dhtmlxscheduler_week_agenda.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\ext\dhtmlxscheduler_wp.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\ext\dhtmlxscheduler_year_view.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs\buttons.png" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs\but_repeat.gif" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs\calendar.gif" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs\clock_big.gif" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs\clock_small.gif" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs\collapse_expand_icon.gif" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs\controls.gif" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs\databg.png" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs\databg_now.png" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs\export_ical.png" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs\export_pdf.png" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs\icon.png" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs\images.png" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs\loading.gif" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs\resize_dots.png" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_contrast_black\arrow_left.png" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_contrast_black\arrow_right.png" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_contrast_black\but_repeat.gif" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_contrast_black\calendar.gif" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_contrast_black\clock_big.gif" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_contrast_black\clock_small.gif" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_contrast_black\close_icon.png" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_contrast_black\collapse_expand_icon.gif" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_contrast_black\controls.png" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_contrast_black\databg.png" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_contrast_black\databg_now.png" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_contrast_black\export_ical.png" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_contrast_black\export_pdf.png" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_contrast_black\resize_dots.png" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_contrast_black\resizing.png" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_contrast_white\arrow_left.png" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_contrast_white\arrow_right.png" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_contrast_white\but_repeat.gif" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_contrast_white\calendar.gif" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_contrast_white\clock_big.gif" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_contrast_white\clock_small.gif" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_contrast_white\close_icon.png" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_contrast_white\collapse_expand_icon.gif" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_contrast_white\controls.png" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_contrast_white\databg.png" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_contrast_white\export_ical.png" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_contrast_white\export_pdf.png" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_contrast_white\quick_info_edit.png" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_contrast_white\resize_dots.png" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_contrast_white\resizing.png" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_dhx_material\agenda-calendar-hov.svg" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_dhx_material\agenda-calendar.svg" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_dhx_material\agenda_bg.png" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_dhx_material\arrow_left.svg" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_dhx_material\arrow_left_hov.svg" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_dhx_material\arrow_right.svg" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_dhx_material\arrow_right_hov.svg" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_dhx_material\but_repeat.png" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_dhx_material\calendar.svg" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_dhx_material\clock_big.png" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_dhx_material\clock_small.png" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_dhx_material\close_icon.png" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_dhx_material\collapse_expand_icon.png" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_dhx_material\controls.png" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_dhx_material\databg.png" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_dhx_material\drag-horizontal.svg" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_dhx_material\drag-vertical.svg" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_dhx_material\export_ical.png" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_dhx_material\export_pdf.png" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_dhx_material\icon.png" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_dhx_material\menu-down.svg" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_dhx_material\resizing.png" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_dhx_material\Shape.svg" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_dhx_material\time.svg" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_dhx_material\tree_arrow.svg" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_dhx_terrace\arrow_left.png" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_dhx_terrace\arrow_right.png" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_dhx_terrace\but_repeat.gif" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_dhx_terrace\calendar.gif" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_dhx_terrace\clock_big.gif" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_dhx_terrace\clock_small.gif" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_dhx_terrace\close_icon.png" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_dhx_terrace\collapse_expand_icon.gif" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_dhx_terrace\controls.png" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_dhx_terrace\databg.png" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_dhx_terrace\databg_now.png" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_dhx_terrace\export_ical.png" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_dhx_terrace\export_pdf.png" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_dhx_terrace\resize_dots.png" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_dhx_terrace\resizing.png" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_flat\agenda_bg.gif" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_flat\arrow_left.png" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_flat\arrow_right.png" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_flat\but_repeat.gif" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_flat\calendar.gif" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_flat\clock.png" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_flat\clock_big.gif" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_flat\clock_small.gif" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_flat\close_icon.png" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_flat\collapse_expand_icon.gif" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_flat\controls.png" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_flat\databg.png" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_flat\databg_now.png" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_flat\export_ical.png" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_flat\export_pdf.png" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_flat\resize_dots.png" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\imgs_flat\resizing.png" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\locale\locale_ar.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\locale\locale_be.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\locale\locale_ca.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\locale\locale_cn.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\locale\locale_cs.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\locale\locale_da.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\locale\locale_de.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\locale\locale_el.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\locale\locale_en.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\locale\locale_es.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\locale\locale_fi.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\locale\locale_fr.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\locale\locale_he.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\locale\locale_hu.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\locale\locale_id.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\locale\locale_it.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\locale\locale_jp.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\locale\locale_nb.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\locale\locale_nl.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\locale\locale_no.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\locale\locale_pl.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\locale\locale_pt.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\locale\locale_ro.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\locale\locale_ru.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\locale\locale_si.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\locale\locale_sk.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\locale\locale_sv.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\locale\locale_tr.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\locale\locale_ua.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\locale\recurring\locale_recurring_be.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\locale\recurring\locale_recurring_cn.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\locale\recurring\locale_recurring_cs.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\locale\recurring\locale_recurring_da.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\locale\recurring\locale_recurring_de.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\locale\recurring\locale_recurring_el.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\locale\recurring\locale_recurring_en.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\locale\recurring\locale_recurring_es.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\locale\recurring\locale_recurring_fi.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\locale\recurring\locale_recurring_fr.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\locale\recurring\locale_recurring_he.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\locale\recurring\locale_recurring_it.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\locale\recurring\locale_recurring_nb.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\locale\recurring\locale_recurring_nl.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\locale\recurring\locale_recurring_pl.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\locale\recurring\locale_recurring_pt.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\locale\recurring\locale_recurring_ro.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\locale\recurring\locale_recurring_ru.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\locale\recurring\locale_recurring_sk.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\locale\recurring\locale_recurring_sv.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\locale\recurring\locale_recurring_ua.js" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\locale\recurring\repeat_template_be.html" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\locale\recurring\repeat_template_cn.html" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\locale\recurring\repeat_template_de.html" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\locale\recurring\repeat_template_el.html" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\locale\recurring\repeat_template_en.html" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\locale\recurring\repeat_template_es.html" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\locale\recurring\repeat_template_fr.html" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\locale\recurring\repeat_template_he.html" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\locale\recurring\repeat_template_it.html" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\locale\recurring\repeat_template_nl.html" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\locale\recurring\repeat_template_ro.html" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\locale\recurring\repeat_template_ru.html" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\Content\Scripts\dhtmlxScheduler\locale\recurring\repeat_template_sk.html" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\lib\DHTMLX.dll" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\lib\DHTMLX.pdb" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\lib\DHTMLX.xml" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tasks\DotNetCompilerPlatformTasks.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tasks\System.Management.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn45\csc.exe" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn45\csi.exe" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn45\Microsoft.Build.Tasks.CodeAnalysis.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn45\Microsoft.CodeAnalysis.CSharp.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn45\Microsoft.CodeAnalysis.CSharp.Scripting.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn45\Microsoft.CodeAnalysis.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn45\Microsoft.CodeAnalysis.Scripting.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn45\Microsoft.CodeAnalysis.VisualBasic.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn45\Microsoft.DiaSymReader.Native.amd64.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn45\Microsoft.DiaSymReader.Native.x86.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn45\System.AppContext.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn45\System.Collections.Immutable.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn45\System.Diagnostics.StackTrace.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn45\System.IO.FileSystem.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn45\System.IO.FileSystem.Primitives.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn45\System.Reflection.Metadata.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn45\vbc.exe" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn45\VBCSCompiler.exe" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\csc.exe" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\csi.exe" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\Microsoft.Build.Tasks.CodeAnalysis.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\Microsoft.CodeAnalysis.CSharp.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\Microsoft.CodeAnalysis.CSharp.Scripting.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\Microsoft.CodeAnalysis.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\Microsoft.CodeAnalysis.Scripting.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\Microsoft.CodeAnalysis.VisualBasic.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\Microsoft.DiaSymReader.Native.amd64.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\Microsoft.DiaSymReader.Native.x86.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\Microsoft.Win32.Primitives.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\System.AppContext.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\System.Collections.Immutable.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\System.Console.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\System.Diagnostics.DiagnosticSource.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\System.Diagnostics.FileVersionInfo.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\System.Diagnostics.StackTrace.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\System.Globalization.Calendars.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\System.IO.Compression.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\System.IO.Compression.ZipFile.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\System.IO.FileSystem.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\System.IO.FileSystem.Primitives.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\System.Net.Http.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\System.Net.Sockets.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\System.Reflection.Metadata.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\System.Runtime.InteropServices.RuntimeInformation.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\System.Security.Cryptography.Algorithms.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\System.Security.Cryptography.Encoding.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\System.Security.Cryptography.Primitives.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\System.Security.Cryptography.X509Certificates.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\System.Text.Encoding.CodePages.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\System.Threading.Tasks.Extensions.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\System.ValueTuple.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\System.Xml.ReaderWriter.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\System.Xml.XmlDocument.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\System.Xml.XPath.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\System.Xml.XPath.XDocument.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\vbc.exe" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\VBCSCompiler.exe" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn472\csc.exe" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn472\csi.exe" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn472\Microsoft.Build.Tasks.CodeAnalysis.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn472\Microsoft.CodeAnalysis.CSharp.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn472\Microsoft.CodeAnalysis.CSharp.Scripting.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn472\Microsoft.CodeAnalysis.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn472\Microsoft.CodeAnalysis.Scripting.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn472\Microsoft.CodeAnalysis.VisualBasic.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn472\Microsoft.DiaSymReader.Native.amd64.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn472\Microsoft.DiaSymReader.Native.x86.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn472\System.Buffers.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn472\System.Collections.Immutable.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn472\System.Memory.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn472\System.Numerics.Vectors.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn472\System.Reflection.Metadata.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn472\System.Runtime.CompilerServices.Unsafe.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn472\System.Text.Encoding.CodePages.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn472\System.Threading.Tasks.Extensions.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn472\vbc.exe" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn472\VBCSCompiler.exe" />
     <Content Include="Recreatie\CSS\Main.css" />
     <Content Include="Recreatie\CSS\style.css" />
     <Content Include="Recreatie\CSS\stylegoeie.css" />
@@ -158,6 +458,7 @@
   <ItemGroup>
     <Compile Include="Financien\Betaalscherm.aspx.cs">
       <DependentUpon>Betaalscherm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Financien\Betaalscherm.aspx.designer.cs">
       <DependentUpon>Betaalscherm.aspx</DependentUpon>
@@ -192,6 +493,7 @@
     </Compile>
     <Compile Include="Financien\Overzicht.aspx.cs">
       <DependentUpon>Overzicht.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Financien\Overzicht.aspx.designer.cs">
       <DependentUpon>Overzicht.aspx</DependentUpon>
@@ -226,6 +528,7 @@
     </Compile>
     <Compile Include="Financien\WebForm5.aspx.cs">
       <DependentUpon>WebForm5.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Financien\WebForm5.aspx.designer.cs">
       <DependentUpon>WebForm5.aspx</DependentUpon>
@@ -233,6 +536,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Recreatie\Documentatie.aspx.cs">
       <DependentUpon>Documentatie.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Recreatie\Documentatie.aspx.designer.cs">
       <DependentUpon>Documentatie.aspx</DependentUpon>
@@ -240,192 +544,224 @@
     <Compile Include="Recreatie\Helper\Helper.cs" />
     <Compile Include="Recreatie\home.aspx.cs">
       <DependentUpon>home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Recreatie\home.aspx.designer.cs">
       <DependentUpon>home.aspx</DependentUpon>
     </Compile>
     <Compile Include="Recreatie\Overzicht.aspx.cs">
       <DependentUpon>Overzicht.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Recreatie\Overzicht.aspx.designer.cs">
       <DependentUpon>Overzicht.aspx</DependentUpon>
     </Compile>
     <Compile Include="Recreatie\Planning.aspx.cs">
       <DependentUpon>Planning.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Recreatie\Planning.aspx.designer.cs">
       <DependentUpon>Planning.aspx</DependentUpon>
     </Compile>
     <Compile Include="Recreatie\Site1.Master.cs">
       <DependentUpon>Site1.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Recreatie\Site1.Master.designer.cs">
       <DependentUpon>Site1.Master</DependentUpon>
     </Compile>
     <Compile Include="Recreatie\Start.aspx.cs">
       <DependentUpon>Start.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Recreatie\Start.aspx.designer.cs">
       <DependentUpon>Start.aspx</DependentUpon>
     </Compile>
     <Compile Include="Recreatie\Uitloggen.aspx.cs">
       <DependentUpon>Uitloggen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Recreatie\Uitloggen.aspx.designer.cs">
       <DependentUpon>Uitloggen.aspx</DependentUpon>
     </Compile>
     <Compile Include="Recreatie\Voorraad.aspx.cs">
       <DependentUpon>Voorraad.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Recreatie\Voorraad.aspx.designer.cs">
       <DependentUpon>Voorraad.aspx</DependentUpon>
     </Compile>
     <Compile Include="Recreatie\Voorraadfout.aspx.cs">
       <DependentUpon>Voorraadfout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Recreatie\Voorraadfout.aspx.designer.cs">
       <DependentUpon>Voorraadfout.aspx</DependentUpon>
     </Compile>
     <Compile Include="Reservering\home.aspx.cs">
       <DependentUpon>home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Reservering\home.aspx.designer.cs">
       <DependentUpon>home.aspx</DependentUpon>
     </Compile>
     <Compile Include="Reservering\Huisjemedewerker.aspx.cs">
       <DependentUpon>Huisjemedewerker.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Reservering\Huisjemedewerker.aspx.designer.cs">
       <DependentUpon>Huisjemedewerker.aspx</DependentUpon>
     </Compile>
     <Compile Include="Reservering\ReserveringenMedewerkerGegevens.aspx.cs">
       <DependentUpon>ReserveringenMedewerkerGegevens.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Reservering\ReserveringenMedewerkerGegevens.aspx.designer.cs">
       <DependentUpon>ReserveringenMedewerkerGegevens.aspx</DependentUpon>
     </Compile>
     <Compile Include="Reservering\ReserveringenMedewerkerGelukt.aspx.cs">
       <DependentUpon>ReserveringenMedewerkerGelukt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Reservering\ReserveringenMedewerkerGelukt.aspx.designer.cs">
       <DependentUpon>ReserveringenMedewerkerGelukt.aspx</DependentUpon>
     </Compile>
     <Compile Include="Reservering\ReserveringMedewerkerNachtregister.aspx.cs">
       <DependentUpon>ReserveringMedewerkerNachtregister.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Reservering\ReserveringMedewerkerNachtregister.aspx.designer.cs">
       <DependentUpon>ReserveringMedewerkerNachtregister.aspx</DependentUpon>
     </Compile>
     <Compile Include="Reservering\Site1.Master.cs">
       <DependentUpon>Site1.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Reservering\Site1.Master.designer.cs">
       <DependentUpon>Site1.Master</DependentUpon>
     </Compile>
     <Compile Include="Reservering\test.aspx.cs">
       <DependentUpon>test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Reservering\test.aspx.designer.cs">
       <DependentUpon>test.aspx</DependentUpon>
     </Compile>
     <Compile Include="Restaurant\Bestelling.aspx.cs">
       <DependentUpon>Bestelling.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Restaurant\Bestelling.aspx.designer.cs">
       <DependentUpon>Bestelling.aspx</DependentUpon>
     </Compile>
     <Compile Include="Restaurant\bestellingopnemen.aspx.cs">
       <DependentUpon>bestellingopnemen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Restaurant\bestellingopnemen.aspx.designer.cs">
       <DependentUpon>bestellingopnemen.aspx</DependentUpon>
     </Compile>
     <Compile Include="Restaurant\home.aspx.cs">
       <DependentUpon>home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Restaurant\home.aspx.designer.cs">
       <DependentUpon>home.aspx</DependentUpon>
     </Compile>
     <Compile Include="Restaurant\opnemenbestelling.aspx.cs">
       <DependentUpon>opnemenbestelling.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Restaurant\opnemenbestelling.aspx.designer.cs">
       <DependentUpon>opnemenbestelling.aspx</DependentUpon>
     </Compile>
     <Compile Include="Restaurant\Restaurant.Master.cs">
       <DependentUpon>Restaurant.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Restaurant\Restaurant.Master.designer.cs">
       <DependentUpon>Restaurant.Master</DependentUpon>
     </Compile>
     <Compile Include="Restaurant\tafeloverzicht.aspx.cs">
       <DependentUpon>tafeloverzicht.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Restaurant\tafeloverzicht.aspx.designer.cs">
       <DependentUpon>tafeloverzicht.aspx</DependentUpon>
     </Compile>
     <Compile Include="Schoonmaak en Onderhoud\InventarisOverzicht.aspx.cs">
       <DependentUpon>InventarisOverzicht.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Schoonmaak en Onderhoud\InventarisOverzicht.aspx.designer.cs">
       <DependentUpon>InventarisOverzicht.aspx</DependentUpon>
     </Compile>
     <Compile Include="Schoonmaak en Onderhoud\OffertesOverzicht.aspx.cs">
       <DependentUpon>OffertesOverzicht.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Schoonmaak en Onderhoud\OffertesOverzicht.aspx.designer.cs">
       <DependentUpon>OffertesOverzicht.aspx</DependentUpon>
     </Compile>
     <Compile Include="Schoonmaak en Onderhoud\OnderhoudsOverzicht.aspx.cs">
       <DependentUpon>OnderhoudsOverzicht.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Schoonmaak en Onderhoud\OnderhoudsOverzicht.aspx.designer.cs">
       <DependentUpon>OnderhoudsOverzicht.aspx</DependentUpon>
     </Compile>
     <Compile Include="Schoonmaak en Onderhoud\OnderhoudToevoegen.aspx.cs">
       <DependentUpon>OnderhoudToevoegen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Schoonmaak en Onderhoud\OnderhoudToevoegen.aspx.designer.cs">
       <DependentUpon>OnderhoudToevoegen.aspx</DependentUpon>
     </Compile>
     <Compile Include="Schoonmaak en Onderhoud\OnderhoudWijzigen.aspx.cs">
       <DependentUpon>OnderhoudWijzigen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Schoonmaak en Onderhoud\OnderhoudWijzigen.aspx.designer.cs">
       <DependentUpon>OnderhoudWijzigen.aspx</DependentUpon>
     </Compile>
     <Compile Include="Schoonmaak en Onderhoud\PlanningsOverzicht.aspx.cs">
       <DependentUpon>PlanningsOverzicht.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Schoonmaak en Onderhoud\PlanningsOverzicht.aspx.designer.cs">
       <DependentUpon>PlanningsOverzicht.aspx</DependentUpon>
     </Compile>
     <Compile Include="Schoonmaak en Onderhoud\PlanningToevoegen.aspx.cs">
       <DependentUpon>PlanningToevoegen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Schoonmaak en Onderhoud\PlanningToevoegen.aspx.designer.cs">
       <DependentUpon>PlanningToevoegen.aspx</DependentUpon>
     </Compile>
     <Compile Include="Schoonmaak en Onderhoud\PlanningVerwijderen.aspx.cs">
       <DependentUpon>PlanningVerwijderen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Schoonmaak en Onderhoud\PlanningVerwijderen.aspx.designer.cs">
       <DependentUpon>PlanningVerwijderen.aspx</DependentUpon>
     </Compile>
     <Compile Include="Schoonmaak en Onderhoud\PlanningWijzigen.aspx.cs">
       <DependentUpon>PlanningWijzigen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Schoonmaak en Onderhoud\PlanningWijzigen.aspx.designer.cs">
       <DependentUpon>PlanningWijzigen.aspx</DependentUpon>
     </Compile>
     <Compile Include="Schoonmaak en Onderhoud\Schoonmaak.Master.cs">
       <DependentUpon>Schoonmaak.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Schoonmaak en Onderhoud\Schoonmaak.Master.designer.cs">
       <DependentUpon>Schoonmaak.Master</DependentUpon>
     </Compile>
     <Compile Include="Schoonmaak en Onderhoud\SchouwingsOverzicht.aspx.cs">
       <DependentUpon>SchouwingsOverzicht.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Schoonmaak en Onderhoud\SchouwingsOverzicht.aspx.designer.cs">
       <DependentUpon>SchouwingsOverzicht.aspx</DependentUpon>
@@ -438,6 +774,65 @@
     <Content Include="Reservering\Site1.Master" />
     <Content Include="Restaurant\Restaurant.Master" />
     <Content Include="Schoonmaak en Onderhoud\Schoonmaak.Master" />
+    <Content Include="packages\AjaxControlToolkit.20.1.0\.signature.p7s" />
+    <Content Include="packages\AjaxControlToolkit.20.1.0\AjaxControlToolkit.20.1.0.nupkg" />
+    <Content Include="packages\AjaxControlToolkit.20.1.0\Content\Web.config.transform" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\.signature.p7s" />
+    <Content Include="packages\DHTMLX.Scheduler.NET.4.0.2\DHTMLX.Scheduler.NET.4.0.2.nupkg" />
+    <Content Include="packages\Mcd.2.0.1\.signature.p7s" />
+    <Content Include="packages\Mcd.2.0.1\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" />
+    <Content Include="packages\Mcd.2.0.1\Mcd.nupkg" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\.signature.p7s" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.Extensions.targets" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.Extensions.targets" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.Extensions.targets" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\content\net45\app.config.install.xdt" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\content\net45\app.config.uninstall.xdt" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\content\net45\web.config.install.xdt" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\content\net45\web.config.uninstall.xdt" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\content\net46\app.config.install.xdt" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\content\net46\app.config.uninstall.xdt" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\content\net46\web.config.install.xdt" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\content\net46\web.config.uninstall.xdt" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\content\net472\app.config.install.xdt" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\content\net472\app.config.uninstall.xdt" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\content\net472\web.config.install.xdt" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\content\net472\web.config.uninstall.xdt" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0.nupkg" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\net45\common.ps1" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\net45\install.ps1" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\net45\uninstall.ps1" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn45\csc.exe.config" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn45\csc.rsp" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn45\csi.rsp" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn45\Microsoft.CSharp.Core.targets" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn45\Microsoft.VisualBasic.Core.targets" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn45\vbc.exe.config" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn45\vbc.rsp" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn45\VBCSCompiler.exe.config" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\csc.exe.config" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\csc.rsp" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\csi.exe.config" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\csi.rsp" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\Microsoft.CSharp.Core.targets" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\Microsoft.Managed.Core.targets" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\Microsoft.VisualBasic.Core.targets" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\vbc.exe.config" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\vbc.rsp" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\VBCSCompiler.exe.config" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn472\csc.exe.config" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn472\csc.rsp" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn472\csi.exe.config" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn472\csi.rsp" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn472\Microsoft.CSharp.Core.targets" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn472\Microsoft.Managed.Core.targets" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn472\Microsoft.VisualBasic.Core.targets" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn472\vbc.exe.config" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn472\vbc.rsp" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn472\VBCSCompiler.exe.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -474,12 +869,6 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
-  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
