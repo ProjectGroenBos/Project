@@ -114,7 +114,7 @@ namespace ProjectGroenBos
             }
         }
 
-        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             Session["Reserveringsnummer"] = (string)GridView1.DataKeys[GridView1.SelectedIndex][0];
             Session["Aantal_Personen"] = (string)GridView1.DataKeys[GridView1.SelectedIndex][5];
@@ -122,7 +122,7 @@ namespace ProjectGroenBos
             Session["Vertrekdatum"] = (string)GridView1.DataKeys[GridView1.SelectedIndex][7];
 
             //test of het werkt, nog niet
-            lblUitkomst.Text = Session["Reserveringsnummer"].ToString() + Session["Aantal personen"].ToString() + Session["Aankomstdatum"].ToString() + Session["Vertrekdatum"].ToString();
+            //lblUitkomst.Text = Session["Reserveringsnummer"].ToString() + Session["Aantal personen"].ToString() + Session["Aankomstdatum"].ToString() + Session["Vertrekdatum"].ToString();
 
             Response.Redirect("ReserveringRijzigen2.aspx");
         }
