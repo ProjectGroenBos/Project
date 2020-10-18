@@ -393,10 +393,21 @@ nav ul {
 .textboxchaos {
     position: relative;
     left: 75px;
-    top: 4px;
+   
 }
 
-.Email {
-    text-align:left;
+.labelsnieuw {
+    position: relative;
+    width: 240px;
+    left: 75px;
+    display: inline-block;
+  
+}
+
+.textboxbtn {
+    left: 74px;
+    position: relative;
+    display: inline-block;
+    top: 0px;
 }
 /* wekgebied */
