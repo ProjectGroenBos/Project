@@ -63,21 +63,22 @@ namespace ProjectGroenBos.Financien
         {
             Button btn = sender as Button;
 
-         //   int gridviewnr = int.Parse(btn.CommandName);
+            int gridviewnr = int.Parse(btn.CommandName);
 
-            TextBox txtbedrag = (TextBox)Repeater1.Items[0].FindControl("txtBedrag");
+            TextBox txtbedrag = (TextBox)Repeater1.Items[gridviewnr].FindControl("txtBedrag");
             
 
-            HiddenField fnummers = (HiddenField)Repeater1.Items[0].FindControl("Winkel");
+            HiddenField fnummers = (HiddenField)Repeater1.Items[gridviewnr].FindControl("Winkel");
             string Winkel = fnummers.Value;
 
-            HiddenField nummers = (HiddenField)Repeater1.Items[0].FindControl("Nummer");
+            HiddenField nummers = (HiddenField)Repeater1.Items[gridviewnr].FindControl("Nummer");
             string nummer = nummers.Value;
 
-            HiddenField Totaalbedragen = (HiddenField)Repeater1.Items[0].FindControl("Totaalbedrag");
+            HiddenField Totaalbedragen = (HiddenField)Repeater1.Items[gridviewnr].FindControl("Totaalbedrag");
             string Totaalbedrag = Totaalbedragen.Value;
             totaalbedrag2 = double.Parse(Totaalbedrag);
             string bedrag = txtbedrag.Text;
+           
             bedrag2 = double.Parse(bedrag);
 
             bedrag = bedrag.Replace(",", ".");
@@ -97,8 +98,9 @@ namespace ProjectGroenBos.Financien
 
                 command.ExecuteNonQuery();
             }
-
-            if(totaalbedrag2 >= bedrag2)
+            Label label1 = (Label)Repeater1.Items[0].FindControl("Lblreedsbetaald");
+            double test = double.Parse(label1.Text.ToString());
+            if(totaalbedrag2 <= bedrag2 + test)
                 //niet vergeten bedrag2 + reeds betaald op te tellen
             {
                 SqlConnection con = new SqlConnection(constr);
@@ -111,7 +113,7 @@ namespace ProjectGroenBos.Financien
                 con.Close();
             }
 
-            if(totaalbedrag2 < bedrag2 && bedrag2 >0)
+            if(totaalbedrag2 > bedrag2 + test && bedrag2 > 0)
                 //niet vergeten reeeds betaald
             {
                 SqlConnection con = new SqlConnection(constr);
@@ -124,7 +126,7 @@ namespace ProjectGroenBos.Financien
                 con.Close();
             }
 
-            if (bedrag2 == 0)
+            if (bedrag2 + test == 0)
             //niet vergeten reeeds betaald
             {
                 SqlConnection con = new SqlConnection(constr);
@@ -138,6 +140,7 @@ namespace ProjectGroenBos.Financien
             }
 
             ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "betalingsuccess();", true);
+            Response.Redirect("~/Openstaandecreditnota.aspx");
 
         }
 

@@ -239,7 +239,7 @@
 
                                 <br />
                               
-                                <asp:Button ID="btnBetalen" runat="server" OnClick="btnBetalen_Click" CssClass="btn btn-primary" CommandArgument='<%# Eval("Nummer")%>' Text="Betaal factuur" />
+                                <asp:Button ID="btnBetalen" runat="server" OnClick="btnBetalen_Click" CssClass="btn btn-primary" CommandName="<%# Container.ItemIndex %>" CommandArgument='<%# Eval("Nummer")%>' Text="Betaal factuur" />
 
                             </div>
                             <div class="modal-footer">
