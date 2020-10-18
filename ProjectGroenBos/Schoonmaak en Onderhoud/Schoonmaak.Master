@@ -1,0 +1,66 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Schoonmaak.master.cs" Inherits="ProjectGroenBos.Schoonmaak_en_Onderhoud.Schoonmaak" %>
+
+<!DOCTYPE html>
+
+
+
+<html>
+<head runat="server">
+    <title>Groenbos</title>
+    <link rel="stylesheet" href="style/stylesheet.css">
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+
+
+
+        <div class="wrapper">
+            <div class="sidebar">
+                <h2>
+                    <img src="../Images/Logo4.png" alt="Logo" height="150"></h2>
+                <h3>SCHOONMAAK & ONDERHOUD</h3>
+
+                    <ul>
+                    <li><a href="PlanningsOverzicht.aspx">Schoonmaakplanning Overzicht</a>
+                                <ul class="submenu">
+                                <li><a href="PlanningToevoegen.aspx">Planning Toevoegen</a></li>
+                                <li><a href="PlanningWijzigen.aspx">Planning Wijzigen</a></li>
+                                <li><a href="PlanningVerwijderen.aspx">Planning Verwijderen</a></li>
+                                </ul> 
+                    <li><a href="InventarisOverzicht.aspx">Inventaris Overzicht</a></li>
+                    <li><a href="OnderhoudsOverzicht.aspx"><i class="fas fa-user"></i>Onderhoud Overzicht</a>
+                                <ul class="submenu">
+                                <li><a href="OnderhoudToevoegen.aspx">Onderhoud Toevoegen</a></li>
+                                    <li><a href="OnderhoudWijzigen.aspx">Onderhoud Wijzigen</a></li>
+                                </ul> 
+                    <li><a href="OffertesOverzicht.aspx">Offerte Overzicht</a></li>                  
+                    <li><a href="SchouwingsOverzicht.aspx">Schouwing Overzicht</a></li>
+                </ul>
+                
+                <div class="terug">
+                    <a href="#">&#8249; Terug naar home</a>
+                </div>
+            </div>
+            <div class="main_content">
+                <div class="navigator">
+                    <nav>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="#">Restraurant</a></li>
+                            <li><a href="#">Reserveringen</a></li>
+                            <li><a href="#">Recreatie</a></li>
+                            <li class="selected"><a href="#">Schoonmaak</a></li>
+                            <li><a href="#">Financiën</a></li>
+                            <asp:Button ID="btnUitloggen" runat="server" CssClass="btnUitloggen" Text="Uitloggen" />
+                        </ul>
+                    </nav>
+                </div>
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
