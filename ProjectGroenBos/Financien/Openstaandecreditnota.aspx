@@ -76,7 +76,9 @@
             document.body.innerHTML = originalContents;
         }
 
-
+        function openModal(modalnaam) {
+            $(modalnaaml).modal('show');
+        }
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -237,9 +239,10 @@
 
                                 <br />
 
-                                <itemtemplate>
-                                    <button type="button" class="btn btn-primary btn-lg btn-block" data-dismiss="modal" OnClick="btnrekening_Click"  data-toggle="modal" data-target="#modal2<%# Eval("Nummer") %>">Betaal factuur</button>
-                                </itemtemplate>
+                               
+
+                                   
+                                <asp:Button ID="btnBetalen" CommandArgument="#modal2<%# Eval('Nummer')%>" runat="server" OnClick="btnBetalen_Click" CssClass="btn btn-primary" Text="Sluiten" />
 
                             </div>
                             <div class="modal-footer">
@@ -275,9 +278,12 @@
                                             <td>Geld overmaken naar</td>
                                             <td><%# Eval("Betalen aan") %> <%# Eval("IBAN") %></td>
                                         </tr>
+                                        <tr>
+                                            <td>Reeds betaald</td><td> <asp:Label ID="Lblreedsbetaald" runat="server" Text="Nog niks"></asp:Label></td>
+                                        </tr>
                                     </tbody>
                                 </table>
-                                <asp:Label ID="Lblreedsbetaald" runat="server" Text="Nog niks"></asp:Label>
+                               
 
                                 <table class="content-table" style="margin-top: +25px">
                                     <tbody>
@@ -303,7 +309,7 @@
 
 
 
-                                <asp:Button ID="btnBetaal" class="btn btn-primary btn-lg btn-block" OnClick="btnToevoegen_Click" runat="server" Text="Betaal factuur" />
+                                <asp:Button ID="btnBetaal" class="btn btn-primary btn-lg btn-block" OnClick="btnToevoegen2_Click" runat="server" Text="Betaal factuur" />
 
                             </div>
                             <div class="modal-footer">

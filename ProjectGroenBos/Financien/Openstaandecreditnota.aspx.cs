@@ -59,7 +59,7 @@ namespace ProjectGroenBos.Financien
             con.Close();
         }
 
-        protected void btnToevoegen_Click(object sender, EventArgs e)
+        protected void btnToevoegen2_Click(object sender, EventArgs e)
         {
             Button btn = sender as Button;
 
@@ -137,15 +137,25 @@ namespace ProjectGroenBos.Financien
                 con.Close();
             }
 
-
-
-
-
-
             ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "betalingsuccess();", true);
 
         }
+
+        protected void btnBetalen_Click(object sender, EventArgs e)
+        {
+            HiddenField nummers = (HiddenField)Repeater1.Items[0].FindControl("Nummer");
+            string nummer = nummers.Value;
+
+            SqlConnection con = new SqlConnection(constr);
+            con.Open();
+            Label label1 = (Label)Repeater1.Items[0].FindControl("Lblreedsbetaald");
+            SqlCommand ophaal = new SqlCommand("select CAST(SUM(Bedrag) AS real) as [Reeds betaald] from Transactie where CrediteurenfactuurNummer = @nummer", con);
+            ophaal.Parameters.AddWithValue("@nummer", nummer);
+            string result = ophaal.ExecuteScalar().ToString();
+            label1.Text = result;
+            con.Close();
+            string modal = ((Button)sender).CommandArgument;
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal("+modal+");", true);
+        }
     }
-
-
 }
