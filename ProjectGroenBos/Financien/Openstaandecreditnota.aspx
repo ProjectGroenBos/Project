@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Financien/Financien.Master" CodeBehind="Openstaandecreditnota.aspx.cs" Inherits="ProjectGroenBos.Financien.Betaalscherm" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Financien/Financien.Master" CodeBehind="Openstaandecreditnota.aspx.cs" Inherits="ProjectGroenBos.Financien.Openstaandecreditnota" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>

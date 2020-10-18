@@ -328,8 +328,8 @@ C:\Users\herman\Documents\Project\ProjectGroenBos\bin\roslyn\vbc.rsp
 C:\Users\herman\Documents\Project\ProjectGroenBos\bin\roslyn\VBCSCompiler.exe
 C:\Users\herman\Documents\Project\ProjectGroenBos\bin\roslyn\VBCSCompiler.exe.config
 C:\Users\herman\Documents\Project\ProjectGroenBos\bin\AjaxControlToolkit.dll
-C:\Users\herman\Documents\Project\ProjectGroenBos\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\herman\Documents\Project\ProjectGroenBos\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\herman\Documents\Project\ProjectGroenBos\obj\Debug\ProjectGroenBos.csproj.CopyComplete
 C:\Users\herman\Documents\Project\ProjectGroenBos\obj\Debug\ProjectGroenBos.dll
 C:\Users\herman\Documents\Project\ProjectGroenBos\obj\Debug\ProjectGroenBos.pdb
+C:\Users\herman\Documents\Project\ProjectGroenBos\obj\Debug\ProjectGroenBos.csprojAssemblyReference.cache
