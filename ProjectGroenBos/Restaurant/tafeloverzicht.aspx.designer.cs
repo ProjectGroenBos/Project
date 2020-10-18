@@ -48,7 +48,7 @@ namespace ProjectGroenBos.Restaurant
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.ModalPopupExtender popuptafel1;
+        protected global::.ModalPopupExtender popuptafel1;
 
         /// <summary>
         /// modelpantafel1 control.

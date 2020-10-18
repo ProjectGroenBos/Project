@@ -43,6 +43,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=3.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -60,11 +64,6 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
-      <HintPath>packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Financien\Betaalscherm.aspx" />
@@ -158,6 +157,7 @@
   <ItemGroup>
     <Compile Include="Financien\Betaalscherm.aspx.cs">
       <DependentUpon>Betaalscherm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Financien\Betaalscherm.aspx.designer.cs">
       <DependentUpon>Betaalscherm.aspx</DependentUpon>
@@ -192,6 +192,7 @@
     </Compile>
     <Compile Include="Financien\Overzicht.aspx.cs">
       <DependentUpon>Overzicht.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Financien\Overzicht.aspx.designer.cs">
       <DependentUpon>Overzicht.aspx</DependentUpon>
@@ -226,6 +227,7 @@
     </Compile>
     <Compile Include="Financien\WebForm5.aspx.cs">
       <DependentUpon>WebForm5.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Financien\WebForm5.aspx.designer.cs">
       <DependentUpon>WebForm5.aspx</DependentUpon>
@@ -233,6 +235,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Recreatie\Documentatie.aspx.cs">
       <DependentUpon>Documentatie.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Recreatie\Documentatie.aspx.designer.cs">
       <DependentUpon>Documentatie.aspx</DependentUpon>
@@ -240,192 +243,224 @@
     <Compile Include="Recreatie\Helper\Helper.cs" />
     <Compile Include="Recreatie\home.aspx.cs">
       <DependentUpon>home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Recreatie\home.aspx.designer.cs">
       <DependentUpon>home.aspx</DependentUpon>
     </Compile>
     <Compile Include="Recreatie\Overzicht.aspx.cs">
       <DependentUpon>Overzicht.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Recreatie\Overzicht.aspx.designer.cs">
       <DependentUpon>Overzicht.aspx</DependentUpon>
     </Compile>
     <Compile Include="Recreatie\Planning.aspx.cs">
       <DependentUpon>Planning.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Recreatie\Planning.aspx.designer.cs">
       <DependentUpon>Planning.aspx</DependentUpon>
     </Compile>
     <Compile Include="Recreatie\Site1.Master.cs">
       <DependentUpon>Site1.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Recreatie\Site1.Master.designer.cs">
       <DependentUpon>Site1.Master</DependentUpon>
     </Compile>
     <Compile Include="Recreatie\Start.aspx.cs">
       <DependentUpon>Start.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Recreatie\Start.aspx.designer.cs">
       <DependentUpon>Start.aspx</DependentUpon>
     </Compile>
     <Compile Include="Recreatie\Uitloggen.aspx.cs">
       <DependentUpon>Uitloggen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Recreatie\Uitloggen.aspx.designer.cs">
       <DependentUpon>Uitloggen.aspx</DependentUpon>
     </Compile>
     <Compile Include="Recreatie\Voorraad.aspx.cs">
       <DependentUpon>Voorraad.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Recreatie\Voorraad.aspx.designer.cs">
       <DependentUpon>Voorraad.aspx</DependentUpon>
     </Compile>
     <Compile Include="Recreatie\Voorraadfout.aspx.cs">
       <DependentUpon>Voorraadfout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Recreatie\Voorraadfout.aspx.designer.cs">
       <DependentUpon>Voorraadfout.aspx</DependentUpon>
     </Compile>
     <Compile Include="Reservering\home.aspx.cs">
       <DependentUpon>home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Reservering\home.aspx.designer.cs">
       <DependentUpon>home.aspx</DependentUpon>
     </Compile>
     <Compile Include="Reservering\Huisjemedewerker.aspx.cs">
       <DependentUpon>Huisjemedewerker.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Reservering\Huisjemedewerker.aspx.designer.cs">
       <DependentUpon>Huisjemedewerker.aspx</DependentUpon>
     </Compile>
     <Compile Include="Reservering\ReserveringenMedewerkerGegevens.aspx.cs">
       <DependentUpon>ReserveringenMedewerkerGegevens.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Reservering\ReserveringenMedewerkerGegevens.aspx.designer.cs">
       <DependentUpon>ReserveringenMedewerkerGegevens.aspx</DependentUpon>
     </Compile>
     <Compile Include="Reservering\ReserveringenMedewerkerGelukt.aspx.cs">
       <DependentUpon>ReserveringenMedewerkerGelukt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Reservering\ReserveringenMedewerkerGelukt.aspx.designer.cs">
       <DependentUpon>ReserveringenMedewerkerGelukt.aspx</DependentUpon>
     </Compile>
     <Compile Include="Reservering\ReserveringMedewerkerNachtregister.aspx.cs">
       <DependentUpon>ReserveringMedewerkerNachtregister.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Reservering\ReserveringMedewerkerNachtregister.aspx.designer.cs">
       <DependentUpon>ReserveringMedewerkerNachtregister.aspx</DependentUpon>
     </Compile>
     <Compile Include="Reservering\Site1.Master.cs">
       <DependentUpon>Site1.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Reservering\Site1.Master.designer.cs">
       <DependentUpon>Site1.Master</DependentUpon>
     </Compile>
     <Compile Include="Reservering\test.aspx.cs">
       <DependentUpon>test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Reservering\test.aspx.designer.cs">
       <DependentUpon>test.aspx</DependentUpon>
     </Compile>
     <Compile Include="Restaurant\Bestelling.aspx.cs">
       <DependentUpon>Bestelling.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Restaurant\Bestelling.aspx.designer.cs">
       <DependentUpon>Bestelling.aspx</DependentUpon>
     </Compile>
     <Compile Include="Restaurant\bestellingopnemen.aspx.cs">
       <DependentUpon>bestellingopnemen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Restaurant\bestellingopnemen.aspx.designer.cs">
       <DependentUpon>bestellingopnemen.aspx</DependentUpon>
     </Compile>
     <Compile Include="Restaurant\home.aspx.cs">
       <DependentUpon>home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Restaurant\home.aspx.designer.cs">
       <DependentUpon>home.aspx</DependentUpon>
     </Compile>
     <Compile Include="Restaurant\opnemenbestelling.aspx.cs">
       <DependentUpon>opnemenbestelling.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Restaurant\opnemenbestelling.aspx.designer.cs">
       <DependentUpon>opnemenbestelling.aspx</DependentUpon>
     </Compile>
     <Compile Include="Restaurant\Restaurant.Master.cs">
       <DependentUpon>Restaurant.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Restaurant\Restaurant.Master.designer.cs">
       <DependentUpon>Restaurant.Master</DependentUpon>
     </Compile>
     <Compile Include="Restaurant\tafeloverzicht.aspx.cs">
       <DependentUpon>tafeloverzicht.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Restaurant\tafeloverzicht.aspx.designer.cs">
       <DependentUpon>tafeloverzicht.aspx</DependentUpon>
     </Compile>
     <Compile Include="Schoonmaak en Onderhoud\InventarisOverzicht.aspx.cs">
       <DependentUpon>InventarisOverzicht.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Schoonmaak en Onderhoud\InventarisOverzicht.aspx.designer.cs">
       <DependentUpon>InventarisOverzicht.aspx</DependentUpon>
     </Compile>
     <Compile Include="Schoonmaak en Onderhoud\OffertesOverzicht.aspx.cs">
       <DependentUpon>OffertesOverzicht.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Schoonmaak en Onderhoud\OffertesOverzicht.aspx.designer.cs">
       <DependentUpon>OffertesOverzicht.aspx</DependentUpon>
     </Compile>
     <Compile Include="Schoonmaak en Onderhoud\OnderhoudsOverzicht.aspx.cs">
       <DependentUpon>OnderhoudsOverzicht.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Schoonmaak en Onderhoud\OnderhoudsOverzicht.aspx.designer.cs">
       <DependentUpon>OnderhoudsOverzicht.aspx</DependentUpon>
     </Compile>
     <Compile Include="Schoonmaak en Onderhoud\OnderhoudToevoegen.aspx.cs">
       <DependentUpon>OnderhoudToevoegen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Schoonmaak en Onderhoud\OnderhoudToevoegen.aspx.designer.cs">
       <DependentUpon>OnderhoudToevoegen.aspx</DependentUpon>
     </Compile>
     <Compile Include="Schoonmaak en Onderhoud\OnderhoudWijzigen.aspx.cs">
       <DependentUpon>OnderhoudWijzigen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Schoonmaak en Onderhoud\OnderhoudWijzigen.aspx.designer.cs">
       <DependentUpon>OnderhoudWijzigen.aspx</DependentUpon>
     </Compile>
     <Compile Include="Schoonmaak en Onderhoud\PlanningsOverzicht.aspx.cs">
       <DependentUpon>PlanningsOverzicht.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Schoonmaak en Onderhoud\PlanningsOverzicht.aspx.designer.cs">
       <DependentUpon>PlanningsOverzicht.aspx</DependentUpon>
     </Compile>
     <Compile Include="Schoonmaak en Onderhoud\PlanningToevoegen.aspx.cs">
       <DependentUpon>PlanningToevoegen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Schoonmaak en Onderhoud\PlanningToevoegen.aspx.designer.cs">
       <DependentUpon>PlanningToevoegen.aspx</DependentUpon>
     </Compile>
     <Compile Include="Schoonmaak en Onderhoud\PlanningVerwijderen.aspx.cs">
       <DependentUpon>PlanningVerwijderen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Schoonmaak en Onderhoud\PlanningVerwijderen.aspx.designer.cs">
       <DependentUpon>PlanningVerwijderen.aspx</DependentUpon>
     </Compile>
     <Compile Include="Schoonmaak en Onderhoud\PlanningWijzigen.aspx.cs">
       <DependentUpon>PlanningWijzigen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Schoonmaak en Onderhoud\PlanningWijzigen.aspx.designer.cs">
       <DependentUpon>PlanningWijzigen.aspx</DependentUpon>
     </Compile>
     <Compile Include="Schoonmaak en Onderhoud\Schoonmaak.Master.cs">
       <DependentUpon>Schoonmaak.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Schoonmaak en Onderhoud\Schoonmaak.Master.designer.cs">
       <DependentUpon>Schoonmaak.Master</DependentUpon>
     </Compile>
     <Compile Include="Schoonmaak en Onderhoud\SchouwingsOverzicht.aspx.cs">
       <DependentUpon>SchouwingsOverzicht.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Schoonmaak en Onderhoud\SchouwingsOverzicht.aspx.designer.cs">
       <DependentUpon>SchouwingsOverzicht.aspx</DependentUpon>
@@ -474,12 +509,6 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
-  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
