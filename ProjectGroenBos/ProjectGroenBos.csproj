@@ -69,6 +69,7 @@
   <ItemGroup>
     <Content Include="Financien\Betaalscherm.aspx" />
     <Content Include="Financien\css\main.css" />
+    <Content Include="Financien\Factuurinvoerscherm.aspx" />
     <Content Include="Financien\Home.aspx" />
     <Content Include="Financien\img\Logo.png" />
     <Content Include="Financien\img\Logo3.png" />
@@ -86,6 +87,13 @@
     </Compile>
     <Compile Include="Financien\Betaalscherm.aspx.designer.cs">
       <DependentUpon>Betaalscherm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Financien\Factuurinvoerscherm.aspx.cs">
+      <DependentUpon>Factuurinvoerscherm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Financien\Factuurinvoerscherm.aspx.designer.cs">
+      <DependentUpon>Factuurinvoerscherm.aspx</DependentUpon>
     </Compile>
     <Compile Include="Financien\Financien.Master.cs">
       <DependentUpon>Financien.Master</DependentUpon>
