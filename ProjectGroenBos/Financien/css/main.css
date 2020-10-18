@@ -145,6 +145,8 @@ body {
     text-align: center;
 }
 
+
+
 /* table */
 .content-table {
     border-collapse: collapse;
@@ -215,16 +217,19 @@ body {
                 color: #ffffff;
             }
 
+
 .eerstetable {
     width: 60%;
     margin-left: auto;
     margin-right: auto;
+
 }
 
 .tweedetable {
     width: 80%;
     margin-left: auto;
     margin-right: auto;
+
 }
 
     .tweedetable tr:nth-child(2) input {
@@ -375,6 +380,7 @@ nav {
     color: #fff;
 }
 
+
 .inline-flex {
     display: flex;
     justify-content: center;
@@ -401,4 +407,17 @@ nav {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+}
+
+.gegevens_factuur {
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+    width: 60%;
+    margin-left: 20%;
+}
+
+
+.factuur_text {
+    display: none;
 }

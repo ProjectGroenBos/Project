@@ -67,25 +67,25 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="images\Addnew.png" />
-    <Content Include="images\cancel.png" />
-    <Content Include="images\delete.png" />
-    <Content Include="images\edit.png" />
+    <Content Include="Financien\Openstaandecreditnota.aspx" />
     <Content Include="Financien\css\main.css" />
     <Content Include="Financien\Home.aspx" />
     <Content Include="Financien\img\Logo.png" />
     <Content Include="Financien\img\Logo3.png" />
     <Content Include="Financien\Prijstabel.aspx" />
     <Content Include="Financien\Personeeloverzicht.aspx" />
-<<<<<<< HEAD
-    <Content Include="images\save.png" />
-=======
     <Content Include="Financien\Rekeningen.aspx" />
     <Content Include="Financien\Reserveringen.aspx" />
->>>>>>> FinanciënTeam/KevindeLange
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Financien\Openstaandecreditnota.aspx.cs">
+      <DependentUpon>Openstaandecreditnota.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Financien\Openstaandecreditnota.aspx.designer.cs">
+      <DependentUpon>Openstaandecreditnota.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Financien\Financien.Master.cs">
       <DependentUpon>Financien.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
