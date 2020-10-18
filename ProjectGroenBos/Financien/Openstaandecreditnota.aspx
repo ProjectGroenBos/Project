@@ -90,7 +90,6 @@
                 <asp:BoundField DataField="Nummer" HeaderText="Factuurnummer" SortExpression="Nummer" ReadOnly="True" />
                 <asp:BoundField DataField="Betalen aan" HeaderText="Betalen aan" SortExpression="Betalen aan" ReadOnly="True" />
                 <asp:BoundField DataField="Totaal bedrag" HeaderText="Totaal Bedrag" SortExpression="Totaal bedrag" DataFormatString="{0:C}" />
-                <asp:BoundField DataField="Reeds betaald" HeaderText="Reeds betaald" SortExpression="Reeds betaald" DataFormatString="{0:C}" />
                 <asp:BoundField DataField="Termijn" DataFormatString="{0:d}" HeaderText="Termijn" SortExpression="Termijn" />
                 <asp:BoundField DataField="Omschrijving betaalcondities" HeaderText="Omschrijving betaalcondities" SortExpression="Omschrijving betaalcondities" />
                 <asp:BoundField DataField="Omschrijving" HeaderText="Status" SortExpression="Omschrijving" />
@@ -101,7 +100,7 @@
                 </asp:TemplateField>
             </Columns>
         </asp:GridView>
-        <asp:SqlDataSource ID="SqlDataSource6" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="select Nummer, [Betalen aan], [Totaal bedrag], [Reeds betaald], Termijn, [Omschrijving betaalcondities], Omschrijving from Crediteurenfactuur inner join Factuurstatus on Factuurstatus.ID = Crediteurenfactuur.FactuurstatusID"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSource6" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="select Nummer, [Betalen aan], [Totaal bedrag], Termijn, [Omschrijving betaalcondities], Omschrijving from Crediteurenfactuur inner join Factuurstatus on Factuurstatus.ID = Crediteurenfactuur.FactuurstatusID"></asp:SqlDataSource>
     </div>
     <asp:Panel ID="Panel1" runat="server">
         <asp:Repeater ID="rpModals" runat="server">
@@ -211,7 +210,7 @@
                                                 <td>Totaalbedrag:</td>
                                                 <td></td>
                                                 <td></td>
-                                                <td style="width: 100px">€ <%# Eval("Totaal bedrag") %></td>
+                                                <td style="width: 100px"> <%# Eval("Totaal bedrag", "{0:C}") %></td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -239,7 +238,7 @@
                                 <br />
 
                                 <itemtemplate>
-                                    <button type="button"  class="btn btn-primary btn-lg btn-block" data-dismiss="modal" data-toggle="modal" data-target="#modal2<%# Eval("Nummer") %>">Betaal factuur</button>
+                                    <button type="button" class="btn btn-primary btn-lg btn-block" data-dismiss="modal" OnClick="btnrekening_Click"  data-toggle="modal" data-target="#modal2<%# Eval("Nummer") %>">Betaal factuur</button>
                                 </itemtemplate>
 
                             </div>
@@ -270,7 +269,7 @@
                                     <tbody>
                                         <tr>
                                             <td>Te betalen bedrag</td>
-                                            <td>€ <%# Eval("Totaal bedrag") %></td>
+                                            <td> <%# Eval("Totaal bedrag", "{0:C}") %></td>
                                         </tr>
                                         <tr>
                                             <td>Geld overmaken naar</td>
@@ -278,6 +277,7 @@
                                         </tr>
                                     </tbody>
                                 </table>
+                                <asp:Label ID="Lblreedsbetaald" runat="server" Text="Nog niks"></asp:Label>
 
                                 <table class="content-table" style="margin-top: +25px">
                                     <tbody>
@@ -285,6 +285,8 @@
                                             <td>Bedrag overgemaakt</td>
                                             <td>
                                                 <asp:TextBox ID="txtBedrag" runat="server"> </asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Dit is een verplicht veld" ControlToValidate="txtBedrag"></asp:RequiredFieldValidator>
+                                                <asp:RangeValidator ID="RangeValidator1" runat="server" ErrorMessage="Invoer is onjuist" ControlToValidate="txtBedrag" MinimumValue="0" MaximumValue="9999999999999"></asp:RangeValidator>
                                             </td>
                                         </tr>
                                     </tbody>
