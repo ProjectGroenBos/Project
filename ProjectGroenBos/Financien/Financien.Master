@@ -28,21 +28,15 @@
                             <li><a href="/Financien/Prijstabel.aspx">Prijsmanagement</a></li>
                             <li><a href="/Financien/Reserveringen.aspx">Reserveringen-overzicht</a></li>
                             <li><a href="/Financien/Rekeningen.aspx">Rekening-overzicht</a></li>
-                            <li><a href="#">Factuur-overzicht</a>
-                                <ul class="submenu">
-                                    <li><a href="#">Factuur-betaling</a></li>
-                                    <li><a href="#">Factuur-historie</a></li>
-                                </ul>
-                            </li>
                             <li><a href="/Financien/Personeeloverzicht.aspx">Personeel-overzicht</a></li>
                         </ul>
                     </li>
                     <li><a href="#"><i class="fas fa-address-card"></i>Facturering</a>
                         <ul class="submenu">
-                            <li><a href="#">Creditnota-overzicht</a>
+                            <li><a href="/Financien/Openstaandecreditnota.aspx">Creditnota-overzicht</a>
                                 <ul class="submenu">
                                     <li><a href="#">Creditnota-historie</a></li>
-                                    <li><a href="#">Openstaande creditnota's</a></li>
+                                    <li><a href="/Financien/Openstaandecreditnota.aspx">Openstaande creditnota's</a></li>
                                 </ul>
                             </li>
                             <li><a href="#">Automatisering reserveringsbevestiging</a></li>
@@ -51,7 +45,7 @@
                     <li><a href="#"><i class="fas fa-project-diagram"></i>Inkoop</a>
                         <ul class="submenu">
                             <li><a href="#">Inkopen producten</a></li>
-                            <li><a href="#">Facturen controleren</a></li>
+                            <li><a href="/Financien/Factuurinvoerscherm.aspx.cs">Facturen controleren</a></li>
                         </ul>
                     </li>
                 </ul>
