@@ -9,7 +9,7 @@ using System.Web.UI.WebControls;
 
 namespace ProjectGroenBos.Financien
 {
-    public partial class Betaalscherm : System.Web.UI.Page
+    public partial class Openstaandecreditnota : System.Web.UI.Page
     {
         double totaalbedrag2;
         double bedrag2;

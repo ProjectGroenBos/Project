@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Restaurant/Restaurant.Master" AutoEventWireup="true" CodeBehind="tafeloverzicht.aspx.cs" Inherits="ProjectGroenBos.Restaurant.tafeloverzicht" %>
+<%@ Register TagPrefix="jaxToolkit" Namespace="AjaxControlToolkit" Assembly="AjaxControlToolkit, Version=20.1.0.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e" %>
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
@@ -21,9 +22,9 @@
             <asp:ScriptManager ID="ToolkitScriptManager1" runat="server">
             </asp:ScriptManager>
 
-         <ajaxToolkit:ModalPopupExtender ID="popuptafel1" TargetControlID="btntafel1" popupControlID="modelpantafel1" CancelcontrolID="btnclose1" runat="server">
+         <ajaxtoolkit:modalpopupextender ID="popuptafel1" TargetControlID="btntafel1" popupControlID="modelpantafel1" CancelcontrolID="btnclose1" runat="server">
 
-        </ajaxToolkit:ModalPopupExtender>
+        </ajaxtoolkit:modalpopupextender>
 
         <!-- panel design-->
         <asp:Panel ID="modelpantafel1" Class="popup" runat="server">
@@ -43,9 +44,9 @@
         <!--tafel 2 -->
         <asp:Button ID="btntafel2" Class="tafelbutton" runat="server" Text="Tafel 2" OnClick="btntafel2_Click" />
 
-             <ajaxToolkit:ModalPopupExtender ID="popuptafel2" TargetControlID="btntafel2" popupControlID="modelpantafel2" CancelcontrolID="btnclose2" runat="server">
+             <ajaxtoolkit:modalpopupextender ID="popuptafel2" TargetControlID="btntafel2" popupControlID="modelpantafel2" CancelcontrolID="btnclose2" runat="server">
 
-        </ajaxToolkit:ModalPopupExtender>
+        </ajaxtoolkit:modalpopupextender>
 
         <!-- panel design-->
         <asp:Panel ID="modelpantafel2" Class="popup" runat="server">
@@ -65,9 +66,9 @@
         <!--tafel 3 -->
         <asp:Button ID="btntafel3" Class="tafel3" runat="server" Text="Tafel 3" />
 
-        <ajaxToolkit:ModalPopupExtender ID="popuptafel3" TargetControlID="btntafel3" popupControlID="modelpantafel3" CancelcontrolID="btnclose3" runat="server">
+        <ajaxtoolkit:modalpopupextender ID="popuptafel3" TargetControlID="btntafel3" popupControlID="modelpantafel3" CancelcontrolID="btnclose3" runat="server">
 
-        </ajaxToolkit:ModalPopupExtender>
+        </ajaxtoolkit:modalpopupextender>
 
         <!-- panel design-->
         <asp:Panel ID="modelpantafel3" Class="popup" runat="server">
@@ -86,9 +87,9 @@
         <!--tafel 4 -->
         <asp:Button ID="btntafel4" Class="tafelbutton" runat="server" Text="Tafel 4" />
 
-        <ajaxToolkit:ModalPopupExtender ID="popuptafel4" TargetControlID="btntafel4" popupControlID="modelpantafel4" CancelcontrolID="btnclose4" runat="server">
+        <ajaxtoolkit:modalpopupextender ID="popuptafel4" TargetControlID="btntafel4" popupControlID="modelpantafel4" CancelcontrolID="btnclose4" runat="server">
 
-        </ajaxToolkit:ModalPopupExtender>
+        </ajaxtoolkit:modalpopupextender>
 
         <!-- panel design-->
         <asp:Panel ID="modelpantafel4" Class="popup" runat="server">
@@ -107,9 +108,9 @@
         <!--tafel 5 -->
         <asp:Button ID="btntafel5" Class="tafelbutton" runat="server" Text="Tafel 5" />
 
-        <ajaxToolkit:ModalPopupExtender ID="popuptafel5" TargetControlID="btntafel5" popupControlID="modelpantafel5" CancelcontrolID="btnclose5" runat="server">
+        <ajaxtoolkit:modalpopupextender ID="popuptafel5" TargetControlID="btntafel5" popupControlID="modelpantafel5" CancelcontrolID="btnclose5" runat="server">
 
-        </ajaxToolkit:ModalPopupExtender>
+        </ajaxtoolkit:modalpopupextender>
 
         <!-- panel design-->
         <asp:Panel ID="modelpantafel5" Class="popup" runat="server">

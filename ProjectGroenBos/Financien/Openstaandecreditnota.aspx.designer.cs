@@ -11,7 +11,7 @@ namespace ProjectGroenBos.Financien
 {
 
 
-    public partial class Betaalscherm
+    public partial class Openstaandecreditnota
     {
 
         /// <summary>
