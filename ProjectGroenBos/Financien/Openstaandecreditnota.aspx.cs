@@ -140,6 +140,7 @@ namespace ProjectGroenBos.Financien
             }
 
             ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "betalingsuccess();", true);
+            Response.Redirect("~/Openstaandecreditnota.aspx");
 
         }
 
