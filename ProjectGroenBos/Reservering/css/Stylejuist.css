@@ -384,6 +384,7 @@ nav ul {
     margin-left: 7%;
     font-style: italic;
 }
+
 .textboxMedewerkersgegevens {
     position: relative;
     left: 74px;
@@ -393,7 +394,6 @@ nav ul {
 .textboxchaos {
     position: relative;
     left: 75px;
-   
 }
 
 .labelsnieuw {
@@ -401,7 +401,6 @@ nav ul {
     width: 240px;
     left: 75px;
     display: inline-block;
-  
 }
 
 .textboxbtn {
