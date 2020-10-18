@@ -154,8 +154,8 @@ namespace ProjectGroenBos.Financien
             string result = ophaal.ExecuteScalar().ToString();
             label1.Text = result;
             con.Close();
-            string modal = ((Button)sender).CommandArgument;
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal("+modal+");", true);
+            string modal = "#modal2" + ((Button)sender).CommandArgument;
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal('"+modal+"');", true);
         }
     }
 }

@@ -77,7 +77,7 @@
         }
 
         function openModal(modalnaam) {
-            $(modalnaaml).modal('show');
+            $(modalnaam).modal('show');
         }
     </script>
 </asp:Content>
@@ -238,11 +238,8 @@
                                 <input type="button" class="btn btn-primary btn-lg btn-block" onclick="printDiv('printModal<%# Eval("Nummer") %>')" value="Print Factuur" />
 
                                 <br />
-
-                               
-
-                                   
-                                <asp:Button ID="btnBetalen" CommandArgument="#modal2<%# Eval('Nummer')%>" runat="server" OnClick="btnBetalen_Click" CssClass="btn btn-primary" Text="Sluiten" />
+                              
+                                <asp:Button ID="btnBetalen" runat="server" OnClick="btnBetalen_Click" CssClass="btn btn-primary" CommandArgument='<%# Eval("Nummer")%>' Text="Betaal factuur" />
 
                             </div>
                             <div class="modal-footer">
@@ -291,7 +288,6 @@
                                             <td>Bedrag overgemaakt</td>
                                             <td>
                                                 <asp:TextBox ID="txtBedrag" runat="server"> </asp:TextBox>
-                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Dit is een verplicht veld" ControlToValidate="txtBedrag"></asp:RequiredFieldValidator>
                                                 <asp:RangeValidator ID="RangeValidator1" runat="server" ErrorMessage="Invoer is onjuist" ControlToValidate="txtBedrag" MinimumValue="0" MaximumValue="9999999999999"></asp:RangeValidator>
                                             </td>
                                         </tr>
