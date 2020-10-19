@@ -19,11 +19,6 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud
 
         protected void btnToevoegen_Click1(object sender, EventArgs e)
         {
-<<<<<<< HEAD
-=======
-            String nummer = DropDownList1.SelectedValue.ToString();
-            DateTime datum = DateTime.Parse(txtSDatum.Text);
->>>>>>> RecreatieTeam/DaanHeemskerk
             RequiredFieldValidator1.Validate();
             RequiredFieldValidator2.Validate();
             RequiredFieldValidator3.Validate();
@@ -32,11 +27,8 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud
 
             if (RangeValidator1.IsValid && RequiredFieldValidator1.IsValid && RequiredFieldValidator2.IsValid && RequiredFieldValidator3.IsValid && RegularExpressionValidator1.IsValid)
             {
-<<<<<<< HEAD
                 String nummer = DropDownList1.SelectedValue.ToString();
                 DateTime datum = DateTime.Parse(txtSDatum.Text);
-=======
->>>>>>> RecreatieTeam/DaanHeemskerk
                 con.Open();
                 SqlCommand cmd = new SqlCommand("INSERT INTO  [dbo].[Schoonmaakopdracht] (Datum,Omschrijving,BungalowNummer,MedewerkerNummer)    values(@datum, @omschrijving, @bungalownummer, @medewerkernummer)", con);
 

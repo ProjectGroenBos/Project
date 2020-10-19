@@ -69,7 +69,6 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
 
         /// <summary>
-<<<<<<< HEAD
         /// RegularExpressionValidator1 control.
         /// </summary>
         /// <remarks>
@@ -79,8 +78,6 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud
         protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
 
         /// <summary>
-=======
->>>>>>> RecreatieTeam/DaanHeemskerk
         /// DropDownList1 control.
         /// </summary>
         /// <remarks>

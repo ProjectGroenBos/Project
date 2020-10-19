@@ -27,16 +27,10 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud
             RequiredFieldValidator1.Validate();
             RequiredFieldValidator6.Validate();
             RequiredFieldValidator7.Validate();
-<<<<<<< HEAD
             RegularExpressionValidator1.Validate();
             RangeValidator1.Validate();
 
-            if (RegularExpressionValidator1.IsValid && RangeValidator1.IsValid &&RequiredFieldValidator1.IsValid && RequiredFieldValidator6.IsValid && RequiredFieldValidator7.IsValid)
-=======
-            RangeValidator1.Validate();
-
-            if (RangeValidator1.IsValid &&RequiredFieldValidator1.IsValid && RequiredFieldValidator6.IsValid && RequiredFieldValidator7.IsValid)
->>>>>>> RecreatieTeam/DaanHeemskerk
+            if (RegularExpressionValidator1.IsValid && RangeValidator1.IsValid && RequiredFieldValidator1.IsValid && RequiredFieldValidator6.IsValid && RequiredFieldValidator7.IsValid)
             {
                 DateTime date = DateTime.Parse(txtDatum.Text);
                 string Datum = date.ToString("yyyy-MM-dd");

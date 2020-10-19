@@ -380,13 +380,7 @@
     <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn472\System.Threading.Tasks.Extensions.dll" />
     <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn472\vbc.exe" />
     <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn472\VBCSCompiler.exe" />
-    <Content Include="Recreatie\CSS\Main.css" />
-    <Content Include="Recreatie\CSS\style.css" />
-    <Content Include="Recreatie\CSS\stylegoeie.css" />
-    <Content Include="Recreatie\CSS\styleoverzicht.css" />
-    <Content Include="Recreatie\CSS\styleplanning.css" />
-    <Content Include="Recreatie\CSS\styleplanning2.css" />
-    <Content Include="Recreatie\CSS\stylevoorraad.css" />
+    <Content Include="Recreatie\CSS\stylegoeiee.css" />
     <Content Include="Recreatie\Documentatie.aspx" />
     <Content Include="Recreatie\home.aspx" />
     <Content Include="Recreatie\img\ascArrow.png" />
@@ -405,6 +399,7 @@
     <Content Include="Recreatie\Uitloggen.aspx" />
     <Content Include="Recreatie\Voorraad.aspx" />
     <Content Include="Recreatie\Voorraadfout.aspx" />
+    <Content Include="Recreatie\Voorraadmuteren.aspx" />
     <Content Include="Reservering\css\Stylejuist.css" />
     <Content Include="Reservering\home.aspx" />
     <Content Include="Reservering\Huisjemedewerker.aspx" />
@@ -603,6 +598,13 @@
     </Compile>
     <Compile Include="Recreatie\Voorraadfout.aspx.designer.cs">
       <DependentUpon>Voorraadfout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Recreatie\Voorraadmuteren.aspx.cs">
+      <DependentUpon>Voorraadmuteren.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Recreatie\Voorraadmuteren.aspx.designer.cs">
+      <DependentUpon>Voorraadmuteren.aspx</DependentUpon>
     </Compile>
     <Compile Include="Reservering\home.aspx.cs">
       <DependentUpon>home.aspx</DependentUpon>
