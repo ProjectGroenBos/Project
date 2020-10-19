@@ -11,11 +11,9 @@ namespace ProjectGroenBos.Restaurant
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-<<<<<<< HEAD
-            lblTafel.Text = Session["Tafelnr"].ToString();
-=======
 
->>>>>>> origin/RestaurantTeam/Kevin
+            lblTafel.Text = Session["Tafelnr"].ToString();
+
         }
     }
 }

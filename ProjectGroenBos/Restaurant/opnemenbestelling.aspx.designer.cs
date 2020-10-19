@@ -15,7 +15,7 @@ namespace ProjectGroenBos.Restaurant
     {
 
         /// <summary>
-<<<<<<< HEAD
+
         /// lblTafel control.
         /// </summary>
         /// <remarks>
@@ -25,8 +25,7 @@ namespace ProjectGroenBos.Restaurant
         protected global::System.Web.UI.WebControls.Label lblTafel;
 
         /// <summary>
-=======
->>>>>>> origin/RestaurantTeam/Kevin
+
         /// btnBetalen control.
         /// </summary>
         /// <remarks>
