@@ -192,22 +192,23 @@ namespace recreatie.paginas
               r = sqlComd.ExecuteReader();
 
                 int ordernummer = -1;
+                
 
                 while (r.Read())
                 {
                     ordernummer = (int)r[0];
                 }
-
+                sqlCon.Close();
                 foreach (GridViewRow ding in gvOrderaanvragen.Rows)
                 {
                     sqlCon.Open();
 
                     SqlCommand vul = new SqlCommand("sp_Recreatie_VoegAanvraagregelToe", sqlCon);
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@ID", (ordernummer));
-                    cmd.Parameters.AddWithValue("@Aantal", (int.Parse((gvOrderaanvragen.Rows[ding.RowIndex].FindControl("tbAantal") as TextBox).Text.Trim())));
-                    cmd.Parameters.AddWithValue("@VoorraadID", (gvVoorraad.DataKeys[ding.RowIndex].Value.ToString()));
-                    cmd.ExecuteNonQuery();
+                    vul.CommandType = CommandType.StoredProcedure;
+                    vul.Parameters.AddWithValue("@ID", (ordernummer));
+                    vul.Parameters.AddWithValue("@Aantal", (int.Parse((gvOrderaanvragen.Rows[ding.RowIndex].FindControl("tbAantal") as TextBox).Text.Trim())));
+                    vul.Parameters.AddWithValue("@VoorraadID", (gvVoorraad.DataKeys[ding.RowIndex].Value.ToString()));
+                    vul.ExecuteNonQuery();
                     sqlCon.Close();
 
                 }
