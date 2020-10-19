@@ -1,15 +1,15 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="Site1.Master" AutoEventWireup="true" CodeBehind="Voorraad.aspx.cs" Inherits="recreatie.paginas.Beheer" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <link href="CSS/stylevoorraad.css" rel="stylesheet" />
     <script>function openModal(modalnaam) {
             $(modalnaam).modal('show');
         }</script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div class="header">Voorraad</div>
 
     <asp:Label ID="Label3" runat="server" Text="Zoeken:" CssClass="labelvoorraad"></asp:Label>
     <asp:Image ID="Image2" runat="server" CssClass="imagevoorraad" Height="171px" ImageUrl="~/Recreatie/img/Logo1.png" Width="212px" />
-    <asp:TextBox ID="txtZoekbalk" runat="server" Width="300px" placeholder="Zoek op Artikelnaam of Omschrijving..." OnTextChanged="txtZoeken_TextChanged"  AutoPostBack="True" CssClass="textboxvoorraad"></asp:TextBox>
+    <asp:TextBox ID="txtZoekbalk" runat="server" Width="300px" placeholder="Zoek op Artikelnaam of Omschrijving..." OnTextChanged="txtZoeken_TextChanged"  AutoPostBack="True"></asp:TextBox>
      <asp:GridView ID="GridView1" runat="server">
     </asp:GridView>
      <asp:Button ID="btnSelecteren" runat="server" OnClick="btnSelecteren_Click" Text="Producten selecteren" />
@@ -106,7 +106,10 @@
                                  </asp:TemplateField>
                              </Columns>           
                             </asp:GridView>
+                            
                             <asp:Button ID="BtnAanvraag" runat="server" OnClick="BtnAanvraag_Click" type="button" Style="max-width: 80%; margin-left: auto; margin-right: auto;" class="btn btn-primary btn-lg btn-block" Text="Aanvragen" />
+                            <asp:Label ID="Label2" runat="server" Text="Opmerking:"></asp:Label>
+                            <asp:TextBox ID="tbOpmerking" runat="server" MaxLength="230" Width ="200px" Height="125px" Style="margin: 10px"></asp:TextBox>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Sluiten</button>

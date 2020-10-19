@@ -16,7 +16,6 @@ namespace recreatie.paginas
     {
         DataTable dt = new DataTable();
         string connectionstring = ConfigurationManager.ConnectionStrings["dbconnectie"].ToString();
-
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -25,7 +24,6 @@ namespace recreatie.paginas
                 InvullenGridview();
             }
         }
-
         private string SortDirection
         {
             get { return ViewState["SortDirection"] != null ? ViewState["SortDirection"].ToString() : "ASC"; }
@@ -42,7 +40,6 @@ namespace recreatie.paginas
                 sqlDa.Fill(dtbl);
                 Session["vDB"] = dtbl;
             }
-
             if (dtbl.Rows.Count > 0)
             {
                 if (sortExpression != null)
@@ -107,7 +104,7 @@ namespace recreatie.paginas
 
         protected void txtZoeken_TextChanged(object sender, EventArgs e)
         {
-            DataTable dtbl = (DataTable) Session["vDB"];
+            DataTable dtbl = (DataTable)Session["vDB"];
             DataView dv = dtbl.DefaultView;
             dv.RowFilter = string.Format("Artikelnaam like '%{0}%'", txtZoekbalk.Text);
             gvVoorraad.DataSource = dv.ToTable();
@@ -153,9 +150,7 @@ namespace recreatie.paginas
                         using (SqlConnection sqlCon = new SqlConnection(connectionstring))
                         {
 
-                            SqlCommand cmd =
-                                new SqlCommand("Select [ID], [Artikelnaam] FROM vVoorraadRecreatie where ID=@id",
-                                    sqlCon);
+                            SqlCommand cmd = new SqlCommand("Select [ID], [Artikelnaam] FROM vVoorraadRecreatie where ID=@id", sqlCon);
                             cmd.Parameters.AddWithValue("id", gvVoorraad.DataKeys[item.RowIndex].Value.ToString());
                             sqlCon.Open();
                             int id = cmd.ExecuteNonQuery();
@@ -182,10 +177,40 @@ namespace recreatie.paginas
 
             using (SqlConnection sqlCon = new SqlConnection(connectionstring))
             {
-                // sqlCon.Open();
-                // String query = "UPDATE Product SET Naam = @Naam,Omschrijving=@Omschrijving,Minimale_Voorraad=@Minimale_Voorraad WHERE PK_Product = @id";
-                // SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
-                // sqlCmd.Parameters.AddWithValue("@Naam", (gvMinimaleVoorraad.Rows[--].FindControl("tbAantal") as TextBox).Text.Trim());
+              sqlCon.Open();
+              
+              SqlCommand cmd = new SqlCommand("sp_Recreatie_AanvragenBestelling", sqlCon);
+              cmd.CommandType = CommandType.StoredProcedure;
+              cmd.Parameters.AddWithValue("@Opmerking", (tbOpmerking.Text.Trim()));
+              cmd.ExecuteNonQuery();
+              sqlCon.Close();
+
+              sqlCon.Open();
+              string selectquery = "SELECT TOP 1 Nummer  FROM [dbo].[InkoopOrderAanvraag] ORDER BY Nummer DESC";
+              SqlCommand sqlComd = new SqlCommand(selectquery, sqlCon);
+              SqlDataReader r;
+              r = sqlComd.ExecuteReader();
+
+                int ordernummer = -1;
+
+                while (r.Read())
+                {
+                    ordernummer = (int)r[0];
+                }
+
+                foreach (GridViewRow ding in gvOrderaanvragen.Rows)
+                {
+                    sqlCon.Open();
+
+                    SqlCommand vul = new SqlCommand("sp_Recreatie_VoegAanvraagregelToe", sqlCon);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@ID", (ordernummer));
+                    cmd.Parameters.AddWithValue("@Aantal", (int.Parse((gvOrderaanvragen.Rows[ding.RowIndex].FindControl("tbAantal") as TextBox).Text.Trim())));
+                    cmd.Parameters.AddWithValue("@VoorraadID", (gvVoorraad.DataKeys[ding.RowIndex].Value.ToString()));
+                    cmd.ExecuteNonQuery();
+                    sqlCon.Close();
+
+                }
             }
         }
     }
