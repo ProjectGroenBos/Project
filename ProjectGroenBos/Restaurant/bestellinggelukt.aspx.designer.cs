@@ -11,27 +11,34 @@ namespace ProjectGroenBos.Restaurant
 {
 
 
-    public partial class WebForm1
+    public partial class bestellinggelukt
     {
 
         /// <summary>
-
-        /// lblTafel control.
+        /// lblConfirm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTafel;
+        protected global::System.Web.UI.WebControls.Label lblConfirm;
 
         /// <summary>
-
-        /// btnBetalen control.
+        /// grvBestelling control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnBetalen;
+        protected global::System.Web.UI.WebControls.GridView grvBestelling;
+
+        /// <summary>
+        /// btnTerug control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnTerug;
     }
 }

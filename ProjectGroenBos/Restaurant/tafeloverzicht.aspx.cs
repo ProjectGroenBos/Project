@@ -71,7 +71,7 @@ namespace ProjectGroenBos.Restaurant
             //Neem tafelnummer mee
             Session["Tafelnr"] = lbltafel1popup.Text;
             // verstuur mensen naar het plaatsen van een bestelling
-            Response.Redirect("opnemenbestelling.aspx");
+            Response.Redirect("bestellingopnemen.aspx");
 
 
 
@@ -84,7 +84,7 @@ namespace ProjectGroenBos.Restaurant
             //Neem tafelnummer mee
             Session["Tafelnr"] = lbltafel2popup.Text;
             // verstuur mensen naar het plaatsen van een bestelling
-            Response.Redirect("opnemenbestelling.aspx");
+            Response.Redirect("bestellingopnemen.aspx");
 
 
 
@@ -96,7 +96,7 @@ namespace ProjectGroenBos.Restaurant
             //Neem tafelnummer mee
             Session["Tafelnr"] = lbltafel3popup.Text;
             // verstuur mensen naar het plaatsen van een bestelling
-            Response.Redirect("opnemenbestelling.aspx");
+            Response.Redirect("bestellingopnemen.aspx");
 
 
 
@@ -108,7 +108,7 @@ namespace ProjectGroenBos.Restaurant
             //Neem tafelnummer mee
             Session["Tafelnr"] = lbltafel4popup.Text;
             // verstuur mensen naar het plaatsen van een bestelling
-            Response.Redirect("opnemenbestelling.aspx");
+            Response.Redirect("bestellingopnemen.aspx");
 
 
 
@@ -120,7 +120,7 @@ namespace ProjectGroenBos.Restaurant
             //Neem tafelnummer mee
             Session["Tafelnr"] = lbltafel5popup.Text;
             // verstuur mensen naar het plaatsen van een bestelling
-            Response.Redirect("opnemenbestelling.aspx");
+            Response.Redirect("bestellingopnemen.aspx");
 
 
 

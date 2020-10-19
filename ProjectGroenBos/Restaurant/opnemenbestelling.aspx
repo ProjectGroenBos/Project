@@ -11,23 +11,17 @@
 
 
             <div class="titel">
-
-                <asp:Label ID="lbltafel" runat="server" Text=""></asp:Label>
-            </div>
-
-            <!-- Producten -->
-            <div class="cart-items">
-            </div>
-            <div class="cart-total">
-                <strong class="cart-total-title">Totaal</strong>
-                <span class="cart-total-price">€0</span>
-
+<<<<<<< HEAD
+                
+                <asp:Label ID="lblTafel" runat="server"></asp:Label>
+                
+=======
                 Besteld:
+>>>>>>> origin/RestaurantTeam/Kevin
             </div>
 
             <!-- Producten -->
             <div class="cart">
-
             </div>
             <div class="betalen">
 
