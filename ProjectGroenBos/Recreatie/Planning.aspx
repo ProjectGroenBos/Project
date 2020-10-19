@@ -3,10 +3,10 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-   
+
     <asp:Label ID="Label2" runat="server" Font-Bold="False" Font-Names="Century Gothic" Font-Overline="False" Font-Size="X-Large" Text="Planning" CssClass="labelplanning"></asp:Label>
     <asp:Label ID="Label3" runat="server" Text="Activiteit:" CssClass="labelactiviteit"></asp:Label>
-    
+
 
     <asp:TextBox ID="TxbActiviteit" runat="server" CssClass="textboxplanningactiviteit"></asp:TextBox>
     <asp:RequiredFieldValidator ID="Activiteitvalidator" runat="server" ControlToValidate="TxbActiviteit" ErrorMessage="Vul een activiteit in" ForeColor="Red" CssClass="validatortxbactiviteit">Vul een activiteit in</asp:RequiredFieldValidator>
@@ -17,7 +17,7 @@
     <asp:Label ID="Label4" runat="server" Text="Locatie:" CssClass="labellocatie"></asp:Label>
 
     <asp:TextBox ID="txbLocatie" runat="server" CssClass="textboxlocatie"></asp:TextBox>
-    <asp:RequiredFieldValidator ID="RequiredFieldValidatorLocatie" runat="server" ControlToValidate="txbLocatie" ErrorMessage="Je moet een locatie invullen" ForeColor="Red" CssClass="validatorlocatie">Vul een locatie in</asp:RequiredFieldValidator> 
+    <asp:RequiredFieldValidator ID="RequiredFieldValidatorLocatie" runat="server" ControlToValidate="txbLocatie" ErrorMessage="Je moet een locatie invullen" ForeColor="Red" CssClass="validatorlocatie">Vul een locatie in</asp:RequiredFieldValidator>
 
 
 
@@ -46,28 +46,30 @@
 
 
     <asp:Label ID="Label9" runat="server" Text="Datum:" CssClass="labelplanningdatum"></asp:Label>
+
     <asp:TextBox ID="TxbDatum" runat="server" CssClass="textboxdatum" TextMode="DateTime"></asp:TextBox>
-    <asp:CompareValidator ID="Datevalidator" runat="server"  ControlToValidate="TxbDatum" ErrorMessage="CompareValidator" Operator="DataTypeCheck" Type="Date" ForeColor="Red" CssClass="validatordatumcompare">Onjuiste datum</asp:CompareValidator>
+    <asp:CompareValidator ID="Datevalidator" runat="server" ControlToValidate="TxbDatum" ErrorMessage="CompareValidator" Operator="DataTypeCheck" Type="Date" ForeColor="Red" CssClass="validatordatumcompare">Onjuiste datum</asp:CompareValidator>
     <asp:RequiredFieldValidator ID="RequiredFieldValidatorDatum" runat="server" ControlToValidate="TxbDatum" ErrorMessage="RequiredFieldValidator" ForeColor="Red" CssClass="validatordatum">Vul een datum in</asp:RequiredFieldValidator>
 
 
     <asp:Label ID="Label7" runat="server" Text="Begintijd:" CssClass="labelbegintijd"></asp:Label>
 
     <asp:TextBox ID="TxbBegintijd" runat="server" CssClass="textboxbegintijd" TextMode="Time"></asp:TextBox>
+    <!--
     <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="TxbBegintijd" ErrorMessage="Je moet een geldige tijd invullen" ValidationExpression="^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$" ForeColor="Red" CssClass="validatorgeldigetijd">Vul een geldige tijd in</asp:RegularExpressionValidator>
     <asp:RequiredFieldValidator ID="RequiredFieldValidatorBegintijd" runat="server" ControlToValidate="TxbBegintijd" ErrorMessage="RequiredFieldValidator" ForeColor="Red" CssClass="validatorbegintijd">Vul een begintijd in</asp:RequiredFieldValidator>
     <asp:RegularExpressionValidator ID="RegularExpressionValidatorBegintijd" runat="server" ControlToValidate="TxbBegintijd" ErrorMessage="Je moet een geldige tijd invullen" ValidationExpression="^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$" ForeColor="Red" CssClass="validatorgeldigetijd">Vul een geldige tijd in</asp:RegularExpressionValidator>
-
-
+    !-->
 
 
 
     <asp:Label ID="Label8" runat="server" Text="Eindtijd:" CssClass="labeleindtijd"></asp:Label>
 
     <asp:TextBox ID="TxbEindtijd" runat="server" CssClass="textboxeindtijd" TextMode="Time"></asp:TextBox>
+    <!--
     <asp:RequiredFieldValidator ID="RequiredFieldValidatorEindtijd" runat="server" ControlToValidate="TxbEindtijd" ErrorMessage="RequiredFieldValidator" ForeColor="Red" CssClass="validatoreindtijd">Vul een eindtijd in</asp:RequiredFieldValidator>
     <asp:RegularExpressionValidator ID="RegularExpressionValidatorEindtijd" runat="server" ControlToValidate="TxbEindtijd" ErrorMessage="Het moet een geldige tijd zijn" ValidationExpression="^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$" ForeColor="Red" CssClass="validatorgeldigeeindtijd">Vul een geldige tijd in</asp:RegularExpressionValidator>
-
+        !-->
     <asp:Label ID="Label10" runat="server" CssClass="labelinschrijfkosten" Text="Inschrijfkosten:"></asp:Label>
 
     <asp:TextBox ID="txbInschrijfkosten" runat="server" CssClass="textboxinschrijfkosten"></asp:TextBox>
@@ -89,7 +91,6 @@
     <asp:Label ID="LblBevestiging" runat="server" CssClass="labelbevestigingplanning"></asp:Label>
 
 
-    <asp:Calendar ID="Calendar1" runat="server" CssClass="kalender"></asp:Calendar>
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="Nummer" DataSourceID="SqlDataSource2" ForeColor="#333333" GridLines="None" CssClass="gridviewplanning" Width="50px" Height="100px" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
@@ -119,7 +120,7 @@
         <SortedDescendingHeaderStyle BackColor="#15524A" />
     </asp:GridView>
     <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT * FROM [vActiviteit]"></asp:SqlDataSource>
-    
+
     <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Clear" />
     <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Terug naar activiteit inplannen" />
 
