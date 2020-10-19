@@ -135,6 +135,9 @@ namespace recreatie.paginas
 
         protected void BtnBestellen_Click(object sender, EventArgs e)
         {
+            DataTable Aanvraag = new DataTable();
+            Aanvraag.Columns.Add(new DataColumn("ID", typeof(int)));
+            Aanvraag.Columns.Add(new DataColumn("Naam", typeof(string)));
 
             foreach (GridViewRow item in gvVoorraad.Rows)
             {
@@ -143,30 +146,41 @@ namespace recreatie.paginas
                     CheckBox chk = (item.FindControl("cbGeselecteerd") as CheckBox);
                     if (chk.Checked)
                     {
+                      
                         using (SqlConnection sqlCon = new SqlConnection(connectionstring))
                         {
-                            var Label = gvVoorraad.FindControl("Label1") as Label;
 
-                            DataTable Aanvraag = new DataTable();
-                            Aanvraag.Columns.Add(new DataColumn("ID", typeof(int)));
-                            Aanvraag.Columns.Add(new DataColumn("Naam", typeof(string)));
                             SqlCommand cmd = new SqlCommand("Select [ID], [Artikelnaam] FROM vVoorraadRecreatie where ID=@id", sqlCon);
-                            cmd.Parameters.AddWithValue("id", int.Parse(Label.Text));
+                            cmd.Parameters.AddWithValue("id", gvVoorraad.DataKeys[item.RowIndex].Value.ToString());
                             sqlCon.Open();
                             int id = cmd.ExecuteNonQuery();
                             SqlDataAdapter da = new SqlDataAdapter(cmd);
                             da.Fill(Aanvraag);
-                            sqlCon.Close();
+
                             
+                            sqlCon.Close();
+                            gvOrderaanvragen.DataSource = Aanvraag;
                         }
                    
-
 
                     }
                 }
             }
 
-
+            
+            gvOrderaanvragen.DataBind();
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal('#Popup');", true);
         }
+
+        protected void BtnAanvraag_Click(object sender, EventArgs e)
+        {
+
+            using (SqlConnection sqlCon = new SqlConnection(connectionstring))
+            {
+              // sqlCon.Open();
+              // String query = "UPDATE Product SET Naam = @Naam,Omschrijving=@Omschrijving,Minimale_Voorraad=@Minimale_Voorraad WHERE PK_Product = @id";
+              // SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
+              // sqlCmd.Parameters.AddWithValue("@Naam", (gvMinimaleVoorraad.Rows[--].FindControl("tbAantal") as TextBox).Text.Trim());
+            }
     }
 }

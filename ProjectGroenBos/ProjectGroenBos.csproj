@@ -67,7 +67,6 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Financien\Betaalscherm.aspx" />
     <Content Include="Financien\css\main.css" />
     <Content Include="Financien\Home.aspx" />
     <Content Include="Financien\Overzicht.aspx" />
@@ -80,7 +79,7 @@
     <Content Include="Images\Logo4.png" />
     <Content Include="Images\Logo6.png" />
     <Content Include="Images\SelectIcon.png" />
-    <Content Include="Recreatie\CSS\stylegoeiee.css" />
+    <Content Include="Recreatie\CSS\stylegoeie.css" />
     <Content Include="Recreatie\Documentatie.aspx" />
     <Content Include="Recreatie\home.aspx" />
     <Content Include="Recreatie\img\ascArrow.png" />
@@ -99,7 +98,6 @@
     <Content Include="Recreatie\Uitloggen.aspx" />
     <Content Include="Recreatie\Voorraad.aspx" />
     <Content Include="Recreatie\Voorraadfout.aspx" />
-    <Content Include="Recreatie\Voorraadmuteren.aspx" />
     <Content Include="Reservering\css\Stylejuist.css" />
     <Content Include="Reservering\home.aspx" />
     <Content Include="Reservering\Huisjemedewerker.aspx" />
@@ -338,13 +336,6 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Financien\Betaalscherm.aspx.cs">
-      <DependentUpon>Betaalscherm.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Financien\Betaalscherm.aspx.designer.cs">
-      <DependentUpon>Betaalscherm.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Financien\Financien.Master.cs">
       <DependentUpon>Financien.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -461,13 +452,6 @@
     </Compile>
     <Compile Include="Recreatie\Voorraadfout.aspx.designer.cs">
       <DependentUpon>Voorraadfout.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Recreatie\Voorraadmuteren.aspx.cs">
-      <DependentUpon>Voorraadmuteren.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Recreatie\Voorraadmuteren.aspx.designer.cs">
-      <DependentUpon>Voorraadmuteren.aspx</DependentUpon>
     </Compile>
     <Compile Include="Reservering\home.aspx.cs">
       <DependentUpon>home.aspx</DependentUpon>
