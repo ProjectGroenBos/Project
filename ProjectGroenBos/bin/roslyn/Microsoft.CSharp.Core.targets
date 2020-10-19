@@ -1,4 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
+<<<<<<< HEAD
 <!-- Licensed to the .NET Foundation under one or more agreements. The .NET Foundation licenses this file to you under the MIT license. See the LICENSE file in the project root for more information. -->
 <Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="Microsoft.Managed.Core.targets"/>
@@ -9,6 +10,12 @@
     <LangVersion Condition="'$(LangVersion)' == ''">$(MaxSupportedLangVersion)</LangVersion>
   </PropertyGroup>
 
+=======
+<!-- Copyright (c)  Microsoft.  All Rights Reserved.  Licensed under the Apache License, Version 2.0.  See License.txt in the project root for license information. -->
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="Microsoft.Managed.Core.targets"/>
+
+>>>>>>> origin/Financiën
   <Target Name="CoreCompile"
           Inputs="$(MSBuildAllProjects);
                   @(Compile);
@@ -24,8 +31,12 @@
                   @(CustomAdditionalCompileInputs);
                   $(ResolvedCodeAnalysisRuleSet);
                   @(AdditionalFiles);
+<<<<<<< HEAD
                   @(EmbeddedFiles);
                   @(EditorConfigFiles)"
+=======
+                  @(EmbeddedFiles)"
+>>>>>>> origin/Financiën
           Outputs="@(DocFileItem);
                    @(IntermediateAssembly);
                    @(IntermediateRefAssembly);
@@ -61,7 +72,10 @@
          AddModules="@(AddModules)"
          AdditionalFiles="@(AdditionalFiles)"
          AllowUnsafeBlocks="$(AllowUnsafeBlocks)"
+<<<<<<< HEAD
          AnalyzerConfigFiles="@(EditorConfigFiles)"
+=======
+>>>>>>> origin/Financiën
          Analyzers="@(Analyzer)"
          ApplicationConfiguration="$(AppConfigForCompiler)"
          BaseAddress="$(BaseAddress)"
@@ -73,7 +87,10 @@
          DefineConstants="$(DefineConstants)"
          DelaySign="$(DelaySign)"
          DisabledWarnings="$(NoWarn)"
+<<<<<<< HEAD
          DisableSdkPath="$(DisableSdkPath)"
+=======
+>>>>>>> origin/Financiën
          DocumentationFile="@(DocFileItem)"
          EmbedAllSources="$(EmbedAllSources)"
          EmbeddedFiles="@(EmbeddedFiles)"
@@ -97,7 +114,10 @@
          NoLogo="$(NoLogo)"
          NoStandardLib="$(NoCompilerStandardLib)"
          NoWin32Manifest="$(NoWin32Manifest)"
+<<<<<<< HEAD
          Nullable="$(Nullable)"
+=======
+>>>>>>> origin/Financiën
          Optimize="$(Optimize)"
          Deterministic="$(Deterministic)"
          PublicSign="$(PublicSign)"
@@ -109,7 +129,10 @@
          PreferredUILang="$(PreferredUILang)"
          ProvideCommandLineArgs="$(ProvideCommandLineArgs)"
          References="@(ReferencePathWithRefAssemblies)"
+<<<<<<< HEAD
          RefOnly="$(ProduceOnlyReferenceAssembly)"
+=======
+>>>>>>> origin/Financiën
          ReportAnalyzer="$(ReportAnalyzer)"
          Resources="@(_CoreCompileResourceInputs);@(CompiledLicenseFile)"
          ResponseFiles="$(CompilerResponseFile)"

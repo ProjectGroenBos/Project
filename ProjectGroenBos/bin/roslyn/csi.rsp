@@ -1,6 +1,10 @@
 ﻿/r:System
 /r:System.Core
 /r:Microsoft.CSharp
+<<<<<<< HEAD
+=======
+/r:System.ValueTuple.dll
+>>>>>>> origin/Financiën
 /u:System
 /u:System.IO
 /u:System.Collections.Generic
