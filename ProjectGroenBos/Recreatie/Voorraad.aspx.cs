@@ -145,28 +145,29 @@ namespace recreatie.paginas
                     {
                         using (SqlConnection sqlCon = new SqlConnection(connectionstring))
                         {
-                            var Label = gvVoorraad.FindControl("Label1") as Label;
+                            //Label Label = gvVoorraad.FindControl("Label1") as Label;
 
                             DataTable Aanvraag = new DataTable();
                             Aanvraag.Columns.Add(new DataColumn("ID", typeof(int)));
                             Aanvraag.Columns.Add(new DataColumn("Naam", typeof(string)));
                             SqlCommand cmd = new SqlCommand("Select [ID], [Artikelnaam] FROM vVoorraadRecreatie where ID=@id", sqlCon);
-                            cmd.Parameters.AddWithValue("id", int.Parse(Label.Text));
+                            cmd.Parameters.AddWithValue("id", gvVoorraad.DataKeys[item.RowIndex].Value.ToString());
                             sqlCon.Open();
                             int id = cmd.ExecuteNonQuery();
                             SqlDataAdapter da = new SqlDataAdapter(cmd);
                             da.Fill(Aanvraag);
                             sqlCon.Close();
-                            
+                            gvOrderaanvragen.DataSource = Aanvraag;
+                            gvOrderaanvragen.DataBind();
                         }
                    
-
 
                     }
                 }
             }
-
-
+     
         }
+
+
     }
 }

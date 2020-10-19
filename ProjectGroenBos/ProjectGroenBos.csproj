@@ -79,13 +79,7 @@
     <Content Include="Images\Logo4.png" />
     <Content Include="Images\Logo6.png" />
     <Content Include="Images\SelectIcon.png" />
-    <Content Include="Recreatie\CSS\Main.css" />
-    <Content Include="Recreatie\CSS\style.css" />
     <Content Include="Recreatie\CSS\stylegoeie.css" />
-    <Content Include="Recreatie\CSS\styleoverzicht.css" />
-    <Content Include="Recreatie\CSS\styleplanning.css" />
-    <Content Include="Recreatie\CSS\styleplanning2.css" />
-    <Content Include="Recreatie\CSS\stylevoorraad.css" />
     <Content Include="Recreatie\Documentatie.aspx" />
     <Content Include="Recreatie\home.aspx" />
     <Content Include="Recreatie\img\ascArrow.png" />
