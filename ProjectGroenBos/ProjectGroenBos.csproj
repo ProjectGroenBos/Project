@@ -81,6 +81,7 @@
     <Content Include="Financien\Rekeningen.aspx" />
     <Content Include="Financien\Reserveringen.aspx" />
     <Content Include="Financien\WebForm5.aspx" />
+    <Content Include="Gerechten overzicht.aspx" />
     <Content Include="Global.asax" />
     <Content Include="packages\AjaxControlToolkit.20.1.0\lib\net40\AjaxControlToolkit.dll" />
     <Content Include="packages\AjaxControlToolkit.20.1.0\readme.txt" />
@@ -414,6 +415,7 @@
     <Content Include="Reservering\ReserveringMedewerkerNachtregister.aspx" />
     <Content Include="Reservering\test.aspx" />
     <Content Include="Restaurant\Bestelling.aspx" />
+    <Content Include="Restaurant\Bestellingenoverzicht.aspx" />
     <Content Include="Restaurant\bestellinggelukt.aspx" />
     <Content Include="Restaurant\bestellingopnemen.aspx" />
     <Content Include="Restaurant\css\opnemenbestelling.css" />
@@ -443,6 +445,7 @@
     <Content Include="Restaurant\img\productimg\varkenshaas.png" />
     <Content Include="Restaurant\opnemenbestelling.aspx" />
     <Content Include="Restaurant\tafeloverzicht.aspx" />
+    <Content Include="Restaurant\WebForm5.aspx" />
     <Content Include="Schoonmaak en Onderhoud\InventarisOverzicht.aspx" />
     <Content Include="Schoonmaak en Onderhoud\OffertesOverzicht.aspx" />
     <Content Include="Schoonmaak en Onderhoud\OnderhoudsOverzicht.aspx" />
@@ -533,6 +536,13 @@
     </Compile>
     <Compile Include="Financien\WebForm5.aspx.designer.cs">
       <DependentUpon>WebForm5.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Gerechten overzicht.aspx.cs">
+      <DependentUpon>Gerechten overzicht.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Gerechten overzicht.aspx.designer.cs">
+      <DependentUpon>Gerechten overzicht.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -658,6 +668,13 @@
     <Compile Include="Restaurant\Bestelling.aspx.designer.cs">
       <DependentUpon>Bestelling.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Restaurant\Bestellingenoverzicht.aspx.cs">
+      <DependentUpon>Bestellingenoverzicht.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Restaurant\Bestellingenoverzicht.aspx.designer.cs">
+      <DependentUpon>Bestellingenoverzicht.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Restaurant\bestellinggelukt.aspx.cs">
       <DependentUpon>bestellinggelukt.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -699,6 +716,13 @@
     </Compile>
     <Compile Include="Restaurant\tafeloverzicht.aspx.designer.cs">
       <DependentUpon>tafeloverzicht.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Restaurant\WebForm5.aspx.cs">
+      <DependentUpon>WebForm5.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Restaurant\WebForm5.aspx.designer.cs">
+      <DependentUpon>WebForm5.aspx</DependentUpon>
     </Compile>
     <Compile Include="Schoonmaak en Onderhoud\InventarisOverzicht.aspx.cs">
       <DependentUpon>InventarisOverzicht.aspx</DependentUpon>

@@ -38,3 +38,4 @@ C:\Users\herman\Documents\Project\ProjectGroenBos\obj\Debug\ProjectGroenBos.cspr
 C:\Users\herman\Documents\Project\ProjectGroenBos\obj\Debug\ProjectGroenBos.csproj.CopyComplete
 C:\Users\herman\Documents\Project\ProjectGroenBos\obj\Debug\ProjectGroenBos.dll
 C:\Users\herman\Documents\Project\ProjectGroenBos\obj\Debug\ProjectGroenBos.pdb
+C:\Users\herman\Documents\Project\ProjectGroenBos\obj\Debug\ProjectGroenBos.csprojAssemblyReference.cache
