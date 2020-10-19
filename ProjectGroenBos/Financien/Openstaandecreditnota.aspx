@@ -235,11 +235,11 @@
 
                                 </div>
 
-                                <input type="button" class="btn btn-primary btn-lg btn-block" onclick="printDiv('printModal<%# Eval("Nummer") %>')" value="Print Factuur" />
+                                <input type="button" Style="max-width: 80%; margin-left: auto; margin-right: auto;"  class="btn btn-primary btn-lg btn-block" onclick="printDiv('printModal<%# Eval("Nummer") %>')" value="Print Factuur" />
 
                                 <br />
                               
-                                <asp:Button ID="btnBetalen" runat="server" OnClick="btnBetalen_Click" CssClass="btn btn-primary" CommandName="<%# Container.ItemIndex %>" CommandArgument='<%# Eval("Nummer")%>' Text="Betaal factuur" />
+                                <asp:Button ID="btnBetalen" runat="server" Style="max-width: 80%; margin-left: auto; margin-right: auto;"  OnClick="btnBetalen_Click" CssClass="btn btn-primary btn-lg btn-block" CommandArgument='<%# Eval("Nummer")%>' Text="Betaal factuur" />
 
                             </div>
                             <div class="modal-footer">
@@ -305,7 +305,7 @@
 
 
 
-                                <asp:Button ID="btnBetaal" class="btn btn-primary btn-lg btn-block" OnClick="btnToevoegen2_Click" runat="server" Text="Betaal factuur" />
+                                <asp:Button ID="btnBetaal" Style="max-width: 80%; margin-left: auto; margin-right: auto;" CommandName="<%# Container.ItemIndex %>" class="btn btn-primary btn-lg btn-block" OnClick="btnToevoegen2_Click" runat="server" Text="Betaal factuur" />
 
                             </div>
                             <div class="modal-footer">
