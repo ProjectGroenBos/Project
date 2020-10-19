@@ -1,6 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="Site1.Master" AutoEventWireup="true" CodeBehind="Voorraad.aspx.cs" Inherits="recreatie.paginas.Beheer" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="CSS/stylevoorraad.css" rel="stylesheet" />
+    <script>function openModal(modalnaam) {
+            $(modalnaam).modal('show');
+        }</script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
@@ -10,7 +13,7 @@
      <asp:GridView ID="GridView1" runat="server">
     </asp:GridView>
      <asp:Button ID="btnSelecteren" runat="server" OnClick="btnSelecteren_Click" Text="Producten selecteren" />
-    <asp:Button ID="BtnBestellen" runat="server" Text="Bestellen" OnClick="BtnBestellen_Click" type="button" style="background-color: #009879; color: #fff" class="btn" data-toggle="modal" data-target="Popup"/>
+    <asp:Button ID="BtnBestellen" runat="server" Text="Bestellen" OnClick="BtnBestellen_Click" type="button" style="background-color: #009879; color: #fff" class="btn" data-toggle="modal" data-target="#Popup"/>
     <asp:GridView ID="gvVoorraad" runat="server" AutoGenerateColumns="False" AllowSorting="true" OnSorting="OnSorting" ShowFooter="true" DataKeyNames="ID" ShowHeaderWhenEmpty="true"
             OnRowCommand="gvVoorraad_RowCommand" OnRowEditing="gvVoorraad_RowEditing" OnRowCancelingEdit="gvVoorraad_RowCancelingEdit" OnRowUpdating="gvVoorraad_RowUpdating" OnRowDeleting="gvVoorraad_RowDeleting"
             CellPadding="4" ForeColor="#333333" GridLines="none" Width="80%" OnSelectedIndexChanged="gvVoorraad_SelectedIndexChanged" CssClass="content-table" >
@@ -63,7 +66,7 @@
                 </asp:TemplateField>
         </Columns>           
         </asp:GridView>
-
+    
     <div id="Popup" class="modal fade" role="dialog">
                 <div class="modal-dialog">
                     <!-- Modal content-->
@@ -73,7 +76,7 @@
                         </div>
                         <div class="modal-body">
                             <asp:GridView ID="gvOrderaanvragen" runat="server" AutoGenerateColumns="False" ShowFooter="true" DataKeyNames="ID" ShowHeaderWhenEmpty="true"
-                             CellPadding="4" ForeColor="#333333" GridLines="none" Width="80%" CssClass="content-table" >
+                             CellPadding="4" ForeColor="#333333" GridLines="none" Width="80%" CssClass="content-table">
 
           
                              <Columns>
@@ -98,16 +101,15 @@
                 
                                  <asp:TemplateField HeaderText="Aantal">
                                      <ItemTemplate>
-                                         <asp:TextBox ID="tbAantal" runat="server"></asp:TextBox>
+                                         <asp:TextBox ID="tbAantal" runat="server" Width =" 100%" ></asp:TextBox>
                                      </ItemTemplate>
                                  </asp:TemplateField>
                              </Columns>           
                             </asp:GridView>
-
+                            <asp:Button ID="BtnAanvraag" runat="server" OnClick="BtnAanvraag_Click" type="button" Style="max-width: 80%; margin-left: auto; margin-right: auto;" class="btn btn-primary btn-lg btn-block" Text="Aanvragen" />
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Sluiten</button>
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Bestellen</button>
                         </div>
                     </div>
                 </div>

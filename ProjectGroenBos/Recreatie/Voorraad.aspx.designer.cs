@@ -78,21 +78,21 @@ namespace recreatie.paginas
         protected global::System.Web.UI.WebControls.GridView gvVoorraad;
 
         /// <summary>
-        /// Panel1 control.
+        /// gvOrderaanvragen control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel1;
+        protected global::System.Web.UI.WebControls.GridView gvOrderaanvragen;
 
         /// <summary>
-        /// rpModals control.
+        /// BtnAanvraag control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rpModals;
+        protected global::System.Web.UI.WebControls.Button BtnAanvraag;
     }
 }
