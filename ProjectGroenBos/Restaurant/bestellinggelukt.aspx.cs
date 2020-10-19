@@ -41,6 +41,13 @@ namespace ProjectGroenBos.Restaurant
             DataTable dt2 = new DataTable();
             dt2 = (DataTable)Session["bestelitems"];
 
+
+            dt2.Columns.Remove("sno");
+            dt2.Columns.Remove("Prijs");
+            dt2.Columns.Remove("Afbeelding");
+            dt2.Columns.Remove("Id");
+
+
             grvBestelling.DataSource = dt2;
             grvBestelling.DataBind();
         }

@@ -16,7 +16,14 @@ namespace ProjectGroenBos.Restaurant
         {
 
 			// neem de tafel op vanuit het tafeloverzicht
-			lblTafel.Text = Session["Tafelnr"].ToString();
+			if (Session["tafelnr"] != null)
+			{
+				lblTafel.Text = Session["Tafelnr"].ToString();
+			}
+			else
+			{
+				lblTafel.Text = "besteld";
+			}
 
 			DataTable dt = new DataTable();
 
