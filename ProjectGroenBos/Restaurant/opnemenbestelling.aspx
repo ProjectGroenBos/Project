@@ -11,9 +11,13 @@
 
 
             <div class="titel">
+<<<<<<< HEAD
                 
                 <asp:Label ID="lblTafel" runat="server"></asp:Label>
                 
+=======
+                Besteld:
+>>>>>>> origin/RestaurantTeam/Kevin
             </div>
 
             <!-- Producten -->

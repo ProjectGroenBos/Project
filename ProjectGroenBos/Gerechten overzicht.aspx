@@ -1,9 +1,9 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Restaurant.master.cs" Inherits="ProjectGroenBos.Restaurant.Restaurant" %>
+﻿<%@  Language="C#" MasterPageFile="~/Restaurant/Restaurant.Master" AutoEventWireup="true" CodeBehind="Gerechten overzicht.aspx.cs" Inherits="ProjectGroenBos.Gerechten_overzicht" %>
 
 <!DOCTYPE html>
 
 <html>
-<head runat="server">
+<head runat ="server ">
     <title>Groenbos</title>
     <link rel="stylesheet" href="css/style.css">
     <asp:ContentPlaceHolder ID="head" runat="server">
@@ -13,11 +13,7 @@
     <form id="form1" runat="server">
 
         <div class="wrapper">
-<<<<<<< HEAD
             <div class="sidebar">
-=======
-             <div class="sidebar">
->>>>>>> origin/RestaurantTeam/Kevin
                 <h2>
                     <img src="img/Logo4.png" alt="Logo" height="150"></h2>
                 <h3>RESTAURANT</h3>
@@ -25,11 +21,7 @@
                     <li><a href="home.aspx"><i class="fas fa-home"></i>Home</a></li>
                     <li><a href="#"><i class="fas fa-user"></i>Bestellingen</a>
                         <ul class="submenu">
-<<<<<<< HEAD
-                            <li><a href="tafeloverzicht.aspx">Bestelling opnemen</a></li>
-=======
                             <li><a href="opnemenbestelling.aspx">Bestelling opnemen</a></li>
->>>>>>> origin/RestaurantTeam/Kevin
                             <li><a href="#">Bestellingen overzicht</a>
                                 <ul class="submenu">
                                     <li><a href="#">Dranken overzicht</a></li>
@@ -68,4 +60,5 @@
         </div>
     </form>
 </body>
+
 </html>

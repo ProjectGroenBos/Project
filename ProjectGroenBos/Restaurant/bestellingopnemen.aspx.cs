@@ -14,12 +14,16 @@ namespace ProjectGroenBos.Restaurant
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+<<<<<<< HEAD
 			// neem de tafel op vanuit het tafeloverzicht
 			lblTafel.Text = Session["Tafelnr"].ToString();
 
 			Session["ResNr"] = Session["Tafelnr"];
 
 			DataTable dt = new DataTable();
+=======
+            DataTable dt = new DataTable();
+>>>>>>> origin/RestaurantTeam/Kevin
             dt = (DataTable)Session["bestelitems"];
             if (dt != null)
             {
@@ -40,10 +44,15 @@ namespace ProjectGroenBos.Restaurant
 				dt2.Columns.Add("Prijs");
 				dt2.Columns.Add("Hoeveelheid");
 				dt2.Columns.Add("TotalePrijs");
+<<<<<<< HEAD
 
 				dt2.Columns.Add("Id");
 
 
+=======
+				dt2.Columns.Add("Id");
+
+>>>>>>> origin/RestaurantTeam/Kevin
 				if (Request.QueryString["id"] != null)
 				{
 					if (Session["Bestelitems"] == null)
@@ -64,10 +73,15 @@ namespace ProjectGroenBos.Restaurant
 						dr["Naam"] = ds.Tables[0].Rows[0]["Naam"].ToString();
 						dr["€ " + "Prijs"] = ds.Tables[0].Rows[0]["Prijs"].ToString();
 						dr["Hoeveelheid"] = Request.QueryString["Hoeveelheid"];
+<<<<<<< HEAD
 
 						dr["Id"] = Request.QueryString["id"];
 
 
+=======
+						dr["Id"] = Request.QueryString["id"];
+
+>>>>>>> origin/RestaurantTeam/Kevin
 						double prijs = Convert.ToDouble(ds.Tables[0].Rows[0]["Prijs"].ToString());
 						double hoeveelheid = Convert.ToInt16(Request.QueryString["Hoeveelheid"].ToString());
 						double totaleprijs = prijs * hoeveelheid;
@@ -104,10 +118,15 @@ namespace ProjectGroenBos.Restaurant
 						dr["Naam"] = ds.Tables[0].Rows[0]["Naam"].ToString();
 						dr["Prijs"] = ds.Tables[0].Rows[0]["Prijs"].ToString();
 						dr["Hoeveelheid"] = Request.QueryString["Hoeveelheid"];
+<<<<<<< HEAD
 
 						dr["Id"] = Request.QueryString["id"];
 
 
+=======
+						dr["Id"] = Request.QueryString["id"];
+
+>>>>>>> origin/RestaurantTeam/Kevin
 						double prijs = Convert.ToDouble(ds.Tables[0].Rows[0]["Prijs"].ToString());
 						double hoeveelheid = Convert.ToInt16(Request.QueryString["Hoeveelheid"].ToString());
 						double totaleprijs = prijs * hoeveelheid;
@@ -138,7 +157,10 @@ namespace ProjectGroenBos.Restaurant
 
 		}
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/RestaurantTeam/Kevin
         protected void DataList1_ItemCommand(object source, DataListCommandEventArgs e)
         {
             if (e.CommandName == "toevoegen")
@@ -205,18 +227,27 @@ namespace ProjectGroenBos.Restaurant
 			Response.Redirect("bestellingopnemen.aspx");
 		}
 
+<<<<<<< HEAD
 
 		private int GetResNr()
         {
 			int resnr;
 			if (Session["ResNr"] == null)
 			{
+=======
+        protected void btnBestellen_Click(object sender, EventArgs e)
+        {
+			int resnr;
+            if (Session["ResNr"] == null)
+            {
+>>>>>>> origin/RestaurantTeam/Kevin
 				//Random rand = new Random();
 
 				//resnr = rand.Next(1, 1000000);
 
 				resnr = 1;
 
+<<<<<<< HEAD
 				return resnr;
 
 			}
@@ -267,6 +298,14 @@ namespace ProjectGroenBos.Restaurant
 			//Get RondeNr
 			rondenr = GetRonNr(resnr);
 
+=======
+            }
+            else
+            {
+				resnr = (int)Session["ResNr"];
+            }
+
+>>>>>>> origin/RestaurantTeam/Kevin
 			DataTable Besteltable = (DataTable)Session["bestelitems"];
 
 			//Overal Vars
@@ -276,10 +315,16 @@ namespace ProjectGroenBos.Restaurant
 			SqlDataAdapter da = new SqlDataAdapter();
 			String myquery = "select * from Item where ID=" + Request.QueryString["id"];
 
+<<<<<<< HEAD
 			//NIEUWE ROW TOEVOEGEN
 			foreach (DataRow row in Besteltable.Rows)
             {
 				myquery = "INSERT into Item_RestaurantReservering (ItemID, RestaurantReserveringID, Ronde, Aantal, Status) VALUES (" + row["Id"] + "," + resnr+  ", "+ rondenr +", "+ row["Hoeveelheid"]+", 'Besteld') ";
+=======
+			foreach (DataRow row in Besteltable.Rows)
+            {
+				myquery = "INSERT into Item_RestaurantReservering (ItemID, RestaurantReserveringID, Aantal, Status) VALUES (" + row["Id"] + ","+ resnr+", "+ row["Hoeveelheid"]+", 'Besteld') ";
+>>>>>>> origin/RestaurantTeam/Kevin
 				cmd.CommandText = myquery;
 				cmd.Connection = scon;
 				da.SelectCommand = cmd;
@@ -291,6 +336,7 @@ namespace ProjectGroenBos.Restaurant
 				scon.Close();
 			}
 
+<<<<<<< HEAD
 			rondenr = rondenr + 1;
 
 			myquery = "UPDATE RestaurantReservering SET Ronde = "+rondenr+"where ID = " + resnr;
@@ -309,5 +355,10 @@ namespace ProjectGroenBos.Restaurant
 
 		}
 
+=======
+			Response.Redirect("bestellinggelukt.aspx");
+
+		}
+>>>>>>> origin/RestaurantTeam/Kevin
     }
 }
