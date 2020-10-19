@@ -287,7 +287,7 @@ namespace recreatie.paginas
                 int index = int.Parse(GridView1.SelectedRow.Cells[0].Text);
                 Activteit.Rows[index].Delete();
 
-                string sql = "Delete FROM [vActiviteit] where Nummer = @Nummer";
+                string sql = "DELETE FROM dbo.Activiteit WHERE nummer = 45 ";
                
                 command = new SqlCommand(sql, Sqlcon);
                 command.Parameters.AddWithValue("@Nummer", index);
