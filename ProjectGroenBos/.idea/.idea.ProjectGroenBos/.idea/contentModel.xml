@@ -1,0 +1,668 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\herman\AppData\Local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\herman\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_ProjectGroenBos.672806103.00" t="ExcludeRecursive" />
+    <e p="C:\Users\herman\Documents\Project\ProjectGroenBos" t="IncludeRecursive">
+      <e p="bin" t="ExcludeRecursive" />
+      <e p="Financien" t="Include">
+        <e p="Betaalscherm.aspx" t="Include" />
+        <e p="Betaalscherm.aspx.cs" t="Include" />
+        <e p="Betaalscherm.aspx.designer.cs" t="Include" />
+        <e p="css" t="Include">
+          <e p="Main.css" t="Include" />
+        </e>
+        <e p="Factuurinvoerscherm.aspx" t="Include" />
+        <e p="Factuurinvoerscherm.aspx.cs" t="Include" />
+        <e p="Factuurinvoerscherm.aspx.designer.cs" t="Include" />
+        <e p="Financien.Master" t="Include" />
+        <e p="Financien.Master.cs" t="Include" />
+        <e p="Financien.Master.designer.cs" t="Include" />
+        <e p="home.aspx" t="Include" />
+        <e p="home.aspx.cs" t="Include" />
+        <e p="home.aspx.designer.cs" t="Include" />
+        <e p="img" t="Include">
+          <e p="Logo.png" t="Include" />
+          <e p="Logo3.png" t="Include" />
+        </e>
+        <e p="js" t="Include" />
+        <e p="Openstaandecreditnota.aspx" t="Include" />
+        <e p="Openstaandecreditnota.aspx.cs" t="Include" />
+        <e p="Openstaandecreditnota.aspx.designer.cs" t="Include" />
+        <e p="Overzicht.aspx" t="Include" />
+        <e p="Overzicht.aspx.cs" t="Include" />
+        <e p="Overzicht.aspx.designer.cs" t="Include" />
+        <e p="Personeeloverzicht.aspx" t="Include" />
+        <e p="Personeeloverzicht.aspx.cs" t="Include" />
+        <e p="Personeeloverzicht.aspx.designer.cs" t="Include" />
+        <e p="Prijstabel.aspx" t="Include" />
+        <e p="Prijstabel.aspx.cs" t="Include" />
+        <e p="Prijstabel.aspx.designer.cs" t="Include" />
+        <e p="Rekeningen.aspx" t="Include" />
+        <e p="Rekeningen.aspx.cs" t="Include" />
+        <e p="Rekeningen.aspx.designer.cs" t="Include" />
+        <e p="Reserveringen.aspx" t="Include" />
+        <e p="Reserveringen.aspx.cs" t="Include" />
+        <e p="Reserveringen.aspx.designer.cs" t="Include" />
+        <e p="WebForm5.aspx" t="Include" />
+        <e p="WebForm5.aspx.cs" t="Include" />
+        <e p="WebForm5.aspx.designer.cs" t="Include" />
+      </e>
+      <e p="Global.asax" t="Include" />
+      <e p="Global.asax.cs" t="Include" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="packages" t="ExcludeRecursive">
+        <e p="AjaxControlToolkit.20.1.0" t="Include">
+          <e p=".signature.p7s" t="Include" />
+          <e p="AjaxControlToolkit.20.1.0.nupkg" t="Include" />
+          <e p="Content" t="Include">
+            <e p="Web.config.transform" t="Include" />
+          </e>
+          <e p="lib" t="Include">
+            <e p="net40" t="Include">
+              <e p="AjaxControlToolkit.dll" t="Include" />
+            </e>
+          </e>
+          <e p="readme.txt" t="Include" />
+        </e>
+        <e p="DHTMLX.Scheduler.NET.4.0.2" t="Include">
+          <e p=".signature.p7s" t="Include" />
+          <e p="Content" t="Include">
+            <e p="Scripts" t="Include">
+              <e p="dhtmlxScheduler" t="Include">
+                <e p="dhtmlxscheduler.css" t="Include" />
+                <e p="dhtmlxscheduler.js" t="Include" />
+                <e p="dhtmlxscheduler_contrast_black.css" t="Include" />
+                <e p="dhtmlxscheduler_contrast_white.css" t="Include" />
+                <e p="dhtmlxscheduler_custom_lightbox.js" t="Include" />
+                <e p="dhtmlxscheduler_flat.css" t="Include" />
+                <e p="dhtmlxscheduler_material.css" t="Include" />
+                <e p="dhtmlxscheduler_terrace.css" t="Include" />
+                <e p="ext" t="Include">
+                  <e p="dhtmlxscheduler_active_links.js" t="Include" />
+                  <e p="dhtmlxscheduler_agenda_view.js" t="Include" />
+                  <e p="dhtmlxscheduler_all_timed.js" t="Include" />
+                  <e p="dhtmlxscheduler_collision.js" t="Include" />
+                  <e p="dhtmlxscheduler_container_autoresize.js" t="Include" />
+                  <e p="dhtmlxscheduler_cookie.js" t="Include" />
+                  <e p="dhtmlxscheduler_csp.js" t="Include" />
+                  <e p="dhtmlxscheduler_daytimeline.js" t="Include" />
+                  <e p="dhtmlxscheduler_drag_between.js" t="Include" />
+                  <e p="dhtmlxscheduler_editors.js" t="Include" />
+                  <e p="dhtmlxscheduler_expand.js" t="Include" />
+                  <e p="dhtmlxscheduler_grid_view.js" t="Include" />
+                  <e p="dhtmlxscheduler_html_templates.js" t="Include" />
+                  <e p="dhtmlxscheduler_key_nav.js" t="Include" />
+                  <e p="dhtmlxscheduler_layer.js" t="Include" />
+                  <e p="dhtmlxscheduler_limit.js" t="Include" />
+                  <e p="dhtmlxscheduler_live_updates.js" t="Include" />
+                  <e p="dhtmlxscheduler_map_view.js" t="Include" />
+                  <e p="dhtmlxscheduler_minical.js" t="Include" />
+                  <e p="dhtmlxscheduler_monthheight.js" t="Include" />
+                  <e p="dhtmlxscheduler_multisection.js" t="Include" />
+                  <e p="dhtmlxscheduler_multiselect.js" t="Include" />
+                  <e p="dhtmlxscheduler_multisource.js" t="Include" />
+                  <e p="dhtmlxscheduler_mvc.js" t="Include" />
+                  <e p="dhtmlxscheduler_offline.js" t="Include" />
+                  <e p="dhtmlxscheduler_outerdrag.js" t="Include" />
+                  <e p="dhtmlxscheduler_pdf.js" t="Include" />
+                  <e p="dhtmlxscheduler_quick_info.js" t="Include" />
+                  <e p="dhtmlxscheduler_readonly.js" t="Include" />
+                  <e p="dhtmlxscheduler_recurring.js" t="Include" />
+                  <e p="dhtmlxscheduler_serialize.js" t="Include" />
+                  <e p="dhtmlxscheduler_timeline.js" t="Include" />
+                  <e p="dhtmlxscheduler_tooltip.js" t="Include" />
+                  <e p="dhtmlxscheduler_treetimeline.js" t="Include" />
+                  <e p="dhtmlxscheduler_units.js" t="Include" />
+                  <e p="dhtmlxscheduler_url.js" t="Include" />
+                  <e p="dhtmlxscheduler_week_agenda.js" t="Include" />
+                  <e p="dhtmlxscheduler_wp.js" t="Include" />
+                  <e p="dhtmlxscheduler_year_view.js" t="Include" />
+                </e>
+                <e p="imgs" t="Include">
+                  <e p="but_repeat.gif" t="Include" />
+                  <e p="buttons.png" t="Include" />
+                  <e p="calendar.gif" t="Include" />
+                  <e p="clock_big.gif" t="Include" />
+                  <e p="clock_small.gif" t="Include" />
+                  <e p="collapse_expand_icon.gif" t="Include" />
+                  <e p="controls.gif" t="Include" />
+                  <e p="databg.png" t="Include" />
+                  <e p="databg_now.png" t="Include" />
+                  <e p="export_ical.png" t="Include" />
+                  <e p="export_pdf.png" t="Include" />
+                  <e p="icon.png" t="Include" />
+                  <e p="images.png" t="Include" />
+                  <e p="loading.gif" t="Include" />
+                  <e p="resize_dots.png" t="Include" />
+                </e>
+                <e p="imgs_contrast_black" t="Include">
+                  <e p="arrow_left.png" t="Include" />
+                  <e p="arrow_right.png" t="Include" />
+                  <e p="but_repeat.gif" t="Include" />
+                  <e p="calendar.gif" t="Include" />
+                  <e p="clock_big.gif" t="Include" />
+                  <e p="clock_small.gif" t="Include" />
+                  <e p="close_icon.png" t="Include" />
+                  <e p="collapse_expand_icon.gif" t="Include" />
+                  <e p="controls.png" t="Include" />
+                  <e p="databg.png" t="Include" />
+                  <e p="databg_now.png" t="Include" />
+                  <e p="export_ical.png" t="Include" />
+                  <e p="export_pdf.png" t="Include" />
+                  <e p="resize_dots.png" t="Include" />
+                  <e p="resizing.png" t="Include" />
+                </e>
+                <e p="imgs_contrast_white" t="Include">
+                  <e p="arrow_left.png" t="Include" />
+                  <e p="arrow_right.png" t="Include" />
+                  <e p="but_repeat.gif" t="Include" />
+                  <e p="calendar.gif" t="Include" />
+                  <e p="clock_big.gif" t="Include" />
+                  <e p="clock_small.gif" t="Include" />
+                  <e p="close_icon.png" t="Include" />
+                  <e p="collapse_expand_icon.gif" t="Include" />
+                  <e p="controls.png" t="Include" />
+                  <e p="databg.png" t="Include" />
+                  <e p="export_ical.png" t="Include" />
+                  <e p="export_pdf.png" t="Include" />
+                  <e p="quick_info_edit.png" t="Include" />
+                  <e p="resize_dots.png" t="Include" />
+                  <e p="resizing.png" t="Include" />
+                </e>
+                <e p="imgs_dhx_material" t="Include">
+                  <e p="agenda-calendar-hov.svg" t="Include" />
+                  <e p="agenda-calendar.svg" t="Include" />
+                  <e p="agenda_bg.png" t="Include" />
+                  <e p="arrow_left.svg" t="Include" />
+                  <e p="arrow_left_hov.svg" t="Include" />
+                  <e p="arrow_right.svg" t="Include" />
+                  <e p="arrow_right_hov.svg" t="Include" />
+                  <e p="but_repeat.png" t="Include" />
+                  <e p="calendar.svg" t="Include" />
+                  <e p="clock_big.png" t="Include" />
+                  <e p="clock_small.png" t="Include" />
+                  <e p="close_icon.png" t="Include" />
+                  <e p="collapse_expand_icon.png" t="Include" />
+                  <e p="controls.png" t="Include" />
+                  <e p="databg.png" t="Include" />
+                  <e p="drag-horizontal.svg" t="Include" />
+                  <e p="drag-vertical.svg" t="Include" />
+                  <e p="export_ical.png" t="Include" />
+                  <e p="export_pdf.png" t="Include" />
+                  <e p="icon.png" t="Include" />
+                  <e p="menu-down.svg" t="Include" />
+                  <e p="resizing.png" t="Include" />
+                  <e p="Shape.svg" t="Include" />
+                  <e p="time.svg" t="Include" />
+                  <e p="tree_arrow.svg" t="Include" />
+                </e>
+                <e p="imgs_dhx_terrace" t="Include">
+                  <e p="arrow_left.png" t="Include" />
+                  <e p="arrow_right.png" t="Include" />
+                  <e p="but_repeat.gif" t="Include" />
+                  <e p="calendar.gif" t="Include" />
+                  <e p="clock_big.gif" t="Include" />
+                  <e p="clock_small.gif" t="Include" />
+                  <e p="close_icon.png" t="Include" />
+                  <e p="collapse_expand_icon.gif" t="Include" />
+                  <e p="controls.png" t="Include" />
+                  <e p="databg.png" t="Include" />
+                  <e p="databg_now.png" t="Include" />
+                  <e p="export_ical.png" t="Include" />
+                  <e p="export_pdf.png" t="Include" />
+                  <e p="resize_dots.png" t="Include" />
+                  <e p="resizing.png" t="Include" />
+                </e>
+                <e p="imgs_flat" t="Include">
+                  <e p="agenda_bg.gif" t="Include" />
+                  <e p="arrow_left.png" t="Include" />
+                  <e p="arrow_right.png" t="Include" />
+                  <e p="but_repeat.gif" t="Include" />
+                  <e p="calendar.gif" t="Include" />
+                  <e p="clock.png" t="Include" />
+                  <e p="clock_big.gif" t="Include" />
+                  <e p="clock_small.gif" t="Include" />
+                  <e p="close_icon.png" t="Include" />
+                  <e p="collapse_expand_icon.gif" t="Include" />
+                  <e p="controls.png" t="Include" />
+                  <e p="databg.png" t="Include" />
+                  <e p="databg_now.png" t="Include" />
+                  <e p="export_ical.png" t="Include" />
+                  <e p="export_pdf.png" t="Include" />
+                  <e p="resize_dots.png" t="Include" />
+                  <e p="resizing.png" t="Include" />
+                </e>
+                <e p="locale" t="Include">
+                  <e p="locale_ar.js" t="Include" />
+                  <e p="locale_be.js" t="Include" />
+                  <e p="locale_ca.js" t="Include" />
+                  <e p="locale_cn.js" t="Include" />
+                  <e p="locale_cs.js" t="Include" />
+                  <e p="locale_da.js" t="Include" />
+                  <e p="locale_de.js" t="Include" />
+                  <e p="locale_el.js" t="Include" />
+                  <e p="locale_en.js" t="Include" />
+                  <e p="locale_es.js" t="Include" />
+                  <e p="locale_fi.js" t="Include" />
+                  <e p="locale_fr.js" t="Include" />
+                  <e p="locale_he.js" t="Include" />
+                  <e p="locale_hu.js" t="Include" />
+                  <e p="locale_id.js" t="Include" />
+                  <e p="locale_it.js" t="Include" />
+                  <e p="locale_jp.js" t="Include" />
+                  <e p="locale_nb.js" t="Include" />
+                  <e p="locale_nl.js" t="Include" />
+                  <e p="locale_no.js" t="Include" />
+                  <e p="locale_pl.js" t="Include" />
+                  <e p="locale_pt.js" t="Include" />
+                  <e p="locale_ro.js" t="Include" />
+                  <e p="locale_ru.js" t="Include" />
+                  <e p="locale_si.js" t="Include" />
+                  <e p="locale_sk.js" t="Include" />
+                  <e p="locale_sv.js" t="Include" />
+                  <e p="locale_tr.js" t="Include" />
+                  <e p="locale_ua.js" t="Include" />
+                  <e p="recurring" t="Include">
+                    <e p="locale_recurring_be.js" t="Include" />
+                    <e p="locale_recurring_cn.js" t="Include" />
+                    <e p="locale_recurring_cs.js" t="Include" />
+                    <e p="locale_recurring_da.js" t="Include" />
+                    <e p="locale_recurring_de.js" t="Include" />
+                    <e p="locale_recurring_el.js" t="Include" />
+                    <e p="locale_recurring_en.js" t="Include" />
+                    <e p="locale_recurring_es.js" t="Include" />
+                    <e p="locale_recurring_fi.js" t="Include" />
+                    <e p="locale_recurring_fr.js" t="Include" />
+                    <e p="locale_recurring_he.js" t="Include" />
+                    <e p="locale_recurring_it.js" t="Include" />
+                    <e p="locale_recurring_nb.js" t="Include" />
+                    <e p="locale_recurring_nl.js" t="Include" />
+                    <e p="locale_recurring_pl.js" t="Include" />
+                    <e p="locale_recurring_pt.js" t="Include" />
+                    <e p="locale_recurring_ro.js" t="Include" />
+                    <e p="locale_recurring_ru.js" t="Include" />
+                    <e p="locale_recurring_sk.js" t="Include" />
+                    <e p="locale_recurring_sv.js" t="Include" />
+                    <e p="locale_recurring_ua.js" t="Include" />
+                    <e p="repeat_template_be.html" t="Include" />
+                    <e p="repeat_template_cn.html" t="Include" />
+                    <e p="repeat_template_de.html" t="Include" />
+                    <e p="repeat_template_el.html" t="Include" />
+                    <e p="repeat_template_en.html" t="Include" />
+                    <e p="repeat_template_es.html" t="Include" />
+                    <e p="repeat_template_fr.html" t="Include" />
+                    <e p="repeat_template_he.html" t="Include" />
+                    <e p="repeat_template_it.html" t="Include" />
+                    <e p="repeat_template_nl.html" t="Include" />
+                    <e p="repeat_template_ro.html" t="Include" />
+                    <e p="repeat_template_ru.html" t="Include" />
+                    <e p="repeat_template_sk.html" t="Include" />
+                  </e>
+                </e>
+              </e>
+            </e>
+          </e>
+          <e p="DHTMLX.Scheduler.NET.4.0.2.nupkg" t="Include" />
+          <e p="lib" t="Include">
+            <e p="DHTMLX.dll" t="Include" />
+            <e p="DHTMLX.pdb" t="Include" />
+            <e p="DHTMLX.xml" t="Include" />
+          </e>
+        </e>
+        <e p="Mcd.2.0.1" t="Include">
+          <e p=".signature.p7s" t="Include" />
+          <e p="build" t="Include">
+            <e p="net45" t="Include">
+              <e p="Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" t="Include" />
+            </e>
+          </e>
+          <e p="Mcd.nupkg" t="Include" />
+        </e>
+        <e p="Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0" t="Include">
+          <e p=".signature.p7s" t="Include" />
+          <e p="build" t="Include">
+            <e p="net45" t="Include">
+              <e p="Microsoft.CodeDom.Providers.DotNetCompilerPlatform.Extensions.targets" t="Include" />
+              <e p="Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets" t="Include" />
+            </e>
+            <e p="net46" t="Include">
+              <e p="Microsoft.CodeDom.Providers.DotNetCompilerPlatform.Extensions.targets" t="Include" />
+              <e p="Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets" t="Include" />
+            </e>
+            <e p="net472" t="Include">
+              <e p="Microsoft.CodeDom.Providers.DotNetCompilerPlatform.Extensions.targets" t="Include" />
+              <e p="Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets" t="Include" />
+            </e>
+          </e>
+          <e p="Content" t="Include">
+            <e p="net45" t="Include">
+              <e p="app.config.install.xdt" t="Include" />
+              <e p="app.config.uninstall.xdt" t="Include" />
+              <e p="web.config.install.xdt" t="Include" />
+              <e p="web.config.uninstall.xdt" t="Include" />
+            </e>
+            <e p="net46" t="Include">
+              <e p="app.config.install.xdt" t="Include" />
+              <e p="app.config.uninstall.xdt" t="Include" />
+              <e p="web.config.install.xdt" t="Include" />
+              <e p="web.config.uninstall.xdt" t="Include" />
+            </e>
+            <e p="net472" t="Include">
+              <e p="app.config.install.xdt" t="Include" />
+              <e p="app.config.uninstall.xdt" t="Include" />
+              <e p="web.config.install.xdt" t="Include" />
+              <e p="web.config.uninstall.xdt" t="Include" />
+            </e>
+          </e>
+          <e p="lib" t="Include">
+            <e p="net45" t="Include">
+              <e p="Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll" t="Include" />
+              <e p="Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml" t="Include" />
+            </e>
+          </e>
+          <e p="Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0.nupkg" t="Include" />
+          <e p="tasks" t="Include">
+            <e p="DotNetCompilerPlatformTasks.dll" t="Include" />
+            <e p="System.Management.dll" t="Include" />
+          </e>
+          <e p="tools" t="Include">
+            <e p="net45" t="Include">
+              <e p="common.ps1" t="Include" />
+              <e p="install.ps1" t="Include" />
+              <e p="uninstall.ps1" t="Include" />
+            </e>
+            <e p="Roslyn45" t="Include">
+              <e p="csc.exe" t="Include" />
+              <e p="csc.exe.config" t="Include" />
+              <e p="csc.rsp" t="Include" />
+              <e p="csi.exe" t="Include" />
+              <e p="csi.rsp" t="Include" />
+              <e p="Microsoft.Build.Tasks.CodeAnalysis.dll" t="Include" />
+              <e p="Microsoft.CodeAnalysis.CSharp.dll" t="Include" />
+              <e p="Microsoft.CodeAnalysis.CSharp.Scripting.dll" t="Include" />
+              <e p="Microsoft.CodeAnalysis.dll" t="Include" />
+              <e p="Microsoft.CodeAnalysis.Scripting.dll" t="Include" />
+              <e p="Microsoft.CodeAnalysis.VisualBasic.dll" t="Include" />
+              <e p="Microsoft.CSharp.Core.targets" t="Include" />
+              <e p="Microsoft.DiaSymReader.Native.amd64.dll" t="Include" />
+              <e p="Microsoft.DiaSymReader.Native.x86.dll" t="Include" />
+              <e p="Microsoft.VisualBasic.Core.targets" t="Include" />
+              <e p="System.AppContext.dll" t="Include" />
+              <e p="System.Collections.Immutable.dll" t="Include" />
+              <e p="System.Diagnostics.StackTrace.dll" t="Include" />
+              <e p="System.IO.FileSystem.dll" t="Include" />
+              <e p="System.IO.FileSystem.Primitives.dll" t="Include" />
+              <e p="System.Reflection.Metadata.dll" t="Include" />
+              <e p="vbc.exe" t="Include" />
+              <e p="vbc.exe.config" t="Include" />
+              <e p="vbc.rsp" t="Include" />
+              <e p="VBCSCompiler.exe" t="Include" />
+              <e p="VBCSCompiler.exe.config" t="Include" />
+            </e>
+            <e p="Roslyn46" t="Include">
+              <e p="csc.exe" t="Include" />
+              <e p="csc.exe.config" t="Include" />
+              <e p="csc.rsp" t="Include" />
+              <e p="csi.exe" t="Include" />
+              <e p="csi.exe.config" t="Include" />
+              <e p="csi.rsp" t="Include" />
+              <e p="Microsoft.Build.Tasks.CodeAnalysis.dll" t="Include" />
+              <e p="Microsoft.CodeAnalysis.CSharp.dll" t="Include" />
+              <e p="Microsoft.CodeAnalysis.CSharp.Scripting.dll" t="Include" />
+              <e p="Microsoft.CodeAnalysis.dll" t="Include" />
+              <e p="Microsoft.CodeAnalysis.Scripting.dll" t="Include" />
+              <e p="Microsoft.CodeAnalysis.VisualBasic.dll" t="Include" />
+              <e p="Microsoft.CSharp.Core.targets" t="Include" />
+              <e p="Microsoft.DiaSymReader.Native.amd64.dll" t="Include" />
+              <e p="Microsoft.DiaSymReader.Native.x86.dll" t="Include" />
+              <e p="Microsoft.Managed.Core.targets" t="Include" />
+              <e p="Microsoft.VisualBasic.Core.targets" t="Include" />
+              <e p="Microsoft.Win32.Primitives.dll" t="Include" />
+              <e p="System.AppContext.dll" t="Include" />
+              <e p="System.Collections.Immutable.dll" t="Include" />
+              <e p="System.Console.dll" t="Include" />
+              <e p="System.Diagnostics.DiagnosticSource.dll" t="Include" />
+              <e p="System.Diagnostics.FileVersionInfo.dll" t="Include" />
+              <e p="System.Diagnostics.StackTrace.dll" t="Include" />
+              <e p="System.Globalization.Calendars.dll" t="Include" />
+              <e p="System.IO.Compression.dll" t="Include" />
+              <e p="System.IO.Compression.ZipFile.dll" t="Include" />
+              <e p="System.IO.FileSystem.dll" t="Include" />
+              <e p="System.IO.FileSystem.Primitives.dll" t="Include" />
+              <e p="System.Net.Http.dll" t="Include" />
+              <e p="System.Net.Sockets.dll" t="Include" />
+              <e p="System.Reflection.Metadata.dll" t="Include" />
+              <e p="System.Runtime.InteropServices.RuntimeInformation.dll" t="Include" />
+              <e p="System.Security.Cryptography.Algorithms.dll" t="Include" />
+              <e p="System.Security.Cryptography.Encoding.dll" t="Include" />
+              <e p="System.Security.Cryptography.Primitives.dll" t="Include" />
+              <e p="System.Security.Cryptography.X509Certificates.dll" t="Include" />
+              <e p="System.Text.Encoding.CodePages.dll" t="Include" />
+              <e p="System.Threading.Tasks.Extensions.dll" t="Include" />
+              <e p="System.ValueTuple.dll" t="Include" />
+              <e p="System.Xml.ReaderWriter.dll" t="Include" />
+              <e p="System.Xml.XmlDocument.dll" t="Include" />
+              <e p="System.Xml.XPath.dll" t="Include" />
+              <e p="System.Xml.XPath.XDocument.dll" t="Include" />
+              <e p="vbc.exe" t="Include" />
+              <e p="vbc.exe.config" t="Include" />
+              <e p="vbc.rsp" t="Include" />
+              <e p="VBCSCompiler.exe" t="Include" />
+              <e p="VBCSCompiler.exe.config" t="Include" />
+            </e>
+            <e p="Roslyn472" t="Include">
+              <e p="csc.exe" t="Include" />
+              <e p="csc.exe.config" t="Include" />
+              <e p="csc.rsp" t="Include" />
+              <e p="csi.exe" t="Include" />
+              <e p="csi.exe.config" t="Include" />
+              <e p="csi.rsp" t="Include" />
+              <e p="Microsoft.Build.Tasks.CodeAnalysis.dll" t="Include" />
+              <e p="Microsoft.CodeAnalysis.CSharp.dll" t="Include" />
+              <e p="Microsoft.CodeAnalysis.CSharp.Scripting.dll" t="Include" />
+              <e p="Microsoft.CodeAnalysis.dll" t="Include" />
+              <e p="Microsoft.CodeAnalysis.Scripting.dll" t="Include" />
+              <e p="Microsoft.CodeAnalysis.VisualBasic.dll" t="Include" />
+              <e p="Microsoft.CSharp.Core.targets" t="Include" />
+              <e p="Microsoft.DiaSymReader.Native.amd64.dll" t="Include" />
+              <e p="Microsoft.DiaSymReader.Native.x86.dll" t="Include" />
+              <e p="Microsoft.Managed.Core.targets" t="Include" />
+              <e p="Microsoft.VisualBasic.Core.targets" t="Include" />
+              <e p="System.Buffers.dll" t="Include" />
+              <e p="System.Collections.Immutable.dll" t="Include" />
+              <e p="System.Memory.dll" t="Include" />
+              <e p="System.Numerics.Vectors.dll" t="Include" />
+              <e p="System.Reflection.Metadata.dll" t="Include" />
+              <e p="System.Runtime.CompilerServices.Unsafe.dll" t="Include" />
+              <e p="System.Text.Encoding.CodePages.dll" t="Include" />
+              <e p="System.Threading.Tasks.Extensions.dll" t="Include" />
+              <e p="vbc.exe" t="Include" />
+              <e p="vbc.exe.config" t="Include" />
+              <e p="vbc.rsp" t="Include" />
+              <e p="VBCSCompiler.exe" t="Include" />
+              <e p="VBCSCompiler.exe.config" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="packages.config" t="Include" />
+      <e p="ProjectGroenBos.csproj" t="IncludeRecursive" />
+      <e p="ProjectGroenBos.sln" t="IncludeFlat" />
+      <e p="Properties" t="Include">
+        <e p="AssemblyInfo.cs" t="Include" />
+      </e>
+      <e p="Recreatie" t="Include">
+        <e p="css" t="Include">
+          <e p="Main.css" t="Include" />
+          <e p="style.css" t="Include" />
+          <e p="stylegoeie.css" t="Include" />
+          <e p="styleoverzicht.css" t="Include" />
+          <e p="styleplanning.css" t="Include" />
+          <e p="styleplanning2.css" t="Include" />
+          <e p="stylevoorraad.css" t="Include" />
+        </e>
+        <e p="Documentatie.aspx" t="Include" />
+        <e p="Documentatie.aspx.cs" t="Include" />
+        <e p="Documentatie.aspx.designer.cs" t="Include" />
+        <e p="Helper" t="Include">
+          <e p="Helper.cs" t="Include" />
+        </e>
+        <e p="home.aspx" t="Include" />
+        <e p="home.aspx.cs" t="Include" />
+        <e p="home.aspx.designer.cs" t="Include" />
+        <e p="img" t="Include">
+          <e p="ascArrow.png" t="Include" />
+          <e p="descArrow.png" t="Include" />
+          <e p="Logo1.png" t="Include" />
+          <e p="Logo2.png" t="Include" />
+          <e p="Logo3.png" t="Include" />
+          <e p="Logo4.png" t="Include" />
+          <e p="Logo5.png" t="Include" />
+          <e p="Logo6.png" t="Include" />
+          <e p="winkelwagen.png" t="Include" />
+          <e p="Winkelwagenicoon (2).png" t="Include" />
+        </e>
+        <e p="Overzicht.aspx" t="Include" />
+        <e p="Overzicht.aspx.cs" t="Include" />
+        <e p="Overzicht.aspx.designer.cs" t="Include" />
+        <e p="Planning.aspx" t="Include" />
+        <e p="Planning.aspx.cs" t="Include" />
+        <e p="Planning.aspx.designer.cs" t="Include" />
+        <e p="Site1.Master" t="Include" />
+        <e p="Site1.Master.cs" t="Include" />
+        <e p="Site1.Master.designer.cs" t="Include" />
+        <e p="Start.aspx" t="Include" />
+        <e p="Start.aspx.cs" t="Include" />
+        <e p="Start.aspx.designer.cs" t="Include" />
+        <e p="Uitloggen.aspx" t="Include" />
+        <e p="Uitloggen.aspx.cs" t="Include" />
+        <e p="Uitloggen.aspx.designer.cs" t="Include" />
+        <e p="Voorraad.aspx" t="Include" />
+        <e p="Voorraad.aspx.cs" t="Include" />
+        <e p="Voorraad.aspx.designer.cs" t="Include" />
+        <e p="Voorraadfout.aspx" t="Include" />
+        <e p="Voorraadfout.aspx.cs" t="Include" />
+        <e p="Voorraadfout.aspx.designer.cs" t="Include" />
+      </e>
+      <e p="Reservering" t="Include">
+        <e p="css" t="Include">
+          <e p="Stylejuist.css" t="Include" />
+        </e>
+        <e p="home.aspx" t="Include" />
+        <e p="home.aspx.cs" t="Include" />
+        <e p="home.aspx.designer.cs" t="Include" />
+        <e p="Huisjemedewerker.aspx" t="Include" />
+        <e p="Huisjemedewerker.aspx.cs" t="Include" />
+        <e p="Huisjemedewerker.aspx.designer.cs" t="Include" />
+        <e p="MailHuisReserveringGemaakt.html" t="Include" />
+        <e p="ReserveringenMedewerkerGegevens.aspx" t="Include" />
+        <e p="ReserveringenMedewerkerGegevens.aspx.cs" t="Include" />
+        <e p="ReserveringenMedewerkerGegevens.aspx.designer.cs" t="Include" />
+        <e p="ReserveringenMedewerkerGelukt.aspx" t="Include" />
+        <e p="ReserveringenMedewerkerGelukt.aspx.cs" t="Include" />
+        <e p="ReserveringenMedewerkerGelukt.aspx.designer.cs" t="Include" />
+        <e p="ReserveringMedewerkerNachtregister.aspx" t="Include" />
+        <e p="ReserveringMedewerkerNachtregister.aspx.cs" t="Include" />
+        <e p="ReserveringMedewerkerNachtregister.aspx.designer.cs" t="Include" />
+        <e p="Site1.Master" t="Include" />
+        <e p="Site1.Master.cs" t="Include" />
+        <e p="Site1.Master.designer.cs" t="Include" />
+        <e p="test.aspx" t="Include" />
+        <e p="test.aspx.cs" t="Include" />
+        <e p="test.aspx.designer.cs" t="Include" />
+      </e>
+      <e p="Restaurant" t="Include">
+        <e p="Bestelling.aspx" t="Include" />
+        <e p="Bestelling.aspx.cs" t="Include" />
+        <e p="Bestelling.aspx.designer.cs" t="Include" />
+        <e p="bestellingopnemen.aspx" t="Include" />
+        <e p="bestellingopnemen.aspx.cs" t="Include" />
+        <e p="bestellingopnemen.aspx.designer.cs" t="Include" />
+        <e p="css" t="Include">
+          <e p="opnemenbestelling.css" t="Include" />
+          <e p="style.css" t="Include" />
+          <e p="tafeloverzicht.css" t="Include" />
+          <e p="test.css" t="Include" />
+        </e>
+        <e p="home.aspx" t="Include" />
+        <e p="home.aspx.cs" t="Include" />
+        <e p="home.aspx.designer.cs" t="Include" />
+        <e p="img" t="Include">
+          <e p="Logo1.png" t="Include" />
+          <e p="Logo2.png" t="Include" />
+          <e p="Logo3.png" t="Include" />
+          <e p="Logo4.png" t="Include" />
+          <e p="Logo5.png" t="Include" />
+          <e p="Logo6.png" t="Include" />
+          <e p="productimg" t="Include">
+            <e p="broodplankje.png" t="Include" />
+            <e p="carpaccio.png" t="Include" />
+            <e p="champignonsoep.png" t="Include" />
+            <e p="chocoladetaart.png" t="Include" />
+            <e p="Cola.png" t="Include" />
+            <e p="cremebrulee.png" t="Include" />
+            <e p="Fanta.png" t="Include" />
+            <e p="patat.png" t="Include" />
+            <e p="sate.png" t="Include" />
+            <e p="schnitzel.png" t="Include" />
+            <e p="spareribs.png" t="Include" />
+            <e p="Sprite.png" t="Include" />
+            <e p="tomatensoep.png" t="Include" />
+            <e p="varkenshaas.png" t="Include" />
+          </e>
+        </e>
+        <e p="opnemenbestelling.aspx" t="Include" />
+        <e p="opnemenbestelling.aspx.cs" t="Include" />
+        <e p="opnemenbestelling.aspx.designer.cs" t="Include" />
+        <e p="Restaurant.Master" t="Include" />
+        <e p="Restaurant.Master.cs" t="Include" />
+        <e p="Restaurant.Master.designer.cs" t="Include" />
+        <e p="tafeloverzicht.aspx" t="Include" />
+        <e p="tafeloverzicht.aspx.cs" t="Include" />
+        <e p="tafeloverzicht.aspx.designer.cs" t="Include" />
+      </e>
+      <e p="Schoonmaak en Onderhoud" t="Include">
+        <e p="InventarisOverzicht.aspx" t="Include" />
+        <e p="InventarisOverzicht.aspx.cs" t="Include" />
+        <e p="InventarisOverzicht.aspx.designer.cs" t="Include" />
+        <e p="OffertesOverzicht.aspx" t="Include" />
+        <e p="OffertesOverzicht.aspx.cs" t="Include" />
+        <e p="OffertesOverzicht.aspx.designer.cs" t="Include" />
+        <e p="OnderhoudsOverzicht.aspx" t="Include" />
+        <e p="OnderhoudsOverzicht.aspx.cs" t="Include" />
+        <e p="OnderhoudsOverzicht.aspx.designer.cs" t="Include" />
+        <e p="OnderhoudToevoegen.aspx" t="Include" />
+        <e p="OnderhoudToevoegen.aspx.cs" t="Include" />
+        <e p="OnderhoudToevoegen.aspx.designer.cs" t="Include" />
+        <e p="OnderhoudWijzigen.aspx" t="Include" />
+        <e p="OnderhoudWijzigen.aspx.cs" t="Include" />
+        <e p="OnderhoudWijzigen.aspx.designer.cs" t="Include" />
+        <e p="PlanningsOverzicht.aspx" t="Include" />
+        <e p="PlanningsOverzicht.aspx.cs" t="Include" />
+        <e p="PlanningsOverzicht.aspx.designer.cs" t="Include" />
+        <e p="PlanningToevoegen.aspx" t="Include" />
+        <e p="PlanningToevoegen.aspx.cs" t="Include" />
+        <e p="PlanningToevoegen.aspx.designer.cs" t="Include" />
+        <e p="PlanningVerwijderen.aspx" t="Include" />
+        <e p="PlanningVerwijderen.aspx.cs" t="Include" />
+        <e p="PlanningVerwijderen.aspx.designer.cs" t="Include" />
+        <e p="PlanningWijzigen.aspx" t="Include" />
+        <e p="PlanningWijzigen.aspx.cs" t="Include" />
+        <e p="PlanningWijzigen.aspx.designer.cs" t="Include" />
+        <e p="Schoonmaak.Master" t="Include" />
+        <e p="Schoonmaak.Master.cs" t="Include" />
+        <e p="Schoonmaak.Master.designer.cs" t="Include" />
+        <e p="SchouwingsOverzicht.aspx" t="Include" />
+        <e p="SchouwingsOverzicht.aspx.cs" t="Include" />
+        <e p="SchouwingsOverzicht.aspx.designer.cs" t="Include" />
+        <e p="style" t="Include">
+          <e p="stylesheet.css" t="Include" />
+        </e>
+      </e>
+      <e p="Web.config" t="Include" />
+      <e p="Web.Debug.config" t="Include" />
+      <e p="Web.Release.config" t="Include" />
+    </e>
+  </component>
+</project>
