@@ -25,7 +25,7 @@ union
 select  op.Prijs as Kosten, op.OnderhoudsopdrachtNummer as nummer, ond.Onderhoudtype as omschrijving
 from offerte op cross join Onderhoudsopdracht ond
 where op.OnderhoudsopdrachtNummer = ond.Nummer"></asp:SqlDataSource>
-                <asp:GridView ID="gvFactuur" CssClass="content-table" GridLines="None" AutoGenerateColumns="False" Style="text-align: center; margin-left: auto; margin-right: auto; width:auto; height:100px; overflow:scroll" runat="server" DataSourceID="SqlDataSource8">
+                 <asp:GridView ID="GridView2" CssClass="content-table" GridLines="None" AutoGenerateColumns="False" Style="text-align: center; margin-left: auto; margin-right: auto; width:auto; height:100px; overflow:scroll"  runat="server" AutoGenerateSelectButton="True" OnSelectedIndexChanged="GridView2_SelectedIndexChanged" DataSourceID="SqlDataSource8">
                                     <Columns>
                                         <asp:BoundField DataField="Nummer" HeaderText="Nummer" ReadOnly="True" SortExpression="Nummer" />
                                         <asp:BoundField DataField="Kosten" HeaderText="Kosten" ReadOnly="True" SortExpression="Kosten" />
@@ -43,8 +43,9 @@ where op.OnderhoudsopdrachtNummer = ond.Nummer"></asp:SqlDataSource>
                                     <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                                 </asp:GridView>
                 <div class="modal-body">
-                    <p>Leverancier</p>
-                    <asp:TextBox ID="txbLeverancier" runat="server" Style="text-align: center" Height="50px" Width="100%"></asp:TextBox>
+                    <p>Leverancier of aannemer</p>
+                    <asp:DropDownList ID="leverancieraanemer" runat="server">  
+        </asp:DropDownList>
                     <p>Totaalbedrag</p>
                     <asp:TextBox ID="txbTotaalbedrag" Style="text-align: center" Height="50px" Width="100%" runat="server"></asp:TextBox>
                     <p>Termijn</p>
@@ -52,17 +53,16 @@ where op.OnderhoudsopdrachtNummer = ond.Nummer"></asp:SqlDataSource>
                     <p>Factuurtype</p>
                     <asp:DropDownList ID="dlFactuurtype" Style="text-align: center; margin-top: 10px;" Height="50px" Width="100%" runat="server">
                         <asp:ListItem>Inkooporder</asp:ListItem>
-                        <asp:ListItem>Onderhoudsopdracht</asp:ListItem>
                         <asp:ListItem>Offerte</asp:ListItem>
                         <asp:ListItem>Anders</asp:ListItem>
                     </asp:DropDownList>
                     
                     <p>IBAN</p>
                     <asp:TextBox ID="txbIBAN" Style="text-align: center" Height="50px" Width="100%" runat="server"></asp:TextBox>
-                    <p>OrderID</p>
+                    <p>OrderID/OnderhoudsID</p>
                     <asp:TextBox ID="txbORDERID" Style="text-align: center" Height="50px" Width="100%" runat="server"></asp:TextBox>
                     <p>OffereID</p>
-                    <asp:TextBox ID="txtbOfferte" Style="text-align: center" Height="50px" Width="100%" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtbOfferte" placeholder="hoeft alleen bij offerte" Style="text-align: center" Height="50px" Width="100%" runat="server"></asp:TextBox>
                     <asp:Button ID="btnToevoegen" CssClass="btnToevoegen" runat="server" Text="goedkeuren" OnClick="btnToevoegen_Click" />
                 </div>
 
@@ -85,7 +85,7 @@ where op.OnderhoudsopdrachtNummer = ond.Nummer"></asp:SqlDataSource>
                 <asp:SqlDataSource ID="SqlDataSource9" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="select ink.InkooporderID as Inkoopnummer, ink.prijs as Kosten, Voorraad.Naam as omschrijving, ink.Hoeveelheid
 from Inkooporderregel ink cross join Voorraad
 where ink.VoorraadID = Voorraad.ID"></asp:SqlDataSource>
-                <asp:GridView ID="GridView1" CssClass="content-table" GridLines="None" AutoGenerateColumns="False" Style="text-align: center; margin-left: auto; margin-right: auto; width:auto; height:100px; overflow:scroll" runat="server" DataSourceID="SqlDataSource9">
+                <asp:GridView ID="GridView1" CssClass="content-table" GridLines="None" AutoGenerateColumns="False" Style="text-align: center; margin-left: auto; margin-right: auto; width:auto; height:100px; overflow:scroll" runat="server" AutoGenerateSelectButton="True" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" DataSourceID="SqlDataSource9">
                                     <Columns>
                                         <asp:BoundField DataField="Inkoopnummer" HeaderText="Inkoopnummer" ReadOnly="True" SortExpression="Inkoopnummer" />
                                         <asp:BoundField DataField="Kosten" HeaderText="Kosten" ReadOnly="True" SortExpression="Kosten" />
@@ -110,8 +110,9 @@ where ink.VoorraadID = Voorraad.ID"></asp:SqlDataSource>
                     <asp:TextBox ID="txt" Style="text-align: center" Height="50px" Width="100%" runat="server"></asp:TextBox>
                     <p>InkoopOrderID</p>
                     <asp:TextBox ID="txtbInkoopID" Style="text-align: center" Height="50px" Width="100%" runat="server"></asp:TextBox>
-                    <p>LeverancierID</p>
-                    <asp:TextBox ID="txtbLeverancierID" Style="text-align: center" Height="50px" Width="100%" runat="server"></asp:TextBox>
+                    <p>Leverancier</p>
+                   <asp:DropDownList ID="leverancier" runat="server">  
+        </asp:DropDownList> 
                     <asp:Button ID="BtnRetour" CssClass="btnToevoegen" runat="server" Text="Retour" OnClick="BtnRetour_Click" />
                 </div>
 
@@ -122,5 +123,5 @@ where ink.VoorraadID = Voorraad.ID"></asp:SqlDataSource>
 
         </div>
         </div>
-        </div>
+
 </asp:Content>
