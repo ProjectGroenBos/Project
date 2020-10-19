@@ -146,7 +146,7 @@ namespace recreatie.paginas
                     CheckBox chk = (item.FindControl("cbGeselecteerd") as CheckBox);
                     if (chk.Checked)
                     {
-                      
+
                         using (SqlConnection sqlCon = new SqlConnection(connectionstring))
                         {
 
@@ -157,17 +157,17 @@ namespace recreatie.paginas
                             SqlDataAdapter da = new SqlDataAdapter(cmd);
                             da.Fill(Aanvraag);
 
-                            
+
                             sqlCon.Close();
                             gvOrderaanvragen.DataSource = Aanvraag;
                         }
-                   
+
 
                     }
                 }
             }
 
-            
+
             gvOrderaanvragen.DataBind();
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal('#Popup');", true);
         }
@@ -177,10 +177,41 @@ namespace recreatie.paginas
 
             using (SqlConnection sqlCon = new SqlConnection(connectionstring))
             {
-              // sqlCon.Open();
-              // String query = "UPDATE Product SET Naam = @Naam,Omschrijving=@Omschrijving,Minimale_Voorraad=@Minimale_Voorraad WHERE PK_Product = @id";
-              // SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
-              // sqlCmd.Parameters.AddWithValue("@Naam", (gvMinimaleVoorraad.Rows[--].FindControl("tbAantal") as TextBox).Text.Trim());
+              sqlCon.Open();
+              
+              SqlCommand cmd = new SqlCommand("sp_Recreatie_AanvragenBestelling", sqlCon);
+              cmd.CommandType = CommandType.StoredProcedure;
+              cmd.Parameters.AddWithValue("@Opmerking", (tbOpmerking.Text.Trim()));
+              cmd.ExecuteNonQuery();
+              sqlCon.Close();
+
+              sqlCon.Open();
+              string selectquery = "SELECT TOP 1 Nummer  FROM [dbo].[InkoopOrderAanvraag] ORDER BY Nummer DESC";
+              SqlCommand sqlComd = new SqlCommand(selectquery, sqlCon);
+              SqlDataReader r;
+              r = sqlComd.ExecuteReader();
+
+                int ordernummer = -1;
+
+                while (r.Read())
+                {
+                    ordernummer = (int)r[0];
+                }
+
+                foreach (GridViewRow ding in gvOrderaanvragen.Rows)
+                {
+                    sqlCon.Open();
+
+                    SqlCommand vul = new SqlCommand("sp_Recreatie_VoegAanvraagregelToe", sqlCon);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@ID", (ordernummer));
+                    cmd.Parameters.AddWithValue("@Aantal", (int.Parse((gvOrderaanvragen.Rows[ding.RowIndex].FindControl("tbAantal") as TextBox).Text.Trim())));
+                    cmd.Parameters.AddWithValue("@VoorraadID", (gvVoorraad.DataKeys[ding.RowIndex].Value.ToString()));
+                    cmd.ExecuteNonQuery();
+                    sqlCon.Close();
+
+                }
             }
+        }
     }
 }

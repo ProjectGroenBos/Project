@@ -97,7 +97,6 @@
     <Content Include="Recreatie\Overzicht.aspx" />
     <Content Include="Recreatie\Uitloggen.aspx" />
     <Content Include="Recreatie\Voorraad.aspx" />
-    <Content Include="Recreatie\Voorraadfout.aspx" />
     <Content Include="Reservering\css\Stylejuist.css" />
     <Content Include="Reservering\home.aspx" />
     <Content Include="Reservering\Huisjemedewerker.aspx" />
@@ -445,13 +444,6 @@
     </Compile>
     <Compile Include="Recreatie\Voorraad.aspx.designer.cs">
       <DependentUpon>Voorraad.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Recreatie\Voorraadfout.aspx.cs">
-      <DependentUpon>Voorraadfout.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Recreatie\Voorraadfout.aspx.designer.cs">
-      <DependentUpon>Voorraadfout.aspx</DependentUpon>
     </Compile>
     <Compile Include="Reservering\home.aspx.cs">
       <DependentUpon>home.aspx</DependentUpon>
