@@ -15,103 +15,110 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud
 {
     public partial class OnderhoudsOverzicht : System.Web.UI.Page
     {
+
         StringBuilder table = new StringBuilder();
         protected void Page_Load(object sender, EventArgs e)
         {
-
             //if (!this.IsPostBack)
             //{
-                ////Populating a DataTable from database.
-                //DataTable dt = this.GetData();
+            ////Populating a DataTable from database.
+            //DataTable dt = this.GetData();
 
 
 
-                ////Building an HTML string.
-                //StringBuilder html = new StringBuilder();
+            ////Building an HTML string.
+            //StringBuilder html = new StringBuilder();
 
 
 
-                ////Table start.
-                //html.Append("<table border = '1'>");
+            ////Table start.
+            //html.Append("<table border = '1'>");
 
 
 
-                ////Building the Header row.
-                //html.Append("<tr>");
-                ////foreach (DataColumn column in dt.Columns)
-                ////{
-                ////html.Append("<th>");
-                ////html.Append(column.ColumnName);
-                //html.Append("<th>Nummer</th><th>Startdatum</th><th>[Verwachte einddatum]</th><th>Kosten</th><th>Bungalownummer</th><th>Onderhoudsstatusnummer</th><th>Onderhoudstypenummer</th><th>[Datum van constatering]</th>");
+            ////Building the Header row.
+            //html.Append("<tr>");
+            ////foreach (DataColumn column in dt.Columns)
+            ////{
+            ////html.Append("<th>");
+            ////html.Append(column.ColumnName);
+            //html.Append("<th>Nummer</th><th>Startdatum</th><th>[Verwachte einddatum]</th><th>Kosten</th><th>Bungalownummer</th><th>Onderhoudsstatusnummer</th><th>Onderhoudstypenummer</th><th>[Datum van constatering]</th>");
 
-                ////html.Append("</th>");
-                ////}
-                //html.Append("</tr>");
-
-
-
-                ////Building the Data rows.
-                //foreach (DataRow row in dt.Rows)
-                //{
-                //    html.Append("<tr>");
-                //    foreach (DataColumn column in dt.Columns)
-                //    {
-                //        html.Append("<td>");
-                //        html.Append(row[column.ColumnName]);
-                //        html.Append("</td>");
-                //    }
-                //    html.Append("</tr>");
-                //}
+            ////html.Append("</th>");
+            ////}
+            //html.Append("</tr>");
 
 
 
-                ////Table end.
-                //html.Append("</table>");
+            ////Building the Data rows.
+            //foreach (DataRow row in dt.Rows)
+            //{
+            //    html.Append("<tr>");
+            //    foreach (DataColumn column in dt.Columns)
+            //    {
+            //        html.Append("<td>");
+            //        html.Append(row[column.ColumnName]);
+            //        html.Append("</td>");
+            //    }
+            //    html.Append("</tr>");
+            //}
 
 
 
-                ////Append the HTML string to Placeholder.
-                //PlaceHolder1.Controls.Add(new Literal { Text = html.ToString() });
-            }
+            ////Table end.
+            //html.Append("</table>");
+
+
+
+            ////Append the HTML string to Placeholder.
+            //PlaceHolder1.Controls.Add(new Literal { Text = html.ToString() });
+
+        }
 
         protected void btnZoek_Click(object sender, EventArgs e)
         {
-            if (DropDownList1.SelectedItem.Value == "Startdatum")
-            {
-                OverzichtGrid.Visible = false;
-                statusgrid.Visible = false;
-                bungalowGrid.Visible = false;
-                typegrid.Visible = false;
-                datumGrid.Visible = true;
-            }
+            RequiredFieldValidator1.Validate();
 
-            if (DropDownList1.SelectedItem.Value == "Bungalownummer")
-            {
-                OverzichtGrid.Visible = false;
-                statusgrid.Visible = false;
-                datumGrid.Visible = false;
-                typegrid.Visible = false;
-                bungalowGrid.Visible = true;
-            }
+            if (RequiredFieldValidator1.IsValid)
+            { 
+                if (DropDownList1.SelectedItem.Value == "Startdatum")
+                {
+                    OverzichtGrid.Visible = false;
+                    statusgrid.Visible = false;
+                    bungalowGrid.Visible = false;
+                    typegrid.Visible = false;
+                    datumGrid.Visible = true;
+                }
 
-            if (DropDownList1.SelectedItem.Value == "Status")
-            {
-                OverzichtGrid.Visible = false;
-                bungalowGrid.Visible = false;
-                datumGrid.Visible = false;
-                typegrid.Visible = false;
-                statusgrid.Visible = true;
+                if (DropDownList1.SelectedItem.Value == "Bungalownummer")
+                {
+                    OverzichtGrid.Visible = false;
+                    statusgrid.Visible = false;
+                    datumGrid.Visible = false;
+                    typegrid.Visible = false;
+                    bungalowGrid.Visible = true;
+                }
 
-            }
+                if (DropDownList1.SelectedItem.Value == "Status")
+                {
+                    OverzichtGrid.Visible = false;
+                    bungalowGrid.Visible = false;
+                    datumGrid.Visible = false;
+                    typegrid.Visible = false;
+                    statusgrid.Visible = true;
 
-            if (DropDownList1.SelectedItem.Value == "Type")
-            {
-                OverzichtGrid.Visible = false;
-                bungalowGrid.Visible = false;
-                datumGrid.Visible = false;
-                statusgrid.Visible = false;
-                typegrid.Visible = true;
+                }
+
+                if (DropDownList1.SelectedItem.Value == "Type")
+                {
+                    OverzichtGrid.Visible = false;
+                    bungalowGrid.Visible = false;
+                    datumGrid.Visible = false;
+                    statusgrid.Visible = false;
+                    typegrid.Visible = true;
+                }
             }
+            
         }
 
         protected void Button2_Click(object sender, EventArgs e)

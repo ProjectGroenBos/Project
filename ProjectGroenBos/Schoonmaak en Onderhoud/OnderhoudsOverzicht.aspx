@@ -23,6 +23,7 @@
 <div id="divZoek" runat="server" class="col-xs-6">
 <br />
     <asp:DropDownList ID="DropDownList1" runat="server" OnSelectedIndexChanged="btnZoek_Click">
+        <asp:ListItem Value="0">-- Selecteer --</asp:ListItem>
         <asp:ListItem>Startdatum</asp:ListItem>
         <asp:ListItem>Bungalownummer</asp:ListItem>
         <asp:ListItem>Status</asp:ListItem>
@@ -31,6 +32,9 @@
      &nbsp;<asp:TextBox ID="searchBox" runat="server" CssClass="form-control" TextMode="SingleLine" CausesValidation="True" Width="185px"></asp:TextBox>
    
 &nbsp;<asp:Button ID="btnZoek" runat="server" BackColor="#0E6251" BorderColor="#0E6251" OnClick="btnZoek_Click" Text="Zoek" ForeColor="White" CssClass="buttonstyle" />
+   
+&nbsp;<br />
+    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="searchBox" ErrorMessage="Vul in" ForeColor="Red"></asp:RequiredFieldValidator>
    
 </div>
         <br />
