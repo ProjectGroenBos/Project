@@ -16,10 +16,20 @@ namespace ProjectGroenBos.Reservering
         string querieadres;
         protected void Page_Load(object sender, EventArgs e)
         {
+            txtAankomstDatum.Visible = false;
+            txtAantalPersonen.Visible = false;
+            txtVertrekdatum.Visible = false;
+            lblReserveringsnummer.Visible = false;
+            Label2.Visible = false;
+            Label3.Visible = false;
+            Label4.Visible = false;
+            Label5.Visible = false;
+            btnWijzigen.Visible = false;
 
         }
         protected void txbAchternaam_TextChanged(object sender, EventArgs e)
         {
+            lblUitkomst.Text = "";
             zoek = txbAchternaam.Text;
 
             using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["2020-BIM02-P1-P2-GroenbosConnectionString"].ConnectionString))
@@ -113,16 +123,61 @@ namespace ProjectGroenBos.Reservering
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Session["Reserveringsnummer"] = (string)GridView1.DataKeys[GridView1.SelectedIndex][0];
-            Session["Aantal_Personen"] = (string)GridView1.DataKeys[GridView1.SelectedIndex][5];
-            Session["Aankomstdatum"] = (string)GridView1.DataKeys[GridView1.SelectedIndex][6];
-            Session["Vertrekdatum"] = (string)GridView1.DataKeys[GridView1.SelectedIndex][7];
+            //Session["reserveringsnummer"] = (string)GridView1.SelectedRow.Cells[1].Text;
+            //Session["aantal_personen"] = (string)GridView1.SelectedRow.Cells[6].Text;
+            //Session["aankomstdatum"] = (string)GridView1.SelectedRow.Cells[7].Text;
+            //Session["vertrekdatum"] = (string)GridView1.SelectedRow.Cells[8].Text;
+
+            txtAankomstDatum.Visible = true;
+            txtAantalPersonen.Visible = true;
+            txtVertrekdatum.Visible = true;
+            lblReserveringsnummer.Visible = true;
+            Label2.Visible = true;
+            Label3.Visible = true;
+            Label4.Visible = true;
+            Label5.Visible = true;
+            btnWijzigen.Visible = true;
 
             //test of het werkt, nog niet
-            lblUitkomst.Text = Session["Reserveringsnummer"].ToString() + Session["Aantal personen"].ToString() + Session["Aankomstdatum"].ToString() + Session["Vertrekdatum"].ToString();
+            lblReserveringsnummer.Text = GridView1.SelectedRow.Cells[1].Text;
+            txtAantalPersonen.Text = GridView1.SelectedRow.Cells[6].Text;
+            txtAankomstDatum.Text = GridView1.SelectedRow.Cells[7].Text;
+            txtVertrekdatum.Text = GridView1.SelectedRow.Cells[8].Text;
 
-            Response.Redirect("ReserveringRijzigen2.aspx");
+
+
+
+        }
+
+        protected void btnWijzigen_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["2020-BIM02-P1-P2-GroenbosConnectionString"].ConnectionString))
+                {
+                    con.Open();
+                    string query = "update Reserveringen set Aantal_personen = @AantalPersonen, Vertrekdatum = @Vertrekdatum, Aankomstdatum = @Aankomstdatum where Nummer = @Nummer";
+                    SqlCommand cmd = new SqlCommand(query, con);
+                    cmd.Parameters.AddWithValue("@AantalPersonen", txtAantalPersonen.Text);
+                    cmd.Parameters.AddWithValue("@Vertrekdatum", txtVertrekdatum.Text);
+                    cmd.Parameters.AddWithValue("@Aankomstdatum", txtAankomstDatum.Text);
+                    cmd.Parameters.AddWithValue("@Nummer", lblReserveringsnummer.Text);
+                    int veranderdeRijen = cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+            }
+            catch
+            {
+                lblUitkomst.Text = "Geen resultaten gevonden.";
+            }
+
+
+
+
+
+
         }
     }
+
 
 }
