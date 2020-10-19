@@ -11,7 +11,6 @@
 
 
             <div class="titel">
-
                 <asp:Label ID="lbltafel" runat="server" Text=""></asp:Label>
             </div>
 

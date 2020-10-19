@@ -294,3 +294,14 @@ C:\Users\herman\Desktop\ProjectGroenBos5-10-2020\obj\Debug\ProjectGroenBos.cspro
 C:\Users\herman\Desktop\ProjectGroenBos5-10-2020\obj\Debug\ProjectGroenBos.dll
 C:\Users\herman\Desktop\ProjectGroenBos5-10-2020\obj\Debug\ProjectGroenBos.pdb
 C:\Users\herman\Documents\Project\ProjectGroenBos\obj\Debug\ProjectGroenBos.csproj.CoreCompileInputs.cache
+C:\Users\lucsw\Documents\GitHub\Project\ProjectGroenBos\obj\Debug\ProjectGroenBos.csprojAssemblyReference.cache
+C:\Users\lucsw\Documents\GitHub\Project\ProjectGroenBos\obj\Debug\ProjectGroenBos.csproj.CoreCompileInputs.cache
+C:\Users\lucsw\Documents\GitHub\Project\ProjectGroenBos\bin\ProjectGroenBos.dll.config
+C:\Users\lucsw\Documents\GitHub\Project\ProjectGroenBos\bin\ProjectGroenBos.dll
+C:\Users\lucsw\Documents\GitHub\Project\ProjectGroenBos\bin\ProjectGroenBos.pdb
+C:\Users\lucsw\Documents\GitHub\Project\ProjectGroenBos\bin\AjaxControlToolkit.dll
+C:\Users\lucsw\Documents\GitHub\Project\ProjectGroenBos\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\lucsw\Documents\GitHub\Project\ProjectGroenBos\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\lucsw\Documents\GitHub\Project\ProjectGroenBos\obj\Debug\ProjectGroenBos.csproj.CopyComplete
+C:\Users\lucsw\Documents\GitHub\Project\ProjectGroenBos\obj\Debug\ProjectGroenBos.dll
+C:\Users\lucsw\Documents\GitHub\Project\ProjectGroenBos\obj\Debug\ProjectGroenBos.pdb
