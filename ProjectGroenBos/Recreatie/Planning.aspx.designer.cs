@@ -42,6 +42,15 @@ namespace recreatie.paginas
         protected global::System.Web.UI.WebControls.TextBox TxbActiviteit;
 
         /// <summary>
+        /// Activiteitvalidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator Activiteitvalidator;
+
+        /// <summary>
         /// SqlDataSource1 control.
         /// </summary>
         /// <remarks>
@@ -69,6 +78,15 @@ namespace recreatie.paginas
         protected global::System.Web.UI.WebControls.TextBox txbLocatie;
 
         /// <summary>
+        /// RequiredFieldValidatorLocatie control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorLocatie;
+
+        /// <summary>
         /// Label5 control.
         /// </summary>
         /// <remarks>
@@ -85,6 +103,15 @@ namespace recreatie.paginas
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TxbAantal;
+
+        /// <summary>
+        /// RequiredFieldValidatorBegeleider control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorBegeleider;
 
         /// <summary>
         /// GridView2 control.
@@ -114,6 +141,15 @@ namespace recreatie.paginas
         protected global::System.Web.UI.WebControls.DropDownList TxbMedewerker;
 
         /// <summary>
+        /// RegularExpressionValidatorBegeleider control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidatorBegeleider;
+
+        /// <summary>
         /// SqlDataSource3 control.
         /// </summary>
         /// <remarks>
@@ -141,6 +177,24 @@ namespace recreatie.paginas
         protected global::System.Web.UI.WebControls.TextBox TxbDatum;
 
         /// <summary>
+        /// Datevalidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator Datevalidator;
+
+        /// <summary>
+        /// RequiredFieldValidatorDatum control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorDatum;
+
+        /// <summary>
         /// Label7 control.
         /// </summary>
         /// <remarks>
@@ -157,6 +211,33 @@ namespace recreatie.paginas
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TxbBegintijd;
+
+        /// <summary>
+        /// RegularExpressionValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
+
+        /// <summary>
+        /// RequiredFieldValidatorBegintijd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorBegintijd;
+
+        /// <summary>
+        /// RegularExpressionValidatorBegintijd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidatorBegintijd;
 
         /// <summary>
         /// Label8 control.
@@ -177,6 +258,24 @@ namespace recreatie.paginas
         protected global::System.Web.UI.WebControls.TextBox TxbEindtijd;
 
         /// <summary>
+        /// RequiredFieldValidatorEindtijd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorEindtijd;
+
+        /// <summary>
+        /// RegularExpressionValidatorEindtijd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidatorEindtijd;
+
+        /// <summary>
         /// Label10 control.
         /// </summary>
         /// <remarks>
@@ -193,6 +292,33 @@ namespace recreatie.paginas
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txbInschrijfkosten;
+
+        /// <summary>
+        /// RangeValidatorInschrijfkosten control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RangeValidator RangeValidatorInschrijfkosten;
+
+        /// <summary>
+        /// RegularExpressionValidatorInschrijfkosten control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidatorInschrijfkosten;
+
+        /// <summary>
+        /// RequiredFieldValidatorInschrijfkosten control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorInschrijfkosten;
 
         /// <summary>
         /// Label11 control.

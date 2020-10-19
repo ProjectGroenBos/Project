@@ -145,8 +145,6 @@ body {
     text-align: center;
 }
 
-
-
 /* table */
 .content-table {
     border-collapse: collapse;
@@ -156,6 +154,7 @@ body {
     border-radius: 5px 5px 0 0;
     overflow: hidden;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+
     margin-left: auto;
     margin-right: auto;
 }
@@ -216,7 +215,6 @@ body {
                 color: #ffffff;
             }
 
-
 .eerstetable {
     width: 60%;
     margin-left: auto;
@@ -230,25 +228,30 @@ body {
 }
 
     .tweedetable tr:nth-child(2) input {
-        width: 80px;
+        width: 80px;        
     }
 
 .mainpanel {
     width: 70%;
     height: auto;
     min-height: 100px;
+
     margin-left: 5%;
     margin-top: 5%;
+
     display: inline-block;
     vertical-align: top;
 }
 
 .sidepanel {
-    width: 20%;
+    width: 20%; 
+    
     height: auto;
     min-height: 100px;
+    
     display: inline-block;
     vertical-align: top;
+
     margin-top: 5%;
 }
 
@@ -271,11 +274,11 @@ body {
     background-color: orangered;
 }
 
-.button:active {
-    background-color: ghostwhite;
-    box-shadow: 0 5px #666;
-    transform: translateY(4px);
-}
+    .button:active {
+        background-color: ghostwhite;
+        box-shadow: 0 5px #666;
+        transform: translateY(4px);
+    }
 
 /*Navigator*/
 .navigator {
@@ -341,16 +344,16 @@ nav {
             text-decoration: none;
         }
 
-.uitloggen {
-    color: rgba(14,98,81,1);
-    background-color: #fff;
-    border-radius: 25px;
-}
+        .uitloggen{
+            color: rgba(14,98,81,1);
+            background-color: #fff;
+            border-radius: 25px;
+        }
 
-nav ul {
-    list-style-type: none;
-    overflow: hidden;
-}
+    nav ul {
+        list-style-type: none;
+        overflow: hidden;
+    }
 
 
 .btnUitloggen {
@@ -367,20 +370,19 @@ nav ul {
     border-color: #fff;
 }
 
-    .btnUitloggen:hover {
-        background-color: transparent;
-        color: #fff;
-    }
-
+.btnUitloggen:hover {
+    background-color: transparent;
+    color: #fff;
+}
 
 .inline-flex {
     display: flex;
     justify-content: center;
 }
 
-    .inline-flex > div {
-        text-align: center;
-    }
+.inline-flex > div {
+    text-align: center;
+}
 
 .logofactuur {
     display: none;
@@ -401,152 +403,10 @@ nav ul {
     justify-content: space-evenly;
 }
 
-.gegevens_factuur {
-    display: flex;
-    align-content: center;
-    justify-content: space-between;
-    width: 60%;
-    margin-left: 20%;
-}
-
-
-.factuur_text {
-    display: none;
-}
-
-/* Transactie timeline */
-.timeline {
-    color: #fff;
-    position: relative;
-    margin: 0 auto;
-    width: 90%;
-}
-
-    .timeline ul li {
-        margin-bottom: 50px;
-        list-style-type: none;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-    }
-
-.point {
-    min-width: 20px;
-    height: 20px;
-    background-color: #009879;
-    border-radius: 100%;
-    z-index: 2;
-    border: 3px #333333 solid;
-    position: relative;
-}
-
-.timeline ul li:nth-child(even) .point {
-    left: 4px;
-}
-
-.timeline ul li:nth-child(odd) .point {
-    left: -1px;
-}
-
-
-.timeline ul li .content {
-    width: 50%;
-    padding: 0 20px;
-}
-
-.timeline ul li:nth-child(odd) .content {
-    padding-left: 0;
-}
-
-.timeline ul li:nth-child(odd) .date {
-    padding-right: 0;
-}
-
-.timeline ul li:nth-child(even) .content {
-    padding-right: 0;
-}
-
-.timeline ul li:nth-child(even) .date {
-    padding-left: 0;
-}
-
-.timeline ul li .date {
-    width: 50%;
-    padding: 0 20px;
-    font-weight: normal;
-}
-
-    .timeline ul li .date h6 {
-        background-color: #009879;
-        width: 100px;
-        text-align: center;
-        padding: 5px 10px;
-        border-radius: 10px;
-    }
-
-.timeline ul li .content h3 {
-    padding: 10px 20px;
-    background-color: rgba(20,143,119,1);
-    margin-bottom: 0;
-    text-align: center;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-}
-
-.timeline ul li .content p {
-    padding: 10px 20px;
-    background-color: #009879;
-    margin-top: 0;
-    text-align: center;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-}
-
-.timeline ul li:nth-child(even) {
-    flex-direction: row-reverse;
-}
-
-    .timeline ul li:nth-child(even) .date h6 {
-        float: right
-    }
-
-.timeline::before {
-    content: "";
-    position: absolute;
-    height: 100%;
-    width: 3px;
-    left: 50%;
-    background-color: #333333;
-}
-
-@media (max-width: 800px) {
-    .point {
-        min-width: 15px;
-        height: 15px;
-    }
-
-    html, body {
-        font-size: 15px;
-    }
-}
-
-@media (max-width: 650px) {
-    html, body {
-        font-size: 14px;
-    }
-
-    .point {
-        min-width: 12px;
-        height: 12px;
-    }
-}
-
-@media (max-width: 450px) {
-    html, body {
-        font-size: 10px;
-    }
-
-    p {
-        padding: 10px !important;
-    }
+.Raar {
+    text-align: left;
+    float: left;
+    margin-left: 10%;
+margin-bottom: 25%;
+margin-top: 10%
 }

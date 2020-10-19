@@ -7,39 +7,57 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace recreatie.paginas
+namespace ProjectGroenBos.Recreatie
 {
 
 
-    public partial class Beheer
+    public partial class Voorraadmuteren
     {
 
         /// <summary>
-        /// Label3 control.
+        /// Label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
+        protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
-        /// Image2 control.
+        /// Label2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image2;
+        protected global::System.Web.UI.WebControls.Label Label2;
 
         /// <summary>
-        /// txtZoekbalk control.
+        /// txbZoekenVoorraadmuteren control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtZoekbalk;
+        protected global::System.Web.UI.WebControls.TextBox txbZoekenVoorraadmuteren;
+
+        /// <summary>
+        /// CheckBox1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox CheckBox1;
+
+        /// <summary>
+        /// CheckBox2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox CheckBox2;
 
         /// <summary>
         /// GridView1 control.
@@ -51,48 +69,21 @@ namespace recreatie.paginas
         protected global::System.Web.UI.WebControls.GridView GridView1;
 
         /// <summary>
-        /// btnSelecteren control.
+        /// BtnNieuwartikel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSelecteren;
+        protected global::System.Web.UI.WebControls.Button BtnNieuwartikel;
 
         /// <summary>
-        /// BtnBestellen control.
+        /// SqlDataSource1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnBestellen;
-
-        /// <summary>
-        /// gvVoorraad control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvVoorraad;
-
-        /// <summary>
-        /// gvOrderaanvragen control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvOrderaanvragen;
-
-        /// <summary>
-        /// BtnAanvraag control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnAanvraag;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
     }
 }

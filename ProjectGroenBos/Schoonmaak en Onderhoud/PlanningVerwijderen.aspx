@@ -43,10 +43,14 @@
             <asp:Button ID="btnTerug" runat="server" BackColor="#0E6251" BorderColor="#0E6251" CssClass="buttonstyle" ForeColor="White" OnClick="btnTerug_Click" Text="Terug naar Overzicht" />
             <br />
         </center>
+<<<<<<< HEAD
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT Medewerker.Naam, Schoonmaakopdracht.Nummer, Datum, Omschrijving, BungalowNummer, MedewerkerNummer  FROM [Schoonmaakopdracht] left join Medewerker on Medewerker.Nummer = Schoonmaakopdracht.MedewerkerNummer" DeleteCommand="delete from Schoonmaakopdracht where nummer = @nummer">
             <DeleteParameters>
                 <asp:Parameter Name="nummer" />
             </DeleteParameters>
         </asp:SqlDataSource>
+=======
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:con %>" SelectCommand="SELECT Medewerker.Naam, Schoonmaakopdracht.Nummer, Datum, Omschrijving, BungalowNummer, MedewerkerNummer  FROM [Schoonmaakopdracht] left join Medewerker on Medewerker.Nummer = Schoonmaakopdracht.MedewerkerNummer" DeleteCommand="delete from Schoonmaakopdracht where nummer = @nummer"></asp:SqlDataSource>
+>>>>>>> RecreatieTeam/DaanHeemskerk
     </div>
 </asp:Content>
