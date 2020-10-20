@@ -398,13 +398,21 @@ nav ul {
 
 .labelsnieuw {
     position: relative;
-    width: 240px;
+    width: 289px;
     left: 75px;
     display: inline-block;
+    top: 0px;
 }
 
 .textboxbtn {
-    left: 74px;
+    left: 75px;
+    position: relative;
+    display: inline-block;
+    top: 0px;
+}
+.radiobut {
+    left: 75px;
+    width: 350px;
     position: relative;
     display: inline-block;
     top: 0px;
