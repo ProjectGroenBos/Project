@@ -156,7 +156,7 @@ namespace ProjectGroenBos.Reservering
                 using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["2020-BIM02-P1-P2-GroenbosConnectionString"].ConnectionString))
                 {
                     con.Open();
-                    string query = "update Reserveringen set Aantal_personen = @AantalPersonen, Vertrekdatum = @Vertrekdatum, Aankomstdatum = @Aankomstdatum where Nummer = @Nummer";
+                    string query = "update Reservering set Aantal_personen = @AantalPersonen, Vertrekdatum = @Vertrekdatum, Aankomstdatum = @Aankomstdatum where Nummer = @Nummer";
                     SqlCommand cmd = new SqlCommand(query, con);
                     cmd.Parameters.AddWithValue("@AantalPersonen", txtAantalPersonen.Text);
                     cmd.Parameters.AddWithValue("@Vertrekdatum", txtVertrekdatum.Text);

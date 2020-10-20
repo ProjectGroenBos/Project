@@ -409,6 +409,7 @@ nav ul {
     position: relative;
     display: inline-block;
     top: 0px;
+    height: 26px;
 }
 .radiobut {
     left: 75px;
