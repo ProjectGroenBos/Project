@@ -68,7 +68,7 @@ where op.OnderhoudsopdrachtNummer = ond.Nummer"></asp:SqlDataSource>
         </asp:DropDownList>
                     <p>Totaalbedrag</p>
                     <asp:TextBox ID="txbTotaalbedrag" Style="text-align: center" Height="50px" Width="100%" runat="server"></asp:TextBox>
-                    <p>Termijn</p>
+                    <p>Uiterste betaaldatum</p>
                     <asp:TextBox ID="txbTermijn" Style="text-align: center" Height="50px" Width="100%" runat="server"></asp:TextBox>
                     <p>Factuurtype</p>
                     <asp:DropDownList ID="dlFactuurtype" Style="text-align: center; margin-top: 10px;" Height="50px" Width="100%" runat="server">

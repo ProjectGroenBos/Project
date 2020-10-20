@@ -93,7 +93,7 @@ namespace ProjectGroenBos.Financien
                 {
                     int Offerte = int.Parse(txtbOfferte.Text);
                     string commandText = "INSERT INTO [dbo].[Crediteurenfactuur] ([Datum],[Betalen aan],[OfferteNummer],[Totaal bedrag],[Termijn],[Omschrijving betaalcondities],[OnderhoudsopdrachtNummer],[FactuurstatusID],[IBAN]) VALUES" +
-                        "(@Datum, @Betalen_aan, @Totaal_bedrag, @Termijn, @Omschrijving, @OnderhoudsopdrachtNummer, @FactuurstatusID, @IBAN,@OfferteNummer)";
+                        "(@Datum, @Betalen_aan,@OfferteNummer, convert(real, @Totaal_bedrag), @Termijn, @Omschrijving, @OnderhoudsopdrachtNummer, @FactuurstatusID, @IBAN)";
 
                     using (SqlConnection connection = new SqlConnection(constr))
 
