@@ -62,7 +62,6 @@ namespace ProjectGroenBos.Financien
         {
 
             int ID = int.Parse(txbORDERID.Text);
-            int Offerte= int.Parse(txtbOfferte.Text);
             double Tbetaald = double.Parse(txbTotaalbedrag.Text);
 
             if (dlFactuurtype.SelectedItem.Text == "Inkooporder")
@@ -87,28 +86,37 @@ namespace ProjectGroenBos.Financien
                     command.ExecuteNonQuery();
                 }
             }
-
+            
             else if (dlFactuurtype.SelectedItem.Text == "Offerte")
             {
-                string commandText = "INSERT INTO [dbo].[Crediteurenfactuur] ([Datum],[Betalen aan],[Offerte],[Totaal bedrag],[Termijn],[Omschrijving betaalcondities],[OnderhoudsopdrachtNummer],[FactuurstatusID],[IBAN]) VALUES" +
-                    "(@Datum, @Betalen_aan, @Totaal_bedrag, @Termijn, @Omschrijving, @OnderhoudsopdrachtNummer, @FactuurstatusID, @IBAN),@Offerte";
-
-                using (SqlConnection connection = new SqlConnection(constr))
+                try
                 {
-                    SqlCommand command = new SqlCommand(commandText, connection);
-                    command.Parameters.AddWithValue("@Datum", DateTime.Now);
-                    command.Parameters.AddWithValue("@Betalen_aan", leverancieraanemer.SelectedItem.Text);
-                    command.Parameters.AddWithValue("@Totaal_bedrag", Tbetaald);
-                    command.Parameters.AddWithValue("@Termijn", txbTermijn.Text);
-                    command.Parameters.AddWithValue("@Omschrijving", dlFactuurtype.SelectedItem.Text);
-                    command.Parameters.AddWithValue("@OnderhoudsopdrachtNummer", ID);
-                    command.Parameters.AddWithValue("@FactuurstatusID", "4");
-                    command.Parameters.AddWithValue("@Offerte", Offerte);
-                    command.Parameters.AddWithValue("@IBAN", txbIBAN.Text);
+                    int Offerte = int.Parse(txtbOfferte.Text);
+                    string commandText = "INSERT INTO [dbo].[Crediteurenfactuur] ([Datum],[Betalen aan],[OfferteNummer],[Totaal bedrag],[Termijn],[Omschrijving betaalcondities],[OnderhoudsopdrachtNummer],[FactuurstatusID],[IBAN]) VALUES" +
+                        "(@Datum, @Betalen_aan, @Totaal_bedrag, @Termijn, @Omschrijving, @OnderhoudsopdrachtNummer, @FactuurstatusID, @IBAN,@OfferteNummer)";
 
-                    connection.Open();
+                    using (SqlConnection connection = new SqlConnection(constr))
 
-                    command.ExecuteNonQuery();
+                    {
+                        SqlCommand command = new SqlCommand(commandText, connection);
+                        command.Parameters.AddWithValue("@Datum", DateTime.Now);
+                        command.Parameters.AddWithValue("@Betalen_aan", leverancieraanemer.SelectedItem.Text);
+                        command.Parameters.AddWithValue("@Totaal_bedrag", Tbetaald);
+                        command.Parameters.AddWithValue("@Termijn", txbTermijn.Text);
+                        command.Parameters.AddWithValue("@Omschrijving", dlFactuurtype.SelectedItem.Text);
+                        command.Parameters.AddWithValue("@OnderhoudsopdrachtNummer", ID);
+                        command.Parameters.AddWithValue("@FactuurstatusID", "4");
+                        command.Parameters.AddWithValue("@OfferteNummer", Offerte);
+                        command.Parameters.AddWithValue("@IBAN", txbIBAN.Text);
+
+                        connection.Open();
+
+                        command.ExecuteNonQuery();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Response.Write("Error occured: " + ex.Message.ToString());
                 }
             }
            

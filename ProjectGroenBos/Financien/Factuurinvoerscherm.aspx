@@ -61,7 +61,7 @@ where op.OnderhoudsopdrachtNummer = ond.Nummer"></asp:SqlDataSource>
                     <asp:TextBox ID="txbIBAN" Style="text-align: center" Height="50px" Width="100%" runat="server"></asp:TextBox>
                     <p>OrderID/OnderhoudsID</p>
                     <asp:TextBox ID="txbORDERID" Style="text-align: center" Height="50px" Width="100%" runat="server"></asp:TextBox>
-                    <p>OffereID</p>
+                    <p>OfferteID</p>
                     <asp:TextBox ID="txtbOfferte" placeholder="hoeft alleen bij offerte" Style="text-align: center" Height="50px" Width="100%" runat="server"></asp:TextBox>
                     <asp:Button ID="btnToevoegen" CssClass="btnToevoegen" runat="server" Text="goedkeuren" OnClick="btnToevoegen_Click" />
                 </div>
