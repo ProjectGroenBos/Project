@@ -68,7 +68,6 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Financien\Betaalscherm.aspx" />
     <Content Include="Financien\Openstaandecreditnota.aspx" />
     <Content Include="Financien\css\main.css" />
     <Content Include="Financien\Factuurinvoerscherm.aspx" />
@@ -459,13 +458,6 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Financien\Betaalscherm.aspx.cs">
-      <DependentUpon>Betaalscherm.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Financien\Betaalscherm.aspx.designer.cs">
-      <DependentUpon>Betaalscherm.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Financien\Openstaandecreditnota.aspx.cs">
       <DependentUpon>Openstaandecreditnota.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

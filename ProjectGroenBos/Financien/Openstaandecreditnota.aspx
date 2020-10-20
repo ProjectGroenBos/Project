@@ -58,7 +58,7 @@
         function betalingsuccess() {
             Swal.fire({
                 icon: 'success',
-                title: 'Betaling succesvol in database gezet.',
+                title: 'Betaling is opgehoogd!',
                 showConfirmButton: false,
                 timer: 4000
             })
@@ -239,7 +239,7 @@
 
                                 <br />
                               
-                                <asp:Button ID="btnBetalen" runat="server" OnClick="btnBetalen_Click" CssClass="btn btn-primary" CommandName="<%# Container.ItemIndex %>" CommandArgument='<%# Eval("Nummer")%>' Text="Betaal factuur" />
+                                <asp:Button ID="btnBetalen" runat="server" OnClick="btnBetalen_Click" CssClass="btn btn-primary btn-lg btn-block" CommandArgument='<%# Eval("Nummer")%>' Text="Betaal factuur" />
 
                             </div>
                             <div class="modal-footer">
@@ -305,7 +305,7 @@
 
 
 
-                                <asp:Button ID="btnBetaal" class="btn btn-primary btn-lg btn-block" OnClick="btnToevoegen2_Click" runat="server" Text="Betaal factuur" />
+                                <asp:Button ID="btnBetaal" class="btn btn-primary btn-lg btn-block" OnClick="btnToevoegen2_Click" CommandName="<%# Container.ItemIndex %>"  runat="server" Text="Betaal factuur" />
 
                             </div>
                             <div class="modal-footer">
