@@ -2,6 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head2" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
+    &nbsp;<h1>Reservering wijzigen</h1>
     <!DOCTYPE html>
 
 <html>
@@ -27,34 +28,28 @@
         <asp:TextBox ID="txbAchternaam" runat="server" AutoPostBack="True" OnTextChanged="txbAchternaam_TextChanged" CssClass="textboxchaos"></asp:TextBox>
         <br />
         <br />
-        <asp:GridView ID="GridView1" runat="server" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" CssClass="radiobut" AutoGenerateSelectButton="True">
+        <asp:GridView ID="GridView1" runat="server" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" CssClass="gridv" AutoGenerateSelectButton="True">
         </asp:GridView>
         &nbsp;&nbsp;&nbsp;
-        <br />
-        <br />
         <br />
         <asp:Label ID="lblUitkomst" runat="server" CssClass="labelsnieuw"></asp:Label>
   
         <br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Label ID="Label2" runat="server" Text="Reserveringsnummer:"></asp:Label>
+        <asp:Label ID="Label2" runat="server" Text="Reserveringsnummer:" CssClass="labelsnieuw"></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Label ID="lblReserveringsnummer" runat="server" Text="Label"></asp:Label>
+        <asp:Label ID="lblReserveringsnummer" runat="server" Text="Label" CssClass="textboxchaos"></asp:Label>
         <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Label ID="Label3" runat="server" Text="Aantal Personen"></asp:Label>
+        <asp:Label ID="Label3" runat="server" Text="Aantal Personen" CssClass="labelsnieuw"></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:TextBox ID="txtAantalPersonen" runat="server"></asp:TextBox>
+        <asp:TextBox ID="txtAantalPersonen" runat="server" CssClass="textboxchaos"></asp:TextBox>
         <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Label ID="Label4" runat="server" Text="Aankomstdatum: "></asp:Label>
+        <asp:Label ID="Label4" runat="server" Text="Aankomstdatum: " CssClass="labelsnieuw"></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:TextBox ID="txtAankomstDatum" runat="server"></asp:TextBox>
+        <asp:TextBox ID="txtAankomstDatum" runat="server" CssClass="textboxchaos"></asp:TextBox>
         <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Label ID="Label5" runat="server" Text="Vertrekdatum: "></asp:Label>
+        <asp:Label ID="Label5" runat="server" Text="Vertrekdatum: " CssClass="labelsnieuw"></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:TextBox ID="txtVertrekdatum" runat="server"></asp:TextBox>
+        <asp:TextBox ID="txtVertrekdatum" runat="server" CssClass="textboxchaos"></asp:TextBox>
         <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <br />
