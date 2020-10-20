@@ -91,6 +91,7 @@
     <Content Include="Recreatie\Planning.aspx" />
     <Content Include="Recreatie\Uitloggen.aspx" />
     <Content Include="Recreatie\Voorraadfout.aspx" />
+    <Content Include="Reservering\MailReserveringGewijzigd.html" />
     <Content Include="Reservering\ReserveringenwijzigenMASTER.aspx" />
     <Content Include="Reservering\ReserveringWijzigen.aspx" />
     <Content Include="Reservering\css\Stylejuist.css" />

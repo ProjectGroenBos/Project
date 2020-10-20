@@ -346,7 +346,7 @@ namespace ProjectGroenBos.Reservering
                 {
                     con.Open();
 
-                    SqlCommand sqlquery = new SqlCommand("[dbo].[InsertReservering_Bungalow]");
+                    SqlCommand sqlquery = new SqlCommand("insert into Reservering_Bungalow (ReserveringNummer, BungalowNummer) values (@ReserveringNummer, @BungalowNummer)");
 
                     sqlquery.Parameters.AddWithValue("@ReserveringNummer", reservering);
                     sqlquery.Parameters.AddWithValue("@BungalowNummer", nummer);

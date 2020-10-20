@@ -409,10 +409,19 @@ nav ul {
     position: relative;
     display: inline-block;
     top: 0px;
+    height: 26px;
 }
+
 .radiobut {
     left: 75px;
     width: 350px;
+    position: relative;
+    display: inline-block;
+    top: 0px;
+}
+
+.gridv {
+    left: 75px;
     position: relative;
     display: inline-block;
     top: 0px;
