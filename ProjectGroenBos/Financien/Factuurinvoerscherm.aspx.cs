@@ -141,6 +141,7 @@ namespace ProjectGroenBos.Financien
                     command.ExecuteNonQuery();
                 }
             }
+            ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "factuursuccess();", true);
         }
         protected void BtnRetour_Click(object sender, EventArgs e)
         {
@@ -165,6 +166,7 @@ namespace ProjectGroenBos.Financien
 
                 command.ExecuteNonQuery();
             }
+            ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "retoursuccess();", true);
         }
         protected void GridView2_SelectedIndexChanged(object sender, EventArgs e)
         {

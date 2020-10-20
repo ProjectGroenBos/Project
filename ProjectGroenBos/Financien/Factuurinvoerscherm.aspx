@@ -1,9 +1,29 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Financien/Financien.Master" AutoEventWireup="true" CodeBehind="Factuurinvoerscherm.aspx.cs" Inherits="ProjectGroenBos.Financien.Factuurinvoerscherm" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script>
+        function factuursuccess() {
+            Swal.fire({
+                icon: 'success',
+                title: 'De factuur is aangemaakt.',
+                showConfirmButton: false,
+                timer: 4000
+            })
+        }
+        function retoursuccess() {
+            Swal.fire({
+                icon: 'success',
+                title: 'De factuur is naar retour verzonden.',
+                showConfirmButton: false,
+                timer: 4000
+            })
+        }
+        </script> 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
 <!DOCTYPE html>
+
     <div class="container">
 
 <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#ToevoegenModal1">Factuur toevoegen</button>
