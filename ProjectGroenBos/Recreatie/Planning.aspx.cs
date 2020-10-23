@@ -17,6 +17,7 @@ namespace recreatie.paginas
         DataTable Activteit;
         int Currentactivity;
         DataTable dt = new DataTable();
+        private int index;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -168,7 +169,8 @@ namespace recreatie.paginas
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            GetActivityData(int.Parse(GridView1.SelectedRow.Cells[0].Text));
+            index = int.Parse(GridView1.SelectedRow.Cells[0].Text);
+            GetActivityData(index);
             Textboxesvullen();
             btnActiviteitInplannen.Text = "Wijzigen";
 
@@ -269,8 +271,6 @@ namespace recreatie.paginas
             TxbDatum.Text = "";
             txbInschrijfkosten.Text = "";
 
-            GridView1.SelectedIndex = -1;
-
             GridView2.DataSource = null;
             ViewState["Medewerker"] = null;
             GridView2.DataBind();
@@ -282,23 +282,22 @@ namespace recreatie.paginas
 
             using (SqlConnection Sqlcon = new SqlConnection(connectionstring))
             {
-                SqlCommand command;
+                Sqlcon.Open();
                 SqlDataAdapter ada = new SqlDataAdapter();
-                int index = int.Parse(GridView1.SelectedRow.Cells[0].Text);
-                Activteit.Rows[index].Delete();
 
-                string sql = "Delete FROM [vActiviteit] where Nummer = @Nummer";
-               
-                command = new SqlCommand(sql, Sqlcon);
-                command.Parameters.AddWithValue("@Nummer", index);
+                int  index2 = int.Parse(GridView1.SelectedRow.Cells[0].Text);
 
-                ada.DeleteCommand = new SqlCommand(sql,Sqlcon);
-                ada.DeleteCommand.ExecuteNonQuery();
+                string sql = "UPDATE dbo.Activiteit SET ActiviteitActief = 0 WHERE Nummer = @Nummer";
+                GridView1.Rows[GridView1.SelectedIndex].Visible = false;
+                SqlCommand command = new SqlCommand(sql, Sqlcon);
+                command.Parameters.AddWithValue("@Nummer", Convert.ToInt32(index2));
 
+                command.ExecuteNonQuery();
+                GridView1.DataBind();
                 command.Dispose();
                 Sqlcon.Close();
             }
-
+            GridView1.SelectedIndex = -1;
         }
     }
 }

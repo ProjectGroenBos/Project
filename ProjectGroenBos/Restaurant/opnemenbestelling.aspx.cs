@@ -11,7 +11,9 @@ namespace ProjectGroenBos.Restaurant
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            lbltafel.Text = Session["Tafelnr"].ToString();
+
+            lblTafel.Text = Session["Tafelnr"].ToString();
+
         }
     }
 }

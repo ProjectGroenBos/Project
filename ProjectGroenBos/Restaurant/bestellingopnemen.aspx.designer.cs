@@ -15,6 +15,15 @@ namespace ProjectGroenBos.Restaurant
     {
 
         /// <summary>
+        /// lblTafel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTafel;
+
+        /// <summary>
         /// lblSelectedProducts control.
         /// </summary>
         /// <remarks>
@@ -33,13 +42,13 @@ namespace ProjectGroenBos.Restaurant
         protected global::System.Web.UI.WebControls.GridView GridView2;
 
         /// <summary>
-        /// btnBetalen control.
+        /// btnBestellen control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnBetalen;
+        protected global::System.Web.UI.WebControls.Button btnBestellen;
 
         /// <summary>
         /// DataList1 control.

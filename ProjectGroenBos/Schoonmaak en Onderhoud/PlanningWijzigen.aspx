@@ -21,12 +21,12 @@
         <center>
         <asp:GridView ID="GridView1" Width="75%" runat="server" AutoGenerateColumns="False" DataKeyNames="Nummer" DataSourceID="SqlDataSource1" BackColor="White" BorderColor="#0E6251" BorderStyle="Solid" BorderWidth="1px" CellPadding="5" GridLines="Vertical" OnSelectedIndexChanged="GridView1_SelectedIndexChanged1">
             <Columns>
-                <asp:CommandField  ButtonType="Image" SelectImageUrl="~/Images/SelectIcon.png" ShowSelectButton="True"  />
-                <asp:BoundField DataField="Nummer" HeaderText="Nummer" InsertVisible="False" ReadOnly="True" SortExpression="Nummer" />
-                <asp:BoundField DataField="Datum" HeaderText="Datum" SortExpression="Datum" DataFormatString="{0:d}" />
+                <asp:BoundField DataField="Naam" HeaderText="Naam" SortExpression="Naam" />
+                <asp:BoundField DataField="Nummer" HeaderText="Nummer" SortExpression="Nummer" InsertVisible="False" ReadOnly="True" />
+                <asp:BoundField DataField="Datum" HeaderText="Datum" SortExpression="Datum" />
                 <asp:BoundField DataField="Omschrijving" HeaderText="Omschrijving" SortExpression="Omschrijving" />
-                <asp:BoundField DataField="BungalowNummer" HeaderText="Bungalownummer" SortExpression="BungalowNummer" />
-                <asp:BoundField DataField="Naam" HeaderText="Medewerker" SortExpression="MedewerkerNaam" />
+                <asp:BoundField DataField="BungalowNummer" HeaderText="BungalowNummer" SortExpression="BungalowNummer" />
+                <asp:BoundField DataField="MedewerkerNummer" HeaderText="MedewerkerNummer" SortExpression="MedewerkerNummer" />
             </Columns>
         <AlternatingRowStyle BackColor="#f0f0f0" />
         <FooterStyle BackColor="#CCCCCC" />
@@ -41,9 +41,9 @@
         </center>
     </div>
     <br />
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:con %>" SelectCommand="SELECT Medewerker.Naam, Schoonmaakopdracht.Nummer, Datum, Omschrijving, BungalowNummer, MedewerkerNummer  FROM [Schoonmaakopdracht] left join Medewerker on Medewerker.Nummer = Schoonmaakopdracht.MedewerkerNummer"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT Medewerker.Naam, Schoonmaakopdracht.Nummer, Datum, Omschrijving, BungalowNummer, MedewerkerNummer  FROM [Schoonmaakopdracht] left join Medewerker on Medewerker.Nummer = Schoonmaakopdracht.MedewerkerNummer"></asp:SqlDataSource>
 
-                        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:con %>" SelectCommand="SELECT [Nummer], [Naam] FROM [Medewerker]"></asp:SqlDataSource>
+                        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT [Nummer], [Naam] FROM [Medewerker]"></asp:SqlDataSource>
 
         <div style="text-align:center;">
   <div style="width:65%; margin: 0 auto; text-align:left;">
@@ -73,6 +73,8 @@
                          </td>
 
                      <td class="auto-style9">
+
+                         <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtDatum" ErrorMessage="Invoer ongeldig " ForeColor="Red" ValidationExpression="^(?:(?:31(\/|-|\.)(?:0?[13578]|1[02]))\1|(?:(?:29|30)(\/|-|\.)(?:0?[13-9]|1[0-2])\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:29(\/|-|\.)0?2\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8])(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:(?:1[6-9]|[2-9]\d)?\d{2})$"></asp:RegularExpressionValidator>
 
                          </td>
                 </tr>

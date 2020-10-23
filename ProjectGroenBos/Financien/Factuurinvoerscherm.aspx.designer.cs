@@ -15,22 +15,31 @@ namespace ProjectGroenBos.Financien
     {
 
         /// <summary>
-        /// gvFactuur control.
+        /// SqlDataSource8 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvFactuur;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource8;
 
         /// <summary>
-        /// txbLeverancier control.
+        /// GridView2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txbLeverancier;
+        protected global::System.Web.UI.WebControls.GridView GridView2;
+
+        /// <summary>
+        /// leverancieraanemer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList leverancieraanemer;
 
         /// <summary>
         /// txbTotaalbedrag control.
@@ -141,13 +150,13 @@ namespace ProjectGroenBos.Financien
         protected global::System.Web.UI.WebControls.TextBox txtbInkoopID;
 
         /// <summary>
-        /// txtbLeverancierID control.
+        /// leverancier control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtbLeverancierID;
+        protected global::System.Web.UI.WebControls.DropDownList leverancier;
 
         /// <summary>
         /// BtnRetour control.
