@@ -54,8 +54,8 @@ namespace ProjectGroenBos.Financien
 
         protected void btnToevoegen_Click(object sender, EventArgs e)
         {
-            string commandText = "INSERT INTO [dbo].[Medewerker] ([Wachtwoord],[Contracturen per week],[In dienst sinds],[Uurloon],[AfdelingID],[Naam],[Geboortedatum],[AdresHuisnummer],[AdresPostcode],[FunctieID]) VALUES" +
-                "(@Wachtwoord, @Contract_uren_per_week, convert(datetime,@in_dienst_sinds,104),@Uurloon, @AfdelingID, @Naam, convert(datetime,@Geboortedatum,104), @AdresHuisnummer, @AdresPostcode, @FunctieID)";
+            string commandText = "INSERT INTO [dbo].[Medewerker] ([Wachtwoord],[Contracturen per week],[In dienst sinds],[Uurloon], [Salaris per maand], [AfdelingID],[Naam],[Geboortedatum],[AdresHuisnummer],[AdresPostcode],[FunctieID]) VALUES" +
+                "(@Wachtwoord, @Contract_uren_per_week, convert(datetime,@in_dienst_sinds,104),@Uurloon, @Salaris_per_maand, @AfdelingID, @Naam, convert(datetime,@Geboortedatum,104), @AdresHuisnummer, @AdresPostcode, @FunctieID)";
 
             using (SqlConnection connection = new SqlConnection(constr))
             {
@@ -64,6 +64,7 @@ namespace ProjectGroenBos.Financien
                 command.Parameters.AddWithValue("@Contract_uren_per_week", txbContracturen.Text);
                 command.Parameters.AddWithValue("@in_dienst_sinds", txbInDienst.Text);
                 command.Parameters.AddWithValue("@Uurloon", "1");
+                command.Parameters.AddWithValue("@Salaris_per_maand", txbSalaris.Text);
                 command.Parameters.AddWithValue("@AfdelingID", dlAfdeling.SelectedValue);
                 command.Parameters.AddWithValue("@Naam", txbNaam.Text);
                 command.Parameters.AddWithValue("@Geboortedatum", txbGeboortedatum.Text);
