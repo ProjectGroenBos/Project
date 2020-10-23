@@ -97,7 +97,7 @@
                 <asp:BoundField DataField="Omschrijving" HeaderText="Status" SortExpression="Omschrijving" />
                 <asp:TemplateField>
                     <ItemTemplate>
-                        <button type="button" style="background-color: #009879; color: #fff" class="btn" data-toggle="modal" data-target="#modal<%# Eval("Nummer") %>">Zie rekeningen</button>
+                         <asp:Button ID="btnRekeningen" runat="server" OnClick="btnRekeningen_Click" style="background-color: #009879; color: #fff" class="btn"  CommandArgument='<%# Eval("Nummer")%>' Text="Zie rekeningen" />
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>
@@ -276,23 +276,12 @@
                                             <td><%# Eval("Betalen aan") %> <%# Eval("IBAN") %></td>
                                         </tr>
                                         <tr>
-                                            <td>Reeds betaald</td><td> <asp:Label ID="Lblreedsbetaald" runat="server" Text="Nog niks"></asp:Label></td>
+                                          
                                         </tr>
                                     </tbody>
                                 </table>
                                
 
-                                <table class="content-table" style="margin-top: +25px">
-                                    <tbody>
-                                        <tr>
-                                            <td>Bedrag overgemaakt</td>
-                                            <td>
-                                                <asp:TextBox ID="txtBedrag" runat="server"> </asp:TextBox>
-                                                <asp:RangeValidator ID="RangeValidator1" runat="server" ErrorMessage="Invoer is onjuist" ControlToValidate="txtBedrag" MinimumValue="0" MaximumValue="9999999999999"></asp:RangeValidator>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
 
                                 <asp:HiddenField ID="Winkel" runat="server"
                                     Value='<%# Eval("Betalen aan") %>' />

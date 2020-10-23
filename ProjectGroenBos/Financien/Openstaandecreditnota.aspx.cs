@@ -12,7 +12,6 @@ namespace ProjectGroenBos.Financien
     public partial class Openstaandecreditnota : System.Web.UI.Page
     {
         double totaalbedrag2;
-        double bedrag2;
         string constr = System.Configuration.ConfigurationManager.ConnectionStrings["dbconnectie"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -45,18 +44,7 @@ namespace ProjectGroenBos.Financien
 
         protected void btnrekening_Click(object sender, EventArgs e)
         {
-            HiddenField nummers = (HiddenField)Repeater1.Items[0].FindControl("Nummer");
-            string nummer = nummers.Value;
 
-            SqlConnection con = new SqlConnection(constr);
-            con.Open();
-            Label label1 = (Label)Repeater1.Items[0].FindControl("Lblreedsbetaald");
-            SqlCommand ophaal = new SqlCommand("select CAST(SUM(Bedrag) AS real) as [Reeds betaald] from Transactie where CrediteurenfactuurNummer = @nummer", con);
-            ophaal.Parameters.AddWithValue("@nummer", nummer);
-            SqlDataReader drfactuur = ophaal.ExecuteReader();
-            label1.Text = drfactuur["Reeds betaald"].ToString();
-            drfactuur.Close();
-            con.Close();
         }
 
         protected void btnToevoegen2_Click(object sender, EventArgs e)
@@ -65,7 +53,6 @@ namespace ProjectGroenBos.Financien
 
             int gridviewnr = int.Parse(btn.CommandName);
 
-            TextBox txtbedrag = (TextBox)Repeater1.Items[gridviewnr].FindControl("txtBedrag");
             
 
             HiddenField fnummers = (HiddenField)Repeater1.Items[gridviewnr].FindControl("Winkel");
@@ -77,11 +64,8 @@ namespace ProjectGroenBos.Financien
             HiddenField Totaalbedragen = (HiddenField)Repeater1.Items[gridviewnr].FindControl("Totaalbedrag");
             string Totaalbedrag = Totaalbedragen.Value;
             totaalbedrag2 = double.Parse(Totaalbedrag);
-            string bedrag = txtbedrag.Text;
-           
-            bedrag2 = double.Parse(bedrag);
-
-            bedrag = bedrag.Replace(",", ".");
+            string nieuwtotaal = Totaalbedrag.Replace(",", ".");
+         
 
             string commandText = "insert into Transactie (Datum, Aan, Bedrag, Omschrijving, CrediteurenfactuurNummer, BankrekeningBanknummer, TypeID) Values ((SELECT CONVERT(date, getdate())), @Winkel, convert(real, @bedrag), @omschrijving, @Nummer, 1, 1)";
 
@@ -89,7 +73,7 @@ namespace ProjectGroenBos.Financien
             {
                 SqlCommand command = new SqlCommand(commandText, connection);
                 command.Parameters.AddWithValue("@Winkel", Winkel);
-                command.Parameters.AddWithValue("@Bedrag", bedrag);
+                command.Parameters.AddWithValue("@Bedrag", nieuwtotaal);
                 command.Parameters.AddWithValue("@Omschrijving", Winkel);
                 command.Parameters.AddWithValue("@Nummer", nummer);
 
@@ -98,46 +82,16 @@ namespace ProjectGroenBos.Financien
 
                 command.ExecuteNonQuery();
             }
-            Label label1 = (Label)Repeater1.Items[0].FindControl("Lblreedsbetaald");
-            double test = double.Parse(label1.Text.ToString());
-            if(totaalbedrag2 <= bedrag2 + test)
-                //niet vergeten bedrag2 + reeds betaald op te tellen
-            {
-                SqlConnection con = new SqlConnection(constr);
-                con.Open();
-                string status = "Update Crediteurenfactuur set FactuurstatusID = 2 where Nummer = @nummer";
-                SqlDataAdapter adapter4 = new SqlDataAdapter();
-                adapter4.UpdateCommand = new SqlCommand(status, con);
-                adapter4.UpdateCommand.Parameters.AddWithValue("@nummer", nummer);
-                int doehet = adapter4.UpdateCommand.ExecuteNonQuery();
-                con.Close();
-            }
 
-            if(totaalbedrag2 > bedrag2 + test && bedrag2 > 0)
-                //niet vergeten reeeds betaald
-            {
-                SqlConnection con = new SqlConnection(constr);
-                con.Open();
-                string status = "Update Crediteurenfactuur set FactuurstatusID = 11 where Nummer = @nummer";
-                SqlDataAdapter adapter4 = new SqlDataAdapter();
-                adapter4.UpdateCommand = new SqlCommand(status, con);
-                adapter4.UpdateCommand.Parameters.AddWithValue("@nummer", nummer);
-                int doehet = adapter4.UpdateCommand.ExecuteNonQuery();
-                con.Close();
-            }
+            SqlConnection con = new SqlConnection(constr);
+            con.Open();
+            string status = "Update Crediteurenfactuur set FactuurstatusID = 2 where Nummer = @nummer";
+            SqlDataAdapter adapter4 = new SqlDataAdapter();
+            adapter4.UpdateCommand = new SqlCommand(status, con);
+            adapter4.UpdateCommand.Parameters.AddWithValue("@nummer", nummer);
+            int doehet = adapter4.UpdateCommand.ExecuteNonQuery();
+            con.Close();
 
-            if (bedrag2 + test == 0)
-            //niet vergeten reeeds betaald
-            {
-                SqlConnection con = new SqlConnection(constr);
-                con.Open();
-                string status = "Update Crediteurenfactuur set FactuurstatusID = 4 where Nummer = @nummer";
-                SqlDataAdapter adapter4 = new SqlDataAdapter();
-                adapter4.UpdateCommand = new SqlCommand(status, con);
-                adapter4.UpdateCommand.Parameters.AddWithValue("@nummer", nummer);
-                int doehet = adapter4.UpdateCommand.ExecuteNonQuery();
-                con.Close();
-            }
 
             ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "betalingsuccess();", true);
             gvRekeningen.DataBind();
@@ -146,19 +100,16 @@ namespace ProjectGroenBos.Financien
 
         protected void btnBetalen_Click(object sender, EventArgs e)
         {
-            HiddenField nummers = (HiddenField)Repeater1.Items[0].FindControl("Nummer");
-            string nummer = nummers.Value;
 
-            SqlConnection con = new SqlConnection(constr);
-            con.Open();
-            Label label1 = (Label)Repeater1.Items[0].FindControl("Lblreedsbetaald");
-            SqlCommand ophaal = new SqlCommand("select CAST(SUM(Bedrag) AS real) as [Reeds betaald] from Transactie where CrediteurenfactuurNummer = @nummer", con);
-            ophaal.Parameters.AddWithValue("@nummer", nummer);
-            string result = ophaal.ExecuteScalar().ToString();
-            label1.Text = result;
-            con.Close();
             string modal = "#modal2" + ((Button)sender).CommandArgument;
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal('"+modal+"');", true);
+        }
+
+        protected void btnRekeningen_Click(object sender, EventArgs e)
+        {
+
+            string modal = "#modal" + ((Button)sender).CommandArgument;
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal('" + modal + "');", true);
         }
     }
 }

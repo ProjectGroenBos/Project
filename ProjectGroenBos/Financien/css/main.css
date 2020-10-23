@@ -229,9 +229,6 @@ body {
     margin-right: auto;
 }
 
-    .tweedetable tr:nth-child(2) input {
-        width: 80px;
-    }
 
 .mainpanel {
     width: 70%;
