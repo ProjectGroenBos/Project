@@ -404,6 +404,7 @@ nav ul {
     justify-content: space-between;
     width: 60%;
     margin-left: 20%;
+    text-align:right;
 }
 
 
@@ -546,8 +547,4 @@ nav ul {
     p {
         padding: 10px !important;
     }
-<<<<<<< Updated upstream
 }
-=======
-}
->>>>>>> Stashed changes
