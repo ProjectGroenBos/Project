@@ -107,6 +107,16 @@ namespace ProjectGroenBos.Financien
 
         protected void btnRekeningen_Click(object sender, EventArgs e)
         {
+            string querie = "select factuurstatusID from Crediteurenfactuur where Nummer = @nummer";
+            SqlConnection connection = new SqlConnection(constr);
+            SqlCommand command = new SqlCommand(querie, connection);
+            HiddenField nummers = (HiddenField)Repeater1.Items[0].FindControl("Nummer");
+            string nummer = nummers.Value;
+            command.Parameters.AddWithValue("@nummer", nummer);
+            connection.Open();
+            SqlDataReader drfactuur = command.ExecuteReader();
+            string nummergaatfout = drfactuur["factuurstatusID"].ToString();
+            connection.Close();
 
             string modal = "#modal" + ((Button)sender).CommandArgument;
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal('" + modal + "');", true);
