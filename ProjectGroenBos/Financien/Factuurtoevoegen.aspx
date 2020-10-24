@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Financien/Financien.Master" AutoEventWireup="true" CodeBehind="Factuurinvoerscherm.aspx.cs" Inherits="ProjectGroenBos.Financien.Factuurinvoerscherm" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Financien/Financien.Master" AutoEventWireup="true" CodeBehind="Factuurtoevoegen.aspx.cs" Inherits="ProjectGroenBos.Financien.Factuurinvoerscherm" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">

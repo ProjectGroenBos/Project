@@ -38,27 +38,6 @@ namespace ProjectGroenBos.Financien
                 Repeater1.DataSource = ds;
                 Repeater1.DataBind();
 
-                for (int i = 0; i < rpModals.Items.Count; i++)
-                {
-                    string querie = "select factuurstatusID from Crediteurenfactuur where Nummer = @nummer";
-                    SqlConnection connection = new SqlConnection(constr);
-                    SqlCommand command = new SqlCommand(querie, connection);
-                    HiddenField nummers = (HiddenField)Repeater1.Items[i].FindControl("Nummer");
-                    string nummer = nummers.Value;
-                    command.Parameters.AddWithValue("@nummer", nummer);
-                    connection.Open();
-                    command.ExecuteNonQuery();
-                    string status = (string)command.ExecuteScalar();
-                    connection.Close();
-                    Button btnBetalen = (Button)rpModals.Items[i].FindControl("btnBetalen");
-
-                    if (int.Parse(status) == 2)
-                    {
-                        btnBetalen.Enabled = false;
-                        btnBetalen.Text = "Dit factuur is al betaald.";
-                        btnBetalen.CssClass = "btn btn-primary btn-lg btn-block disabled";
-                    }
-                }
 
                 con.Close();
             }
@@ -118,6 +97,12 @@ namespace ProjectGroenBos.Financien
         protected void btnRekeningen_Click(object sender, EventArgs e)
         {
             string modal = "#modal" + ((Button)sender).CommandArgument;
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal('" + modal + "');", true);
+        }
+
+        protected void btnBetalen_OnClick(object sender, EventArgs e)
+        {
+            string modal = "#modal2" + ((Button)sender).CommandArgument;
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal('" + modal + "');", true);
         }
     }

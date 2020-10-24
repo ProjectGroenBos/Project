@@ -68,9 +68,9 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Financien\Openstaandecreditnota.aspx" />
+    <Content Include="Financien\CrediteurenFactuurBetaal.aspx" />
     <Content Include="Financien\css\main.css" />
-    <Content Include="Financien\Factuurinvoerscherm.aspx" />
+    <Content Include="Financien\Factuurtoevoegen.aspx" />
     <Content Include="Financien\Home.aspx" />
     <Content Include="Financien\img\Logo.png" />
     <Content Include="Financien\img\Logo3.png" />
@@ -458,19 +458,19 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Financien\Openstaandecreditnota.aspx.cs">
-      <DependentUpon>Openstaandecreditnota.aspx</DependentUpon>
+    <Compile Include="Financien\CrediteurenFactuurBetaal.aspx.cs">
+      <DependentUpon>CrediteurenFactuurBetaal.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Financien\Openstaandecreditnota.aspx.designer.cs">
-      <DependentUpon>Openstaandecreditnota.aspx</DependentUpon>
+    <Compile Include="Financien\CrediteurenFactuurBetaal.aspx.designer.cs">
+      <DependentUpon>CrediteurenFactuurBetaal.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Financien\Factuurinvoerscherm.aspx.cs">
-      <DependentUpon>Factuurinvoerscherm.aspx</DependentUpon>
+    <Compile Include="Financien\Factuurtoevoegen.aspx.cs">
+      <DependentUpon>Factuurtoevoegen.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Financien\Factuurinvoerscherm.aspx.designer.cs">
-      <DependentUpon>Factuurinvoerscherm.aspx</DependentUpon>
+    <Compile Include="Financien\Factuurtoevoegen.aspx.designer.cs">
+      <DependentUpon>Factuurtoevoegen.aspx</DependentUpon>
     </Compile>
     <Compile Include="Financien\Financien.Master.cs">
       <DependentUpon>Financien.Master</DependentUpon>
