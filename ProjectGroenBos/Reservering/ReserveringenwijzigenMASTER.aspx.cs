@@ -45,17 +45,17 @@ namespace ProjectGroenBos.Reservering
                     //radiobuttons om te kijken waarop de tabel gesorteerd moet worden
                     if (rdbVoornaam.Checked == true)
                     {
-                        querieadres = "select res.Nummer as Reserveringsnummer, gst.Voornaam, gst.Tussenvoegsel, gst.Achternaam, gst.Email, res.Aantal_personen as [Aantal personen], res.Aankomstdatum, res.Vertrekdatum from Gast gst inner join Reservering res on gst.Nummer = res.GastNummer where gst.Voornaam like @zoek or gst.Achternaam like @zoek order by gst.Voornaam";
+                        querieadres = "select res.Nummer as Reserveringsnummer, gst.Voornaam, gst.Tussenvoegsel, gst.Achternaam, gst.Email, res.Aantal_personen as [Aantal personen], res.Aankomstdatum, res.Vertrekdatum from Gast gst inner join Reservering res on gst.Nummer = res.GastNummer where gst.Voornaam like @zoek or gst.Achternaam like @zoek and Aankomstdatum >= convert(date, GETDATE()) order by gst.Voornaam";
 
                     }
                     else if (rdbAchternaam.Checked == true)
                     {
-                        querieadres = "select res.Nummer as Reserveringsnummer, gst.Voornaam, gst.Tussenvoegsel, gst.Achternaam, gst.Email, res.Aantal_personen as [Aantal personen], res.Aankomstdatum, res.Vertrekdatum from Gast gst inner join Reservering res on gst.Nummer = res.GastNummer where gst.Voornaam like @zoek or gst.Achternaam like @zoek order by gst.Achternaam";
+                        querieadres = "select res.Nummer as Reserveringsnummer, gst.Voornaam, gst.Tussenvoegsel, gst.Achternaam, gst.Email, res.Aantal_personen as [Aantal personen], res.Aankomstdatum, res.Vertrekdatum from Gast gst inner join Reservering res on gst.Nummer = res.GastNummer where gst.Voornaam like @zoek or gst.Achternaam like @zoek and Aankomstdatum >= convert(date, GETDATE()) order by gst.Achternaam";
 
                     }
                     else
                     {
-                        querieadres = "select res.Nummer as Reserveringsnummer, gst.Voornaam, gst.Tussenvoegsel, gst.Achternaam, gst.Email, res.Aantal_personen as [Aantal personen], res.Aankomstdatum, res.Vertrekdatum from Gast gst inner join Reservering res on gst.Nummer = res.GastNummer where gst.Voornaam like @zoek or gst.Achternaam like @zoek order by res.Nummer";
+                        querieadres = "select res.Nummer as Reserveringsnummer, gst.Voornaam, gst.Tussenvoegsel, gst.Achternaam, gst.Email, res.Aantal_personen as [Aantal personen], res.Aankomstdatum, res.Vertrekdatum from Gast gst inner join Reservering res on gst.Nummer = res.GastNummer where gst.Voornaam like @zoek or gst.Achternaam like @zoek and Aankomstdatum >= convert(date, GETDATE()) order by res.Nummer";
                     }
 
                     //laden van de info uit de database

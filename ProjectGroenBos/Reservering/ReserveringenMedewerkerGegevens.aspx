@@ -61,10 +61,10 @@
 
             <asp:DropDownList ID="DropDownList1" runat="server" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" CssClass="textboxchaos">
                 <asp:ListItem Selected="True">Leeg</asp:ListItem>
-                <asp:ListItem>Nederland</asp:ListItem>
-                <asp:ListItem>Duitsland</asp:ListItem>
-                <asp:ListItem>Frankrijk</asp:ListItem>
-                <asp:ListItem>Belgi&#235;</asp:ListItem>
+                <asp:ListItem>Nederland(+31)</asp:ListItem>
+                <asp:ListItem>Duitsland(+49)</asp:ListItem>
+                <asp:ListItem>Frankrijk(+33)</asp:ListItem>
+                <asp:ListItem>België(+32)</asp:ListItem>
             </asp:DropDownList>
         </p>
         <br />
