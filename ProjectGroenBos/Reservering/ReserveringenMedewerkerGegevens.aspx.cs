@@ -56,22 +56,22 @@ namespace ProjectGroenBos.Reservering
 
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (DropDownList1.SelectedValue == "Nederland")
+            if (DropDownList1.SelectedValue == "Nederland(+31)")
             {
                 RegularExpressionValidator10.ValidationExpression = nlCheck;
                 telefoonnummer = "+31";
             }
-            else if (DropDownList1.SelectedValue == "Duitsland")
+            else if (DropDownList1.SelectedValue == "Duitsland(+49)")
             {
                 RegularExpressionValidator10.ValidationExpression = deCheck;
                 telefoonnummer = "+49";
             }
-            else if (DropDownList1.SelectedValue == "Frankrijk")
+            else if (DropDownList1.SelectedValue == "Frankrijk(+33)")
             {
                 RegularExpressionValidator10.ValidationExpression = frCheck;
                 telefoonnummer = "+33";
             }
-            else if (DropDownList1.SelectedValue == "België")
+            else if (DropDownList1.SelectedValue == "België(+32)")
             {
                 RegularExpressionValidator10.ValidationExpression = beCheck;
                 telefoonnummer = "+32";

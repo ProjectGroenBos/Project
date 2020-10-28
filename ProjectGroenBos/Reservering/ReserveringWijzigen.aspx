@@ -21,7 +21,7 @@
         <asp:TextBox ID="txbAchternaam" runat="server" AutoPostBack="True" OnTextChanged="txbAchternaam_TextChanged"></asp:TextBox>
         <br />
         <br />
-        <asp:GridView ID="GridView1" runat="server" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+        <asp:GridView ID="GridView1" runat="server" OnRowCommand="GridView1_RowCommand" >
             <Columns>
                 <asp:ButtonField Text="Selecteren" />
             </Columns>

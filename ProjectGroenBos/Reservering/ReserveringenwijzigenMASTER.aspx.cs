@@ -7,6 +7,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Net.Mail;
+using System.IO;
 
 namespace ProjectGroenBos.Reservering
 {
@@ -14,6 +16,7 @@ namespace ProjectGroenBos.Reservering
     {
         string zoek;
         string querieadres;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             txtAankomstDatum.Visible = false;
@@ -25,8 +28,11 @@ namespace ProjectGroenBos.Reservering
             Label4.Visible = false;
             Label5.Visible = false;
             btnWijzigen.Visible = false;
-
+            Label6.Visible = false;
+            lblAchternaam.Visible = false;
+            lblEmail.Visible = false;
         }
+
         protected void txbAchternaam_TextChanged(object sender, EventArgs e)
         {
             lblUitkomst.Text = "";
@@ -39,17 +45,17 @@ namespace ProjectGroenBos.Reservering
                     //radiobuttons om te kijken waarop de tabel gesorteerd moet worden
                     if (rdbVoornaam.Checked == true)
                     {
-                        querieadres = "select res.Nummer as Reserveringsnummer, gst.Voornaam, gst.Tussenvoegsel, gst.Achternaam, gst.Email, res.Aantal_personen as [Aantal personen], res.Aankomstdatum, res.Vertrekdatum from Gast gst inner join Reservering res on gst.Nummer = res.GastNummer where gst.Voornaam like @zoek or gst.Achternaam like @zoek order by gst.Voornaam";
+                        querieadres = "select res.Nummer as Reserveringsnummer, gst.Voornaam, gst.Tussenvoegsel, gst.Achternaam, gst.Email, res.Aantal_personen as [Aantal personen], res.Aankomstdatum, res.Vertrekdatum from Gast gst inner join Reservering res on gst.Nummer = res.GastNummer where gst.Voornaam like @zoek or gst.Achternaam like @zoek and Aankomstdatum >= convert(date, GETDATE()) order by gst.Voornaam";
 
                     }
                     else if (rdbAchternaam.Checked == true)
                     {
-                        querieadres = "select res.Nummer as Reserveringsnummer, gst.Voornaam, gst.Tussenvoegsel, gst.Achternaam, gst.Email, res.Aantal_personen as [Aantal personen], res.Aankomstdatum, res.Vertrekdatum from Gast gst inner join Reservering res on gst.Nummer = res.GastNummer where gst.Voornaam like @zoek or gst.Achternaam like @zoek order by gst.Achternaam";
+                        querieadres = "select res.Nummer as Reserveringsnummer, gst.Voornaam, gst.Tussenvoegsel, gst.Achternaam, gst.Email, res.Aantal_personen as [Aantal personen], res.Aankomstdatum, res.Vertrekdatum from Gast gst inner join Reservering res on gst.Nummer = res.GastNummer where gst.Voornaam like @zoek or gst.Achternaam like @zoek and Aankomstdatum >= convert(date, GETDATE()) order by gst.Achternaam";
 
                     }
                     else
                     {
-                        querieadres = "select res.Nummer as Reserveringsnummer, gst.Voornaam, gst.Tussenvoegsel, gst.Achternaam, gst.Email, res.Aantal_personen as [Aantal personen], res.Aankomstdatum, res.Vertrekdatum from Gast gst inner join Reservering res on gst.Nummer = res.GastNummer where gst.Voornaam like @zoek or gst.Achternaam like @zoek order by res.Nummer";
+                        querieadres = "select res.Nummer as Reserveringsnummer, gst.Voornaam, gst.Tussenvoegsel, gst.Achternaam, gst.Email, res.Aantal_personen as [Aantal personen], res.Aankomstdatum, res.Vertrekdatum from Gast gst inner join Reservering res on gst.Nummer = res.GastNummer where gst.Voornaam like @zoek or gst.Achternaam like @zoek and Aankomstdatum >= convert(date, GETDATE()) order by res.Nummer";
                     }
 
                     //laden van de info uit de database
@@ -137,22 +143,24 @@ namespace ProjectGroenBos.Reservering
             Label4.Visible = true;
             Label5.Visible = true;
             btnWijzigen.Visible = true;
+            Label6.Visible = true;
+            lblAchternaam.Visible = true;
+            lblEmail.Visible = true;
 
             //test of het werkt, nog niet
+            lblAchternaam.Text = GridView1.SelectedRow.Cells[4].Text;
             lblReserveringsnummer.Text = GridView1.SelectedRow.Cells[1].Text;
             txtAantalPersonen.Text = GridView1.SelectedRow.Cells[6].Text;
             txtAankomstDatum.Text = GridView1.SelectedRow.Cells[7].Text;
             txtVertrekdatum.Text = GridView1.SelectedRow.Cells[8].Text;
-
-
-
-
         }
 
         protected void btnWijzigen_Click(object sender, EventArgs e)
         {
             try
             {
+
+                int veranderdeRijen;
                 using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["2020-BIM02-P1-P2-GroenbosConnectionString"].ConnectionString))
                 {
                     con.Open();
@@ -162,19 +170,64 @@ namespace ProjectGroenBos.Reservering
                     cmd.Parameters.AddWithValue("@Vertrekdatum", txtVertrekdatum.Text);
                     cmd.Parameters.AddWithValue("@Aankomstdatum", txtAankomstDatum.Text);
                     cmd.Parameters.AddWithValue("@Nummer", lblReserveringsnummer.Text);
-                    int veranderdeRijen = cmd.ExecuteNonQuery();
+                    veranderdeRijen = cmd.ExecuteNonQuery();
                     con.Close();
                 }
+                lblUitkomst.Text = "Er zijn " + veranderdeRijen + "rijen veranderd.";
+                StuurMail();
             }
             catch
             {
-                lblUitkomst.Text = "Geen resultaten gevonden.";
+                lblUitkomst.Text = "Geen mail verstuurd.";
             }
 
+        }
 
+        private void StuurMail()
+        {
+            string ontvanger = lblEmail.Text;
 
+            //Mail opzetten
+            MailMessage mailMessage = new MailMessage("groenbosreservations@gmail.com", ontvanger);
+            mailMessage.Subject = "Uw reservering is gewijzigd!";
+            mailMessage.Body = CreateBody();
+            mailMessage.IsBodyHtml = true;
 
+            //Credentails
+            SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
+            smtpClient.Credentials = new System.Net.NetworkCredential()
+            {
+                UserName = "groenbosreservations@gmail.com",
+                Password = "MarionenAndries"
+            };
+            smtpClient.EnableSsl = true;
 
+            //Versturen mail
+
+            smtpClient.Send(mailMessage);
+
+        }
+
+        private string CreateBody()
+        {
+            {
+                //lezen mail.html
+                string body = string.Empty;
+                using (StreamReader reader = new StreamReader(Server.MapPath("MailReserveringGewijzigd.html")))
+                {
+                    body = reader.ReadToEnd();
+                }
+
+                //parameters html pagina
+
+                body = body.Replace("{achternaam}", lblAchternaam.Text);
+                body = body.Replace("{aankomstdatum}", txtAankomstDatum.Text);
+                body = body.Replace("{vertrekdatum}", txtVertrekdatum.Text);
+                body = body.Replace("{personen}", txtAantalPersonen.Text);
+                body = body.Replace("{email}", lblEmail.Text);
+
+                return body;
+            }
 
         }
     }
