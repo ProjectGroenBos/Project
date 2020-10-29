@@ -62,7 +62,9 @@
             document.body.innerHTML = originalContents;
         }
 
-
+        function openModal(modalnaam) {
+            $(modalnaam).modal('show');
+        }
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -79,7 +81,7 @@
                 <asp:BoundField DataField="Aantal_personen" HeaderText="Aantal Personen" SortExpression="Aantal_personen" />
                 <asp:BoundField DataField="Aankomstdatum" DataFormatString="{0:d}" HeaderText="Aankomstdatum" SortExpression="Aankomstdatum" />
                 <asp:BoundField DataField="Vertrekdatum" DataFormatString="{0:d}" HeaderText="Vertrekdatum" SortExpression="Vertrekdatum" />
-                <asp:BoundField DataField="Omschrijving" HeaderText="Betaalstatus" SortExpression="Omschrijving" />
+                <asp:BoundField DataField="Omschrijving" HeaderText="Status" SortExpression="Omschrijving" />
                 <asp:TemplateField>
                     <ItemTemplate>
                         <button type="button" style="background-color: #009879; color: #fff" class="btn" data-toggle="modal" data-target="#modal<%# Eval("Nummer") %>">Inzien reservering</button>
@@ -88,12 +90,8 @@
             </Columns>
         </asp:GridView>
 
-        <asp:SqlDataSource ID="SqlDataSource6" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT reserveringen.Nummer, [Naam], [Aantal_personen], [Aankomstdatum], [Vertrekdatum], Factuurstatus.Omschrijving
-FROM reserveringen 
-	inner join Debiteurenfactuur ON reserveringen.Nummer = Debiteurenfactuur.ReserveringNummer
-	inner join Factuurstatus ON Debiteurenfactuur.BetaalstatusID = Factuurstatus.ID
-	
-where FactuurtypeID = 2"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSource6" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT Nummer, [Naam], [Aantal_personen], [Aankomstdatum], [Vertrekdatum], Omschrijving
+FROM reserveringengv"></asp:SqlDataSource>
         <br />
     </div>
 
@@ -170,21 +168,23 @@ where FactuurtypeID = 2"></asp:SqlDataSource>
                                         </tr>
 
                                         <tr>
-                                            <td>Betaald op:</td>
                                             <td></td>
-                                            <td style="text-align:right">Aanbetaling:</td>
-                                            <td style="width: 100px">€ <%# Eval("Aanbetaling") %></td>
+                                            <td></td>
+                                            <td style="text-align: right">Al betaald:</td>
+                                            <td style="width: 100px">€ <%# Eval("Totaal") %></td>
                                         </tr>
 
                                         <tr>
-                                            <td>Betaald op:</td>
                                             <td></td>
-                                            <td style="text-align:right">Restbetaling:</td>
-                                            <td style="width: 100px">€ <%# Eval("Restbetaling") %></td>
+                                            <td></td>
+                                            <td style="text-align: right">Nog te betalen:</td>
+                                            <td style="width: 100px">€ <%# Eval("Nogtebetalen") %></td>
                                         </tr>
                                     </tbody>
                                 </table>
 
+                                <asp:HiddenField ID="fnummer" runat="server"
+                                    Value='<%# Eval("fnummer") %>' />
                                 <asp:HiddenField ID="Nummer" runat="server"
                                     Value='<%# Eval("Nummer") %>' />
                                 <asp:HiddenField ID="Totaalbedrag" runat="server"
@@ -235,11 +235,61 @@ where FactuurtypeID = 2"></asp:SqlDataSource>
                                 </div>
                             </div>
 
+                            <asp:Button ID="btnTransactiehistory" Style="max-width: 80%; margin-left: auto; margin-right: auto;" class="btn btn-primary btn-lg btn-block" CommandArgument='<%# Eval("fnummer")%>' CommandName="<%# Container.ItemIndex %>" runat="server" Text="Zie transactie historie" OnClick="btnTransactiehistory_OnClick" />
+
                             <input type="button" style="max-width: 80%; margin-left: auto; margin-right: auto;" class="btn btn-primary btn-lg btn-block" onclick="printDiv('printModal<%# Eval("Nummer") %>')" value="Print Factuur" />
 
                             <asp:Button ID="btnExport" Style="max-width: 80%; margin-left: auto; margin-right: auto;" class="btn btn-primary btn-lg btn-block" CommandName="<%# Container.ItemIndex %>" runat="server" Text="Email naar klant" OnClick="btnExport_Click" />
                         </div>
 
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Sluiten</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ItemTemplate>
+    </asp:Repeater>
+
+    <asp:Repeater ID="rpTransactiemodals" runat="server">
+        <ItemTemplate>
+            <!-- Modal -->
+            <div id="modal2<%# Eval("fnummer") %>" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Transactiehistory Debiteurenfactuur nummer <%# Eval("fnummer") %></h4>
+                            <asp:Button runat="server" CssClass="btn btn-primary" Text="Sluiten"></asp:Button>
+                        </div>
+                        <div class="modal-body">
+                            <asp:Label ID="lblNoRecords" Visible="false" runat="server" Text="Er zijn nog geen transacties bij dit factuur gevonden."></asp:Label>
+                            <asp:Repeater ID="rpTransacties" runat="server">
+                                <HeaderTemplate>
+                                    <div class="timeline">
+                                        <ul>
+                                </HeaderTemplate>
+                                <ItemTemplate>
+                                    <li>
+                                        <div class="content">
+                                            <h3><%# Eval("TransactieOmschrijving") %></h3>
+                                            <p>
+                                                <%# Eval("Omschrijving") %><br />
+                                                &euro;<%# Eval("Bedrag") %>
+                                            </p>
+                                        </div>
+                                        <div class="point"></div>
+                                        <div class="date">
+                                            <h6><%# Eval("Datum", "{0: dd/MM/yyyy}") %></h6>
+                                        </div>
+                                    </li>
+                                </ItemTemplate>
+                                <FooterTemplate>
+                                    </ul>
+                                </div>
+                                </FooterTemplate>
+                            </asp:Repeater>
+                        </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Sluiten</button>
                         </div>

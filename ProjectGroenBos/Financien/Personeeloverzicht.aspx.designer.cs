@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ProjectGroenBos.Financien {
-    
-    
-    public partial class WebForm3 {
-        
+namespace ProjectGroenBos.Financien
+{
+
+
+    public partial class WebForm3
+    {
+
         /// <summary>
         /// gvPersoneelsOverzicht control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace ProjectGroenBos.Financien {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvPersoneelsOverzicht;
-        
+
         /// <summary>
         /// GVtoevoegen control.
         /// </summary>
@@ -56,7 +58,7 @@ namespace ProjectGroenBos.Financien {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource4;
-        
+
         /// <summary>
         /// txbNaam control.
         /// </summary>
@@ -65,7 +67,7 @@ namespace ProjectGroenBos.Financien {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txbNaam;
-        
+
         /// <summary>
         /// txbGeboortedatum control.
         /// </summary>
@@ -74,7 +76,7 @@ namespace ProjectGroenBos.Financien {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txbGeboortedatum;
-        
+
         /// <summary>
         /// txbAdres control.
         /// </summary>
@@ -83,7 +85,7 @@ namespace ProjectGroenBos.Financien {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txbAdres;
-        
+
         /// <summary>
         /// txbPostcode control.
         /// </summary>
@@ -92,7 +94,7 @@ namespace ProjectGroenBos.Financien {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txbPostcode;
-        
+
         /// <summary>
         /// dlFunctie control.
         /// </summary>
@@ -101,7 +103,7 @@ namespace ProjectGroenBos.Financien {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList dlFunctie;
-        
+
         /// <summary>
         /// dlAfdeling control.
         /// </summary>
@@ -110,7 +112,16 @@ namespace ProjectGroenBos.Financien {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList dlAfdeling;
-        
+
+        /// <summary>
+        /// txbSalaris control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txbSalaris;
+
         /// <summary>
         /// txbContracturen control.
         /// </summary>
@@ -119,7 +130,7 @@ namespace ProjectGroenBos.Financien {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txbContracturen;
-        
+
         /// <summary>
         /// txbInDienst control.
         /// </summary>
@@ -128,7 +139,7 @@ namespace ProjectGroenBos.Financien {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txbInDienst;
-        
+
         /// <summary>
         /// btnToevoegen control.
         /// </summary>

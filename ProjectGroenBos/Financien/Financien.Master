@@ -45,7 +45,7 @@
                     <li><a href="#"><i class="fas fa-project-diagram"></i>Inkoop</a>
                         <ul class="submenu">
                             <li><a href="#">Inkopen producten</a></li>
-                            <li><a href="#">Facturen controleren</a></li>
+                            <li><a href="/Financien/Factuurinvoerscherm.aspx.cs">Facturen controleren</a></li>
                         </ul>
                     </li>
                 </ul>

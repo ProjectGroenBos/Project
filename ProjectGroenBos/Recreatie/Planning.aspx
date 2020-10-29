@@ -20,7 +20,7 @@
 
     <asp:TextBox ID="TxbAantal" runat="server" CssClass="textboxaantal"></asp:TextBox>
 
-    <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" CssClass="gridviewbegeleider" EmptyDataText="No data yet" OnRowDeleting="GridView2_RowDeleting">
+    <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" CssClass="gridviewbegeleider" EmptyDataText="Selecteer Medewerker" OnRowDeleting="GridView2_RowDeleting">
         <Columns>
             <asp:BoundField DataField="Naam" HeaderText="Naam" SortExpression="Naam" />
             <asp:CommandField ShowDeleteButton="True" />
@@ -99,5 +99,10 @@
         <SortedDescendingHeaderStyle BackColor="#15524A" />
     </asp:GridView>
     <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT * FROM [vActiviteit]"></asp:SqlDataSource>
+
+    <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Clear" />
+    <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Terug naar activiteit inplannen" />
+
+    <asp:Button ID="Button3" runat="server" OnClick="Button3_Click" Text="Verwijder" />
 
 </asp:Content>
