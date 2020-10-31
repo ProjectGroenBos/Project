@@ -31,6 +31,7 @@ namespace ProjectGroenBos.Reservering
         protected void btnBevestigen_Click(object sender, EventArgs e)
         {
             Label1.Text = "";
+            this.txbGeboortedatum.Text = DateTime.Now.ToString("yyyy-MM-dd");
             if (DropDownList1.SelectedValue == "Leeg")
             {
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('U woont in een land, dit is vereist voor het telefoonnummer.')", true);

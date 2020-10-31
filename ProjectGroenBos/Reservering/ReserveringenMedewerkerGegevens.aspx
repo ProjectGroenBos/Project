@@ -117,7 +117,7 @@
 
        
         <asp:Label ID="Label2" runat="server" Text="Geboortedatum" CssClass="labelsnieuw"></asp:Label>
-        <asp:TextBox ID="txbGeboortedatum" runat="server" CssClass="textboxchaos"></asp:TextBox>
+        <asp:TextBox ID="txbGeboortedatum" runat="server" CssClass="textboxchaos" TextMode="Date"></asp:TextBox>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:RegularExpressionValidator ID="RegularExpressionValidator6" runat="server" ControlToValidate="txbGeboortedatum" ErrorMessage="Vul geboortedatum in als jjjj-mm-dd. Bijvoorbeeld: 2021-06-16" ValidationExpression ="^(19|20){1}\d\d[-](0[1-9]|1[012])[-](0[1-9]|[12][0-9]|3[01])$" ForeColor="Red"></asp:RegularExpressionValidator>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Dit veld is verplicht." ControlToValidate="txbGeboortedatum" ForeColor="Red"></asp:RequiredFieldValidator>

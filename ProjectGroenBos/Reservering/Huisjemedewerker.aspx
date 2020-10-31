@@ -45,7 +45,7 @@
 
        <p> <asp:Label ID="lblAankomstdatum" runat="server" Text="Aankomstdatum" CssClass="labelsnieuw"></asp:Label>
 
-    <asp:TextBox ID="txbAankomstdatum" runat="server" CssClass="textboxchaos"></asp:TextBox>
+    <asp:TextBox ID="txbAankomstdatum" runat="server" CssClass="textboxchaos" TextMode="Date"></asp:TextBox>
 
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
@@ -54,7 +54,7 @@
 </p>
       <p>  <asp:Label ID="lblVertrekdatum" runat="server" Text="Vertrekdatum" CssClass="labelsnieuw"></asp:Label>
 
-    <asp:TextBox ID="txbVertrekdatum" runat="server" CssClass="textboxchaos"></asp:TextBox>
+    <asp:TextBox ID="txbVertrekdatum" runat="server" CssClass="textboxchaos" TextMode="Date"></asp:TextBox>
 
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
