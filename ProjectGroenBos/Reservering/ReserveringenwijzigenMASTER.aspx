@@ -33,49 +33,25 @@
         <br />
         <br />
         <asp:Label ID="Label1" runat="server" Text="Zoek op: " CssClass="labelsnieuw"></asp:Label>
-        <asp:TextBox ID="txbAchternaam" runat="server" AutoPostBack="True" OnTextChanged="txbAchternaam_TextChanged" CssClass="auto-style1"></asp:TextBox>
+        <asp:TextBox ID="txbAchternaam" runat="server" CssClass="auto-style1"></asp:TextBox>
         <br />
         <br />
-        <asp:GridView ID="GridView1" runat="server" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" CssClass="gridv" AutoGenerateSelectButton="True">
+        <asp:Label ID="Label2" runat="server" Text="Datum tot en met:" CssClass="labelsnieuw"></asp:Label>
+        <asp:TextBox ID="txbDatum" runat="server" CssClass="auto-style1" TextMode="Date"></asp:TextBox>
+        <br />
+        <br />
+        <asp:Button ID="btnZoek" runat="server" Text="Zoek" CssClass="textboxbtn" OnClick="btnZoek_Click" />
+        <br />
+        <br />
+         <asp:GridView ID="GridView1" runat="server" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" CssClass="gridv" AutoGenerateSelectButton="True">
         </asp:GridView>
         &nbsp;&nbsp;&nbsp;
         <br />
         <br />
         <br />
-        
-        <asp:Label ID="lblUitkomst" runat="server" CssClass="labelsnieuw"></asp:Label>
-        <asp:Label ID="lblEmail" runat="server"></asp:Label>
-        <br />
-
-        <asp:Label ID="Label2" runat="server" Text="Reserveringsnummer:" CssClass="labelsnieuw"></asp:Label>
-
-        <asp:Label ID="lblReserveringsnummer" runat="server" Text="" CssClass="textboxchaos"></asp:Label>
-        <br />
-        <asp:Label ID="Label6" runat="server" Text="Achternaam: " CssClass="labelsnieuw"></asp:Label>
-
-        <asp:Label ID="lblAchternaam" runat="server" Text="" CssClass="textboxchaos"></asp:Label>
-        <br />
-
-        <asp:Label ID="Label3" runat="server" Text="Aantal Personen: " CssClass="labelsnieuw"></asp:Label>
-
-        <asp:TextBox ID="txtAantalPersonen" runat="server" CssClass="auto-style1"></asp:TextBox>
-        <br />
-
-        <asp:Label ID="Label4" runat="server" Text="Aankomstdatum: " CssClass="labelsnieuw"></asp:Label>
-
-        <asp:TextBox ID="txtAankomstDatum" runat="server" CssClass="textboxchaos"></asp:TextBox>
-        <br />
-
-        <asp:Label ID="Label5" runat="server" Text="Vertrekdatum: " CssClass="labelsnieuw"></asp:Label>
-
-        <asp:TextBox ID="txtVertrekdatum" runat="server" CssClass="textboxchaos"></asp:TextBox>
-        <br />
 
         <br />
-        <br />
-
-        <asp:Button ID="btnWijzigen" runat="server" OnClick="btnWijzigen_Click" Text="Wijzigen" CssClass="labelsnieuw" />
-        <br />
+        <asp:Label ID="lblUitkomst" runat="server"></asp:Label>
         <br />
         <br />
         <br />
