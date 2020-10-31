@@ -26,7 +26,7 @@ namespace ProjectGroenBos.Reservering
                 lblOutput.Text = "Geregistreerde bezoekers: ";
                 btnToevoegen.Enabled = true;
 
-                
+
             }
             else
             {
@@ -58,17 +58,34 @@ namespace ProjectGroenBos.Reservering
             string bungalow = Session["Bungalow"].ToString();
             int bungalowGetal = int.Parse(bungalow);
 
+            //standaardwaardes factuur
+            int betaalmethode = 1;
+            int betaalstatus = 8;
+            int factuurtype = 2;
+
+            //standaardwaardes transactie
+            string aan = "Groenbos";
+            string rekeningnummer = "NL32 RABO 0220.96.13.200";
+            int typeID = 2;
+            double bedrag = 0;
+
+
             DateTime vandaag = DateTime.Today;
             vandaag.ToShortDateString();
 
             ReserveerderToevoegen(voornaam, tussenvoegsel, achternaam, geboortedatum, bungalow);
 
             InsGast(voornaam, tussenvoegsel, achternaam, telefoonnummer, email);
-            int nummer = GetNummer();
-            InsAdres(straat, huisnummer, postcode, land, nummer);
-            InsReservering(personen, opmerkingen, vandaag, vertrekdatum, aankomstdatum, reserveringsStatus, nummer);
-            int reservering = GetReservering();
-            InsReserveringBungalow(reservering, bungalowGetal);
+            int gastnummer = GetNummer();
+            InsAdres(straat, huisnummer, postcode, land, gastnummer);
+            InsReservering(personen, opmerkingen, vandaag, vertrekdatum, aankomstdatum, reserveringsStatus, gastnummer);
+            int reserveringnummer = GetReservering();
+            InsReserveringBungalow(reserveringnummer, bungalowGetal);
+
+            InsDebiteurenFactuur(vandaag, betaalmethode, betaalstatus, factuurtype, reserveringnummer);
+            int debifactuur = GetDebiNummer();
+
+            InsTransactie(vandaag, aan, bedrag, reserveringnummer, debifactuur, rekeningnummer, typeID);
 
             StuurMail();
 
@@ -201,15 +218,15 @@ namespace ProjectGroenBos.Reservering
 
                 string sqlquery = "SELECT max(Nummer) from [dbo].[Gast]";
                 SqlCommand cmd = new SqlCommand(sqlquery, con);
-                int nummer = (int)cmd.ExecuteScalar();
+                int gastnummer = (int)cmd.ExecuteScalar();
 
                 con.Close();
 
-                return nummer;
+                return gastnummer;
 
             }
         }
-        private void InsAdres(string straat, string huisnummer, string postcode, string land, int nummer)
+        private void InsAdres(string straat, string huisnummer, string postcode, string land, int gastnummer)
         {
             using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["2020-BIM02-P1-P2-GroenbosConnectionString"].ConnectionString))
             {
@@ -223,7 +240,7 @@ namespace ProjectGroenBos.Reservering
                     sqlquery.Parameters.AddWithValue("@Huisnummer", huisnummer);
                     sqlquery.Parameters.AddWithValue("@Postcode", postcode);
                     sqlquery.Parameters.AddWithValue("@Land", land);
-                    sqlquery.Parameters.AddWithValue("@GastNummer", nummer);
+                    sqlquery.Parameters.AddWithValue("@GastNummer", gastnummer);
 
                     sqlquery.CommandType = System.Data.CommandType.StoredProcedure;
                     sqlquery.Connection = con;
@@ -238,7 +255,7 @@ namespace ProjectGroenBos.Reservering
             }
         }
 
-        private void InsReservering(string personen, string opmerking, DateTime plaatsing, string vertrekdatum, string aankomstdatum, int reserveringsStatus, int nummer)
+        private void InsReservering(string personen, string opmerking, DateTime plaatsing, string vertrekdatum, string aankomstdatum, int reserveringsStatus, int gastnummer)
         {
             using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["2020-BIM02-P1-P2-GroenbosConnectionString"].ConnectionString))
             {
@@ -253,7 +270,7 @@ namespace ProjectGroenBos.Reservering
                     sqlquery.Parameters.AddWithValue("@Datum_Geplaatst", plaatsing);
                     sqlquery.Parameters.AddWithValue("@Vertrekdatum", vertrekdatum);
                     sqlquery.Parameters.AddWithValue("@Aankomstdatum", aankomstdatum);
-                    sqlquery.Parameters.AddWithValue("@GastNummer", nummer);
+                    sqlquery.Parameters.AddWithValue("@GastNummer", gastnummer);
                     sqlquery.Parameters.AddWithValue("@ReserveringsstatusID", reserveringsStatus);
 
                     sqlquery.CommandType = System.Data.CommandType.StoredProcedure;
@@ -279,11 +296,11 @@ namespace ProjectGroenBos.Reservering
 
                 string sqlquery = "SELECT max(Nummer) from [dbo].[Reservering]";
                 SqlCommand cmd = new SqlCommand(sqlquery, con);
-                int nummer = (int)cmd.ExecuteScalar();
+                int reserveringnummer = (int)cmd.ExecuteScalar();
 
                 con.Close();
 
-                return nummer;
+                return reserveringnummer;
 
             }
         }
@@ -337,7 +354,7 @@ namespace ProjectGroenBos.Reservering
             }
         }
 
-        private void InsReserveringBungalow(int nummer, int reservering)
+        private void InsReserveringBungalow(int reserveringnummer, int bungalowGetal)
         {
             using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["2020-BIM02-P1-P2-GroenbosConnectionString"].ConnectionString))
             {
@@ -348,10 +365,10 @@ namespace ProjectGroenBos.Reservering
 
                     SqlCommand sqlquery = new SqlCommand("insert into Reservering_Bungalow (ReserveringNummer, BungalowNummer) values (@ReserveringNummer, @BungalowNummer)");
 
-                    sqlquery.Parameters.AddWithValue("@ReserveringNummer", reservering);
-                    sqlquery.Parameters.AddWithValue("@BungalowNummer", nummer);
+                    sqlquery.Parameters.AddWithValue("@ReserveringNummer", reserveringnummer);
+                    sqlquery.Parameters.AddWithValue("@BungalowNummer", bungalowGetal);
 
-                    sqlquery.CommandType = System.Data.CommandType.StoredProcedure;
+                    sqlquery.CommandType = System.Data.CommandType.Text;
                     sqlquery.Connection = con;
                     sqlquery.ExecuteNonQuery();
 
@@ -361,6 +378,85 @@ namespace ProjectGroenBos.Reservering
                 catch
                 {
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Er ging iets mis, neem contact met ons op.')", true);
+                }
+            }
+        }
+
+        private void InsDebiteurenFactuur(DateTime vandaag, int betaalmethode, int betaalstatus, int factuurtype, int reserveringnummer)
+        {
+            using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["2020-BIM02-P1-P2-GroenbosConnectionString"].ConnectionString))
+            {
+
+                try
+                {
+                    con.Open();
+
+                    SqlCommand query = new SqlCommand("insert Debiteurenfactuur (Datum, BetaalmethodeID, BetaalstatusID, FactuurtypeID, ReserveringNummer) values (@datum, @methode, @betaal, @factuurtype, @resnummer)");
+
+                    query.Parameters.AddWithValue("@datum", vandaag);
+                    query.Parameters.AddWithValue("@methode", betaalmethode);
+                    query.Parameters.AddWithValue("@betaal", betaalstatus);
+                    query.Parameters.AddWithValue("@factuurtype", factuurtype);
+                    query.Parameters.AddWithValue("@resnummer", reserveringnummer);
+
+                    query.CommandType = System.Data.CommandType.Text;
+                    query.Connection = con;
+                    query.ExecuteNonQuery();
+
+                    con.Close();
+                }
+                catch
+                {
+
+                }
+            }
+        }
+
+        private int GetDebiNummer()
+        {
+            using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["2020-BIM02-P1-P2-GroenbosConnectionString"].ConnectionString))
+            {
+                con.Open();
+
+                string sqlquery = "SELECT max(Nummer) from [dbo].[Debiteurenfactuur]";
+                SqlCommand cmd = new SqlCommand(sqlquery, con);
+                int debifactuur = (int)cmd.ExecuteScalar();
+
+                con.Close();
+
+                return debifactuur;
+
+            }
+        }
+
+        private void InsTransactie(DateTime vandaag, string aan, double bedrag, int reserveringnummer, int debifactuur, string rekeningnummer, int typeID)
+        {
+            using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["2020-BIM02-P1-P2-GroenbosConnectionString"].ConnectionString))
+            {
+
+                try
+                {
+                    con.Open();
+
+                    SqlCommand query = new SqlCommand("insert Transactie (Datum, Aan, Bedrag, Omschrijving, DebiteurenfactuurNummer, BankrekeningBanknummer, TypeID) values (@datum, @aan, @bedrag, @resnummer, @debifactuur, @rekeningnummer, @type)");
+
+                    query.Parameters.AddWithValue("@datum", vandaag);
+                    query.Parameters.AddWithValue("@aan", aan);
+                    query.Parameters.AddWithValue("@bedrag", bedrag);
+                    query.Parameters.AddWithValue("@resnummer", reserveringnummer);
+                    query.Parameters.AddWithValue("@debifactuur", debifactuur);
+                    query.Parameters.AddWithValue("@rekeningnummer", rekeningnummer);
+                    query.Parameters.AddWithValue("@type", typeID);
+
+                    query.CommandType = System.Data.CommandType.Text;
+                    query.Connection = con;
+                    query.ExecuteNonQuery();
+
+                    con.Close();
+                }
+                catch
+                {
+
                 }
             }
         }
