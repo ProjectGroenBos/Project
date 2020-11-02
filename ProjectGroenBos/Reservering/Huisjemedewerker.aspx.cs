@@ -38,6 +38,7 @@ namespace ProjectGroenBos.Reservering
             string aankomstCookie = txbAankomstdatum.Text;
             string vertrekCookie = txbVertrekdatum.Text;
             int bungalow = int.Parse(txbHuisje.Text);
+          
 
             DateTime aankomst = DateTime.Parse(txbAankomstdatum.Text);
             DateTime vertrek = DateTime.Parse(txbVertrekdatum.Text);
