@@ -23,9 +23,10 @@
                         <li><a href="#"><i class="fas fa-user"></i>Reserveren</a>
                             <ul class="submenu">
                                 <li><a href="Huisjemedewerker.aspx">Reservering plaatsen</a></li>
+                                <li><a href="ReserveringenOverzicht.aspx">Reservering overzicht</a></li>
                                 </ul>
                                 </li>
-                        <li><a href="#"><i class="fas fa-user"></i>Optie</a>
+                        <%--<li><a href="#"><i class="fas fa-user"></i>Optie</a>
                             <ul class="submenu">
                                 <li><a href="#">optie 1</a></li>
                                 <li><a href="#">optie 2</a>
@@ -36,7 +37,7 @@
                                 </li>
                                 <li><a href="#">optie 3</a></li>
                             </ul>
-                        </li>
+                        </li>--%>
                     </ul>
                     <div class="terug">
                         <a href="#">&#8249; Terug naar home</a>

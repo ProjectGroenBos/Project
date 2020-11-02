@@ -1,4 +1,5 @@
 ﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -31,7 +32,6 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -41,7 +41,6 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AjaxControlToolkit, Version=20.1.0.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
@@ -49,9 +48,9 @@
     </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=3.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -70,41 +69,35 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Financien\Betaalscherm.aspx" />
     <Content Include="Financien\css\main.css" />
-    <Content Include="Financien\Factuurinvoerscherm.aspx" />
     <Content Include="Financien\Home.aspx" />
-    <Content Include="Financien\Openstaandecreditnota.aspx" />
-    <Content Include="Financien\Overzicht.aspx" />
-    <Content Include="Financien\Personeeloverzicht.aspx" />
     <Content Include="Financien\Prijstabel.aspx" />
-    <Content Include="Financien\Rekeningen.aspx" />
-    <Content Include="Financien\Reserveringen.aspx" />
     <Content Include="Gerechten overzicht.aspx" />
     <Content Include="Global.asax" />
-    <Content Include="Images\deleteRow.png" />
-    <Content Include="Images\Logo4.png" />
-    <Content Include="Images\Logo6.png" />
-    <Content Include="Images\SelectIcon.png" />
     <Content Include="Recreatie\CSS\stylegoeiee.css" />
-    <Content Include="Recreatie\Documentatie.aspx" />
-    <Content Include="Recreatie\home.aspx" />
+    <Content Include="Recreatie\CSS\styleoverzicht.css" />
     <Content Include="Recreatie\img\ascArrow.png" />
     <Content Include="Recreatie\img\descArrow.png" />
+    <Content Include="Recreatie\Voorraad.aspx" />
+    <Content Include="Recreatie\CSS\Main.css" />
+    <Content Include="Recreatie\CSS\style.css" />
+    <Content Include="Recreatie\CSS\stylegoeie.css" />
+    <Content Include="Recreatie\CSS\styleplanning.css" />
+    <Content Include="Recreatie\CSS\stylevoorraad.css" />
+    <Content Include="Recreatie\Documentatie.aspx" />
+    <Content Include="Recreatie\home.aspx" />
     <Content Include="Recreatie\img\Logo1.png" />
     <Content Include="Recreatie\img\Logo2.png" />
     <Content Include="Recreatie\img\Logo3.png" />
     <Content Include="Recreatie\img\Logo4.png" />
     <Content Include="Recreatie\img\Logo5.png" />
     <Content Include="Recreatie\img\Logo6.png" />
-    <Content Include="Recreatie\img\winkelwagen.png" />
-    <Content Include="Recreatie\img\Winkelwagenicoon %282%29.png" />
-    <Content Include="Recreatie\Planning.aspx" />
-    <Content Include="Recreatie\Start.aspx" />
     <Content Include="Recreatie\Overzicht.aspx" />
+    <Content Include="Recreatie\Planning.aspx" />
     <Content Include="Recreatie\Uitloggen.aspx" />
-    <Content Include="Recreatie\Voorraad.aspx" />
-    <Content Include="Recreatie\Voorraadmuteren.aspx" />
+    <Content Include="Reservering\MailReserveringGewijzigd.html" />
+    <Content Include="Reservering\ReserveringenOverzicht.aspx" />
+    <Content Include="Reservering\NietGebruiken.aspx" />
     <Content Include="Reservering\css\Stylejuist.css" />
     <Content Include="Reservering\home.aspx" />
     <Content Include="Reservering\Huisjemedewerker.aspx" />
@@ -112,7 +105,7 @@
     <Content Include="Reservering\ReserveringenMedewerkerGegevens.aspx" />
     <Content Include="Reservering\ReserveringenMedewerkerGelukt.aspx" />
     <Content Include="Reservering\ReserveringMedewerkerNachtregister.aspx" />
-    <Content Include="Reservering\test.aspx" />
+    <Content Include="Reservering\ReserveringWijzigen.aspx" />
     <Content Include="Restaurant\Bestelling.aspx" />
     <Content Include="Restaurant\Bestellingenoverzicht.aspx" />
     <Content Include="Restaurant\bestellinggelukt.aspx" />
@@ -149,14 +142,8 @@
     <Content Include="Schoonmaak en Onderhoud\InventarisOverzicht.aspx" />
     <Content Include="Schoonmaak en Onderhoud\OffertesOverzicht.aspx" />
     <Content Include="Schoonmaak en Onderhoud\OnderhoudsOverzicht.aspx" />
-    <Content Include="Schoonmaak en Onderhoud\OnderhoudToevoegen.aspx" />
-    <Content Include="Schoonmaak en Onderhoud\OnderhoudWijzigen.aspx" />
     <Content Include="Schoonmaak en Onderhoud\PlanningsOverzicht.aspx" />
-    <Content Include="Schoonmaak en Onderhoud\PlanningToevoegen.aspx" />
-    <Content Include="Schoonmaak en Onderhoud\PlanningVerwijderen.aspx" />
-    <Content Include="Schoonmaak en Onderhoud\PlanningWijzigen.aspx" />
     <Content Include="Schoonmaak en Onderhoud\SchouwingsOverzicht.aspx" />
-    <Content Include="Schoonmaak en Onderhoud\style\stylesheet.css" />
     <Content Include="Scripts\dhtmlxScheduler\dhtmlxscheduler.css" />
     <Content Include="Scripts\dhtmlxScheduler\dhtmlxscheduler.js" />
     <Content Include="Scripts\dhtmlxScheduler\dhtmlxscheduler_contrast_black.css" />
@@ -376,20 +363,6 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Financien\Betaalscherm.aspx.cs">
-      <DependentUpon>Betaalscherm.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Financien\Betaalscherm.aspx.designer.cs">
-      <DependentUpon>Betaalscherm.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Financien\Factuurinvoerscherm.aspx.cs">
-      <DependentUpon>Factuurinvoerscherm.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Financien\Factuurinvoerscherm.aspx.designer.cs">
-      <DependentUpon>Factuurinvoerscherm.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Financien\Financien.Master.cs">
       <DependentUpon>Financien.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -404,47 +377,12 @@
     <Compile Include="Financien\Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Financien\Openstaandecreditnota.aspx.cs">
-      <DependentUpon>Openstaandecreditnota.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Financien\Openstaandecreditnota.aspx.designer.cs">
-      <DependentUpon>Openstaandecreditnota.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Financien\Overzicht.aspx.cs">
-      <DependentUpon>Overzicht.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Financien\Overzicht.aspx.designer.cs">
-      <DependentUpon>Overzicht.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Financien\Personeeloverzicht.aspx.cs">
-      <DependentUpon>Personeeloverzicht.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Financien\Personeeloverzicht.aspx.designer.cs">
-      <DependentUpon>Personeeloverzicht.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Financien\Prijstabel.aspx.cs">
       <DependentUpon>Prijstabel.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Financien\Prijstabel.aspx.designer.cs">
       <DependentUpon>Prijstabel.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Financien\Rekeningen.aspx.cs">
-      <DependentUpon>Rekeningen.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Financien\Rekeningen.aspx.designer.cs">
-      <DependentUpon>Rekeningen.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Financien\Reserveringen.aspx.cs">
-      <DependentUpon>Reserveringen.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Financien\Reserveringen.aspx.designer.cs">
-      <DependentUpon>Reserveringen.aspx</DependentUpon>
     </Compile>
     <Compile Include="Gerechten overzicht.aspx.cs">
       <DependentUpon>Gerechten overzicht.aspx</DependentUpon>
@@ -457,6 +395,13 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Recreatie\Voorraad.aspx.cs">
+      <DependentUpon>Voorraad.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Recreatie\Voorraad.aspx.designer.cs">
+      <DependentUpon>Voorraad.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Recreatie\Documentatie.aspx.cs">
       <DependentUpon>Documentatie.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -472,6 +417,13 @@
     <Compile Include="Recreatie\home.aspx.designer.cs">
       <DependentUpon>home.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Recreatie\Overzicht.aspx.cs">
+      <DependentUpon>Overzicht.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Recreatie\Overzicht.aspx.designer.cs">
+      <DependentUpon>Overzicht.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Recreatie\Planning.aspx.cs">
       <DependentUpon>Planning.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -486,20 +438,6 @@
     <Compile Include="Recreatie\Site1.Master.designer.cs">
       <DependentUpon>Site1.Master</DependentUpon>
     </Compile>
-    <Compile Include="Recreatie\Start.aspx.cs">
-      <DependentUpon>Start.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Recreatie\Start.aspx.designer.cs">
-      <DependentUpon>Start.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Recreatie\Overzicht.aspx.cs">
-      <DependentUpon>Overzicht.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Recreatie\Overzicht.aspx.designer.cs">
-      <DependentUpon>Overzicht.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Recreatie\Uitloggen.aspx.cs">
       <DependentUpon>Uitloggen.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -507,19 +445,19 @@
     <Compile Include="Recreatie\Uitloggen.aspx.designer.cs">
       <DependentUpon>Uitloggen.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Recreatie\Voorraad.aspx.cs">
-      <DependentUpon>Voorraad.aspx</DependentUpon>
+    <Compile Include="Reservering\ReserveringenOverzicht.aspx.cs">
+      <DependentUpon>ReserveringenOverzicht.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Recreatie\Voorraad.aspx.designer.cs">
-      <DependentUpon>Voorraad.aspx</DependentUpon>
+    <Compile Include="Reservering\ReserveringenOverzicht.aspx.designer.cs">
+      <DependentUpon>ReserveringenOverzicht.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Recreatie\Voorraadmuteren.aspx.cs">
-      <DependentUpon>Voorraadmuteren.aspx</DependentUpon>
+    <Compile Include="Reservering\NietGebruiken.aspx.cs">
+      <DependentUpon>NietGebruiken.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Recreatie\Voorraadmuteren.aspx.designer.cs">
-      <DependentUpon>Voorraadmuteren.aspx</DependentUpon>
+    <Compile Include="Reservering\NietGebruiken.aspx.designer.cs">
+      <DependentUpon>NietGebruiken.aspx</DependentUpon>
     </Compile>
     <Compile Include="Reservering\home.aspx.cs">
       <DependentUpon>home.aspx</DependentUpon>
@@ -563,12 +501,12 @@
     <Compile Include="Reservering\Site1.Master.designer.cs">
       <DependentUpon>Site1.Master</DependentUpon>
     </Compile>
-    <Compile Include="Reservering\test.aspx.cs">
-      <DependentUpon>test.aspx</DependentUpon>
+    <Compile Include="Reservering\ReserveringWijzigen.aspx.cs">
+      <DependentUpon>ReserveringWijzigen.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Reservering\test.aspx.designer.cs">
-      <DependentUpon>test.aspx</DependentUpon>
+    <Compile Include="Reservering\ReserveringWijzigen.aspx.designer.cs">
+      <DependentUpon>ReserveringWijzigen.aspx</DependentUpon>
     </Compile>
     <Compile Include="Restaurant\Bestelling.aspx.cs">
       <DependentUpon>Bestelling.aspx</DependentUpon>
@@ -654,54 +592,12 @@
     <Compile Include="Schoonmaak en Onderhoud\OnderhoudsOverzicht.aspx.designer.cs">
       <DependentUpon>OnderhoudsOverzicht.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Schoonmaak en Onderhoud\OnderhoudToevoegen.aspx.cs">
-      <DependentUpon>OnderhoudToevoegen.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Schoonmaak en Onderhoud\OnderhoudToevoegen.aspx.designer.cs">
-      <DependentUpon>OnderhoudToevoegen.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Schoonmaak en Onderhoud\OnderhoudWijzigen.aspx.cs">
-      <DependentUpon>OnderhoudWijzigen.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Schoonmaak en Onderhoud\OnderhoudWijzigen.aspx.designer.cs">
-      <DependentUpon>OnderhoudWijzigen.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Schoonmaak en Onderhoud\PlanningsOverzicht.aspx.cs">
       <DependentUpon>PlanningsOverzicht.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Schoonmaak en Onderhoud\PlanningsOverzicht.aspx.designer.cs">
       <DependentUpon>PlanningsOverzicht.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Schoonmaak en Onderhoud\PlanningToevoegen.aspx.cs">
-      <DependentUpon>PlanningToevoegen.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Schoonmaak en Onderhoud\PlanningToevoegen.aspx.designer.cs">
-      <DependentUpon>PlanningToevoegen.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Schoonmaak en Onderhoud\PlanningVerwijderen.aspx.cs">
-      <DependentUpon>PlanningVerwijderen.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Schoonmaak en Onderhoud\PlanningVerwijderen.aspx.designer.cs">
-      <DependentUpon>PlanningVerwijderen.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Schoonmaak en Onderhoud\PlanningWijzigen.aspx.cs">
-      <DependentUpon>PlanningWijzigen.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Schoonmaak en Onderhoud\PlanningWijzigen.aspx.designer.cs">
-      <DependentUpon>PlanningWijzigen.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Schoonmaak en Onderhoud\Schoonmaak.Master.cs">
-      <DependentUpon>Schoonmaak.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Schoonmaak en Onderhoud\Schoonmaak.Master.designer.cs">
-      <DependentUpon>Schoonmaak.Master</DependentUpon>
     </Compile>
     <Compile Include="Schoonmaak en Onderhoud\SchouwingsOverzicht.aspx.cs">
       <DependentUpon>SchouwingsOverzicht.aspx</DependentUpon>
@@ -714,13 +610,12 @@
   <ItemGroup>
     <Content Include="Financien\Financien.Master" />
     <Content Include="libman.json" />
+    <None Include="packages.config" />
+    <Content Include="Recreatie\Site1.Master" />
+    <Content Include="Reservering\Site1.Master" />
+    <Content Include="Restaurant\Restaurant.Master" />
     <Content Include="Scripts\jquery\jquery.min.map" />
     <Content Include="Scripts\jquery\jquery.slim.min.map" />
-    <Content Include="Schoonmaak en Onderhoud\Schoonmaak.Master" />
-    <None Include="packages.config" />
-    <Content Include="Reservering\Site1.Master" />
-    <Content Include="Recreatie\Site1.Master" />
-    <Content Include="Restaurant\Restaurant.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -730,9 +625,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Financien\js\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -760,12 +652,6 @@
     </VisualStudio>
   </ProjectExtensions>
   <Import Project="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets" Condition="Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" />
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets'))" />
-  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

@@ -19,7 +19,7 @@ namespace ProjectGroenBos.Reservering
             {
 
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Uw sessie is verlopen, u moet helaas de gegevens opnieuw invullen.')", true);
-                Response.Redirect("ReserveringenMedewerkerHuisje.aspx");
+                Response.Redirect("Huisjemedewerker.aspx");
             }
             else
             {
@@ -31,7 +31,11 @@ namespace ProjectGroenBos.Reservering
         protected void btnBevestigen_Click(object sender, EventArgs e)
         {
             Label1.Text = "";
-
+            this.txbGeboortedatum.Text = DateTime.Now.ToString("yyyy-MM-dd");
+            if (DropDownList1.SelectedValue == "Leeg")
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('U woont in een land, dit is vereist voor het telefoonnummer.')", true);
+            }
             Session["Voornaam"] = txbNaam.Text;
             Session["Tussenvoegsel"] = txbTussenvoegsel.Text;
             Session["Achternaam"] = txbAchternaam.Text;
@@ -42,6 +46,7 @@ namespace ProjectGroenBos.Reservering
             Session["Huisnummer"] = txbHuisnummer.Text;
             Session["Postcode"] = txbPostcode.Text;
             Session["Land"] = DropDownList1.SelectedValue;
+            Session["Geboortedatum"] = txbGeboortedatum.Text;
 
             Response.Redirect("ReserveringMedewerkerNachtregister.aspx");
             //check of telefoonnummer goed gaat
@@ -52,27 +57,29 @@ namespace ProjectGroenBos.Reservering
 
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            RegularExpressionValidator10.ValidationExpression = nlCheck;
-
-            if (DropDownList1.SelectedValue == "Nederland")
+            if (DropDownList1.SelectedValue == "Nederland(+31)")
             {
                 RegularExpressionValidator10.ValidationExpression = nlCheck;
                 telefoonnummer = "+31";
             }
-            else if (DropDownList1.SelectedValue == "Duitsland")
+            else if (DropDownList1.SelectedValue == "Duitsland(+49)")
             {
                 RegularExpressionValidator10.ValidationExpression = deCheck;
                 telefoonnummer = "+49";
             }
-            else if (DropDownList1.SelectedValue == "Frankrijk")
+            else if (DropDownList1.SelectedValue == "Frankrijk(+33)")
             {
                 RegularExpressionValidator10.ValidationExpression = frCheck;
                 telefoonnummer = "+33";
             }
-            else if (DropDownList1.SelectedValue == "België")
+            else if (DropDownList1.SelectedValue == "België(+32)")
             {
                 RegularExpressionValidator10.ValidationExpression = beCheck;
                 telefoonnummer = "+32";
+            }
+            else if(DropDownList1.SelectedValue == "Leeg")
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('U woont in een land, dit is vereist voor het telefoonnummer.')", true);
             }
         }
     }
