@@ -23,7 +23,7 @@
                         <li><a href="#"><i class="fas fa-user"></i>Reserveren</a>
                             <ul class="submenu">
                                 <li><a href="Huisjemedewerker.aspx">Reservering plaatsen</a></li>
-                                <li><a href="ReserveringenwijzigenMASTER.aspx">Reservering wijzigen</a></li>
+                                <li><a href="ReserveringenOverzicht.aspx">Reservering overzicht</a></li>
                                 </ul>
                                 </li>
                         <%--<li><a href="#"><i class="fas fa-user"></i>Optie</a>

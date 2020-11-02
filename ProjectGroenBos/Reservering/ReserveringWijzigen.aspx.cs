@@ -7,124 +7,162 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Net.Mail;
+using System.IO;
 
-namespace ProjectGroenBos
+namespace ProjectGroenBos.Reservering
 {
-    public partial class ReserveringWijzigen : System.Web.UI.Page
+    public partial class test : System.Web.UI.Page
     {
-        string zoek;
-        string querieadres;
-
         protected void Page_Load(object sender, EventArgs e)
         {
 
+            if (Session["gastnummer"] == null)
+            {
+                Response.Redirect("ReserveringenOverzicht.aspx");
+            }
+            else
+            {
+                lblGastnummer.Text = Session["gastnummer"].ToString();
+                txbVoornaam.Text = Session["voornaam"].ToString();
+                txbTussenvoegsel.Text = Session["tussenvoegsel"].ToString();
+                txbAchternaam.Text = Session["achternaam"].ToString();
+                txbEmail.Text = Session["e-mail"].ToString();
+                txbTelefoonnummer.Text = Session["telefoonnummer"].ToString();
+                lblReserveringsnummer.Text = Session["reserveringsnummer"].ToString();
+                txbAantalPersonen.Text = Session["aantal_personen"].ToString();
+                txbOpmerkingen.Text = Session["opmerkingen"].ToString();
+
+                this.txbAankomstdatum.Text = Session["aankomstdatum"].ToString();
+                this.txbVertrekdatum.Text = Session["vertrekdatum"].ToString();
+                //txbAankomstdatum.Text = Session["aankomstdatum"].ToString();
+                //txbVertrekdatum.Text = Session["vertrekdatum"].ToString();
+                if (txbTussenvoegsel.Text == "&nbsp;")
+                {
+                    txbTussenvoegsel.Text = "";
+                }
+                if (txbOpmerkingen.Text == "&nbsp;")
+                {
+                    txbOpmerkingen.Text = "";
+                }
+            }
+
+
+
+
+
         }
 
-        protected void txbAchternaam_TextChanged(object sender, EventArgs e)
+        protected void btnWijzigen_Click(object sender, EventArgs e)
         {
-            zoek = txbAchternaam.Text;
-
-            using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["2020-BIM02-P1-P2-GroenbosConnectionString"].ConnectionString))
+            try
             {
-                try
+                using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["2020-BIM02-P1-P2-GroenbosConnectionString"].ConnectionString))
                 {
-                    //radiobuttons om te kijken waarop de tabel gesorteerd moet worden
-                    if (rdbVoornaam.Checked == true)
-                    {
-                        querieadres = "select res.Nummer as Reserveringsnummer, gst.Voornaam, gst.Tussenvoegsel, gst.Achternaam, gst.Email, res.Aantal_personen as [Aantal personen], res.Aankomstdatum, res.Vertrekdatum from Gast gst inner join Reservering res on gst.Nummer = res.GastNummer where gst.Voornaam like @zoek or gst.Achternaam like @zoek order by gst.Voornaam";
+                    DateTime tussen1 = DateTime.Parse(txbAankomstdatum.Text);
+                    DateTime tussen2 = DateTime.Parse(txbVertrekdatum.Text);
+                    string gast = lblGastnummer.Text;
+                    string voornaam = txbVoornaam.Text;
+                    string tussenvoegsel = txbTussenvoegsel.Text;
+                    string achternaam = txbAchternaam.Text;
+                    string email = txbEmail.Text;
+                    string telefoonnummer = txbTelefoonnummer.Text;
+                    string reserveringsnummer = lblReserveringsnummer.Text;
+                    int aantalPersonen = int.Parse(txbAantalPersonen.Text);
+                    string opmerkingen = txbOpmerkingen.Text;
 
-                    }
-                    else if (rdbAchternaam.Checked == true)
-                    {
-                        querieadres = "select res.Nummer as Reserveringsnummer, gst.Voornaam, gst.Tussenvoegsel, gst.Achternaam, gst.Email, res.Aantal_personen as [Aantal personen], res.Aankomstdatum, res.Vertrekdatum from Gast gst inner join Reservering res on gst.Nummer = res.GastNummer where gst.Voornaam like @zoek or gst.Achternaam like @zoek order by gst.Achternaam";
+                    DateTime aankomstdatum = new DateTime();
+                    DateTime vertrekdatum = new DateTime();
+                    aankomstdatum = tussen1;
+                    vertrekdatum = tussen2;
+                    aankomstdatum.ToShortDateString();
+                    vertrekdatum.ToShortDateString();
 
-                    }
-                    else
-                    {
-                        querieadres = "select res.Nummer as Reserveringsnummer, gst.Voornaam, gst.Tussenvoegsel, gst.Achternaam, gst.Email, res.Aantal_personen as [Aantal personen], res.Aankomstdatum, res.Vertrekdatum from Gast gst inner join Reservering res on gst.Nummer = res.GastNummer where gst.Voornaam like @zoek or gst.Achternaam like @zoek order by res.Nummer";
-                    }
+                    con.Open();
+                    string query1 = "update Gast set Voornaam = @voornaam, Tussenvoegsel = @tussenvoegsel, Achternaam = @achternaam, Telefoonnummer = @telefoonnummer, Email = @email where Nummer = @gastnummer";
+                    string query2 = "update Reservering set Aantal_personen = @personen, Opmerking = @opmerking, Vertrekdatum = @vertrekdatum, Aankomstdatum = @aankomstdatum where Nummer = @reserveringsnummer";
 
-                    //laden van de info uit de database
-                    DataSet ds = Data();
+                    SqlCommand cmd1 = new SqlCommand(query1, con);
+                    SqlCommand cmd2 = new SqlCommand(query2, con);
 
-                    GridView1.DataSource = ds;
-                    GridView1.DataBind();
+                    cmd1.Parameters.AddWithValue("@voornaam", voornaam);
+                    cmd1.Parameters.AddWithValue("@tussenvoegsel", tussenvoegsel);
+                    cmd1.Parameters.AddWithValue("@achternaam", achternaam);
+                    cmd1.Parameters.AddWithValue("@telefoonnummer", telefoonnummer);
+                    cmd1.Parameters.AddWithValue("@email", email);
+                    cmd1.Parameters.AddWithValue("@gastnummer", gast);
+
+                    cmd2.Parameters.AddWithValue("@personen", aantalPersonen);
+                    cmd2.Parameters.AddWithValue("@opmerking", opmerkingen);
+                    cmd2.Parameters.AddWithValue("@vertrekdatum", vertrekdatum);
+                    cmd2.Parameters.AddWithValue("@aankomstdatum", aankomstdatum);
+                    cmd2.Parameters.AddWithValue("@reserveringsnummer", reserveringsnummer);
+
+                    cmd1.CommandType = CommandType.Text;
+                    cmd2.CommandType = CommandType.Text;
+
+                    int veranderdeRijen1 = cmd1.ExecuteNonQuery();
+                    int veranderdeRijen2 = cmd2.ExecuteNonQuery();
+
+                    con.Close();
+
+                    int totaal = veranderdeRijen1 + veranderdeRijen2;
+                    Response.Redirect("ReserveringenOverzicht.aspx");
                 }
-                catch (Exception exception)
-                {
-                    lblUitkomst.Text = exception.ToString();
-                }
+            }
+            catch
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Er ging iets mis')", true);
             }
         }
 
-        protected DataSet Data()
-        {
-            //dataset om de gridview te vullen
-            using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["2020-BIM02-P1-P2-GroenbosConnectionString"].ConnectionString))
-            {
-                con.Open();
-                SqlDataAdapter query = new SqlDataAdapter(querieadres, con);
-                //parameters
+        //private void StuurMail()
+        //{
+        //    string ontvanger = lblEmail.Text;
 
-                zoek = "%" + zoek + "%";
+        //    //Mail opzetten
+        //    MailMessage mailMessage = new MailMessage("groenbosreservations@gmail.com", ontvanger);
+        //    mailMessage.Subject = "Uw reservering is gewijzigd!";
+        //    mailMessage.Body = CreateBody();
+        //    mailMessage.IsBodyHtml = true;
 
-                query.SelectCommand.Parameters.AddWithValue("@zoek", zoek);
-                DataSet set = new DataSet();
-                query.Fill(set);
+        //    //Credentails
+        //    SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
+        //    smtpClient.Credentials = new System.Net.NetworkCredential()
+        //    {
+        //        UserName = "groenbosreservations@gmail.com",
+        //        Password = "MarionenAndries"
+        //    };
+        //    smtpClient.EnableSsl = true;
 
-                var tussen1 = "";
-                var tussen2 = "";
+        //    //Versturen mail
 
-                //clonen van tabel
-                DataSet trueset = set.Clone();
+        //    smtpClient.Send(mailMessage);
 
-                //change kolom datatype
-                trueset.Tables[0].Columns[6].DataType = typeof(string);
-                trueset.Tables[0].Columns[7].DataType = typeof(string);
+        //}
 
-                //data importen
-                foreach (DataRow row in set.Tables[0].Rows)
-                {
-                    trueset.Tables[0].ImportRow(row);
-                }
+        //private string CreateBody()
+        //{
+        //    {
+        //        //lezen mail.html
+        //        string body = string.Empty;
+        //        using (StreamReader reader = new StreamReader(Server.MapPath("MailReserveringGewijzigd.html")))
+        //        {
+        //            body = reader.ReadToEnd();
+        //        }
 
-                //elke rij veranderen
-                foreach (DataRow row in trueset.Tables[0].Rows)
-                {
-                    //pak var
-                    DateTime dt1 = DateTime.Parse(row[6].ToString());
-                    DateTime dt2 = DateTime.Parse(row[7].ToString());
-                    //pas aan
-                    tussen1 = dt1.ToShortDateString();
-                    tussen2 = dt2.ToShortDateString();
-                    //adjust
-                    row[6] = tussen1;
-                    row[7] = tussen2;
-                }
+        //        //parameters html pagina
 
+        //        body = body.Replace("{achternaam}", lblAchternaam.Text);
+        //        body = body.Replace("{aankomstdatum}", txtAankomstDatum.Text);
+        //        body = body.Replace("{vertrekdatum}", txtVertrekdatum.Text);
+        //        body = body.Replace("{personen}", txtAantalPersonen.Text);
+        //        body = body.Replace("{email}", lblEmail.Text);
 
-                con.Close();
+        //        return body;
+        //    }
 
-                if (trueset.Tables[0].Rows.Count == 0)
-                {
-                    lblUitkomst.Text = "Geen resultaten gevonden.";
-                }
+        //}
 
-                return trueset;
-            }
-        }
-
-        protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
-        {
-            Session["Reserveringsnummer"] = (string)GridView1.DataKeys[GridView1.SelectedIndex][0];
-            Session["Aantal_Personen"] = (string)GridView1.DataKeys[GridView1.SelectedIndex][5];
-            Session["Aankomstdatum"] = (string)GridView1.DataKeys[GridView1.SelectedIndex][6];
-            Session["Vertrekdatum"] = (string)GridView1.DataKeys[GridView1.SelectedIndex][7];
-
-            //test of het werkt, nog niet
-            //lblUitkomst.Text = Session["Reserveringsnummer"].ToString() + Session["Aantal personen"].ToString() + Session["Aankomstdatum"].ToString() + Session["Vertrekdatum"].ToString();
-
-            Response.Redirect("ReserveringRijzigen2.aspx");
-        }
     }
 }

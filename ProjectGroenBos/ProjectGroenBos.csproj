@@ -92,8 +92,8 @@
     <Content Include="Recreatie\Uitloggen.aspx" />
     <Content Include="Recreatie\Voorraadfout.aspx" />
     <Content Include="Reservering\MailReserveringGewijzigd.html" />
-    <Content Include="Reservering\ReserveringenwijzigenMASTER.aspx" />
-    <Content Include="Reservering\ReserveringWijzigen.aspx" />
+    <Content Include="Reservering\ReserveringenOverzicht.aspx" />
+    <Content Include="Reservering\NietGebruiken.aspx" />
     <Content Include="Reservering\css\Stylejuist.css" />
     <Content Include="Reservering\home.aspx" />
     <Content Include="Reservering\Huisjemedewerker.aspx" />
@@ -101,7 +101,7 @@
     <Content Include="Reservering\ReserveringenMedewerkerGegevens.aspx" />
     <Content Include="Reservering\ReserveringenMedewerkerGelukt.aspx" />
     <Content Include="Reservering\ReserveringMedewerkerNachtregister.aspx" />
-    <Content Include="Reservering\test.aspx" />
+    <Content Include="Reservering\ReserveringWijzigen.aspx" />
     <Content Include="Schoonmaak en Onderhoud\InventarisOverzicht.aspx" />
     <Content Include="Schoonmaak en Onderhoud\OffertesOverzicht.aspx" />
     <Content Include="Schoonmaak en Onderhoud\OnderhoudsOverzicht.aspx" />
@@ -189,19 +189,19 @@
     <Compile Include="Recreatie\Voorraadfout.aspx.designer.cs">
       <DependentUpon>Voorraadfout.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Reservering\ReserveringenwijzigenMASTER.aspx.cs">
-      <DependentUpon>ReserveringenwijzigenMASTER.aspx</DependentUpon>
+    <Compile Include="Reservering\ReserveringenOverzicht.aspx.cs">
+      <DependentUpon>ReserveringenOverzicht.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Reservering\ReserveringenwijzigenMASTER.aspx.designer.cs">
-      <DependentUpon>ReserveringenwijzigenMASTER.aspx</DependentUpon>
+    <Compile Include="Reservering\ReserveringenOverzicht.aspx.designer.cs">
+      <DependentUpon>ReserveringenOverzicht.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Reservering\ReserveringWijzigen.aspx.cs">
-      <DependentUpon>ReserveringWijzigen.aspx</DependentUpon>
+    <Compile Include="Reservering\NietGebruiken.aspx.cs">
+      <DependentUpon>NietGebruiken.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Reservering\ReserveringWijzigen.aspx.designer.cs">
-      <DependentUpon>ReserveringWijzigen.aspx</DependentUpon>
+    <Compile Include="Reservering\NietGebruiken.aspx.designer.cs">
+      <DependentUpon>NietGebruiken.aspx</DependentUpon>
     </Compile>
     <Compile Include="Reservering\home.aspx.cs">
       <DependentUpon>home.aspx</DependentUpon>
@@ -245,12 +245,12 @@
     <Compile Include="Reservering\Site1.Master.designer.cs">
       <DependentUpon>Site1.Master</DependentUpon>
     </Compile>
-    <Compile Include="Reservering\test.aspx.cs">
-      <DependentUpon>test.aspx</DependentUpon>
+    <Compile Include="Reservering\ReserveringWijzigen.aspx.cs">
+      <DependentUpon>ReserveringWijzigen.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Reservering\test.aspx.designer.cs">
-      <DependentUpon>test.aspx</DependentUpon>
+    <Compile Include="Reservering\ReserveringWijzigen.aspx.designer.cs">
+      <DependentUpon>ReserveringWijzigen.aspx</DependentUpon>
     </Compile>
     <Compile Include="Schoonmaak en Onderhoud\InventarisOverzicht.aspx.cs">
       <DependentUpon>InventarisOverzicht.aspx</DependentUpon>

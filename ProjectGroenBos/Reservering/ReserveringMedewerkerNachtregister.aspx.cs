@@ -13,6 +13,7 @@ namespace ProjectGroenBos.Reservering
         // string mainconn = ConfigurationManager.ConnectionStrings["Defaultconnection"].ConnectionString;
         int aantalPersonen;
         static int count = 0;
+        int reserveringnummer;
 
 
         protected void Page_Load(object sender, EventArgs e)
@@ -79,13 +80,19 @@ namespace ProjectGroenBos.Reservering
             int gastnummer = GetNummer();
             InsAdres(straat, huisnummer, postcode, land, gastnummer);
             InsReservering(personen, opmerkingen, vandaag, vertrekdatum, aankomstdatum, reserveringsStatus, gastnummer);
-            int reserveringnummer = GetReservering();
+            reserveringnummer = GetReservering();
             InsReserveringBungalow(reserveringnummer, bungalowGetal);
 
             InsDebiteurenFactuur(vandaag, betaalmethode, betaalstatus, factuurtype, reserveringnummer);
             int debifactuur = GetDebiNummer();
 
             InsTransactie(vandaag, aan, bedrag, reserveringnummer, debifactuur, rekeningnummer, typeID);
+
+            int feestdag = GetFeestdag(reserveringnummer);
+            int lengte = GetLengte(reserveringnummer);
+            int seizoen = GetSeizoen(reserveringnummer);
+
+            UpdateReservering(seizoen, lengte, feestdag, reserveringnummer);
 
             StuurMail();
 
@@ -130,7 +137,7 @@ namespace ProjectGroenBos.Reservering
                 }
 
                 //parameters html pagina
-
+                body = body.Replace("{reserveringsnummer}", reserveringnummer.ToString());
                 body = body.Replace("{achternaam}", Session["Achternaam"].ToString());
                 body = body.Replace("{aankomstdatum}", Session["Aankomst"].ToString());
                 body = body.Replace("{vertrekdatum}", Session["Vertrek"].ToString());
@@ -458,6 +465,81 @@ namespace ProjectGroenBos.Reservering
                 {
 
                 }
+            }
+        }
+
+        private int GetFeestdag(int reserveringnummer)
+        {
+
+            using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["2020-BIM02-P1-P2-GroenbosConnectionString"].ConnectionString))
+            {
+                con.Open();
+
+                string sqlquery = "declare @Date01 as smalldatetime declare @Date02 as smalldatetime select @Date01 = min(Aankomstdatum), @Date02 = max(Vertrekdatum) from Reservering where Nummer = @nummer declare @DateDiff as int select @DateDiff = (select DATEDIFF(DAY, @Date01, @Date02) as yolo) ; WITH Tally(N) AS (SELECT ROW_NUMBER() OVER(ORDER BY(SELECT NULL)) FROM sys.all_columns a CROSS JOIN sys.all_columns b) SELECT Feestdag.ID FROM Tally cross join Feestdag where N <= @DateDiff and DATEADD(day, N, @Date01) between Begindatum and Einddatum group by Feestdag.ID";
+                SqlCommand cmd = new SqlCommand(sqlquery, con);
+                cmd.Parameters.AddWithValue("@nummer", reserveringnummer);
+                int feestdag = (int)cmd.ExecuteScalar();
+
+                con.Close();
+
+                return feestdag;
+
+            }
+        }
+
+        private int GetLengte(int reserveringnummer)
+        {
+            using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["2020-BIM02-P1-P2-GroenbosConnectionString"].ConnectionString))
+            {
+                con.Open();
+
+                string sqlquery = "declare @Date01 as smalldatetime declare @Date02 as smalldatetime select @Date01= min(Aankomstdatum), @Date02 = max(Vertrekdatum) from Reservering where Nummer = @nummer declare @DateDiff as int select @DateDiff = DATEDIFF(DAY, @Date01, @Date02) SELECT CASE WHEN DATEDIFF(DAY, @Date01, @Date02) = 7 then 1 WHEN DATEDIFF(DAY, @Date01, @Date02) = 3 then 3 WHEN DATEDIFF(DAY, @Date01, @Date02) = 4 then 2 END AS lengte";
+                SqlCommand cmd = new SqlCommand(sqlquery, con);
+                cmd.Parameters.AddWithValue("@nummer", reserveringnummer);
+                int lengte = (int)cmd.ExecuteScalar();
+
+                con.Close();
+
+                return lengte;
+
+            }
+        }
+
+        private int GetSeizoen(int reserveringnummer)
+        {
+            using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["2020-BIM02-P1-P2-GroenbosConnectionString"].ConnectionString))
+            {
+                con.Open();
+
+                string sqlquery = "declare @Date01 as smalldatetime declare @Date02 as smalldatetime select @Date01= min(Aankomstdatum), @Date02 = max(Vertrekdatum) from Reservering where Nummer = @nummer declare @DateDiff as int select @DateDiff = (select DATEDIFF(DAY, @Date01, @Date02) as yolo)  ; WITH Tally (N) AS ( SELECT ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) FROM sys.all_columns a CROSS JOIN sys.all_columns b) SELECT Seizoen.ID FROM Tally cross join Seizoen  where N <= @DateDiff and DATEADD(day, N, @Date01) between Begindatum and Einddatum and prio = (sELECT MAX(prio) FROM Tally cross join Seizoen  where N <= @DateDiff and DATEADD(day, N, @Date01) between Begindatum and Einddatum) group by prio, Seizoen.ID";
+                SqlCommand cmd = new SqlCommand(sqlquery, con);
+                cmd.Parameters.AddWithValue("@nummer", reserveringnummer);
+                int seizoen = (int)cmd.ExecuteScalar();
+
+                con.Close();
+
+                return seizoen;
+
+            }
+        }
+
+        private void UpdateReservering(int seizoen, int lengte, int feestdag, int reserveringnummer)
+        {
+            using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["2020-BIM02-P1-P2-GroenbosConnectionString"].ConnectionString))
+            {
+                con.Open();
+
+                string sqlquery = "update Reservering set SeizoenID = @seizoen, ReserveringslengteID = @lengte, FeestdagNummer = @feestdag where Nummer = @nummer";
+                SqlCommand cmd = new SqlCommand(sqlquery, con);
+
+                cmd.Parameters.AddWithValue("@seizoen", seizoen);
+                cmd.Parameters.AddWithValue("@lengte", lengte);
+                cmd.Parameters.AddWithValue("@feestdag", feestdag);
+                cmd.Parameters.AddWithValue("@nummer", reserveringnummer);
+
+                cmd.ExecuteNonQuery();
+
+                con.Close();
             }
         }
     }

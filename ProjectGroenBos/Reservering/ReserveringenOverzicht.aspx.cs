@@ -118,7 +118,7 @@ namespace ProjectGroenBos.Reservering
             //txtAantalPersonen.Text = GridView1.SelectedRow.Cells[6].Text;
             //txtAankomstDatum.Text = GridView1.SelectedRow.Cells[7].Text;
             //txtVertrekdatum.Text = GridView1.SelectedRow.Cells[8].Text;
-            Response.Redirect("test.aspx");
+            Response.Redirect("ReserveringWijzigen.aspx");
         }
 
         protected void btnZoek_Click(object sender, EventArgs e)
@@ -126,7 +126,7 @@ namespace ProjectGroenBos.Reservering
             lblUitkomst.Text = "";
             zoek = txbAchternaam.Text;
             datum = txbDatum.Text;
-            this.txbDatum.Text = DateTime.Now.ToString("yyyy-MM-dd");
+            //this.txbDatum.Text = DateTime.Now.ToString("yyyy-MM-dd");
 
             using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["2020-BIM02-P1-P2-GroenbosConnectionString"].ConnectionString))
             {
