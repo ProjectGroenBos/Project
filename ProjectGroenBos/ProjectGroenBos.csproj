@@ -142,8 +142,14 @@
     <Content Include="Schoonmaak en Onderhoud\InventarisOverzicht.aspx" />
     <Content Include="Schoonmaak en Onderhoud\OffertesOverzicht.aspx" />
     <Content Include="Schoonmaak en Onderhoud\OnderhoudsOverzicht.aspx" />
+    <Content Include="Schoonmaak en Onderhoud\OnderhoudToevoegen.aspx" />
+    <Content Include="Schoonmaak en Onderhoud\OnderhoudWijzigen.aspx" />
     <Content Include="Schoonmaak en Onderhoud\PlanningsOverzicht.aspx" />
+    <Content Include="Schoonmaak en Onderhoud\PlanningToevoegen.aspx" />
+    <Content Include="Schoonmaak en Onderhoud\PlanningVerwijderen.aspx" />
+    <Content Include="Schoonmaak en Onderhoud\PlanningWijzigen.aspx" />
     <Content Include="Schoonmaak en Onderhoud\SchouwingsOverzicht.aspx" />
+    <Content Include="Schoonmaak en Onderhoud\style\stylesheet.css" />
     <Content Include="Scripts\dhtmlxScheduler\dhtmlxscheduler.css" />
     <Content Include="Scripts\dhtmlxScheduler\dhtmlxscheduler.js" />
     <Content Include="Scripts\dhtmlxScheduler\dhtmlxscheduler_contrast_black.css" />
@@ -592,12 +598,54 @@
     <Compile Include="Schoonmaak en Onderhoud\OnderhoudsOverzicht.aspx.designer.cs">
       <DependentUpon>OnderhoudsOverzicht.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Schoonmaak en Onderhoud\OnderhoudToevoegen.aspx.cs">
+      <DependentUpon>OnderhoudToevoegen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Schoonmaak en Onderhoud\OnderhoudToevoegen.aspx.designer.cs">
+      <DependentUpon>OnderhoudToevoegen.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Schoonmaak en Onderhoud\OnderhoudWijzigen.aspx.cs">
+      <DependentUpon>OnderhoudWijzigen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Schoonmaak en Onderhoud\OnderhoudWijzigen.aspx.designer.cs">
+      <DependentUpon>OnderhoudWijzigen.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Schoonmaak en Onderhoud\PlanningsOverzicht.aspx.cs">
       <DependentUpon>PlanningsOverzicht.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Schoonmaak en Onderhoud\PlanningsOverzicht.aspx.designer.cs">
       <DependentUpon>PlanningsOverzicht.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Schoonmaak en Onderhoud\PlanningToevoegen.aspx.cs">
+      <DependentUpon>PlanningToevoegen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Schoonmaak en Onderhoud\PlanningToevoegen.aspx.designer.cs">
+      <DependentUpon>PlanningToevoegen.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Schoonmaak en Onderhoud\PlanningVerwijderen.aspx.cs">
+      <DependentUpon>PlanningVerwijderen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Schoonmaak en Onderhoud\PlanningVerwijderen.aspx.designer.cs">
+      <DependentUpon>PlanningVerwijderen.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Schoonmaak en Onderhoud\PlanningWijzigen.aspx.cs">
+      <DependentUpon>PlanningWijzigen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Schoonmaak en Onderhoud\PlanningWijzigen.aspx.designer.cs">
+      <DependentUpon>PlanningWijzigen.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Schoonmaak en Onderhoud\Schoonmaak.Master.cs">
+      <DependentUpon>Schoonmaak.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Schoonmaak en Onderhoud\Schoonmaak.Master.designer.cs">
+      <DependentUpon>Schoonmaak.Master</DependentUpon>
     </Compile>
     <Compile Include="Schoonmaak en Onderhoud\SchouwingsOverzicht.aspx.cs">
       <DependentUpon>SchouwingsOverzicht.aspx</DependentUpon>
@@ -616,6 +664,7 @@
     <Content Include="Restaurant\Restaurant.Master" />
     <Content Include="Scripts\jquery\jquery.min.map" />
     <Content Include="Scripts\jquery\jquery.slim.min.map" />
+    <Content Include="Schoonmaak en Onderhoud\Schoonmaak.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
