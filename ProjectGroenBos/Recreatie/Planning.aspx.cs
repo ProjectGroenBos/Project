@@ -17,6 +17,7 @@ namespace recreatie.paginas
         DataTable Activteit;
         int Currentactivity;
         DataTable dt = new DataTable();
+        private int index;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -64,9 +65,6 @@ namespace recreatie.paginas
                 SqlDataAdapter da = new SqlDataAdapter(sqlComd);
                 da.Fill(Activteit);
                 Session["Activiteit"] = Activteit;
-
-
-
             }
         }
 
@@ -171,7 +169,8 @@ namespace recreatie.paginas
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            GetActivityData(int.Parse(GridView1.SelectedRow.Cells[0].Text));
+            index = int.Parse(GridView1.SelectedRow.Cells[0].Text);
+            GetActivityData(index);
             Textboxesvullen();
             btnActiviteitInplannen.Text = "Wijzigen";
 
@@ -260,6 +259,45 @@ namespace recreatie.paginas
             Activteit = (DataTable)ViewState["Medewerker"];
 
             btnActiviteitInplannen.Text = "Activiteit inplannen";
+        }
+
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            TxbActiviteit.Text = "";
+            txbLocatie.Text = "";
+            TxbBegintijd.Text = "";
+            TxbEindtijd.Text = "";
+            TxbAantal.Text = "";
+            TxbDatum.Text = "";
+            txbInschrijfkosten.Text = "";
+
+            GridView2.DataSource = null;
+            ViewState["Medewerker"] = null;
+            GridView2.DataBind();
+            dt.Columns.AddRange(new DataColumn[1] { new DataColumn("Naam") });
+            ViewState["Medewerker"] = dt;
+            this.BindGrid();
+            Activteit = (DataTable)ViewState["Medewerker"];
+
+
+            using (SqlConnection Sqlcon = new SqlConnection(connectionstring))
+            {
+                Sqlcon.Open();
+                SqlDataAdapter ada = new SqlDataAdapter();
+
+                int  index2 = int.Parse(GridView1.SelectedRow.Cells[0].Text);
+
+                string sql = "UPDATE dbo.Activiteit SET ActiviteitActief = 0 WHERE Nummer = @Nummer";
+                GridView1.Rows[GridView1.SelectedIndex].Visible = false;
+                SqlCommand command = new SqlCommand(sql, Sqlcon);
+                command.Parameters.AddWithValue("@Nummer", Convert.ToInt32(index2));
+
+                command.ExecuteNonQuery();
+                GridView1.DataBind();
+                command.Dispose();
+                Sqlcon.Close();
+            }
+            GridView1.SelectedIndex = -1;
         }
     }
 }

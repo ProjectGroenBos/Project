@@ -5,9 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace recreatie.paginas
+namespace ProjectGroenBos.Reservering
 {
-    public partial class Voorraad : System.Web.UI.Page
+    public partial class ReserveringenMedewerkerWensen1 : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

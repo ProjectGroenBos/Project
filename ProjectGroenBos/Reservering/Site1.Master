@@ -23,9 +23,10 @@
                         <li><a href="#"><i class="fas fa-user"></i>Reserveren</a>
                             <ul class="submenu">
                                 <li><a href="Huisjemedewerker.aspx">Reservering plaatsen</a></li>
+                                <li><a href="ReserveringenOverzicht.aspx">Reservering overzicht</a></li>
                                 </ul>
                                 </li>
-                        <li><a href="#"><i class="fas fa-user"></i>Optie</a>
+                        <%--<li><a href="#"><i class="fas fa-user"></i>Optie</a>
                             <ul class="submenu">
                                 <li><a href="#">optie 1</a></li>
                                 <li><a href="#">optie 2</a>
@@ -36,28 +37,26 @@
                                 </li>
                                 <li><a href="#">optie 3</a></li>
                             </ul>
-                        </li>
+                        </li>--%>
                     </ul>
                     <div class="terug">
                         <a href="#">&#8249; Terug naar home</a>
                     </div>
                 </div>
                 <div class="main_content">
-                    <div class="navigator">  
-                    <nav>
-                        <ul>
-                            
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">Restaurant</a></li>
-                            <li class="selected"><a href="#">Reserveringen</a></li>
-                            <li><a href="#">Recreatie</a></li>
-                            <li><a href="#">Schoonmaak</a></li>
-                            <li><a href="#">Financiën</a></li>
-                            
-                            
-                        </ul>
-                    </nav>
-                </div>
+                    <div class="navigator">
+                        <nav>
+                            <ul>
+                                <li><a href="#">Home</a></li>
+                                <li><a href="/Recreatie/Overzicht.aspx">Recreatie</a></li>
+                                <li><a href="/Restaurant/home.aspx">Restaurant</a></li>
+                                <li class="selected"><a href="/Reservering/home.aspx">Reserveringen & Balie</a></li>
+                                <li><a href="/Financien/Home.aspx">Financiën</a></li>
+                                <li><a href="/Schoonmaak en Onderhoud/InventarisOverzicht.aspx">Schoonmaak</a></li>
+                                <asp:Button ID="btnUitloggen" runat="server" CssClass="btnUitloggen" Text="Uitloggen" />
+                            </ul>
+                        </nav>
+                        </div>
         <div class="werkgebied">
             <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
             </asp:ContentPlaceHolder>
