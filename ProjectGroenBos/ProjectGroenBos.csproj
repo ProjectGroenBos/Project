@@ -122,6 +122,8 @@
     <Content Include="Schoonmaak en Onderhoud\PlanningVerwijderen.aspx" />
     <Content Include="Schoonmaak en Onderhoud\PlanningWijzigen.aspx" />
     <Content Include="Schoonmaak en Onderhoud\SchouwingsOverzicht.aspx" />
+    <Content Include="Schoonmaak en Onderhoud\SchouwingToevoegen.aspx" />
+    <Content Include="Schoonmaak en Onderhoud\SchouwingWijzigen.aspx" />
     <Content Include="Schoonmaak en Onderhoud\style\stylesheet.css" />
     <Content Include="Scripts\dhtmlxScheduler\dhtmlxscheduler.css" />
     <Content Include="Scripts\dhtmlxScheduler\dhtmlxscheduler.js" />
@@ -584,6 +586,20 @@
     </Compile>
     <Compile Include="Schoonmaak en Onderhoud\SchouwingsOverzicht.aspx.designer.cs">
       <DependentUpon>SchouwingsOverzicht.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Schoonmaak en Onderhoud\SchouwingToevoegen.aspx.cs">
+      <DependentUpon>SchouwingToevoegen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Schoonmaak en Onderhoud\SchouwingToevoegen.aspx.designer.cs">
+      <DependentUpon>SchouwingToevoegen.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Schoonmaak en Onderhoud\SchouwingWijzigen.aspx.cs">
+      <DependentUpon>SchouwingWijzigen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Schoonmaak en Onderhoud\SchouwingWijzigen.aspx.designer.cs">
+      <DependentUpon>SchouwingWijzigen.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
