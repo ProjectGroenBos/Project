@@ -13,5 +13,15 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud
         {
 
         }
+
+        protected void btnToevoegen_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("SchouwingToevoegen.aspx");
+        }
+
+        protected void btnWijzigen_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("SchouwingWijzigen.aspx");
+        }
     }
 }

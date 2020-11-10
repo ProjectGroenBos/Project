@@ -10,20 +10,48 @@
     <br />
     <div class="row col-sm-12">
        <div class="col-sm-12" style="text-align:center;">
-          <asp:Button ID="btnToevoegen" runat="server" Text="Schouwing Toevoegen" BackColor="#0E6251" OnClick="Button2_Click" BorderColor="#0E6251" ForeColor="White" EnableTheming="True" CssClass="buttonstyle"/>
+          <asp:Button ID="btnToevoegen" runat="server" Text="Schouwing Toevoegen" BackColor="#0E6251" BorderColor="#0E6251" ForeColor="White" EnableTheming="True" CssClass="buttonstyle" OnClick="btnToevoegen_Click"/>
            &nbsp;
-           <asp:Button ID="btnWijzigen" runat="server" BackColor="#0E6251" BorderColor="#0E6251" CssClass="buttonstyle" ForeColor="White" OnClick="btnWijzigscherm_Click" Text="Onderhoud Wijzigen" />
+           <asp:Button ID="btnWijzigen" runat="server" BackColor="#0E6251" BorderColor="#0E6251" CssClass="buttonstyle" ForeColor="White" Text="Onderhoud Wijzigen" OnClick="btnWijzigen_Click" />
            <br />
            <br />
            <hr />
           </div>
         <div>
-            <asp:DropDownList ID="DropDownList1" runat="server"></asp:DropDownList>
-            <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-            <asp:Button ID="Button1" runat="server" Text="Button" />
+            <br />
+            <asp:DropDownList ID="DropDownList1" runat="server">
+                <asp:ListItem Value="0">-- Selecteer -- </asp:ListItem>
+                <asp:ListItem>Bungalownummer</asp:ListItem>
+                <asp:ListItem>Schouwingsdatum</asp:ListItem>
+            </asp:DropDownList>
+            &nbsp;<asp:DropDownList ID="DropDownList2" runat="server">
+            </asp:DropDownList>
+            <asp:Button ID="Button1" runat="server" Text="Zoek" BackColor="#0E6251" BorderColor="#0E6251" CssClass="buttonstyle" ForeColor="White" />
+            <br />
+            <br />
+            <br />
         </div>
         <div>
-            <asp:GridView ID="GridView1" runat="server"></asp:GridView>
+            <center>
+            <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#0E6251" BorderStyle="Solid" BorderWidth="1px" CellPadding="5" DataKeyNames="SchouwingID" DataSourceID="SqlDataSource1" ForeColor="Black" GridLines="Vertical" Width="80%">
+                <AlternatingRowStyle BackColor="#F0F0F0" />
+                <Columns>
+                    <asp:BoundField DataField="SchouwingID" HeaderText="Nummer" ReadOnly="True" SortExpression="SchouwingID" />
+                    <asp:BoundField DataField="BungalowID" HeaderText="Bungalownummer" SortExpression="BungalowID" />
+                    <asp:BoundField DataField="Schouwingsdatum" HeaderText="Schouwingsdatum" SortExpression="Schouwingsdatum" />
+                    <asp:BoundField DataField="Omschrijving" HeaderText="Omschrijving" SortExpression="Omschrijving" />
+                </Columns>
+                <FooterStyle BackColor="#CCCCCC" />
+                <HeaderStyle BackColor="#0E6251" ForeColor="White" />
+                <PagerStyle BackColor="#0E6251" ForeColor="Black" HorizontalAlign="Center" />
+                <SelectedRowStyle BackColor="#000099" ForeColor="Black" />
+                <SortedAscendingCellStyle BackColor="#F1F1F1" ForeColor="Black" />
+                <SortedAscendingHeaderStyle BackColor="Gray" />
+                <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                <SortedDescendingHeaderStyle BackColor="#383838" />
+            </asp:GridView>
+                </center>
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:con %>" SelectCommand="SELECT * FROM [Schouwing]"></asp:SqlDataSource>
         </div>
 
         <br />
