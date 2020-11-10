@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
-using System.Data;
+
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -98,8 +98,8 @@ namespace ProjectGroenBos.Reservering
                     cmd2.Parameters.AddWithValue("@aankomstdatum", aankomstdatum);
                     cmd2.Parameters.AddWithValue("@reserveringsnummer", reserveringsnummer);
 
-                    cmd1.CommandType = CommandType.Text;
-                    cmd2.CommandType = CommandType.Text;
+                    cmd1.CommandType = System.Data.CommandType.Text;
+                    cmd2.CommandType = System.Data.CommandType.Text;
 
                     int veranderdeRijen1 = cmd1.ExecuteNonQuery();
                     int veranderdeRijen2 = cmd2.ExecuteNonQuery();

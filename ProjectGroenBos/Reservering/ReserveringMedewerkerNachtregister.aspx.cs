@@ -241,7 +241,7 @@ namespace ProjectGroenBos.Reservering
                 {
                     con.Open();
 
-                    SqlCommand sqlquery = new SqlCommand("[dbo].[InsertAdres]");
+                    SqlCommand sqlquery = new SqlCommand("insert into [dbo].[Adres] (Straatnaam, Huisnummer, Postcode, Land, GastNummer) values (@Straatnaam, @Huisnummer, @Postcode, @Land, @GastNummer)");
 
                     sqlquery.Parameters.AddWithValue("@Straatnaam", straat);
                     sqlquery.Parameters.AddWithValue("@Huisnummer", huisnummer);
@@ -249,7 +249,7 @@ namespace ProjectGroenBos.Reservering
                     sqlquery.Parameters.AddWithValue("@Land", land);
                     sqlquery.Parameters.AddWithValue("@GastNummer", gastnummer);
 
-                    sqlquery.CommandType = System.Data.CommandType.StoredProcedure;
+                    sqlquery.CommandType = System.Data.CommandType.Text;
                     sqlquery.Connection = con;
                     sqlquery.ExecuteNonQuery();
 
@@ -470,6 +470,7 @@ namespace ProjectGroenBos.Reservering
 
         private int GetFeestdag(int reserveringnummer)
         {
+            int feestdag;
 
             using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["2020-BIM02-P1-P2-GroenbosConnectionString"].ConnectionString))
             {
@@ -478,12 +479,20 @@ namespace ProjectGroenBos.Reservering
                 string sqlquery = "declare @Date01 as smalldatetime declare @Date02 as smalldatetime select @Date01 = min(Aankomstdatum), @Date02 = max(Vertrekdatum) from Reservering where Nummer = @nummer declare @DateDiff as int select @DateDiff = (select DATEDIFF(DAY, @Date01, @Date02) as yolo) ; WITH Tally(N) AS (SELECT ROW_NUMBER() OVER(ORDER BY(SELECT NULL)) FROM sys.all_columns a CROSS JOIN sys.all_columns b) SELECT Feestdag.ID FROM Tally cross join Feestdag where N <= @DateDiff and DATEADD(day, N, @Date01) between Begindatum and Einddatum group by Feestdag.ID";
                 SqlCommand cmd = new SqlCommand(sqlquery, con);
                 cmd.Parameters.AddWithValue("@nummer", reserveringnummer);
-                int feestdag = (int)cmd.ExecuteScalar();
 
-                con.Close();
-
+                try
+                {
+                    feestdag = (int)cmd.ExecuteScalar(); 
+                }
+                catch
+                {
+                    feestdag = 0;
+                }
+                finally
+                {
+                    con.Close();
+                }
                 return feestdag;
-
             }
         }
 
