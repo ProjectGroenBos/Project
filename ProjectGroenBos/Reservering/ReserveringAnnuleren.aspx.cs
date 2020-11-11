@@ -27,7 +27,7 @@ namespace ProjectGroenBos.Reservering
             }
             else
             {
-                GridView1.Visible = true;
+                GridView1.Visible = false;
                 //sessions ophalen om de gegevens weer te geven in labels
                 reserveringsnummer = Session["reserveringsnummer"].ToString();
 
@@ -42,8 +42,21 @@ namespace ProjectGroenBos.Reservering
                     GridView1.DataBind();
                 }
 
-                
-
+                lblGastnummer.Text = (string)GridView1.DataKeys[0]["GastNummer"].ToString();
+                lblVoornaam.Text = (string)GridView1.DataKeys[0]["Voornaam"].ToString();
+                lblTussenvoegsel.Text = (string)GridView1.DataKeys[0]["Tussenvoegsel"].ToString();
+                lblAchternaam.Text = (string)GridView1.DataKeys[0]["Achternaam"].ToString();
+                lblEmail.Text = (string)GridView1.DataKeys[0]["Email"].ToString();
+                lblTelefoonnummer.Text = (string)GridView1.DataKeys[0]["Telefoonnummer"].ToString();
+                lblReserveringsnummer.Text = (string)GridView1.DataKeys[0]["Nummer"].ToString();
+                lblAantalPersonen.Text = (string)GridView1.DataKeys[0]["Aantal_personen"].ToString();
+                lblOpmerkingen.Text = (string)GridView1.DataKeys[0]["Opmerking"].ToString();
+                lblAankomstdatum.Text = (string)GridView1.DataKeys[0]["Tussenvoegsel"].ToString();
+                lblVertrekdatum.Text = (string)GridView1.DataKeys[0]["Vertrekdatum"].ToString();
+                lblStraat.Text = (string)GridView1.DataKeys[0]["Straatnaam"].ToString();
+                lblHuisnummer.Text = (string)GridView1.DataKeys[0]["Huisnummer"].ToString();
+                lblPostcode.Text = (string)GridView1.DataKeys[0]["Postcode"].ToString();
+                lblLand.Text = (string)GridView1.DataKeys[0]["Land"].ToString();
 
                 //if (lblTussenvoegsel.Text == "&nbsp;")
                 //{
@@ -103,13 +116,9 @@ namespace ProjectGroenBos.Reservering
                     row[3] = tussen1;
                     row[4] = tussen2;
                     row[5] = tussen3;
-
                 }
 
-
                 con.Close();
-
-                
 
                 return trueset;
             }
@@ -130,7 +139,7 @@ namespace ProjectGroenBos.Reservering
                     cmd.ExecuteNonQuery();
                     con.Close();
                     StuurMail();
-                    Response.Redirect("ReserveringAnnuleren.aspx");
+                    Response.Redirect("ReserveringAnnulerenOverzicht.aspx");
                 }
             }
             catch
@@ -169,13 +178,13 @@ namespace ProjectGroenBos.Reservering
             {
                 //lezen mail.html
                 string body = string.Empty;
-                using (StreamReader reader = new StreamReader(Server.MapPath("MailReserveringGewijzigd.html")))
+                using (StreamReader reader = new StreamReader(Server.MapPath("MailHuisReserveringGeannuleerd.html")))
                 {
                     body = reader.ReadToEnd();
                 }
 
                 //parameters html pagina
-
+                body = body.Replace("{reserveringsnummer}", lblReserveringsnummer.Text);
                 body = body.Replace("{achternaam}", lblAchternaam.Text);
                 body = body.Replace("{aankomstdatum}", lblAankomstdatum.Text);
                 body = body.Replace("{vertrekdatum}", lblVertrekdatum.Text);
