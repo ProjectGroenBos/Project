@@ -92,8 +92,8 @@
     <Content Include="Recreatie\Uitloggen.aspx" />
     <Content Include="Recreatie\Voorraadfout.aspx" />
     <Content Include="Reservering\MailReserveringGewijzigd.html" />
+    <Content Include="Reservering\ReserveringAnnulerenOverzicht.aspx" />
     <Content Include="Reservering\ReserveringAnnuleren.aspx" />
-    <Content Include="Reservering\ReserveringAnnulerenSherm2.aspx" />
     <Content Include="Reservering\ReserveringenOverzicht.aspx" />
     <Content Include="Reservering\NietGebruiken.aspx" />
     <Content Include="Reservering\css\Stylejuist.css" />
@@ -191,19 +191,19 @@
     <Compile Include="Recreatie\Voorraadfout.aspx.designer.cs">
       <DependentUpon>Voorraadfout.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Reservering\ReserveringAnnulerenOverzicht.aspx.cs">
+      <DependentUpon>ReserveringAnnulerenOverzicht.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reservering\ReserveringAnnulerenOverzicht.aspx.designer.cs">
+      <DependentUpon>ReserveringAnnulerenOverzicht.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Reservering\ReserveringAnnuleren.aspx.cs">
       <DependentUpon>ReserveringAnnuleren.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Reservering\ReserveringAnnuleren.aspx.designer.cs">
       <DependentUpon>ReserveringAnnuleren.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Reservering\ReserveringAnnulerenSherm2.aspx.cs">
-      <DependentUpon>ReserveringAnnulerenSherm2.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Reservering\ReserveringAnnulerenSherm2.aspx.designer.cs">
-      <DependentUpon>ReserveringAnnulerenSherm2.aspx</DependentUpon>
     </Compile>
     <Compile Include="Reservering\ReserveringenOverzicht.aspx.cs">
       <DependentUpon>ReserveringenOverzicht.aspx</DependentUpon>
