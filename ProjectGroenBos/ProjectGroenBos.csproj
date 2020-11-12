@@ -95,7 +95,7 @@
     <Content Include="Reservering\MailReserveringGewijzigd.html" />
     <Content Include="Reservering\ReserveringAnnulerenOverzicht.aspx" />
     <Content Include="Reservering\ReserveringAnnuleren.aspx" />
-    <Content Include="Reservering\ReserveringenOverzicht.aspx" />
+    <Content Include="Reservering\ReserveringenWijzigenOverzicht.aspx" />
     <Content Include="Reservering\NietGebruiken.aspx" />
     <Content Include="Reservering\css\Stylejuist.css" />
     <Content Include="Reservering\home.aspx" />
@@ -206,12 +206,12 @@
     <Compile Include="Reservering\ReserveringAnnuleren.aspx.designer.cs">
       <DependentUpon>ReserveringAnnuleren.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Reservering\ReserveringenOverzicht.aspx.cs">
-      <DependentUpon>ReserveringenOverzicht.aspx</DependentUpon>
+    <Compile Include="Reservering\ReserveringenWijzigenOverzicht.aspx.cs">
+      <DependentUpon>ReserveringenWijzigenOverzicht.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Reservering\ReserveringenOverzicht.aspx.designer.cs">
-      <DependentUpon>ReserveringenOverzicht.aspx</DependentUpon>
+    <Compile Include="Reservering\ReserveringenWijzigenOverzicht.aspx.designer.cs">
+      <DependentUpon>ReserveringenWijzigenOverzicht.aspx</DependentUpon>
     </Compile>
     <Compile Include="Reservering\NietGebruiken.aspx.cs">
       <DependentUpon>NietGebruiken.aspx</DependentUpon>

@@ -58,14 +58,7 @@ namespace ProjectGroenBos.Reservering
                 lblPostcode.Text = (string)GridView1.DataKeys[0]["Postcode"].ToString();
                 lblLand.Text = (string)GridView1.DataKeys[0]["Land"].ToString();
 
-                //if (lblTussenvoegsel.Text == "&nbsp;")
-                //{
-                //    lblTussenvoegsel.Text = "";
-                //}
-                //if (lblOpmerkingen.Text == "&nbsp;")
-                //{
-                //    lblOpmerkingen.Text = "";
-                //}
+                
             }
         }
 

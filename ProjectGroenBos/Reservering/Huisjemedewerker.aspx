@@ -13,9 +13,8 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-    <p>
-        &nbsp;&nbsp;
-    </p>
+    <h1>Reservering aanmaken</h1>
+    <br />
     <p>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -
         Let tijdens het reserveren op de volgende punten:
