@@ -1,26 +1,26 @@
 ﻿<%@ Page Language="C#" MasterPageFile="Site1.Master"  AutoEventWireup="true" CodeBehind="Overzicht.aspx.cs" Inherits="ProjectGroenBos.Recreatie.Overzicht" %>
 
 <asp:Content runat="server" ContentPlaceHolderID="head">
-    <link href="CSS/styleoverzicht.css" rel="stylesheet" />
 </asp:Content>
 <asp:content id="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     
             <asp:Label ID="lblActiviteiten" runat="server" Text="Geplande Activiteiten" CssClass="lblgeplandeactiviteiten"></asp:Label>
             <asp:Label ID="lblDatum" runat="server" Text="Datum:" CssClass="lbldatum"></asp:Label>
             <asp:Label ID="lbldatumNu" runat="server" Text="" CssClass="lbldatumnu"></asp:Label>
-            <asp:Button ID="backwards" runat="server" CssClass="vorigeknop" OnClick="OnButtonPress" Text="&lt;" />
+            <asp:Button ID="backwards" runat="server" CssClass="vorigeknop" OnClick="OnButtonPress" Text="&lt;" type="button" style="background-color: #009879; color: #fff" class="btn"/>
 
             <asp:CheckBox ID="CbWeekOverzicht" runat="server" AutoPostBack="True" OnCheckedChanged="CbWeekOverzicht_CheckedChanged" Text="WeekOverzicht" CssClass="weekcb" />
 
-            <asp:Button ID="Forward" runat="server" CssClass="volgendeknop" OnClick="OnButtonPress" Text="&gt;" />
-    <asp:GridView ID="gvActiveiten" runat="server" DataSourceID="SqlDataSource1" Height="215px" Width="1302px" CssClass="gridviewoverzicht" AutoGenerateColumns="False">
+            <asp:Button ID="Forward" runat="server" CssClass="volgendeknop" OnClick="OnButtonPress" Text="&gt;" type="button" style="background-color: #009879; color: #fff" class="btn" />
+
+            <asp:GridView ID="gvActiveiten" runat="server" DataSourceID="SqlDataSource1" Height="215px" Width="1302px" CssClass="gridviewoverzicht" AutoGenerateColumns="False">
                 <Columns>
                     <asp:BoundField DataField="Weeknummer" HeaderText="Weeknummer" ReadOnly="True" SortExpression="Weeknummer" />
                     <asp:BoundField DataField="Naam" HeaderText="Naam" SortExpression="Naam" />
                     <asp:BoundField DataField="Locatie" HeaderText="Locatie" SortExpression="Locatie" />
                     <asp:BoundField DataField="Specificatie" HeaderText="Specificatie" SortExpression="Specificatie" />
                     <asp:BoundField DataField="Inschrijfkosten" HeaderText="Inschrijfkosten" SortExpression="Inschrijfkosten" />
-                    <asp:BoundField DataField="Datum" HeaderText="Datum" SortExpression="Datum" />
+                    <asp:BoundField DataField="Datum" HeaderText="Datum" SortExpression="Datum" DataFormatString="{0:d}"/>
                     <asp:BoundField DataField="Begintijd" HeaderText="Begintijd" SortExpression="Begintijd" />
                     <asp:BoundField DataField="Eindtijd" HeaderText="Eindtijd" SortExpression="Eindtijd" />
                     <asp:BoundField DataField="Maximaal aantal" HeaderText="Maximaal aantal" SortExpression="Maximaal aantal" />
