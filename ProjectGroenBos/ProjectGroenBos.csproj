@@ -111,6 +111,7 @@
     <Content Include="Restaurant\Bestellingenoverzicht.aspx" />
     <Content Include="Restaurant\bestellinggelukt.aspx" />
     <Content Include="Restaurant\bestellingopnemen.aspx" />
+    <Content Include="Restaurant\css\Afrekenen.css" />
     <Content Include="Restaurant\css\bestellingenoverzicht.css" />
     <Content Include="Restaurant\css\opnemenbestelling.css" />
     <Content Include="Restaurant\css\style.css" />
