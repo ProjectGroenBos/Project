@@ -27,7 +27,7 @@ namespace ProjectGroenBos.Financien
             {
                 con.Open();
 
-                SqlCommand cmd = new SqlCommand("select * from inkooporderaanvraag", con);
+                SqlCommand cmd = new SqlCommand("SELECT * FROM InkoopOrderAanvraag a LEFT JOIN InkooporderaanvraagItemsTotaalprijs n ON a.Nummer = n.InkooporderaanvraagNummer", con);
                 DataSet ds = new DataSet();
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 da.Fill(ds);

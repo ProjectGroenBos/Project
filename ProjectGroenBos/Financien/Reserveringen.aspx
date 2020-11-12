@@ -237,7 +237,7 @@ FROM reserveringengv"></asp:SqlDataSource>
 
                             <asp:Button ID="btnTransactiehistory" Style="max-width: 80%; margin-left: auto; margin-right: auto;" class="btn btn-primary btn-lg btn-block" CommandArgument='<%# Eval("fnummer")%>' CommandName="<%# Container.ItemIndex %>" runat="server" Text="Zie transactie historie" OnClick="btnTransactiehistory_OnClick" />
 
-                            <input type="button" style="max-width: 80%; margin-left: auto; margin-right: auto;" class="btn btn-primary btn-lg btn-block" onclick="printDiv('printModal<%# Eval("Nummer") %>')" value="Print Factuur" />
+                                <input type="button" style="max-width: 80%; margin-left: auto; margin-right: auto;" class="btn btn-primary btn-lg btn-block" onclick="printDiv('printModal<%# Eval("Nummer") %>')" value="Print Factuur" />
 
                             <asp:Button ID="btnExport" Style="max-width: 80%; margin-left: auto; margin-right: auto;" class="btn btn-primary btn-lg btn-block" CommandName="<%# Container.ItemIndex %>" runat="server" Text="Email naar klant" OnClick="btnExport_Click" />
                         </div>
