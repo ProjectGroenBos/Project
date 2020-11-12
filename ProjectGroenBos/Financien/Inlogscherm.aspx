@@ -11,13 +11,14 @@
         }
 
         #form1 {
-            background-color: rgba(121, 148, 130,0.75);
+            background-color: rgba(183, 189, 181,0.75);
             width: 500px;
             height: 448px;
             margin-top: 120px;
             margin-left: auto;
             margin-right: auto;
            border-radius: 25px;
+          
         }
 
         .container {
