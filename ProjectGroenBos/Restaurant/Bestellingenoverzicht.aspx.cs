@@ -5,14 +5,26 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Configuration;
 
 namespace ProjectGroenBos
 {
     public partial class bestellingenoverzicht : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        {
-
+        {/*
+            if (!this.IsPostBack)
+            {
+                using (SqlConnection con = new SqlConnection("2020-BIM02-P1-P2-GroenbosConnectionString"))
+                {
+                    con.Open();
+                    SqlCommand cmd = new SqlCommand("Select Name,Salary FROM YOUR TABLE", con);
+                    SqlDataReader dr = cmd.ExecuteReader();
+                    GridView1.DataSource = dr;
+                    GridView1.DataBind();
+                    con.Close();
+                }
+            }*/
         }
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
@@ -51,6 +63,7 @@ namespace ProjectGroenBos
             scon.Open();
             cmd.ExecuteNonQuery();
             scon.Close();
+            this.GridView1.DataBind();
         }
     }
 }
