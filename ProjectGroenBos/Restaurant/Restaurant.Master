@@ -27,7 +27,7 @@
 
                             <li><a href="tafeloverzicht.aspx">Bestelling opnemen</a></li>
 
-                            <li><a href="#">Bestellingen overzicht</a>
+                            <li><a href="Bestellingenoverzicht.aspx">Bestellingen overzicht</a>
                                 <ul class="submenu">
                                     <li><a href="#">Dranken overzicht</a></li>
                                     <li><a href="#">Gerechten overzicht</a></li>
