@@ -91,6 +91,7 @@
     <Content Include="Recreatie\Planning.aspx" />
     <Content Include="Recreatie\Uitloggen.aspx" />
     <Content Include="Recreatie\Voorraadfout.aspx" />
+    <Content Include="Reservering\KlachtenAfhandeling.aspx" />
     <Content Include="Reservering\MailHuisReserveringGeannuleerd.html" />
     <Content Include="Reservering\MailReserveringGewijzigd.html" />
     <Content Include="Reservering\ReserveringAnnulerenOverzicht.aspx" />
@@ -191,6 +192,13 @@
     </Compile>
     <Compile Include="Recreatie\Voorraadfout.aspx.designer.cs">
       <DependentUpon>Voorraadfout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reservering\KlachtenAfhandeling.aspx.cs">
+      <DependentUpon>KlachtenAfhandeling.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reservering\KlachtenAfhandeling.aspx.designer.cs">
+      <DependentUpon>KlachtenAfhandeling.aspx</DependentUpon>
     </Compile>
     <Compile Include="Reservering\ReserveringAnnulerenOverzicht.aspx.cs">
       <DependentUpon>ReserveringAnnulerenOverzicht.aspx</DependentUpon>

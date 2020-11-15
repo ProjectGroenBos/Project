@@ -394,14 +394,17 @@ nav ul {
 .textboxchaos {
     position: relative;
     left: 75px;
+    top: -2px;
+    height: 17px;
+    width: 145px;
 }
 
 .labelsnieuw {
     position: relative;
     width: 289px;
-    left: 75px;
+    left: 64px;
     display: inline-block;
-    top: 0px;
+    top: -12px;
 }
 
 .textboxbtn {
