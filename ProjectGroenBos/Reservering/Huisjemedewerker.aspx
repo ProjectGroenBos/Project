@@ -1,17 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="Site1.Master" AutoEventWireup="true" CodeBehind="Huisjemedewerker.aspx.cs" Inherits="ProjectGroenBos.Reservering.Huisjemedewerker" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head2" runat="server">
-    <style type="text/css">
-        .auto-style1 {
-            position: relative;
-            margin-left: 5%;
-            top: -3px;
-            left: -1px;
-            width: 690px;
-            height: 146px;
-        }
-    </style>
-</asp:Content>
+    </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <h1>Reservering aanmaken</h1>
     <br />
@@ -62,26 +52,26 @@
 </p>
       <p>  <asp:Label ID="lblHuisje" runat="server" Text="Huisjenummer" CssClass="labelsnieuw"></asp:Label>
 
-    <asp:TextBox ID="txbHuisje" runat="server" CssClass="textboxchaos"></asp:TextBox>
-
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-    <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ErrorMessage="Dit huisje bestaat niet." ControlToValidate="txbHuisje" ValidationExpression="^([0-9]{1,2})$" ForeColor="Red"></asp:RegularExpressionValidator>
-          <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txbHuisje" ErrorMessage="Dit veld is verplicht." ForeColor="Red"></asp:RequiredFieldValidator>
+          <asp:Label ID="lblHuisjeNummer" runat="server" CssClass="textboxchaos"></asp:Label>
 </p>
     <p>
-        &nbsp;<asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Nummer" DataSourceID="SqlDataSource1" CssClass="auto-style1">
-            <Columns>
-                <asp:BoundField DataField="Nummer" HeaderText="Nummer" InsertVisible="False" ReadOnly="True" SortExpression="Nummer" />
-                <asp:BoundField DataField="Maximale bezetting" HeaderText="Maximale bezetting" SortExpression="Maximale bezetting" />
-                <asp:BoundField DataField="Borgsom" HeaderText="Borgsom" SortExpression="Borgsom" />
-                <asp:BoundField DataField="BungalowtypeCode" HeaderText="BungalowtypeCode" SortExpression="BungalowtypeCode" />
-                <asp:BoundField DataField="Omschrijving" HeaderText="Omschrijving" SortExpression="Omschrijving" />
-            </Columns>
-        </asp:GridView>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:2020-BIM02-P1-P2-GroenbosConnectionString %>" SelectCommand="select bun.Nummer, bun.[Maximale bezetting], bun.Borgsom, bun.BungalowtypeCode, loc.Omschrijving from [dbo].[bungalow] bun inner join [dbo].[Locatie] loc on bun.LocatieNaam = loc.Naam ">
-        </asp:SqlDataSource>
+        &nbsp;</p>
+    <p>
+        <asp:Button ID="bntZoekHuis" runat="server" OnClick="bntZoekHuis_Click" Text="Zoek Huis" CssClass ="textboxbtn" />
     </p>
+    <p>
+        &nbsp;</p>
+    <p>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:GridView ID="GridView1" runat="server" AutoGenerateSelectButton="True" CssClass ="gridv" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+        </asp:GridView>
+    </p>
+    <p>
+        &nbsp;</p>
+    <p>
+        &nbsp;</p>
     <p>
         &nbsp;
     </p>
