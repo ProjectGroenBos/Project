@@ -152,12 +152,12 @@
         .auto-style5 {
             width: 204px;
         }
-        .auto-style6 {
-            width: 215px;
-            height: 40px;
-        }
-        .auto-style7 {
-            width: 215px;
-        }
+    .auto-style6 {
+        width: 215px;
+        height: 40px;
+    }
+    .auto-style7 {
+        width: 215px;
+    }
     </style>
 </asp:Content>

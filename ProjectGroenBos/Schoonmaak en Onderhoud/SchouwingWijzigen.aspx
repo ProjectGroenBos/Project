@@ -35,12 +35,31 @@
     <asp:Label ID="lblBungalownummer" runat="server" Text="Bungalownummer"></asp:Label>
                      </td>
                     <td class="auto-style2">
-    <asp:TextBox ID="txtBungalowID" runat="server" OnTextChanged="txtBungalowID_TextChanged" Width="125px" ></asp:TextBox>
+
+                        <asp:DropDownList ID="DropDownList1" runat="server" Width="125px">
+                            <asp:ListItem Value="0">-- Selecteer --</asp:ListItem>
+                            <asp:ListItem>2</asp:ListItem>
+                            <asp:ListItem>3</asp:ListItem>
+                            <asp:ListItem>4</asp:ListItem>
+                            <asp:ListItem>5</asp:ListItem>
+                            <asp:ListItem>6</asp:ListItem>
+                            <asp:ListItem>7</asp:ListItem>
+                            <asp:ListItem>8</asp:ListItem>
+                            <asp:ListItem>9</asp:ListItem>
+                            <asp:ListItem>10</asp:ListItem>
+                            <asp:ListItem>11</asp:ListItem>
+                            <asp:ListItem>12</asp:ListItem>
+                            <asp:ListItem>13</asp:ListItem>
+                            <asp:ListItem>14</asp:ListItem>
+                            <asp:ListItem>15</asp:ListItem>
+                            <asp:ListItem>16</asp:ListItem>
+                            <asp:ListItem>17</asp:ListItem>
+                            <asp:ListItem>19</asp:ListItem>
+                            <asp:ListItem>20</asp:ListItem>
+                        </asp:DropDownList>
 
                      </td>
                      <td class="auto-style3">
-
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="txtBungalowID" ErrorMessage="Vul in" ForeColor="Red"></asp:RequiredFieldValidator>
 
                          &nbsp;&nbsp;&nbsp;
 
@@ -48,7 +67,7 @@
 
                      <td class="auto-style2">
 
-                         <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="txtBungalowID" ErrorMessage="Nummer ongeldig" ForeColor="Red" MaximumValue="20" MinimumValue="2" Type="Integer"></asp:RangeValidator>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="DropDownList1" ErrorMessage="Selecteer Iets" ForeColor="Red" InitialValue="0"></asp:RequiredFieldValidator>
 
                          </td>
                 </tr>
@@ -81,7 +100,7 @@
            <asp:Label ID="lblOmschrijving" runat="server" Text="Omschrijving"></asp:Label>
                      </td>
                     <td class="auto-style17">
-           <asp:TextBox ID="txtOmschrijving" runat="server" Height="25px" Width="125px" TextMode="MultiLine" ></asp:TextBox>
+           <asp:TextBox ID="txtOmschrijving" runat="server" Height="66px" Width="125px" TextMode="MultiLine" ></asp:TextBox>
                      </td>
                      
                 </tr>
@@ -91,7 +110,7 @@
                 <tr>
                     <td class="auto-style16">
 
-                    </td>
+                        &nbsp;</td>
                     <td class="auto-style17">
 
                         &nbsp;</td>
@@ -151,13 +170,13 @@
 <asp:Content ID="Content1" runat="server" contentplaceholderid="head">
     <style type="text/css">
         .auto-style1 {
-            width: 64px;
+            width: 83px;
         }
         .auto-style2 {
             height: 52px;
         }
         .auto-style3 {
-            width: 64px;
+            width: 83px;
             height: 52px;
         }
     </style>

@@ -26,7 +26,8 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud
             if (!IsPostBack)
             {
                 lblID.Text = Session["SchouwingID"].ToString();
-                txtBungalowID.Text = Session["BungalowID"].ToString();
+                //txtBungalowID.Text = Session["BungalowID"].ToString();
+                DropDownList1.SelectedValue = Session["BungalowID"].ToString();
                 txtdatum.Text = Session["Schouwingsdatum"].ToString();
                 txtOmschrijving.Text = Session["Omschrijving"].ToString();
             }
@@ -46,24 +47,20 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud
         protected void btnWijzigS_Click1(object sender, EventArgs e)
         {
             RequiredFieldValidator2.Validate();
-            RequiredFieldValidator7.Validate();
+            RequiredFieldValidator1.Validate();
             RegularExpressionValidator1.Validate();
-            RangeValidator1.Validate();
-            if (RegularExpressionValidator1.IsValid && RangeValidator1.IsValid && RequiredFieldValidator7.IsValid && RequiredFieldValidator2.IsValid) 
+            if (RegularExpressionValidator1.IsValid && RequiredFieldValidator2.IsValid && RequiredFieldValidator1.IsValid) 
             {
                 DateTime date = DateTime.Parse(txtdatum.Text);
                 string Datum = date.ToString("yyyy-MM-dd");
-
+                String bungnummer = DropDownList1.SelectedValue.ToString();
                 SqlCommand cmd = con.CreateCommand();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "update [dbo].[Schouwing] set [BungalowID]='" + txtBungalowID.Text + "' ,[Schouwingsdatum]='" + txtdatum.Text + "' ,[Omschrijving]='" + txtOmschrijving.Text + "'where SchouwingID= " + Convert.ToInt32(lblID.Text) + "";
+                cmd.CommandText = "update [dbo].[Schouwing] set [BungalowID]='" + bungnummer + "' ,[Schouwingsdatum]='" + txtdatum.Text + "' ,[Omschrijving]='" + txtOmschrijving.Text + "'where SchouwingID= " + Convert.ToInt32(lblID.Text) + "";
                 cmd.ExecuteNonQuery();
 
 
                 Response.Redirect("SchouwingsOverzicht.aspx");
-
-
-
             }
         }
     }
