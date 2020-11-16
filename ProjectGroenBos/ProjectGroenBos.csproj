@@ -95,6 +95,7 @@
     <Content Include="Recreatie\Overzicht.aspx" />
     <Content Include="Recreatie\Planning.aspx" />
     <Content Include="Recreatie\Uitloggen.aspx" />
+    <Content Include="Recreatie\Voorraadmuteren.aspx" />
     <Content Include="Reservering\MailReserveringGewijzigd.html" />
     <Content Include="Reservering\ReserveringenOverzicht.aspx" />
     <Content Include="Reservering\NietGebruiken.aspx" />
@@ -450,6 +451,13 @@
     </Compile>
     <Compile Include="Recreatie\Uitloggen.aspx.designer.cs">
       <DependentUpon>Uitloggen.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Recreatie\Voorraadmuteren.aspx.cs">
+      <DependentUpon>Voorraadmuteren.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Recreatie\Voorraadmuteren.aspx.designer.cs">
+      <DependentUpon>Voorraadmuteren.aspx</DependentUpon>
     </Compile>
     <Compile Include="Reservering\ReserveringenOverzicht.aspx.cs">
       <DependentUpon>ReserveringenOverzicht.aspx</DependentUpon>
