@@ -11,7 +11,7 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            GridView1.DataBind();
         }
 
         protected void btnToevoegen_Click(object sender, EventArgs e)
@@ -19,8 +19,13 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud
             Response.Redirect("SchouwingToevoegen.aspx");
         }
 
-        protected void btnWijzigen_Click(object sender, EventArgs e)
+        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            Session["SchouwingID"] = (string)GridView1.SelectedRow.Cells[1].Text;
+            Session["BungalowID"] = (string)GridView1.SelectedRow.Cells[2].Text;
+            Session["Schouwingsdatum"] = (string)GridView1.SelectedRow.Cells[3].Text;
+            Session["Omschrijving"] = (string)GridView1.SelectedRow.Cells[4].Text;
+
             Response.Redirect("SchouwingWijzigen.aspx");
         }
     }

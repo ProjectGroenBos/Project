@@ -24,15 +24,6 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud
         protected global::System.Web.UI.WebControls.Button btnToevoegen;
 
         /// <summary>
-        /// btnWijzigen control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnWijzigen;
-
-        /// <summary>
         /// DropDownList1 control.
         /// </summary>
         /// <remarks>

@@ -11,8 +11,6 @@
     <div class="row col-sm-12">
        <div class="col-sm-12" style="text-align:center;">
           <asp:Button ID="btnToevoegen" runat="server" Text="Schouwing Toevoegen" BackColor="#0E6251" BorderColor="#0E6251" ForeColor="White" EnableTheming="True" CssClass="buttonstyle" OnClick="btnToevoegen_Click"/>
-           &nbsp;
-           <asp:Button ID="btnWijzigen" runat="server" BackColor="#0E6251" BorderColor="#0E6251" CssClass="buttonstyle" ForeColor="White" Text="Onderhoud Wijzigen" OnClick="btnWijzigen_Click" />
            <br />
            <br />
            <hr />
@@ -33,12 +31,13 @@
         </div>
         <div>
             <center>
-            <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#0E6251" BorderStyle="Solid" BorderWidth="1px" CellPadding="5" DataKeyNames="SchouwingID" DataSourceID="SqlDataSource1" ForeColor="Black" GridLines="Vertical" Width="80%">
+            <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#0E6251" BorderStyle="Solid" BorderWidth="1px" CellPadding="5" DataKeyNames="SchouwingID" DataSourceID="SqlDataSource1" ForeColor="Black" GridLines="Vertical" Width="80%" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
                 <AlternatingRowStyle BackColor="#F0F0F0" />
                 <Columns>
+                    <asp:CommandField  ButtonType="Image" SelectImageUrl="~/Images/SelectIcon.png" ShowSelectButton="True" />
                     <asp:BoundField DataField="SchouwingID" HeaderText="Nummer" ReadOnly="True" SortExpression="SchouwingID" />
                     <asp:BoundField DataField="BungalowID" HeaderText="Bungalownummer" SortExpression="BungalowID" />
-                    <asp:BoundField DataField="Schouwingsdatum" HeaderText="Schouwingsdatum" SortExpression="Schouwingsdatum" />
+                    <asp:BoundField DataField="Schouwingsdatum" HeaderText="Schouwingsdatum" SortExpression="Schouwingsdatum" DataFormatString="{0:d}" />
                     <asp:BoundField DataField="Omschrijving" HeaderText="Omschrijving" SortExpression="Omschrijving" />
                 </Columns>
                 <FooterStyle BackColor="#CCCCCC" />
