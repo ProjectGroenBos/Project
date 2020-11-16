@@ -31,7 +31,7 @@
         </div>
         <div>
             <center>
-            <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#0E6251" BorderStyle="Solid" BorderWidth="1px" CellPadding="5" DataKeyNames="SchouwingID" DataSourceID="SqlDataSource1" ForeColor="Black" GridLines="Vertical" Width="80%" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+            <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#0E6251" BorderStyle="Solid" BorderWidth="1px" CellPadding="5" DataKeyNames="SchouwingID" DataSourceID="SqlDataSource1" ForeColor="Black" GridLines="Vertical" Width="70%" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
                 <AlternatingRowStyle BackColor="#F0F0F0" />
                 <Columns>
                     <asp:CommandField  ButtonType="Image" SelectImageUrl="~/Images/SelectIcon.png" ShowSelectButton="True" />
@@ -39,6 +39,7 @@
                     <asp:BoundField DataField="BungalowID" HeaderText="Bungalownummer" SortExpression="BungalowID" />
                     <asp:BoundField DataField="Schouwingsdatum" HeaderText="Schouwingsdatum" SortExpression="Schouwingsdatum" DataFormatString="{0:d}" />
                     <asp:BoundField DataField="Omschrijving" HeaderText="Omschrijving" SortExpression="Omschrijving" />
+                    <asp:CommandField ButtonType="Image" DeleteImageUrl="~/Images/deleteRow.png" ShowDeleteButton="True" />
                 </Columns>
                 <FooterStyle BackColor="#CCCCCC" />
                 <HeaderStyle BackColor="#0E6251" ForeColor="White" />
@@ -50,7 +51,7 @@
                 <SortedDescendingHeaderStyle BackColor="#383838" />
             </asp:GridView>
                 </center>
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:con %>" SelectCommand="SELECT * FROM [Schouwing]"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:con %>" SelectCommand="SELECT * FROM [Schouwing]" DeleteCommand="delete from Schouwing where schouwingid = @SchouwingID"></asp:SqlDataSource>
         </div>
 
         <br />

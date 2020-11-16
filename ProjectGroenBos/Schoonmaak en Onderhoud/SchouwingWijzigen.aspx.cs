@@ -26,7 +26,6 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud
             if (!IsPostBack)
             {
                 lblID.Text = Session["SchouwingID"].ToString();
-                //txtBungalowID.Text = Session["BungalowID"].ToString();
                 DropDownList1.SelectedValue = Session["BungalowID"].ToString();
                 txtdatum.Text = Session["Schouwingsdatum"].ToString();
                 txtOmschrijving.Text = Session["Omschrijving"].ToString();
