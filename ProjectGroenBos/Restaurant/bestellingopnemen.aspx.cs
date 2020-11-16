@@ -12,7 +12,8 @@ namespace ProjectGroenBos.Restaurant
 {
     public partial class WebForm3 : System.Web.UI.Page
     {
-        protected void Page_Load(object sender, EventArgs e)
+
+		protected void Page_Load(object sender, EventArgs e)
         {
             DataTable dt = new DataTable();
             dt = (DataTable)Session["bestelitems"];
@@ -54,7 +55,7 @@ namespace ProjectGroenBos.Restaurant
 						dr["sno"] = 1;
 						dr["Afbeelding"] = ds.Tables[0].Rows[0]["Afbeelding"].ToString();
 						dr["Naam"] = ds.Tables[0].Rows[0]["Naam"].ToString();
-						dr["€ " + "Prijs"] = ds.Tables[0].Rows[0]["Prijs"].ToString();
+						dr["Prijs"] = ds.Tables[0].Rows[0]["Prijs"].ToString();
 						dr["Hoeveelheid"] = Request.QueryString["Hoeveelheid"];
 
 						double prijs = Convert.ToDouble(ds.Tables[0].Rows[0]["Prijs"].ToString());
@@ -62,13 +63,29 @@ namespace ProjectGroenBos.Restaurant
 						double totaleprijs = prijs * hoeveelheid;
 						dr["TotalePrijs"] = totaleprijs;
 
+						Session["totprijs"] = totaleprijs;
+
+						//
+						string PrijsMetEuro = "€" + prijs.ToString();
+
+						dr["Prijs"] = PrijsMetEuro;
+
+						string TotalePrijsMetEuro = "€" + totaleprijs.ToString();
+
+						dr["TotalePrijs"] = TotalePrijsMetEuro;
+
+						string HoeveelheidMetX = hoeveelheid.ToString() + "x";
+
+						dr["Hoeveelheid"] = HoeveelheidMetX;
+						//
+
 						dt2.Rows.Add(dr);
 						GridView2.DataSource = dt2;
 						GridView2.DataBind();
 
 						Session["bestelitems"] = dt2;
-						GridView2.FooterRow.Cells[4].Text = "Totaal ";
-						GridView2.FooterRow.Cells[5].Text = "€ " + grandtotal().ToString();
+						GridView2.FooterRow.Cells[3].Text = "Totaal ";
+						GridView2.FooterRow.Cells[5].Text = "€" + grandtotal().ToString();
 						Response.Redirect("bestellingopnemen.aspx");
 					}
 					else
@@ -99,13 +116,29 @@ namespace ProjectGroenBos.Restaurant
 						double totaleprijs = prijs * hoeveelheid;
 						dr["TotalePrijs"] = totaleprijs;
 
+						Session["totprijs"] = totaleprijs;
+
+						//
+						string PrijsMetEuro = "€" + prijs.ToString();
+
+						dr["Prijs"] = PrijsMetEuro;
+
+						string TotalePrijsMetEuro = "€" + totaleprijs.ToString();
+
+						dr["TotalePrijs"] = TotalePrijsMetEuro;
+
+						string HoeveelheidMetX = hoeveelheid.ToString() + "x";
+
+						dr["Hoeveelheid"] = HoeveelheidMetX;
+						//
+
 						dt2.Rows.Add(dr);
 						GridView2.DataSource = dt2;
 						GridView2.DataBind();
 
 						Session["bestelitems"] = dt2;
-						GridView2.FooterRow.Cells[4].Text = "Totaal ";
-						GridView2.FooterRow.Cells[5].Text = "€ " + grandtotal().ToString();
+						GridView2.FooterRow.Cells[3].Text = "Totaal ";
+						GridView2.FooterRow.Cells[5].Text = "€" + grandtotal().ToString();
 						Response.Redirect("bestellingopnemen.aspx");
 					}
 				}
@@ -116,8 +149,8 @@ namespace ProjectGroenBos.Restaurant
 					GridView2.DataBind();
 					if (GridView2.Rows.Count > 0)
 					{
-						GridView2.FooterRow.Cells[4].Text = "Totaal ";
-						GridView2.FooterRow.Cells[5].Text = "€ " + grandtotal().ToString();
+						GridView2.FooterRow.Cells[3].Text = "Totaal ";
+						GridView2.FooterRow.Cells[5].Text = "€" + grandtotal().ToString();
 					}
 				}
 			}
@@ -144,7 +177,7 @@ namespace ProjectGroenBos.Restaurant
 			double gtotal = 0;
 			while (i < nrow)
 			{
-				gtotal = gtotal + Convert.ToDouble(dt2.Rows[i]["TotalePrijs"].ToString());
+				gtotal = gtotal + Convert.ToDouble(Session["totprijs"]);
 
 				i = i + 1;
 			}
@@ -191,5 +224,10 @@ namespace ProjectGroenBos.Restaurant
 			Session["bestelitems"] = dt2;
 			Response.Redirect("bestellingopnemen.aspx");
 		}
+
+        protected void btnBetalen_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
