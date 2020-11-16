@@ -13,22 +13,27 @@
         #form1 {
             background-color: rgba(183, 189, 181,0.75);
             width: 500px;
-            height: 448px;
-            margin-top: 120px;
+            height: 460px;
+            margin-top:80px;
             margin-left: auto;
             margin-right: auto;
            border-radius: 25px;
+           padding-top: 20px;
           
         }
 
         .container {
             margin-left: 50px;
             width: 402px;
+            color :white;
+            border-radius:5px;
         }
 
         .logo {
-            margin-left: 170px;
+            margin-left: 40%;
+           
         }
+
     </style>
 </head>
 <body style="height: 448px">
@@ -40,7 +45,7 @@
         </div>
         <div class="container">
             <div style="text-align: center;">
-                <asp:Label ID="Label1" runat="server" Text="PERSONEELS ID" Width="393px" Font-Bold="True"></asp:Label>
+                <asp:Label ID="Label1" runat="server" Text="PERSONEELS ID" Width="393px" Font-Bold="True" ></asp:Label>
             </div>
             <br />
             <asp:TextBox ID="TextBox1" runat="server" OnTextChanged="TextBox1_TextChanged" Height="36px" Width="391px" BorderColor="Blue"></asp:TextBox>
@@ -55,8 +60,9 @@
             <br />
             <br />
             <br />
-             <asp:Button ID="Button1" runat="server" Text="INLOGGEN" Width="397px" BackColor="#669999" BorderColor="#003366" BorderStyle="Outset" Font-Bold="True" Font-Size="Larger" Height="35px" OnClick="Button1_Click" />
 
+             <asp:Button ID="Button1" runat="server" Text="INLOGGEN" Width="397px" BackColor="#148f77" BorderColor="#003366" ForeColor="White" BorderStyle="Outset"  Font-Bold="True" Font-Size="Larger" Height="35px" OnClick="Button1_Click" />
+                
             <br />
             <asp:Label ID="Label3" runat="server" Text=" "></asp:Label>
             <br />
