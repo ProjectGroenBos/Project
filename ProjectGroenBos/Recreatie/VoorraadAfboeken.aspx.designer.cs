@@ -31,6 +31,15 @@ namespace ProjectGroenBos.Recreatie {
         protected global::System.Web.UI.WebControls.Label Label2;
         
         /// <summary>
+        /// btnAfboeken control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAfboeken;
+        
+        /// <summary>
         /// GvAfboeken control.
         /// </summary>
         /// <remarks>
@@ -38,5 +47,23 @@ namespace ProjectGroenBos.Recreatie {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView GvAfboeken;
+        
+        /// <summary>
+        /// GvVoorraadAfboeken control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GvVoorraadAfboeken;
+        
+        /// <summary>
+        /// BtnVoorraadAfboeken control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnVoorraadAfboeken;
     }
 }

@@ -78,7 +78,7 @@
                             <asp:GridView ID="gvOrderaanvragen" runat="server" AutoGenerateColumns="False" ShowFooter="true" DataKeyNames="ID" ShowHeaderWhenEmpty="true"
                              CellPadding="4" ForeColor="#333333" GridLines="none" Width="80%" CssClass="content-table">
 
-          
+                                
                              <Columns>
                                 <asp:TemplateField HeaderText="Artikelnummer" SortExpression="ID" Visible ="False" >
                                     <ItemTemplate>

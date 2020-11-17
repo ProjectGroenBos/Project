@@ -81,7 +81,7 @@ namespace ProjectGroenBos.Recreatie
 
         protected void GvAfboeken_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            
+
         }
 
         protected void GvAfboeken_RowDeleting(object sender, GridViewDeleteEventArgs e)
@@ -130,6 +130,86 @@ namespace ProjectGroenBos.Recreatie
             {
                 GvAfboeken.Columns[0].Visible = true;
                 GvAfboeken.Columns[6].Visible = true;
+            }
+        }
+
+        protected void btnAfboeken_Click(object sender, EventArgs e)
+        {
+            DataTable Aanvraag = new DataTable();
+            Aanvraag.Columns.Add(new DataColumn("ID", typeof(int)));
+            Aanvraag.Columns.Add(new DataColumn("Naam", typeof(string)));
+
+            foreach (GridViewRow item in GvAfboeken.Rows)
+            {
+                if (item.RowType == DataControlRowType.DataRow)
+                {
+                    CheckBox chk = (item.FindControl("cbGeselecteerd") as CheckBox);
+                    if (chk.Checked)
+                    {
+
+                        using (SqlConnection sqlCon = new SqlConnection(connectionstring))
+                        {
+
+                            SqlCommand cmd = new SqlCommand("Select [ID], [Artikelnaam] FROM vVoorraadRecreatie where ID=@id", sqlCon);
+                            cmd.Parameters.AddWithValue("id", GvAfboeken.DataKeys[item.RowIndex].Value.ToString());
+                            sqlCon.Open();
+                            int id = cmd.ExecuteNonQuery();
+                            SqlDataAdapter da = new SqlDataAdapter(cmd);
+                            da.Fill(Aanvraag);
+
+
+                            sqlCon.Close();
+                            GvVoorraadAfboeken.DataSource = Aanvraag;
+                        }
+
+
+                    }
+                }
+            }
+
+
+            GvVoorraadAfboeken.DataBind();
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal('#Popup');", true);
+        }
+        protected void btnAfboeken2_Click(object sender, EventArgs e)
+        {
+
+            using (SqlConnection sqlCon = new SqlConnection(connectionstring))
+            {
+                sqlCon.Open();
+
+                SqlCommand cmd = new SqlCommand("sp_Recreatie_MuterenVoorraad", sqlCon);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.ExecuteNonQuery();
+                sqlCon.Close();
+
+                sqlCon.Open();
+                string selectquery = "SELECT TOP 1 Nummer  FROM [dbo].[VooraadMutaties] ORDER BY Nummer DESC";
+                SqlCommand sqlComd = new SqlCommand(selectquery, sqlCon);
+                SqlDataReader r;
+                r = sqlComd.ExecuteReader();
+
+                int ordernummer = -1;
+
+
+                while (r.Read())
+                {
+                    ordernummer = (int)r[0];
+                }
+                sqlCon.Close();
+                foreach (GridViewRow ding in GvVoorraadAfboeken.Rows)
+                {
+                    sqlCon.Open();
+
+                    SqlCommand vul = new SqlCommand("sp_Recreatie_MuterenVoorraad", sqlCon);
+                    vul.CommandType = CommandType.StoredProcedure;
+                    vul.Parameters.AddWithValue("@ID", (ordernummer));
+                    vul.Parameters.AddWithValue("@Aantal", (int.Parse((GvVoorraadAfboeken.Rows[ding.RowIndex].FindControl("tbAantal") as TextBox).Text.Trim())));
+                    vul.Parameters.AddWithValue("@VoorraadID", (GvVoorraadAfboeken.DataKeys[ding.RowIndex].Value.ToString()));
+                    vul.ExecuteNonQuery();
+                    sqlCon.Close();
+
+                }
             }
         }
     }
