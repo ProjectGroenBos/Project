@@ -138,7 +138,6 @@
     <Content Include="Restaurant\img\productimg\Sprite.png" />
     <Content Include="Restaurant\img\productimg\tomatensoep.png" />
     <Content Include="Restaurant\img\productimg\varkenshaas.png" />
-    <Content Include="Restaurant\opnemenbestelling.aspx" />
     <Content Include="Restaurant\tafeloverzicht.aspx" />
     <Content Include="Restaurant\WebForm5.aspx" />
     <Content Include="Schoonmaak en Onderhoud\InventarisOverzicht.aspx" />
@@ -557,13 +556,6 @@
     </Compile>
     <Compile Include="Restaurant\home.aspx.designer.cs">
       <DependentUpon>home.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Restaurant\opnemenbestelling.aspx.cs">
-      <DependentUpon>opnemenbestelling.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Restaurant\opnemenbestelling.aspx.designer.cs">
-      <DependentUpon>opnemenbestelling.aspx</DependentUpon>
     </Compile>
     <Compile Include="Restaurant\Restaurant.Master.cs">
       <DependentUpon>Restaurant.Master</DependentUpon>
