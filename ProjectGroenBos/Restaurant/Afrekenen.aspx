@@ -24,7 +24,7 @@
         </div>
          <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:2020-BIM02-P1-P2-GroenbosConnectionString %>" SelectCommand="SELECT Item_RestaurantReservering.Aantal, RestaurantReservering.ID AS ReserveringsNr, Item_RestaurantReservering.Ronde
 FROM (Item INNER JOIN Item_RestaurantReservering ON Item.ID = Item_RestaurantReservering.ItemID) INNER JOIN RestaurantReservering ON Item_RestaurantReservering.RestaurantReserveringID = RestaurantReservering.ID
-Where Status = 'Besteld'"></asp:SqlDataSource>
+"></asp:SqlDataSource>
 
         <asp:Label ID="lblTotaal" runat="server" Text="Totaal"></asp:Label>
         <asp:Label ID="lblPrijs" runat="server" Text="€ 0,00"></asp:Label>
