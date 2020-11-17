@@ -56,6 +56,11 @@
 
           <asp:Label ID="lblHuisjeNummer" runat="server" CssClass="textboxchaos"></asp:Label>
 </p>
+    
+    <p>  
+        <asp:Label ID="label5" runat="server" CssClass="labelsnieuw" Text="Totaal bedrag"></asp:Label>
+        <asp:Label ID="lblTotaal" runat="server" CssClass="textboxchaos"></asp:Label>
+</p>
     <p>
         &nbsp;</p>
     <p>

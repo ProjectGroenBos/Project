@@ -285,6 +285,24 @@ namespace ProjectGroenBos.Reservering
         protected global::System.Web.UI.WebControls.Label lblLand;
 
         /// <summary>
+        /// Label16 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label16;
+
+        /// <summary>
+        /// lblPrijs control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPrijs;
+
+        /// <summary>
         /// btnverwijderen control.
         /// </summary>
         /// <remarks>

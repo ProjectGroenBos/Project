@@ -23,8 +23,9 @@
                         <li><a href="#"><i class="fas fa-user"></i>Reserveren</a>
                             <ul class="submenu">
                                 <li><a href="Huisjemedewerker.aspx">Reservering plaatsen</a></li>
-                                <li><a href="ReserveringenWijzigenOverzicht.aspx">Reservering wijzigen</a></li>
-                                <li><a href="ReserveringAnnulerenOverzicht.aspx">Reservering annuleren</a></li>
+                                <li><a href="ReserveringenWijzigenOverzicht.aspx">Reservering wijzigen overzicht</a></li>
+                                <li><a href ="ReserveringAnnulerenOverzicht.aspx">Reservering annuleren overzicht</a></li>
+                                <li><a href="KlachtenAfhandeling.aspx">Klacht afhandeling</a></li>
                                 </ul>
                                 </li>
                         <%--<li><a href="#"><i class="fas fa-user"></i>Optie</a>

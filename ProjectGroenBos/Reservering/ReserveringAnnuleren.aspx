@@ -67,6 +67,10 @@
     <asp:Label ID="lblLand" runat="server" Text="" CssClass="textboxchaos"></asp:Label>
 
     <br />
+    <asp:Label ID="Label16" runat="server" Text="Prijs" CssClass="labelsnieuw"></asp:Label>
+    <asp:Label ID="lblPrijs" runat="server" Text="" CssClass="textboxchaos"></asp:Label>
+
+    <br />
     <asp:Button ID="btnverwijderen" runat="server" Text="Annuleren" CssClass="labelsnieuw" OnClick="btnWijzigen_Click" />
     <br />
     <br />
