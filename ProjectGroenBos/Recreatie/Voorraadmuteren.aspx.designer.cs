@@ -7,13 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ProjectGroenBos.Recreatie
-{
-
-
-    public partial class Voorraadmuteren
-    {
-
+namespace ProjectGroenBos.Recreatie {
+    
+    
+    public partial class Voorraadmuteren {
+        
         /// <summary>
         /// Label1 control.
         /// </summary>
@@ -22,7 +20,7 @@ namespace ProjectGroenBos.Recreatie
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label1;
-
+        
         /// <summary>
         /// Label2 control.
         /// </summary>
@@ -31,7 +29,7 @@ namespace ProjectGroenBos.Recreatie
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label2;
-
+        
         /// <summary>
         /// txbZoekenVoorraadmuteren control.
         /// </summary>
@@ -40,7 +38,7 @@ namespace ProjectGroenBos.Recreatie
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txbZoekenVoorraadmuteren;
-
+        
         /// <summary>
         /// ckbLeverancier control.
         /// </summary>
@@ -49,7 +47,25 @@ namespace ProjectGroenBos.Recreatie
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox ckbLeverancier;
-
+        
+        /// <summary>
+        /// btnOpboeken control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnOpboeken;
+        
+        /// <summary>
+        /// btnAfboeken control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAfboeken;
+        
         /// <summary>
         /// GvMuteren control.
         /// </summary>
