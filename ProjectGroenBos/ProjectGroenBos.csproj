@@ -86,6 +86,7 @@
     <Content Include="Images\Logo4.png" />
     <Content Include="Images\Logo6.png" />
     <Content Include="Images\SelectIcon.png" />
+    <Content Include="Recreatie\CSS\Stylegoeie12.css" />
     <Content Include="Recreatie\CSS\stylegoeiee.css" />
     <Content Include="Recreatie\Documentatie.aspx" />
     <Content Include="Recreatie\home.aspx" />

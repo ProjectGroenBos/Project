@@ -559,8 +559,8 @@ nav ul {
 .labelbegeleider {
     position: absolute;
     float: right;
-    right: 30%;
-    top: 210%;
+    right: 38%;
+    top: -29900%;
 }
 
 .textboxaantal {
@@ -636,6 +636,8 @@ nav ul {
     top: 270%;
 }
 
+
+
 .textboxeindtijd {
     position: absolute;
     float: right;
@@ -654,6 +656,13 @@ nav ul {
     position: absolute;
     float: right;
     right: 15%;
+    top: 360%;
+}
+
+.validatorfaciliteit {
+    position: absolute;
+    float: right;
+    right: 40%;
     top: 360%;
 }
 
@@ -689,9 +698,10 @@ nav ul {
 .validatoraantal {
     position: absolute;
     float: right;
-    right: 40%;
+    right: 50%;
     top: 170%;
 }
+
 
 .validatormedewerker {
     position: absolute;
@@ -707,7 +717,7 @@ nav ul {
 
 .validatordatumcompare {
     position: absolute;
-    right: 40%;
+    right: 50%;
     top: 240%;
 }
 
@@ -834,7 +844,7 @@ nav ul {
 
 .txbzoekenvoorraadmuteren {
     position: absolute;
-    top: 150%;
+    top: -2147483648%;
     left: 35%;
     height: 12%;
 }
@@ -875,6 +885,7 @@ nav ul {
 }
 
 .GvMuteren {
-    position: center; 
-
+    top: 170%; 
+    position:absolute; 
+    left: 30%; 
 }
