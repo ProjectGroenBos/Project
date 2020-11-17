@@ -36,7 +36,12 @@
                     </li>
                     <li><a href="#"><i class="fas fa-address-card"></i>Beheer</a>
                         <ul class="submenu">
-                            <li><a href="/Recreatie/Planning.aspx">Planning</a></li>
+                            <li><a href="/Recreatie/ActiviteitOverzicht.aspx">Activiteit Overzicht</a>
+                            <ul class="submenu">
+                                <li><a href="/Recreatie/ActiviteitInplannen.aspx">Activiteit Inplannen</a></li>
+                                <li><a href="/Recreatie/ActiviteitWijzigen.aspx">Activiteit Wijzigen</a></li>
+                                <li><a href="/Recreatie/ActiviteitVerwijderen.aspx">Activiteit Verwijderen</a></li>
+                            </ul></li>
                             <li><a href="/Recreatie/Voorraad.aspx">Voorraad</a></li>
                         </ul>
                     </li>

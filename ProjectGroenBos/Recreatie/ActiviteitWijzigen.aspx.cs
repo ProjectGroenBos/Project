@@ -10,7 +10,7 @@ using System.Web.UI.WebControls;
 
 namespace recreatie.paginas
 {
-    public partial class Planning : System.Web.UI.Page
+    public partial class ActiviteitWijzigen : System.Web.UI.Page
     {
         string connectionstring = ConfigurationManager.ConnectionStrings["dbconnectie"].ToString();
         SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconnectie"].ConnectionString);
@@ -88,10 +88,6 @@ namespace recreatie.paginas
             BindGrid();
 
         }
-
-
-
-
 
         protected void btnActiviteitInplannen_Click(object sender, EventArgs e)
         {
@@ -206,7 +202,7 @@ namespace recreatie.paginas
                 dt.Rows[index].Delete();
                 ViewState["Medewerker"] = dt;
                 BindGrid();
-              
+
             }
             else
             {
@@ -285,7 +281,7 @@ namespace recreatie.paginas
                 Sqlcon.Open();
                 SqlDataAdapter ada = new SqlDataAdapter();
 
-                int  index2 = int.Parse(GridView1.SelectedRow.Cells[0].Text);
+                int index2 = int.Parse(GridView1.SelectedRow.Cells[0].Text);
 
                 string sql = "UPDATE dbo.Activiteit SET ActiviteitActief = 0 WHERE Nummer = @Nummer";
                 GridView1.Rows[GridView1.SelectedIndex].Visible = false;
