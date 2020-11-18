@@ -25,81 +25,30 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="header">Inkoop Aanvragen Overzicht</div>
 
-            <div class="container">
-                <div class="controls">
-                    <div class="dropdownFilter">
-                        <div class="drop-btn" id="drop-btn">
-                            Filter <span class="fas fa-caret-down"></span>
-                        </div>
-                        <div class="tooltip">
-                        </div>
-                        <div class="dropdownFilterWrapper">
-                            <ul class="menu-bar">
-                                <li class="setting-item"><a href="#">
-                                    <div class="icon">
-                                        <span class="fas fa-users"></span>
-                                    </div>
-                                    Afdeling <i class="fas fa-angle-right"></i>
-                                </a></li>
-                                <li class="help-item"><a href="#">
-                                    <div class="icon">
-                                        <span class="fas fa-calendar-alt"></span>
-                                    </div>
-                                    Datum <i class="fas fa-angle-right"></i>
-                                </a></li>
-                            </ul>
-                            <!-- Afdelingen menu -->
-                            <ul class="setting-drop">
-                                <li class="arrow back-setting-btn"><span class="fas fa-arrow-left"></span>Filter op afdeling</li>
-                                <li class="afdelingbtn"><a href="#">
-                                    <div class="icon">
-                                    </div>
-                                    Recreatie </a></li>
-                                <li id="reservering" class="afdelingbtn"><a href="#">
-                                    <div class="icon">
-                                    </div>
-                                    Recreatie
-                                </a></li>
-                                <li class="afdelingbtn"><a href="#">
-                                    <div class="icon">
-                                    </div>
-                                    Schoonmaak </a></li>
-                                <li class="afdelingbtn"><a href="#">
-                                    <div class="icon">
-                                    </div>
-                                    Restaurant </a></li>
-                            </ul>
-                            <!-- Datum menu -->
-                            <ul class="help-drop">
-                                <li class="arrow back-help-btn"><span class="fas fa-arrow-left"></span>Filter op datum</li>
+    <div class="container">
 
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+        <asp:DropDownList ID="DropDownList1" AutoPostBack="true" runat="server" DataSourceID="SqlDataSource2" DataTextField="Naam" DataValueField="Naam" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" CssClass="DropDownAfdeling"></asp:DropDownList>
 
-                <asp:DropDownList ID="DropDownList1" AutoPostBack="true" runat="server" DataSourceID="SqlDataSource2" DataTextField="Naam" DataValueField="Naam" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" CssClass="DropDownAfdeling"></asp:DropDownList>
-
-                <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT [Naam] FROM [Afdeling] union
+        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT [Naam] FROM [Afdeling] union
 SELECT 'Alle Afdelingen' AS [Naam]"></asp:SqlDataSource>
 
-                <asp:GridView ID="gvInkooporderaanvragerMain" CssClass="content-table tweedetable" GridLines="None" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" DataKeyNames="Nummer" AllowSorting="True">
-                    <Columns>
+        <asp:GridView ID="gvInkooporderaanvragerMain" CssClass="content-table tweedetable" GridLines="None" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" DataKeyNames="Nummer" AllowSorting="True">
+            <Columns>
 
-                        <asp:BoundField DataField="Nummer" HeaderText="Nummer" ReadOnly="True" SortExpression="Nummer" />
-                        <asp:BoundField DataField="Naam" HeaderText="Afdeling" SortExpression="Naam" />
-                        <asp:BoundField DataField="Datum" DataFormatString="{0:d}" HeaderText="Datum" SortExpression="Datum" />
-                        <asp:BoundField DataField="Status" HeaderText="Status" SortExpression="Status" />
-                        <asp:TemplateField>
-                            <ItemTemplate>
-                                <button type="button" style="background-color: #009879; color: #fff" class="btn" data-toggle="modal" data-target="#modal<%# Eval("Nummer") %>">Inzien Inkoop aanvraag</button>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                        <asp:BoundField DataField="Opmerking" HeaderText="Opmerking" ReadOnly="True" SortExpression="Opmerking" HtmlEncode="False" />
-                    </Columns>
-                </asp:GridView>
-                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="select * from inkooporderaanvraagmain order by datum DESC, opmerking DESC"></asp:SqlDataSource>
-            </div>
+                <asp:BoundField DataField="Nummer" HeaderText="Nummer" ReadOnly="True" SortExpression="Nummer" />
+                <asp:BoundField DataField="Naam" HeaderText="Afdeling" SortExpression="Naam" />
+                <asp:BoundField DataField="Datum" DataFormatString="{0:d}" HeaderText="Datum" SortExpression="Datum" />
+                <asp:BoundField DataField="Status" HeaderText="Status" SortExpression="Status" />
+                <asp:TemplateField>
+                    <ItemTemplate>
+                        <button type="button" style="background-color: #009879; color: #fff" class="btn" data-toggle="modal" data-target="#modal<%# Eval("Nummer") %>">Inzien Inkoop aanvraag</button>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:BoundField DataField="Opmerking" HeaderText="Opmerking" ReadOnly="True" SortExpression="Opmerking" HtmlEncode="False" />
+            </Columns>
+        </asp:GridView>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="select * from inkooporderaanvraagmain order by datum DESC, opmerking DESC"></asp:SqlDataSource>
+    </div>
 
 
     <asp:Repeater ID="rpInkoopOrderAanvragen" runat="server">
