@@ -7,20 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ProjectGroenBos.Recreatie {
-    
-    
-    public partial class VoorraadAfboeken {
-        
-        /// <summary>
-        /// txbAfboekenZoeken control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txbAfboekenZoeken;
-        
+namespace ProjectGroenBos.Recreatie
+{
+
+
+    public partial class VoorraadAfboeken
+    {
+
         /// <summary>
         /// Label2 control.
         /// </summary>
@@ -29,7 +22,7 @@ namespace ProjectGroenBos.Recreatie {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label2;
-        
+
         /// <summary>
         /// btnAfboeken control.
         /// </summary>
@@ -38,7 +31,16 @@ namespace ProjectGroenBos.Recreatie {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnAfboeken;
-        
+
+        /// <summary>
+        /// txbAfboekenZoeken control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txbAfboekenZoeken;
+
         /// <summary>
         /// GvAfboeken control.
         /// </summary>
@@ -47,16 +49,7 @@ namespace ProjectGroenBos.Recreatie {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView GvAfboeken;
-        
-        /// <summary>
-        /// LblBevestiging control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblBevestiging;
-        
+
         /// <summary>
         /// GvVoorraadAfboeken control.
         /// </summary>
@@ -65,7 +58,7 @@ namespace ProjectGroenBos.Recreatie {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView GvVoorraadAfboeken;
-        
+
         /// <summary>
         /// BtnVoorraadAfboeken control.
         /// </summary>
