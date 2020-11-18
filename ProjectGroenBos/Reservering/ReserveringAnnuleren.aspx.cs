@@ -28,6 +28,7 @@ namespace ProjectGroenBos.Reservering
             else
             {
                 GridView1.Visible = false;
+                GridView2.Visible = false;
                 //sessions ophalen om de gegevens weer te geven in labels
                 reserveringsnummer = Session["reserveringsnummer"].ToString();
 
@@ -58,9 +59,20 @@ namespace ProjectGroenBos.Reservering
                 lblPostcode.Text = (string)GridView1.DataKeys[0]["Postcode"].ToString();
                 lblLand.Text = (string)GridView1.DataKeys[0]["Land"].ToString();
 
-                CheckBedrag(int.Parse(reserveringsnummer));
+                int tussen = CheckBedrag(int.Parse(reserveringsnummer));
 
-
+                if (tussen == 0)
+                {
+                    lblTotaalText.Text = "Te betalen:";
+                    lblStorten.Text = (string)GridView2.DataKeys[0]["Verschil"].ToString();
+                    lblPrijs.Text = (string)GridView2.DataKeys[0]["Totaalprijs"].ToString();
+                }
+                else if (tussen !=0)
+                {
+                    lblTotaalText.Text = "U verkrijgt:";
+                    lblStorten.Text = (string)GridView2.DataKeys[0]["Aanbetaling"].ToString();
+                    lblPrijs.Text = (string)GridView2.DataKeys[0]["Totaalprijs"].ToString();
+                }
             }
         }
 
@@ -187,11 +199,33 @@ namespace ProjectGroenBos.Reservering
 
         }
 
-        private void CheckBedrag(int reserveringnummer)
+        private int CheckBedrag(int reserveringnummer)
         {
             using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["2020-BIM02-P1-P2-GroenbosConnectionString"].ConnectionString))
             {
                 string query = "select Nummer as Reserveringnummer from Reservering where datediff(day, getdate(), Aankomstdatum) >= 42 and Nummer = @nummer";
+
+                con.Open();
+
+                SqlCommand cmd = new SqlCommand(query, con);
+
+                cmd.Parameters.AddWithValue("@nummer", reserveringnummer);
+
+                int iets;
+
+                try
+                {
+                    iets = cmd.ExecuteNonQuery();
+                }
+                catch
+                {
+                    iets = 0;
+                }
+
+                con.Close();
+
+                return iets;
+
             }
         }
 

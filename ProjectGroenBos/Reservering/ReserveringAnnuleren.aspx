@@ -67,12 +67,12 @@
     <asp:Label ID="lblLand" runat="server" Text="" CssClass="textboxchaos"></asp:Label>
 
     <br />
-    <asp:Label ID="Label16" runat="server" Text="Prijs" CssClass="labelsnieuw"></asp:Label>
+    <asp:Label ID="Label16" runat="server" Text="Totaalprijs" CssClass="labelsnieuw"></asp:Label>
     <asp:Label ID="lblPrijs" runat="server" Text="" CssClass="textboxchaos"></asp:Label>
 
     <br />
-        <asp:Label ID="label17" runat="server" CssClass="labelsnieuw" Text="Bedrag te storten"></asp:Label>
-        <asp:Label ID="lblTotaal" runat="server" CssClass="textboxchaos"></asp:Label>
+        <asp:Label ID="lblTotaalText" runat="server" CssClass="labelsnieuw" Text="Bedrag te storten"></asp:Label>
+        <asp:Label ID="lblStorten" runat="server" CssClass="textboxchaos"></asp:Label>
 
     <br />
     <asp:Button ID="btnverwijderen" runat="server" Text="Annuleren" CssClass="labelsnieuw" OnClick="btnWijzigen_Click" />
@@ -84,5 +84,7 @@
 
     <br />
     <br />
+    <asp:GridView ID="GridView2" runat="server" CssClass="gridv" DataKeyNames="Aanbetaling,Totaalprijs,Verschil">
+    </asp:GridView>
     <br />
 </asp:Content>
