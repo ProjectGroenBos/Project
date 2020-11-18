@@ -74,6 +74,7 @@
     <Content Include="Financien\Home.aspx" />
     <Content Include="Financien\img\Logo.png" />
     <Content Include="Financien\img\Logo3.png" />
+    <Content Include="Financien\Inlogscherm.aspx" />
     <Content Include="Financien\Overzicht.aspx" />
     <Content Include="Financien\Prijstabel.aspx" />
     <Content Include="Financien\Personeeloverzicht.aspx" />
@@ -486,6 +487,13 @@
     </Compile>
     <Compile Include="Financien\Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Financien\Inlogscherm.aspx.cs">
+      <DependentUpon>Inlogscherm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Financien\Inlogscherm.aspx.designer.cs">
+      <DependentUpon>Inlogscherm.aspx</DependentUpon>
     </Compile>
     <Compile Include="Financien\Overzicht.aspx.cs">
       <DependentUpon>Overzicht.aspx</DependentUpon>
