@@ -17,14 +17,16 @@
           </div>
         <div>
             <br />
-            <asp:DropDownList ID="DropDownList1" runat="server">
+            <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
                 <asp:ListItem Value="0">-- Selecteer -- </asp:ListItem>
                 <asp:ListItem>Bungalownummer</asp:ListItem>
                 <asp:ListItem>Schouwingsdatum</asp:ListItem>
             </asp:DropDownList>
-            &nbsp;<asp:DropDownList ID="DropDownList2" runat="server">
+            <asp:TextBox ID="txtDatum" runat="server"></asp:TextBox>
+            <asp:DropDownList ID="drop2" runat="server" DataSourceID="SqlDataSource2" DataTextField="Nummer" DataValueField="Nummer">
             </asp:DropDownList>
-            <asp:Button ID="Button1" runat="server" Text="Zoek" BackColor="#0E6251" BorderColor="#0E6251" CssClass="buttonstyle" ForeColor="White" />
+            <asp:Button ID="Button1" runat="server" Text="Zoek" BackColor="#0E6251" BorderColor="#0E6251" CssClass="buttonstyle" ForeColor="White" OnClick="Button1_Click" />
+            <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:con %>" SelectCommand="SELECT [Nummer] FROM [Bungalow]"></asp:SqlDataSource>
             <br />
             <br />
             <br />
@@ -53,6 +55,59 @@
                 </center>
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:con %>" SelectCommand="SELECT * FROM [Schouwing]" DeleteCommand="delete from Schouwing where schouwingid = @SchouwingID"></asp:SqlDataSource>
         </div>
+
+        <div>
+            <center>
+            <asp:GridView ID="gridBungalow" runat="server" AutoGenerateColumns="False" DataKeyNames="SchouwingID" DataSourceID="SqlDataSource3" AllowPaging="True" Width="70%">
+                <Columns>
+                   <asp:BoundField DataField="SchouwingID" HeaderText="Nummer" ReadOnly="True" SortExpression="SchouwingID" />
+                    <asp:BoundField DataField="BungalowID" HeaderText="Bungalownummer" SortExpression="BungalowID" />
+                    <asp:BoundField DataField="Schouwingsdatum" HeaderText="Schouwingsdatum" SortExpression="Schouwingsdatum" />
+                    <asp:BoundField DataField="Omschrijving" HeaderText="Omschrijving" SortExpression="Omschrijving" />
+                </Columns>
+                <FooterStyle BackColor="#CCCCCC" />
+                <HeaderStyle BackColor="#0E6251" ForeColor="White" />
+                <PagerStyle BackColor="#0E6251" ForeColor="Black" HorizontalAlign="Center" />
+                <SelectedRowStyle BackColor="#000099" ForeColor="Black" />
+                <SortedAscendingCellStyle BackColor="#F1F1F1" ForeColor="Black" />
+                <SortedAscendingHeaderStyle BackColor="Gray" />
+                <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                <SortedDescendingHeaderStyle BackColor="#383838" />               
+            </asp:GridView>
+            <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:con %>" SelectCommand="SELECT * FROM [Schouwing] WHERE ([BungalowID] = @BungalowID)">
+                <SelectParameters>
+                    <asp:ControlParameter ControlID="drop2" Name="BungalowID" PropertyName="SelectedValue" Type="Int32" />
+                </SelectParameters>
+            </asp:SqlDataSource>
+                </center>
+        </div>
+
+        <div>
+            <center>
+                <asp:GridView ID="gridDatum" runat="server" AllowPaging="True" AutoGenerateColumns="False" DataKeyNames="SchouwingID" DataSourceID="SqlDataSource4" Width="70%">
+              <Columns>
+                   <asp:BoundField DataField="SchouwingID" HeaderText="Nummer" ReadOnly="True" SortExpression="SchouwingID" />
+                    <asp:BoundField DataField="BungalowID" HeaderText="Bungalownummer" SortExpression="BungalowID" />
+                    <asp:BoundField DataField="Schouwingsdatum" HeaderText="Schouwingsdatum" SortExpression="Schouwingsdatum" />
+                    <asp:BoundField DataField="Omschrijving" HeaderText="Omschrijving" SortExpression="Omschrijving" />
+                </Columns>
+                <FooterStyle BackColor="#CCCCCC" />
+                <HeaderStyle BackColor="#0E6251" ForeColor="White" />
+                <PagerStyle BackColor="#0E6251" ForeColor="Black" HorizontalAlign="Center" />
+                <SelectedRowStyle BackColor="#000099" ForeColor="Black" />
+                <SortedAscendingCellStyle BackColor="#F1F1F1" ForeColor="Black" />
+                <SortedAscendingHeaderStyle BackColor="Gray" />
+                <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                <SortedDescendingHeaderStyle BackColor="#383838" />
+            </asp:GridView>
+            <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:con %>" SelectCommand="SELECT * FROM [Schouwing] WHERE ([Schouwingsdatum] = @Schouwingsdatum)">
+                <SelectParameters>
+                    <asp:ControlParameter ControlID="txtDatum" DbType="Date" Name="Schouwingsdatum" PropertyName="Text" />
+                </SelectParameters>
+            </asp:SqlDataSource>
+            </center>
+        </div>
+       
 
         <br />
         </div>

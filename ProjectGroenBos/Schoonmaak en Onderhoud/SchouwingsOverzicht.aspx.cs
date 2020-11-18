@@ -12,6 +12,8 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud
         protected void Page_Load(object sender, EventArgs e)
         {
             GridView1.DataBind();
+            txtDatum.Visible = false;
+            drop2.Visible = false;
         }
 
         protected void btnToevoegen_Click(object sender, EventArgs e)
@@ -27,6 +29,37 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud
             Session["Omschrijving"] = (string)GridView1.SelectedRow.Cells[4].Text;
 
             Response.Redirect("SchouwingWijzigen.aspx");
+        }
+
+        protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (DropDownList1.SelectedItem.Value == "Bungalownummer")
+            {
+                txtDatum.Visible = false;
+                drop2.Visible = true;
+            }
+            if (DropDownList1.SelectedItem.Value == "Schouwingsdatum")
+            {
+                txtDatum.Visible = true;
+                drop2.Visible = false;
+            }
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            if (DropDownList1.SelectedItem.Value == "Bungalownummer")
+            {
+                GridView1.Visible = false;
+                gridDatum.Visible = false;
+                drop2.Visible = true;
+
+            }
+            if (DropDownList1.SelectedItem.Value == "Schouwingsdatum")
+            {
+                GridView1.Visible = false;
+                gridBungalow.Visible = false;
+                txtDatum.Visible = true;
+            }
         }
     }
 }
