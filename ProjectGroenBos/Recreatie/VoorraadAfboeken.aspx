@@ -5,11 +5,12 @@
         }</script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div class="header">Voorraad Afboeken</div>
     
-    <asp:TextBox ID="txbAfboekenZoeken" runat="server" OnTextChanged="txbAfboekenZoeken_TextChanged"></asp:TextBox>
-    <asp:Label ID="Label2" runat="server" Text="Zoeken"></asp:Label>
+    <asp:TextBox ID="txbAfboekenZoeken" runat="server" OnTextChanged="txbAfboekenZoeken_TextChanged" CssClass="textboxafboekenzoeken"></asp:TextBox>
+    <asp:Label ID="Label2" runat="server" Text="Zoeken" CssClass="labelzoekafboeken"></asp:Label>
     
-    <asp:Button ID="btnAfboeken" runat="server" Text="Afboeken" OnClick="btnAfboeken_Click" class="btn" data-toggle="modal" data-target="#Popup"/>
+    <asp:Button ID="btnAfboeken" runat="server" Text="Afboeken" OnClick="btnAfboeken_Click" class="btn" data-toggle="modal" data-target="#Popup" CssClass="buttonAfboekenVoorraadmuteren"/>
     
     <asp:GridView ID="GvAfboeken" runat="server" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" CssClass="content-table" DataKeyNames="ID" ForeColor="#333333" GridLines="None" ShowFooter="True" ShowHeaderWhenEmpty="True" Width="80%" OnRowCancelingEdit="GvAfboeken_RowCancelingEdit" OnRowCommand="GvAfboeken_RowCommand" OnRowDeleting="GvAfboeken_RowDeleting" OnRowEditing="GvAfboeken_RowEditing" OnRowUpdating="GvAfboeken_RowUpdating" OnSelectedIndexChanged="GvAfboeken_SelectedIndexChanged" OnSorting="OnSorting">
         <Columns>

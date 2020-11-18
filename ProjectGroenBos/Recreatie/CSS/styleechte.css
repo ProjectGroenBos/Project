@@ -874,8 +874,20 @@ nav ul {
     right: 2%;
 }
 
-.labelzoekafboeken{
-    position:absolute;
-    left: 150%;
-    top: 150%;
+.labelzoekafboeken {
+    position: absolute;
+    left: 30%;
+    top: 50%;
+}
+.textboxafboekenzoeken {
+    position: absolute;
+    left: 40%;
+    top: 50%;
+   
+}
+
+.buttonAfboekenVoorraadmuteren{
+    position: absolute;
+    top: 110%;
+    left: 30%;
 }

@@ -74,6 +74,7 @@
     <Content Include="Financien\Prijstabel.aspx" />
     <Content Include="Gerechten overzicht.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="Recreatie\CSS\styleechte.css" />
     <Content Include="Recreatie\CSS\stylegoeiee.css" />
     <Content Include="Recreatie\CSS\styleoverzicht.css" />
     <Content Include="Recreatie\img\ascArrow.png" />
