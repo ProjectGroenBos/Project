@@ -28,7 +28,7 @@ namespace ProjectGroenBos.Restaurant
 
 
 
-				dt.Columns.Add("Id");
+				//dt.Columns.Add("Id");
 
 
 
