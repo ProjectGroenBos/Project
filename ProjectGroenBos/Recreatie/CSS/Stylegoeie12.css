@@ -698,7 +698,7 @@ nav ul {
 .validatoraantal {
     position: absolute;
     float: right;
-    right: 50%;
+    right: 40%;
     top: 170%;
 }
 
@@ -711,7 +711,7 @@ nav ul {
 
 .validatordatum {
     position: absolute;
-    right: 2%;
+    right: 40%;
     top: 240%;
 }
 
@@ -756,7 +756,7 @@ nav ul {
 .validatorinschrijfkosten {
     position: absolute;
     float: right;
-    right: 2%;
+    right: 40%;
     top: 330%;
 }
 
