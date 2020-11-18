@@ -219,7 +219,7 @@ namespace ProjectGroenBos.Restaurant
 			}
 
 			Session["bestelitems"] = dt;
-			Response.Redirect("Bestelling.aspx");
+			Response.Redirect("Bestellinggelukt.aspx");
 		}
 	}   
 }
