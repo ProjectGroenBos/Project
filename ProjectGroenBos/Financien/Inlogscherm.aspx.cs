@@ -61,7 +61,11 @@ namespace ProjectGroenBos.Financien
                     if (functie == "2")
                     {
                        
-                        Response.Redirect("Homepagina.aspx");
+                        Response.Redirect("Home.aspx");
+                    }
+                    else
+                    {
+                        Response.Redirect("Home.aspx");
                     }
                     ////////////////////////
 
