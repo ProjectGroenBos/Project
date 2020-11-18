@@ -618,8 +618,8 @@ nav ul {
 .textboxbegeleider {
     position: absolute;
     float: right;
-    right: 15%;
-    top: 210%;
+    right: 18%;
+    top: -2147483648%;
 }
 
 .textboxdatum {
@@ -660,8 +660,8 @@ nav ul {
 .buttonactiviteiteninplannen {
     position: absolute;
     float: right;
-    right: 18%;
-    top: -2147483648%;
+    right: 30%;
+    top: -2147483648px;
     width: 18%;
     height: 22%;
     font-size: 100%;

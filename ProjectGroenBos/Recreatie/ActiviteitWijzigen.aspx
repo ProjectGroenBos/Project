@@ -27,7 +27,7 @@
     <asp:RequiredFieldValidator ID="RequiredFieldValidatorBegeleider" runat="server" ControlToValidate="TxbAantal" ErrorMessage="RequiredFieldValidator" ForeColor="Red" CssClass="validatoraantal">Vul een aantal in</asp:RequiredFieldValidator>
 
 
-    <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" CssClass="gridviewbegeleider" EmptyDataText="No data yet" OnRowDeleting="GridView2_RowDeleting">
+    <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" CssClass="gridviewbegeleider" EmptyDataText="No data yet" OnRowDeleting="GridView2_RowDeleting" OnSelectedIndexChanged="GridView2_SelectedIndexChanged">
         <Columns>
             <asp:BoundField DataField="Naam" HeaderText="Naam" SortExpression="Naam" />
             <asp:CommandField ShowDeleteButton="True" />
@@ -36,11 +36,11 @@
 
     <asp:Label ID="Label6" runat="server" Text="Begeleider:" CssClass="labelbegeleider"></asp:Label>
 
-    <asp:DropDownList ID="TxbMedewerker" runat="server" OnRowCommand="gvMedewerker_RowCommand" AutoPostBack="True" CssClass="textboxbegeleider" DataSourceID="SqlDataSource3" DataTextField="Naam" DataValueField="Nummer" OnSelectedIndexChanged="TxbMedewerker_SelectedIndexChanged">
+    <asp:DropDownList ID="TxbMedewerker" runat="server" OnRowCommand="gvMedewerker_RowCommand" AutoPostBack="True" CssClass="textboxbegeleider" DataSourceID="SqlDataSource3" DataTextField="Naam" DataValueField="Naam" OnSelectedIndexChanged="TxbMedewerker_SelectedIndexChanged">
     </asp:DropDownList>
     <asp:RegularExpressionValidator ID="RegularExpressionValidatorBegeleider" runat="server" ControlToValidate="TxbMedewerker" ErrorMessage="RegularExpressionValidator" ValidationExpression="\d+" ForeColor="Red" CssClass="validatormedewerker">Vul een medewerker in</asp:RegularExpressionValidator>
 
-    <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT [Nummer], [Naam] FROM [Medewerker]"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT [Naam], [Nummer] FROM [Medewerker]"></asp:SqlDataSource>
 
 
 
@@ -87,6 +87,11 @@
 
 
 
+    <asp:Button ID="Button1" runat="server" OnClick="btnActiviteitInplannen_Click" Text="Button" />
+
+
+
+
     <asp:Button ID="btnActiviteitInplannen" runat="server" BackColor="#117B66" CssClass="buttonactiviteiteninplannen" ForeColor="#FEFEFE" Text="Activiteiten Inplannen" OnClick="btnActiviteitInplannen_Click" />
     <asp:Label ID="LblBevestiging" runat="server" CssClass="labelbevestigingplanning"></asp:Label>
 
@@ -95,7 +100,7 @@
         <AlternatingRowStyle BackColor="White" />
         <Columns>
             <asp:BoundField DataField="Nummer" HeaderText="Nummer" ReadOnly="True" SortExpression="Nummer" />
-            <asp:BoundField DataField="Naam" HeaderText="Naam" SortExpression="Naam" />
+            <asp:BoundField DataField="Activiteitnaam" HeaderText="Activiteitnaam" SortExpression="Activiteitnaam" />
             <asp:BoundField DataField="Locatie" HeaderText="Locatie" SortExpression="Locatie" />
             <asp:BoundField DataField="Inschrijfkosten" HeaderText="Inschrijfkosten" SortExpression="Inschrijfkosten" />
             <asp:BoundField DataField="Maximaal aantal" HeaderText="Maximaal aantal" SortExpression="Maximaal aantal" />
@@ -103,6 +108,7 @@
             <asp:BoundField DataField="Datum" HeaderText="Datum" SortExpression="Datum" ReadOnly="True" />
             <asp:BoundField DataField="Begintijd" HeaderText="Begintijd" SortExpression="Begintijd" ReadOnly="True" />
             <asp:BoundField DataField="Eindtijd" HeaderText="Eindtijd" SortExpression="Eindtijd" ReadOnly="True" />
+            <asp:BoundField DataField="Naam" HeaderText="Naam" SortExpression="Naam" />
             <asp:BoundField DataField="MedewerkerID" HeaderText="MedewerkerID" SortExpression="MedewerkerID" />
         </Columns>
         <Columns>
@@ -120,10 +126,4 @@
         <SortedDescendingHeaderStyle BackColor="#15524A" />
     </asp:GridView>
     <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT * FROM [vActiviteit]"></asp:SqlDataSource>
-
-    <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Clear" />
-    <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Terug naar activiteit inplannen" />
-
-    <asp:Button ID="Button3" runat="server" OnClick="Button3_Click" Text="Verwijder" />
-
 </asp:Content>

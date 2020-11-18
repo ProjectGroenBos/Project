@@ -55,7 +55,7 @@ namespace recreatie.paginas
             Activteit.Columns.Add(new DataColumn("Datum", typeof(DateTime)));
             Activteit.Columns.Add(new DataColumn("Begintijd", typeof(TimeSpan)));
             Activteit.Columns.Add(new DataColumn("Eindtijd", typeof(TimeSpan)));
-            Activteit.Columns.Add(new DataColumn("MedewerkerID", typeof(int)));
+
 
             using (SqlConnection Sqlcon = new SqlConnection(connectionstring))
             {

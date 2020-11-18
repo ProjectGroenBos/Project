@@ -56,7 +56,6 @@ namespace recreatie.paginas
             Activteit.Columns.Add(new DataColumn("Datum", typeof(DateTime)));
             Activteit.Columns.Add(new DataColumn("Begintijd", typeof(TimeSpan)));
             Activteit.Columns.Add(new DataColumn("Eindtijd", typeof(TimeSpan)));
-            Activteit.Columns.Add(new DataColumn("MedewerkerID", typeof(int)));
 
             using (SqlConnection Sqlcon = new SqlConnection(connectionstring))
             {
@@ -106,7 +105,6 @@ namespace recreatie.paginas
                 cmd.Parameters.AddWithValue("@Datum", Convert.ToDateTime(TxbDatum.Text.Trim()));
                 cmd.Parameters.AddWithValue("@FaciliteitID", ddlFaciliteit.SelectedValue);
                 cmd.Parameters.AddWithValue("@Inschrijfkosten", txbInschrijfkosten.Text);
-                cmd.Parameters.AddWithValue("@MedewerkerID", TxbMedewerker.SelectedValue);
                 cmd.ExecuteNonQuery();
                 con.Close();
                 GridView1.DataBind();
@@ -135,7 +133,6 @@ namespace recreatie.paginas
                 cmd.Parameters.AddWithValue("@Datum", Convert.ToDateTime(TxbDatum.Text.Trim()));
                 cmd.Parameters.AddWithValue("@FaciliteitID", ddlFaciliteit.SelectedValue);
                 cmd.Parameters.AddWithValue("@Inschrijfkosten", txbInschrijfkosten.Text.Trim());
-                cmd.Parameters.AddWithValue("@MedewerkerID", TxbMedewerker.SelectedValue);
                 cmd.ExecuteNonQuery();
                 con.Close();
 

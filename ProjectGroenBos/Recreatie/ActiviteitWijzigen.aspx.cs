@@ -82,7 +82,7 @@ namespace recreatie.paginas
             GridView2.Dispose();
             DataTable dt = (DataTable)ViewState["Medewerker"];
             dt.Clear();
-            TxbMedewerker.SelectedValue = Activteit.Rows[0][9].ToString();
+            //TxbMedewerker.SelectedValue = Activteit.Rows[0][9].ToString();
             dt.Rows.Add(TxbMedewerker.SelectedItem.Text.Trim());
             ViewState["Medewerker"] = dt;
             BindGrid();
@@ -92,36 +92,6 @@ namespace recreatie.paginas
         protected void btnActiviteitInplannen_Click(object sender, EventArgs e)
         {
             Activteit = (DataTable)Session["Activiteit"];
-            if (Activteit == null)
-            {
-                con.Open();
-                SqlCommand cmd = new SqlCommand("sp_Recreatie_VoegActiviteitToe", con);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@Naam", TxbActiviteit.Text.Trim());
-                cmd.Parameters.AddWithValue("@Locatie", txbLocatie.Text);
-                cmd.Parameters.AddWithValue("@Begintijd", TxbBegintijd.Text);
-                cmd.Parameters.AddWithValue("@Eindtijd", TxbEindtijd.Text);
-                cmd.Parameters.AddWithValue("@MaximaalAantal", TxbAantal.Text);
-                cmd.Parameters.AddWithValue("@Datum", Convert.ToDateTime(TxbDatum.Text.Trim()));
-                cmd.Parameters.AddWithValue("@FaciliteitID", ddlFaciliteit.SelectedValue);
-                cmd.Parameters.AddWithValue("@Inschrijfkosten", txbInschrijfkosten.Text);
-                cmd.Parameters.AddWithValue("@MedewerkerID", TxbMedewerker.SelectedValue);
-                cmd.ExecuteNonQuery();
-                con.Close();
-                GridView1.DataBind();
-                TxbActiviteit.Text = "";
-                txbLocatie.Text = "";
-                TxbBegintijd.Text = "";
-                TxbEindtijd.Text = "";
-                TxbAantal.Text = "";
-                TxbDatum.Text = "";
-                txbInschrijfkosten.Text = "";
-
-                LblBevestiging.Text = "Activiteit toegevoegd";
-
-            }
-            else
-            {
                 con.Open();
                 SqlCommand cmd = new SqlCommand("sp_Recreatie_WijzigActiviteit", con);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -134,7 +104,7 @@ namespace recreatie.paginas
                 cmd.Parameters.AddWithValue("@Datum", Convert.ToDateTime(TxbDatum.Text.Trim()));
                 cmd.Parameters.AddWithValue("@FaciliteitID", ddlFaciliteit.SelectedValue);
                 cmd.Parameters.AddWithValue("@Inschrijfkosten", txbInschrijfkosten.Text.Trim());
-                cmd.Parameters.AddWithValue("@MedewerkerID", TxbMedewerker.SelectedValue);
+                cmd.Parameters.AddWithValue("@MedewerkerID", TxbMedewerker.SelectedIndex);
                 cmd.ExecuteNonQuery();
                 con.Close();
 
@@ -158,9 +128,7 @@ namespace recreatie.paginas
                 dt.Columns.AddRange(new DataColumn[1] { new DataColumn("Naam") });
                 ViewState["Medewerker"] = dt;
                 this.BindGrid();
-
-                btnActiviteitInplannen.Text = "Activiteit inplannen";
-            }
+                Response.Redirect("ActiviteitOverzicht.aspx");
         }
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
@@ -294,6 +262,11 @@ namespace recreatie.paginas
                 Sqlcon.Close();
             }
             GridView1.SelectedIndex = -1;
+        }
+
+        protected void GridView2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
