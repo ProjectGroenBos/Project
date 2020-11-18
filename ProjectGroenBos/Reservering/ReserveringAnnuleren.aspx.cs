@@ -59,15 +59,21 @@ namespace ProjectGroenBos.Reservering
                 lblPostcode.Text = (string)GridView1.DataKeys[0]["Postcode"].ToString();
                 lblLand.Text = (string)GridView1.DataKeys[0]["Land"].ToString();
 
-                int tussen = CheckBedrag(int.Parse(reserveringsnummer));
+                int tussen = GetDagen(int.Parse(reserveringsnummer));
+                for (int i = 0; i < (GridView2.Rows.Count); i++)
+                {
+                    double verschil = (double)GridView2.DataKeys[i]["Verschil"];
+                    double totaal = (double)GridView2.DataKeys[i]["Totaalprijs"];
+                    double aanbetaling = (double)GridView2.DataKeys[i]["Aanbetaling"];
+                }
 
-                if (tussen == 0)
+                if (tussen < 42)
                 {
                     lblTotaalText.Text = "Te betalen:";
                     lblStorten.Text = (string)GridView2.DataKeys[0]["Verschil"].ToString();
                     lblPrijs.Text = (string)GridView2.DataKeys[0]["Totaalprijs"].ToString();
                 }
-                else if (tussen !=0)
+                else if (tussen >= 42)
                 {
                     lblTotaalText.Text = "U verkrijgt:";
                     lblStorten.Text = (string)GridView2.DataKeys[0]["Aanbetaling"].ToString();
@@ -199,11 +205,11 @@ namespace ProjectGroenBos.Reservering
 
         }
 
-        private int CheckBedrag(int reserveringnummer)
+        private int GetDagen(int reserveringnummer)
         {
             using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["2020-BIM02-P1-P2-GroenbosConnectionString"].ConnectionString))
             {
-                string query = "select Nummer as Reserveringnummer from Reservering where datediff(day, getdate(), Aankomstdatum) >= 42 and Nummer = @nummer";
+                string query = "select datediff(day, getdate(), Aankomstdatum) as Dagen from Reservering where Nummer = @nummer";
 
                 con.Open();
 
@@ -211,23 +217,24 @@ namespace ProjectGroenBos.Reservering
 
                 cmd.Parameters.AddWithValue("@nummer", reserveringnummer);
 
-                int iets;
+                var iets = cmd.ExecuteScalar();
+                int getal = 0;
 
-                try
+                if (iets != null)
                 {
-                    iets = cmd.ExecuteNonQuery();
+                    getal = int.Parse(iets.ToString());
                 }
-                catch
-                {
-                    iets = 0;
-                }
+
+
 
                 con.Close();
 
-                return iets;
+                return getal;
 
             }
         }
+
+
 
     }
 }

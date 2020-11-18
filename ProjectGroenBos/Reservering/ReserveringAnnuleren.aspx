@@ -84,7 +84,18 @@
 
     <br />
     <br />
-    <asp:GridView ID="GridView2" runat="server" CssClass="gridv" DataKeyNames="Aanbetaling,Totaalprijs,Verschil">
+    <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" CssClass="gridv" DataKeyNames="Aanbetaling,Totaalprijs,Verschil,Nummer" DataSourceID="SqlDataSource1">
+        <Columns>
+            <asp:BoundField DataField="Aanbetaling" HeaderText="Aanbetaling" ReadOnly="True" SortExpression="Aanbetaling" />
+            <asp:BoundField DataField="Totaalprijs" HeaderText="Totaalprijs" ReadOnly="True" SortExpression="Totaalprijs" />
+            <asp:BoundField DataField="Verschil" HeaderText="Verschil" ReadOnly="True" SortExpression="Verschil" />
+            <asp:BoundField DataField="Nummer" HeaderText="Nummer" ReadOnly="True" SortExpression="Nummer" />
+        </Columns>
     </asp:GridView>
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:2020-BIM02-P1-P2-GroenbosConnectionString %>" SelectCommand="SELECT * FROM [Verschil] WHERE ([Nummer] = @Nummer)">
+        <SelectParameters>
+            <asp:SessionParameter Name="Nummer" SessionField="reserveringsnummer" Type="Int32" />
+        </SelectParameters>
+    </asp:SqlDataSource>
     <br />
 </asp:Content>

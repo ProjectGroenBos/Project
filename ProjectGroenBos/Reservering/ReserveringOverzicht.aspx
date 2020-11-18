@@ -43,7 +43,7 @@
         <asp:Button ID="btnZoek" runat="server" Text="Zoek" CssClass="textboxbtn" OnClick="btnZoek_Click" />
         <br />
         <br />
-        <asp:GridView ID="GridView1" runat="server" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" CssClass="gridv" AutoGenerateSelectButton="True">
+        <asp:GridView ID="GridView1" runat="server" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" CssClass="content-table" AutoGenerateSelectButton="True">
         </asp:GridView>
         &nbsp;&nbsp;&nbsp;
         <br />
