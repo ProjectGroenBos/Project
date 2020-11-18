@@ -51,14 +51,16 @@ namespace ProjectGroenBos.Reservering
                 lblReserveringsnummer.Text = (string)GridView1.DataKeys[0]["Nummer"].ToString();
                 lblAantalPersonen.Text = (string)GridView1.DataKeys[0]["Aantal_personen"].ToString();
                 lblOpmerkingen.Text = (string)GridView1.DataKeys[0]["Opmerking"].ToString();
-                lblAankomstdatum.Text = (string)GridView1.DataKeys[0]["Tussenvoegsel"].ToString();
+                lblAankomstdatum.Text = (string)GridView1.DataKeys[0]["Aankomstdatum"].ToString();
                 lblVertrekdatum.Text = (string)GridView1.DataKeys[0]["Vertrekdatum"].ToString();
                 lblStraat.Text = (string)GridView1.DataKeys[0]["Straatnaam"].ToString();
                 lblHuisnummer.Text = (string)GridView1.DataKeys[0]["Huisnummer"].ToString();
                 lblPostcode.Text = (string)GridView1.DataKeys[0]["Postcode"].ToString();
                 lblLand.Text = (string)GridView1.DataKeys[0]["Land"].ToString();
 
-                
+                CheckBedrag(int.Parse(reserveringsnummer));
+
+
             }
         }
 
@@ -69,16 +71,16 @@ namespace ProjectGroenBos.Reservering
             {
                 con.Open();
                 SqlDataAdapter query = new SqlDataAdapter(query1, con);
-                
+
                 //parameters
                 query.SelectCommand.Parameters.AddWithValue("@nummer", reserveringsnummer);
-                
+
                 DataSet set = new DataSet();
                 query.Fill(set);
 
                 var tussen1 = "";
                 var tussen2 = "";
-                
+
 
                 //clonen van tabel
                 DataSet trueset = set.Clone();
@@ -183,6 +185,14 @@ namespace ProjectGroenBos.Reservering
                 return body;
             }
 
+        }
+
+        private void CheckBedrag(int reserveringnummer)
+        {
+            using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["2020-BIM02-P1-P2-GroenbosConnectionString"].ConnectionString))
+            {
+                string query = "select Nummer as Reserveringnummer from Reservering where datediff(day, getdate(), Aankomstdatum) >= 42 and Nummer = @nummer";
+            }
         }
 
     }

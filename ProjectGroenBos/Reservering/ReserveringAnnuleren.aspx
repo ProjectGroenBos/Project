@@ -71,13 +71,16 @@
     <asp:Label ID="lblPrijs" runat="server" Text="" CssClass="textboxchaos"></asp:Label>
 
     <br />
+        <asp:Label ID="label17" runat="server" CssClass="labelsnieuw" Text="Bedrag te storten"></asp:Label>
+        <asp:Label ID="lblTotaal" runat="server" CssClass="textboxchaos"></asp:Label>
+
+    <br />
     <asp:Button ID="btnverwijderen" runat="server" Text="Annuleren" CssClass="labelsnieuw" OnClick="btnWijzigen_Click" />
     <br />
     <br />
 
-    <asp:GridView ID="GridView1" runat="server" CssClass="labelsnieuw" DataKeyNames="Nummer,Aantal_personen,Opmerking,Datum_geplaatst,Vertrekdatum,Aankomstdatum,ReserveringsstatusID,GastNummer,SeizoenID,ReserveringslengteID,FeestdagNummer,Voornaam,Tussenvoegsel,Achternaam,Email,Telefoonnummer,Straatnaam,Huisnummer,Postcode,Land">
+    <asp:GridView ID="GridView1" runat="server" CssClass="gridv" DataKeyNames="GastNummer,Voornaam,Tussenvoegsel,Achternaam,Email,Telefoonnummer,Nummer,Aantal_personen,Aankomstdatum,Vertrekdatum,Opmerking,Straatnaam,Huisnummer,Postcode,Land">
     </asp:GridView>
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server"></asp:SqlDataSource>
 
     <br />
     <br />
