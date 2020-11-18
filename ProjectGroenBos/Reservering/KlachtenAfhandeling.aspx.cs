@@ -18,6 +18,7 @@ namespace ProjectGroenBos.Reservering
             {
 
                 txbVoornaam.Visible = true;
+                txbTussenvoegsel.Visible = true;
                 txbAchternaam.Visible = true;
                 txbEmail.Visible = true;
                 txbGastnummer.Visible = false;
@@ -26,10 +27,12 @@ namespace ProjectGroenBos.Reservering
             else if (rdbGast.Checked == true)
             {
                 txbVoornaam.Visible = false;
+                txbTussenvoegsel.Visible = false;
                 txbAchternaam.Visible = false;
                 txbEmail.Visible = false;
                 txbGastnummer.Visible = true;
                 txbVoornaam.Text = "";
+                txbTussenvoegsel.Text = "";
                 txbAchternaam.Text = "";
                 txbEmail.Text = "";
             }
@@ -44,6 +47,7 @@ namespace ProjectGroenBos.Reservering
             using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["2020-BIM02-P1-P2-GroenbosConnectionString"].ConnectionString))
             {
                 string voornaam = txbVoornaam.Text;
+                string tussenvoegsel = txbTussenvoegsel.Text;
                 string achternaam = txbAchternaam.Text;
                 string email = txbEmail.Text;
                 string categorie = ddlCategorie.Text;
@@ -55,12 +59,13 @@ namespace ProjectGroenBos.Reservering
                     con.Open();
 
 
-                    string query = "insert into Klacht (Categorie, Omschrijving, Voornaam, Achternaam, Email)values(@categorie, @klachtomschrijving, @voornaam, @achternaam, @email)";
+                    string query = "insert into Klacht (Categorie, Omschrijving, Voornaam, Achternaam, Tussenvoegsel, Email)values(@categorie, @klachtomschrijving, @voornaam, @tussenvoegsel, @achternaam, @email)";
 
                     SqlCommand cmd = new SqlCommand(query, con);
                     cmd.Parameters.AddWithValue("@categorie", categorie);
                     cmd.Parameters.AddWithValue("@klachtomschrijving", klacht);
                     cmd.Parameters.AddWithValue("@voornaam", voornaam);
+                    cmd.Parameters.AddWithValue("@tussenvoegsel", tussenvoegsel);
                     cmd.Parameters.AddWithValue("@achternaam", achternaam);
                     cmd.Parameters.AddWithValue("@email", email);
 
@@ -81,7 +86,7 @@ namespace ProjectGroenBos.Reservering
                     con.Open();
 
 
-                    string query = "insert into Klacht (Categorie, Omschrijving, GastNummer, Voornaam, Achternaam)values(@categorie, @klachtomschrijving, @gastnummer, @voornaam, @achternaam)";
+                    string query = "insert into Klacht (Categorie, Omschrijving, GastNummer, Voornaam, Tussenvoegsel, Achternaam)values(@categorie, @klachtomschrijving, @gastnummer, @voornaam, @tussenvoegsel, @achternaam)";
 
                     SqlCommand cmd = new SqlCommand(query, con);
 
@@ -89,6 +94,7 @@ namespace ProjectGroenBos.Reservering
                     cmd.Parameters.AddWithValue("@klachtomschrijving", klacht);
                     cmd.Parameters.AddWithValue("@gastnummer", gastnummer);
                     cmd.Parameters.AddWithValue("@voornaam", voornaam);
+                    cmd.Parameters.AddWithValue("@tussenvoegsel", tussenvoegsel);
                     cmd.Parameters.AddWithValue("@achternaam", achternaam);
                     cmd.CommandType = System.Data.CommandType.Text;
                     cmd.ExecuteNonQuery();
