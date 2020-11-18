@@ -79,6 +79,7 @@
     <Content Include="Financien\Personeeloverzicht.aspx" />
     <Content Include="Financien\Rekeningen.aspx" />
     <Content Include="Financien\Reserveringen.aspx" />
+    <Content Include="Financien\InkoopAanvraagScherm.aspx" />
     <Content Include="Gerechten overzicht.aspx" />
     <Content Include="Global.asax" />
     <Content Include="packages\AjaxControlToolkit.20.1.0\lib\net40\AjaxControlToolkit.dll" />
@@ -520,6 +521,13 @@
     </Compile>
     <Compile Include="Financien\Reserveringen.aspx.designer.cs">
       <DependentUpon>Reserveringen.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Financien\InkoopAanvraagScherm.aspx.cs">
+      <DependentUpon>InkoopAanvraagScherm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Financien\InkoopAanvraagScherm.aspx.designer.cs">
+      <DependentUpon>InkoopAanvraagScherm.aspx</DependentUpon>
     </Compile>
     <Compile Include="Gerechten overzicht.aspx.cs">
       <DependentUpon>Gerechten overzicht.aspx</DependentUpon>
