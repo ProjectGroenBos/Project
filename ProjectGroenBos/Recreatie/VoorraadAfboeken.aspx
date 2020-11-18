@@ -63,6 +63,8 @@
                 </asp:TemplateField>
         </Columns>
     </asp:GridView>
+
+    <asp:Label ID="LblBevestiging" runat="server" ForeColor="Red"></asp:Label>
         
     <div id="Popup" class="modal fade" role="dialog">
                 <div class="modal-dialog">
@@ -92,6 +94,12 @@
                                  <asp:TemplateField HeaderText="Artikelnaam | Omschrijving " SortExpression="Artikelnaam" >  
                                      <ItemTemplate>
                                          <asp:Label Text='<%# Eval("Artikelnaam") %>' runat="server" />
+                                     </ItemTemplate>
+                                 </asp:TemplateField>
+
+                                 <asp:TemplateField HeaderText="Aantal " SortExpression="Aantal" Visible="False" >  
+                                     <ItemTemplate>
+                                         <asp:Label Text='<%# Eval("Aantal") %>' runat="server" />
                                      </ItemTemplate>
                                  </asp:TemplateField>
 
