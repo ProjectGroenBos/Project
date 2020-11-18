@@ -156,6 +156,8 @@ body {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
     margin-left: auto;
     margin-right: auto;
+    margin-top:10%;
+   
 }
 
     .content-table tbody tr th {
@@ -876,18 +878,226 @@ nav ul {
 
 .labelzoekafboeken {
     position: absolute;
-    left: 30%;
-    top: 50%;
+    left: 28%;
+    margin-top: 3%;
 }
+
 .textboxafboekenzoeken {
     position: absolute;
+    left: 33%;
+    margin-top: 3%;
+}
+
+.buttonAfboekenVoorraadmuteren {
+    position: absolute;
+    top: 110%;
+    left: 28%;
+    width: 10%;
+    height: 10%;
+    font-size: 80%;
+    background-color: #009879;
+}
+.content-table2 {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    min-width: 400px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+}
+
+    .content-table2 tbody tr th {
+        background-color: #009879;
+        color: #ffffff;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    .content-table2 th,
+    .content-table2 td {
+        padding: 12px 15px;
+    }
+
+    .content-table2 tbody tr {
+        border-bottom: 1px solid #dddddd;
+    }
+
+        .content-table2 tbody tr:nth-of-type(even) {
+            background-color: #f3f3f3;
+        }
+
+
+        .content-table2 tbody tr:last-of-type {
+            border-bottom: 2px solid #009879;
+        }
+
+        .content-table2 tbody tr:hover {
+            font-weight: bold;
+            color: #009879;
+        }
+
+        .content-table2 tbody tr td a {
+            background-color: rgba(20,143,119,1);
+            border-radius: 5px;
+            color: #ffffff;
+            padding: .5em;
+            text-decoration: none;
+        }
+
+            .content-table2 tbody tr td a:nth-child(2) {
+                background-color: #C0392B;
+                border-radius: 5px;
+                color: #ffffff;
+                padding: .5em;
+                text-decoration: none;
+            }
+
+                .content-table2 tbody tr td a:nth-child(2):hover {
+                    background-color: #CD6155;
+                    color: #ffffff;
+                }
+
+            .content-table2 tbody tr td a:hover {
+                background-color: #009879;
+                color: #ffffff;
+            }
+
+.ButtonAfboekenknop {
+    position: absolute;
+    top: 110%;
     left: 40%;
-    top: 50%;
+    width: 10%;
+    height: 10%;
+    font-size: 80%;
+    background-color: #009879;
+}
+.ButtonOpboekenknop {
+    position: absolute;
+    top: 110%;
+    left: 28%;
+    width: 10%;
+    height: 10%;
+    font-size: 80%;
+    background-color: #009879;
+}
+
+.labelzoekenvooraadmutatie {
+    position: absolute;
+    left: 28%;
+    margin-top:3%;
+}
+
+.TextboxzoekenVooraadmutatie {
+    position: absolute;
+    left: 33%;
+    margin-top: 3%;
+}
+.checkboxleverancierVoorraadmutatie {
+    position: absolute;
+    left: 50%;
+    margin-top: 3%;
+}
+
+.content-table3 {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    min-width: 400px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 8%;
+}
+
+    .content-table3 tbody tr th {
+        background-color: #009879;
+        color: #ffffff;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    .content-table3 th,
+    .content-table3 td {
+        padding: 12px 15px;
+    }
+
+    .content-table3 tbody tr {
+        border-bottom: 1px solid #dddddd;
+    }
+
+        .content-table3 tbody tr:nth-of-type(even) {
+            background-color: #f3f3f3;
+        }
+
+
+        .content-table3 tbody tr:last-of-type {
+            border-bottom: 2px solid #009879;
+        }
+
+        .content-table3 tbody tr:hover {
+            font-weight: bold;
+            color: #009879;
+        }
+
+        .content-table3 tbody tr td a {
+            background-color: rgba(20,143,119,1);
+            border-radius: 5px;
+            color: #ffffff;
+            padding: .5em;
+            text-decoration: none;
+        }
+
+            .content-table3 tbody tr td a:nth-child(2) {
+                background-color: #C0392B;
+                border-radius: 5px;
+                color: #ffffff;
+                padding: .5em;
+                text-decoration: none;
+            }
+
+                .content-table3 tbody tr td a:nth-child(2):hover {
+                    background-color: #CD6155;
+                    color: #ffffff;
+                }
+
+            .content-table3 tbody tr td a:hover {
+                background-color: #009879;
+                color: #ffffff;
+            }
+
+.labelVoorraadzoeken {
+    position: absolute;
+    left: 21%;
+    margin-top: 3%;
+}
+
+.txtZoekbalk {
+    position: absolute;
+    left: 27%;
+    margin-top: 3%;
+}
+
+.btnSelecterenproductenvoorraad {
+    position: absolute;
+    left: 50%;
+    margin-top: 3%;
+    background-color: #009879;
    
 }
 
-.buttonAfboekenVoorraadmuteren{
+.BtnBestellenVooraad {
     position: absolute;
-    top: 110%;
-    left: 30%;
+    left: 80%;
+    margin-top: 3%;
+    
+   
 }
+
+
+

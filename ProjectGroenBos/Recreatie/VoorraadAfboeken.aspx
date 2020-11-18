@@ -7,50 +7,51 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="header">Voorraad Afboeken</div>
     
-    <asp:TextBox ID="txbAfboekenZoeken" runat="server" OnTextChanged="txbAfboekenZoeken_TextChanged" CssClass="textboxafboekenzoeken"></asp:TextBox>
     <asp:Label ID="Label2" runat="server" Text="Zoeken" CssClass="labelzoekafboeken"></asp:Label>
     
-    <asp:Button ID="btnAfboeken" runat="server" Text="Afboeken" OnClick="btnAfboeken_Click" class="btn" data-toggle="modal" data-target="#Popup" CssClass="buttonAfboekenVoorraadmuteren"/>
+    <asp:Button ID="btnAfboeken" runat="server" Text="Afboeken" OnClick="btnAfboeken_Click" class="btn" data-toggle="modal" data-target="#Popup" CssClass="buttonAfboekenVoorraadmuteren" ForeColor="White"/>
     
-    <asp:GridView ID="GvAfboeken" runat="server" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" CssClass="content-table" DataKeyNames="ID" ForeColor="#333333" GridLines="None" ShowFooter="True" ShowHeaderWhenEmpty="True" Width="80%" OnRowCancelingEdit="GvAfboeken_RowCancelingEdit" OnRowCommand="GvAfboeken_RowCommand" OnRowDeleting="GvAfboeken_RowDeleting" OnRowEditing="GvAfboeken_RowEditing" OnRowUpdating="GvAfboeken_RowUpdating" OnSelectedIndexChanged="GvAfboeken_SelectedIndexChanged" OnSorting="OnSorting">
+    <asp:TextBox ID="txbAfboekenZoeken" runat="server" OnTextChanged="txbAfboekenZoeken_TextChanged" CssClass="textboxafboekenzoeken"></asp:TextBox>
+    
+    <asp:GridView ID="GvAfboeken" runat="server" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" CssClass="content-table2" DataKeyNames="ID" ForeColor="#333333" GridLines="None" ShowFooter="True" ShowHeaderWhenEmpty="True" Width="80%" OnRowCancelingEdit="GvAfboeken_RowCancelingEdit" OnRowCommand="GvAfboeken_RowCommand" OnRowDeleting="GvAfboeken_RowDeleting" OnRowEditing="GvAfboeken_RowEditing" OnRowUpdating="GvAfboeken_RowUpdating" OnSelectedIndexChanged="GvAfboeken_SelectedIndexChanged" OnSorting="OnSorting">
         <Columns>
-            <asp:TemplateField HeaderText="Artikelnummer" SortExpression="ID" Visible="true" >
+            <asp:TemplateField HeaderText="Artikelnummer" SortExpression="ID" Visible="true" HeaderStyle-ForeColor="White">
                 <ItemTemplate>
-                    <asp:Label ID ="Label1" Text='<%# Eval("ID") %>' runat="server"/>
+                    <asp:Label ID ="Label1" Text='<%# Eval("ID") %>'  runat="server"/>
                 </ItemTemplate>
             </asp:TemplateField>
 
-            <asp:TemplateField HeaderText="Artikelnaam | Omschrijving" SortExpression="Artikelnaam" >
+            <asp:TemplateField HeaderText="Artikelnaam | Omschrijving" SortExpression="Artikelnaam" HeaderStyle-ForeColor="White">
                 <ItemTemplate>
-                    <asp:Label Text='<%# Eval("Artikelnaam") %>' runat="server"/>
+                    <asp:Label Text='<%# Eval("Artikelnaam") %>' runat="server" />
                 </ItemTemplate>
             </asp:TemplateField>
 
-            <asp:TemplateField HeaderText="Prijs" SortExpression="Prijs" >
+            <asp:TemplateField HeaderText="Prijs" SortExpression="Prijs" HeaderStyle-ForeColor="White">
                 <ItemTemplate>
                     <asp:Label Text='<%# Eval("Prijs") %>' runat="server"/>
                 </ItemTemplate>
             </asp:TemplateField>
 
-            <asp:TemplateField HeaderText="Aantal" SortExpression="Aantal" >
+            <asp:TemplateField HeaderText="Aantal" SortExpression="Aantal" HeaderStyle-ForeColor="White" >
                 <ItemTemplate>
                     <asp:Label Text='<%# Eval("Aantal") %>' runat="server"/>
                 </ItemTemplate>
             </asp:TemplateField>
 
-            <asp:TemplateField HeaderText="Minimum Voorraad" SortExpression="Minimumvoorraad" >
+            <asp:TemplateField HeaderText="Minimum Voorraad" SortExpression="Minimumvoorraad" HeaderStyle-ForeColor="White">
                 <ItemTemplate>
                     <asp:Label Text='<%# Eval("Minimum voorraad") %>' runat="server"/>
                 </ItemTemplate>
             </asp:TemplateField>
 
-            <asp:TemplateField HeaderText="Naam Leverancier" SortExpression="Leverancier" >
+            <asp:TemplateField HeaderText="Naam Leverancier" SortExpression="Leverancier" HeaderStyle-ForeColor="White" >
                 <ItemTemplate>
                     <asp:Label Text='<%# Eval("Naam Leverancier") %>' runat="server"/>
                 </ItemTemplate>
             </asp:TemplateField>
 
-            <asp:TemplateField HeaderText="Huurtarief" SortExpression="Huurtarief" >
+            <asp:TemplateField HeaderText="Huurtarief" SortExpression="Huurtarief" HeaderStyle-ForeColor="White">
                 <ItemTemplate>
                     <asp:Label Text='<%# Eval("Huurtarief") %>' runat="server"/>
                 </ItemTemplate>
