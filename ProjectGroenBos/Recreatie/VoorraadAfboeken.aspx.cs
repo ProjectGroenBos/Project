@@ -16,6 +16,7 @@ namespace ProjectGroenBos.Recreatie
     {
         DataTable dt = new DataTable();
         string connectionstring = ConfigurationManager.ConnectionStrings["dbconnectie"].ToString();
+        SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconnectie"].ConnectionString);
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -177,14 +178,7 @@ namespace ProjectGroenBos.Recreatie
             using (SqlConnection sqlCon = new SqlConnection(connectionstring))
             {
                 sqlCon.Open();
-
-                SqlCommand cmd = new SqlCommand("sp_Recreatie_MuterenVoorraad", sqlCon);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.ExecuteNonQuery();
-                sqlCon.Close();
-
-                sqlCon.Open();
-                string selectquery = "SELECT TOP 1 Nummer  FROM [dbo].[VooraadMutaties] ORDER BY Nummer DESC";
+                string selectquery = "SELECT TOP 1 ID  FROM [dbo].[VoorraadMutaties] ORDER BY ID DESC";
                 SqlCommand sqlComd = new SqlCommand(selectquery, sqlCon);
                 SqlDataReader r;
                 r = sqlComd.ExecuteReader();
@@ -199,16 +193,18 @@ namespace ProjectGroenBos.Recreatie
                 sqlCon.Close();
                 foreach (GridViewRow ding in GvVoorraadAfboeken.Rows)
                 {
-                    sqlCon.Open();
-
-                    SqlCommand vul = new SqlCommand("sp_Recreatie_MuterenVoorraad", sqlCon);
-                    vul.CommandType = CommandType.StoredProcedure;
-                    vul.Parameters.AddWithValue("@ID", (ordernummer));
-                    vul.Parameters.AddWithValue("@Aantal", (int.Parse((GvVoorraadAfboeken.Rows[ding.RowIndex].FindControl("tbAantal") as TextBox).Text.Trim())));
-                    vul.Parameters.AddWithValue("@VoorraadID", (GvVoorraadAfboeken.DataKeys[ding.RowIndex].Value.ToString()));
-                    vul.ExecuteNonQuery();
-                    sqlCon.Close();
-
+                    con.Open();
+                    SqlCommand cmd = new SqlCommand("sp_Recreatie_MuterenVoorraad", con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@VoorraadID", (GvAfboeken.DataKeys[ding.RowIndex].Value.ToString()));
+                    cmd.Parameters.AddWithValue("@Aantal", (int.Parse((GvVoorraadAfboeken.Rows[ding.RowIndex].FindControl("tbAantal") as TextBox).Text.Trim())));
+                    cmd.Parameters.AddWithValue("@Type", "-");
+                    cmd.Parameters.AddWithValue("@RedenID", (int.Parse((GvVoorraadAfboeken.Rows[ding.RowIndex].FindControl("ddlReden") as DropDownList).Text.Trim())));
+                    cmd.Parameters.AddWithValue("@Opmerking", (GvVoorraadAfboeken.DataKeys[ding.RowIndex].Value.ToString()));
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                    GvVoorraadAfboeken.DataBind();
+                    InvullenGridview();
                 }
             }
         }
