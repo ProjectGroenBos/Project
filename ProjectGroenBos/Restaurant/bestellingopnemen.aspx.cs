@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
+using System.Text.RegularExpressions;
 
 
 namespace ProjectGroenBos.Restaurant
@@ -36,6 +37,7 @@ namespace ProjectGroenBos.Restaurant
 				dt2.Columns.Add("Prijs");
 				dt2.Columns.Add("Hoeveelheid");
 				dt2.Columns.Add("TotalePrijs");
+				dt2.Columns.Add("Id");
 
 				if (Request.QueryString["id"] != null)
 				{
@@ -57,6 +59,7 @@ namespace ProjectGroenBos.Restaurant
 						dr["Naam"] = ds.Tables[0].Rows[0]["Naam"].ToString();
 						dr["Prijs"] = ds.Tables[0].Rows[0]["Prijs"].ToString();
 						dr["Hoeveelheid"] = Request.QueryString["Hoeveelheid"];
+						dr["Id"] = Request.QueryString["id"];
 
 						double prijs = Convert.ToDouble(ds.Tables[0].Rows[0]["Prijs"].ToString());
 						double hoeveelheid = Convert.ToInt16(Request.QueryString["Hoeveelheid"].ToString());
@@ -110,6 +113,7 @@ namespace ProjectGroenBos.Restaurant
 						dr["Naam"] = ds.Tables[0].Rows[0]["Naam"].ToString();
 						dr["Prijs"] = ds.Tables[0].Rows[0]["Prijs"].ToString();
 						dr["Hoeveelheid"] = Request.QueryString["Hoeveelheid"];
+						dr["Id"] = Request.QueryString["id"];
 
 						double prijs = Convert.ToDouble(ds.Tables[0].Rows[0]["Prijs"].ToString());
 						double hoeveelheid = Convert.ToInt16(Request.QueryString["Hoeveelheid"].ToString());
@@ -225,8 +229,110 @@ namespace ProjectGroenBos.Restaurant
 			Response.Redirect("bestellingopnemen.aspx");
 		}
 
-        protected void btnBetalen_Click(object sender, EventArgs e)
+		private int GetResNr()
+		{
+			int resnr;
+			if (Session["ResNr"] == null)
+			{
+				//Random rand = new Random();
+
+				//resnr = rand.Next(1, 1000000);
+
+				resnr = 1;
+
+				return resnr;
+
+			}
+			else
+			{
+				resnr = (int)Session["ResNr"];
+
+				return resnr;
+			}
+		}
+
+		private int GetRonNr(int resnr)
+		{
+			int ronde;
+			String mycon = "Data Source=SQL.BIM.OSOX.NL;Initial Catalog=2020-BIM02-P1-P2-Groenbos;Persist Security Info=True;User ID=BIM022020;Password=BiM@IH2020";
+			SqlConnection scon = new SqlConnection(mycon);
+			SqlCommand cmd = new SqlCommand();
+			SqlDataAdapter da = new SqlDataAdapter();
+			String myquery = "select Ronde from RestaurantReservering where ID = " + resnr;
+
+			cmd.CommandText = myquery;
+			cmd.Connection = scon;
+			da.SelectCommand = cmd;
+
+			scon.Open();
+
+			ronde = int.Parse(cmd.ExecuteScalar().ToString());
+
+			scon.Close();
+
+			if (ronde == 0)
+			{
+				ronde = 1;
+			}
+
+			//return
+			return ronde;
+		}
+
+		protected void btnBestellen_Click(object sender, EventArgs e)
         {
+			int resnr;
+			int rondenr;
+
+			//Get ResNr
+			resnr = GetResNr();
+
+			//Get RondeNr
+			rondenr = GetRonNr(resnr);
+
+			DataTable Besteltable = (DataTable)Session["bestelitems"];
+
+			//Overal Vars
+			String mycon = "Data Source=SQL.BIM.OSOX.NL;Initial Catalog=2020-BIM02-P1-P2-Groenbos;Persist Security Info=True;User ID=BIM022020;Password=BiM@IH2020";
+			SqlConnection scon = new SqlConnection(mycon);
+			SqlCommand cmd = new SqlCommand();
+			SqlDataAdapter da = new SqlDataAdapter();
+			String myquery = "select * from Item where ID=" + Request.QueryString["id"];
+
+			//NIEUWE ROW TOEVOEGEN
+			foreach (DataRow row in Besteltable.Rows)
+			{
+				string hoeveelheid2 = row["Hoeveelheid"].ToString();
+				string value = Regex.Replace(hoeveelheid2, "[A-Za-z ]", "");
+				double HoeveelheidInDouble = double.Parse(value);
+
+				myquery = "INSERT into Item_RestaurantReservering (ItemID, RestaurantReserveringID, Ronde, Aantal, Status) VALUES (" + row["Id"] + "," + resnr + ", " + rondenr + ", " + HoeveelheidInDouble.ToString() + ", 'Besteld') ";
+				cmd.CommandText = myquery;
+				cmd.Connection = scon;
+				da.SelectCommand = cmd;
+
+				scon.Open();
+
+				cmd.ExecuteNonQuery();
+
+				scon.Close();
+			}
+
+			rondenr = rondenr + 1;
+
+			myquery = "UPDATE RestaurantReservering SET Ronde = " + rondenr + "where ID = " + resnr;
+
+			cmd.CommandText = myquery;
+			cmd.Connection = scon;
+			da.SelectCommand = cmd;
+
+			scon.Open();
+
+			cmd.ExecuteNonQuery();
+
+			scon.Close();
+
+			Response.Redirect("bestellingenoverzicht.aspx");
 
         }
     }

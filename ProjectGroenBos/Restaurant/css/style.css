@@ -378,4 +378,17 @@ nav {
     color: #fff;
 }
 
-/* wekgebied */
+/*ZELF ERBIJ GEVOEGD (ontbreekt bij andere groepen)*/
+
+.werkgebied {
+    padding: 20px 20px 20px 20px;
+}
+
+.paginatitel {
+    color: #343434;
+    font-size: 50px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/*-------------------------------------------------*/
