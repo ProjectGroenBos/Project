@@ -539,8 +539,8 @@ nav ul {
 .textboxplanningactiviteit {
     position: absolute;
     float: right;
-    right: 15%;
-    top: 110%;
+    right: 18%;
+    top: -2147483648%;
 }
 
 .labellocatie {
@@ -560,8 +560,8 @@ nav ul {
 .labelbegeleider {
     position: absolute;
     float: right;
-    right: 30%;
-    top: 210%;
+    right: 36%;
+    top: -77550%;
 }
 
 .textboxaantal {
