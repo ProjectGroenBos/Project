@@ -96,5 +96,22 @@ namespace ProjectGroenBos.Financien
                 "select * from inkooporderaanvraagmain where Naam = 'reserveringen' order by datum DESC, opmerking DESC";
             gvInkooporderaanvragerMain.DataBind();
         }
+
+        protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (DropDownList1.Text == "Alle Afdelingen")
+            {
+                SqlDataSource1.SelectCommand =
+                "select * from inkooporderaanvraagmain order by datum DESC, opmerking DESC";
+                gvInkooporderaanvragerMain.DataBind();
+            }
+
+            else
+            {
+                SqlDataSource1.SelectCommand =
+                    "select * from inkooporderaanvraagmain where Naam = '" + DropDownList1.Text + "' order by datum DESC, opmerking DESC";
+                gvInkooporderaanvragerMain.DataBind();
+            }
+        }
     }
 }

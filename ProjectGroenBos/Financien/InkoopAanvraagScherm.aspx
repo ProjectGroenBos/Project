@@ -78,7 +78,10 @@
                     </div>
                 </div>
 
-                <asp:Button ID="btnTest" runat="server" OnClick="btnTest_OnClick" Text="Test" /><asp:Button ID="Button2" runat="server" Text="Button" />
+                <asp:DropDownList ID="DropDownList1" AutoPostBack="true" runat="server" DataSourceID="SqlDataSource2" DataTextField="Naam" DataValueField="Naam" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" CssClass="DropDownAfdeling"></asp:DropDownList>
+
+                <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT [Naam] FROM [Afdeling] union
+SELECT 'Alle Afdelingen' AS [Naam]"></asp:SqlDataSource>
 
                 <asp:GridView ID="gvInkooporderaanvragerMain" CssClass="content-table tweedetable" GridLines="None" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" DataKeyNames="Nummer" AllowSorting="True">
                     <Columns>
@@ -97,8 +100,8 @@
                 </asp:GridView>
                 <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="select * from inkooporderaanvraagmain order by datum DESC, opmerking DESC"></asp:SqlDataSource>
             </div>
-        </ContentTemplate>
-    </asp:UpdatePanel>
+
+
     <asp:Repeater ID="rpInkoopOrderAanvragen" runat="server">
         <ItemTemplate>
             <!-- Modal -->

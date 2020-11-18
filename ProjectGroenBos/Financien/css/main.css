@@ -703,3 +703,28 @@ nav ul {
     .dropdownFilter .dropdownFilterWrapper .arrow span {
         margin-right: 15px;
     }
+
+.DropDownAfdeling {
+    list-style: none;
+    font-weight: 400;
+    display: inline-block;
+    padding: 0;
+    cursor: pointer;
+    width: 400px;
+    background: rgba(14,98,81,1);
+    border-radius: 5px;
+    line-height: 55px;
+    font-size: 20px;
+    font-weight: 500;
+    color: #fff;
+    padding: 0 20px;
+}
+
+    .DropDownAfdeling Option {
+        background-color: rgba(20,143,119,1);
+    }
+
+.DropDownAfdeling Option:hover {
+    background: rgba(14,98,81,1);
+    color: #fff;
+}
