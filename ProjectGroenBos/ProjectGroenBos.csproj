@@ -67,6 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Restaurant\css\bestellingenoverzicht.css" />
     <Content Include="Restaurant\css\test.css" />
     <Content Include="Restaurant\css\opnemenbestelling.css" />
     <Content Include="Restaurant\css\style.css" />
@@ -93,12 +94,14 @@
     <Content Include="Restaurant\home.aspx" />
     <Content Include="Restaurant\bestellingopnemen.aspx" />
     <Content Include="Restaurant\Bestelling.aspx" />
+    <Content Include="Restaurant\Bestellingenoverzicht.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Restaurant\Restaurant.Master.cs">
       <DependentUpon>Restaurant.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Restaurant\Restaurant.Master.designer.cs">
       <DependentUpon>Restaurant.Master</DependentUpon>
@@ -123,6 +126,13 @@
     </Compile>
     <Compile Include="Restaurant\Bestelling.aspx.designer.cs">
       <DependentUpon>Bestelling.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Restaurant\Bestellingenoverzicht.aspx.cs">
+      <DependentUpon>Bestellingenoverzicht.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Restaurant\Bestellingenoverzicht.aspx.designer.cs">
+      <DependentUpon>Bestellingenoverzicht.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

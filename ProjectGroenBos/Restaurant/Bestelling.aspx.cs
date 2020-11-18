@@ -24,6 +24,8 @@ namespace ProjectGroenBos.Restaurant
 				dt.Columns.Add("Prijs");
 				dt.Columns.Add("Hoeveelheid");
 				dt.Columns.Add("TotalePrijs");
+				dt.Columns.Add("Id");
+
 
 				if (Request.QueryString["id"] != null)
 				{
@@ -45,6 +47,7 @@ namespace ProjectGroenBos.Restaurant
 						dr["Naam"] = ds.Tables[0].Rows[0]["Naam"].ToString();
 						dr["Prijs"] = ds.Tables[0].Rows[0]["Prijs"].ToString();
 						dr["Hoeveelheid"] = Request.QueryString["Hoeveelheid"];
+						dr["Id"] = Request.QueryString["id"];
 
 						double prijs = Convert.ToDouble(ds.Tables[0].Rows[0]["Prijs"].ToString());
 						double hoeveelheid = Convert.ToInt16(Request.QueryString["Hoeveelheid"].ToString());
@@ -98,6 +101,7 @@ namespace ProjectGroenBos.Restaurant
 						dr["Naam"] = ds.Tables[0].Rows[0]["Naam"].ToString();
 						dr["Prijs"] = ds.Tables[0].Rows[0]["Prijs"].ToString();
 						dr["Hoeveelheid"] = Request.QueryString["Hoeveelheid"];
+						dr["Id"] = Request.QueryString["id"];
 
 						double prijs = Convert.ToDouble(ds.Tables[0].Rows[0]["Prijs"].ToString());
 						double hoeveelheid = Convert.ToInt16(Request.QueryString["Hoeveelheid"].ToString());

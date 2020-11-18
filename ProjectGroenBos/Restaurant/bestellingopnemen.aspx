@@ -5,6 +5,8 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="werkgebied">
+        <h1 class="paginatitel">Bestelling opnemen</h1>
+
         <!-- Winkelmandje -->
         <div class="winkelmandje" id="winkelmand">
 
@@ -52,7 +54,7 @@
             </div>
             <div class="betalen">
 
-                <asp:Button ID="btnBetalen" runat="server" Text="Bestellen" OnClick="btnBetalen_Click" />
+                <asp:Button ID="btnBestellen" runat="server" Text="Bestellen" OnClick="btnBestellen_Click" />
 
             </div>
         </div>
