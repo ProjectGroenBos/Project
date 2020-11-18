@@ -505,7 +505,7 @@ namespace ProjectGroenBos.Reservering
 
         private int GetFeestdag(int reserveringnummer)
         {
-            int feestdag;
+            Int32 feestdag;
 
             using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["2020-BIM02-P1-P2-GroenbosConnectionString"].ConnectionString))
             {
@@ -517,7 +517,8 @@ namespace ProjectGroenBos.Reservering
 
                 try
                 {
-                    feestdag = (int)cmd.ExecuteScalar();
+                    feestdag = 0;
+                    feestdag = (Int32)cmd.ExecuteScalar();
                 }
                 catch
                 {
