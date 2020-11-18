@@ -610,61 +610,69 @@ nav ul {
             display: block;
         }
 
-.dropdownFilter .dropdownFilterWrapper {
-    position: absolute;
-    top: 65px;
-    display: flex;
-    width: 400px;
-    overflow: hidden;
-    border-radius: 5px;
-    background: #fff;
-    display: none;
-    transition: all 0.3s ease;
-}
-
-    .dropdownFilter .dropdownFilterWrapper.show {
-        display: block;
+    .dropdownFilter .dropdownFilterWrapper {
+        position: absolute;
+        top: 65px;
         display: flex;
-    }
-
-    .dropdownFilter .dropdownFilterWrapper ul {
         width: 400px;
-        list-style: none;
-        padding: 10px;
+        overflow: hidden;
+        border-radius: 5px;
+        background: #fff;
+        display: none;
         transition: all 0.3s ease;
     }
 
-        .dropdownFilter .dropdownFilterWrapper ul li {
-            line-height: 55px;
+        .dropdownFilter .dropdownFilterWrapper.show {
+            display: block;
+            display: flex;
         }
 
-            .dropdownFilter .dropdownFilterWrapper ul li a {
-                position: relative;
-                color: #333333;
-                font-size: 18px;
-                font-weight: 500;
-                padding: 0 10px;
-                display: flex;
-                border-radius: 8px;
-                align-items: center;
-                text-decoration: none;
+        .dropdownFilter .dropdownFilterWrapper ul {
+            width: 400px;
+            list-style: none;
+            padding: 10px;
+            transition: all 0.3s ease;
+        }
+
+            .dropdownFilter .dropdownFilterWrapper ul li {
+                line-height: 55px;
             }
 
-            .dropdownFilter .dropdownFilterWrapper ul li:hover a {
-                background: #009879;
-                color: #fff;
-            }
+                .dropdownFilter .dropdownFilterWrapper ul li a {
+                    position: relative;
+                    color: #333333;
+                    font-size: 18px;
+                    font-weight: 500;
+                    padding: 0 10px;
+                    display: flex;
+                    border-radius: 8px;
+                    align-items: center;
+                    text-decoration: none;
+                }
 
-    .dropdownFilter .dropdownFilterWrapper ul li a .icon {
-        height: 40px;
-        width: 40px;
-        margin-right: 13px;
-        background: #ffffff1a;
-        display: flex;
-        justify-content: center;
-        text-align: center;
-        border-radius: 50%;
+                .dropdownFilter .dropdownFilterWrapper ul li:hover a {
+                    background: #009879;
+                    color: #fff;
+                }
+
+.active {
+    background: #009879;
+}
+
+    .active a {
+        color: #fff !important;
     }
+
+.dropdownFilter .dropdownFilterWrapper ul li a .icon {
+    height: 40px;
+    width: 40px;
+    margin-right: 13px;
+    background: #ffffff1a;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    border-radius: 50%;
+}
 
     .dropdownFilter .dropdownFilterWrapper ul li a .icon span {
         line-height: 40px;
@@ -672,12 +680,12 @@ nav ul {
         color: #b0b3b8;
     }
 
-    .dropdownFilter .dropdownFilterWrapper ul li a i {
-        position: absolute;
-        right: 10px;
-        font-size: 25px;
-        pointer-events: none;
-    }
+.dropdownFilter .dropdownFilterWrapper ul li a i {
+    position: absolute;
+    right: 10px;
+    font-size: 25px;
+    pointer-events: none;
+}
 
 .dropdownFilter .dropdownFilterWrapper ul.setting-drop,
 .dropdownFilter .dropdownFilterWrapper ul.help-drop {

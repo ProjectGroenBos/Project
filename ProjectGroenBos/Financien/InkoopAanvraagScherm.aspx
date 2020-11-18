@@ -1,159 +1,104 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Financien/Financien.Master" AutoEventWireup="true" CodeBehind="InkoopAanvraagScherm.aspx.cs" Inherits="ProjectGroenBos.Financien.WebForm5" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script>
+        function afkeursuccess() {
+            Swal.fire({
+                icon: 'success',
+                title: 'Inkooporderaanvraag is afgekeurd.',
+                showConfirmButton: false,
+                timer: 4000
+            })
+        }
+
+        function goedkeursuccess() {
+            Swal.fire({
+                icon: 'success',
+                title: 'Inkooporderaanvraag is goedgekeurd.',
+                showConfirmButton: false,
+                timer: 4000
+            })
+        }
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="header">Inkoop Aanvragen Overzicht</div>
-    <div class="container">
-        <div class="controls">
-            <div class="dropdownFilter">
-                <div class="drop-btn">
-                    Filter <span class="fas fa-caret-down"></span>
+
+            <div class="container">
+                <div class="controls">
+                    <div class="dropdownFilter">
+                        <div class="drop-btn" id="drop-btn">
+                            Filter <span class="fas fa-caret-down"></span>
+                        </div>
+                        <div class="tooltip">
+                        </div>
+                        <div class="dropdownFilterWrapper">
+                            <ul class="menu-bar">
+                                <li class="setting-item"><a href="#">
+                                    <div class="icon">
+                                        <span class="fas fa-users"></span>
+                                    </div>
+                                    Afdeling <i class="fas fa-angle-right"></i>
+                                </a></li>
+                                <li class="help-item"><a href="#">
+                                    <div class="icon">
+                                        <span class="fas fa-calendar-alt"></span>
+                                    </div>
+                                    Datum <i class="fas fa-angle-right"></i>
+                                </a></li>
+                            </ul>
+                            <!-- Afdelingen menu -->
+                            <ul class="setting-drop">
+                                <li class="arrow back-setting-btn"><span class="fas fa-arrow-left"></span>Filter op afdeling</li>
+                                <li class="afdelingbtn"><a href="#">
+                                    <div class="icon">
+                                    </div>
+                                    Recreatie </a></li>
+                                <li id="reservering" class="afdelingbtn"><a href="#">
+                                    <div class="icon">
+                                    </div>
+                                    Recreatie
+                                </a></li>
+                                <li class="afdelingbtn"><a href="#">
+                                    <div class="icon">
+                                    </div>
+                                    Schoonmaak </a></li>
+                                <li class="afdelingbtn"><a href="#">
+                                    <div class="icon">
+                                    </div>
+                                    Restaurant </a></li>
+                            </ul>
+                            <!-- Datum menu -->
+                            <ul class="help-drop">
+                                <li class="arrow back-help-btn"><span class="fas fa-arrow-left"></span>Filter op datum</li>
+
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-                <div class="tooltip">
-                </div>
-                <div class="dropdownFilterWrapper">
-                    <ul class="menu-bar">
-                        <li><a href="#">
-                            <div class="icon">
-                                <span class="fas fa-home"></span>
-                            </div>
-                            Home </a></li>
-                        <li class="setting-item"><a href="#">
-                            <div class="icon">
-                                <span class="fas fa-cog"></span>
-                            </div>
-                            Settings & privacy <i class="fas fa-angle-right"></i>
-                        </a></li>
-                        <li class="help-item"><a href="#">
-                            <div class="icon">
-                                <span class="fas fa-question-circle"></span>
-                            </div>
-                            Help & support <i class="fas fa-angle-right"></i>
-                        </a></li>
-                        <li><a href="#">
-                            <div class="icon">
-                                <span class="fas fa-user"></span>
-                            </div>
-                            About us </a></li>
-                        <li><a href="#">
-                            <div class="icon">
-                                <span class="fas fa-comment-alt"></span>
-                            </div>
-                            Feedback </a></li>
-                    </ul>
-                    <!-- Settings & privacy Menu-items -->
-                    <ul class="setting-drop">
-                        <li class="arrow back-setting-btn"><span class="fas fa-arrow-left"></span>Settings & privacy</li>
-                        <li><a href="#">
-                            <div class="icon">
-                                <span class="fas fa-user"></span>
-                            </div>
-                            Personal info </a></li>
-                        <li><a href="#">
-                            <div class="icon">
-                                <span class="fas fa-lock"></span>
-                            </div>
-                            Password </a></li>
-                        <li><a href="#">
-                            <div class="icon">
-                                <span class="fas fa-address-book"></span>
-                            </div>
-                            Activity log </a></li>
-                        <li><a href="#">
-                            <div class="icon">
-                                <span class="fas fa-globe-asia"></span>
-                            </div>
-                            Languages </a></li>
-                        <li><a href="#">
-                            <div class="icon">
-                                <span class="fas fa-sign-out-alt"></span>
-                            </div>
-                            Log out </a></li>
-                    </ul>
-                    <!-- Help & support Menu-items -->
-                    <ul class="help-drop">
-                        <li class="arrow back-help-btn"><span class="fas fa-arrow-left"></span>Help & support</li>
-                        <li><a href="#">
-                            <div class="icon">
-                                <span class="fas fa-question-circle"></span>
-                            </div>
-                            Help centre </a></li>
-                        <li><a href="#">
-                            <div class="icon">
-                                <span class="fas fa-envelope"></span>
-                            </div>
-                            Support Inbox </a></li>
-                        <li><a href="#">
-                            <div class="icon">
-                                <span class="fas fa-comment-alt"></span>
-                            </div>
-                            Send feedback </a></li>
-                        <li><a href="#">
-                            <div class="icon">
-                                <span class="fas fa-exclamation-circle"></span>
-                            </div>
-                            Report problem </a></li>
-                    </ul>
-                </div>
+
+                <asp:Button ID="btnTest" runat="server" OnClick="btnTest_OnClick" Text="Test" /><asp:Button ID="Button2" runat="server" Text="Button" />
+
+                <asp:GridView ID="gvInkooporderaanvragerMain" CssClass="content-table tweedetable" GridLines="None" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" DataKeyNames="Nummer" AllowSorting="True">
+                    <Columns>
+
+                        <asp:BoundField DataField="Nummer" HeaderText="Nummer" ReadOnly="True" SortExpression="Nummer" />
+                        <asp:BoundField DataField="Naam" HeaderText="Afdeling" SortExpression="Naam" />
+                        <asp:BoundField DataField="Datum" DataFormatString="{0:d}" HeaderText="Datum" SortExpression="Datum" />
+                        <asp:BoundField DataField="Status" HeaderText="Status" SortExpression="Status" />
+                        <asp:TemplateField>
+                            <ItemTemplate>
+                                <button type="button" style="background-color: #009879; color: #fff" class="btn" data-toggle="modal" data-target="#modal<%# Eval("Nummer") %>">Inzien Inkoop aanvraag</button>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:BoundField DataField="Opmerking" HeaderText="Opmerking" ReadOnly="True" SortExpression="Opmerking" HtmlEncode="False" />
+                    </Columns>
+                </asp:GridView>
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="select * from inkooporderaanvraagmain order by datum DESC, opmerking DESC"></asp:SqlDataSource>
             </div>
-
-            <script>
-                const drop_btn = document.querySelector(".drop-btn");
-                const tooltip = document.querySelector(".tooltip");
-                const menu_wrapper = document.querySelector(".dropdownFilterWrapper");
-                const menu_bar = document.querySelector(".menu-bar");
-                const setting_drop = document.querySelector(".setting-drop");
-                const help_drop = document.querySelector(".help-drop");
-                const setting_item = document.querySelector(".setting-item");
-                const help_item = document.querySelector(".help-item");
-                const setting_btn = document.querySelector(".back-setting-btn");
-                const help_btn = document.querySelector(".back-help-btn");
-                drop_btn.onclick = (() => {
-                    menu_wrapper.classList.toggle("show");
-                    tooltip.classList.toggle("show");
-                });
-                setting_item.onclick = (() => {
-                    menu_bar.style.marginLeft = "-400px";
-                    setTimeout(() => {
-                        setting_drop.style.display = "block";
-                    }, 100);
-                });
-                help_item.onclick = (() => {
-                    menu_bar.style.marginLeft = "-400px";
-                    setTimeout(() => {
-                        help_drop.style.display = "block";
-                    }, 100);
-                });
-                setting_btn.onclick = (() => {
-                    menu_bar.style.marginLeft = "0px";
-                    setting_drop.style.display = "none";
-                });
-                help_btn.onclick = (() => {
-                    help_drop.style.display = "none";
-                    menu_bar.style.marginLeft = "0px";
-                });
-            </script>
-        </div>
-
-        <asp:GridView ID="gvInkooporderaanvragerMain" CssClass="content-table tweedetable" GridLines="None" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" DataKeyNames="Nummer" AllowSorting="True">
-            <Columns>
-
-                <asp:BoundField DataField="Nummer" HeaderText="Nummer" ReadOnly="True" SortExpression="Nummer" />
-                <asp:BoundField DataField="Naam" HeaderText="Afdeling" SortExpression="Naam" />
-                <asp:BoundField DataField="Datum" DataFormatString="{0:d}" HeaderText="Datum" SortExpression="Datum" />
-                <asp:BoundField DataField="Status" HeaderText="Status" SortExpression="Status" />
-                <asp:TemplateField>
-                    <ItemTemplate>
-                        <button type="button" style="background-color: #009879; color: #fff" class="btn" data-toggle="modal" data-target="#modal<%# Eval("Nummer") %>">Inzien Inkoop aanvraag</button>
-                    </ItemTemplate>
-                </asp:TemplateField>
-                <asp:BoundField DataField="Opmerking" HeaderText="Opmerking" ReadOnly="True" SortExpression="Opmerking" HtmlEncode="False" />
-            </Columns>
-        </asp:GridView>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="select * from inkooporderaanvraagmain order by datum DESC, opmerking DESC"></asp:SqlDataSource>
-    </div>
-
+        </ContentTemplate>
+    </asp:UpdatePanel>
     <asp:Repeater ID="rpInkoopOrderAanvragen" runat="server">
         <ItemTemplate>
             <!-- Modal -->
@@ -206,8 +151,8 @@
                                 </tbody>
                             </table>
 
-                            <input type="button" style="max-width: 80%; margin-left: auto; margin-right: auto;" class="btn btn-success btn-lg btn-block" onclick="printDiv('printModal<%# Eval("Nummer") %>')" value="Goedkeuren" />
-                            <input type="button" style="max-width: 80%; margin-left: auto; margin-right: auto;" class="btn btn-danger btn-lg btn-block" onclick="printDiv('printModal<%# Eval("Nummer") %>')" value="Afkeuren" />
+                            <input type="button" style="max-width: 80%; margin-left: auto; margin-right: auto;" data-toggle="modal" data-target="#exampleModal" class="btn btn-success btn-lg btn-block" value="Goedkeuren" />
+                            <input type="button" style="max-width: 80%; margin-left: auto; margin-right: auto;" data-toggle="modal" data-target="#modalAfkeuren<%# Eval("Nummer") %>" class="btn btn-danger btn-lg btn-block" value="Afkeuren" />
                         </div>
 
                         <div class="modal-footer">
@@ -216,7 +161,113 @@
                     </div>
                 </div>
             </div>
+
+            <div id="modalAfkeuren<%# Eval("Nummer") %>" class="modal fade" role="dialog">
+                <div class="modal-dialog modal-lg">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+
+                        <div class="modal-header">
+                            <h4 class="modal-title">Afkeuren inkooporderaanvraag <%# Eval("Nummer") %></h4>
+                            <asp:Button runat="server" CssClass="btn btn-primary" Text="Sluiten"></asp:Button>
+                        </div>
+
+                        <div class="modal-body">
+                            <p>Voeg een opmerking toe:</p>
+                            <asp:TextBox ID="txbInkoopOrderAfkeuren" runat="server" Width="100%" Height="200"></asp:TextBox>
+                            <asp:Button ID="btnAfkeuren" OnClick="btnAfkeuren_OnClick" CommandName='<%# Container.ItemIndex %>' CommandArgument='<%# Eval("Nummer") %>' Style="max-width: 80%; margin-left: auto; margin-right: auto; margin-top: 100px" CssClass="btn btn-danger btn-lg btn-block" runat="server" Text="Afkeuren" />
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Sluiten</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="modalGoedkeuren<%# Eval("Nummer") %>" class="modal fade" role="dialog">
+                <div class="modal-dialog modal-lg">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+
+                        <div class="modal-header">
+                            <h4 class="modal-title">Goedkeuren inkooporderaanvraag <%# Eval("Nummer") %></h4>
+                            <asp:Button runat="server" CssClass="btn btn-primary" Text="Sluiten"></asp:Button>
+                        </div>
+
+                        <div class="modal-body">
+                            <p>Weet je zeker dat je deze aanvraag wilt goedkeuren?</p>
+                            <asp:Button ID="btnGoedkeuren" OnClick="btnGoedkeuren_OnClick" CommandArgument='<%# Eval("Nummer") %>' Style="max-width: 80%; margin-left: auto; margin-right: auto; margin-top: 100px" CssClass="btn btn-danger btn-lg btn-block" runat="server" Text="Afkeuren" />
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Sluiten</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </ItemTemplate>
     </asp:Repeater>
 
+    <script>
+        // Get the container element
+        var btnContainer = document.getElementById("setting-drop");
+
+        // Get all buttons with class="btn" inside the container
+        var btns = document.getElementsByClassName("afdelingbtn");
+
+        // Loop through the buttons and add the active class to the current/clicked button
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].addEventListener("click", function () {
+                var current = document.getElementsByClassName("active");
+
+                // If there's no active class
+                if (current.length > 0) {
+                    current[0].className = current[0].className.replace(" active", "");
+                }
+
+                // Add the active class to the current/clicked button
+                this.className += " active";
+            });
+        }
+    </script>
+
+
+    <script>
+        const drop_btn = document.querySelector(".drop-btn");
+        const tooltip = document.querySelector(".tooltip");
+        const menu_wrapper = document.querySelector(".dropdownFilterWrapper");
+        const menu_bar = document.querySelector(".menu-bar");
+        const setting_drop = document.querySelector(".setting-drop");
+        const help_drop = document.querySelector(".help-drop");
+        const setting_item = document.querySelector(".setting-item");
+        const help_item = document.querySelector(".help-item");
+        const setting_btn = document.querySelector(".back-setting-btn");
+        const help_btn = document.querySelector(".back-help-btn");
+
+        drop_btn.onclick = (() => {
+            menu_wrapper.classList.toggle("show");
+            tooltip.classList.toggle("show");
+        });
+
+        setting_item.onclick = (() => {
+            menu_bar.style.marginLeft = "-400px";
+            setTimeout(() => {
+                setting_drop.style.display = "block";
+            }, 100);
+        });
+        help_item.onclick = (() => {
+            menu_bar.style.marginLeft = "-400px";
+            setTimeout(() => {
+                help_drop.style.display = "block";
+            }, 100);
+        });
+        setting_btn.onclick = (() => {
+            menu_bar.style.marginLeft = "0px";
+            setting_drop.style.display = "none";
+        });
+        help_btn.onclick = (() => {
+            help_drop.style.display = "none";
+            menu_bar.style.marginLeft = "0px";
+        });
+    </script>
 </asp:Content>
