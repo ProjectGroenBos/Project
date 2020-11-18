@@ -129,5 +129,10 @@ namespace ProjectGroenBos.Recreatie
                 GvMuteren.DataBind();
             }
         }
+
+        protected void btnAfboeken_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("VoorraadAfboeken.aspx");
+        }
     }
 }

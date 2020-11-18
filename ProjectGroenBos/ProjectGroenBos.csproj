@@ -74,6 +74,7 @@
     <Content Include="Financien\Prijstabel.aspx" />
     <Content Include="Gerechten overzicht.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="Recreatie\CSS\styleechte.css" />
     <Content Include="Recreatie\CSS\stylegoeiee.css" />
     <Content Include="Recreatie\CSS\styleoverzicht.css" />
     <Content Include="Recreatie\img\ascArrow.png" />
@@ -95,6 +96,7 @@
     <Content Include="Recreatie\Overzicht.aspx" />
     <Content Include="Recreatie\Planning.aspx" />
     <Content Include="Recreatie\Uitloggen.aspx" />
+    <Content Include="Recreatie\VoorraadAfboeken.aspx" />
     <Content Include="Recreatie\Voorraadmuteren.aspx" />
     <Content Include="Reservering\MailReserveringGewijzigd.html" />
     <Content Include="Reservering\ReserveringenOverzicht.aspx" />
@@ -451,6 +453,13 @@
     </Compile>
     <Compile Include="Recreatie\Uitloggen.aspx.designer.cs">
       <DependentUpon>Uitloggen.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Recreatie\VoorraadAfboeken.aspx.cs">
+      <DependentUpon>VoorraadAfboeken.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Recreatie\VoorraadAfboeken.aspx.designer.cs">
+      <DependentUpon>VoorraadAfboeken.aspx</DependentUpon>
     </Compile>
     <Compile Include="Recreatie\Voorraadmuteren.aspx.cs">
       <DependentUpon>Voorraadmuteren.aspx</DependentUpon>

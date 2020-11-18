@@ -303,7 +303,7 @@ nav {
     background: transparent;
     text-align: center;
     float: right;
-    position: fixed;
+    position: sticky;
 }
 
     nav li {
@@ -347,6 +347,31 @@ nav {
     background-color: #fff;
     border-radius: 25px;
 }
+
+nav ul {
+    list-style-type: none;
+    overflow: hidden;
+}
+
+
+.btnUitloggen {
+    font-weight: bold;
+    margin-left: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    color: rgba(14,98,81,1);
+    background-color: #fff;
+    border-radius: 25px;
+    border: 2px solid #fff;
+    border-color: #fff;
+}
+
+    .btnUitloggen:hover {
+        background-color: transparent;
+        color: #fff;
+    }
 
 nav ul {
     list-style-type: none;
@@ -541,7 +566,7 @@ nav ul {
 .textboxaantal {
     position: absolute;
     float: right;
-    right:15%;
+    right: 15%;
     top: 170%;
     width: 3%;
     height: 20%;
@@ -849,8 +874,20 @@ nav ul {
     right: 2%;
 }
 
-.labelzoekafboeken{
-    position:absolute;
-    left: 150%;
-    top: 150%;
+.labelzoekafboeken {
+    position: absolute;
+    left: 30%;
+    top: 50%;
+}
+.textboxafboekenzoeken {
+    position: absolute;
+    left: 40%;
+    top: 50%;
+   
+}
+
+.buttonAfboekenVoorraadmuteren{
+    position: absolute;
+    top: 110%;
+    left: 30%;
 }

@@ -14,6 +14,9 @@
     <asp:CheckBox ID="ckbLeverancier" runat="server" CssClass="checkboxleverancier" Text="Leverancier" />
     </asp:GridView>
 
+    <asp:Button ID="btnOpboeken" runat="server" Text="Opboeken" />
+    <asp:Button ID="btnAfboeken" runat="server" OnClick="btnAfboeken_Click" Text="Afboeken" />
+
     <asp:GridView ID="GvMuteren" runat="server" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" CssClass="content-table" DataKeyNames="ID" ForeColor="#333333" GridLines="None" OnRowCancelingEdit="GvMuteren_RowCancelingEdit" OnRowCommand="GvMuteren_RowCommand" OnRowDeleting="GvMuteren_RowDeleting" OnRowEditing="GvMuteren_RowEditing" OnRowUpdating="GvMuteren_RowUpdating" OnSelectedIndexChanged="GvMuteren_SelectedIndexChanged" OnSorting="OnSorting" ShowFooter="True" ShowHeaderWhenEmpty="True" Width="80%">
         
         
