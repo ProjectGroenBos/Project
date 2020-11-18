@@ -123,6 +123,7 @@
     <Content Include="Schoonmaak en Onderhoud\PlanningToevoegen.aspx" />
     <Content Include="Schoonmaak en Onderhoud\PlanningVerwijderen.aspx" />
     <Content Include="Schoonmaak en Onderhoud\PlanningWijzigen.aspx" />
+    <Content Include="Schoonmaak en Onderhoud\ProjectenOverzicht.aspx" />
     <Content Include="Schoonmaak en Onderhoud\SchouwingsOverzicht.aspx" />
     <Content Include="Schoonmaak en Onderhoud\SchouwingToevoegen.aspx" />
     <Content Include="Schoonmaak en Onderhoud\SchouwingWijzigen.aspx" />
@@ -588,6 +589,13 @@
     </Compile>
     <Compile Include="Schoonmaak en Onderhoud\PlanningWijzigen.aspx.designer.cs">
       <DependentUpon>PlanningWijzigen.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Schoonmaak en Onderhoud\ProjectenOverzicht.aspx.cs">
+      <DependentUpon>ProjectenOverzicht.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Schoonmaak en Onderhoud\ProjectenOverzicht.aspx.designer.cs">
+      <DependentUpon>ProjectenOverzicht.aspx</DependentUpon>
     </Compile>
     <Compile Include="Schoonmaak en Onderhoud\Schoonmaak.Master.cs">
       <DependentUpon>Schoonmaak.Master</DependentUpon>

@@ -38,6 +38,7 @@
                                 <ul class="submenu">
                                 <li><a href="SchouwingToevoegen.aspx">Schouwing Toevoegen</a></li>
                                 </ul>
+                        <li><a href="ProjectenOverzicht.aspx">Projecten Overzicht</a></li> 
                         <li><a href="OffertesOverzicht.aspx">Offerte Overzicht</a></li> 
                 </ul>
                 
