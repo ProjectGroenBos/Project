@@ -9,35 +9,68 @@
     <br />
     <br />
 
-    <asp:RadioButton ID="rdbBezoeker" runat="server" Text="Geen bestaande gast" groupname="rdbGastCheck" CssClass="labelsnieuw" AutoPostBack="True"></asp:RadioButton>
+    <asp:RadioButton ID="rdbBezoeker" runat="server" Text="Geen bestaande gast" GroupName="rdbGastCheck" CssClass="labelsnieuw" AutoPostBack="True"></asp:RadioButton>
+
     <br />
-    <asp:RadioButton ID="rdbGast" runat="server" Text="Bestaande gast" groupname="rdbGastCheck" CssClass="labelsnieuw" Checked="True" AutoPostBack="True"></asp:RadioButton>
+
+    <asp:RadioButton ID="rdbGast" runat="server" Text="Bestaande gast" GroupName="rdbGastCheck" CssClass="labelsnieuw" Checked="True" AutoPostBack="True"></asp:RadioButton>
 
     <br />
     <br />
 
     <asp:Label CssClass="labelsnieuw" runat="server" Text="Gastnummer"></asp:Label>
-
-    <asp:TextBox ID="txbGastnummer"  CssClass="textboxchaos" runat="server"></asp:TextBox>
+    <asp:TextBox ID="txbGastnummer" CssClass="textboxchaos" runat="server"></asp:TextBox>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Gastnummer mag alleen uit cijfers bestaan." ControlToValidate="txbGastnummer" ValidationExpression="^[0-9]"></asp:RegularExpressionValidator>
+    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Dit veld is verplicht." ControlToValidate="txbGastnummer"></asp:RequiredFieldValidator>
 
     <br />
     <br />
-    
+
     <asp:Label CssClass="labelsnieuw" runat="server" Text="Voornaam"></asp:Label>
-
-    <asp:TextBox ID="txbVoornaam"  CssClass="textboxchaos" runat="server"></asp:TextBox>
+    <asp:TextBox ID="txbVoornaam" CssClass="textboxchaos" runat="server"></asp:TextBox>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="In een naam kunnen geen getallen of leestekens zitten." ControlToValidate="txbVoornaam" ValidationExpression="^[a-zA-Z -]*$"></asp:RegularExpressionValidator>
+    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Dit veld is verplicht." ControlToValidate="txbVoornaam"></asp:RequiredFieldValidator>
 
     <br />
     <br />
 
     <asp:Label CssClass="labelsnieuw" runat="server" Text="Achternaam"></asp:Label>
+    <asp:TextBox ID="txbAchternaam" CssClass="textboxchaos" runat="server"></asp:TextBox>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="In een achternaam kunnen geen getallen zitten." ControlToValidate="txbAchternaam" ValidationExpression="^[a-zA-Z -]*$"></asp:RegularExpressionValidator>
+    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Dit veld is verplicht." ControlToValidate="txbAchternaam"></asp:RequiredFieldValidator>
 
-    <asp:TextBox ID="txbAchernaam"  CssClass="textboxchaos" runat="server"></asp:TextBox>
+    <br />
+    <br />
 
+    <asp:Label CssClass="labelsnieuw" runat="server" Text="E-mail"></asp:Label>
+    <asp:TextBox ID="txbEmail" CssClass="textboxchaos" runat="server"></asp:TextBox>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ErrorMessage="Email is niet geldig." ControlToValidate="txbEmail" ValidationExpression="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?" ForeColor="Black"></asp:RegularExpressionValidator>
+    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="Dit veld is verplicht." ControlToValidate="txbEmail"></asp:RequiredFieldValidator>
+
+    <br />
+    <br />
+
+    <asp:Label CssClass="labelsnieuw" runat="server" Text="Categorie"></asp:Label>
+    <asp:DropDownList ID="ddlCategorie" CssClass="textboxchaos" runat="server">
+        <asp:ListItem Enabled="true" Text="Selecteer" Value="-1"></asp:ListItem>
+        <asp:ListItem Text="Personeel" Value="Personeel"></asp:ListItem>
+        <asp:ListItem Text="Accommodatie" Value="Accomodatie"></asp:ListItem>
+        <asp:ListItem Text="Activiteiten" Value="Activiteiten"></asp:ListItem>
+        <asp:ListItem Text="Restaurant" Value="Restaurant"></asp:ListItem>
+        <asp:ListItem Text="Overig" Value="Overig"></asp:ListItem>
+    </asp:DropDownList>
+
+    <br />
     <br />
     <br />
 
     <asp:Label CssClass="labelsnieuw" runat="server" Text="Klacht"></asp:Label>
+
+    <br />
 
     <asp:TextBox ID="txbKlacht" CssClass="textboxchaos" runat="server" TextMode="MultiLine" Height="200px" Width="300px"></asp:TextBox>
 
