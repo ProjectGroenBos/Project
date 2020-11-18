@@ -36,7 +36,7 @@
 
     <asp:Label ID="Label6" runat="server" Text="Begeleider:" CssClass="labelbegeleider"></asp:Label>
 
-    <asp:DropDownList ID="TxbMedewerker" runat="server" OnRowCommand="gvMedewerker_RowCommand" AutoPostBack="True" CssClass="textboxbegeleider" DataSourceID="SqlDataSource3" DataTextField="Naam" DataValueField="Naam" OnSelectedIndexChanged="TxbMedewerker_SelectedIndexChanged">
+    <asp:DropDownList ID="TxbMedewerker" runat="server" OnRowCommand="gvMedewerker_RowCommand" AutoPostBack="True" DataSourceID="SqlDataSource3" DataTextField="Naam" DataValueField="Naam" OnSelectedIndexChanged="TxbMedewerker_SelectedIndexChanged">
     </asp:DropDownList>
     <asp:RegularExpressionValidator ID="RegularExpressionValidatorBegeleider" runat="server" ControlToValidate="TxbMedewerker" ErrorMessage="RegularExpressionValidator" ValidationExpression="\d+" ForeColor="Red" CssClass="validatormedewerker">Vul een medewerker in</asp:RegularExpressionValidator>
 
@@ -96,7 +96,7 @@
     <asp:Label ID="LblBevestiging" runat="server" CssClass="labelbevestigingplanning"></asp:Label>
 
 
-    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="Nummer" DataSourceID="SqlDataSource2" ForeColor="#333333" GridLines="None" CssClass="gridviewplanning" Width="50px" Height="100px" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="Nummer"  DataSourceID="SqlDataSource2" ForeColor="#333333" GridLines="None" CssClass="gridviewplanning" Width="100px" Height="150px" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AllowPaging="True">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
             <asp:BoundField DataField="Nummer" HeaderText="Nummer" ReadOnly="True" SortExpression="Nummer" />
@@ -110,9 +110,7 @@
             <asp:BoundField DataField="Eindtijd" HeaderText="Eindtijd" SortExpression="Eindtijd" ReadOnly="True" />
             <asp:BoundField DataField="Naam" HeaderText="Naam" SortExpression="Naam" />
             <asp:BoundField DataField="MedewerkerID" HeaderText="MedewerkerID" SortExpression="MedewerkerID" />
-        </Columns>
-        <Columns>
-            <asp:CommandField SelectText="Wijzigen" ShowSelectButton="True" />
+<asp:CommandField SelectText="Wijzigen" ShowSelectButton="True"></asp:CommandField>
         </Columns>
         <EditRowStyle BackColor="#7C6F57" />
         <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />

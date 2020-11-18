@@ -82,7 +82,7 @@ namespace recreatie.paginas
             GridView2.Dispose();
             DataTable dt = (DataTable)ViewState["Medewerker"];
             dt.Clear();
-            //TxbMedewerker.SelectedValue = Activteit.Rows[0][9].ToString();
+            TxbMedewerker.SelectedValue = Activteit.Rows[0][9].ToString();
             dt.Rows.Add(TxbMedewerker.SelectedItem.Text.Trim());
             ViewState["Medewerker"] = dt;
             BindGrid();
@@ -104,7 +104,7 @@ namespace recreatie.paginas
                 cmd.Parameters.AddWithValue("@Datum", Convert.ToDateTime(TxbDatum.Text.Trim()));
                 cmd.Parameters.AddWithValue("@FaciliteitID", ddlFaciliteit.SelectedValue);
                 cmd.Parameters.AddWithValue("@Inschrijfkosten", txbInschrijfkosten.Text.Trim());
-                cmd.Parameters.AddWithValue("@MedewerkerID", TxbMedewerker.SelectedIndex);
+                cmd.Parameters.AddWithValue("@MedewerkerID", TxbMedewerker.SelectedValue);
                 cmd.ExecuteNonQuery();
                 con.Close();
 
