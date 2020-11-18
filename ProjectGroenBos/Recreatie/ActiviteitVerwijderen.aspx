@@ -6,6 +6,7 @@
         }</script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div class="header">Activiteit Inactief Maken</div>
 
     <asp:GridView ID="gvActiviteitVerwijderen" runat="server" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" CssClass="content-table" DataKeyNames="Nummer" ForeColor="#333333" GridLines="None" ShowFooter="True" ShowHeaderWhenEmpty="True" Width="80%" OnRowCancelingEdit="gvActiviteitVerwijderen_RowCancelingEdit" AllowPaging="True" OnPageIndexChanging="gvActiviteitVerwijderen_PageIndexChanging" OnSelectedIndexChanged="gvActiviteitVerwijderen_SelectedIndexChanged1" >
         <Columns>
