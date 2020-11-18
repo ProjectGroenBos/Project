@@ -1,6 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="Site1.Master" AutoEventWireup="true" CodeBehind="ActiviteitWijzigen.aspx.cs" Inherits="recreatie.paginas.ActiviteitWijzigen" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <script>function openModal(modalnaam) {
+            $(modalnaam).modal('show');
+        }</script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
@@ -96,9 +99,10 @@
     <asp:Label ID="LblBevestiging" runat="server" CssClass="labelbevestigingplanning"></asp:Label>
 
 
-    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="Nummer"  DataSourceID="SqlDataSource2" ForeColor="#333333" GridLines="None" CssClass="gridviewplanning" Width="100px" Height="150px" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AllowPaging="True">
+     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="Nummer"  DataSourceID="SqlDataSource2" ForeColor="#333333" GridLines="None" CssClass="content-table4" Width="100px" Height="150px" AllowPaging="True" AllowCustomPaging="True" OnRowUpdating="GridView1_RowUpdating" AutoGenerateEditButton="True">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
+            <asp:CommandField ShowEditButton="True" />
             <asp:BoundField DataField="Nummer" HeaderText="Nummer" ReadOnly="True" SortExpression="Nummer" />
             <asp:BoundField DataField="Activiteitnaam" HeaderText="Activiteitnaam" SortExpression="Activiteitnaam" />
             <asp:BoundField DataField="Locatie" HeaderText="Locatie" SortExpression="Locatie" />
@@ -110,18 +114,105 @@
             <asp:BoundField DataField="Eindtijd" HeaderText="Eindtijd" SortExpression="Eindtijd" ReadOnly="True" />
             <asp:BoundField DataField="Naam" HeaderText="Naam" SortExpression="Naam" />
             <asp:BoundField DataField="MedewerkerID" HeaderText="MedewerkerID" SortExpression="MedewerkerID" />
-<asp:CommandField SelectText="Wijzigen" ShowSelectButton="True"></asp:CommandField>
         </Columns>
-        <EditRowStyle BackColor="#7C6F57" />
-        <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
-        <HeaderStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
-        <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
-        <RowStyle BackColor="#E3EAEB" />
-        <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
-        <SortedAscendingCellStyle BackColor="#F8FAFA" />
-        <SortedAscendingHeaderStyle BackColor="#246B61" />
-        <SortedDescendingCellStyle BackColor="#D4DFE1" />
-        <SortedDescendingHeaderStyle BackColor="#15524A" />
+        
     </asp:GridView>
-    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT * FROM [vActiviteit]"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="SqlDataSource5" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT * FROM [vActiviteit]"></asp:SqlDataSource>
+
+    <div id="Popup" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Afboeken</h4>
+                        </div>
+                        <div class="modal-body">
+                            <asp:GridView ID="GvWijzigenActiviteit" runat="server" AutoGenerateColumns="False" ShowFooter="true" DataKeyNames="ID" ShowHeaderWhenEmpty="true"
+                             CellPadding="4" ForeColor="#333333" GridLines="none" Width="80%" CssClass="content-table">
+
+          
+                             <Columns>
+                <asp:TemplateField HeaderText="Nummer" SortExpression="Nummer" Visible ="True" HeaderStyle-ForeColor="White">
+                    <ItemTemplate>
+                        <asp:Label  ID="Label1" Text='<%# Eval("Nummer") %>' runat="server"/>
+                    </ItemTemplate>                     
+                </asp:TemplateField>
+
+
+                <asp:TemplateField HeaderText="Activiteit Naam" SortExpression="Activiteitnaam" HeaderStyle-ForeColor="White">  
+                    <ItemTemplate>
+                        <asp:Label Text='<%# Eval("Naam") %>' runat="server" />
+                    </ItemTemplate>
+                </asp:TemplateField>
+
+                <asp:TemplateField HeaderText="Locatie" SortExpression="Locatie" HeaderStyle-ForeColor="White">
+                    <ItemTemplate>
+                        <asp:Label Text='<%# Eval("Locatie") %>' runat="server" />
+                    </ItemTemplate>
+                </asp:TemplateField>
+
+                <asp:TemplateField HeaderText="Inschrijfkosten" SortExpression="Inschrijfkosten" HeaderStyle-ForeColor="White">
+                    <ItemTemplate>
+                        <asp:Label Text='<%# Eval("Inschrijfkosten") %>' runat="server" />
+                    </ItemTemplate>
+                </asp:TemplateField>
+
+                <asp:TemplateField HeaderText="Maximaal Aantal" SortExpression="MaximaalAantal" HeaderStyle-ForeColor="White">
+                    <ItemTemplate>
+                        <asp:Label Text='<%# Eval("Maximaal Aantal") %>' runat="server" />
+                    </ItemTemplate>
+                </asp:TemplateField>
+
+                <asp:TemplateField HeaderText="Omschrijving" SortExpression="Omschrijving" HeaderStyle-ForeColor="White">
+                    <ItemTemplate>
+                        <asp:Label Text='<%# Eval("Omschrijving") %>' runat="server" />
+                    </ItemTemplate>
+                </asp:TemplateField>
+                 <asp:TemplateField HeaderText="Datum" SortExpression="Datum" HeaderStyle-ForeColor="White">
+                    <ItemTemplate>
+                        <asp:Label Text='<%# Eval("Datum") %>' runat="server" />
+                    </ItemTemplate>
+                </asp:TemplateField> 
+                <asp:TemplateField HeaderText="BeginTijd" SortExpression="BeginTijd" HeaderStyle-ForeColor="White">
+                    <ItemTemplate>
+                        <asp:Label Text='<%# Eval("BeginTijd") %>' runat="server" />
+                    </ItemTemplate>
+                </asp:TemplateField> 
+                <asp:TemplateField HeaderText="EindTijd" SortExpression="EindTijd" HeaderStyle-ForeColor="White">
+                    <ItemTemplate>
+                        <asp:Label Text='<%# Eval("EindTijd") %>' runat="server" />
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="MedewerkerID" SortExpression="MedewerkerID" HeaderStyle-ForeColor="White">
+                    <ItemTemplate>
+                        <asp:Label Text='<%# Eval("MedewerkerID") %>' runat="server" />
+                    </ItemTemplate>
+                </asp:TemplateField>
+            
+        </Columns>          
+                            </asp:GridView>
+                             </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Sluiten</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT * FROM [vActiviteit]" UpdateCommand="update [dbo].[Activiteit]
+set [Naam] = @Naam , [Locatie]= @Locatie, [Inschrijfkosten] = @Inschrijfkosten, [Begintijd] = @Begintijd,
+[Maximaal aantal] = @MaximaalAantal, [FaciliteitID] = @FaciliteitID, [Datum] = @Datum, [Eindtijd] = @Eindtijd, 
+[MedewerkerID] = @MedewerkerID Where [Nummer] = @Nummer">
+        <UpdateParameters>
+            <asp:Parameter Name="Naam" />
+            <asp:Parameter Name="Locatie" />
+            <asp:Parameter Name="Inschrijfkosten" />
+            <asp:Parameter Name="Begintijd" />
+            <asp:Parameter Name="MaximaalAantal" />
+            <asp:Parameter Name="FaciliteitID" />
+            <asp:Parameter Name="Datum" />
+            <asp:Parameter Name="Eindtijd" />
+            <asp:Parameter Name="MedewerkerID" />
+            <asp:Parameter Name="Nummer" />
+        </UpdateParameters>
+    </asp:SqlDataSource>
 </asp:Content>

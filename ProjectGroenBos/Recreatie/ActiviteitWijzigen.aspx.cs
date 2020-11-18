@@ -133,11 +133,34 @@ namespace recreatie.paginas
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            index = int.Parse(GridView1.SelectedRow.Cells[0].Text);
-            GetActivityData(index);
-            Textboxesvullen();
+            //index = int.Parse(GridView1.SelectedRow.Cells[0].Text.Trim());
+            GetActivityData(1);
+            //Textboxesvullen();
             btnActiviteitInplannen.Text = "Wijzigen";
 
+            DataTable Aanvraag = new DataTable();
+            Aanvraag.Columns.Add(new DataColumn("ID", typeof(int)));
+            Aanvraag.Columns.Add(new DataColumn("Naam", typeof(string)));
+
+                if (GridView1.SelectedRow.RowType == DataControlRowType.DataRow)
+                {
+                                           using (SqlConnection sqlCon = new SqlConnection(connectionstring))
+                        {
+
+                            SqlCommand cmd = new SqlCommand("Select [Nummer], [Naam], [Locatie], [Begintijd], [Eindtijd], [Maximaal aantal], [Omschrijving], [Datum], [Inschrijfkosten], [MedewerkerID]  FROM vActiviteit where [Nummer] = @Nummer", sqlCon);
+                            cmd.Parameters.AddWithValue("@Nummer", GridView1.DataKeys[GridView1.SelectedRow.RowIndex].Value.ToString());
+                            sqlCon.Open();
+                            int Nummer = cmd.ExecuteNonQuery();
+                            SqlDataAdapter da = new SqlDataAdapter(cmd);
+                            da.Fill(Aanvraag);
+
+
+                            sqlCon.Close();
+                            GvWijzigenActiviteit.DataSource = Aanvraag;
+                        }
+                }
+            GvWijzigenActiviteit.DataBind();
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal('#Popup');", true);
         }
 
         protected void TxbMedewerker_SelectedIndexChanged(object sender, EventArgs e)
@@ -262,6 +285,12 @@ namespace recreatie.paginas
                 Sqlcon.Close();
             }
             GridView1.SelectedIndex = -1;
+        }
+
+
+        protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        {
+           
         }
 
         protected void GridView2_SelectedIndexChanged(object sender, EventArgs e)
