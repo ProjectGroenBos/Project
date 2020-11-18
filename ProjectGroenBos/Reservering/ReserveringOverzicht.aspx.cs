@@ -19,7 +19,8 @@ namespace ProjectGroenBos.Reservering
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            btnToAnnuleren.Enabled = false;
+            btnToWijzigen.Enabled = false;
         }
 
 
@@ -88,8 +89,9 @@ namespace ProjectGroenBos.Reservering
             //sessions aanmaken om op de volgende pagina gegevens mee in te vullen
 
             Session["reserveringsnummer"] = (string)GridView1.SelectedRow.Cells[1].Text;
-            
-            Response.Redirect("ReserveringAnnuleren.aspx");
+
+            btnToAnnuleren.Enabled = true;
+            btnToWijzigen.Enabled = true;
         }
 
         protected void btnZoek_Click(object sender, EventArgs e)
@@ -131,6 +133,16 @@ namespace ProjectGroenBos.Reservering
                 }
 
             }
+        }
+
+        protected void btnToWijzigen_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ReserveringWijzigen.aspx");
+        }
+
+        protected void btnToAnnuleren_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ReserveringAnnuleren.aspx");
         }
     }
 }

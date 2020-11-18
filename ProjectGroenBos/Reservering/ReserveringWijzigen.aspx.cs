@@ -22,7 +22,7 @@ namespace ProjectGroenBos.Reservering
 
             if (Session["reserveringsnummer"] == null)
             {
-                Response.Redirect("ReserveringenWijzigenOverzicht.aspx");
+                Response.Redirect("ReserveringOverzicht.aspx");
             }
             else
             {
@@ -33,7 +33,7 @@ namespace ProjectGroenBos.Reservering
                 using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["2020-BIM02-P1-P2-GroenbosConnectionString"].ConnectionString))
                 {
 
-                    query1 = "select res.Nummer, res.Aankomstdatum, res.Vertrekdatum, res.Aantal_personen, res.GastNummer, res.Opmerking, gst.Voornaam, gst.Tussenvoegsel, gst.Achternaam, gst.Email, gst.Telefoonnummer, adr.Straatnaam, adr.Huisnummer, adr.Postcode, adr.Land from Reservering res inner join Gast gst on res.Nummer = gst.Nummer inner join Adres adr on adr.GastNummer = gst.Nummer where res.Nummer = @nummer";
+                    query1 = "select res.Nummer, res.Aankomstdatum, res.Vertrekdatum, res.Aantal_personen, res.GastNummer, res.Opmerking, gst.Voornaam, gst.Tussenvoegsel, gst.Achternaam, gst.Email, gst.Telefoonnummer, adr.Straatnaam, adr.Huisnummer, adr.Postcode, adr.Land from Reservering res inner join Gast gst on res.GastNummer = gst.Nummer inner join Adres adr on adr.GastNummer = gst.Nummer where res.Nummer = @nummer";
 
                     DataSet ds = Data();
 
@@ -189,7 +189,7 @@ namespace ProjectGroenBos.Reservering
                     int totaal = veranderdeRijen1 + veranderdeRijen2 + veranderdeRijen3;
                     StuurMail();
 
-                    Response.Redirect("ReserveringenOverzicht.aspx");
+                    Response.Redirect("ReserveringOverzicht.aspx");
                 }
             }
             catch

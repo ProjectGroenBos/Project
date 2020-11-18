@@ -394,8 +394,9 @@ nav ul {
 .textboxchaos {
     position: relative;
     left: 75px;
-    top: -2px;
-    height: 17px;
+    top: 0px;
+    height: 30px;
+    display: inline-block;
     width: 145px;
 }
 

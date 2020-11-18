@@ -1,6 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Reservering/Site1.Master" AutoEventWireup="true" CodeBehind="ReserveringAnnulerenOverzicht.aspx.cs" Inherits="ProjectGroenBos.Reservering.ReserveringAnnuleren" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Reservering/Site1.Master" AutoEventWireup="true" CodeBehind="ReserveringOverzicht.aspx.cs" Inherits="ProjectGroenBos.Reservering.ReserveringAnnuleren" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head2" runat="server">
-       <style type="text/css">
+    <style type="text/css">
         .auto-style1 {
             position: relative;
             left: 75px;
@@ -9,7 +10,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-     <h1>Reservering annuleren</h1>
+    <h1>Reservering overzicht</h1>
     <!DOCTYPE html>
 
     <html>
@@ -17,7 +18,7 @@
         <title></title>
     </head>
     <body>
-        
+
         <br />
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     
@@ -42,16 +43,22 @@
         <asp:Button ID="btnZoek" runat="server" Text="Zoek" CssClass="textboxbtn" OnClick="btnZoek_Click" />
         <br />
         <br />
-         <asp:GridView ID="GridView1" runat="server" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" CssClass="gridv" AutoGenerateSelectButton="True">
+        <asp:GridView ID="GridView1" runat="server" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" CssClass="gridv" AutoGenerateSelectButton="True">
         </asp:GridView>
         &nbsp;&nbsp;&nbsp;
         <br />
+        
         <br />
+        <asp:Label ID="lblUitkomst" runat="server" CssClass="labelsnieuw"></asp:Label>
         <br />
 
+
+
+        <asp:Button ID="btnToWijzigen" runat="server" Text="Wijzigen" CssClass=" textboxbtn" OnClick="btnToWijzigen_Click"/>
         <br />
-        <asp:Label ID="lblUitkomst" runat="server"></asp:Label>
-        <br />
+        <asp:Button ID="btnToAnnuleren" runat="server" Text="Annuleren" CssClass="textboxbtn" OnClick="btnToAnnuleren_Click" />
+
+
         <br />
         <br />
 

@@ -480,21 +480,21 @@ namespace ProjectGroenBos.Reservering
 
                     con.Open();
 
-                    SqlCommand query = new SqlCommand("insert Transactie (Datum, Aan, Bedrag, Omschrijving, DebiteurenfactuurNummer, BankrekeningBanknummer, TypeID) values (@datum, @aan, @bedrag, @resnummer, @debifactuur, @rekeningnummer, @type)");
+                    //SqlCommand query = new SqlCommand("insert Transactie (Datum, Aan, Bedrag, Omschrijving, DebiteurenfactuurNummer, BankrekeningBanknummer, TypeID) values (@datum, @aan, @bedrag, @resnummer, @debifactuur, @rekeningnummer, @type)");
 
-                    query.Parameters.AddWithValue("@datum", vandaag);
-                    query.Parameters.AddWithValue("@aan", aan);
-                    query.Parameters.AddWithValue("@bedrag", bedrag);
-                    query.Parameters.AddWithValue("@resnummer", reserveringnummer);
-                    query.Parameters.AddWithValue("@debifactuur", debifactuur);
-                    query.Parameters.AddWithValue("@rekeningnummer", rekeningnummer);
-                    query.Parameters.AddWithValue("@type", typeID);
+                    //query.Parameters.AddWithValue("@datum", vandaag);
+                    //query.Parameters.AddWithValue("@aan", aan);
+                    //query.Parameters.AddWithValue("@bedrag", bedrag);
+                    //query.Parameters.AddWithValue("@resnummer", reserveringnummer);
+                    //query.Parameters.AddWithValue("@debifactuur", debifactuur);
+                    //query.Parameters.AddWithValue("@rekeningnummer", rekeningnummer);
+                    //query.Parameters.AddWithValue("@type", typeID);
 
-                    query.CommandType = System.Data.CommandType.Text;
-                    query.Connection = con;
-                    query.ExecuteNonQuery();
+                    //query.CommandType = System.Data.CommandType.Text;
+                    //query.Connection = con;
+                    //query.ExecuteNonQuery();
 
-                    con.Close();
+                    //con.Close();
                 }
                 catch
                 {

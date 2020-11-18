@@ -23,7 +23,7 @@ namespace ProjectGroenBos.Reservering
 
             if (Session["reserveringsnummer"] == null)
             {
-                Response.Redirect("ReserveringAnnulerenOverzicht.aspx");
+                Response.Redirect("ReserveringOverzicht.aspx");
             }
             else
             {
@@ -34,7 +34,7 @@ namespace ProjectGroenBos.Reservering
                 using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["2020-BIM02-P1-P2-GroenbosConnectionString"].ConnectionString))
                 {
 
-                    query1 = "select res.*, gst.*, adr.* from Gast gst inner join Reservering res on gst.Nummer = res.GastNummer inner join Adres adr on adr.GastNummer = gst.Nummer where res.Nummer = @nummer";
+                    query1 = "select res.Nummer, res.Aankomstdatum, res.Vertrekdatum, res.Aantal_personen, res.GastNummer, res.Opmerking, gst.Voornaam, gst.Tussenvoegsel, gst.Achternaam, gst.Email, gst.Telefoonnummer, adr.Straatnaam, adr.Huisnummer, adr.Postcode, adr.Land from Reservering res inner join Gast gst on res.GastNummer = gst.Nummer inner join Adres adr on adr.GastNummer = gst.Nummer where res.Nummer = @nummer";
 
                     DataSet ds = Data();
 
@@ -78,15 +78,14 @@ namespace ProjectGroenBos.Reservering
 
                 var tussen1 = "";
                 var tussen2 = "";
-                var tussen3 = "";
+                
 
                 //clonen van tabel
                 DataSet trueset = set.Clone();
 
                 //change kolom datatype
-                trueset.Tables[0].Columns[3].DataType = typeof(string);
-                trueset.Tables[0].Columns[4].DataType = typeof(string);
-                trueset.Tables[0].Columns[5].DataType = typeof(string);
+                trueset.Tables[0].Columns[1].DataType = typeof(string);
+                trueset.Tables[0].Columns[2].DataType = typeof(string);
 
                 //data importen
                 foreach (DataRow row in set.Tables[0].Rows)
@@ -98,17 +97,14 @@ namespace ProjectGroenBos.Reservering
                 foreach (DataRow row in trueset.Tables[0].Rows)
                 {
                     //pak var
-                    DateTime dt1 = DateTime.Parse(row[3].ToString());
-                    DateTime dt2 = DateTime.Parse(row[4].ToString());
-                    DateTime dt3 = DateTime.Parse(row[5].ToString());
+                    DateTime dt1 = DateTime.Parse(row[1].ToString());
+                    DateTime dt2 = DateTime.Parse(row[2].ToString());
                     //pas aan
                     tussen1 = dt1.ToShortDateString();
                     tussen2 = dt2.ToShortDateString();
-                    tussen3 = dt3.ToShortDateString();
                     //adjust
-                    row[3] = tussen1;
-                    row[4] = tussen2;
-                    row[5] = tussen3;
+                    row[1] = tussen1;
+                    row[2] = tussen2;
                 }
 
                 con.Close();
