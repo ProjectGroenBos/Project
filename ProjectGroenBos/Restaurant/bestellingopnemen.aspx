@@ -18,9 +18,9 @@
 
             <!-- Producten -->
             <div class="cart">
-                <asp:GridView class="gdvCart" ID="GridView2" runat="server" AutoGenerateColumns="False" CssClass="auto-style1" Height="611px" OnRowDeleting="GridView2_RowDeleting" ShowFooter="True" ShowHeader="False" BackColor="White" BorderColor="#336666" BorderStyle="None" BorderWidth="3px" CellPadding="4" Font-Bold="True" Font-Size="Large" GridLines="Horizontal" Width="100%">
+                <asp:GridView class="gdvCart" ID="GridView2" runat="server" AutoGenerateColumns="False" OnRowDeleting="GridView2_RowDeleting" ShowFooter="True" ShowHeader="False" Font-Bold="True" Font-Size="Large" GridLines="None">
                     <Columns>
-                        <asp:BoundField DataField="sno" HeaderText="S. No" />
+                        <asp:BoundField DataField="sno" />
                         <asp:ImageField DataImageUrlField="Afbeelding">
                             <ControlStyle Height="30px" Width="30px" />
                             <ItemStyle HorizontalAlign="Center" />
@@ -41,22 +41,13 @@
                             <ItemStyle HorizontalAlign="Center" />
                         </asp:CommandField>
                     </Columns>
-                    <FooterStyle BackColor="White" ForeColor="#333333" />
-                    <HeaderStyle BackColor="#336666" Font-Bold="True" ForeColor="White" />
-                    <PagerStyle BackColor="#336666" ForeColor="White" HorizontalAlign="Center" />
-                    <RowStyle BackColor="White" ForeColor="#333333" />
-                    <SelectedRowStyle BackColor="#339966" Font-Bold="True" ForeColor="White" />
-                    <SortedAscendingCellStyle BackColor="#F7F7F7" />
-                    <SortedAscendingHeaderStyle BackColor="#487575" />
-                    <SortedDescendingCellStyle BackColor="#E5E5E5" />
-                    <SortedDescendingHeaderStyle BackColor="#275353" />
-                </asp:GridView>
+                    <RowStyle CssClass="rijstyle" />
+                </asp:GridView>              
+                    <asp:Button ID="btnBestellen" class="bestelknop" runat="server" Text="Bestellen" OnClick="btnBestellen_Click" />
             </div>
-            <div class="betalen">
 
-                <asp:Button ID="btnBestellen" runat="server" Text="Bestellen" OnClick="btnBestellen_Click" />
 
-            </div>
+
         </div>
 
         <!--Items-->
@@ -67,7 +58,7 @@
             <button class="doorklik-button"><a href="#Nagerecht">Nagerecht</a></button>
             <br />
         </div>
-        
+
         <div class="Productenbak">
 
             <div class="productgroep">
