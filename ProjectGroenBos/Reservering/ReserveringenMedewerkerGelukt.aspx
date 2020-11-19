@@ -3,7 +3,6 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
      <p>
-         <asp:Label ID="lblBedrag" runat="server" Text=""></asp:Label>
          
                     Wij hebben uw betaling ontvangen.
                     <br />

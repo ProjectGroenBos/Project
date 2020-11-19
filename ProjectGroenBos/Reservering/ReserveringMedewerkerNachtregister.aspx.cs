@@ -13,7 +13,6 @@ namespace ProjectGroenBos.Reservering
         // string mainconn = ConfigurationManager.ConnectionStrings["Defaultconnection"].ConnectionString;
         int aantalPersonen;
         static int count = 0;
-        int reserveringnummer;
 
 
         protected void Page_Load(object sender, EventArgs e)
@@ -24,7 +23,7 @@ namespace ProjectGroenBos.Reservering
                 int aantal = int.Parse(personen);
 
                 btnBevestigen.Enabled = false;
-                lblOutput.Text = "Geregistreerde bezoekers: ";
+                lblOutput.Text = "Geregistreerde bezoekers";
                 btnToevoegen.Enabled = true;
 
 
@@ -32,88 +31,42 @@ namespace ProjectGroenBos.Reservering
             else
             {
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Uw sessie is verlopen, u moet helaas de gegevens opnieuw invullen.')", true);
-                Response.Redirect("Huisjemedewerker.aspx");
+                Response.Redirect("ReserveringenMedewerkerHuisje.aspx");
             }
         }
 
         protected void btnBevestigen_Click(object sender, EventArgs e)
         {
-            
-                //sessies ophalen om de data in de database te zetten
+            //sessies ophalen om de data in de database te zetten
 
-                string aankomstdatum = Session["Aankomst"].ToString();
-                string vertrekdatum = Session["Vertrek"].ToString();
-                string voornaam = Session["Voornaam"].ToString();
-                string tussenvoegsel = Session["Tussenvoegsel"].ToString();
-                string achternaam = Session["Achternaam"].ToString();
-                string email = Session["Email"].ToString();
-                string telefoonnummer = Session["Telefoonnummer"].ToString();
-                string geboortedatum = Session["Geboortedatum"].ToString();
-                string opmerkingen = Session["Opmerkingen"].ToString();
+            string aankomstdatum = Session["Aankomst"].ToString();
+            string vertrekdatum = Session["Vertrek"].ToString();
+            string voornaam = Session["Voornaam"].ToString();
+            string tussenvoegsel = Session["Tussenvoegsel"].ToString();
+            string achternaam = Session["Achternaam"].ToString();
+            string email = Session["Email"].ToString();
+            string telefoonnummer = Session["Telefoonnummer"].ToString();
+            string opmerkingen = Session["Opmerkingen"].ToString();
 
-                string straat = Session["Straat"].ToString();
-                string huisnummer = Session["Huisnummer"].ToString();
-                string postcode = Session["Postcode"].ToString();
-                string land = Session["Land"].ToString();
-                int reserveringsStatus = 1;
+            string straat = Session["Straat"].ToString();
+            string huisnummer = Session["Huisnummer"].ToString();
+            string postcode = Session["Postcode"].ToString();
+            string land = Session["Land"].ToString();
+            int reserveringsStatus = 1;
 
-                string bungalow = Session["Bungalow"].ToString();
-                int bungalowGetal = int.Parse(bungalow);
+            DateTime vandaag = DateTime.Today;
+            vandaag.ToShortDateString();
 
-                //standaardwaardes factuur
-                int betaalmethode = 1;
-                int betaalstatus = 8;
-                int factuurtype = 2;
+            InsGast(voornaam, tussenvoegsel, achternaam, telefoonnummer, email);
+            int nummer = GetNummer();
+            InsAdres(straat, huisnummer, postcode, land, nummer);
+            InsReservering(personen, opmerkingen, vandaag, vertrekdatum, aankomstdatum, reserveringsStatus, nummer);
+            //int reservering = GetReservering();
+            //InsReserveringBungalow(nummer, reservering);
 
-                //standaardwaardes transactie
-                string aan = "Groenbos";
-                string rekeningnummer = "NL32 RABO 0220.96.13.200";
-                int typeID = 2;
-                
+            StuurMail();
 
-
-                DateTime vandaag = DateTime.Today;
-                vandaag.ToShortDateString();
-
-                ReserveerderToevoegen(voornaam, tussenvoegsel, achternaam, geboortedatum, bungalow);
-
-                InsGast(voornaam, tussenvoegsel, achternaam, telefoonnummer, email);
-                int gastnummer = GetNummer();
-                InsAdres(straat, huisnummer, postcode, land, gastnummer);
-                InsReservering(personen, opmerkingen, vandaag, vertrekdatum, aankomstdatum, reserveringsStatus, gastnummer);
-                reserveringnummer = GetReservering();
-                InsReserveringBungalow(reserveringnummer, bungalowGetal);
-
-                InsDebiteurenFactuur(vandaag, betaalmethode, betaalstatus, factuurtype, reserveringnummer);
-                int debifactuur = GetDebiNummer();
-
-                int feestdag = GetFeestdag(reserveringnummer);
-                int lengte = GetLengte(reserveringnummer);
-                int seizoen = GetSeizoen(reserveringnummer);
-
-                double prijs = GetPrijs(reserveringnummer);
-
-                prijs = prijs / 10;
-
-                if (prijs < 100)
-                {
-                    prijs = 100;
-                    
-                }
-                else if (prijs >= 100)
-                {
-                    
-                }
-
-                UpdateReservering(seizoen, lengte, feestdag, reserveringnummer);
-                InsTransactie(vandaag, aan, prijs, reserveringnummer, debifactuur, rekeningnummer, typeID);
-                
-                Session["prijs"] = prijs.ToString();
-
-                StuurMail();
-
-                Response.Redirect("ReserveringenMedewerkerGelukt.aspx");
-            
+            Response.Redirect("ReserveringenMedewerkerGelukt.aspx");
         }
 
 
@@ -154,7 +107,7 @@ namespace ProjectGroenBos.Reservering
                 }
 
                 //parameters html pagina
-                body = body.Replace("{reserveringsnummer}", reserveringnummer.ToString());
+
                 body = body.Replace("{achternaam}", Session["Achternaam"].ToString());
                 body = body.Replace("{aankomstdatum}", Session["Aankomst"].ToString());
                 body = body.Replace("{vertrekdatum}", Session["Vertrek"].ToString());
@@ -173,36 +126,6 @@ namespace ProjectGroenBos.Reservering
             }
         }
 
-        private void ReserveerderToevoegen(string voornaam, string tussenvoegsel, string achternaam, string geboortedatum, string bungalow)
-        {
-            using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["2020-BIM02-P1-P2-GroenbosConnectionString"].ConnectionString))
-            {
-
-                try
-                {
-                    con.Open();
-
-                    SqlCommand sqlquery = new SqlCommand("[dbo].[InsertNachtRegister]");
-
-                    sqlquery.Parameters.AddWithValue("@Voornaam", voornaam);
-                    sqlquery.Parameters.AddWithValue("@Tussenvoegsel", tussenvoegsel);
-                    sqlquery.Parameters.AddWithValue("@Achternaam", achternaam);
-                    sqlquery.Parameters.AddWithValue("@Geboortedatum", geboortedatum);
-                    sqlquery.Parameters.AddWithValue("@BungalowNummer2", bungalow);
-
-                    sqlquery.CommandType = System.Data.CommandType.StoredProcedure;
-                    sqlquery.Connection = con;
-                    sqlquery.ExecuteNonQuery();
-
-                    con.Close();
-                }
-
-                catch
-                {
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Er ging iets mis, neem contact met ons op.')", true);
-                }
-            }
-        }
 
         private void InsGast(string voornaam, string tussenvoegsel, string achternaam, string telefoonnummer, string email)
         {
@@ -242,15 +165,15 @@ namespace ProjectGroenBos.Reservering
 
                 string sqlquery = "SELECT max(Nummer) from [dbo].[Gast]";
                 SqlCommand cmd = new SqlCommand(sqlquery, con);
-                int gastnummer = (int)cmd.ExecuteScalar();
+                int nummer = (int)cmd.ExecuteScalar();
 
                 con.Close();
 
-                return gastnummer;
+                return nummer;
 
             }
         }
-        private void InsAdres(string straat, string huisnummer, string postcode, string land, int gastnummer)
+        private void InsAdres(string straat, string huisnummer, string postcode, string land, int nummer)
         {
             using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["2020-BIM02-P1-P2-GroenbosConnectionString"].ConnectionString))
             {
@@ -258,15 +181,15 @@ namespace ProjectGroenBos.Reservering
                 {
                     con.Open();
 
-                    SqlCommand sqlquery = new SqlCommand("insert into [dbo].[Adres] (Straatnaam, Huisnummer, Postcode, Land, GastNummer) values (@Straatnaam, @Huisnummer, @Postcode, @Land, @GastNummer)");
+                    SqlCommand sqlquery = new SqlCommand("[dbo].[InsertAdres]");
 
                     sqlquery.Parameters.AddWithValue("@Straatnaam", straat);
                     sqlquery.Parameters.AddWithValue("@Huisnummer", huisnummer);
                     sqlquery.Parameters.AddWithValue("@Postcode", postcode);
                     sqlquery.Parameters.AddWithValue("@Land", land);
-                    sqlquery.Parameters.AddWithValue("@GastNummer", gastnummer);
+                    sqlquery.Parameters.AddWithValue("@GastNummer", nummer);
 
-                    sqlquery.CommandType = System.Data.CommandType.Text;
+                    sqlquery.CommandType = System.Data.CommandType.StoredProcedure;
                     sqlquery.Connection = con;
                     sqlquery.ExecuteNonQuery();
 
@@ -279,7 +202,7 @@ namespace ProjectGroenBos.Reservering
             }
         }
 
-        private void InsReservering(string personen, string opmerking, DateTime plaatsing, string vertrekdatum, string aankomstdatum, int reserveringsStatus, int gastnummer)
+        private void InsReservering(string personen, string opmerking, DateTime plaatsing, string vertrekdatum, string aankomstdatum, int reserveringsStatus, int nummer)
         {
             using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["2020-BIM02-P1-P2-GroenbosConnectionString"].ConnectionString))
             {
@@ -294,7 +217,7 @@ namespace ProjectGroenBos.Reservering
                     sqlquery.Parameters.AddWithValue("@Datum_Geplaatst", plaatsing);
                     sqlquery.Parameters.AddWithValue("@Vertrekdatum", vertrekdatum);
                     sqlquery.Parameters.AddWithValue("@Aankomstdatum", aankomstdatum);
-                    sqlquery.Parameters.AddWithValue("@GastNummer", gastnummer);
+                    sqlquery.Parameters.AddWithValue("@GastNummer", nummer);
                     sqlquery.Parameters.AddWithValue("@ReserveringsstatusID", reserveringsStatus);
 
                     sqlquery.CommandType = System.Data.CommandType.StoredProcedure;
@@ -320,11 +243,11 @@ namespace ProjectGroenBos.Reservering
 
                 string sqlquery = "SELECT max(Nummer) from [dbo].[Reservering]";
                 SqlCommand cmd = new SqlCommand(sqlquery, con);
-                int reserveringnummer = (int)cmd.ExecuteScalar();
+                int nummer = (int)cmd.ExecuteScalar();
 
                 con.Close();
 
-                return reserveringnummer;
+                return nummer;
 
             }
         }
@@ -338,7 +261,7 @@ namespace ProjectGroenBos.Reservering
             string geboortedatum = TxBGeboortedatum.Text;
             string bungalow = Session["Bungalow"].ToString();
 
-            aantalPersonen = int.Parse(Session["Personen"].ToString()) - 2;
+            aantalPersonen = int.Parse(Session["Personen"].ToString()) - 1;
 
             lblOutput.Text = lblOutput.Text + Voornaam + " " + Tussenvoegsel + " " + Achternaam + " " + geboortedatum + "<br/>";
 
@@ -368,284 +291,18 @@ namespace ProjectGroenBos.Reservering
                     sqlquery.Connection = con;
                     sqlquery.ExecuteNonQuery();
 
+
+
                     con.Close();
                 }
 
-                catch
+                catch(Exception ex)
                 {
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Er ging iets mis, neem contact met ons op.')", true);
-                }
-            }
-        }
-
-        private void InsReserveringBungalow(int reserveringnummer, int bungalowGetal)
-        {
-            using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["2020-BIM02-P1-P2-GroenbosConnectionString"].ConnectionString))
-            {
-
-                try
-                {
-                    con.Open();
-
-                    SqlCommand sqlquery = new SqlCommand("insert into Reservering_Bungalow (ReserveringNummer, BungalowNummer) values (@ReserveringNummer, @BungalowNummer)");
-
-                    sqlquery.Parameters.AddWithValue("@ReserveringNummer", reserveringnummer);
-                    sqlquery.Parameters.AddWithValue("@BungalowNummer", bungalowGetal);
-
-                    sqlquery.CommandType = System.Data.CommandType.Text;
-                    sqlquery.Connection = con;
-                    sqlquery.ExecuteNonQuery();
-
-                    con.Close();
-                }
-
-                catch
-                {
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Er ging iets mis, neem contact met ons op.')", true);
-                }
-            }
-        }
-
-        private void InsDebiteurenFactuur(DateTime vandaag, int betaalmethode, int betaalstatus, int factuurtype, int reserveringnummer)
-        {
-            using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["2020-BIM02-P1-P2-GroenbosConnectionString"].ConnectionString))
-            {
-
-                try
-                {
-                    con.Open();
-
-                    SqlCommand query = new SqlCommand("insert Debiteurenfactuur (Datum, BetaalmethodeID, BetaalstatusID, FactuurtypeID, ReserveringNummer) values (@datum, @methode, @betaal, @factuurtype, @resnummer)");
-
-                    query.Parameters.AddWithValue("@datum", vandaag);
-                    query.Parameters.AddWithValue("@methode", betaalmethode);
-                    query.Parameters.AddWithValue("@betaal", betaalstatus);
-                    query.Parameters.AddWithValue("@factuurtype", factuurtype);
-                    query.Parameters.AddWithValue("@resnummer", reserveringnummer);
-
-                    query.CommandType = System.Data.CommandType.Text;
-                    query.Connection = con;
-                    query.ExecuteNonQuery();
-
-                    con.Close();
-                }
-                catch
-                {
+                    Console.WriteLine(ex.ToString());
 
                 }
             }
         }
-
-        private int GetDebiNummer()
-        {
-            using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["2020-BIM02-P1-P2-GroenbosConnectionString"].ConnectionString))
-            {
-                con.Open();
-
-                string sqlquery = "SELECT max(Nummer) from [dbo].[Debiteurenfactuur]";
-                SqlCommand cmd = new SqlCommand(sqlquery, con);
-                int debifactuur = (int)cmd.ExecuteScalar();
-
-                con.Close();
-
-                return debifactuur;
-
-            }
-        }
-
-        private void InsTransactie(DateTime vandaag, string aan, double bedrag, int reserveringnummer, int debifactuur, string rekeningnummer, int typeID)
-        {
-            using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["2020-BIM02-P1-P2-GroenbosConnectionString"].ConnectionString))
-            {
-
-                try
-                {
-                    con.Open();
-
-                    SqlCommand query = new SqlCommand("insert Transactie (Datum, Aan, Bedrag, Omschrijving, DebiteurenfactuurNummer, BankrekeningBanknummer, TypeID) values (@datum, @aan, @bedrag, @resnummer, @debifactuur, @rekeningnummer, @type)");
-
-                    query.Parameters.AddWithValue("@datum", vandaag);
-                    query.Parameters.AddWithValue("@aan", aan);
-                    query.Parameters.AddWithValue("@bedrag", bedrag);
-                    query.Parameters.AddWithValue("@resnummer", reserveringnummer);
-                    query.Parameters.AddWithValue("@debifactuur", debifactuur);
-                    query.Parameters.AddWithValue("@rekeningnummer", rekeningnummer);
-                    query.Parameters.AddWithValue("@type", typeID);
-
-                    query.CommandType = System.Data.CommandType.Text;
-                    query.Connection = con;
-                    query.ExecuteNonQuery();
-
-                    con.Close();
-
-                    con.Open();
-
-                    //SqlCommand query = new SqlCommand("insert Transactie (Datum, Aan, Bedrag, Omschrijving, DebiteurenfactuurNummer, BankrekeningBanknummer, TypeID) values (@datum, @aan, @bedrag, @resnummer, @debifactuur, @rekeningnummer, @type)");
-
-                    //query.Parameters.AddWithValue("@datum", vandaag);
-                    //query.Parameters.AddWithValue("@aan", aan);
-                    //query.Parameters.AddWithValue("@bedrag", bedrag);
-                    //query.Parameters.AddWithValue("@resnummer", reserveringnummer);
-                    //query.Parameters.AddWithValue("@debifactuur", debifactuur);
-                    //query.Parameters.AddWithValue("@rekeningnummer", rekeningnummer);
-                    //query.Parameters.AddWithValue("@type", typeID);
-
-                    //query.CommandType = System.Data.CommandType.Text;
-                    //query.Connection = con;
-                    //query.ExecuteNonQuery();
-
-                    //con.Close();
-                }
-                catch
-                {
-
-                }
-            }
-        }
-
-        private int GetFeestdag(int reserveringnummer)
-        {
-            Int32 feestdag;
-
-            using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["2020-BIM02-P1-P2-GroenbosConnectionString"].ConnectionString))
-            {
-                con.Open();
-
-                string sqlquery = "declare @Date01 as smalldatetime declare @Date02 as smalldatetime select @Date01 = min(Aankomstdatum), @Date02 = max(Vertrekdatum) from Reservering where Nummer = 49 declare @DateDiff as int select @DateDiff = (select DATEDIFF(DAY, @Date01 - 1, @Date02) as yolo)  WITH Tally(N) AS(SELECT ROW_NUMBER() OVER(ORDER BY(SELECT NULL)FROM sys.all_columns a CROSS JOIN sys.all_columns b)SELECT Feestdag.ID FROM Tally cross join Feestdag where N <= @DateDiff and DATEADD(day, N -1, @Date01) between Begindatum and Einddatum group by Feestdag.ID";
-                SqlCommand cmd = new SqlCommand(sqlquery, con);
-                cmd.Parameters.AddWithValue("@nummer", reserveringnummer);
-
-                try
-                {
-                    feestdag = 0;
-                    feestdag = (Int32)cmd.ExecuteScalar();
-                }
-                catch
-                {
-                    feestdag = 0;
-                }
-                finally
-                {
-                    con.Close();
-                }
-                return feestdag;
-            }
-        }
-
-        private int GetLengte(int reserveringnummer)
-        {
-            using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["2020-BIM02-P1-P2-GroenbosConnectionString"].ConnectionString))
-            {
-                con.Open();
-
-                string sqlquery = "declare @Date01 as smalldatetime declare @Date02 as smalldatetime select @Date01= min(Aankomstdatum), @Date02 = max(Vertrekdatum) from Reservering where Nummer = @nummer declare @DateDiff as int select @DateDiff = DATEDIFF(DAY, @Date01, @Date02) SELECT CASE WHEN DATEDIFF(DAY, @Date01, @Date02) = 7 then 1 WHEN DATEDIFF(DAY, @Date01, @Date02) = 3 then 3 WHEN DATEDIFF(DAY, @Date01, @Date02) = 4 then 2 END AS lengte";
-                SqlCommand cmd = new SqlCommand(sqlquery, con);
-                cmd.Parameters.AddWithValue("@nummer", reserveringnummer);
-                int lengte = (int)cmd.ExecuteScalar();
-
-                con.Close();
-
-                return lengte;
-
-            }
-        }
-
-        private int GetSeizoen(int reserveringnummer)
-        {
-            using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["2020-BIM02-P1-P2-GroenbosConnectionString"].ConnectionString))
-            {
-                con.Open();
-
-                string sqlquery = "declare @Date01 as smalldatetime declare @Date02 as smalldatetime select @Date01= min(Aankomstdatum), @Date02 = max(Vertrekdatum) from Reservering where Nummer = @nummer declare @DateDiff as int select @DateDiff = (select DATEDIFF(DAY, @Date01, @Date02) as yolo)  ; WITH Tally (N) AS ( SELECT ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) FROM sys.all_columns a CROSS JOIN sys.all_columns b) SELECT Seizoen.ID FROM Tally cross join Seizoen  where N <= @DateDiff and DATEADD(day, N, @Date01) between Begindatum and Einddatum and prio = (sELECT MAX(prio) FROM Tally cross join Seizoen  where N <= @DateDiff and DATEADD(day, N, @Date01) between Begindatum and Einddatum) group by prio, Seizoen.ID";
-                SqlCommand cmd = new SqlCommand(sqlquery, con);
-                cmd.Parameters.AddWithValue("@nummer", reserveringnummer);
-                int seizoen = (int)cmd.ExecuteScalar();
-
-                con.Close();
-
-                return seizoen;
-
-            }
-        }
-
-        private void UpdateReservering(int seizoen, int lengte, int feestdag, int reserveringnummer)
-        {
-            using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["2020-BIM02-P1-P2-GroenbosConnectionString"].ConnectionString))
-            {
-                con.Open();
-
-                string sqlquery = "update Reservering set SeizoenID = @seizoen, ReserveringslengteID = @lengte, FeestdagNummer = @feestdag where Nummer = @nummer";
-                SqlCommand cmd = new SqlCommand(sqlquery, con);
-
-                cmd.Parameters.AddWithValue("@seizoen", seizoen);
-                cmd.Parameters.AddWithValue("@lengte", lengte);
-                cmd.Parameters.AddWithValue("@feestdag", feestdag);
-                cmd.Parameters.AddWithValue("@nummer", reserveringnummer);
-
-                cmd.ExecuteNonQuery();
-
-                con.Close();
-            }
-        }
-
-        //private int GetLengteReservering(int reserveringnummer)
-        //{
-        //    using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["2020-BIM02-P1-P2-GroenbosConnectionString"].ConnectionString))
-        //    {
-        //        con.Open();
-
-        //        string query = "select ReserveringslengteID from Reservering where Nummer = @reserveringnummer";
-
-        //        SqlCommand cmd = new SqlCommand(query, con);
-        //        cmd.Parameters.AddWithValue("@reserveringnummer", reserveringnummer);
-        //        int lengte = cmd.ExecuteNonQuery();
-
-        //        con.Close();
-
-        //        return lengte;
-        //    }
-        //}
-
-        private double GetPrijs(int reserveringnummer)
-        {
-            string query = "";
-            using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["2020-BIM02-P1-P2-GroenbosConnectionString"].ConnectionString))
-            {
-                query = "select Prijs from [dbo].[ReserveringHuis] where Nummer = @nummer";
-
-                con.Open();
-
-                SqlCommand cmd = new SqlCommand(query, con);
-                cmd.CommandType = System.Data.CommandType.Text;
-
-                cmd.Parameters.AddWithValue("@nummer", reserveringnummer);
-
-                double prijs = cmd.ExecuteNonQuery();
-
-                con.Close();
-
-                return prijs;
-            }
-        }
-
-        //private void UpdateFactuur(double prijs, int reserveringnummer)
-        //{
-        //    using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["2020-BIM02-P1-P2-GroenbosConnectionString"].ConnectionString))
-        //    {
-        //        con.Open();
-
-        //        string sqlquery = "update Debiteurenfactuur set Totaalbedrag = @prijs Nummer = @nummer";
-        //        SqlCommand cmd = new SqlCommand(sqlquery, con);
-        //        cmd.CommandType = System.Data.CommandType.Text;
-
-        //        cmd.Parameters.AddWithValue("@prijs", prijs);
-                
-        //        cmd.Parameters.AddWithValue("@nummer", reserveringnummer);
-
-        //        cmd.ExecuteNonQuery();
-
-        //        con.Close();
-        //    }
-        //}
     }
 }
