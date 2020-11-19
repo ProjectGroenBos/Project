@@ -22,7 +22,7 @@
             <asp:BoundField DataField="Naam" HeaderText="Naam" SortExpression="Naam" />
             <asp:BoundField DataField="MedewerkerID" HeaderText="MedewerkerID" SortExpression="MedewerkerID" />
             <asp:BoundField DataField="FaciliteitID" HeaderText="FaciliteitID" SortExpression="FaciliteitID" Visible="False" />
-            <asp:CommandField ShowSelectButton="True" />
+            <asp:CommandField ShowSelectButton="True" SelectText="Verwijderen"/>
         </Columns>
     </asp:GridView>
 
