@@ -3,10 +3,8 @@
  <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
      <script>function openModal(modalnaam) {
-
              $(modalnaam).modal('show');
-
-         }​​​​</script>
+         }</script>
 
  </asp:Content>
 

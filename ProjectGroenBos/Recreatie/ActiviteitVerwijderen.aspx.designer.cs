@@ -7,13 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace recreatie.paginas
-{
-
-
-    public partial class ActiviteitVerwijderen
-    {
-
+namespace recreatie.paginas {
+    
+    
+    public partial class ActiviteitVerwijderen {
+        
         /// <summary>
         /// gvActiviteitVerwijderen control.
         /// </summary>
@@ -22,7 +20,7 @@ namespace recreatie.paginas
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvActiviteitVerwijderen;
-
+        
         /// <summary>
         /// SqlDataSource1 control.
         /// </summary>
@@ -31,14 +29,32 @@ namespace recreatie.paginas
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
-
+        
         /// <summary>
-        /// gvVerwijderen control.
+        /// Label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvVerwijderen;
+        protected global::System.Web.UI.WebControls.Label Label1;
+        
+        /// <summary>
+        /// btnDoorgaan control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnDoorgaan;
+        
+        /// <summary>
+        /// btnAnnuleren control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAnnuleren;
     }
 }
