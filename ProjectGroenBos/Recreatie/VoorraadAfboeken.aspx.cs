@@ -170,7 +170,11 @@ namespace ProjectGroenBos.Recreatie
                 SqlDataReader r;
                 r = sqlComd.ExecuteReader();
 
+
+
                 int ordernummer = -1;
+
+
 
 
                 while (r.Read())
@@ -179,26 +183,22 @@ namespace ProjectGroenBos.Recreatie
                 }
                 sqlCon.Close();
                 foreach (GridViewRow ding in GvVoorraadAfboeken.Rows)
-                { int voorraad = int.Parse(GvVoorraadAfboeken.Rows[ding.RowIndex].Cells[3].Text);
-                  int mingetal = int.Parse((GvVoorraadAfboeken.Rows[ding.RowIndex].FindControl("tbAantal") as TextBox).Text.Trim());
-                  if ( mingetal >= 0)
-                    {
-                        con.Open();
-                        SqlCommand cmd = new SqlCommand("sp_Recreatie_MuterenVoorraad", con);
-                        cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@VoorraadID", (GvAfboeken.DataKeys[ding.RowIndex].Value.ToString()));
-                        cmd.Parameters.AddWithValue("@Aantal", (int.Parse((GvVoorraadAfboeken.Rows[ding.RowIndex].FindControl("tbAantal") as TextBox).Text.Trim())));
-                        cmd.Parameters.AddWithValue("@Type", "-");
-                        cmd.Parameters.AddWithValue("@RedenID", (int.Parse((GvVoorraadAfboeken.Rows[ding.RowIndex].FindControl("ddlReden") as DropDownList).Text.Trim())));
-                        cmd.Parameters.AddWithValue("@Opmerking", (GvVoorraadAfboeken.DataKeys[ding.RowIndex].Value.ToString()));
-                        cmd.ExecuteNonQuery();
-                        con.Close();
-                        GvVoorraadAfboeken.DataBind();
-                        InvullenGridview();
-                    }
+                {
+                    con.Open();
+                    SqlCommand cmd = new SqlCommand("sp_Recreatie_MuterenVoorraad", con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@VoorraadID", (GvAfboeken.DataKeys[ding.RowIndex].Value.ToString()));
+                    cmd.Parameters.AddWithValue("@Aantal", (int.Parse((GvVoorraadAfboeken.Rows[ding.RowIndex].FindControl("tbAantal") as TextBox).Text.Trim())));
+                    cmd.Parameters.AddWithValue("@Type", "-");
+                    cmd.Parameters.AddWithValue("@RedenID", (int.Parse((GvVoorraadAfboeken.Rows[ding.RowIndex].FindControl("ddlReden") as DropDownList).Text.Trim())));
+                    cmd.Parameters.AddWithValue("@Opmerking", (GvVoorraadAfboeken.DataKeys[ding.RowIndex].Value.ToString()));
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                    GvVoorraadAfboeken.DataBind();
+                    InvullenGridview();
+                }
                 }
             }
            // LblBevestiging.Text = "Voorraad Gemuteerd";
         }
     }
-}

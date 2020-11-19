@@ -18,7 +18,7 @@ namespace recreatie.paginas
         string connectionstring = ConfigurationManager.ConnectionStrings["dbconnectie"].ToString();
         SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconnectie"].ConnectionString);
         DataTable Activteit;
-        
+
         int Currentactivity;
 
         protected void Page_Load(object sender, EventArgs e)
@@ -169,30 +169,36 @@ namespace recreatie.paginas
 
         protected void gvActiviteitVerwijderen_SelectedIndexChanged1(object sender, EventArgs e)
         {
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal('#Popup');", true);
+            //Label2.Text = gvActiviteitVerwijderen.SelectedRow.ToString();
+        }
+
+        protected void btnDoorgaan_Click(object sender, EventArgs e)
+        {
             GridViewRow row = this.gvActiviteitVerwijderen.SelectedRow;
             DataTable dtbl = new DataTable();
             using (SqlConnection Sqlcon = new SqlConnection(connectionstring))
             {
 
-                    Sqlcon.Open();
+                Sqlcon.Open();
 
-                    SqlDataAdapter ada = new SqlDataAdapter();
+                SqlDataAdapter ada = new SqlDataAdapter();
 
-                    int index2 = Convert.ToInt32(gvActiviteitVerwijderen.DataKeys[row.RowIndex].Value);
+                int index2 = Convert.ToInt32(gvActiviteitVerwijderen.DataKeys[row.RowIndex].Value);
 
-                    string sql = "UPDATE dbo.Activiteit SET ActiviteitActief = 0 WHERE Nummer = @Nummer";
+                string sql = "UPDATE dbo.Activiteit SET ActiviteitActief = 0 WHERE Nummer = @Nummer";
 
-                   // gvActiviteitVerwijderen.Rows[gvActiviteitVerwijderen.SelectedIndex].Visible = false;
+                // gvActiviteitVerwijderen.Rows[gvActiviteitVerwijderen.SelectedIndex].Visible = false;
 
-                    SqlCommand command = new SqlCommand(sql, Sqlcon);
+                SqlCommand command = new SqlCommand(sql, Sqlcon);
 
-                    command.Parameters.AddWithValue("@Nummer", Convert.ToInt32(index2));
+                command.Parameters.AddWithValue("@Nummer", Convert.ToInt32(index2));
 
-                    command.ExecuteNonQuery();
+                command.ExecuteNonQuery();
 
-                    //gvActiviteitVerwijderen.DataBind();
+                //gvActiviteitVerwijderen.DataBind();
 
-                    command.Dispose();
+                command.Dispose();
 
                 SqlDataAdapter sqlDa = new SqlDataAdapter("SELECT * FROM vActiviteit WHERE ActiviteitActief = 1", Sqlcon);
                 sqlDa.Fill(dtbl);
@@ -202,8 +208,7 @@ namespace recreatie.paginas
                 Sqlcon.Close();
                 gvActiviteitVerwijderen.DataBind();
 
-
+                }
             }
         }
-    }
 }
