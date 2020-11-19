@@ -47,9 +47,9 @@
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="select id, seizoen, begindatum, einddatum from seizoen" UpdateCommand="Update Seizoen SET [Begindatum] = Convert(datetime, @Begindatum,104), [Einddatum] = Convert(datetime,@Einddatum,104) Where [ID] = @ID">
 
             <UpdateParameters>
-                <asp:Parameter Name="ID" />
                 <asp:Parameter Name="Begindatum" />
                 <asp:Parameter Name="Einddatum" />
+                <asp:Parameter Name="ID" />
             </UpdateParameters>
         </asp:SqlDataSource>
 

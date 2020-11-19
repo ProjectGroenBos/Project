@@ -7,56 +7,47 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ProjectGroenBos.Reservering
+namespace recreatie.paginas
 {
 
 
-    public partial class Site1
+    public partial class ActiviteitWijzigen
     {
 
         /// <summary>
-        /// head2 control.
+        /// GridView1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder head2;
+        protected global::System.Web.UI.WebControls.GridView GridView1;
 
         /// <summary>
-        /// form2 control.
+        /// MedewerkerID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form2;
+        protected global::System.Web.UI.WebControls.HiddenField MedewerkerID;
 
         /// <summary>
-        /// Image1 control.
+        /// FaciliteitID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image1;
+        protected global::System.Web.UI.WebControls.HiddenField FaciliteitID;
 
         /// <summary>
-        /// btnUitloggen control.
+        /// SqlDataSource5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnUitloggen;
-
-        /// <summary>
-        /// ContentPlaceHolder2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder2;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource5;
     }
 }
