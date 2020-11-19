@@ -11,7 +11,7 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud
 {
 
 
-    public partial class SchouwingsOverzicht
+    public partial class ProjectenOverzicht
     {
 
         /// <summary>
@@ -33,13 +33,13 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud
         protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
 
         /// <summary>
-        /// txtDatum control.
+        /// DropDownList2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDatum;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownList2;
 
         /// <summary>
         /// drop2 control.
