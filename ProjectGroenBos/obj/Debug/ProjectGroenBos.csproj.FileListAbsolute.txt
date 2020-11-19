@@ -80,3 +80,44 @@ C:\Users\Larsv\Documents\GitHub\Project\ProjectGroenBos\obj\Debug\ProjectGroenBo
 C:\Users\Larsv\Documents\GitHub\Project\ProjectGroenBos\obj\Debug\ProjectGroenBos.csproj.CopyComplete
 C:\Users\Larsv\Documents\GitHub\Project\ProjectGroenBos\obj\Debug\ProjectGroenBos.dll
 C:\Users\Larsv\Documents\GitHub\Project\ProjectGroenBos\obj\Debug\ProjectGroenBos.pdb
+D:\School\2020 - 2021\!Project Groenbos\github\Project\ProjectGroenBos\bin\ProjectGroenBos.dll.config
+D:\School\2020 - 2021\!Project Groenbos\github\Project\ProjectGroenBos\bin\ProjectGroenBos.dll
+D:\School\2020 - 2021\!Project Groenbos\github\Project\ProjectGroenBos\bin\ProjectGroenBos.pdb
+D:\School\2020 - 2021\!Project Groenbos\github\Project\ProjectGroenBos\bin\roslyn\csc.exe
+D:\School\2020 - 2021\!Project Groenbos\github\Project\ProjectGroenBos\bin\roslyn\csc.exe.config
+D:\School\2020 - 2021\!Project Groenbos\github\Project\ProjectGroenBos\bin\roslyn\csc.rsp
+D:\School\2020 - 2021\!Project Groenbos\github\Project\ProjectGroenBos\bin\roslyn\csi.exe
+D:\School\2020 - 2021\!Project Groenbos\github\Project\ProjectGroenBos\bin\roslyn\csi.exe.config
+D:\School\2020 - 2021\!Project Groenbos\github\Project\ProjectGroenBos\bin\roslyn\csi.rsp
+D:\School\2020 - 2021\!Project Groenbos\github\Project\ProjectGroenBos\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\School\2020 - 2021\!Project Groenbos\github\Project\ProjectGroenBos\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\School\2020 - 2021\!Project Groenbos\github\Project\ProjectGroenBos\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\School\2020 - 2021\!Project Groenbos\github\Project\ProjectGroenBos\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\School\2020 - 2021\!Project Groenbos\github\Project\ProjectGroenBos\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\School\2020 - 2021\!Project Groenbos\github\Project\ProjectGroenBos\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\School\2020 - 2021\!Project Groenbos\github\Project\ProjectGroenBos\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\School\2020 - 2021\!Project Groenbos\github\Project\ProjectGroenBos\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\School\2020 - 2021\!Project Groenbos\github\Project\ProjectGroenBos\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\School\2020 - 2021\!Project Groenbos\github\Project\ProjectGroenBos\bin\roslyn\Microsoft.Managed.Core.targets
+D:\School\2020 - 2021\!Project Groenbos\github\Project\ProjectGroenBos\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\School\2020 - 2021\!Project Groenbos\github\Project\ProjectGroenBos\bin\roslyn\System.Buffers.dll
+D:\School\2020 - 2021\!Project Groenbos\github\Project\ProjectGroenBos\bin\roslyn\System.Collections.Immutable.dll
+D:\School\2020 - 2021\!Project Groenbos\github\Project\ProjectGroenBos\bin\roslyn\System.Memory.dll
+D:\School\2020 - 2021\!Project Groenbos\github\Project\ProjectGroenBos\bin\roslyn\System.Numerics.Vectors.dll
+D:\School\2020 - 2021\!Project Groenbos\github\Project\ProjectGroenBos\bin\roslyn\System.Reflection.Metadata.dll
+D:\School\2020 - 2021\!Project Groenbos\github\Project\ProjectGroenBos\bin\roslyn\System.Runtime.CompilerServices.Unsafe.dll
+D:\School\2020 - 2021\!Project Groenbos\github\Project\ProjectGroenBos\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\School\2020 - 2021\!Project Groenbos\github\Project\ProjectGroenBos\bin\roslyn\System.Threading.Tasks.Extensions.dll
+D:\School\2020 - 2021\!Project Groenbos\github\Project\ProjectGroenBos\bin\roslyn\vbc.exe
+D:\School\2020 - 2021\!Project Groenbos\github\Project\ProjectGroenBos\bin\roslyn\vbc.exe.config
+D:\School\2020 - 2021\!Project Groenbos\github\Project\ProjectGroenBos\bin\roslyn\vbc.rsp
+D:\School\2020 - 2021\!Project Groenbos\github\Project\ProjectGroenBos\bin\roslyn\VBCSCompiler.exe
+D:\School\2020 - 2021\!Project Groenbos\github\Project\ProjectGroenBos\bin\roslyn\VBCSCompiler.exe.config
+D:\School\2020 - 2021\!Project Groenbos\github\Project\ProjectGroenBos\bin\AjaxControlToolkit.dll
+D:\School\2020 - 2021\!Project Groenbos\github\Project\ProjectGroenBos\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\School\2020 - 2021\!Project Groenbos\github\Project\ProjectGroenBos\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\School\2020 - 2021\!Project Groenbos\github\Project\ProjectGroenBos\obj\Debug\ProjectGroenBos.csprojAssemblyReference.cache
+D:\School\2020 - 2021\!Project Groenbos\github\Project\ProjectGroenBos\obj\Debug\ProjectGroenBos.csproj.CoreCompileInputs.cache
+D:\School\2020 - 2021\!Project Groenbos\github\Project\ProjectGroenBos\obj\Debug\ProjectGroenBos.csproj.CopyComplete
+D:\School\2020 - 2021\!Project Groenbos\github\Project\ProjectGroenBos\obj\Debug\ProjectGroenBos.dll
+D:\School\2020 - 2021\!Project Groenbos\github\Project\ProjectGroenBos\obj\Debug\ProjectGroenBos.pdb
