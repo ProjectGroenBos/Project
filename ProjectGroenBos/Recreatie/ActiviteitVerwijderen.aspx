@@ -8,71 +8,25 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="header">Activiteit Inactief Maken</div>
 
-    <asp:GridView ID="gvActiviteitVerwijderen" runat="server" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" CssClass="content-table" DataKeyNames="Nummer" ForeColor="#333333" GridLines="None" ShowFooter="True" ShowHeaderWhenEmpty="True" Width="80%" OnRowCancelingEdit="gvActiviteitVerwijderen_RowCancelingEdit" AllowPaging="True" OnPageIndexChanging="gvActiviteitVerwijderen_PageIndexChanging" OnSelectedIndexChanged="gvActiviteitVerwijderen_SelectedIndexChanged1" >
+    <asp:GridView ID="gvActiviteitVerwijderen" runat="server" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" CssClass="content-table" DataKeyNames="Nummer" ForeColor="#333333" GridLines="None" ShowFooter="True" ShowHeaderWhenEmpty="True" Width="80%" AllowPaging="True" OnSelectedIndexChanged="gvActiviteitVerwijderen_SelectedIndexChanged1" DataSourceID="SqlDataSource1" >
         <Columns>
-            <asp:TemplateField HeaderText="Nummer" SortExpression="Nummer" Visible="true" >
-                <ItemTemplate>
-                    <asp:Label Text='<%# Eval("Nummer") %>' runat="server"/>
-                </ItemTemplate>
-            </asp:TemplateField>
-
-            <asp:TemplateField HeaderText="Activiteitnaam" SortExpression="Activiteitnaam" >
-                <ItemTemplate>
-                    <asp:Label Text='<%# Eval("Activiteitnaam") %>' runat="server"/>
-                </ItemTemplate>
-            </asp:TemplateField>
-
-            <asp:TemplateField HeaderText="Locatie" SortExpression="Locatie" >
-                <ItemTemplate>
-                    <asp:Label Text='<%# Eval("Locatie") %>' runat="server"/>
-                </ItemTemplate>
-            </asp:TemplateField>
-
-            <asp:TemplateField HeaderText="Inschrijfkosten" SortExpression="Inschrijfkosten" >
-                <ItemTemplate>
-                    <asp:Label Text='<%# Eval("Inschrijfkosten") %>' runat="server"/>
-                </ItemTemplate>
-            </asp:TemplateField>
-
-            <asp:TemplateField HeaderText="Maximaal aantal" SortExpression="Maximaalaantal" >
-                <ItemTemplate>
-                    <asp:Label Text='<%# Eval("Maximaal aantal") %>' runat="server"/>
-                </ItemTemplate>
-            </asp:TemplateField>
-
-            <asp:TemplateField HeaderText="Omschrijving" SortExpression="Omschrijving" >
-                <ItemTemplate>
-                    <asp:Label Text='<%# Eval("Omschrijving") %>' runat="server"/>
-                </ItemTemplate>
-            </asp:TemplateField>
-
-            <asp:TemplateField HeaderText="Datum" SortExpression="Datum" >
-                <ItemTemplate>
-                    <asp:Label Text='<%# Eval("Datum") %>' runat="server"/>
-                </ItemTemplate>
-            </asp:TemplateField>
-
-            <asp:TemplateField HeaderText="Begintijd" SortExpression="Begintijd" >
-                <ItemTemplate>
-                    <asp:Label Text='<%# Eval("Begintijd") %>' runat="server"/>
-                </ItemTemplate>
-            </asp:TemplateField>
-
-            <asp:TemplateField HeaderText="Eindtijd" SortExpression="Eindtijd" >
-                <ItemTemplate>
-                    <asp:Label Text='<%# Eval("Eindtijd") %>' runat="server"/>
-                </ItemTemplate>
-            </asp:TemplateField>
-
-            <asp:TemplateField HeaderText="Naam" SortExpression="Naam" >
-                <ItemTemplate>
-                    <asp:Label Text='<%# Eval("Naam") %>' runat="server"/>
-                </ItemTemplate>
-            </asp:TemplateField>
-
-            <asp:CommandField SelectText="Inactief Maken" ShowSelectButton="True" />
+            <asp:BoundField DataField="Nummer" HeaderText="Nummer" ReadOnly="True" SortExpression="Nummer" />
+            <asp:BoundField DataField="Activiteitnaam" HeaderText="Activiteitnaam" SortExpression="Activiteitnaam" />
+            <asp:BoundField DataField="Locatie" HeaderText="Locatie" SortExpression="Locatie" />
+            <asp:BoundField DataField="Inschrijfkosten" HeaderText="Inschrijfkosten" SortExpression="Inschrijfkosten" />
+            <asp:BoundField DataField="Maximaal aantal" HeaderText="Maximaal aantal" SortExpression="Maximaal aantal" />
+            <asp:BoundField DataField="Omschrijving" HeaderText="Omschrijving" SortExpression="Omschrijving" />
+            <asp:BoundField DataField="Datum" HeaderText="Datum" ReadOnly="True" SortExpression="Datum" />
+            <asp:BoundField DataField="Begintijd" HeaderText="Begintijd" ReadOnly="True" SortExpression="Begintijd" />
+            <asp:BoundField DataField="Eindtijd" HeaderText="Eindtijd" ReadOnly="True" SortExpression="Eindtijd" />
+            <asp:BoundField DataField="Naam" HeaderText="Naam" SortExpression="Naam" />
+            <asp:BoundField DataField="MedewerkerID" HeaderText="MedewerkerID" SortExpression="MedewerkerID" />
+            <asp:BoundField DataField="FaciliteitID" HeaderText="FaciliteitID" SortExpression="FaciliteitID" Visible="False" />
+            <asp:CommandField ShowSelectButton="True" />
         </Columns>
     </asp:GridView>
+
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT * FROM [vActiviteit]"></asp:SqlDataSource>
 
     <div id="Popup" class="modal fade" role="dialog">
                  <div class="modal-dialog">
