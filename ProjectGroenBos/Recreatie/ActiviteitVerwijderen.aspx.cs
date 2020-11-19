@@ -45,35 +45,35 @@ namespace recreatie.paginas
                 sqlDa.Fill(dtbl);
                 Session["vaDB"] = dtbl;
             }
-            if (dtbl.Rows.Count > 0)
-            {
-                if (sortExpression != null)
-                {
-                    DataView dv = dtbl.AsDataView();
-                    this.SortDirection = this.SortDirection == "ASC" ? "DESC" : "ASC";
+            //if (dtbl.Rows.Count > 0)
+            //{
+            //    if (sortExpression != null)
+            //    {
+            //        DataView dv = dtbl.AsDataView();
+            //        this.SortDirection = this.SortDirection == "ASC" ? "DESC" : "ASC";
 
-                    dv.Sort = sortExpression + " " + this.SortDirection;
-                    gvActiviteitVerwijderen.DataSource = dv;
-                }
-                else
-                {
-                    gvActiviteitVerwijderen.DataSource = dtbl;
-                }
+            //        dv.Sort = sortExpression + " " + this.SortDirection;
+            //        gvActiviteitVerwijderen.DataSource = dv;
+            //    }
+            //    else
+            //    {
+            //        gvActiviteitVerwijderen.DataSource = dtbl;
+            //    }
 
-                gvActiviteitVerwijderen.DataBind();
-            }
+            //    gvActiviteitVerwijderen.DataBind();
+            //}
 
-            else
-            {
-                dtbl.Rows.Add(dtbl.NewRow());
-                gvActiviteitVerwijderen.DataSource = dtbl;
-                gvActiviteitVerwijderen.DataBind();
-                gvActiviteitVerwijderen.Rows[0].Cells.Clear();
-                gvActiviteitVerwijderen.Rows[0].Cells.Add(new TableCell());
-                gvActiviteitVerwijderen.Rows[0].Cells[0].ColumnSpan = dtbl.Columns.Count;
-                gvActiviteitVerwijderen.Rows[0].Cells[0].Text = "Geen Data Gevonden!";
-                gvActiviteitVerwijderen.Rows[0].Cells[0].HorizontalAlign = HorizontalAlign.Center;
-            }
+            //else
+            //{
+            //    dtbl.Rows.Add(dtbl.NewRow());
+            //    gvActiviteitVerwijderen.DataSource = dtbl;
+            //    gvActiviteitVerwijderen.DataBind();
+            //    gvActiviteitVerwijderen.Rows[0].Cells.Clear();
+            //    gvActiviteitVerwijderen.Rows[0].Cells.Add(new TableCell());
+            //    gvActiviteitVerwijderen.Rows[0].Cells[0].ColumnSpan = dtbl.Columns.Count;
+            //    gvActiviteitVerwijderen.Rows[0].Cells[0].Text = "Geen Data Gevonden!";
+            //    gvActiviteitVerwijderen.Rows[0].Cells[0].HorizontalAlign = HorizontalAlign.Center;
+            //}
         }
 
 
@@ -167,16 +167,6 @@ namespace recreatie.paginas
             InvullenGridview(e.SortExpression);
         }
 
-        protected void gvActiviteitVerwijderen_PageIndexChanging(object sender, GridViewPageEventArgs e)
-        {
-
-        }
-
-        protected void gvActiviteitVerwijderen_RowDeleting1(object sender, GridViewDeleteEventArgs e)
-        {
-            
-        }
-
         protected void gvActiviteitVerwijderen_SelectedIndexChanged1(object sender, EventArgs e)
         {
             GridViewRow row = this.gvActiviteitVerwijderen.SelectedRow;
@@ -206,7 +196,7 @@ namespace recreatie.paginas
 
                 SqlDataAdapter sqlDa = new SqlDataAdapter("SELECT * FROM vActiviteit WHERE ActiviteitActief = 1", Sqlcon);
                 sqlDa.Fill(dtbl);
-                gvActiviteitVerwijderen.DataSource = dtbl;
+                //gvActiviteitVerwijderen.DataSource = dtbl;
 
 
                 Sqlcon.Close();
