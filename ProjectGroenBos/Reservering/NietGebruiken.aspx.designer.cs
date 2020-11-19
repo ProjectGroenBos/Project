@@ -7,65 +7,83 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ProjectGroenBos.Recreatie
+namespace ProjectGroenBos
 {
 
 
-    public partial class Voorraadmuteren
+    public partial class ReserveringWijzigen
     {
 
         /// <summary>
-        /// Label2 control.
+        /// form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// txbZoekenVoorraadmuteren control.
+        /// rdbVoornaam control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txbZoekenVoorraadmuteren;
+        protected global::System.Web.UI.WebControls.RadioButton rdbVoornaam;
 
         /// <summary>
-        /// ckbLeverancier control.
+        /// rdbAchternaam control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox ckbLeverancier;
+        protected global::System.Web.UI.WebControls.RadioButton rdbAchternaam;
 
         /// <summary>
-        /// btnOpboeken control.
+        /// rdbReserveringsNummer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnOpboeken;
+        protected global::System.Web.UI.WebControls.RadioButton rdbReserveringsNummer;
 
         /// <summary>
-        /// btnAfboeken control.
+        /// Label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAfboeken;
+        protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
-        /// GvMuteren control.
+        /// txbAchternaam control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GvMuteren;
+        protected global::System.Web.UI.WebControls.TextBox txbAchternaam;
+
+        /// <summary>
+        /// GridView1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GridView1;
+
+        /// <summary>
+        /// lblUitkomst control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblUitkomst;
     }
 }
