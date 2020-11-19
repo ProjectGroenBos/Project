@@ -148,7 +148,7 @@ namespace ProjectGroenBos.Reservering
                     cmd.ExecuteNonQuery();
                     con.Close();
                     StuurMail();
-                    Response.Redirect("ReserveringAnnulerenOverzicht.aspx");
+                    Response.Redirect("ReserveringOverzicht.aspx");
                 }
             }
             catch
