@@ -26,20 +26,17 @@
                     <li><a href="PlanningsOverzicht.aspx">Schoonmaakplanning Overzicht</a>
                                 <ul class="submenu">
                                 <li><a href="PlanningToevoegen.aspx">Planning Toevoegen</a></li>
-                                    <li><a href="PlanningWijzigen.aspx">Planning Wijzigen</a></li>
-                                    <li><a href="PlanningVerwijderen.aspx">Planning Verwijderen</a></li>
+                                <li><a href="PlanningWijzigen.aspx">Planning Wijzigen</a></li>
+                                <li><a href="PlanningVerwijderen.aspx">Planning Verwijderen</a></li>
                                 </ul> 
                     <li><a href="InventarisOverzicht.aspx">Inventaris Overzicht</a></li>
                     <li><a href="OnderhoudsOverzicht.aspx"><i class="fas fa-user"></i>Onderhoud Overzicht</a>
                                 <ul class="submenu">
                                 <li><a href="OnderhoudToevoegen.aspx">Onderhoud Toevoegen</a></li>
-                                </ul>                  
-                    <li><a href="SchouwingsOverzicht.aspx">Schouwing Overzicht</a>
-                                <ul class="submenu">
-                                <li><a href="SchouwingToevoegen.aspx">Schouwing Toevoegen</a></li>
-                                </ul>
-                        <li><a href="ProjectenOverzicht.aspx">Projecten Overzicht</a></li> 
-                        <li><a href="OffertesOverzicht.aspx">Offerte Overzicht</a></li> 
+                                    <li><a href="OnderhoudWijzigen.aspx">Onderhoud Wijzigen</a></li>
+                                </ul> 
+                    <li><a href="OffertesOverzicht.aspx">Offerte Overzicht</a></li>                  
+                    <li><a href="SchouwingsOverzicht.aspx">Schouwing Overzicht</a></li>
                 </ul>
                 
                 <div class="terug">
@@ -50,12 +47,12 @@
                 <div class="navigator">
                     <nav>
                         <ul>
-                            <li><a href="/Homepagina.aspx">Home</a></li>
-                            <li><a href="#">Restraurant</a></li>
-                            <li><a href="/Reservering/home.aspx">Reserveringen</a></li>
-                            <li><a href="/Recreatie/home.aspx">Recreatie</a></li>
-                            <li><a href="Home.aspx">Schoonmaak</a></li>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="/Recreatie/Overzicht.aspx">Recreatie</a></li>
+                            <li><a href="/Restaurant/home.aspx">Restaurant</a></li>
+                            <li><a href="/Reservering/home.aspx">Reserveringen & Balie</a></li>
                             <li><a href="/Financien/Home.aspx">Financiën</a></li>
+                            <li class="selected"><a href="/Schoonmaak en Onderhoud/InventarisOverzicht.aspx">Schoonmaak</a></li>
                             <asp:Button ID="btnUitloggen" runat="server" CssClass="btnUitloggen" Text="Uitloggen" />
                         </ul>
                     </nav>
