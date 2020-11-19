@@ -11,6 +11,7 @@ namespace ProjectGroenBos.Restaurant
 {
     public partial class WebForm4 : System.Web.UI.Page
     {
+
         protected void Page_Load(object sender, EventArgs e)
         {
 			if (!IsPostBack)
@@ -23,6 +24,8 @@ namespace ProjectGroenBos.Restaurant
 				dt.Columns.Add("Prijs");
 				dt.Columns.Add("Hoeveelheid");
 				dt.Columns.Add("TotalePrijs");
+				dt.Columns.Add("Id");
+
 
 
 				dt.Columns.Add("Id");
@@ -49,6 +52,7 @@ namespace ProjectGroenBos.Restaurant
 						dr["Naam"] = ds.Tables[0].Rows[0]["Naam"].ToString();
 						dr["Prijs"] = ds.Tables[0].Rows[0]["Prijs"].ToString();
 						dr["Hoeveelheid"] = Request.QueryString["Hoeveelheid"];
+						dr["Id"] = Request.QueryString["id"];
 
 
 						dr["Id"] = Request.QueryString["id"];
@@ -62,6 +66,22 @@ namespace ProjectGroenBos.Restaurant
 						double hoeveelheid = Convert.ToInt16(Request.QueryString["Hoeveelheid"].ToString());
 						double totaleprijs = prijs * hoeveelheid;
 						dr["TotalePrijs"] = totaleprijs;
+
+						Session["totprijs"] = totaleprijs;
+
+						//						
+						string PrijsMetEuro = "€" + prijs.ToString();
+
+						dr["Prijs"] = PrijsMetEuro;
+
+						string TotalePrijsMetEuro = "€" + totaleprijs.ToString();
+
+						dr["TotalePrijs"] = TotalePrijsMetEuro;
+
+						string HoeveelheidMetX = hoeveelheid.ToString() + "x";
+
+						dr["Hoeveelheid"] = HoeveelheidMetX;
+						//
 
 						dt.Rows.Add(dr);
 						GridView1.DataSource = dt;
@@ -94,6 +114,7 @@ namespace ProjectGroenBos.Restaurant
 						dr["Naam"] = ds.Tables[0].Rows[0]["Naam"].ToString();
 						dr["Prijs"] = ds.Tables[0].Rows[0]["Prijs"].ToString();
 						dr["Hoeveelheid"] = Request.QueryString["Hoeveelheid"];
+						dr["Id"] = Request.QueryString["id"];
 
 
 						dr["Id"] = Request.QueryString["id"];
@@ -107,6 +128,22 @@ namespace ProjectGroenBos.Restaurant
 						double hoeveelheid = Convert.ToInt16(Request.QueryString["Hoeveelheid"].ToString());
 						double totaleprijs = prijs * hoeveelheid;
 						dr["TotalePrijs"] = totaleprijs;
+
+						Session["totprijs"] = totaleprijs;
+
+						//
+						string PrijsMetEuro = "€" + prijs.ToString();
+
+						dr["Prijs"] = PrijsMetEuro;
+
+						string TotalePrijsMetEuro = "€" + totaleprijs.ToString();
+
+						dr["TotalePrijs"] = TotalePrijsMetEuro;
+
+						string HoeveelheidMetX = hoeveelheid.ToString() + "x";
+
+						dr["Hoeveelheid"] = HoeveelheidMetX;
+						//
 
 						dt.Rows.Add(dr);
 						GridView1.DataSource = dt;
@@ -142,7 +179,7 @@ namespace ProjectGroenBos.Restaurant
 			double gtotal = 0;
 			while (i < nrow)
 			{
-				gtotal = gtotal + Convert.ToDouble(dt.Rows[i]["TotalePrijs"].ToString());
+				gtotal = gtotal + Convert.ToDouble(Session["totprijs"]);
 
 				i = i + 1;
 			}

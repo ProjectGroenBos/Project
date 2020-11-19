@@ -13,26 +13,17 @@
     <form id="form1" runat="server">
 
         <div class="wrapper">
-
             <div class="sidebar">
-
-
                 <h2>
                     <img src="img/Logo4.png" alt="Logo" height="150"></h2>
                 <h3>RESTAURANT</h3>
                 <ul>
-                    <li><a href="home.aspx"><i class="fas fa-home"></i>Home</a></li>
+                    <li><a href="bestellingopnemen.aspx">Bestelling opnemen</a></li>
                     <li><a href="#"><i class="fas fa-user"></i>Bestellingen</a>
                         <ul class="submenu">
-
-                            <li><a href="tafeloverzicht.aspx">Bestelling opnemen</a></li>
-
-                            <li><a href="#">Bestellingen overzicht</a>
-                                <ul class="submenu">
-                                    <li><a href="#">Dranken overzicht</a></li>
-                                    <li><a href="#">Gerechten overzicht</a></li>
-                                </ul>
-                            </li>
+                            <li><a href="Bestellingenoverzicht.aspx">Bestellingen overzicht</a></li>
+                            <li><a href="#">Dranken overzicht</a></li>
+                            <li><a href="#">Gerechten overzicht</a></li>
                         </ul>
                     </li>
                     <li><a href="#"><i class="fas fa-user"></i>Keuken</a>
@@ -49,12 +40,12 @@
                 <div class="navigator">
                     <nav>
                         <ul>
-                            <li><a href="#">Home</a></li>
-                            <li><a href="/Recreatie/Overzicht.aspx">Recreatie</a></li>
-                            <li class="selected"><a href="/Restaurant/home.aspx">Restaurant</a></li>
-                            <li><a href="/Reservering/home.aspx">Reserveringen & Balie</a></li>
-                            <li><a href="/Financien/Home.aspx">Financiën</a></li>
-                            <li><a href="/Schoonmaak en Onderhoud/InventarisOverzicht.aspx">Schoonmaak</a></li>
+                            <li><a href="index.html">Home</a></li>
+                            <li class="selected"><a href="#">Restraurant</a></li>
+                            <li><a href="#">Reserveringen</a></li>
+                            <li><a href="#">Recreatie</a></li>
+                            <li><a href="#">Schoonmaak</a></li>
+                            <li><a href="#">Financiën</a></li>
                             <asp:Button ID="btnUitloggen" runat="server" CssClass="btnUitloggen" Text="Uitloggen" />
                         </ul>
                     </nav>
