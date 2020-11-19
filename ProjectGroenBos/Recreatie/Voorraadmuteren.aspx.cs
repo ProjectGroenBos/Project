@@ -10,20 +10,21 @@ using System.Data.SqlClient;
 using System.Globalization;
 using System.Threading;
 
-namespace recreatie.paginas
+namespace ProjectGroenBos.Recreatie
 {
-    public partial class Beheer : System.Web.UI.Page
+    public partial class Voorraadmuteren : System.Web.UI.Page
     {
         DataTable dt = new DataTable();
         string connectionstring = ConfigurationManager.ConnectionStrings["dbconnectie"].ToString();
+        
         protected void Page_Load(object sender, EventArgs e)
         {
-
             if (!IsPostBack)
             {
                 InvullenGridview();
             }
         }
+
         private string SortDirection
         {
             get { return ViewState["SortDirection"] != null ? ViewState["SortDirection"].ToString() : "ASC"; }
@@ -36,9 +37,9 @@ namespace recreatie.paginas
             using (SqlConnection sqlCon = new SqlConnection(connectionstring))
             {
                 sqlCon.Open();
-                SqlDataAdapter sqlDa = new SqlDataAdapter("SELECT * FROM vVoorraadRecreatie", sqlCon);
+                SqlDataAdapter sqlDa = new SqlDataAdapter("SELECT * FROM vRecreatieVoorraadMuteren", sqlCon);
                 sqlDa.Fill(dtbl);
-                Session["vDB"] = dtbl;
+                Session["vmDB"] = dtbl;
             }
             if (dtbl.Rows.Count > 0)
             {
@@ -48,51 +49,59 @@ namespace recreatie.paginas
                     this.SortDirection = this.SortDirection == "ASC" ? "DESC" : "ASC";
 
                     dv.Sort = sortExpression + " " + this.SortDirection;
-                    gvVoorraad.DataSource = dv;
+                    GvMuteren.DataSource = dv;
                 }
                 else
                 {
-                    gvVoorraad.DataSource = dtbl;
+                    GvMuteren.DataSource = dtbl;
                 }
 
-                gvVoorraad.DataBind();
+                GvMuteren.DataBind();
             }
 
             else
             {
                 dtbl.Rows.Add(dtbl.NewRow());
-                gvVoorraad.DataSource = dtbl;
-                gvVoorraad.DataBind();
-                gvVoorraad.Rows[0].Cells.Clear();
-                gvVoorraad.Rows[0].Cells.Add(new TableCell());
-                gvVoorraad.Rows[0].Cells[0].ColumnSpan = dtbl.Columns.Count;
-                gvVoorraad.Rows[0].Cells[0].Text = "Geen Data Gevonden!";
-                gvVoorraad.Rows[0].Cells[0].HorizontalAlign = HorizontalAlign.Center;
+                GvMuteren.DataSource = dtbl;
+                GvMuteren.DataBind();
+                GvMuteren.Rows[0].Cells.Clear();
+                GvMuteren.Rows[0].Cells.Add(new TableCell());
+                GvMuteren.Rows[0].Cells[0].ColumnSpan = dtbl.Columns.Count;
+                GvMuteren.Rows[0].Cells[0].Text = "Geen Data Gevonden!";
+                GvMuteren.Rows[0].Cells[0].HorizontalAlign = HorizontalAlign.Center;
             }
 
         }
 
-        protected void gvVoorraad_RowEditing(object sender, GridViewEditEventArgs e)
+        protected void GvMuteren_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
-            gvVoorraad.EditIndex = e.NewEditIndex;
+            GvMuteren.EditIndex = -1;
             InvullenGridview();
         }
 
-        protected void gvVoorraad_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        protected void GvMuteren_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            gvVoorraad.EditIndex = -1;
+
+        }
+
+        protected void GvMuteren_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+
+        }
+
+        protected void GvMuteren_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            GvMuteren.EditIndex = e.NewEditIndex;
             InvullenGridview();
         }
 
- 
-
-        protected void txbZoekenVoorraadmuteren_TextChanged(object sender, EventArgs e)
+        protected void GvMuteren_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
-            DataTable dtbl = (DataTable)Session["vDB"];
-            DataView dv = dtbl.DefaultView;
-            dv.RowFilter = string.Format("Artikelnaam like '%{0}%'", txbZoekenVoorraadmuteren.Text);
-            GvMuteren.DataSource = dv.ToTable();
-            GvMuteren.DataBind();
+
+        }
+
+        protected void GvMuteren_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
 
@@ -101,20 +110,29 @@ namespace recreatie.paginas
             InvullenGridview(e.SortExpression);
         }
 
-
-        protected void btnSelecteren_Click(object sender, EventArgs e)
+        protected void txbZoekenVoorraadmuteren_TextChanged1(object sender, EventArgs e)
         {
-            if (gvVoorraad.Columns[6].Visible == true)
+            if (ckbLeverancier.Checked == true)
             {
-                gvVoorraad.Columns[0].Visible = false;
-                gvVoorraad.Columns[6].Visible = false;
+                DataTable dtbl = (DataTable)Session["vmDB"];
+                DataView dv = dtbl.DefaultView;
+                dv.RowFilter = string.Format("[Naam Leverancier] like '%{0}%'", txbZoekenVoorraadmuteren.Text);
+                GvMuteren.DataSource = dv.ToTable();
+                GvMuteren.DataBind();
             }
             else
             {
-                gvVoorraad.Columns[0].Visible = true;
-                gvVoorraad.Columns[6].Visible = true;
+                DataTable dtbl = (DataTable)Session["vmDB"];
+                DataView dv = dtbl.DefaultView;
+                dv.RowFilter = string.Format("Artikelnaam like '%{0}%'", txbZoekenVoorraadmuteren.Text);
+                GvMuteren.DataSource = dv.ToTable();
+                GvMuteren.DataBind();
             }
-
         }
 
-       
+        protected void btnAfboeken_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("VoorraadAfboeken.aspx");
+        }
+    }
+}
