@@ -41,7 +41,7 @@
 
     <p>
         <asp:Label ID="label4" runat="server" Text="Geboortedatum:" CssClass="labelsnieuw"></asp:Label>
-        <asp:TextBox ID="TxBGeboortedatum" runat="server" CssClass="textboxchaos"></asp:TextBox>
+        <asp:TextBox ID="TxBGeboortedatum" runat="server" CssClass="textboxchaos" TextMode="Date"></asp:TextBox>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ErrorMessage="Datum moet ingevult zijn als  jjjj-mm-dd." ControlToValidate="TxBGeboortedatum" ValidationExpression="^(19|20)?\d\d[-](0[1-9]|1[012])[-](0[1-9]|[12][0-9]|3[01])$"></asp:RegularExpressionValidator>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="TxBGeboortedatum" ErrorMessage="Dit veld is verplicht."></asp:RequiredFieldValidator>

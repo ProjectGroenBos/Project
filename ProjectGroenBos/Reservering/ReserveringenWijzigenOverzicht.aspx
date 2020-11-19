@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Reservering/Site1.Master" AutoEventWireup="true" CodeBehind="ReserveringenOverzicht.aspx.cs" Inherits="ProjectGroenBos.Reservering.ReserveringenwijzigenMASTER" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Reservering/Site1.Master" AutoEventWireup="true" CodeBehind="ReserveringenWijzigenOverzicht.aspx.cs" Inherits="ProjectGroenBos.Reservering.ReserveringenwijzigenMASTER" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head2" runat="server">
     <style type="text/css">
@@ -43,7 +43,10 @@
         <asp:Button ID="btnZoek" runat="server" Text="Zoek" CssClass="textboxbtn" OnClick="btnZoek_Click" />
         <br />
         <br />
-         <asp:GridView ID="GridView1" runat="server" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" CssClass="gridv" AutoGenerateSelectButton="True">
+         <asp:GridView ID="GridView1" runat="server" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" CssClass="gridv">
+             <Columns>
+                 <asp:CommandField ShowSelectButton="True" />
+             </Columns>
         </asp:GridView>
         &nbsp;&nbsp;&nbsp;
         <br />

@@ -11,7 +11,7 @@ namespace ProjectGroenBos.Reservering
 {
 
 
-    public partial class test
+    public partial class ReserveringAnnulerenSherm2
     {
 
         /// <summary>
@@ -42,31 +42,13 @@ namespace ProjectGroenBos.Reservering
         protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
-        /// txbVoornaam control.
+        /// lblVoornaam control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txbVoornaam;
-
-        /// <summary>
-        /// RegularExpressionValidator1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
-
-        /// <summary>
-        /// RequiredFieldValidator2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
+        protected global::System.Web.UI.WebControls.Label lblVoornaam;
 
         /// <summary>
         /// Label2 control.
@@ -78,22 +60,13 @@ namespace ProjectGroenBos.Reservering
         protected global::System.Web.UI.WebControls.Label Label2;
 
         /// <summary>
-        /// txbTussenvoegsel control.
+        /// lblTussenvoegsel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txbTussenvoegsel;
-
-        /// <summary>
-        /// RegularExpressionValidator2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator2;
+        protected global::System.Web.UI.WebControls.Label lblTussenvoegsel;
 
         /// <summary>
         /// Label3 control.
@@ -105,31 +78,13 @@ namespace ProjectGroenBos.Reservering
         protected global::System.Web.UI.WebControls.Label Label3;
 
         /// <summary>
-        /// txbAchternaam control.
+        /// lblAchternaam control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txbAchternaam;
-
-        /// <summary>
-        /// RegularExpressionValidator3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator3;
-
-        /// <summary>
-        /// RequiredFieldValidator4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator4;
+        protected global::System.Web.UI.WebControls.Label lblAchternaam;
 
         /// <summary>
         /// Label4 control.
@@ -141,31 +96,13 @@ namespace ProjectGroenBos.Reservering
         protected global::System.Web.UI.WebControls.Label Label4;
 
         /// <summary>
-        /// txbEmail control.
+        /// lblEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txbEmail;
-
-        /// <summary>
-        /// RegularExpressionValidator4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator4;
-
-        /// <summary>
-        /// RequiredFieldValidator3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
+        protected global::System.Web.UI.WebControls.Label lblEmail;
 
         /// <summary>
         /// Label5 control.
@@ -177,31 +114,13 @@ namespace ProjectGroenBos.Reservering
         protected global::System.Web.UI.WebControls.Label Label5;
 
         /// <summary>
-        /// txbTelefoonnummer control.
+        /// lblTelefoonnummer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txbTelefoonnummer;
-
-        /// <summary>
-        /// RegularExpressionValidator5 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator5;
-
-        /// <summary>
-        /// RequiredFieldValidator6 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator6;
+        protected global::System.Web.UI.WebControls.Label lblTelefoonnummer;
 
         /// <summary>
         /// Label6 control.
@@ -231,31 +150,13 @@ namespace ProjectGroenBos.Reservering
         protected global::System.Web.UI.WebControls.Label Label7;
 
         /// <summary>
-        /// txbAantalPersonen control.
+        /// lblAantalPersonen control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txbAantalPersonen;
-
-        /// <summary>
-        /// RegularExpressionValidator6 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator6;
-
-        /// <summary>
-        /// RequiredFieldValidator1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+        protected global::System.Web.UI.WebControls.Label lblAantalPersonen;
 
         /// <summary>
         /// Label8 control.
@@ -267,13 +168,13 @@ namespace ProjectGroenBos.Reservering
         protected global::System.Web.UI.WebControls.Label Label8;
 
         /// <summary>
-        /// txbOpmerkingen control.
+        /// lblOpmerkingen control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txbOpmerkingen;
+        protected global::System.Web.UI.WebControls.Label lblOpmerkingen;
 
         /// <summary>
         /// Label9 control.
@@ -283,15 +184,6 @@ namespace ProjectGroenBos.Reservering
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label9;
-
-        /// <summary>
-        /// txbAankomstdatum control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txbAankomstdatum;
 
         /// <summary>
         /// lblAankomstdatum control.
@@ -312,15 +204,6 @@ namespace ProjectGroenBos.Reservering
         protected global::System.Web.UI.WebControls.Label Label10;
 
         /// <summary>
-        /// txbVertrekdatum control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txbVertrekdatum;
-
-        /// <summary>
         /// lblVertrekdatum control.
         /// </summary>
         /// <remarks>
@@ -339,13 +222,13 @@ namespace ProjectGroenBos.Reservering
         protected global::System.Web.UI.WebControls.Label Label12;
 
         /// <summary>
-        /// txtStraat control.
+        /// lblStraat control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtStraat;
+        protected global::System.Web.UI.WebControls.Label lblStraat;
 
         /// <summary>
         /// Label13 control.
@@ -357,13 +240,13 @@ namespace ProjectGroenBos.Reservering
         protected global::System.Web.UI.WebControls.Label Label13;
 
         /// <summary>
-        /// txbHuisnummer control.
+        /// lblHuisnummer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txbHuisnummer;
+        protected global::System.Web.UI.WebControls.Label lblHuisnummer;
 
         /// <summary>
         /// Label14 control.
@@ -375,13 +258,13 @@ namespace ProjectGroenBos.Reservering
         protected global::System.Web.UI.WebControls.Label Label14;
 
         /// <summary>
-        /// txbPostcode control.
+        /// lblPostcode control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txbPostcode;
+        protected global::System.Web.UI.WebControls.Label lblPostcode;
 
         /// <summary>
         /// Label15 control.
@@ -393,22 +276,58 @@ namespace ProjectGroenBos.Reservering
         protected global::System.Web.UI.WebControls.Label Label15;
 
         /// <summary>
-        /// txbLand control.
+        /// lblLand control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txbLand;
+        protected global::System.Web.UI.WebControls.Label lblLand;
 
         /// <summary>
-        /// btnWijzigen control.
+        /// Label16 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnWijzigen;
+        protected global::System.Web.UI.WebControls.Label Label16;
+
+        /// <summary>
+        /// lblPrijs control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPrijs;
+
+        /// <summary>
+        /// lblTotaalText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTotaalText;
+
+        /// <summary>
+        /// lblStorten control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblStorten;
+
+        /// <summary>
+        /// btnverwijderen control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnverwijderen;
 
         /// <summary>
         /// GridView1 control.
@@ -418,5 +337,23 @@ namespace ProjectGroenBos.Reservering
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView GridView1;
+
+        /// <summary>
+        /// GridView2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GridView2;
+
+        /// <summary>
+        /// SqlDataSource1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
     }
 }
