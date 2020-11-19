@@ -91,7 +91,7 @@
     <asp:Label ID="LblBevestiging" runat="server" CssClass="labelbevestigingplanning"></asp:Label>
 
 
-     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="Nummer" DataSourceID="SqlDataSource2" ForeColor="#333333" GridLines="None" CssClass="gridviewplanning" Width="50px" Height="100px" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AllowPaging="True">
+     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="Nummer" DataSourceID="SqlDataSource2" ForeColor="#333333" GridLines="None" CssClass="gridviewplanning" Width="50px" Height="100px"  OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AllowPaging="True">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
             <asp:BoundField DataField="Nummer" HeaderText="Nummer" ReadOnly="True" SortExpression="Nummer" />
