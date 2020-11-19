@@ -1,136 +1,25 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Restaurant/Restaurant.Master" AutoEventWireup="true" CodeBehind="Bestellingenoverzicht.aspx.cs" Inherits="ProjectGroenBos.Restaurant.WebForm1" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Restaurant/Restaurant.Master" AutoEventWireup="true" CodeBehind="bestellingenoverzicht.aspx.cs" Inherits="ProjectGroenBos.bestellingenoverzicht" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <link href="css/bestellingenoverzicht.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="werkgebied">
-        <h1 class="paginatitel">Bestellingen overzicht</h1>
-
-        <div class="bestellingvak">
-            <div class="tafelnummer">
-                <asp:Label ID="lblTafelnr1" runat="server" Text="Tafelnr"></asp:Label>
-            </div>
-            <div class="dtlvak">
-                <asp:DataList ID="dtlBestelling1" class="Datalist" runat="server" DataSourceID="SqlDataSource1">
-                    <ItemTemplate>
-                        <div class="bestellingrij">
-                            <asp:Image ID="imgProduct" class="ProductImg" runat="server" ImageUrl='<%# Eval("Afbeelding") %>' />
-                            <asp:Label ID="lblProduct" class="ProductNaam" runat="server" Text='<%# Eval("Naam") %>'></asp:Label>
-                            <asp:Label ID="lblX" class="Aantal" runat="server" Text="x"></asp:Label>
-                            <asp:Label ID="lblAantal" class="Aantal" runat="server" Text='<%# Eval("Aantal") %>'></asp:Label>
-                        </div>
-                    </ItemTemplate>
-                </asp:DataList>
-            </div>
-            <asp:Button ID="btnGereed1" class="gereedknop" runat="server" Text="Gereed" OnClick="btnGereed1_Click" />
-        </div>
-
-        <div class="bestellingvak">
-            <div class="tafelnummer">
-                <asp:Label ID="lblTafelnr2" runat="server" Text="Tafelnr"></asp:Label>
-            </div>
-            <div class="dtlvak">
-                <asp:DataList ID="dtlBestelling2" class="Datalist" runat="server" DataSourceID="SqlDataSource2">
-                    <ItemTemplate>
-                        <div class="bestellingrij">
-                            <asp:Image ID="imgProduct" class="ProductImg" runat="server" ImageUrl='<%# Eval("Afbeelding") %>' />
-                            <asp:Label ID="lblProduct" class="ProductNaam" runat="server" Text='<%# Eval("Naam") %>'></asp:Label>
-                            <asp:Label ID="lblX" class="Aantal" runat="server" Text="x"></asp:Label>
-                            <asp:Label ID="lblAantal" class="Aantal" runat="server" Text='<%# Eval("Aantal") %>'></asp:Label>
-                        </div>
-                    </ItemTemplate>
-                </asp:DataList>
-            </div>
-            <asp:Button ID="btnGereed2" class="gereedknop" runat="server" Text="Gereed" OnClick="btnGereed2_Click" />
-        </div>
-
-        <div class="bestellingvak">
-            <div class="tafelnummer">
-                <asp:Label ID="lblTafelnr3" runat="server" Text="Tafelnr"></asp:Label>
-            </div>
-            <div class="dtlvak">
-                <asp:DataList ID="dtlBestelling3" class="Datalist" runat="server" DataSourceID="SqlDataSource3">
-                    <ItemTemplate>
-                        <div class="bestellingrij">
-                            <asp:Image ID="imgProduct" class="ProductImg" runat="server" ImageUrl='<%# Eval("Afbeelding") %>' />
-                            <asp:Label ID="lblProduct" class="ProductNaam" runat="server" Text='<%# Eval("Naam") %>'></asp:Label>
-                            <asp:Label ID="lblX" class="Aantal" runat="server" Text="x"></asp:Label>
-                            <asp:Label ID="lblAantal" class="Aantal" runat="server" Text='<%# Eval("Aantal") %>'></asp:Label>
-
-                        </div>
-                    </ItemTemplate>
-                </asp:DataList>
-            </div>
-            <asp:Button ID="btnGereed3" class="gereedknop" runat="server" Text="Gereed" OnClick="btnGereed3_Click" />
-        </div>
-
-        <div class="bestellingvak">
-            <div class="tafelnummer">
-                <asp:Label ID="lblTafelnr4" runat="server" Text="Tafelnr"></asp:Label>
-            </div>
-            <div class="dtlvak">
-                <asp:DataList ID="dtlBestelling4" class="Datalist" runat="server" DataSourceID="SqlDataSource4">
-                    <ItemTemplate>
-                        <div class="bestellingrij">
-                            <asp:Image ID="imgProduct" class="ProductImg" runat="server" ImageUrl='<%# Eval("Afbeelding") %>' />
-                            <asp:Label ID="lblProduct" class="ProductNaam" runat="server" Text='<%# Eval("Naam") %>'></asp:Label>
-                            <asp:Label ID="lblX" class="Aantal" runat="server" Text="x"></asp:Label>
-                            <asp:Label ID="lblAantal" class="Aantal" runat="server" Text='<%# Eval("Aantal") %>'></asp:Label>
-
-                        </div>
-                    </ItemTemplate>
-                </asp:DataList>
-            </div>
-            <asp:Button ID="btnGereed4" class="gereedknop" runat="server" Text="Gereed" />
-        </div>
-
-        <div class="bestellingvak">
-            <div class="tafelnummer">
-                <asp:Label ID="lblTafelnr5" runat="server" Text="Tafelnr"></asp:Label>
-            </div>
-            <div class="dtlvak">
-                <asp:DataList ID="dtlBestelling5" class="Datalist" runat="server" DataSourceID="SqlDataSource5">
-                    <ItemTemplate>
-                        <div class="bestellingrij">
-                            <asp:Image ID="imgProduct" class="ProductImg" runat="server" ImageUrl='<%# Eval("Afbeelding") %>' />
-                            <asp:Label ID="lblProduct" class="ProductNaam" runat="server" Text='<%# Eval("Naam") %>'></asp:Label>
-                            <asp:Label ID="lblX" class="Aantal" runat="server" Text="x"></asp:Label>
-                            <asp:Label ID="lblAantal" class="Aantal" runat="server" Text='<%# Eval("Aantal") %>'></asp:Label>
-
-                        </div>
-                    </ItemTemplate>
-                </asp:DataList>
-            </div>
-            <asp:Button ID="btnGereed5" class="gereedknop" runat="server" Text="Gereed" />
-        </div>
-
-
-
-
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:2020-BIM02-P1-P2-GroenbosConnectionString %>" SelectCommand="SELECT *
-        FROM (Item INNER JOIN Item_RestaurantReservering ON Item.ID = Item_RestaurantReservering.ItemID) INNER JOIN RestaurantReservering ON Item_RestaurantReservering.RestaurantReserveringID = RestaurantReservering.ID
-        WHERE Status = 'Besteld' AND Item_RestaurantReservering.Ronde = (SELECT MIN(Item_RestaurantReservering.Ronde) FROM Item_RestaurantReservering WHERE Status = 'Besteld')"></asp:SqlDataSource>
-        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:2020-BIM02-P1-P2-GroenbosConnectionString %>" SelectCommand="SELECT *
-        FROM (Item INNER JOIN Item_RestaurantReservering ON Item.ID = Item_RestaurantReservering.ItemID) INNER JOIN RestaurantReservering ON Item_RestaurantReservering.RestaurantReserveringID = RestaurantReservering.ID
-        WHERE Status = 'Besteld' AND Item_RestaurantReservering.Ronde = 
-        (SELECT MIN(Item_RestaurantReservering.Ronde) FROM Item_RestaurantReservering WHERE Status = 'Besteld' AND Item_RestaurantReservering.Ronde &gt;
-        (SELECT MIN(Item_RestaurantReservering.Ronde) FROM Item_RestaurantReservering WHERE Status = 'Besteld'))"></asp:SqlDataSource>
-        <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:2020-BIM02-P1-P2-GroenbosConnectionString %>" SelectCommand="SELECT *
-        FROM (Item INNER JOIN Item_RestaurantReservering ON Item.ID = Item_RestaurantReservering.ItemID) INNER JOIN RestaurantReservering ON Item_RestaurantReservering.RestaurantReserveringID = RestaurantReservering.ID
-        WHERE Status = 'Besteld' AND Item_RestaurantReservering.Ronde = 
-        (SELECT MIN(Item_RestaurantReservering.Ronde) FROM Item_RestaurantReservering WHERE Status = 'Besteld' AND Item_RestaurantReservering.Ronde &gt;(SELECT MIN(Item_RestaurantReservering.Ronde) FROM Item_RestaurantReservering WHERE Status = 'Besteld' AND Item_RestaurantReservering.Ronde &gt;
-        (SELECT MIN(Item_RestaurantReservering.Ronde) FROM Item_RestaurantReservering WHERE Status = 'Besteld')))"></asp:SqlDataSource>
-        <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:2020-BIM02-P1-P2-GroenbosConnectionString %>" SelectCommand="SELECT *
-        FROM (Item INNER JOIN Item_RestaurantReservering ON Item.ID = Item_RestaurantReservering.ItemID) INNER JOIN RestaurantReservering ON Item_RestaurantReservering.RestaurantReserveringID = RestaurantReservering.ID
-        WHERE Status = 'Besteld' AND Item_RestaurantReservering.Ronde = 
-        (SELECT MIN(Item_RestaurantReservering.Ronde) FROM Item_RestaurantReservering WHERE Status = 'Besteld' AND Item_RestaurantReservering.Ronde &gt;(SELECT MIN(Item_RestaurantReservering.Ronde) FROM Item_RestaurantReservering WHERE Status = 'Besteld' AND Item_RestaurantReservering.Ronde &gt;
-        (SELECT MIN(Item_RestaurantReservering.Ronde) FROM Item_RestaurantReservering WHERE Status = 'Besteld' AND Item_RestaurantReservering.Ronde &gt;(SELECT MIN(Item_RestaurantReservering.Ronde) FROM Item_RestaurantReservering WHERE Status = 'Besteld'))))"></asp:SqlDataSource>
-        <asp:SqlDataSource ID="SqlDataSource5" runat="server" ConnectionString="<%$ ConnectionStrings:2020-BIM02-P1-P2-GroenbosConnectionString %>" SelectCommand="SELECT *
-        FROM (Item INNER JOIN Item_RestaurantReservering ON Item.ID = Item_RestaurantReservering.ItemID) INNER JOIN RestaurantReservering ON Item_RestaurantReservering.RestaurantReserveringID = RestaurantReservering.ID
-        WHERE Status = 'Besteld' AND Item_RestaurantReservering.Ronde = 
-        (SELECT MIN(Item_RestaurantReservering.Ronde) FROM Item_RestaurantReservering WHERE Status = 'Besteld' AND Item_RestaurantReservering.Ronde &gt;(SELECT MIN(Item_RestaurantReservering.Ronde) FROM Item_RestaurantReservering WHERE Status = 'Besteld' AND Item_RestaurantReservering.Ronde &gt;
-        (SELECT MIN(Item_RestaurantReservering.Ronde) FROM Item_RestaurantReservering WHERE Status = 'Besteld' AND Item_RestaurantReservering.Ronde &gt;(SELECT MIN(Item_RestaurantReservering.Ronde) FROM Item_RestaurantReservering WHERE Status = 'Besteld' AND Item_RestaurantReservering.Ronde &gt;(SELECT MIN(Item_RestaurantReservering.Ronde) FROM Item_RestaurantReservering WHERE Status = 'Besteld')))))"></asp:SqlDataSource>
-
-    </div>
+    <asp:GridView ID="GridView1" runat="server" Height="367px" Width="575px" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" style="margin-right: 62">
+        <Columns>
+            <asp:BoundField DataField="Naam" HeaderText="Naam" SortExpression="Naam" />
+            <asp:BoundField DataField="Aantal" HeaderText="Aantal" SortExpression="Aantal" />
+            <asp:BoundField DataField="ReserveringsNr" HeaderText="ReserveringsNr" InsertVisible="False" ReadOnly="True" SortExpression="ReserveringsNr" />
+            <asp:BoundField DataField="Ronde" HeaderText="Ronde" SortExpression="Ronde" />
+            <asp:CommandField EditText="Wijzigen" ShowEditButton="True" />
+            <asp:TemplateField ShowHeader="False">
+                <ItemTemplate>
+                    <asp:LinkButton OnClick="lnkClickMe_Click"
+                        runat="server" Text="Gereed" CommandArgument='<%# Eval("Naam") + ";" + Eval("ReserveringsNr") + ";" + Eval("Ronde")%>' />
+                </ItemTemplate>
+            </asp:TemplateField>
+            
+        </Columns>
+    </asp:GridView>
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:2020-BIM02-P1-P2-GroenbosConnectionString %>" SelectCommand="SELECT Item.Naam, Item_RestaurantReservering.Aantal, RestaurantReservering.ID AS ReserveringsNr, Item_RestaurantReservering.Ronde
+FROM (Item INNER JOIN Item_RestaurantReservering ON Item.ID = Item_RestaurantReservering.ItemID) INNER JOIN RestaurantReservering ON Item_RestaurantReservering.RestaurantReserveringID = RestaurantReservering.ID"></asp:SqlDataSource>
+    <link rel="stylesheet" href=" css/Bestellingenoverzicht.css">
 </asp:Content>

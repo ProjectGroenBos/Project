@@ -6,17 +6,28 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
-using System.Text.RegularExpressions;
 
 
 namespace ProjectGroenBos.Restaurant
 {
     public partial class WebForm3 : System.Web.UI.Page
     {
-
-		protected void Page_Load(object sender, EventArgs e)
+        protected void Page_Load(object sender, EventArgs e)
         {
-            DataTable dt = new DataTable();
+
+			// neem de tafel op vanuit het tafeloverzicht
+			if (Session["tafelnr"] != null)
+			{
+				lblTafel.Text = Session["Tafelnr"].ToString();
+			}
+			else
+			{
+				lblTafel.Text = "besteld";
+			}
+
+			DataTable dt = new DataTable();
+
+
             dt = (DataTable)Session["bestelitems"];
             if (dt != null)
             {
@@ -37,7 +48,10 @@ namespace ProjectGroenBos.Restaurant
 				dt2.Columns.Add("Prijs");
 				dt2.Columns.Add("Hoeveelheid");
 				dt2.Columns.Add("TotalePrijs");
+
+
 				dt2.Columns.Add("Id");
+
 
 				if (Request.QueryString["id"] != null)
 				{
@@ -57,38 +71,29 @@ namespace ProjectGroenBos.Restaurant
 						dr["sno"] = 1;
 						dr["Afbeelding"] = ds.Tables[0].Rows[0]["Afbeelding"].ToString();
 						dr["Naam"] = ds.Tables[0].Rows[0]["Naam"].ToString();
-						dr["Prijs"] = ds.Tables[0].Rows[0]["Prijs"].ToString();
+						dr["€ " + "Prijs"] = ds.Tables[0].Rows[0]["Prijs"].ToString();
 						dr["Hoeveelheid"] = Request.QueryString["Hoeveelheid"];
+
+
 						dr["Id"] = Request.QueryString["id"];
+
+
+
+						dr["Id"] = Request.QueryString["id"];
+
 
 						double prijs = Convert.ToDouble(ds.Tables[0].Rows[0]["Prijs"].ToString());
 						double hoeveelheid = Convert.ToInt16(Request.QueryString["Hoeveelheid"].ToString());
 						double totaleprijs = prijs * hoeveelheid;
 						dr["TotalePrijs"] = totaleprijs;
 
-						Session["totprijs"] = totaleprijs;
-
-						//
-						string PrijsMetEuro = "€" + prijs.ToString();
-
-						dr["Prijs"] = PrijsMetEuro;
-
-						string TotalePrijsMetEuro = "€" + totaleprijs.ToString();
-
-						dr["TotalePrijs"] = TotalePrijsMetEuro;
-
-						string HoeveelheidMetX = hoeveelheid.ToString() + "x";
-
-						dr["Hoeveelheid"] = HoeveelheidMetX;
-						//
-
 						dt2.Rows.Add(dr);
 						GridView2.DataSource = dt2;
 						GridView2.DataBind();
 
 						Session["bestelitems"] = dt2;
-						GridView2.FooterRow.Cells[3].Text = "Totaal ";
-						GridView2.FooterRow.Cells[5].Text = "€" + grandtotal().ToString();
+						GridView2.FooterRow.Cells[4].Text = "Totaal ";
+						GridView2.FooterRow.Cells[5].Text = "€ " + grandtotal().ToString();
 						Response.Redirect("bestellingopnemen.aspx");
 					}
 					else
@@ -113,36 +118,27 @@ namespace ProjectGroenBos.Restaurant
 						dr["Naam"] = ds.Tables[0].Rows[0]["Naam"].ToString();
 						dr["Prijs"] = ds.Tables[0].Rows[0]["Prijs"].ToString();
 						dr["Hoeveelheid"] = Request.QueryString["Hoeveelheid"];
+
+
 						dr["Id"] = Request.QueryString["id"];
+
+
+
+						dr["Id"] = Request.QueryString["id"];
+
 
 						double prijs = Convert.ToDouble(ds.Tables[0].Rows[0]["Prijs"].ToString());
 						double hoeveelheid = Convert.ToInt16(Request.QueryString["Hoeveelheid"].ToString());
 						double totaleprijs = prijs * hoeveelheid;
 						dr["TotalePrijs"] = totaleprijs;
 
-						Session["totprijs"] = totaleprijs;
-
-						//
-						string PrijsMetEuro = "€" + prijs.ToString();
-
-						dr["Prijs"] = PrijsMetEuro;
-
-						string TotalePrijsMetEuro = "€" + totaleprijs.ToString();
-
-						dr["TotalePrijs"] = TotalePrijsMetEuro;
-
-						string HoeveelheidMetX = hoeveelheid.ToString() + "x";
-
-						dr["Hoeveelheid"] = HoeveelheidMetX;
-						//
-
 						dt2.Rows.Add(dr);
 						GridView2.DataSource = dt2;
 						GridView2.DataBind();
 
 						Session["bestelitems"] = dt2;
-						GridView2.FooterRow.Cells[3].Text = "Totaal ";
-						GridView2.FooterRow.Cells[5].Text = "€" + grandtotal().ToString();
+						GridView2.FooterRow.Cells[4].Text = "Totaal ";
+						GridView2.FooterRow.Cells[5].Text = "€ " + grandtotal().ToString();
 						Response.Redirect("bestellingopnemen.aspx");
 					}
 				}
@@ -153,15 +149,14 @@ namespace ProjectGroenBos.Restaurant
 					GridView2.DataBind();
 					if (GridView2.Rows.Count > 0)
 					{
-						GridView2.FooterRow.Cells[3].Text = "Totaal ";
-						GridView2.FooterRow.Cells[5].Text = "€" + grandtotal().ToString();
+						GridView2.FooterRow.Cells[4].Text = "Totaal ";
+						GridView2.FooterRow.Cells[5].Text = "€ " + grandtotal().ToString();
 					}
 				}
 			}
 
 		}
 
-        
 
         protected void DataList1_ItemCommand(object source, DataListCommandEventArgs e)
         {
@@ -181,7 +176,7 @@ namespace ProjectGroenBos.Restaurant
 			double gtotal = 0;
 			while (i < nrow)
 			{
-				gtotal = gtotal + Convert.ToDouble(Session["totprijs"]);
+				gtotal = gtotal + Convert.ToDouble(dt2.Rows[i]["TotalePrijs"].ToString());
 
 				i = i + 1;
 			}
@@ -280,7 +275,7 @@ namespace ProjectGroenBos.Restaurant
 		}
 
 		protected void btnBestellen_Click(object sender, EventArgs e)
-        {
+		{
 			int resnr;
 			int rondenr;
 
@@ -302,11 +297,7 @@ namespace ProjectGroenBos.Restaurant
 			//NIEUWE ROW TOEVOEGEN
 			foreach (DataRow row in Besteltable.Rows)
 			{
-				string hoeveelheid2 = row["Hoeveelheid"].ToString();
-				string value = Regex.Replace(hoeveelheid2, "[A-Za-z ]", "");
-				double HoeveelheidInDouble = double.Parse(value);
-
-				myquery = "INSERT into Item_RestaurantReservering (ItemID, RestaurantReserveringID, Ronde, Aantal, Status) VALUES (" + row["Id"] + "," + resnr + ", " + rondenr + ", " + HoeveelheidInDouble.ToString() + ", 'Besteld') ";
+				myquery = "INSERT into Item_RestaurantReservering (ItemID, RestaurantReserveringID, Ronde, Aantal, Status) VALUES (" + row["Id"] + "," + resnr + ", " + rondenr + ", " + row["Hoeveelheid"] + ", 'Besteld') ";
 				cmd.CommandText = myquery;
 				cmd.Connection = scon;
 				da.SelectCommand = cmd;
@@ -332,8 +323,11 @@ namespace ProjectGroenBos.Restaurant
 
 			scon.Close();
 
-			Response.Redirect("bestellingenoverzicht.aspx");
+			Response.Redirect("bestellinggelukt.aspx");
 
-        }
-    }
+		}
+
+
+
+	}
 }
