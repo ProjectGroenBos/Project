@@ -8,71 +8,71 @@
     <br />
     <br />
     <asp:Label ID="Label11" runat="server" Text="Gast nummer:" CssClass="labelsnieuw"></asp:Label>
-    <asp:Label ID="lblGastnummer" runat="server" CssClass="textboxchaos"></asp:Label>
+    <asp:Label ID="lblGastnummer" runat="server" CssClass="labelsnieuw"></asp:Label>
 
     <br />
     <asp:Label ID="Label1" runat="server" Text="Voornaam:" CssClass="labelsnieuw"></asp:Label>
-    <asp:Label ID="lblVoornaam" runat="server" CssClass="textboxchaos"></asp:Label>
+    <asp:Label ID="lblVoornaam" runat="server" CssClass="labelsnieuw"></asp:Label>
 
     <br />
     <asp:Label ID="Label2" runat="server" Text="Tussenvoegsel:" CssClass="labelsnieuw"></asp:Label>
-    <asp:Label ID="lblTussenvoegsel" runat="server" CssClass="textboxchaos"></asp:Label>
+    <asp:Label ID="lblTussenvoegsel" runat="server" CssClass="labelsnieuw"></asp:Label>
 
     <br />
     <asp:Label ID="Label3" runat="server" Text="Achternaam" CssClass="labelsnieuw"></asp:Label>
-    <asp:Label ID="lblAchternaam" runat="server" CssClass="textboxchaos"></asp:Label>
+    <asp:Label ID="lblAchternaam" runat="server" CssClass="labelsnieuw"></asp:Label>
 
     <br />
     <asp:Label ID="Label4" runat="server" Text="E-mail" CssClass="labelsnieuw"></asp:Label>
-    <asp:Label ID="lblEmail" runat="server" CssClass="textboxchaos"></asp:Label>
+    <asp:Label ID="lblEmail" runat="server" CssClass="labelsnieuw"></asp:Label>
 
     <br />
     <asp:Label ID="Label5" runat="server" Text="Telefoonnummer" CssClass="labelsnieuw"></asp:Label>
-    <asp:Label ID="lblTelefoonnummer" runat="server" CssClass="textboxchaos"></asp:Label>
+    <asp:Label ID="lblTelefoonnummer" runat="server" CssClass="labelsnieuw"></asp:Label>
 
     <br />
     <asp:Label ID="Label6" runat="server" Text="Reseveringsnummer:" CssClass="labelsnieuw"></asp:Label>
-    <asp:Label ID="lblReserveringsnummer" runat="server" CssClass="textboxchaos"></asp:Label>
+    <asp:Label ID="lblReserveringsnummer" runat="server" CssClass="labelsnieuw"></asp:Label>
 
     <br />
     <asp:Label ID="Label7" runat="server" Text="Aantal Personen:" CssClass="labelsnieuw"></asp:Label>
-    <asp:Label ID="lblAantalPersonen" runat="server" CssClass="textboxchaos"></asp:Label>
+    <asp:Label ID="lblAantalPersonen" runat="server" CssClass="labelsnieuw"></asp:Label>
 
     <br />
     <asp:Label ID="Label8" runat="server" Text="Opmerkingen" CssClass="labelsnieuw"></asp:Label>
-    <asp:Label ID="lblOpmerkingen" runat="server" CssClass="textboxchaos"></asp:Label>
+    <asp:Label ID="lblOpmerkingen" runat="server" CssClass="labelsnieuw"></asp:Label>
 
     <br />
     <asp:Label ID="Label9" runat="server" Text="Aankomstdatum:" CssClass="labelsnieuw"></asp:Label>
-    <asp:Label ID="lblAankomstdatum" runat="server" CssClass="textboxchaos"></asp:Label>
+    <asp:Label ID="lblAankomstdatum" runat="server" CssClass="labelsnieuw"></asp:Label>
 
     <br />
     <asp:Label ID="Label10" runat="server" Text="Vertrekdatum:" CssClass="labelsnieuw"></asp:Label>
-    <asp:Label ID="lblVertrekdatum" runat="server" CssClass="textboxchaos"></asp:Label>
+    <asp:Label ID="lblVertrekdatum" runat="server" CssClass="labelsnieuw"></asp:Label>
 
     <br />
     <asp:Label ID="Label12" runat="server" Text="Straat:" CssClass="labelsnieuw"></asp:Label>
-    <asp:Label ID="lblStraat" runat="server" Text="" CssClass="textboxchaos"></asp:Label>
+    <asp:Label ID="lblStraat" runat="server" CssClass="labelsnieuw"></asp:Label>
 
     <br />
     <asp:Label ID="Label13" runat="server" Text="huisnummer:" CssClass="labelsnieuw"></asp:Label>
-    <asp:Label ID="lblHuisnummer" runat="server" Text="" CssClass="textboxchaos"></asp:Label>
+    <asp:Label ID="lblHuisnummer" runat="server" CssClass="labelsnieuw"></asp:Label>
 
     <br />
     <asp:Label ID="Label14" runat="server" Text="Postcode:" CssClass="labelsnieuw"></asp:Label>
-    <asp:Label ID="lblPostcode" runat="server" Text="" CssClass="textboxchaos"></asp:Label>
+    <asp:Label ID="lblPostcode" runat="server" CssClass="labelsnieuw"></asp:Label>
 
     <br />
     <asp:Label ID="Label15" runat="server" Text="Land:" CssClass="labelsnieuw"></asp:Label>
-    <asp:Label ID="lblLand" runat="server" Text="" CssClass="textboxchaos"></asp:Label>
+    <asp:Label ID="lblLand" runat="server" CssClass="labelsnieuw"></asp:Label>
 
     <br />
     <asp:Label ID="Label16" runat="server" Text="Totaalprijs" CssClass="labelsnieuw"></asp:Label>
-    <asp:Label ID="lblPrijs" runat="server" Text="" CssClass="textboxchaos"></asp:Label>
+    <asp:Label ID="lblPrijs" runat="server" CssClass="labelsnieuw"></asp:Label>
 
     <br />
         <asp:Label ID="lblTotaalText" runat="server" CssClass="labelsnieuw" Text="Bedrag te storten"></asp:Label>
-        <asp:Label ID="lblStorten" runat="server" CssClass="textboxchaos"></asp:Label>
+        <asp:Label ID="lblStorten" runat="server" CssClass="labelsnieuw"></asp:Label>
 
     <br />
     <asp:Button ID="btnverwijderen" runat="server" Text="Annuleren" CssClass="labelsnieuw" OnClick="btnWijzigen_Click" />
