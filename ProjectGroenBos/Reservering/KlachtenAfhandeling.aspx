@@ -76,7 +76,7 @@
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
     <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="ddlCategorie"
-        ErrorMessage="Dit veld is verplicht." InitialValue="--Selecteer--"></asp:RequiredFieldValidator>
+        ErrorMessage="Selecteer is geen geldige waarde." InitialValue="--Selecteer--"></asp:RequiredFieldValidator>
 
 
 
@@ -86,9 +86,16 @@
 
     <asp:Label CssClass="labelsnieuw" runat="server" Text="Klacht"></asp:Label>
 
+    <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="txbKlacht"
+        ErrorMessage="Dit veld is verplicht."></asp:RequiredFieldValidator>
+
+
+
     <br />
 
     <asp:TextBox ID="txbKlacht" CssClass="textboxchaos" runat="server" TextMode="MultiLine" Height="200px" Width="300px"></asp:TextBox>
+
+
 
     <br />
     <br />
