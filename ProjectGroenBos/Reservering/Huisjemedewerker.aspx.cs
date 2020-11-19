@@ -1,5 +1,15 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Web;
 using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Net.Mail;
+using System.IO;
+
 
 namespace ProjectGroenBos.Reservering
 {
@@ -34,34 +44,84 @@ namespace ProjectGroenBos.Reservering
         {
             //Bij het klikken op de knop worden de gegevens gecheckt en worden gegevens doorgestuurd om het later te gebruiken.
 
-            int aantalPersonen = int.Parse(txbAantalPersonen.Text);
-            string aankomstCookie = txbAankomstdatum.Text;
-            string vertrekCookie = txbVertrekdatum.Text;
-            int bungalow = int.Parse(txbHuisje.Text);
+            //int aantalPersonen = int.Parse(txbAantalPersonen.Text);
+            //string aankomstCookie = txbAankomstdatum.Text;
+            //string vertrekCookie = txbVertrekdatum.Text;
+            //int bungalow = int.Parse(lblHuisjeNummer.Text);
 
-            DateTime aankomst = DateTime.Parse(txbAankomstdatum.Text);
-            DateTime vertrek = DateTime.Parse(txbVertrekdatum.Text);
+            //DateTime vandaag = DateTime.Today;
+            //DateTime aankomst = DateTime.Parse(txbAankomstdatum.Text);
+            //DateTime vertrek = DateTime.Parse(txbVertrekdatum.Text);
+
+            //aankomst.ToShortDateString();
+            //vertrek.ToShortDateString();
+            //vandaag.ToShortDateString();
+
+
+            //if (aankomst < vertrek && aankomst > vandaag && vertrek > vandaag)
+            //{
+            Session["Personen"] = txbAantalPersonen.Text;
+            Session["Aankomst"] = txbAankomstdatum.Text;
+            Session["Vertrek"] = txbVertrekdatum.Text;
+            Session["Bungalow"] = lblHuisjeNummer.Text;
+
+            Response.Redirect("ReserveringenMedewerkerGegevens.aspx");
+            //}
+            //else if (aankomst == vandaag || vertrek == vandaag)
+            //{
+            //    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('U kunt niet vertrekken of aankomen op de dag van reservering.')", true);
+            //}
+            //else if (vertrek == aankomst)
+            //{
+            //    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Vertrekdatum is later als de aankomstdatum. Controleer deze nog even alstublieft.')", true);
+            //}
+            //else
+            //{
+            //    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('U kunt niet voor het verleden reserveren. Probeer het opnieuw.')", true);
+            //}
+        }
+
+        protected void bntZoekHuis_Click(object sender, EventArgs e)
+        {
+            DateTime aankomstDatum = DateTime.Parse(txbAankomstdatum.Text);
+            DateTime vertrekDatum = DateTime.Parse(txbVertrekdatum.Text);
             DateTime vandaag = DateTime.Today;
 
-            aankomst.ToShortDateString();
-            vertrek.ToShortDateString();
+
+            aankomstDatum.ToShortDateString();
+            vertrekDatum.ToShortDateString();
             vandaag.ToShortDateString();
+            int aantalPersonen = int.Parse(txbAantalPersonen.Text);
 
-
-            if (aankomst < vertrek && aankomst > vandaag && vertrek > vandaag)
+            if (aankomstDatum < vertrekDatum && aankomstDatum > vandaag && vertrekDatum > vandaag)
             {
-                Session["Personen"] = txbAantalPersonen.Text;
-                Session["Aankomst"] = txbAankomstdatum.Text;
-                Session["Vertrek"] = txbVertrekdatum.Text;
-                Session["Bungalow"] = bungalow.ToString();
 
-                Response.Redirect("ReserveringenMedewerkerGegevens.aspx");
+                //dataset om de gridview te vullen
+                using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["2020-BIM02-P1-P2-GroenbosConnectionString"].ConnectionString))
+                {
+                    con.Open();
+                    string query = "select * from  [dbo].[ZoekHuisjes](@GewensteAankomstDatum, @GewensteVertrekDatum, @personen)";
+
+                    SqlCommand cmd = new SqlCommand(query, con);
+                    cmd.Parameters.AddWithValue("@GewensteAankomstDatum", aankomstDatum);
+                    cmd.Parameters.AddWithValue("@GewensteVertrekDatum", vertrekDatum);
+                    cmd.Parameters.AddWithValue("@personen", aantalPersonen);
+                    cmd.ExecuteNonQuery();
+
+                    DataTable dt = new DataTable();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(dt);
+                    GridView1.DataSource = dt;
+                    GridView1.DataBind();
+                    con.Close();
+
+                }
             }
-            else if (aankomst == vandaag || vertrek == vandaag)
+            else if (aankomstDatum == vandaag || vertrekDatum == vandaag)
             {
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('U kunt niet vertrekken of aankomen op de dag van reservering.')", true);
             }
-            else if (vertrek == aankomst)
+            else if (vertrekDatum == aankomstDatum)
             {
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Vertrekdatum is later als de aankomstdatum. Controleer deze nog even alstublieft.')", true);
             }
@@ -69,6 +129,17 @@ namespace ProjectGroenBos.Reservering
             {
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('U kunt niet voor het verleden reserveren. Probeer het opnieuw.')", true);
             }
+
+
+
+
+        }
+
+        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lblHuisjeNummer.Text = (string)GridView1.SelectedRow.Cells[1].Text;
+
+
         }
 
 
