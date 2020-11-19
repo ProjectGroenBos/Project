@@ -89,10 +89,8 @@
     <Content Include="Financien\Rekeningen.aspx" />
     <Content Include="Financien\Reserveringen.aspx" />
     <Content Include="Financien\InkoopAanvraagScherm.aspx" />
-    <Content Include="Financien\WebForm5.aspx" />
     <Content Include="Gerechten overzicht.aspx" />
     <Content Include="Global.asax" />
-    <Content Include="Homepagina.aspx" />
     <Content Include="Images\deleteRow.png" />
     <Content Include="Images\Logo4.png" />
     <Content Include="Images\Logo6.png" />
@@ -418,11 +416,9 @@
     <Content Include="Recreatie\img\winkelwagen.png" />
     <Content Include="Recreatie\img\Winkelwagenicoon %282%29.png" />
     <Content Include="Recreatie\Overzicht.aspx" />
-    <Content Include="Recreatie\Planning.aspx" />
     <Content Include="Recreatie\Start.aspx" />
     <Content Include="Recreatie\Uitloggen.aspx" />
     <Content Include="Recreatie\Voorraad.aspx" />
-    <Content Include="Recreatie\Voorraadfout.aspx" />
     <Content Include="Recreatie\Voorraadmuteren.aspx" />
     <Content Include="Reservering\css\Stylejuist.css" />
     <Content Include="Reservering\home.aspx" />
@@ -771,13 +767,6 @@
     <Compile Include="Financien\InkoopAanvraagScherm.aspx.designer.cs">
       <DependentUpon>InkoopAanvraagScherm.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Financien\WebForm5.aspx.cs">
-      <DependentUpon>WebForm5.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Financien\WebForm5.aspx.designer.cs">
-      <DependentUpon>WebForm5.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Gerechten overzicht.aspx.cs">
       <DependentUpon>Gerechten overzicht.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -787,13 +776,6 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="Homepagina.aspx.cs">
-      <DependentUpon>Homepagina.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Homepagina.aspx.designer.cs">
-      <DependentUpon>Homepagina.aspx</DependentUpon>
     </Compile>
     <Compile Include="obj\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -818,12 +800,6 @@
     </Compile>
     <Compile Include="Recreatie\Overzicht.aspx.designer.cs">
       <DependentUpon>Overzicht.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Recreatie\Planning.aspx.cs">
-      <DependentUpon>Planning.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Recreatie\Planning.aspx.designer.cs">
-      <DependentUpon>Planning.aspx</DependentUpon>
     </Compile>
     <Compile Include="Recreatie\Site1.Master.cs">
       <DependentUpon>Site1.Master</DependentUpon>
@@ -852,12 +828,6 @@
     </Compile>
     <Compile Include="Recreatie\Voorraad.aspx.designer.cs">
       <DependentUpon>Voorraad.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Recreatie\Voorraadfout.aspx.cs">
-      <DependentUpon>Voorraadfout.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Recreatie\Voorraadfout.aspx.designer.cs">
-      <DependentUpon>Voorraadfout.aspx</DependentUpon>
     </Compile>
     <Compile Include="Recreatie\Voorraadmuteren.aspx.cs">
       <DependentUpon>Voorraadmuteren.aspx</DependentUpon>
