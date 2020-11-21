@@ -7,7 +7,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="werkgebied">
-        <asp:Label ID="lblBetalen" runat="server" Text="betalen"></asp:Label>
+        <asp:Label ID="lblBetalen" class="paginatitel" runat="server" Text="Afrekenen"></asp:Label>
         <asp:Label ID="lbltafel" runat="server" Text="Tafel"></asp:Label>
             <div class="Factuurregelbak">
             <asp:GridView class="Gdv1" ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" AllowSorting="True" GridLines="None">
