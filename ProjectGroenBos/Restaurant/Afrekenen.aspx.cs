@@ -23,8 +23,24 @@ namespace ProjectGroenBos.Restaurant
 			{
 				// Response.Redirect("tafeloverzicht.aspx");
 			}
+
+			// Kijken welke totaalprijs hij moet berekenen
+
 		}
 
-        
-    }
+		protected void btnRekening_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		protected void btnBetalen_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		protected void btnContant_Click(object sender, EventArgs e)
+		{
+
+		}
+	}
 }

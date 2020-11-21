@@ -60,13 +60,22 @@ namespace ProjectGroenBos.Restaurant
         protected global::System.Web.UI.WebControls.Label lblTotaal;
 
         /// <summary>
-        /// lblPrijs control.
+        /// GridViewTotaal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPrijs;
+        protected global::System.Web.UI.WebControls.GridView GridViewTotaal;
+
+        /// <summary>
+        /// SqlDataSourceTotaal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourceTotaal;
 
         /// <summary>
         /// btnRekening control.
@@ -85,5 +94,14 @@ namespace ProjectGroenBos.Restaurant
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnBetalen;
+
+        /// <summary>
+        /// BtnContant control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnContant;
     }
 }
