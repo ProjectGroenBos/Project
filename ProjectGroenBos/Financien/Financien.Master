@@ -67,7 +67,7 @@
                             <li><a href="#">Restaurant</a></li>
                             <li><a href="/Reservering/home.aspx">Reserveringen</a></li>
                             <li class="selected"><a href="/Financien/Home.aspx">Financiën</a></li>
-                            <asp:Button ID="btnUitloggen" runat="server" CssClass="btnUitloggen" Text="Uitloggen" />
+                            <asp:Button ID="BtnUitloggen" runat="server" CssClass="btnUitloggen" Text="Uitloggen" OnClick="BtnUitloggen_Click"/>
                         </ul>
                     </nav>
                 </div>
