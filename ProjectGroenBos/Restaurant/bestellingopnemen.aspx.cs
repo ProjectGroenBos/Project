@@ -332,7 +332,7 @@ namespace ProjectGroenBos.Restaurant
 
 			scon.Close();
 
-			Response.Redirect("Bestellingenoverzicht.aspx");
+			Response.Redirect("bestellingenoverzicht.aspx");
 
         }
     }

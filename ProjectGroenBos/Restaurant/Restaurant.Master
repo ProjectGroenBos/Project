@@ -18,7 +18,7 @@
                     <img src="img/Logo4.png" alt="Logo" height="150"></h2>
                 <h3>RESTAURANT</h3>
                 <ul>
-                    <li><a href="tafeloverzicht.aspx">Bestelling opnemen</a></li>
+                    <li><a href="bestellingopnemen.aspx">Bestelling opnemen</a></li>
                     <li><a href="#"><i class="fas fa-user"></i>Bestellingen</a>
                         <ul class="submenu">
                             <li><a href="Bestellingenoverzicht.aspx">Bestellingen overzicht</a></li>

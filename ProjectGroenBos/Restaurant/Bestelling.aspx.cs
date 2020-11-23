@@ -27,11 +27,6 @@ namespace ProjectGroenBos.Restaurant
 				dt.Columns.Add("Id");
 
 
-
-				//dt.Columns.Add("Id");
-
-
-
 				if (Request.QueryString["id"] != null)
 				{
 					if (Session["Bestelitems"] == null)
@@ -53,14 +48,6 @@ namespace ProjectGroenBos.Restaurant
 						dr["Prijs"] = ds.Tables[0].Rows[0]["Prijs"].ToString();
 						dr["Hoeveelheid"] = Request.QueryString["Hoeveelheid"];
 						dr["Id"] = Request.QueryString["id"];
-
-
-						dr["Id"] = Request.QueryString["id"];
-
-
-
-						dr["Id"] = Request.QueryString["id"];
-
 
 						double prijs = Convert.ToDouble(ds.Tables[0].Rows[0]["Prijs"].ToString());
 						double hoeveelheid = Convert.ToInt16(Request.QueryString["Hoeveelheid"].ToString());
@@ -115,14 +102,6 @@ namespace ProjectGroenBos.Restaurant
 						dr["Prijs"] = ds.Tables[0].Rows[0]["Prijs"].ToString();
 						dr["Hoeveelheid"] = Request.QueryString["Hoeveelheid"];
 						dr["Id"] = Request.QueryString["id"];
-
-
-						dr["Id"] = Request.QueryString["id"];
-
-
-
-						dr["Id"] = Request.QueryString["id"];
-
 
 						double prijs = Convert.ToDouble(ds.Tables[0].Rows[0]["Prijs"].ToString());
 						double hoeveelheid = Convert.ToInt16(Request.QueryString["Hoeveelheid"].ToString());
@@ -219,7 +198,7 @@ namespace ProjectGroenBos.Restaurant
 			}
 
 			Session["bestelitems"] = dt;
-			Response.Redirect("Bestellinggelukt.aspx");
+			Response.Redirect("Bestelling.aspx");
 		}
 	}   
 }
