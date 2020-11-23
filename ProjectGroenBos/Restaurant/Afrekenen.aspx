@@ -8,9 +8,11 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="werkgebied">
         <asp:Label ID="lblBetalen" class="paginatitel" runat="server" Text="Afrekenen"></asp:Label>
-        <asp:Label ID="lbltafel" runat="server" Text="Tafel"></asp:Label>
+        <br />
+        <br />
+        <asp:Label ID="lbltafel" CssClass="lblTafel" runat="server" Text="Tafel"></asp:Label>
             <div class="Factuurregelbak">
-            <asp:GridView class="Gdv1" ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" AllowSorting="True" GridLines="None">
+            <asp:GridView class="GvdOrder" ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" AllowSorting="True" GridLines="None">
                 <Columns>
                     <asp:BoundField DataField="Aantal" HeaderText="Aantal" SortExpression="Aantal" >
                        <ItemStyle HorizontalAlign="Center" />
@@ -30,7 +32,7 @@
         </div>
          <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:2020-BIM02-P1-P2-GroenbosConnectionString %>" SelectCommand="SELECT [Naam], [Aantal], [RegelTotaal] FROM [RestaurantAfrekenOvericht]"></asp:SqlDataSource>
 
-        <asp:Label ID="lblTotaal" runat="server" Text="Totaal"></asp:Label>
+        <asp:Label ID="lblTotaal" CssClass="lblTotaal" runat="server" Text="Totaal"></asp:Label>
             <asp:GridView class="Gdvtotaal" ID="GridViewTotaal" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSourceTotaal" AllowSorting="True" GridLines="None">
                 <Columns>
                     <asp:BoundField DataField="Totaalbedrag" HeaderText="Totaalbedrag" ReadOnly="True" SortExpression="Totaalbedrag" />
@@ -38,8 +40,10 @@
             </asp:GridView>
         <asp:SqlDataSource ID="SqlDataSourceTotaal" runat="server" ConnectionString="<%$ ConnectionStrings:2020-BIM02-P1-P2-GroenbosConnectionString %>" SelectCommand="SELECT cast(SUM(RegelTotaal) AS DECIMAL(18,2)) AS Totaalbedrag FROM RestaurantAfrekenOvericht"></asp:SqlDataSource>
 
-        <asp:Button ID="btnRekening" CssClass="buttongreen" runat="server" Text="Op rekening" OnClick="btnRekening_Click" />
-        <asp:Button ID="btnBetalen" CssClass="buttongreen" runat="server" Text="Pin" OnClick="btnBetalen_Click" />
-        <asp:Button ID="BtnContant" CssClass="buttongreen" runat="server" Text="Contant" OnClick="btnContant_Click" />
+        <div class="btnbak">
+            <asp:Button ID="btnRekening" CssClass="buttongreen" runat="server" Text="Op rekening" OnClick="btnRekening_Click" />
+            <asp:Button ID="btnBetalen" CssClass="buttongreen" runat="server" Text="Pin" OnClick="btnBetalen_Click" />
+            <asp:Button ID="BtnContant" CssClass="buttongreen" runat="server" Text="Contant" OnClick="btnContant_Click" />
+        </div>
     </div>
 </asp:Content>
