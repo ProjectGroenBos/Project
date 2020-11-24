@@ -1,0 +1,61 @@
+﻿.bestellingvak {
+    background-color: #fff;
+    border: 2px solid #148f77;
+    width: 18%;
+    height: 23em;
+    margin: 0px 15px 30px 15px;
+    float: left;
+    position: relative;
+}
+
+.tafelnummer {
+    background-color: #148f77;
+    color: #fff;
+    text-align: center;
+    font-weight: bold;
+    font-size: xx-large;
+}
+
+.dtlvak{
+    width: 100%;
+}
+
+.Datalist{
+    width: 100%;
+    height: 100%
+}
+
+.bestellingrij {
+    width: 100%;
+    height: 30px;
+    font-size: x-large;
+    padding: 10px 10px 10px 10px;
+    color: #343434;
+    font-weight: bold;
+}
+
+.ProductImg {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    float: left;
+}
+
+.ProductNaam {
+    float: left;
+}
+
+.Aantal {
+    float: right;
+}
+
+.gereedknop {
+    width: 100%;
+    font-weight: bold;
+    font-size: xx-large;
+    background-color: #148f77;
+    border: none;
+    color: #fff;
+    bottom: 0;
+    position: absolute;
+}
