@@ -118,6 +118,10 @@
     <Content Include="Restaurant\css\tafeloverzicht.css" />
     <Content Include="Restaurant\css\test.css" />
     <Content Include="Restaurant\home.aspx" />
+    <Content Include="Restaurant\img\addnew.png" />
+    <Content Include="Restaurant\img\cancel.png" />
+    <Content Include="Restaurant\img\delete.png" />
+    <Content Include="Restaurant\img\edit.png" />
     <Content Include="Restaurant\img\Logo1.png" />
     <Content Include="Restaurant\img\Logo2.png" />
     <Content Include="Restaurant\img\Logo3.png" />
@@ -138,7 +142,9 @@
     <Content Include="Restaurant\img\productimg\Sprite.png" />
     <Content Include="Restaurant\img\productimg\tomatensoep.png" />
     <Content Include="Restaurant\img\productimg\varkenshaas.png" />
+    <Content Include="Restaurant\img\save.png" />
     <Content Include="Restaurant\tafeloverzicht.aspx" />
+    <Content Include="Restaurant\Voorraad.aspx" />
     <Content Include="Restaurant\WebForm5.aspx" />
     <Content Include="Schoonmaak en Onderhoud\InventarisOverzicht.aspx" />
     <Content Include="Schoonmaak en Onderhoud\OffertesOverzicht.aspx" />
@@ -570,6 +576,13 @@
     </Compile>
     <Compile Include="Restaurant\tafeloverzicht.aspx.designer.cs">
       <DependentUpon>tafeloverzicht.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Restaurant\Voorraad.aspx.cs">
+      <DependentUpon>Voorraad.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Restaurant\Voorraad.aspx.designer.cs">
+      <DependentUpon>Voorraad.aspx</DependentUpon>
     </Compile>
     <Compile Include="Restaurant\WebForm5.aspx.cs">
       <DependentUpon>WebForm5.aspx</DependentUpon>
