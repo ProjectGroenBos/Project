@@ -22,7 +22,7 @@
                         <li><a href="home.aspx"><i class="fas fa-home"></i>Home</a></li>
                         <li><a href="#"><i class="fas fa-user"></i>Reserveren</a>
                             <ul class="submenu">
-                                <li><a href="Huisjemedewerker.aspx">Reservering plaatsen</a></li>
+                                <li><a href="GastSelecteren.aspx">Reservering aanmaken</a></li>
                                 <li><a href="ReserveringOverzicht.aspx">Reservering overzicht</a></li>
                                 <li><a href="KlachtenAfhandeling.aspx">Klacht afhandeling</a></li>
                                 </ul>
