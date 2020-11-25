@@ -76,11 +76,11 @@
     <%--Kolom Inkoopprijs met textbox en footertextbox--%>
                     <asp:TemplateField HeaderText="Inkoopprijs">
                         <ItemTemplate>
-                            <asp:Label Text='<%# Eval("Prijs") %>' runat="server" />
+                            <asp:Label Text='<%# string.Format("{0:C}", Eval("Prijs"))%>' runat="server" />
                         </ItemTemplate>
                         <EditItemTemplate>
                             <asp:TextBox ID="txtPrijs" Text='<%# Eval("Prijs") %>' runat="server" />
-                            <asp:RegularExpressionValidator ID="Prijs1" runat="server" ErrorMessage="Dit veld mag alleen cijfers bevatten" ControlToValidate="txtPrijs" ForeColor="Red" ValidationExpression="^\d{0,3}(\.\d{1,2})?$" ValidationGroup="Validation" Display="Dynamic"></asp:RegularExpressionValidator>
+                            <%--<asp:RegularExpressionValidator ID="Prijs1" runat="server" ErrorMessage="Dit veld mag alleen cijfers bevatten" ControlToValidate="txtPrijs" ForeColor="Red" ValidationExpression="^\d{0,3}(\.\d{1,2})?$" ValidationGroup="Validation" Display="Dynamic"></asp:RegularExpressionValidator>--%>
                              <asp:RequiredFieldValidator ID="Prijs" runat="server" ErrorMessage="Dit veld mag niet leeg blijven" ControlToValidate="txtPrijs" ForeColor="red" ValidationGroup="Validation" Display="Dynamic"></asp:RequiredFieldValidator>
                         </EditItemTemplate>
                         <FooterTemplate>

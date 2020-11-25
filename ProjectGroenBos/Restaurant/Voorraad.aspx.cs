@@ -174,7 +174,7 @@ namespace ProjectGroenBos.Restaurant
                     SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
                     sqlCmd.Parameters.AddWithValue("@aantal", (gvBekijkenVoorraad.Rows[e.RowIndex].FindControl("txtAantalVoorraad") as TextBox).Text.Trim());
                     sqlCmd.Parameters.AddWithValue("@naam", (gvBekijkenVoorraad.Rows[e.RowIndex].FindControl("txtProductNaam") as TextBox).Text.Trim());
-                    sqlCmd.Parameters.AddWithValue("@prijs", (gvBekijkenVoorraad.Rows[e.RowIndex].FindControl("txtPrijs") as TextBox).Text.Trim());
+                    sqlCmd.Parameters.AddWithValue("@prijs", (gvBekijkenVoorraad.Rows[e.RowIndex].FindControl("txtPrijs") as TextBox).Text.Replace(",","."));
                     sqlCmd.Parameters.AddWithValue("@minimumvoorraad", (gvBekijkenVoorraad.Rows[e.RowIndex].FindControl("txtMinimumVoorraad") as TextBox).Text.Trim());
                     sqlCmd.Parameters.AddWithValue("@BTWTarief", (gvBekijkenVoorraad.Rows[e.RowIndex].FindControl("txtBTWTarief") as TextBox).Text.Trim());
                     sqlCmd.Parameters.AddWithValue("@id", Convert.ToInt32(gvBekijkenVoorraad.DataKeys[e.RowIndex].Value.ToString()));
