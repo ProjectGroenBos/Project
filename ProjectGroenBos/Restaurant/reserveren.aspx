@@ -130,7 +130,7 @@
 
             </div>
 
-            <asp:Button class="reserveerknop" ID="btnReserveer" runat="server" placeholder="" Text="Reserveer"></asp:Button>
+            <asp:Button class="reserveerknop" ID="btnReserveer" runat="server" placeholder="" Text="Reserveer" OnClick="btnReserveer_Click"></asp:Button>
 
         </div>
     </div>
