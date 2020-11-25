@@ -1,33 +1,13 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Financien/Financien.Master" AutoEventWireup="true" CodeBehind="InkoopAanvraagScherm.aspx.cs" Inherits="ProjectGroenBos.Financien.WebForm5" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Financien/Financien.Master" AutoEventWireup="true" CodeBehind="InkoopAanvraagBestelScherm.aspx.cs" Inherits="ProjectGroenBos.Financien.InkoopAanvraagBestelScherm" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-    <script>
-        function afkeursuccess() {
-            Swal.fire({
-                icon: 'success',
-                title: 'Inkooporderaanvraag is afgekeurd.',
-                showConfirmButton: false,
-                timer: 4000
-            })
-        }
-
-        function goedkeursuccess() {
-            Swal.fire({
-                icon: 'success',
-                title: 'Inkooporderaanvraag is goedgekeurd.',
-                showConfirmButton: false,
-                timer: 4000
-            })
-        }
-    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="header">Inkoop Aanvragen Overzicht</div>
+    <div class="header">Inkoop-Aanvragen Bestel-Overzicht</div>
 
     <div class="container">
 
-        <asp:DropDownList ID="DropDownList1" AutoPostBack="true" runat="server" DataSourceID="SqlDataSource2" DataTextField="Naam" DataValueField="Naam" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" CssClass="DropDownAfdeling"></asp:DropDownList>
+        <asp:DropDownList ID="DropDownList1" AutoPostBack="True" runat="server" DataSourceID="SqlDataSource2" DataTextField="Naam" DataValueField="Naam" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" CssClass="DropDownAfdeling"></asp:DropDownList>
 
         <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT [Naam] FROM [Afdeling] union
 SELECT 'Alle Afdelingen' AS [Naam]"></asp:SqlDataSource>
@@ -48,9 +28,8 @@ SELECT 'Alle Afdelingen' AS [Naam]"></asp:SqlDataSource>
                 <asp:BoundField DataField="Opmerking" HeaderText="Opmerking" ReadOnly="True" SortExpression="Opmerking" HtmlEncode="False" />
             </Columns>
         </asp:GridView>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="select * from inkooporderaanvraagmainLev where [Status] = 'Geweigerd' OR [Status] = 'Wachten op goedkeuring' order by datum DESC, opmerking DESC"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="select * from inkooporderaanvraagmainLev where [Status] = 'Wachten op bestelling' OR [Status] = 'Besteld' order by datum DESC, opmerking DESC"></asp:SqlDataSource>
     </div>
-
 
     <asp:Repeater ID="rpInkoopOrderAanvragen" runat="server">
         <ItemTemplate>
@@ -123,8 +102,7 @@ SELECT 'Alle Afdelingen' AS [Naam]"></asp:SqlDataSource>
                                     </tbody>
                                 </table>
 
-                                <input type="button" style="max-width: 80%; margin-left: auto; margin-right: auto;" data-toggle="modal" data-target="#exampleModal" class="btn btn-success btn-lg btn-block" value="Goedkeuren" />
-                                <input type="button" style="max-width: 80%; margin-left: auto; margin-right: auto;" data-toggle="modal" data-target="#modalAfkeuren<%# Eval("Nummer") %>" class="btn btn-danger btn-lg btn-block" value="Afkeuren" />
+                                <input type="button" style="max-width: 80%; margin-left: auto; margin-right: auto;" data-toggle="modal" data-target="#exampleModal" class="btn btn-success btn-lg btn-block" value="Bestellen" />
                             </div>
 
                             <div class="modal-footer">
@@ -134,48 +112,6 @@ SELECT 'Alle Afdelingen' AS [Naam]"></asp:SqlDataSource>
                     </div>
                 </div>
 
-                <div id="modalAfkeuren<%# Eval("Nummer") %>" class="modal fade" role="dialog">
-                    <div class="modal-dialog modal-lg">
-                        <!-- Modal content-->
-                        <div class="modal-content">
-
-                            <div class="modal-header">
-                                <h4 class="modal-title">Afkeuren inkooporderaanvraag <%# Eval("Nummer") %></h4>
-                                <asp:Button runat="server" CssClass="btn btn-primary" Text="Sluiten"></asp:Button>
-                            </div>
-
-                            <div class="modal-body">
-                                <p>Voeg een opmerking toe:</p>
-                                <asp:TextBox ID="txbInkoopOrderAfkeuren" runat="server" Width="100%" Height="200"></asp:TextBox>
-                                <asp:Button ID="btnAfkeuren" OnClick="btnAfkeuren_OnClick" CommandName='<%# Container.ItemIndex %>' CommandArgument='<%# Eval("Nummer") %>' Style="max-width: 80%; margin-left: auto; margin-right: auto; margin-top: 100px" CssClass="btn btn-danger btn-lg btn-block" runat="server" Text="Afkeuren" />
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Sluiten</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="modalGoedkeuren<%# Eval("Nummer") %>" class="modal fade" role="dialog">
-                    <div class="modal-dialog modal-lg">
-                        <!-- Modal content-->
-                        <div class="modal-content">
-
-                            <div class="modal-header">
-                                <h4 class="modal-title">Goedkeuren inkooporderaanvraag <%# Eval("Nummer") %></h4>
-                                <asp:Button runat="server" CssClass="btn btn-primary" Text="Sluiten"></asp:Button>
-                            </div>
-
-                            <div class="modal-body">
-                                <p>Weet je zeker dat je deze aanvraag wilt goedkeuren?</p>
-                                <asp:Button ID="btnGoedkeuren" OnClick="btnGoedkeuren_OnClick" CommandArgument='<%# Eval("Nummer") %>' Style="max-width: 80%; margin-left: auto; margin-right: auto; margin-top: 100px" CssClass="btn btn-danger btn-lg btn-block" runat="server" Text="Afkeuren" />
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Sluiten</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
         </ItemTemplate>
     </asp:Repeater>
 
@@ -242,3 +178,4 @@ SELECT 'Alle Afdelingen' AS [Naam]"></asp:SqlDataSource>
         });
     </script>
 </asp:Content>
+
