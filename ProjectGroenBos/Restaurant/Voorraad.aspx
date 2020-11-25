@@ -14,11 +14,13 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h1>Voorraad overzicht</h1>
     <div>
+        <%--Hier begint de zoekbalk--%>
             <p class="auto-style2">
             Zoeken:&nbsp;&nbsp;&nbsp; <asp:TextBox ID="txbZoeken" runat="server" OnTextChanged="txbZoeken_TextChanged" Width="293px" AutoPostBack="True" Height="18px"></asp:TextBox>
             </p>
             <p class="auto-style2">
                 &nbsp;</p>
+        <%--Hier begint de gridview--%>
             <asp:GridView ID="gvBekijkenVoorraad" runat="server" AutoGenerateColumns="False" ShowFooter ="true" DataKeyNames="ID" ShowHeaderWhenEmpty="true"
 
               onrowcommand="gvBekijkenVoorraad_rowcommand" onrowediting ="gvBekijkenVoorraad_rowediting" onrowcancelingedit="gvBekijkenVoorraad_rowcancelingedit" onrowupdating ="gvBekijkenVoorraad_rowupdating" onrowdeleting ="gvBekijkenVoorraad_rowdeleting"
@@ -39,19 +41,15 @@
 
 
 <Columns>
-
-<%--                        <asp:TemplateField HeaderText="ProductID">
-                        <ItemTemplate>
-                            <asp:Label Text='<%# Eval("ID") %>' runat="server" />
-                        </ItemTemplate>
-                    </asp:TemplateField>--%>
-
+    <%--Kolom Producten op voorraad met textbox en footertextbox--%>
                     <asp:TemplateField HeaderText="Producten op Voorraad">
                         <ItemTemplate>
                             <asp:Label Text='<%# Eval("Aantal") %>' runat="server" />
                         </ItemTemplate>
                         <EditItemTemplate>
                             <asp:TextBox ID="txtAantalVoorraad" Text='<%# Eval("Aantal") %>' runat="server" />
+                            <asp:RequiredFieldValidator ID="AantalVoorraad" runat="server" ErrorMessage="Dit veld mag niet leeg blijven" ControlToValidate="txtAantalVoorraad" ForeColor="red" ValidationGroup="Validation" Display="Dynamic"></asp:RequiredFieldValidator>
+                             <asp:RegularExpressionValidator ID="AantalVoorraad1" runat="server" ErrorMessage="Dit veld mag alleen cijfers bevatten" ControlToValidate="txtAantalVoorraad" ForeColor="Red" ValidationExpression="\d+" ValidationGroup="Validation" Display="Dynamic"></asp:RegularExpressionValidator>
                         </EditItemTemplate>
                         <FooterTemplate>
                             <asp:TextBox ID="txtAantalVoorraadFooter" runat="server" />
@@ -60,12 +58,14 @@
                         </FooterTemplate>
                     </asp:TemplateField>
                     
+    <%--Kolom Productnaam met textbox en footertextbox--%>
                     <asp:TemplateField HeaderText="Productnaam">
                         <ItemTemplate>
                             <asp:Label Text='<%# Eval("Naam") %>' runat="server" />
                         </ItemTemplate>
                         <EditItemTemplate>
                             <asp:TextBox ID="txtProductNaam" Text='<%# Eval("Naam") %>' runat="server" />
+                            <asp:RequiredFieldValidator ID="Productnaam" runat="server" ErrorMessage="Dit veld mag niet leeg blijven" ControlToValidate="txtProductNaam" ForeColor="red" ValidationGroup="Validation" Display="Dynamic"></asp:RequiredFieldValidator>
                         </EditItemTemplate>
                         <FooterTemplate>
                             <asp:TextBox ID="txtProductnaamFooter" runat="server" />
@@ -73,26 +73,32 @@
                         </FooterTemplate>
                     </asp:TemplateField>
 
+    <%--Kolom Inkoopprijs met textbox en footertextbox--%>
                     <asp:TemplateField HeaderText="Inkoopprijs">
                         <ItemTemplate>
                             <asp:Label Text='<%# Eval("Prijs") %>' runat="server" />
                         </ItemTemplate>
                         <EditItemTemplate>
                             <asp:TextBox ID="txtPrijs" Text='<%# Eval("Prijs") %>' runat="server" />
+                            <asp:RegularExpressionValidator ID="Prijs1" runat="server" ErrorMessage="Dit veld mag alleen cijfers bevatten" ControlToValidate="txtPrijs" ForeColor="Red" ValidationExpression="^\d{0,3}(\,\d{1,2})?$" ValidationGroup="Validation" Display="Dynamic"></asp:RegularExpressionValidator>
+                             <asp:RequiredFieldValidator ID="Prijs" runat="server" ErrorMessage="Dit veld mag niet leeg blijven" ControlToValidate="txtPrijs" ForeColor="red" ValidationGroup="Validation" Display="Dynamic"></asp:RequiredFieldValidator>
                         </EditItemTemplate>
                         <FooterTemplate>
                             <asp:TextBox ID="txtPrijsFooter" runat="server" />
                             <asp:RequiredFieldValidator ID="PrijsFooter" runat="server" ErrorMessage="Dit veld mag niet leeg blijven" ControlToValidate="txtPrijsFooter" ForeColor="red" ValidationGroup="FooterValidation" Display="Dynamic"></asp:RequiredFieldValidator>
-                        <asp:RegularExpressionValidator ID="PrijsFooter1" runat="server" ErrorMessage="Dit veld mag alleen cijfers bevatten" ControlToValidate="txtPrijsFooter" ForeColor="Red" ValidationExpression="^\d{0,3}(\,\d{1,2})?$" ValidationGroup="FooterValidation" Display="Dynamic"></asp:RegularExpressionValidator>
+                            <asp:RegularExpressionValidator ID="PrijsFooter1" runat="server" ErrorMessage="Dit veld mag alleen cijfers bevatten" ControlToValidate="txtPrijsFooter" ForeColor="Red" ValidationExpression="^\d{0,3}(\,\d{1,2})?$" ValidationGroup="FooterValidation" Display="Dynamic"></asp:RegularExpressionValidator>
                         </FooterTemplate>
                     </asp:TemplateField>
 
+    <%--Kolom Minimum voorraad met textbox en footertextbox--%>
                     <asp:TemplateField HeaderText="Minimum Voorraad">
                         <ItemTemplate>
                             <asp:Label Text='<%# Eval("Minimum voorraad") %>' runat="server" />
                         </ItemTemplate>
                         <EditItemTemplate>
                             <asp:TextBox ID="txtMinimumVoorraad" Text='<%# Eval("Minimum voorraad") %>' runat="server" />
+                            <asp:RequiredFieldValidator ID="MinimumVoorraad" runat="server" ErrorMessage="Dit veld mag niet leeg blijven" ControlToValidate="txtMinimumVoorraad" ForeColor="red" ValidationGroup="Validation" Display="Dynamic"></asp:RequiredFieldValidator>
+                            <asp:RegularExpressionValidator ID="MinimumVoorraad1" runat="server" ErrorMessage="Er mag alleen een cijfer tussen 10 én 999 ingevoerd worden" ControlToValidate="txtMinimumVoorraad" ForeColor="Red" ValidationExpression="^[10-999]{2,3}$" ValidationGroup="Validation" Display="Dynamic"></asp:RegularExpressionValidator>
                         </EditItemTemplate>
                         <FooterTemplate>
                             <asp:TextBox ID="txtMinimumVoorraadFooter" runat="server" />
@@ -101,12 +107,15 @@
                         </FooterTemplate>
                     </asp:TemplateField>
 
+    <%--Kolom BTW Tarief met textbox en footertextbox--%>
                         <asp:TemplateField HeaderText="BTW Tarief">
                         <ItemTemplate>
                             <asp:Label Text='<%# Eval("BTW tariefID") %>' runat="server" />
                         </ItemTemplate>
                         <EditItemTemplate>
                             <asp:TextBox ID="txtBTWTarief" Text='<%# Eval("BTW tariefID") %>' runat="server" />
+                            <asp:RequiredFieldValidator ID="BTWTarief" runat="server" ErrorMessage="Dit veld mag niet leeg blijven" ControlToValidate="txtBTWTarief" ForeColor="red" ValidationGroup="alidation" Display="Dynamic"></asp:RequiredFieldValidator>
+                            <asp:RegularExpressionValidator ID="BTWTarief1" runat="server" ErrorMessage="Er mag hier alleen een 1 of een 2 ingevoerd worden" ControlToValidate="txtBTWTarief" ForeColor="Red" ValidationGroup="Validation" Display="Dynamic" ValidationExpression="^[1-2]{0,1}$"></asp:RegularExpressionValidator>
                         </EditItemTemplate>
                         <FooterTemplate>
                             <asp:TextBox ID="txtBTWTariefFooter" runat="server" />
@@ -115,6 +124,7 @@
                         </FooterTemplate>
                     </asp:TemplateField>
 
+    <%--Knoppen voor bewerken, deleten, opslaan, annuleren en toevoegen--%>
                     <asp:TemplateField>
                         <ItemTemplate>
                             <asp:ImageButton ImageUrl="~/Restaurant/img/edit.png" runat="server" CommandName="Edit" ToolTip="Bewerken" Width="20px" Height="20px" />
@@ -131,7 +141,7 @@
               </Columns>
         </asp:GridView>
 
-       
+       <%--Hier beginnnen de labels die onder de gridview staan--%>
             <asp:Label ID="Label1" runat="server" Text="Het BTW tarief is onderverdeeld onder 2 catogorieën 1 is het hoge tarief en 2 is het lage tarief"></asp:Label>
 
        

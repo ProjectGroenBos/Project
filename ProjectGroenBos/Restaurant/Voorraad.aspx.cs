@@ -12,7 +12,9 @@ namespace ProjectGroenBos.Restaurant
 {
     public partial class Voorraad : System.Web.UI.Page
     {
+        //Connectionstring
         string connectionString = ConfigurationManager.ConnectionStrings["dbconnectie"].ConnectionString;
+        //Dit gebeurt er als de pagina geladen wordt
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -43,6 +45,7 @@ namespace ProjectGroenBos.Restaurant
 
         void InvullenGridview()
         {
+            //Hieronder gebeurt het inladen van gegevens van de database naar de applicatie
             DataTable dtbl = new DataTable();
             using (SqlConnection sqlCon = new SqlConnection(connectionString))
             {
@@ -73,6 +76,7 @@ namespace ProjectGroenBos.Restaurant
 
         protected void txbZoeken_TextChanged(object sender, EventArgs e)
         {
+            //Hieronder staat de code voor de zoekbalk
             DataTable dtbl = (DataTable)Session["vLE"];
             DataView dv = dtbl.DefaultView;
             dv.RowFilter = string.Format("naam like '%{0}%'", txbZoeken.Text);
@@ -87,6 +91,7 @@ namespace ProjectGroenBos.Restaurant
 
         protected void gvBekijkenVoorraad_rowcommand(object sender, GridViewCommandEventArgs e)
         {
+            //Hieronder staat de code die inwerking wordt gesteld wanneer er een product wordt toegevoegd
             try
             {
                 if (e.CommandName.Equals("AddNew"))
@@ -119,18 +124,21 @@ namespace ProjectGroenBos.Restaurant
 
         protected void gvBekijkenVoorraad_rowediting(object sender, GridViewEditEventArgs e)
         {
+            //Deze code wordt in werking gesteld wanneer er op het bewerk icoontje wordt geklikt
             gvBekijkenVoorraad.EditIndex = e.NewEditIndex;
             InvullenGridview();
         }
 
         protected void gvBekijkenVoorraad_rowcancelingedit(object sender, GridViewCancelEditEventArgs e)
         {
+            //Dit is de code voor het annuleren van een rij bewerking
             gvBekijkenVoorraad.EditIndex = -1;
             InvullenGridview();
         }
 
         protected void gvBekijkenVoorraad_rowdeleting(object sender, GridViewDeleteEventArgs e)
         {
+            //Wanneer er een rij wordt verwijderd wordt deze code in werking gesteld
             try
             {
                 using (SqlConnection sqlCon = new SqlConnection(connectionString))
@@ -156,6 +164,7 @@ namespace ProjectGroenBos.Restaurant
 
         protected void gvBekijkenVoorraad_rowupdating(object sender, GridViewUpdateEventArgs e)
         {
+            //Deze code wordt in werking gesteld wanneer een geüpdate rij wordt opgeslagen
             try
             {
                 using (SqlConnection sqlCon = new SqlConnection(connectionString))
