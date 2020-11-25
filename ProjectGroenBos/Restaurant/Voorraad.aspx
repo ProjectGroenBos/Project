@@ -80,13 +80,13 @@
                         </ItemTemplate>
                         <EditItemTemplate>
                             <asp:TextBox ID="txtPrijs" Text='<%# Eval("Prijs") %>' runat="server" />
-                            <asp:RegularExpressionValidator ID="Prijs1" runat="server" ErrorMessage="Dit veld mag alleen cijfers bevatten" ControlToValidate="txtPrijs" ForeColor="Red" ValidationExpression="^\d{0,3}(\,\d{1,2})?$" ValidationGroup="Validation" Display="Dynamic"></asp:RegularExpressionValidator>
+                            <asp:RegularExpressionValidator ID="Prijs1" runat="server" ErrorMessage="Dit veld mag alleen cijfers bevatten" ControlToValidate="txtPrijs" ForeColor="Red" ValidationExpression="^\d{0,3}(\.\d{1,2})?$" ValidationGroup="Validation" Display="Dynamic"></asp:RegularExpressionValidator>
                              <asp:RequiredFieldValidator ID="Prijs" runat="server" ErrorMessage="Dit veld mag niet leeg blijven" ControlToValidate="txtPrijs" ForeColor="red" ValidationGroup="Validation" Display="Dynamic"></asp:RequiredFieldValidator>
                         </EditItemTemplate>
                         <FooterTemplate>
                             <asp:TextBox ID="txtPrijsFooter" runat="server" />
                             <asp:RequiredFieldValidator ID="PrijsFooter" runat="server" ErrorMessage="Dit veld mag niet leeg blijven" ControlToValidate="txtPrijsFooter" ForeColor="red" ValidationGroup="FooterValidation" Display="Dynamic"></asp:RequiredFieldValidator>
-                            <asp:RegularExpressionValidator ID="PrijsFooter1" runat="server" ErrorMessage="Dit veld mag alleen cijfers bevatten" ControlToValidate="txtPrijsFooter" ForeColor="Red" ValidationExpression="^\d{0,3}(\,\d{1,2})?$" ValidationGroup="FooterValidation" Display="Dynamic"></asp:RegularExpressionValidator>
+                            <asp:RegularExpressionValidator ID="PrijsFooter1" runat="server" ErrorMessage="Dit veld mag alleen cijfers bevatten" ControlToValidate="txtPrijsFooter" ForeColor="Red" ValidationExpression="^\d{0,3}(\.\d{1,2})?$" ValidationGroup="FooterValidation" Display="Dynamic"></asp:RegularExpressionValidator>
                         </FooterTemplate>
                     </asp:TemplateField>
 
