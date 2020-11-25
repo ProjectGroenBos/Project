@@ -37,6 +37,8 @@
         <asp:Label ID="Label7" runat="server" Text="Geboortedatum" CssClass="labelsnieuw"></asp:Label>
 
         <asp:TextBox ID="txbGeboortedatum" runat="server" TextMode="Date" CssClass="textboxchaos"></asp:TextBox>
+        <asp:CustomValidator ID="CustomValidator2" runat="server" ControlToValidate="txbGeboortedatum" ErrorMessage="U bent geen 18 jaar oud."></asp:CustomValidator>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txbGeboortedatum" ErrorMessage="Dit veld is verplicht."></asp:RequiredFieldValidator>
     </p>
 
 
@@ -47,7 +49,13 @@
         <asp:Label ID="Label8" runat="server" Text="Land" CssClass="labelsnieuw"></asp:Label>
 
         <asp:DropDownList ID="DropDownList2" runat="server" CssClass="textboxchaos">
+            <asp:ListItem></asp:ListItem>
+            <asp:ListItem>Nederland(+31)</asp:ListItem>
+            <asp:ListItem>Duitsland(+49)</asp:ListItem>
+            <asp:ListItem>Frankrijk(+33)</asp:ListItem>
+            <asp:ListItem>België(+32)</asp:ListItem>
         </asp:DropDownList>
+        <asp:CustomValidator ID="CustomValidator1" runat="server" ControlToValidate="DropDownList2" ErrorMessage="Er moet een land geselecteerd zijn." ValidateEmptyText="True"></asp:CustomValidator>
     </p>
     <p>
         <asp:Label ID="Label13" runat="server" Text="Woonplaats" CssClass="labelsnieuw"></asp:Label>

@@ -19,19 +19,44 @@ namespace ProjectGroenBos.Reservering
 
         protected void btnAanmaken_Click(object sender, EventArgs e)
         {
-           
+
             string voornaam = txbVoornaam.Text;
             string tussenvoegsel = txbTussenvoegsel.Text;
             string achternaam = txbAchternaam.Text;
             string telefoonnummer = txbTelefoonnummer.Text;
             string email = txbEmail.Text;
-            DateTime geboortedatum = new DateTime();
-            geboortedatum = Convert.ToDateTime(txbGeboortedatum.Text);
-            geboortedatum.ToShortDateString();
             string woonplaast = txbWoonplaats.Text;
             string straat = txbStraatnaam.Text;
             string huisnummer = txbHuisnummer.Text;
             string postcode = txbPostcode.Text;
+
+            string land = DropDownList2.Text;
+
+            DateTime control = new DateTime();
+            control = DateTime.Today;
+            control.AddYears(-18);
+            control.ToShortDateString();
+
+            DateTime geboortedatum = new DateTime();
+            geboortedatum = DateTime.Parse(txbGeboortedatum.Text);
+            geboortedatum.ToShortDateString();
+
+            if (land == "")
+            {
+                CustomValidator1.IsValid = false;
+            }
+
+            if (geboortedatum <= control)
+            {
+                CustomValidator2.IsValid = true;
+            }
+            else if (geboortedatum > control)
+            {
+                CustomValidator2.IsValid = false;
+            }
+
+
+
         }
     }
 }

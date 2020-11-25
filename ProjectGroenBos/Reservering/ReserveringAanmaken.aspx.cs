@@ -11,7 +11,14 @@ namespace ProjectGroenBos.Reservering
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            if (Session["gastnummer"] == null)
+            {
+                Response.Redirect("GastSelecteren.aspx");
+            }
+            else
+            {
+                lblGastnummer.Text = Session["gastnummer"].ToString();
+            }
         }
     }
 }
