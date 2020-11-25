@@ -18,7 +18,7 @@ namespace ProjectGroenBos.Restaurant
 
         protected void btnReserveer_Click(object sender, EventArgs e)
         {
-            String constring ="Data Source= SQL.BIM.OSOX.NL;initial Catalog =2020-BIM02 P1-P2- Groenbos; User ID =BIM022020;Password=BiM@IH202"; 
+            String constring ="Data Source = SQL.BIM.OSOX.NL; Initial Catalog = 2020 - BIM02 - P1 - P2 - Groenbos; Persist Security Info = True; User ID = BIM022020; Password = BiM@IH2020";
               SqlConnection sqlcon = new SqlConnection(constring);
             String pname = "reserveringaanmaak1"; ;
             sqlcon.Open();
