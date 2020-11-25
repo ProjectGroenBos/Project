@@ -25,9 +25,8 @@
     
     <br />
     <br />
-    <asp:GridView ID="GridView1" runat="server" CssClass="content-table" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" DataKeyNames="Gastnummer" OnSelectedIndexChanging="GridView1_SelectedIndexChanging">
+    <asp:GridView ID="GridView1" runat="server" CssClass="content-table" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" DataKeyNames="Gastnummer" AutoGenerateSelectButton="True" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
         <Columns>
-            <asp:ButtonField HeaderText="Selecteer gast" Text="Selecteer" />
             <asp:BoundField DataField="Gastnummer" HeaderText="Gastnummer" SortExpression="Gastnummer" InsertVisible="False" ReadOnly="True" />
             <asp:BoundField DataField="Voornaam" HeaderText="Voornaam" SortExpression="Voornaam" />
             <asp:BoundField DataField="Tussenvoegsel" HeaderText="Tussenvoegsel" SortExpression="Tussenvoegsel" />

@@ -27,14 +27,18 @@ namespace ProjectGroenBos
 
         protected void btnGastAanmaken_Click(object sender, EventArgs e)
         {
+            Session["controle"] = 420; 
             Response.Redirect("GastAanmaken.aspx");
+            
         }
 
-        protected void GridView1_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
-        {
-            GridViewRow rij = GridView1.Rows[e.NewSelectedIndex];
 
-            Session["reserveringnnummer"] = rij.Cells[0];
+
+        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+
+            Session["gastnummer"] = (string)GridView1.SelectedRow.Cells[1].Text;
 
             Response.Redirect("ReserveringAanmaken.aspx");
         }
