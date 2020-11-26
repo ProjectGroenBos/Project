@@ -1212,3 +1212,25 @@ nav ul {
                 background-color: #009879;
                 color: #ffffff;
             }
+
+.btnToevoegenactiviteit {
+    position: absolute;
+    left: 10%;
+    margin-top: 5%;
+    background-color: #009879;
+}
+
+.btnwijzigenactiviteit {
+    position: absolute;
+    left: 40%;
+    margin-top: 5%;
+    background-color: #009879;
+}
+
+
+.btnverwijderenactiviteit {
+    position: absolute;
+    left: 70%;
+    margin-top: 5%;
+    background-color: #009879;
+}
