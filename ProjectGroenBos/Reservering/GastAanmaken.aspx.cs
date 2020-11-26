@@ -48,11 +48,13 @@ namespace ProjectGroenBos.Reservering
 
             if (geboortedatum <= control)
             {
-                CustomValidator2.IsValid = true;
+                CustomValidator2.IsValid = false;
+                CustomValidator2.Visible = true;
             }
             else if (geboortedatum > control)
             {
-                CustomValidator2.IsValid = false;
+                CustomValidator2.IsValid = true;
+                CustomValidator2.Visible = false;
             }
 
 

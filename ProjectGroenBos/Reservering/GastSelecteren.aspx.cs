@@ -16,30 +16,32 @@ namespace ProjectGroenBos
         //string query;
         protected void Page_Load(object sender, EventArgs e)
         {
-            GridView1.Visible = false;
+            GridView1.Visible = true;
+            btnGastAanmaken.Visible = false;
         }
 
         protected void btnZoek_Click(object sender, EventArgs e)
         {
             GridView1.Visible = true;
             GridView1.DataBind();
+
+            if(GridView1.Rows.Count == 0)
+            {
+                btnGastAanmaken.Visible = true;
+            }
         }
 
         protected void btnGastAanmaken_Click(object sender, EventArgs e)
         {
             Session["controle"] = 420; 
             Response.Redirect("GastAanmaken.aspx");
-            
         }
 
 
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-
             Session["gastnummer"] = (string)GridView1.SelectedRow.Cells[1].Text;
-
             Response.Redirect("ReserveringAanmaken.aspx");
         }
     }
