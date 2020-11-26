@@ -6,8 +6,8 @@
         }</script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
-        <asp:GridView ID="GridView1"  CssClass="content-table tweedetable" runat="server" AutoGenerateColumns="False" DataKeyNames="Nummer" style="max-width:10%" DataSourceID="SqlDataSource5" AllowPaging="True">
+    <div class="header">Activiteit Wijzigen</div>
+        <asp:GridView ID="GridView1"  CssClass="content-table tweedetable" runat="server" AutoGenerateColumns="False" DataKeyNames="Nummer" style="max-width:10%" DataSourceID="SqlDataSource5" AllowPaging="True" GridLines="None">
             <Columns>
                 <asp:BoundField DataField="Nummer" HeaderText="Nummer" ReadOnly="True" SortExpression="Nummer" />
                 <asp:BoundField DataField="Activiteitnaam" HeaderText="Activiteitnaam" SortExpression="Activiteitnaam" />

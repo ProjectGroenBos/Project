@@ -3,10 +3,8 @@
  <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
      <script>function openModal(modalnaam) {
-
              $(modalnaam).modal('show');
-
-         }​​​​</script>
+         }</script>
 
  </asp:Content>
 
@@ -24,15 +22,19 @@
      <asp:TextBox ID="txbAfboekenZoeken" runat="server" OnTextChanged="txbAfboekenZoeken_TextChanged" CssClass="textboxafboekenzoeken"></asp:TextBox>
 
 
-     <asp:GridView ID="GvAfboeken" runat="server" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" CssClass="content-table2" DataKeyNames="ID" ForeColor="#333333" GridLines="None" ShowFooter="True" ShowHeaderWhenEmpty="True" Width="80%" OnRowCancelingEdit="GvAfboeken_RowCancelingEdit" OnRowCommand="GvAfboeken_RowCommand" OnRowDeleting="GvAfboeken_RowDeleting" OnRowEditing="GvAfboeken_RowEditing" OnRowUpdating="GvAfboeken_RowUpdating" OnSelectedIndexChanged="GvAfboeken_SelectedIndexChanged" OnSorting="OnSorting">
+     <asp:CheckBox ID="ckbLeverancier" runat="server" Text="Leverancier" />
+     <asp:CheckBox ID="ckbCategorie" runat="server" Text="Categorie" />
+
+
+     <asp:GridView ID="GvAfboeken" runat="server" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" CssClass="content-table2" DataKeyNames="Nummer" ForeColor="#333333" GridLines="None" ShowFooter="True" ShowHeaderWhenEmpty="True" Width="80%" OnRowCancelingEdit="GvAfboeken_RowCancelingEdit" OnRowCommand="GvAfboeken_RowCommand" OnRowDeleting="GvAfboeken_RowDeleting" OnRowEditing="GvAfboeken_RowEditing" OnRowUpdating="GvAfboeken_RowUpdating" OnSelectedIndexChanged="GvAfboeken_SelectedIndexChanged" OnSorting="OnSorting">
 
          <Columns>
 
-             <asp:TemplateField HeaderText="Artikelnummer" SortExpression="ID" Visible="true" HeaderStyle-ForeColor="White">
+             <asp:TemplateField HeaderText="Artikelnummer" SortExpression="Nummer" Visible="true" HeaderStyle-ForeColor="White">
 
                  <ItemTemplate>
 
-                     <asp:Label ID ="Label1" Text='<%# Eval("ID") %>'  runat="server"/>
+                     <asp:Label ID ="Label1" Text='<%# Eval("Nummer") %>'  runat="server"/>
 
                  </ItemTemplate>
 
@@ -68,21 +70,31 @@
 
              </asp:TemplateField>
  
-            <asp:TemplateField HeaderText="Minimum Voorraad" SortExpression="Minimumvoorraad" HeaderStyle-ForeColor="White">
+            <asp:TemplateField HeaderText="Minimum Voorraad" SortExpression="[Minimum voorraad]" HeaderStyle-ForeColor="White">
 
                  <ItemTemplate>
 
-                     <asp:Label Text='<%# Eval("Minimum voorraad") %>' runat="server"/>
+                     <asp:Label Text='<%# Eval("[Minimum voorraad]") %>' runat="server"/>
 
                  </ItemTemplate>
 
              </asp:TemplateField>
  
-            <asp:TemplateField HeaderText="Naam Leverancier" SortExpression="Leverancier" HeaderStyle-ForeColor="White" >
+            <asp:TemplateField HeaderText="Naam Leverancier" SortExpression="[Naam Leverancier]" HeaderStyle-ForeColor="White" >
 
                  <ItemTemplate>
 
-                     <asp:Label Text='<%# Eval("Naam Leverancier") %>' runat="server"/>
+                     <asp:Label Text='<%# Eval("[Naam Leverancier]") %>' runat="server"/>
+
+                 </ItemTemplate>
+
+             </asp:TemplateField>
+
+             <asp:TemplateField HeaderText="Categorie" SortExpression="Categorie" HeaderStyle-ForeColor="White" >
+
+                 <ItemTemplate>
+
+                     <asp:Label Text='<%# Eval("Categorie") %>' runat="server"/>
 
                  </ItemTemplate>
 
@@ -129,7 +141,7 @@
 
                          <div class="modal-body">
 
-                             <asp:GridView ID="GvVoorraadAfboeken" runat="server" AutoGenerateColumns="False" ShowFooter="true" DataKeyNames="ID" ShowHeaderWhenEmpty="true"
+                             <asp:GridView ID="GvVoorraadAfboeken" runat="server" AutoGenerateColumns="False" ShowFooter="true" DataKeyNames="Nummer" ShowHeaderWhenEmpty="true"
 
                               CellPadding="4" ForeColor="#333333" GridLines="none" Width="80%" CssClass="content-table">
  
@@ -137,23 +149,25 @@
 
                               <Columns>
 
-                                 <asp:TemplateField HeaderText="Artikelnummer" SortExpression="ID" Visible ="False" >
+                                 <asp:TemplateField HeaderText="Artikelnummer" SortExpression="Nummer" Visible ="False" >
 
                                      <ItemTemplate>
 
-                                     <asp:Label Text='<%# Eval("ID") %>' runat="server"/>
+                                     <asp:Label Text='<%# Eval("Nummer") %>' runat="server"/>
 
                                      </ItemTemplate>
 
 
                                      <ItemTemplate>  
 
-                                         <asp:Label ID="Label1" runat="server" Text='<%# Bind("ID") %>'></asp:Label>  
+                                         <asp:Label ID="Label1" runat="server" Text='<%# Bind("Nummer") %>'></asp:Label>  
 
                                      </ItemTemplate>   
 
 
                                  </asp:TemplateField>
+
+
  
                 
 
@@ -166,7 +180,7 @@
                                       </ItemTemplate>
 
                                   </asp:TemplateField>
- 
+
                 
 
                                   <asp:TemplateField HeaderText="Aantal">

@@ -3,7 +3,7 @@
 <asp:Content runat="server" ContentPlaceHolderID="head">
 </asp:Content>
 <asp:content id="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    
+            <div class="header">Overzicht</div>
             <asp:Label ID="lblActiviteiten" runat="server" Text="Geplande Activiteiten" CssClass="lblgeplandeactiviteiten"></asp:Label>
             <asp:Label ID="lblDatum" runat="server" Text="Datum:" CssClass="lbldatum"></asp:Label>
             <asp:Label ID="lbldatumNu" runat="server" Text="" CssClass="lbldatumnu"></asp:Label>
