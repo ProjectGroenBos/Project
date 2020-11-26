@@ -5,6 +5,8 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <h1>Gast aanmaken</h1>
 
+    <p>Vul hier de gegevens van de gast in om deze in de database neer te zetten.</p>
+
     <h2>Persoonsgegevens:</h2>
     <br />
     <asp:Label ID="Label3" runat="server" Text="Voornaam*:" CssClass="labelsnieuw"></asp:Label>
@@ -15,7 +17,7 @@
     <br />
     <asp:Label ID="Label4" runat="server" Text="Tussenvoegsel:" CssClass="labelsnieuw"></asp:Label>
     <asp:TextBox ID="txbTussenvoegsel" runat="server" CssClass="textboxchaos"></asp:TextBox>
-    <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txbTussenvoegsel" ErrorMessage="In een tussenvoegsel kunnen geen cijfers zitten." ValidationExpression="^[a-zA-Z -]*$" ForeColor="Red"></asp:RegularExpressionValidator>
+    <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txbTussenvoegsel" ErrorMessage="In een tussenvoegsel kunnen geen cijfers zitten." ValidationExpression="^[a-zA-Z -]*$" ForeColor="Red" CssClass="validators"></asp:RegularExpressionValidator>
 
     <br />
     <asp:Label ID="Label5" runat="server" Text="Achternaam*:" CssClass="labelsnieuw"></asp:Label>
@@ -27,7 +29,7 @@
     <asp:Label ID="Label12" runat="server" Text="Telefoonnummer*:" CssClass="labelsnieuw"></asp:Label>
     <asp:TextBox ID="txbTelefoonnummer" runat="server" CssClass="textboxchaos"></asp:TextBox>
     <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txbTelefoonnummer" ErrorMessage="Dit veld is verplicht." CssClass="validators"></asp:RequiredFieldValidator>
-    <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ControlToValidate="txbTelefoonnummer" ErrorMessage="Telefoonnummer bestaat uit 9 getallen. De eerste 0 kan worden weggelaten." ValidationExpression="^[0-9]{9}$" ForeColor="Red"></asp:RegularExpressionValidator>
+    <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ControlToValidate="txbTelefoonnummer" ErrorMessage="Eerste 0 weglaten en 9 cijfers gebruiken." ValidationExpression="^[0-9]{9}$" ForeColor="Red"></asp:RegularExpressionValidator>
 
     <br />
     <asp:Label ID="Label6" runat="server" Text="E-mail*:" CssClass="labelsnieuw"></asp:Label>
@@ -73,7 +75,7 @@
     <asp:Label ID="Label10" runat="server" Text="Huisnummer + toevoeging*:" CssClass="labelsnieuw"></asp:Label>
     <asp:TextBox ID="txbHuisnummer" runat="server" CssClass="textboxchaos"></asp:TextBox>
     <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="txbHuisnummer" ErrorMessage="Dit veld is verplicht." CssClass="validators"></asp:RequiredFieldValidator>
-    <asp:RegularExpressionValidator ID="RegularExpressionValidator8" runat="server" ControlToValidate="txbHuisnummer" ErrorMessage="In een huisnummer staan alleen getallen met eventuele toevoeging." ValidationExpression="^[A-Za-z0-9 ]+$" ForeColor="Red"></asp:RegularExpressionValidator>
+    <asp:RegularExpressionValidator ID="RegularExpressionValidator8" runat="server" ControlToValidate="txbHuisnummer" ErrorMessage="Huisnummer bestaat uit getallen en letters." ValidationExpression="^[A-Za-z0-9 ]+$" ForeColor="Red"></asp:RegularExpressionValidator>
 
     <br />
     <asp:Label ID="Label11" runat="server" Text="Postcode*:" CssClass="labelsnieuw"></asp:Label>
@@ -82,7 +84,7 @@
     
     <br />
     <asp:Button ID="btnAanmaken" runat="server" Text="Aanmaken" CssClass="btnUitloggen" OnClick="btnAanmaken_Click" Style="background-color: #009879; color: #fff" class="btn" />
-
+    <asp:Button ID="btnTerug" runat="server" Text="Terug" CssClass="btnUitloggen" Style="background-color: #009879; color: #fff" class="btn" OnClick="btnTerug_Click" />
 
 
 
