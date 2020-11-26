@@ -70,21 +70,21 @@
 
              </asp:TemplateField>
  
-            <asp:TemplateField HeaderText="Minimum Voorraad" SortExpression="Minimumvoorraad" HeaderStyle-ForeColor="White">
+            <asp:TemplateField HeaderText="Minimum Voorraad" SortExpression="[Minimum voorraad]" HeaderStyle-ForeColor="White">
 
                  <ItemTemplate>
 
-                     <asp:Label Text='<%# Eval("Minimum voorraad") %>' runat="server"/>
+                     <asp:Label Text='<%# Eval("[Minimum voorraad]") %>' runat="server"/>
 
                  </ItemTemplate>
 
              </asp:TemplateField>
  
-            <asp:TemplateField HeaderText="Naam Leverancier" SortExpression="Leverancier" HeaderStyle-ForeColor="White" >
+            <asp:TemplateField HeaderText="Naam Leverancier" SortExpression="[Naam Leverancier]" HeaderStyle-ForeColor="White" >
 
                  <ItemTemplate>
 
-                     <asp:Label Text='<%# Eval("Naam Leverancier") %>' runat="server"/>
+                     <asp:Label Text='<%# Eval("[Naam Leverancier]") %>' runat="server"/>
 
                  </ItemTemplate>
 
