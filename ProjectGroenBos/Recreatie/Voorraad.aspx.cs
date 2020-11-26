@@ -177,22 +177,22 @@ namespace recreatie.paginas
 
             using (SqlConnection sqlCon = new SqlConnection(connectionstring))
             {
-              sqlCon.Open();
-              
-              SqlCommand cmd = new SqlCommand("sp_Recreatie_AanvragenBestelling", sqlCon);
-              cmd.CommandType = CommandType.StoredProcedure;
-              cmd.Parameters.AddWithValue("@Opmerking", (tbOpmerking.Text.Trim()));
-              cmd.ExecuteNonQuery();
-              sqlCon.Close();
+                sqlCon.Open();
 
-              sqlCon.Open();
-              string selectquery = "SELECT TOP 1 Nummer  FROM [dbo].[InkoopOrderAanvraag] ORDER BY Nummer DESC";
-              SqlCommand sqlComd = new SqlCommand(selectquery, sqlCon);
-              SqlDataReader r;
-              r = sqlComd.ExecuteReader();
+                SqlCommand cmd = new SqlCommand("sp_Recreatie_AanvragenBestelling", sqlCon);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Opmerking", (tbOpmerking.Text.Trim()));
+                cmd.ExecuteNonQuery();
+                sqlCon.Close();
+
+                sqlCon.Open();
+                string selectquery = "SELECT TOP 1 Nummer  FROM [dbo].[InkoopOrderAanvraag] ORDER BY Nummer DESC";
+                SqlCommand sqlComd = new SqlCommand(selectquery, sqlCon);
+                SqlDataReader r;
+                r = sqlComd.ExecuteReader();
 
                 int ordernummer = -1;
-                
+
 
                 while (r.Read())
                 {

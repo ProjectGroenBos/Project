@@ -6,7 +6,7 @@
 <head runat="server">
     <title></title>
 
-    <link href="CSS/Styleechtee.css" rel="stylesheet" />
+    <link href="CSS/stylegoeiee.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -22,7 +22,7 @@
                     <img src="img/Logo4.png" alt="Logo" height="150"></h2>
                 <h3>Recreatie</h3>
                 <ul>
-                    <li><a href="/Recreatie/Overzicht.aspx"><i class="fas fa-home"></i>Overzicht</a></li>
+                     <li><a href="/Recreatie/Overzicht.aspx"><i class="fas fa-home"></i>Overzicht</a></li>
                     <li><a href="#"><i class="fas fa-user"></i>Documentatie</a>
                         <ul class="submenu">
                             <li><a href="/Recreatie/Voorraadmuteren.aspx">Voorraadmuteren</a>
@@ -36,7 +36,12 @@
                     </li>
                     <li><a href="#"><i class="fas fa-address-card"></i>Beheer</a>
                         <ul class="submenu">
-                            <li><a href="/Recreatie/Planning.aspx">Planning</a></li>
+                            <li><a href="/Recreatie/ActiviteitOverzicht.aspx">Activiteit Overzicht</a>
+                            <ul class="submenu">
+                                <li><a href="/Recreatie/ActiviteitInplannen.aspx">Activiteit Inplannen</a></li>
+                                <li><a href="/Recreatie/ActiviteitWijzigen.aspx">Activiteit Wijzigen</a></li>
+                                <li><a href="/Recreatie/ActiviteitVerwijderen.aspx">Activiteit Verwijderen</a></li>
+                            </ul></li>
                             <li><a href="/Recreatie/Voorraad.aspx">Voorraad</a></li>
                         </ul>
                     </li>

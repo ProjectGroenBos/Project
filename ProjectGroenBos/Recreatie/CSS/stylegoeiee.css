@@ -156,6 +156,7 @@ body {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
     margin-left: auto;
     margin-right: auto;
+    margin-top: 10%;
 }
 
     .content-table tbody tr th {
@@ -513,8 +514,8 @@ nav ul {
 .textboxplanningactiviteit {
     position: absolute;
     float: right;
-    right: 15%;
-    top: 110%;
+    right: 18%;
+    top: -2147483648%;
 }
 
 .labellocatie {
@@ -534,8 +535,8 @@ nav ul {
 .labelbegeleider {
     position: absolute;
     float: right;
-    right: 30%;
-    top: 210%;
+    right: 36%;
+    top: -77550%;
 }
 
 .textboxaantal {
@@ -849,8 +850,365 @@ nav ul {
     right: 2%;
 }
 
-.labelzoekafboeken{
-    position:absolute;
-    left: 150%;
-    top: 150%;
+.labelzoekafboeken {
+    position: absolute;
+    left: 28%;
+    margin-top: 3%;
 }
+
+.textboxafboekenzoeken {
+    position: absolute;
+    left: 33%;
+    margin-top: 3%;
+}
+
+.buttonAfboekenVoorraadmuteren {
+    position: absolute;
+    top: 110%;
+    left: 28%;
+    width: 10%;
+    height: 10%;
+    font-size: 80%;
+    background-color: #009879;
+}
+
+.content-table2 {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    min-width: 400px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+}
+
+    .content-table2 tbody tr th {
+        background-color: #009879;
+        color: #ffffff;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    .content-table2 th,
+    .content-table2 td {
+        padding: 12px 15px;
+    }
+
+    .content-table2 tbody tr {
+        border-bottom: 1px solid #dddddd;
+    }
+
+        .content-table2 tbody tr:nth-of-type(even) {
+            background-color: #f3f3f3;
+        }
+
+
+        .content-table2 tbody tr:last-of-type {
+            border-bottom: 2px solid #009879;
+        }
+
+        .content-table2 tbody tr:hover {
+            font-weight: bold;
+            color: #009879;
+        }
+
+        .content-table2 tbody tr td a {
+            background-color: rgba(20,143,119,1);
+            border-radius: 5px;
+            color: #ffffff;
+            padding: .5em;
+            text-decoration: none;
+        }
+
+            .content-table2 tbody tr td a:nth-child(2) {
+                background-color: #C0392B;
+                border-radius: 5px;
+                color: #ffffff;
+                padding: .5em;
+                text-decoration: none;
+            }
+
+                .content-table2 tbody tr td a:nth-child(2):hover {
+                    background-color: #CD6155;
+                    color: #ffffff;
+                }
+
+            .content-table2 tbody tr td a:hover {
+                background-color: #009879;
+                color: #ffffff;
+            }
+
+.ButtonAfboekenknop {
+    position: absolute;
+    top: 110%;
+    left: 40%;
+    width: 10%;
+    height: 10%;
+    font-size: 80%;
+    background-color: #009879;
+}
+
+.ButtonOpboekenknop {
+    position: absolute;
+    top: 110%;
+    left: 28%;
+    width: 10%;
+    height: 10%;
+    font-size: 80%;
+    background-color: #009879;
+}
+
+.labelzoekenvooraadmutatie {
+    position: absolute;
+    left: 28%;
+    margin-top: 3%;
+}
+
+.TextboxzoekenVooraadmutatie {
+    position: absolute;
+    left: 33%;
+    margin-top: 3%;
+}
+
+.checkboxleverancierVoorraadmutatie {
+    position: absolute;
+    left: 50%;
+    margin-top: 3%;
+}
+
+.content-table3 {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    min-width: 400px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 8%;
+}
+
+    .content-table3 tbody tr th {
+        background-color: #009879;
+        color: #ffffff;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    .content-table3 th,
+    .content-table3 td {
+        padding: 12px 15px;
+    }
+
+    .content-table3 tbody tr {
+        border-bottom: 1px solid #dddddd;
+    }
+
+        .content-table3 tbody tr:nth-of-type(even) {
+            background-color: #f3f3f3;
+        }
+
+
+        .content-table3 tbody tr:last-of-type {
+            border-bottom: 2px solid #009879;
+        }
+
+        .content-table3 tbody tr:hover {
+            font-weight: bold;
+            color: #009879;
+        }
+
+        .content-table3 tbody tr td a {
+            background-color: rgba(20,143,119,1);
+            border-radius: 5px;
+            color: #ffffff;
+            padding: .5em;
+            text-decoration: none;
+        }
+
+            .content-table3 tbody tr td a:nth-child(2) {
+                background-color: #C0392B;
+                border-radius: 5px;
+                color: #ffffff;
+                padding: .5em;
+                text-decoration: none;
+            }
+
+                .content-table3 tbody tr td a:nth-child(2):hover {
+                    background-color: #CD6155;
+                    color: #ffffff;
+                }
+
+            .content-table3 tbody tr td a:hover {
+                background-color: #009879;
+                color: #ffffff;
+            }
+
+.labelVoorraadzoeken {
+    position: absolute;
+    left: 21%;
+    margin-top: 3%;
+}
+
+.txtZoekbalk {
+    position: absolute;
+    left: 27%;
+    margin-top: 3%;
+}
+
+.btnSelecterenproductenvoorraad {
+    position: absolute;
+    left: 50%;
+    margin-top: 3%;
+    background-color: #009879;
+}
+
+.BtnBestellenVooraad {
+    position: absolute;
+    left: 80%;
+    margin-top: 3%;
+}
+.content-table4 {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    min-width: 400px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 8%;
+}
+
+    .content-table4 tbody tr th {
+        background-color: #009879;
+        color: #ffffff;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    .content-table4 th,
+    .content-table4 td {
+        padding: 12px 15px;
+    }
+
+    .content-table4 tbody tr {
+        border-bottom: 1px solid #dddddd;
+    }
+
+        .content-table4 tbody tr:nth-of-type(even) {
+            background-color: #f3f3f3;
+        }
+
+
+        .content-table4 tbody tr:last-of-type {
+            border-bottom: 2px solid #009879;
+        }
+
+        .content-table4 tbody tr:hover {
+            font-weight: bold;
+            color: #009879;
+        }
+
+        .content-table4 tbody tr td a {
+            background-color: rgba(20,143,119,1);
+            border-radius: 5px;
+            color: #ffffff;
+            padding: .5em;
+            text-decoration: none;
+        }
+
+            .content-table4 tbody tr td a:nth-child(2) {
+                background-color: #C0392B;
+                border-radius: 5px;
+                color: #ffffff;
+                padding: .5em;
+                text-decoration: none;
+            }
+
+                .content-table4 tbody tr td a:nth-child(2):hover {
+                    background-color: #CD6155;
+                    color: #ffffff;
+                }
+
+            .content-table4 tbody tr td a:hover {
+                background-color: #009879;
+                color: #ffffff;
+            }
+.modal-dialog {
+    width: 100%;
+}
+
+.content-table5 {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    min-width: 400px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 8%;
+}
+
+    .content-table5 tbody tr th {
+        background-color: #009879;
+        color: #ffffff;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    .content-table5 th,
+    .content-table5 td {
+        padding: 12px 15px;
+    }
+
+    .content-table5 tbody tr {
+        border-bottom: 1px solid #dddddd;
+    }
+
+        .content-table5 tbody tr:nth-of-type(even) {
+            background-color: #f3f3f3;
+        }
+
+
+        .content-table5 tbody tr:last-of-type {
+            border-bottom: 2px solid #009879;
+        }
+
+        .content-table5 tbody tr:hover {
+            font-weight: bold;
+            color: #009879;
+        }
+
+        .content-table5 tbody tr td a {
+            background-color: rgba(20,143,119,1);
+            border-radius: 5px;
+            color: #ffffff;
+            padding: .5em;
+            text-decoration: none;
+        }
+
+            .content-table5 tbody tr td a:nth-child(2) {
+                background-color: #C0392B;
+                border-radius: 5px;
+                color: #ffffff;
+                padding: .5em;
+                text-decoration: none;
+            }
+
+                .content-table5 tbody tr td a:nth-child(2):hover {
+                    background-color: #CD6155;
+                    color: #ffffff;
+                }
+
+            .content-table5 tbody tr td a:hover {
+                background-color: #009879;
+                color: #ffffff;
+            }

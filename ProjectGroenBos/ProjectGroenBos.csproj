@@ -74,11 +74,21 @@
     <Content Include="Financien\Prijstabel.aspx" />
     <Content Include="Gerechten overzicht.aspx" />
     <Content Include="Global.asax" />
-    <Content Include="Recreatie\CSS\Styleechtee.css" />
+    <Content Include="Recreatie\ActiviteitInplannen.aspx" />
+    <Content Include="Recreatie\ActiviteitOverzicht.aspx" />
+    <Content Include="Recreatie\ActiviteitVerwijderen.aspx" />
+    <Content Include="Recreatie\ActiviteitWijzigen.aspx" />
+    <Content Include="Recreatie\CSS\styleechte.css" />
     <Content Include="Recreatie\CSS\stylegoeiee.css" />
+    <Content Include="Recreatie\CSS\styleoverzicht.css" />
     <Content Include="Recreatie\img\ascArrow.png" />
     <Content Include="Recreatie\img\descArrow.png" />
     <Content Include="Recreatie\Voorraad.aspx" />
+    <Content Include="Recreatie\CSS\Main.css" />
+    <Content Include="Recreatie\CSS\style.css" />
+    <Content Include="Recreatie\CSS\stylegoeie.css" />
+    <Content Include="Recreatie\CSS\styleplanning.css" />
+    <Content Include="Recreatie\CSS\stylevoorraad.css" />
     <Content Include="Recreatie\Documentatie.aspx" />
     <Content Include="Recreatie\home.aspx" />
     <Content Include="Recreatie\img\Logo1.png" />
@@ -398,6 +408,34 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Recreatie\ActiviteitInplannen.aspx.cs">
+      <DependentUpon>ActiviteitInplannen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Recreatie\ActiviteitInplannen.aspx.designer.cs">
+      <DependentUpon>ActiviteitInplannen.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Recreatie\ActiviteitOverzicht.aspx.cs">
+      <DependentUpon>ActiviteitOverzicht.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Recreatie\ActiviteitOverzicht.aspx.designer.cs">
+      <DependentUpon>ActiviteitOverzicht.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Recreatie\ActiviteitVerwijderen.aspx.cs">
+      <DependentUpon>ActiviteitVerwijderen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Recreatie\ActiviteitVerwijderen.aspx.designer.cs">
+      <DependentUpon>ActiviteitVerwijderen.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Recreatie\ActiviteitWijzigen.aspx.cs">
+      <DependentUpon>ActiviteitWijzigen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Recreatie\ActiviteitWijzigen.aspx.designer.cs">
+      <DependentUpon>ActiviteitWijzigen.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Recreatie\Voorraad.aspx.cs">
       <DependentUpon>Voorraad.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

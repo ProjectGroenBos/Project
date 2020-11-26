@@ -113,31 +113,37 @@ namespace ProjectGroenBos.Recreatie
 
         protected void txbAfboekenZoeken_TextChanged(object sender, EventArgs e)
         {
-            DataTable dtbl = (DataTable)Session["vaDB"];
-            DataView dv = dtbl.DefaultView;
-            dv.RowFilter = string.Format("Artikelnaam like '%{0}%'", txbAfboekenZoeken.Text);
-            GvAfboeken.DataSource = dv.ToTable();
-            GvAfboeken.DataBind();
+            if (ckbLeverancier.Checked == true)
+                {
+                DataTable dtbl = (DataTable)Session["vaDB"];
+                DataView dv = dtbl.DefaultView;
+                dv.RowFilter = string.Format("[Naam Leverancier] like '%{0}%'", txbAfboekenZoeken.Text);
+                GvAfboeken.DataSource = dv.ToTable();
+                GvAfboeken.DataBind();
+            }
+            else if (ckbCategorie.Checked == true)
+                {
+                DataTable dtbl = (DataTable)Session["vaDB"];
+                DataView dv = dtbl.DefaultView;
+                dv.RowFilter = string.Format("Categorie like '%{0}%'", txbAfboekenZoeken.Text);
+                GvAfboeken.DataSource = dv.ToTable();
+                GvAfboeken.DataBind();
+            }
+            else {
+                DataTable dtbl = (DataTable)Session["vaDB"];
+                DataView dv = dtbl.DefaultView;
+                dv.RowFilter = string.Format("Artikelnaam like '%{0}%'", txbAfboekenZoeken.Text);
+                GvAfboeken.DataSource = dv.ToTable();
+                GvAfboeken.DataBind();
+            }
         }
 
-        protected void btnSelecteren_Click(object sender, EventArgs e)
-        {
-            if (GvAfboeken.Columns[6].Visible == true)
-            {
-                GvAfboeken.Columns[0].Visible = false;
-                GvAfboeken.Columns[6].Visible = false;
-            }
-            else
-            {
-                GvAfboeken.Columns[0].Visible = true;
-                GvAfboeken.Columns[6].Visible = true;
-            }
-        }
+        
 
         protected void btnAfboeken_Click(object sender, EventArgs e)
         {
             DataTable Aanvraag = new DataTable();
-            Aanvraag.Columns.Add(new DataColumn("ID", typeof(int)));
+            Aanvraag.Columns.Add(new DataColumn("Nummer", typeof(int)));
             Aanvraag.Columns.Add(new DataColumn("Naam", typeof(string)));
 
             foreach (GridViewRow item in GvAfboeken.Rows)
@@ -151,8 +157,8 @@ namespace ProjectGroenBos.Recreatie
                         using (SqlConnection sqlCon = new SqlConnection(connectionstring))
                         {
 
-                            SqlCommand cmd = new SqlCommand("Select [ID], [Artikelnaam] FROM vVoorraadRecreatie where ID=@id", sqlCon);
-                            cmd.Parameters.AddWithValue("id", GvAfboeken.DataKeys[item.RowIndex].Value.ToString());
+                            SqlCommand cmd = new SqlCommand("Select [ID], [Artikelnaam], Aantal FROM vVoorraadRecreatie where ID=@id", sqlCon);
+                            cmd.Parameters.AddWithValue("ID", GvAfboeken.DataKeys[item.RowIndex].Value.ToString());
                             sqlCon.Open();
                             int id = cmd.ExecuteNonQuery();
                             SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -174,7 +180,6 @@ namespace ProjectGroenBos.Recreatie
         }
         protected void btnAfboeken2_Click(object sender, EventArgs e)
         {
-
             using (SqlConnection sqlCon = new SqlConnection(connectionstring))
             {
                 sqlCon.Open();
@@ -183,7 +188,11 @@ namespace ProjectGroenBos.Recreatie
                 SqlDataReader r;
                 r = sqlComd.ExecuteReader();
 
+
+
                 int ordernummer = -1;
+
+
 
 
                 while (r.Read())
@@ -200,13 +209,14 @@ namespace ProjectGroenBos.Recreatie
                     cmd.Parameters.AddWithValue("@Aantal", (int.Parse((GvVoorraadAfboeken.Rows[ding.RowIndex].FindControl("tbAantal") as TextBox).Text.Trim())));
                     cmd.Parameters.AddWithValue("@Type", "-");
                     cmd.Parameters.AddWithValue("@RedenID", (int.Parse((GvVoorraadAfboeken.Rows[ding.RowIndex].FindControl("ddlReden") as DropDownList).Text.Trim())));
-                    cmd.Parameters.AddWithValue("@Opmerking", (GvVoorraadAfboeken.DataKeys[ding.RowIndex].Value.ToString()));
+                    cmd.Parameters.AddWithValue("@Opmerking", ((GvVoorraadAfboeken.Rows[ding.RowIndex].FindControl("tbOpmerking") as TextBox).Text.Trim()));
                     cmd.ExecuteNonQuery();
                     con.Close();
                     GvVoorraadAfboeken.DataBind();
                     InvullenGridview();
                 }
+                }
             }
+           // LblBevestiging.Text = "Voorraad Gemuteerd";
         }
     }
-}
