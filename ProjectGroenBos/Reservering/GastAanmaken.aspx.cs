@@ -15,6 +15,12 @@ namespace ProjectGroenBos.Reservering
             {
                 Response.Redirect("GastSelecteren.aspx");
             }
+            else
+            {
+                txbAchternaam.Text = Session["achternaam"].ToString();
+                txbTelefoonnummer.Text = Session["telefoonnummer"].ToString();
+                txbEmail.Text = Session["email"].ToString();
+            }
         }
 
         protected void btnAanmaken_Click(object sender, EventArgs e)
@@ -32,33 +38,48 @@ namespace ProjectGroenBos.Reservering
 
             string land = DropDownList2.Text;
 
-            DateTime control = new DateTime();
-            control = DateTime.Today;
-            control.AddYears(-18);
-            control.ToShortDateString();
-
-            DateTime geboortedatum = new DateTime();
-            geboortedatum = DateTime.Parse(txbGeboortedatum.Text);
-            geboortedatum.ToShortDateString();
-
             if (land == "")
             {
                 CustomValidator1.IsValid = false;
             }
 
-            if (geboortedatum <= control)
+            if(CheckDatum() == true)
             {
-                CustomValidator2.IsValid = false;
-                CustomValidator2.Visible = true;
-            }
-            else if (geboortedatum > control)
-            {
-                CustomValidator2.IsValid = true;
-                CustomValidator2.Visible = false;
+
             }
 
+            
 
+        }
 
+        private bool CheckDatum()
+        {
+            try
+            {
+                
+                DateTime control = new DateTime();
+                DateTime geboortedatum = new DateTime();
+
+                geboortedatum = DateTime.Parse(txbGeboortedatum.Text);
+                geboortedatum.ToShortDateString();
+
+                control = DateTime.Today;
+                control.AddYears(-18);
+                control.ToShortDateString();
+
+                if (control >= geboortedatum)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                } 
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }

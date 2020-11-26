@@ -33,7 +33,10 @@ namespace ProjectGroenBos
 
         protected void btnGastAanmaken_Click(object sender, EventArgs e)
         {
-            Session["controle"] = 420; 
+            Session["controle"] = 420;
+            Session["achternaam"] = txbAchternaam.Text;
+            Session["email"] = txbEmail.Text;
+            Session["telefoonnummer"] = txbTelefoonnummer.Text;
             Response.Redirect("GastAanmaken.aspx");
         }
 

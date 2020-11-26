@@ -394,8 +394,7 @@ nav ul {
 .textboxchaos {
     position: relative;
     left: 75px;
-    top: -10px;
-    height: 17px;
+    top: -6px;
     display: inline-block;
     width: 145px;
 }
@@ -405,7 +404,7 @@ nav ul {
     width: 289px;
     left: 64px;
     display: inline-block;
-    top: -12px;
+    top: -10px;
 }
 
 .textboxbtn {
