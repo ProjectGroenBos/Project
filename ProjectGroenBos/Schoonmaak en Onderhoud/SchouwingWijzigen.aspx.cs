@@ -27,7 +27,7 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud
             {
                 lblID.Text = Session["SchouwingID"].ToString();
                 DropDownList1.SelectedValue = Session["BungalowID"].ToString();
-                txtdatum.Text = Session["Schouwingsdatum"].ToString();
+                lblDatumW.Text = Session["Schouwingsdatum"].ToString();
                 txtOmschrijving.Text = Session["Omschrijving"].ToString();
                 DropDownList2.SelectedValue = Session["Status"].ToString();
             }
@@ -46,19 +46,15 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud
 
         protected void btnWijzigS_Click1(object sender, EventArgs e)
         {
-            RequiredFieldValidator2.Validate();
             RequiredFieldValidator1.Validate();
-            RegularExpressionValidator1.Validate();
             RequiredFieldValidator3.Validate();
-            if (RequiredFieldValidator3.IsValid && RegularExpressionValidator1.IsValid && RequiredFieldValidator2.IsValid && RequiredFieldValidator1.IsValid) 
+            if (RequiredFieldValidator3.IsValid && RequiredFieldValidator1.IsValid) 
             {
                 String status = DropDownList2.SelectedValue.ToString();
-                DateTime date = DateTime.Parse(txtdatum.Text);
-                string Datum = date.ToString("yyyy-MM-dd");
                 String bungnummer = DropDownList1.SelectedValue.ToString();
                 SqlCommand cmd = con.CreateCommand();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "update [dbo].[Schouwing] set [BungalowID]='" + bungnummer + "' ,[Schouwingsdatum]='" + txtdatum.Text + "' ,[Omschrijving]='" + txtOmschrijving.Text + "' ,[Status]='" + status + "'where SchouwingID= " + Convert.ToInt32(lblID.Text) + "";
+                cmd.CommandText = "update [dbo].[Schouwing] set [BungalowID]='" + bungnummer + "' ,[Schouwingsdatum]='" + lblDatumW.Text + "' ,[Omschrijving]='" + txtOmschrijving.Text + "' ,[Status]='" + status + "'where SchouwingID= " + Convert.ToInt32(lblID.Text) + "";
                 cmd.ExecuteNonQuery();
 
 

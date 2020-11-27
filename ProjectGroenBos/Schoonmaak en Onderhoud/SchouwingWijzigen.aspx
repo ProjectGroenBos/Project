@@ -76,13 +76,11 @@
            <asp:Label ID="lblDatum" runat="server" Text="Schouwingsdatum" ></asp:Label>
                      </td>
                     <td class="auto-style17">
-           <asp:TextBox ID="txtdatum" runat="server" Width="125px" ></asp:TextBox>
+           &nbsp;
+                        <asp:Label ID="lblDatumW" runat="server"></asp:Label>
 
                      </td>
                       <td class="auto-style1">
-
-
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtDatum" ErrorMessage="Vul in" ForeColor="Red"></asp:RequiredFieldValidator>
 
 
                           &nbsp;&nbsp;&nbsp;
@@ -91,16 +89,14 @@
                           </td>
                      <td class="auto-style22">
 
-                         <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtDatum" ErrorMessage="Invoer ongeldig " ForeColor="Red" ValidationExpression="^(?:(?:31(\/|-|\.)(?:0?[13578]|1[02]))\1|(?:(?:29|30)(\/|-|\.)(?:0?[13-9]|1[0-2])\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:29(\/|-|\.)0?2\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8])(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:(?:1[6-9]|[2-9]\d)?\d{2})$" Enabled="False"></asp:RegularExpressionValidator>
-
-                     </td>
+                         &nbsp;</td>
                 </tr>
                  <tr>
                     <td class="auto-style16">
            <asp:Label ID="lblOmschrijving" runat="server" Text="Omschrijving"></asp:Label>
                      </td>
                     <td class="auto-style17">
-           <asp:TextBox ID="txtOmschrijving" runat="server" Height="66px" Width="133px" TextMode="MultiLine" ></asp:TextBox>
+           <asp:TextBox ID="txtOmschrijving" runat="server" Height="66px" Width="172px" TextMode="MultiLine" ></asp:TextBox>
                      </td>
                      
                 </tr>

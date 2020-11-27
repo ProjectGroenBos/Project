@@ -38,6 +38,7 @@
                 <AlternatingRowStyle BackColor="#F0F0F0" />
                 <Columns>
                     <asp:CommandField  ButtonType="Image" SelectImageUrl="~/Images/SelectIcon.png" ShowSelectButton="True" />
+                    <asp:BoundField DataField="SchouwingID" HeaderText="Schouwing" ReadOnly="True" SortExpression="SchouwingID"/>
                     <asp:BoundField DataField="BungalowID" HeaderText="Bungalow" SortExpression="BungalowID" />
                     <asp:BoundField DataField="Schouwingsdatum" HeaderText="Schouwingsdatum" SortExpression="Schouwingsdatum" DataFormatString="{0:d}" />
                     <asp:BoundField DataField="Omschrijving" HeaderText="Omschrijving" SortExpression="Omschrijving" />
@@ -63,10 +64,11 @@
                 <AlternatingRowStyle BackColor="#F0F0F0" />
                 <Columns>
                     <asp:CommandField  ButtonType="Image" SelectImageUrl="~/Images/SelectIcon.png" ShowSelectButton="True" />
-                   <asp:BoundField DataField="SchouwingID" HeaderText="Nummer" ReadOnly="True" SortExpression="SchouwingID" />
-                    <asp:BoundField DataField="BungalowID" HeaderText="Bungalownummer" SortExpression="BungalowID" />
+                    <asp:BoundField DataField="SchouwingID" HeaderText="Schouwing" ReadOnly="True" SortExpression="SchouwingID"/>
+                    <asp:BoundField DataField="BungalowID" HeaderText="Bungalow" SortExpression="BungalowID" />
                     <asp:BoundField DataField="Schouwingsdatum" HeaderText="Schouwingsdatum" SortExpression="Schouwingsdatum" DataFormatString="{0:d}" />
                     <asp:BoundField DataField="Omschrijving" HeaderText="Omschrijving" SortExpression="Omschrijving" />
+                    <asp:BoundField DataField="Status" HeaderText="Status" SortExpression="Status" />
                     <asp:CommandField ButtonType="Image" DeleteImageUrl="~/Images/deleteRow.png" ShowDeleteButton="True" />
                 </Columns>
                 <FooterStyle BackColor="#CCCCCC" />
@@ -92,10 +94,11 @@
                     <AlternatingRowStyle BackColor="#F0F0F0" />
               <Columns>
                   <asp:CommandField  ButtonType="Image" SelectImageUrl="~/Images/SelectIcon.png" ShowSelectButton="True" />
-                   <asp:BoundField DataField="SchouwingID" HeaderText="Nummer" ReadOnly="True" SortExpression="SchouwingID" />
-                    <asp:BoundField DataField="BungalowID" HeaderText="Bungalownummer" SortExpression="BungalowID" />
-                    <asp:BoundField DataField="Schouwingsdatum" HeaderText="Schouwingsdatum" SortExpression="Schouwingsdatum" DataFormatString="{0:d}"/>
+                    <asp:BoundField DataField="SchouwingID" HeaderText="Schouwing" ReadOnly="True" SortExpression="SchouwingID"/>
+                    <asp:BoundField DataField="BungalowID" HeaderText="Bungalow" SortExpression="BungalowID" />
+                    <asp:BoundField DataField="Schouwingsdatum" HeaderText="Schouwingsdatum" SortExpression="Schouwingsdatum" DataFormatString="{0:d}" />
                     <asp:BoundField DataField="Omschrijving" HeaderText="Omschrijving" SortExpression="Omschrijving" />
+                    <asp:BoundField DataField="Status" HeaderText="Status" SortExpression="Status" />
                   <asp:CommandField ButtonType="Image" DeleteImageUrl="~/Images/deleteRow.png" ShowDeleteButton="True" />
                 </Columns>
                 <FooterStyle BackColor="#CCCCCC" />

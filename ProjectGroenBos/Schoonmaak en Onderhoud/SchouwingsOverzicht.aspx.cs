@@ -23,11 +23,11 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Session["SchouwingID"] = (string)GridView1.SelectedRow.Cells[0].Text;
-            Session["BungalowID"] = (string)GridView1.SelectedRow.Cells[1].Text;
-            Session["Schouwingsdatum"] = (string)GridView1.SelectedRow.Cells[2].Text;
-            Session["Omschrijving"] = (string)GridView1.SelectedRow.Cells[3].Text;
-            Session["Status"] = (string)GridView1.SelectedRow.Cells[4].Text;
+            Session["SchouwingID"] = (string)GridView1.SelectedRow.Cells[1].Text;
+            Session["BungalowID"] = (string)GridView1.SelectedRow.Cells[2].Text;
+            Session["Schouwingsdatum"] = (string)GridView1.SelectedRow.Cells[3].Text;
+            Session["Omschrijving"] = (string)GridView1.SelectedRow.Cells[4].Text;
+            Session["Status"] = (string)GridView1.SelectedRow.Cells[5].Text;
 
             Response.Redirect("SchouwingWijzigen.aspx");
         }
