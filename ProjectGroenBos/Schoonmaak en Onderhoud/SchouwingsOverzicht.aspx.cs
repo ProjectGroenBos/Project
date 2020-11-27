@@ -65,20 +65,22 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud
 
         protected void gridBungalow_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Session["SchouwingID"] = (string)gridBungalow.SelectedRow.Cells[1].Text;
-            Session["BungalowID"] = (string)gridBungalow.SelectedRow.Cells[2].Text;
-            Session["Schouwingsdatum"] = (string)gridBungalow.SelectedRow.Cells[3].Text;
-            Session["Omschrijving"] = (string)gridBungalow.SelectedRow.Cells[4].Text;
+            Session["SchouwingID"] = (string)GridView1.SelectedRow.Cells[1].Text;
+            Session["BungalowID"] = (string)GridView1.SelectedRow.Cells[2].Text;
+            Session["Schouwingsdatum"] = (string)GridView1.SelectedRow.Cells[3].Text;
+            Session["Omschrijving"] = (string)GridView1.SelectedRow.Cells[4].Text;
+            Session["Status"] = (string)GridView1.SelectedRow.Cells[5].Text;
 
             Response.Redirect("SchouwingWijzigen.aspx");
         }
 
         protected void gridDatum_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Session["SchouwingID"] = (string)gridDatum.SelectedRow.Cells[1].Text;
-            Session["BungalowID"] = (string)gridDatum.SelectedRow.Cells[2].Text;
-            Session["Schouwingsdatum"] = (string)gridDatum.SelectedRow.Cells[3].Text;
-            Session["Omschrijving"] = (string)gridDatum.SelectedRow.Cells[4].Text;
+            Session["SchouwingID"] = (string)GridView1.SelectedRow.Cells[1].Text;
+            Session["BungalowID"] = (string)GridView1.SelectedRow.Cells[2].Text;
+            Session["Schouwingsdatum"] = (string)GridView1.SelectedRow.Cells[3].Text;
+            Session["Omschrijving"] = (string)GridView1.SelectedRow.Cells[4].Text;
+            Session["Status"] = (string)GridView1.SelectedRow.Cells[5].Text;
 
             Response.Redirect("SchouwingWijzigen.aspx");
         }
