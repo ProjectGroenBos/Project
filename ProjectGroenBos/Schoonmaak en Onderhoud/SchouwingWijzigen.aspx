@@ -14,6 +14,7 @@
        <div class="col-sm-12" style="text-align:center;">
            <hr />
           </div>
+    <br />
     <div style="text-align:center;">
   <div style="width:65%; margin: 0 auto; text-align:left;">
             <table class="auto-style23">

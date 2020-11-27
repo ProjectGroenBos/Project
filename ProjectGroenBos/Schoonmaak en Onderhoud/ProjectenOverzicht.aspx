@@ -41,9 +41,10 @@
         </div>
         <div>
             <center>
-            <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False" DataKeyNames="SchouwingID" DataSourceID="SqlDataSource1" Width="70%">
+            <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False" DataKeyNames="SchouwingID" DataSourceID="SqlDataSource1" Width="70%" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
                 <AlternatingRowStyle BackColor="#F0F0F0" />
                 <Columns>
+                    <asp:CommandField  ButtonType="Image" SelectImageUrl="~/Images/SelectIcon.png" ShowSelectButton="True" />
                     <asp:BoundField DataField="SchouwingID" HeaderText="Nummer" ReadOnly="True" SortExpression="SchouwingID" InsertVisible="False" /> 
                     <asp:BoundField DataField="BungalowID" HeaderText="Bungalow" SortExpression="BungalowID" />
                     <asp:BoundField DataField="Omschrijving" HeaderText="Bevinding" SortExpression="Omschrijving" />
@@ -69,6 +70,7 @@
             <asp:GridView ID="gridBungalow" runat="server" AutoGenerateColumns="False" DataKeyNames="SchouwingID" DataSourceID="SqlDataSource3" AllowPaging="True" Width="70%" OnSelectedIndexChanged="gridBungalow_SelectedIndexChanged">
                 <AlternatingRowStyle BackColor="#F0F0F0" />
                 <Columns>
+                    <asp:CommandField  ButtonType="Image" SelectImageUrl="~/Images/SelectIcon.png" ShowSelectButton="True" />
                     <asp:BoundField DataField="SchouwingID" HeaderText="Nummer" ReadOnly="True" SortExpression="SchouwingID" InsertVisible="False" /> 
                     <asp:BoundField DataField="BungalowID" HeaderText="Bungalow" SortExpression="BungalowID" />
                     <asp:BoundField DataField="Omschrijving" HeaderText="Bevinding" SortExpression="Omschrijving" />
@@ -98,6 +100,7 @@
                 <asp:GridView ID="gridDatum" runat="server" AllowPaging="True" AutoGenerateColumns="False" DataKeyNames="SchouwingID" DataSourceID="SqlDataSource4" Width="70%" OnSelectedIndexChanged="gridDatum_SelectedIndexChanged">
                     <AlternatingRowStyle BackColor="#F0F0F0" />
               <Columns>
+                  <asp:CommandField  ButtonType="Image" SelectImageUrl="~/Images/SelectIcon.png" ShowSelectButton="True" />
                     <asp:BoundField DataField="SchouwingID" HeaderText="Nummer" ReadOnly="True" SortExpression="SchouwingID" InsertVisible="False" /> 
                     <asp:BoundField DataField="BungalowID" HeaderText="Bungalow" SortExpression="BungalowID" />
                     <asp:BoundField DataField="Omschrijving" HeaderText="Bevinding" SortExpression="Omschrijving" />

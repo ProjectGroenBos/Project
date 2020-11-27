@@ -20,6 +20,17 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud
             Response.Redirect("ProjectToevoegen.aspx");
         }
 
+        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Session["SchouwingID"] = (string)GridView1.SelectedRow.Cells[1].Text;
+            Session["BungalowID"] = (string)GridView1.SelectedRow.Cells[2].Text;
+            Session["Omschrijving"] = (string)GridView1.SelectedRow.Cells[3].Text;
+            Session["Oplossing"] = (string)GridView1.SelectedRow.Cells[4].Text;
+            Session["Offertestatus"] = (string)GridView1.SelectedRow.Cells[5].Text;
+
+            Response.Redirect("ProjectWijzigen.aspx");
+        }
+
         protected void gridBungalow_SelectedIndexChanged(object sender, EventArgs e)
         {
 
