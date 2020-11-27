@@ -100,7 +100,7 @@
            <asp:Label ID="lblOmschrijving" runat="server" Text="Omschrijving"></asp:Label>
                      </td>
                     <td class="auto-style17">
-           <asp:TextBox ID="txtOmschrijving" runat="server" Height="66px" Width="125px" TextMode="MultiLine" ></asp:TextBox>
+           <asp:TextBox ID="txtOmschrijving" runat="server" Height="66px" Width="133px" TextMode="MultiLine" ></asp:TextBox>
                      </td>
                      
                 </tr>
@@ -110,16 +110,38 @@
                 <tr>
                     <td class="auto-style16">
 
-                        &nbsp;</td>
+                        <asp:Label ID="Label4" runat="server" Text="Status"></asp:Label>
+
+                    </td>
                     <td class="auto-style17">
 
-                        &nbsp;</td>
+                        <asp:DropDownList ID="DropDownList2" runat="server">
+                            <asp:ListItem Value="0">-- Selecteer --</asp:ListItem>
+                            <asp:ListItem>Gepland</asp:ListItem>
+                            <asp:ListItem>Bezig</asp:ListItem>
+                            <asp:ListItem>Klaar</asp:ListItem>
+                        </asp:DropDownList>
+
+                    </td>
                     <td class="auto-style1">
 
                         &nbsp;</td>
                     <td class="auto-style22">
 
-                        &nbsp;</td>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="DropDownList2" ErrorMessage="Selecteer Iets" ForeColor="Red" InitialValue="0"></asp:RequiredFieldValidator>
+
+                         </td>
+                </tr>
+                <tr>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td class="auto-style1">
+
+                    </td>
                 </tr>
                 <tr>
                     <td>
@@ -170,13 +192,13 @@
 <asp:Content ID="Content1" runat="server" contentplaceholderid="head">
     <style type="text/css">
         .auto-style1 {
-            width: 83px;
+            width: 100px;
         }
         .auto-style2 {
             height: 52px;
         }
         .auto-style3 {
-            width: 83px;
+            width: 100px;
             height: 52px;
         }
     </style>

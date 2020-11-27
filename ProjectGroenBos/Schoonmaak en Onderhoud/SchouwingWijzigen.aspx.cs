@@ -29,6 +29,7 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud
                 DropDownList1.SelectedValue = Session["BungalowID"].ToString();
                 txtdatum.Text = Session["Schouwingsdatum"].ToString();
                 txtOmschrijving.Text = Session["Omschrijving"].ToString();
+                DropDownList2.SelectedValue = Session["Status"].ToString();
             }
 
         }
@@ -40,7 +41,7 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud
 
         protected void btnTerugNO_Click(object sender, EventArgs e)
         {
-            Response.Redirect("SChouwingsOverzicht.aspx");
+            Response.Redirect("SchouwingsOverzicht.aspx");
         }
 
         protected void btnWijzigS_Click1(object sender, EventArgs e)
@@ -48,14 +49,16 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud
             RequiredFieldValidator2.Validate();
             RequiredFieldValidator1.Validate();
             RegularExpressionValidator1.Validate();
-            if (RegularExpressionValidator1.IsValid && RequiredFieldValidator2.IsValid && RequiredFieldValidator1.IsValid) 
+            RequiredFieldValidator3.Validate();
+            if (RequiredFieldValidator3.IsValid && RegularExpressionValidator1.IsValid && RequiredFieldValidator2.IsValid && RequiredFieldValidator1.IsValid) 
             {
+                String status = DropDownList2.SelectedValue.ToString();
                 DateTime date = DateTime.Parse(txtdatum.Text);
                 string Datum = date.ToString("yyyy-MM-dd");
                 String bungnummer = DropDownList1.SelectedValue.ToString();
                 SqlCommand cmd = con.CreateCommand();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "update [dbo].[Schouwing] set [BungalowID]='" + bungnummer + "' ,[Schouwingsdatum]='" + txtdatum.Text + "' ,[Omschrijving]='" + txtOmschrijving.Text + "'where SchouwingID= " + Convert.ToInt32(lblID.Text) + "";
+                cmd.CommandText = "update [dbo].[Schouwing] set [BungalowID]='" + bungnummer + "' ,[Schouwingsdatum]='" + txtdatum.Text + "' ,[Omschrijving]='" + txtOmschrijving.Text + "' ,[Status]='" + status + "'where SchouwingID= " + Convert.ToInt32(lblID.Text) + "";
                 cmd.ExecuteNonQuery();
 
 

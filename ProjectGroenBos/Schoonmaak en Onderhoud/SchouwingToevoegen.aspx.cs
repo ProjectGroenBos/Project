@@ -19,19 +19,21 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud
         protected void BtnToevoegen_Click(object sender, EventArgs e)
         {
             RFVSchouwingsdatum.Validate();
-            RFVOmschrijving.Validate();
             RequiredFieldValidator1.Validate();
+            RequiredFieldValidator2.Validate();
 
-            if (RFVSchouwingsdatum.IsValid && RFVOmschrijving.IsValid && RequiredFieldValidator1.IsValid)
+            if (RequiredFieldValidator2.IsValid && RFVSchouwingsdatum.IsValid && RequiredFieldValidator1.IsValid)
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("INSERT INTO  [dbo].[Schouwing] (BungalowID,Schouwingsdatum,Omschrijving)    values(@BungalowID, @Schouwingsdatum, @Omschrijving)", con);
+                SqlCommand cmd = new SqlCommand("INSERT INTO  [dbo].[Schouwing] (BungalowID,Schouwingsdatum,Omschrijving,Status)    values(@BungalowID, @Schouwingsdatum, @Omschrijving, @status)", con);
 
+                String status = DropDownList2.SelectedValue.ToString();
                 String nummer = DropDownList1.SelectedValue.ToString();
                 DateTime datum1 = DateTime.Parse(TxtSchouwingsDatum.Text);
                 cmd.Parameters.AddWithValue("@Schouwingsdatum", datum1);
                 cmd.Parameters.AddWithValue("@BungalowID", nummer);
                 cmd.Parameters.AddWithValue("@Omschrijving", TxtOmschrijving.Text);
+                cmd.Parameters.AddWithValue("@status", status);
 
                 cmd.ExecuteNonQuery();
                 con.Close();

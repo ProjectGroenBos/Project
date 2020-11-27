@@ -63,7 +63,7 @@
                     </td>
                     <td class="auto-style3">
 
-        <asp:TextBox ID="TxtSchouwingsDatum" runat="server"></asp:TextBox>
+        <asp:TextBox ID="TxtSchouwingsDatum" runat="server" Width="125px"></asp:TextBox>
                         </td>
                     <td class="auto-style4">
 
@@ -86,17 +86,38 @@
                     </td>
                     <td class="auto-style3">
 
-        <asp:TextBox ID="TxtOmschrijving" runat="server"></asp:TextBox>
+        <asp:TextBox ID="TxtOmschrijving" runat="server" Height="79px" TextMode="MultiLine" Width="178px"></asp:TextBox>
                         <td class="auto-style4">
-                        <asp:RequiredFieldValidator ID="RFVOmschrijving" runat="server" ControlToValidate="TxtOmschrijving" ErrorMessage="Vul in" ForeColor="Red"></asp:RequiredFieldValidator>
-
-                    </td>                    
+                            &nbsp;</td>                    
                 </tr>
                 <tr>
                     <td class="auto-style6">
 
+                        <asp:Label ID="Label4" runat="server" Text="Status"></asp:Label>
+
                     </td>
-                </tr>                
+                    <td>
+
+                        <asp:DropDownList ID="DropDownList2" runat="server">
+                            <asp:ListItem Value="0">-- Selecteer --</asp:ListItem>
+                            <asp:ListItem>Gepland</asp:ListItem>
+                            <asp:ListItem>Bezig</asp:ListItem>
+                            <asp:ListItem>Klaar</asp:ListItem>
+                        </asp:DropDownList>
+
+                    </td>
+                    <td>
+
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="DropDownList2" ErrorMessage="Selecteer Iets" ForeColor="Red" InitialValue="0"></asp:RequiredFieldValidator>
+
+                    </td>
+                </tr>  
+                <tr>
+                    <td>
+
+                    </td>
+                </tr>
+
                 <tr>
                     <td class="auto-style7">
 
