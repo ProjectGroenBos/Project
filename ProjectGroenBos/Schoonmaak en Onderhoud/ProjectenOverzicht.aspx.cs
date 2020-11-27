@@ -33,12 +33,24 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud
 
         protected void gridBungalow_SelectedIndexChanged(object sender, EventArgs e)
         {
+            Session["SchouwingID"] = (string)gridBungalow.SelectedRow.Cells[1].Text;
+            Session["BungalowID"] = (string)gridBungalow.SelectedRow.Cells[2].Text;
+            Session["Omschrijving"] = (string)gridBungalow.SelectedRow.Cells[3].Text;
+            Session["Oplossing"] = (string)gridBungalow.SelectedRow.Cells[4].Text;
+            Session["Offertestatus"] = (string)gridBungalow.SelectedRow.Cells[5].Text;
 
+            Response.Redirect("ProjectWijzigen.aspx");
         }
 
         protected void gridDatum_SelectedIndexChanged(object sender, EventArgs e)
         {
+            Session["SchouwingID"] = (string)gridDatum.SelectedRow.Cells[1].Text;
+            Session["BungalowID"] = (string)gridDatum.SelectedRow.Cells[2].Text;
+            Session["Omschrijving"] = (string)gridDatum.SelectedRow.Cells[3].Text;
+            Session["Oplossing"] = (string)gridDatum.SelectedRow.Cells[4].Text;
+            Session["Offertestatus"] = (string)gridDatum.SelectedRow.Cells[5].Text;
 
+            Response.Redirect("ProjectWijzigen.aspx");
         }
 
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
