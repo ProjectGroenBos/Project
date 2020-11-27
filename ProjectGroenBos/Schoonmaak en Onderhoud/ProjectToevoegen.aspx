@@ -64,6 +64,7 @@
                     <td class="auto-style3">
 
         <asp:TextBox ID="TxtOmschrijving" runat="server" Height="99px" TextMode="MultiLine" Width="228px"></asp:TextBox>
+                        <br />
                         </td>
                     <td class="auto-style4">
 
@@ -82,20 +83,17 @@
                     </td>
                     <td class="auto-style3">
 
-                        <asp:DropDownList ID="DropDownList3" runat="server" Width="231px">
-                <asp:ListItem Value="0">-- Selecteer --</asp:ListItem>
-                <asp:ListItem>Raamwerk</asp:ListItem>
-                <asp:ListItem>Vloerwerk</asp:ListItem>
-                <asp:ListItem>Dakwerk</asp:ListItem>
-                <asp:ListItem>Interieurwerk</asp:ListItem>
-                <asp:ListItem>Stucken</asp:ListItem>
-                <asp:ListItem>Schilderen</asp:ListItem>
-                        </asp:DropDownList>
+                        <asp:CheckBoxList ID="CheckBoxList1" runat="server" Width="214px">
+                            <asp:ListItem>Raamwerk</asp:ListItem>
+                            <asp:ListItem>Vloerwerk</asp:ListItem>
+                            <asp:ListItem>Dakwerk</asp:ListItem>
+                            <asp:ListItem>Interieurwerk</asp:ListItem>
+                            <asp:ListItem>Stuckwerk</asp:ListItem>
+                            <asp:ListItem>Schilderen</asp:ListItem>
+                        </asp:CheckBoxList>
                         <td class="auto-style4">
 
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="DropDownList3" ErrorMessage="Selecteer Iets" ForeColor="Red" InitialValue="0"></asp:RequiredFieldValidator>
-
-                    </td>                    
+                            &nbsp;</td>                    
                 </tr>
                 <tr>
                     <td class="auto-style6">
@@ -103,7 +101,7 @@
                         <asp:Label ID="Label4" runat="server" Text="Offertestatus"></asp:Label>
 
                     </td>
-                    <td>
+                    <td class="auto-style3">
 
                         <asp:DropDownList ID="DropDownList2" runat="server">
                             <asp:ListItem Value="0">-- Selecteer --</asp:ListItem>
@@ -121,6 +119,12 @@
                 </tr>  
                 <tr>
                     <td class="auto-style7">
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
 
                     </td>
                 </tr>
@@ -169,10 +173,10 @@
 <asp:Content ID="Content1" runat="server" contentplaceholderid="head">
     <style type="text/css">
         .auto-style1 {
-            width: 35%;
+            width: 57%;
         }
         .auto-style3 {
-            width: 244px;
+            width: 310px;
         }
         .auto-style4 {
             width: 181px;

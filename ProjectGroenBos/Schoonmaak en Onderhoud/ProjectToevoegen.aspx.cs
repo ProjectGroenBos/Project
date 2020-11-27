@@ -20,20 +20,36 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud
         {
             RequiredFieldValidator1.Validate();
             RequiredFieldValidator2.Validate();
-            RequiredFieldValidator3.Validate();
 
-            if (RequiredFieldValidator2.IsValid && RequiredFieldValidator3.IsValid && RequiredFieldValidator1.IsValid)
+            if (RequiredFieldValidator2.IsValid && RequiredFieldValidator1.IsValid)
             {
                 con.Open();
                 SqlCommand cmd = new SqlCommand("INSERT INTO  [dbo].[Schouwing] (BungalowID,Omschrijving,Oplossing,Offertestatus)    values(@bungalowid, @omschrijving, @oplossing, @offertestatus)", con);
 
                 String status = DropDownList2.SelectedValue.ToString();
                 String nummer = DropDownList1.SelectedValue.ToString();
-                String categorie = DropDownList3.SelectedValue.ToString();
+                //String categorie = DropDownList3.SelectedValue.ToString();
+                
+                string checkboxselect = "";
+                for (int i = 0;i< CheckBoxList1.Items.Count;i++)
+                    {
+                    if (CheckBoxList1.Items[i].Selected)
+                    {
+                        if(checkboxselect == "")
+                        {
+                            checkboxselect = CheckBoxList1.Items[i].Text;
+                        }
+                        else
+                        {
+                            checkboxselect += ", " + CheckBoxList1.Items[i].Text;
+                        }
+                    }
+                }
+                
                 cmd.Parameters.AddWithValue("@bungalowid", nummer);
                 cmd.Parameters.AddWithValue("@omschrijving", TxtOmschrijving.Text);
                 cmd.Parameters.AddWithValue("@offertestatus", status);
-                cmd.Parameters.AddWithValue("@oplossing", categorie);
+                cmd.Parameters.AddWithValue("@oplossing", checkboxselect);
 
                 cmd.ExecuteNonQuery();
                 con.Close();
