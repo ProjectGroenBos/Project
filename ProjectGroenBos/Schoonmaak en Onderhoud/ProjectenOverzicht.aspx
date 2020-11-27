@@ -47,7 +47,9 @@
                     <asp:BoundField DataField="SchouwingID" HeaderText="Nummer" ReadOnly="True" SortExpression="SchouwingID" InsertVisible="False" /> 
                     <asp:BoundField DataField="BungalowID" HeaderText="Bungalow" SortExpression="BungalowID" />
                     <asp:BoundField DataField="Omschrijving" HeaderText="Bevinding" SortExpression="Omschrijving" />
-                    <asp:BoundField DataField="Oplossing" HeaderText="Oplossende Werkzaamheden" SortExpression="Oplossing" />
+                    <asp:BoundField DataField="Oplossing" HeaderText="Projectcategorie" SortExpression="Oplossing" />
+                    <asp:BoundField DataField="Offertestatus" HeaderText="Offertestatus" SortExpression="Offertestatus"/>
+                    <asp:CommandField ButtonType="Image" DeleteImageUrl="~/Images/deleteRow.png" ShowDeleteButton="True" />
                 </Columns>
                 <FooterStyle BackColor="#CCCCCC" />
                 <HeaderStyle BackColor="#0E6251" ForeColor="White" />
@@ -58,7 +60,7 @@
                 <SortedDescendingCellStyle BackColor="#CAC9C9" />
                 <SortedDescendingHeaderStyle BackColor="#383838" />
                 </asp:GridView>
-                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:con %>" SelectCommand="SELECT * FROM [Schouwing]"></asp:SqlDataSource>
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:con %>" SelectCommand="SELECT * FROM [Schouwing]" DeleteCommand="delete from Schouwing where schouwingid = @SchouwingID"></asp:SqlDataSource>
             </center>
         </div>
 
@@ -70,7 +72,9 @@
                     <asp:BoundField DataField="SchouwingID" HeaderText="Nummer" ReadOnly="True" SortExpression="SchouwingID" InsertVisible="False" /> 
                     <asp:BoundField DataField="BungalowID" HeaderText="Bungalow" SortExpression="BungalowID" />
                     <asp:BoundField DataField="Omschrijving" HeaderText="Bevinding" SortExpression="Omschrijving" />
-                    <asp:BoundField DataField="Oplossing" HeaderText="Oplossende Werkzaamheden" SortExpression="Oplossing" />
+                    <asp:BoundField DataField="Oplossing" HeaderText="Projectcategorie" SortExpression="Oplossing" />
+                    <asp:BoundField DataField="Offertestatus" HeaderText="Offertestatus" SortExpression="Offertestatus"/>
+                    <asp:CommandField ButtonType="Image" DeleteImageUrl="~/Images/deleteRow.png" ShowDeleteButton="True" />
                 </Columns>
                 <FooterStyle BackColor="#CCCCCC" />
                 <HeaderStyle BackColor="#0E6251" ForeColor="White" />
@@ -97,7 +101,9 @@
                     <asp:BoundField DataField="SchouwingID" HeaderText="Nummer" ReadOnly="True" SortExpression="SchouwingID" InsertVisible="False" /> 
                     <asp:BoundField DataField="BungalowID" HeaderText="Bungalow" SortExpression="BungalowID" />
                     <asp:BoundField DataField="Omschrijving" HeaderText="Bevinding" SortExpression="Omschrijving" />
-                    <asp:BoundField DataField="Oplossing" HeaderText="Oplossende Werkzaamheden" SortExpression="Oplossing" />
+                    <asp:BoundField DataField="Oplossing" HeaderText="Projectcategorie" SortExpression="Oplossing" />
+                    <asp:BoundField DataField="Offertestatus" HeaderText="Offertestatus" SortExpression="Offertestatus" />
+                    <asp:CommandField ButtonType="Image" DeleteImageUrl="~/Images/deleteRow.png" ShowDeleteButton="True" />
                 </Columns>
                 <FooterStyle BackColor="#CCCCCC" />
                 <HeaderStyle BackColor="#0E6251" ForeColor="White" />

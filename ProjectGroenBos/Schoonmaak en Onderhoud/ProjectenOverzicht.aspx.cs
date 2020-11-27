@@ -17,7 +17,7 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud
 
         protected void btnToevoegen_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("ProjectToevoegen.aspx");
         }
 
         protected void gridBungalow_SelectedIndexChanged(object sender, EventArgs e)
