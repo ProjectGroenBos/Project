@@ -121,9 +121,10 @@
     <Content Include="Schoonmaak en Onderhoud\OnderhoudWijzigen.aspx" />
     <Content Include="Schoonmaak en Onderhoud\PlanningsOverzicht.aspx" />
     <Content Include="Schoonmaak en Onderhoud\PlanningToevoegen.aspx" />
-    <Content Include="Schoonmaak en Onderhoud\PlanningVerwijderen.aspx" />
     <Content Include="Schoonmaak en Onderhoud\PlanningWijzigen.aspx" />
     <Content Include="Schoonmaak en Onderhoud\ProjectenOverzicht.aspx" />
+    <Content Include="Schoonmaak en Onderhoud\ProjectToevoegen.aspx" />
+    <Content Include="Schoonmaak en Onderhoud\ProjectWijzigen.aspx" />
     <Content Include="Schoonmaak en Onderhoud\SchouwingsOverzicht.aspx" />
     <Content Include="Schoonmaak en Onderhoud\SchouwingToevoegen.aspx" />
     <Content Include="Schoonmaak en Onderhoud\SchouwingWijzigen.aspx" />
@@ -576,13 +577,6 @@
     <Compile Include="Schoonmaak en Onderhoud\PlanningToevoegen.aspx.designer.cs">
       <DependentUpon>PlanningToevoegen.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Schoonmaak en Onderhoud\PlanningVerwijderen.aspx.cs">
-      <DependentUpon>PlanningVerwijderen.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Schoonmaak en Onderhoud\PlanningVerwijderen.aspx.designer.cs">
-      <DependentUpon>PlanningVerwijderen.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Schoonmaak en Onderhoud\PlanningWijzigen.aspx.cs">
       <DependentUpon>PlanningWijzigen.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -596,6 +590,20 @@
     </Compile>
     <Compile Include="Schoonmaak en Onderhoud\ProjectenOverzicht.aspx.designer.cs">
       <DependentUpon>ProjectenOverzicht.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Schoonmaak en Onderhoud\ProjectToevoegen.aspx.cs">
+      <DependentUpon>ProjectToevoegen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Schoonmaak en Onderhoud\ProjectToevoegen.aspx.designer.cs">
+      <DependentUpon>ProjectToevoegen.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Schoonmaak en Onderhoud\ProjectWijzigen.aspx.cs">
+      <DependentUpon>ProjectWijzigen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Schoonmaak en Onderhoud\ProjectWijzigen.aspx.designer.cs">
+      <DependentUpon>ProjectWijzigen.aspx</DependentUpon>
     </Compile>
     <Compile Include="Schoonmaak en Onderhoud\Schoonmaak.Master.cs">
       <DependentUpon>Schoonmaak.Master</DependentUpon>
