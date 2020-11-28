@@ -22,7 +22,7 @@
                                             Winst (Maand)
                                         </div>
                                         <div class="h5 mb-0 font-weight-bold text-gray-800" id="el">€</div>
-                                        <input type="hidden" id="elhidden" name="custId" value='<%# Eval("Winst") %>'>
+                                        <input type="hidden" id="elhidden" name="elhidden" value='<%# Eval("Winst") %>'>
                                     </div>
                                     <div class="col-auto">
                                         <i class="fas fa-euro-sign fa-2x text-green-300"></i>
@@ -41,7 +41,8 @@
                                         <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                             Inkomsten (Maand)
                                         </div>
-                                        <div class="h5 mb-0 font-weight-bold text-gray-800">€<%# Eval("Bedrag") %></div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800" id="el1"></div>
+                                        <input type="hidden" id="elhidden1" name="elhidden1" value='<%# Eval("Bedrag") %>'>
                                     </div>
                                     <div class="col-auto">
                                         <i class="fas fa-euro-sign fa-2x text-blue-300"></i>
@@ -60,7 +61,8 @@
                                         <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
                                             Uitgaven (Maand)
                                         </div>
-                                        <div class="h5 mb-0 font-weight-bold text-gray-800">€<%# Eval("Uitgaven") %></div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800" id="el2"></div>
+                                        <input type="hidden" id="elhidden2" name="elhidden2" value='<%# Eval("Uitgaven") %>'>
                                     </div>
                                     <div class="col-auto">
                                         <i class="fas fa-euro-sign fa-2x text-gray-300"></i>
@@ -79,7 +81,8 @@
                                         <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                             Winst (Jaar)
                                         </div>
-                                        <div class="h5 mb-0 font-weight-bold text-gray-800">€<%# Eval("WinstJaar") %></div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800" id="el3"></div>
+                                        <input type="hidden" id="elhidden3" name="elhidden3" value='<%# Eval("WinstJaar") %>'>
                                     </div>
                                     <div class="col-auto">
                                         <i class="fas fa-euro-sign fa-2x text-gray-300"></i>
@@ -95,6 +98,15 @@
                             var $el = $("#el"),
                                 value = $("#elhidden").val();
 
+                            var $el1 = $("#el1"),
+                                value1 = $("#elhidden1").val();
+
+                            var $el2 = $("#el2"),
+                                value2 = $("#elhidden2").val();
+
+                            var $el3 = $("#el3"),
+                                value3 = $("#elhidden3").val();
+
                             $({ percentage: 0 }).stop(true).animate({ percentage: value }, {
                                 duration: 2000,
                                 easing: "easeOutExpo",
@@ -109,6 +121,54 @@
                                 // hard set the value after animation is done to be
                                 // sure the value is correct
                                 $el.text("€" + value);
+                            });
+
+                            $({ percentage: 0 }).stop(true).animate({ percentage: value1 }, {
+                                duration: 2000,
+                                easing: "easeOutExpo",
+                                step: function () {
+                                    // percentage with 1 decimal;
+                                    var percentageVal = Math.round(this.percentage * 10) / 10;
+                                    $el1.text('€' + percentageVal);
+
+
+                                }
+                            }).promise().done(function () {
+                                // hard set the value after animation is done to be
+                                // sure the value is correct
+                                $el1.text("€" + value1);
+                            });
+
+                            $({ percentage: 0 }).stop(true).animate({ percentage: value2 }, {
+                                duration: 2000,
+                                easing: "easeOutExpo",
+                                step: function () {
+                                    // percentage with 1 decimal;
+                                    var percentageVal = Math.round(this.percentage * 10) / 10;
+                                    $el2.text('€' + percentageVal);
+
+
+                                }
+                            }).promise().done(function () {
+                                // hard set the value after animation is done to be
+                                // sure the value is correct
+                                $el2.text("€" + value2);
+                            });
+
+                            $({ percentage: 0 }).stop(true).animate({ percentage: value3 }, {
+                                duration: 2000,
+                                easing: "easeOutExpo",
+                                step: function () {
+                                    // percentage with 1 decimal;
+                                    var percentageVal = Math.round(this.percentage * 10) / 10;
+                                    $el3.text('€' + percentageVal);
+
+
+                                }
+                            }).promise().done(function () {
+                                // hard set the value after animation is done to be
+                                // sure the value is correct
+                                $el3.text("€" + value3);
                             });
                         });
 
@@ -137,6 +197,126 @@
                     </div>
                 </div>
             </div>
+            <script>
+                // Set new default font family and font color to mimic Bootstrap's default styling
+                Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
+                Chart.defaults.global.defaultFontColor = '#858796';
+
+                function number_format(number, decimals, dec_point, thousands_sep) {
+                    // *     example: number_format(1234.56, 2, ',', ' ');
+                    // *     return: '1 234,56'
+                    number = (number + '').replace(',', '').replace(' ', '');
+                    var n = !isFinite(+number) ? 0 : +number,
+                        prec = !isFinite(+decimals) ? 0 : Math.abs(decimals),
+                        sep = (typeof thousands_sep === 'undefined') ? ',' : thousands_sep,
+                        dec = (typeof dec_point === 'undefined') ? '.' : dec_point,
+                        s = '',
+                        toFixedFix = function (n, prec) {
+                            var k = Math.pow(10, prec);
+                            return '' + Math.round(n * k) / k;
+                        };
+                    // Fix for IE parseFloat(0.55).toFixed(0) = 0;
+                    s = (prec ? toFixedFix(n, prec) : '' + Math.round(n)).split('.');
+                    if (s[0].length > 3) {
+                        s[0] = s[0].replace(/\B(?=(?:\d{3})+(?!\d))/g, sep);
+                    }
+                    if ((s[1] || '').length < prec) {
+                        s[1] = s[1] || '';
+                        s[1] += new Array(prec - s[1].length + 1).join('0');
+                    }
+                    return s.join(dec);
+                }
+
+                // Area Chart Example
+                var ctx = document.getElementById("myAreaChart");
+                var myLineChart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+                        datasets: [{
+                            label: "Winst",
+                            lineTension: 0.3,
+                            backgroundColor: "rgba(78, 115, 223, 0.05)",
+                            borderColor: "rgba(78, 115, 223, 1)",
+                            pointRadius: 3,
+                            pointBackgroundColor: "rgba(78, 115, 223, 1)",
+                            pointBorderColor: "rgba(78, 115, 223, 1)",
+                            pointHoverRadius: 3,
+                            pointHoverBackgroundColor: "rgba(78, 115, 223, 1)",
+                            pointHoverBorderColor: "rgba(78, 115, 223, 1)",
+                            pointHitRadius: 10,
+                            pointBorderWidth: 2,
+                            data: [0, 10000, 5000, 15000, 10000, 20000, 15000, 25000, 20000, 30000, 25000, 40000],
+                        }],
+                    },
+                    options: {
+                        maintainAspectRatio: false,
+                        layout: {
+                            padding: {
+                                left: 10,
+                                right: 25,
+                                top: 25,
+                                bottom: 0
+                            }
+                        },
+                        scales: {
+                            xAxes: [{
+                                time: {
+                                    unit: 'date'
+                                },
+                                gridLines: {
+                                    display: false,
+                                    drawBorder: false
+                                },
+                                ticks: {
+                                    maxTicksLimit: 7
+                                }
+                            }],
+                            yAxes: [{
+                                ticks: {
+                                    maxTicksLimit: 5,
+                                    padding: 10,
+                                    // Include a dollar sign in the ticks
+                                    callback: function (value, index, values) {
+                                        return '€' + number_format(value);
+                                    }
+                                },
+                                gridLines: {
+                                    color: "rgb(234, 236, 244)",
+                                    zeroLineColor: "rgb(234, 236, 244)",
+                                    drawBorder: false,
+                                    borderDash: [2],
+                                    zeroLineBorderDash: [2]
+                                }
+                            }],
+                        },
+                        legend: {
+                            display: false
+                        },
+                        tooltips: {
+                            backgroundColor: "rgb(255,255,255)",
+                            bodyFontColor: "#858796",
+                            titleMarginBottom: 10,
+                            titleFontColor: '#6e707e',
+                            titleFontSize: 14,
+                            borderColor: '#dddfeb',
+                            borderWidth: 1,
+                            xPadding: 15,
+                            yPadding: 15,
+                            displayColors: false,
+                            intersect: false,
+                            mode: 'index',
+                            caretPadding: 10,
+                            callbacks: {
+                                label: function (tooltipItem, chart) {
+                                    var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
+                                    return datasetLabel + ': $' + number_format(tooltipItem.yLabel);
+                                }
+                            }
+                        }
+                    }
+                });
+            </script>
             <asp:Repeater ID="rpCirkel" runat="server">
                 <ItemTemplate>
 
@@ -211,7 +391,6 @@
                             },
                         });
                     </script>
-                    </div>
                 </ItemTemplate>
             </asp:Repeater>
 
