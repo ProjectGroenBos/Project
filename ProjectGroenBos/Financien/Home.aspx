@@ -479,6 +479,26 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Illustrations -->
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Transacties van vandaag</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="text-center">
+                                        <asp:GridView ID="GridView1" CssClass="content-table2" GridLines="None" runat="server" AutoGenerateColumns="False" DataKeyNames="Kenmerk" DataSourceID="SqlDataSource1">
+                                            <Columns>
+                                                <asp:BoundField DataField="Kenmerk" HeaderText="Kenmerk" InsertVisible="False" ReadOnly="True" SortExpression="Kenmerk" />
+                                                <asp:BoundField DataField="Aan" HeaderText="Aan" SortExpression="Aan" />
+                                                <asp:BoundField DataField="Bedrag" HeaderText="Bedrag" SortExpression="Bedrag" />
+                                            </Columns>
+                                        </asp:GridView>
+                                        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:2020-BIM02-P1-P2-GroenbosConnectionString %>" SelectCommand="SELECT [Kenmerk], [Aan], [Bedrag] FROM [recentetransacties]"></asp:SqlDataSource>
+                                    </div>
+                                </div>
+                            </div>
+
                 <!-- Area Chart -->
                 <div class="col-xl-12 col-lg-7">
                     <div class="card shadow mb-5">

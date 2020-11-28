@@ -82,3 +82,28 @@ namespace ProjectGroenBos.Financien
         }
     }
 }
+
+
+/*
+protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
+{
+    if (e.Row.RowType == DataControlRowType.DataRow)
+    {
+        // grab the Label Control.
+        Label lblRate = e.Row.FindControl("lblRate") as Label;
+        // get the value from the datasoure like this
+        Double rate = Convert.ToDouble(Convert.ToString(DataBinder.Eval(e.Row.DataItem, "Rate")));
+        if (rate <= .0)
+        {
+            // grab the cell where that label resides
+            DataControlFieldCell d = lblRate.Parent as DataControlFieldCell;
+            // change the backcolor like this
+            d.BackColor = System.Drawing.Color.Red;
+            // change the row color like this
+            e.Row.BackColor = System.Drawing.Color.LightBlue;
+            // change the text color like this
+            lblRate.ForeColor = System.Drawing.Color.White;
+        }
+    }
+}
+*/
