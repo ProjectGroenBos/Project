@@ -1,0 +1,187 @@
+C:\Users\herman\Documents\Project\ProjectGroenBos\bin\ProjectGroenBos.dll.config
+C:\Users\herman\Documents\Project\ProjectGroenBos\bin\ProjectGroenBos.dll
+C:\Users\herman\Documents\Project\ProjectGroenBos\bin\ProjectGroenBos.pdb
+C:\Users\herman\Documents\Project\ProjectGroenBos\bin\roslyn\csc.exe
+C:\Users\herman\Documents\Project\ProjectGroenBos\bin\roslyn\csc.exe.config
+C:\Users\herman\Documents\Project\ProjectGroenBos\bin\roslyn\csc.rsp
+C:\Users\herman\Documents\Project\ProjectGroenBos\bin\roslyn\csi.exe
+C:\Users\herman\Documents\Project\ProjectGroenBos\bin\roslyn\csi.exe.config
+C:\Users\herman\Documents\Project\ProjectGroenBos\bin\roslyn\csi.rsp
+C:\Users\herman\Documents\Project\ProjectGroenBos\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\herman\Documents\Project\ProjectGroenBos\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\herman\Documents\Project\ProjectGroenBos\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\herman\Documents\Project\ProjectGroenBos\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\herman\Documents\Project\ProjectGroenBos\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\herman\Documents\Project\ProjectGroenBos\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\herman\Documents\Project\ProjectGroenBos\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\herman\Documents\Project\ProjectGroenBos\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\herman\Documents\Project\ProjectGroenBos\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\herman\Documents\Project\ProjectGroenBos\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\herman\Documents\Project\ProjectGroenBos\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\herman\Documents\Project\ProjectGroenBos\bin\roslyn\System.Buffers.dll
+C:\Users\herman\Documents\Project\ProjectGroenBos\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\herman\Documents\Project\ProjectGroenBos\bin\roslyn\System.Memory.dll
+C:\Users\herman\Documents\Project\ProjectGroenBos\bin\roslyn\System.Numerics.Vectors.dll
+C:\Users\herman\Documents\Project\ProjectGroenBos\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\herman\Documents\Project\ProjectGroenBos\bin\roslyn\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\herman\Documents\Project\ProjectGroenBos\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\herman\Documents\Project\ProjectGroenBos\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\Users\herman\Documents\Project\ProjectGroenBos\bin\roslyn\vbc.exe
+C:\Users\herman\Documents\Project\ProjectGroenBos\bin\roslyn\vbc.exe.config
+C:\Users\herman\Documents\Project\ProjectGroenBos\bin\roslyn\vbc.rsp
+C:\Users\herman\Documents\Project\ProjectGroenBos\bin\roslyn\VBCSCompiler.exe
+C:\Users\herman\Documents\Project\ProjectGroenBos\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\herman\Documents\Project\ProjectGroenBos\bin\AjaxControlToolkit.dll
+C:\Users\herman\Documents\Project\ProjectGroenBos\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\herman\Documents\Project\ProjectGroenBos\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\herman\Documents\Project\ProjectGroenBos\obj\Debug\ProjectGroenBos.csproj.CoreCompileInputs.cache
+C:\Users\herman\Documents\Project\ProjectGroenBos\obj\Debug\ProjectGroenBos.csproj.CopyComplete
+C:\Users\herman\Documents\Project\ProjectGroenBos\obj\Debug\ProjectGroenBos.dll
+C:\Users\herman\Documents\Project\ProjectGroenBos\obj\Debug\ProjectGroenBos.pdb
+C:\Users\herman\Documents\Project\ProjectGroenBos\obj\Debug\ProjectGroenBos.csprojAssemblyReference.cache
+C:\Users\Larsv\Documents\GitHub\Project\ProjectGroenBos\bin\ProjectGroenBos.dll.config
+C:\Users\Larsv\Documents\GitHub\Project\ProjectGroenBos\bin\ProjectGroenBos.dll
+C:\Users\Larsv\Documents\GitHub\Project\ProjectGroenBos\bin\ProjectGroenBos.pdb
+C:\Users\Larsv\Documents\GitHub\Project\ProjectGroenBos\bin\roslyn\csc.exe
+C:\Users\Larsv\Documents\GitHub\Project\ProjectGroenBos\bin\roslyn\csc.exe.config
+C:\Users\Larsv\Documents\GitHub\Project\ProjectGroenBos\bin\roslyn\csc.rsp
+C:\Users\Larsv\Documents\GitHub\Project\ProjectGroenBos\bin\roslyn\csi.exe
+C:\Users\Larsv\Documents\GitHub\Project\ProjectGroenBos\bin\roslyn\csi.exe.config
+C:\Users\Larsv\Documents\GitHub\Project\ProjectGroenBos\bin\roslyn\csi.rsp
+C:\Users\Larsv\Documents\GitHub\Project\ProjectGroenBos\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Larsv\Documents\GitHub\Project\ProjectGroenBos\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Larsv\Documents\GitHub\Project\ProjectGroenBos\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\Larsv\Documents\GitHub\Project\ProjectGroenBos\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Larsv\Documents\GitHub\Project\ProjectGroenBos\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\Larsv\Documents\GitHub\Project\ProjectGroenBos\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Larsv\Documents\GitHub\Project\ProjectGroenBos\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Larsv\Documents\GitHub\Project\ProjectGroenBos\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\Larsv\Documents\GitHub\Project\ProjectGroenBos\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\Larsv\Documents\GitHub\Project\ProjectGroenBos\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\Larsv\Documents\GitHub\Project\ProjectGroenBos\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Larsv\Documents\GitHub\Project\ProjectGroenBos\bin\roslyn\System.Buffers.dll
+C:\Users\Larsv\Documents\GitHub\Project\ProjectGroenBos\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Larsv\Documents\GitHub\Project\ProjectGroenBos\bin\roslyn\System.Memory.dll
+C:\Users\Larsv\Documents\GitHub\Project\ProjectGroenBos\bin\roslyn\System.Numerics.Vectors.dll
+C:\Users\Larsv\Documents\GitHub\Project\ProjectGroenBos\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Larsv\Documents\GitHub\Project\ProjectGroenBos\bin\roslyn\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Larsv\Documents\GitHub\Project\ProjectGroenBos\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\Larsv\Documents\GitHub\Project\ProjectGroenBos\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\Users\Larsv\Documents\GitHub\Project\ProjectGroenBos\bin\roslyn\vbc.exe
+C:\Users\Larsv\Documents\GitHub\Project\ProjectGroenBos\bin\roslyn\vbc.exe.config
+C:\Users\Larsv\Documents\GitHub\Project\ProjectGroenBos\bin\roslyn\vbc.rsp
+C:\Users\Larsv\Documents\GitHub\Project\ProjectGroenBos\bin\roslyn\VBCSCompiler.exe
+C:\Users\Larsv\Documents\GitHub\Project\ProjectGroenBos\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Larsv\Documents\GitHub\Project\ProjectGroenBos\bin\AjaxControlToolkit.dll
+C:\Users\Larsv\Documents\GitHub\Project\ProjectGroenBos\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Larsv\Documents\GitHub\Project\ProjectGroenBos\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Larsv\Documents\GitHub\Project\ProjectGroenBos\obj\Debug\ProjectGroenBos.csprojAssemblyReference.cache
+C:\Users\Larsv\Documents\GitHub\Project\ProjectGroenBos\obj\Debug\ProjectGroenBos.csproj.CoreCompileInputs.cache
+C:\Users\Larsv\Documents\GitHub\Project\ProjectGroenBos\obj\Debug\ProjectGroenBos.csproj.CopyComplete
+C:\Users\Larsv\Documents\GitHub\Project\ProjectGroenBos\obj\Debug\ProjectGroenBos.dll
+C:\Users\Larsv\Documents\GitHub\Project\ProjectGroenBos\obj\Debug\ProjectGroenBos.pdb
+D:\School\2020 - 2021\!Project Groenbos\github\Project\ProjectGroenBos\bin\ProjectGroenBos.dll.config
+D:\School\2020 - 2021\!Project Groenbos\github\Project\ProjectGroenBos\bin\ProjectGroenBos.dll
+D:\School\2020 - 2021\!Project Groenbos\github\Project\ProjectGroenBos\bin\ProjectGroenBos.pdb
+D:\School\2020 - 2021\!Project Groenbos\github\Project\ProjectGroenBos\bin\roslyn\csc.exe
+D:\School\2020 - 2021\!Project Groenbos\github\Project\ProjectGroenBos\bin\roslyn\csc.exe.config
+D:\School\2020 - 2021\!Project Groenbos\github\Project\ProjectGroenBos\bin\roslyn\csc.rsp
+D:\School\2020 - 2021\!Project Groenbos\github\Project\ProjectGroenBos\bin\roslyn\csi.exe
+D:\School\2020 - 2021\!Project Groenbos\github\Project\ProjectGroenBos\bin\roslyn\csi.exe.config
+D:\School\2020 - 2021\!Project Groenbos\github\Project\ProjectGroenBos\bin\roslyn\csi.rsp
+D:\School\2020 - 2021\!Project Groenbos\github\Project\ProjectGroenBos\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\School\2020 - 2021\!Project Groenbos\github\Project\ProjectGroenBos\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\School\2020 - 2021\!Project Groenbos\github\Project\ProjectGroenBos\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\School\2020 - 2021\!Project Groenbos\github\Project\ProjectGroenBos\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\School\2020 - 2021\!Project Groenbos\github\Project\ProjectGroenBos\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\School\2020 - 2021\!Project Groenbos\github\Project\ProjectGroenBos\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\School\2020 - 2021\!Project Groenbos\github\Project\ProjectGroenBos\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\School\2020 - 2021\!Project Groenbos\github\Project\ProjectGroenBos\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\School\2020 - 2021\!Project Groenbos\github\Project\ProjectGroenBos\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\School\2020 - 2021\!Project Groenbos\github\Project\ProjectGroenBos\bin\roslyn\Microsoft.Managed.Core.targets
+D:\School\2020 - 2021\!Project Groenbos\github\Project\ProjectGroenBos\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\School\2020 - 2021\!Project Groenbos\github\Project\ProjectGroenBos\bin\roslyn\System.Buffers.dll
+D:\School\2020 - 2021\!Project Groenbos\github\Project\ProjectGroenBos\bin\roslyn\System.Collections.Immutable.dll
+D:\School\2020 - 2021\!Project Groenbos\github\Project\ProjectGroenBos\bin\roslyn\System.Memory.dll
+D:\School\2020 - 2021\!Project Groenbos\github\Project\ProjectGroenBos\bin\roslyn\System.Numerics.Vectors.dll
+D:\School\2020 - 2021\!Project Groenbos\github\Project\ProjectGroenBos\bin\roslyn\System.Reflection.Metadata.dll
+D:\School\2020 - 2021\!Project Groenbos\github\Project\ProjectGroenBos\bin\roslyn\System.Runtime.CompilerServices.Unsafe.dll
+D:\School\2020 - 2021\!Project Groenbos\github\Project\ProjectGroenBos\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\School\2020 - 2021\!Project Groenbos\github\Project\ProjectGroenBos\bin\roslyn\System.Threading.Tasks.Extensions.dll
+D:\School\2020 - 2021\!Project Groenbos\github\Project\ProjectGroenBos\bin\roslyn\vbc.exe
+D:\School\2020 - 2021\!Project Groenbos\github\Project\ProjectGroenBos\bin\roslyn\vbc.exe.config
+D:\School\2020 - 2021\!Project Groenbos\github\Project\ProjectGroenBos\bin\roslyn\vbc.rsp
+D:\School\2020 - 2021\!Project Groenbos\github\Project\ProjectGroenBos\bin\roslyn\VBCSCompiler.exe
+D:\School\2020 - 2021\!Project Groenbos\github\Project\ProjectGroenBos\bin\roslyn\VBCSCompiler.exe.config
+D:\School\2020 - 2021\!Project Groenbos\github\Project\ProjectGroenBos\bin\AjaxControlToolkit.dll
+D:\School\2020 - 2021\!Project Groenbos\github\Project\ProjectGroenBos\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\School\2020 - 2021\!Project Groenbos\github\Project\ProjectGroenBos\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\School\2020 - 2021\!Project Groenbos\github\Project\ProjectGroenBos\obj\Debug\ProjectGroenBos.csprojAssemblyReference.cache
+D:\School\2020 - 2021\!Project Groenbos\github\Project\ProjectGroenBos\obj\Debug\ProjectGroenBos.csproj.CoreCompileInputs.cache
+D:\School\2020 - 2021\!Project Groenbos\github\Project\ProjectGroenBos\obj\Debug\ProjectGroenBos.csproj.CopyComplete
+D:\School\2020 - 2021\!Project Groenbos\github\Project\ProjectGroenBos\obj\Debug\ProjectGroenBos.dll
+D:\School\2020 - 2021\!Project Groenbos\github\Project\ProjectGroenBos\obj\Debug\ProjectGroenBos.pdb
+C:\Users\timos\OneDrive\Documenten\GitHub\Project\ProjectGroenBos\bin\ProjectGroenBos.dll.config
+C:\Users\timos\OneDrive\Documenten\GitHub\Project\ProjectGroenBos\bin\ProjectGroenBos.dll
+C:\Users\timos\OneDrive\Documenten\GitHub\Project\ProjectGroenBos\bin\ProjectGroenBos.pdb
+C:\Users\timos\OneDrive\Documenten\GitHub\Project\ProjectGroenBos\bin\roslyn\csc.exe
+C:\Users\timos\OneDrive\Documenten\GitHub\Project\ProjectGroenBos\bin\roslyn\csc.exe.config
+C:\Users\timos\OneDrive\Documenten\GitHub\Project\ProjectGroenBos\bin\roslyn\csc.rsp
+C:\Users\timos\OneDrive\Documenten\GitHub\Project\ProjectGroenBos\bin\roslyn\csi.exe
+C:\Users\timos\OneDrive\Documenten\GitHub\Project\ProjectGroenBos\bin\roslyn\csi.exe.config
+C:\Users\timos\OneDrive\Documenten\GitHub\Project\ProjectGroenBos\bin\roslyn\csi.rsp
+C:\Users\timos\OneDrive\Documenten\GitHub\Project\ProjectGroenBos\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\timos\OneDrive\Documenten\GitHub\Project\ProjectGroenBos\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\timos\OneDrive\Documenten\GitHub\Project\ProjectGroenBos\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\timos\OneDrive\Documenten\GitHub\Project\ProjectGroenBos\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\timos\OneDrive\Documenten\GitHub\Project\ProjectGroenBos\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\timos\OneDrive\Documenten\GitHub\Project\ProjectGroenBos\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\timos\OneDrive\Documenten\GitHub\Project\ProjectGroenBos\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\timos\OneDrive\Documenten\GitHub\Project\ProjectGroenBos\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\timos\OneDrive\Documenten\GitHub\Project\ProjectGroenBos\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\timos\OneDrive\Documenten\GitHub\Project\ProjectGroenBos\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\timos\OneDrive\Documenten\GitHub\Project\ProjectGroenBos\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\timos\OneDrive\Documenten\GitHub\Project\ProjectGroenBos\bin\roslyn\System.Buffers.dll
+C:\Users\timos\OneDrive\Documenten\GitHub\Project\ProjectGroenBos\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\timos\OneDrive\Documenten\GitHub\Project\ProjectGroenBos\bin\roslyn\System.Memory.dll
+C:\Users\timos\OneDrive\Documenten\GitHub\Project\ProjectGroenBos\bin\roslyn\System.Numerics.Vectors.dll
+C:\Users\timos\OneDrive\Documenten\GitHub\Project\ProjectGroenBos\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\timos\OneDrive\Documenten\GitHub\Project\ProjectGroenBos\bin\roslyn\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\timos\OneDrive\Documenten\GitHub\Project\ProjectGroenBos\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\timos\OneDrive\Documenten\GitHub\Project\ProjectGroenBos\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\Users\timos\OneDrive\Documenten\GitHub\Project\ProjectGroenBos\bin\roslyn\vbc.exe
+C:\Users\timos\OneDrive\Documenten\GitHub\Project\ProjectGroenBos\bin\roslyn\vbc.exe.config
+C:\Users\timos\OneDrive\Documenten\GitHub\Project\ProjectGroenBos\bin\roslyn\vbc.rsp
+C:\Users\timos\OneDrive\Documenten\GitHub\Project\ProjectGroenBos\bin\roslyn\VBCSCompiler.exe
+C:\Users\timos\OneDrive\Documenten\GitHub\Project\ProjectGroenBos\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\timos\OneDrive\Documenten\GitHub\Project\ProjectGroenBos\bin\AjaxControlToolkit.dll
+C:\Users\timos\OneDrive\Documenten\GitHub\Project\ProjectGroenBos\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\timos\OneDrive\Documenten\GitHub\Project\ProjectGroenBos\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\timos\OneDrive\Documenten\GitHub\Project\ProjectGroenBos\obj\Debug\ProjectGroenBos.csprojAssemblyReference.cache
+C:\Users\timos\OneDrive\Documenten\GitHub\Project\ProjectGroenBos\obj\Debug\ProjectGroenBos.csproj.CoreCompileInputs.cache
+C:\Users\timos\OneDrive\Documenten\GitHub\Project\ProjectGroenBos\obj\Debug\ProjectGroenBos.csproj.CopyComplete
+C:\Users\timos\OneDrive\Documenten\GitHub\Project\ProjectGroenBos\obj\Debug\ProjectGroenBos.dll
+C:\Users\timos\OneDrive\Documenten\GitHub\Project\ProjectGroenBos\obj\Debug\ProjectGroenBos.pdb
+C:\Users\timos\OneDrive\Documenten\GitHub\Project\ProjectGroenBos\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\Users\timos\OneDrive\Documenten\GitHub\Project\ProjectGroenBos\bin\roslyn\System.AppContext.dll
+C:\Users\timos\OneDrive\Documenten\GitHub\Project\ProjectGroenBos\bin\roslyn\System.Console.dll
+C:\Users\timos\OneDrive\Documenten\GitHub\Project\ProjectGroenBos\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+C:\Users\timos\OneDrive\Documenten\GitHub\Project\ProjectGroenBos\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\timos\OneDrive\Documenten\GitHub\Project\ProjectGroenBos\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\timos\OneDrive\Documenten\GitHub\Project\ProjectGroenBos\bin\roslyn\System.Globalization.Calendars.dll
+C:\Users\timos\OneDrive\Documenten\GitHub\Project\ProjectGroenBos\bin\roslyn\System.IO.Compression.dll
+C:\Users\timos\OneDrive\Documenten\GitHub\Project\ProjectGroenBos\bin\roslyn\System.IO.Compression.ZipFile.dll
+C:\Users\timos\OneDrive\Documenten\GitHub\Project\ProjectGroenBos\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\timos\OneDrive\Documenten\GitHub\Project\ProjectGroenBos\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\timos\OneDrive\Documenten\GitHub\Project\ProjectGroenBos\bin\roslyn\System.Net.Http.dll
+C:\Users\timos\OneDrive\Documenten\GitHub\Project\ProjectGroenBos\bin\roslyn\System.Net.Sockets.dll
+C:\Users\timos\OneDrive\Documenten\GitHub\Project\ProjectGroenBos\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Users\timos\OneDrive\Documenten\GitHub\Project\ProjectGroenBos\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\timos\OneDrive\Documenten\GitHub\Project\ProjectGroenBos\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\timos\OneDrive\Documenten\GitHub\Project\ProjectGroenBos\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\timos\OneDrive\Documenten\GitHub\Project\ProjectGroenBos\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\timos\OneDrive\Documenten\GitHub\Project\ProjectGroenBos\bin\roslyn\System.ValueTuple.dll
+C:\Users\timos\OneDrive\Documenten\GitHub\Project\ProjectGroenBos\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\timos\OneDrive\Documenten\GitHub\Project\ProjectGroenBos\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\timos\OneDrive\Documenten\GitHub\Project\ProjectGroenBos\bin\roslyn\System.Xml.XPath.dll
+C:\Users\timos\OneDrive\Documenten\GitHub\Project\ProjectGroenBos\bin\roslyn\System.Xml.XPath.XDocument.dll

@@ -6,13 +6,15 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
+using System.Text.RegularExpressions;
 
 
 namespace ProjectGroenBos.Restaurant
 {
     public partial class WebForm3 : System.Web.UI.Page
     {
-        protected void Page_Load(object sender, EventArgs e)
+
+		protected void Page_Load(object sender, EventArgs e)
         {
             DataTable dt = new DataTable();
             dt = (DataTable)Session["bestelitems"];
@@ -55,7 +57,7 @@ namespace ProjectGroenBos.Restaurant
 						dr["sno"] = 1;
 						dr["Afbeelding"] = ds.Tables[0].Rows[0]["Afbeelding"].ToString();
 						dr["Naam"] = ds.Tables[0].Rows[0]["Naam"].ToString();
-						dr["€ " + "Prijs"] = ds.Tables[0].Rows[0]["Prijs"].ToString();
+						dr["Prijs"] = ds.Tables[0].Rows[0]["Prijs"].ToString();
 						dr["Hoeveelheid"] = Request.QueryString["Hoeveelheid"];
 						dr["Id"] = Request.QueryString["id"];
 
@@ -64,13 +66,29 @@ namespace ProjectGroenBos.Restaurant
 						double totaleprijs = prijs * hoeveelheid;
 						dr["TotalePrijs"] = totaleprijs;
 
+						Session["totprijs"] = totaleprijs;
+
+						//
+						string PrijsMetEuro = "€" + prijs.ToString();
+
+						dr["Prijs"] = PrijsMetEuro;
+
+						string TotalePrijsMetEuro = "€" + totaleprijs.ToString();
+
+						dr["TotalePrijs"] = TotalePrijsMetEuro;
+
+						string HoeveelheidMetX = hoeveelheid.ToString() + "x";
+
+						dr["Hoeveelheid"] = HoeveelheidMetX;
+						//
+
 						dt2.Rows.Add(dr);
 						GridView2.DataSource = dt2;
 						GridView2.DataBind();
 
 						Session["bestelitems"] = dt2;
-						GridView2.FooterRow.Cells[4].Text = "Totaal ";
-						GridView2.FooterRow.Cells[5].Text = "€ " + grandtotal().ToString();
+						GridView2.FooterRow.Cells[3].Text = "Totaal ";
+						GridView2.FooterRow.Cells[5].Text = "€" + grandtotal().ToString();
 						Response.Redirect("bestellingopnemen.aspx");
 					}
 					else
@@ -102,13 +120,29 @@ namespace ProjectGroenBos.Restaurant
 						double totaleprijs = prijs * hoeveelheid;
 						dr["TotalePrijs"] = totaleprijs;
 
+						Session["totprijs"] = totaleprijs;
+
+						//
+						string PrijsMetEuro = "€" + prijs.ToString();
+
+						dr["Prijs"] = PrijsMetEuro;
+
+						string TotalePrijsMetEuro = "€" + totaleprijs.ToString();
+
+						dr["TotalePrijs"] = TotalePrijsMetEuro;
+
+						string HoeveelheidMetX = hoeveelheid.ToString() + "x";
+
+						dr["Hoeveelheid"] = HoeveelheidMetX;
+						//
+
 						dt2.Rows.Add(dr);
 						GridView2.DataSource = dt2;
 						GridView2.DataBind();
 
 						Session["bestelitems"] = dt2;
-						GridView2.FooterRow.Cells[4].Text = "Totaal ";
-						GridView2.FooterRow.Cells[5].Text = "€ " + grandtotal().ToString();
+						GridView2.FooterRow.Cells[3].Text = "Totaal ";
+						GridView2.FooterRow.Cells[5].Text = "€" + grandtotal().ToString();
 						Response.Redirect("bestellingopnemen.aspx");
 					}
 				}
@@ -119,13 +153,15 @@ namespace ProjectGroenBos.Restaurant
 					GridView2.DataBind();
 					if (GridView2.Rows.Count > 0)
 					{
-						GridView2.FooterRow.Cells[4].Text = "Totaal ";
-						GridView2.FooterRow.Cells[5].Text = "€ " + grandtotal().ToString();
+						GridView2.FooterRow.Cells[3].Text = "Totaal ";
+						GridView2.FooterRow.Cells[5].Text = "€" + grandtotal().ToString();
 					}
 				}
 			}
 
 		}
+
+        
 
         protected void DataList1_ItemCommand(object source, DataListCommandEventArgs e)
         {
@@ -145,7 +181,7 @@ namespace ProjectGroenBos.Restaurant
 			double gtotal = 0;
 			while (i < nrow)
 			{
-				gtotal = gtotal + Convert.ToDouble(dt2.Rows[i]["TotalePrijs"].ToString());
+				gtotal = gtotal + Convert.ToDouble(Session["totprijs"]);
 
 				i = i + 1;
 			}
@@ -193,22 +229,66 @@ namespace ProjectGroenBos.Restaurant
 			Response.Redirect("bestellingopnemen.aspx");
 		}
 
-        protected void btnBestellen_Click(object sender, EventArgs e)
-        {
+		private int GetResNr()
+		{
 			int resnr;
-            if (Session["ResNr"] == null)
-            {
+			if (Session["ResNr"] == null)
+			{
 				//Random rand = new Random();
 
 				//resnr = rand.Next(1, 1000000);
 
 				resnr = 1;
 
-            }
-            else
-            {
+				return resnr;
+
+			}
+			else
+			{
 				resnr = (int)Session["ResNr"];
-            }
+
+				return resnr;
+			}
+		}
+
+		private int GetRonNr(int resnr)
+		{
+			int ronde;
+			String mycon = "Data Source=SQL.BIM.OSOX.NL;Initial Catalog=2020-BIM02-P1-P2-Groenbos;Persist Security Info=True;User ID=BIM022020;Password=BiM@IH2020";
+			SqlConnection scon = new SqlConnection(mycon);
+			SqlCommand cmd = new SqlCommand();
+			SqlDataAdapter da = new SqlDataAdapter();
+			String myquery = "select Ronde from RestaurantReservering where ID = " + resnr;
+
+			cmd.CommandText = myquery;
+			cmd.Connection = scon;
+			da.SelectCommand = cmd;
+
+			scon.Open();
+
+			ronde = int.Parse(cmd.ExecuteScalar().ToString());
+
+			scon.Close();
+
+			if (ronde == 0)
+			{
+				ronde = 1;
+			}
+
+			//return
+			return ronde;
+		}
+
+		protected void btnBestellen_Click(object sender, EventArgs e)
+        {
+			int resnr;
+			int rondenr;
+
+			//Get ResNr
+			resnr = GetResNr();
+
+			//Get RondeNr
+			rondenr = GetRonNr(resnr);
 
 			DataTable Besteltable = (DataTable)Session["bestelitems"];
 
@@ -219,9 +299,14 @@ namespace ProjectGroenBos.Restaurant
 			SqlDataAdapter da = new SqlDataAdapter();
 			String myquery = "select * from Item where ID=" + Request.QueryString["id"];
 
+			//NIEUWE ROW TOEVOEGEN
 			foreach (DataRow row in Besteltable.Rows)
-            {
-				myquery = "INSERT into Item_RestaurantReservering (ItemID, RestaurantReserveringID, Aantal, Status) VALUES (" + row["Id"] + ","+ resnr+", "+ row["Hoeveelheid"]+", 'Besteld') ";
+			{
+				string hoeveelheid2 = row["Hoeveelheid"].ToString();
+				string value = Regex.Replace(hoeveelheid2, "[A-Za-z ]", "");
+				double HoeveelheidInDouble = double.Parse(value);
+
+				myquery = "INSERT into Item_RestaurantReservering (ItemID, RestaurantReserveringID, Ronde, Aantal, Status) VALUES (" + row["Id"] + "," + resnr + ", " + rondenr + ", " + HoeveelheidInDouble.ToString() + ", 'Besteld') ";
 				cmd.CommandText = myquery;
 				cmd.Connection = scon;
 				da.SelectCommand = cmd;
@@ -233,8 +318,22 @@ namespace ProjectGroenBos.Restaurant
 				scon.Close();
 			}
 
-			Response.Redirect("bestellinggelukt.aspx");
+			rondenr = rondenr + 1;
 
-		}
+			myquery = "UPDATE RestaurantReservering SET Ronde = " + rondenr + "where ID = " + resnr;
+
+			cmd.CommandText = myquery;
+			cmd.Connection = scon;
+			da.SelectCommand = cmd;
+
+			scon.Open();
+
+			cmd.ExecuteNonQuery();
+
+			scon.Close();
+
+			Response.Redirect("Bestellingenoverzicht.aspx");
+
+        }
     }
 }

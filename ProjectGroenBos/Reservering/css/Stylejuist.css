@@ -384,6 +384,7 @@ nav ul {
     margin-left: 7%;
     font-style: italic;
 }
+
 .textboxMedewerkersgegevens {
     position: relative;
     left: 74px;
@@ -393,10 +394,36 @@ nav ul {
 .textboxchaos {
     position: relative;
     left: 75px;
-    top: 4px;
 }
 
-.Email {
-    text-align:left;
+.labelsnieuw {
+    position: relative;
+    width: 289px;
+    left: 75px;
+    display: inline-block;
+    top: 0px;
+}
+
+.textboxbtn {
+    left: 75px;
+    position: relative;
+    display: inline-block;
+    top: 0px;
+    height: 26px;
+}
+
+.radiobut {
+    left: 75px;
+    width: 350px;
+    position: relative;
+    display: inline-block;
+    top: 0px;
+}
+
+.gridv {
+    left: 75px;
+    position: relative;
+    display: inline-block;
+    top: 0px;
 }
 /* wekgebied */
