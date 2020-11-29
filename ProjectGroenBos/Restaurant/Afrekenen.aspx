@@ -12,7 +12,7 @@
         <br />
         <asp:Label ID="lbltafel" CssClass="lblTafel" runat="server" Text="Tafel"></asp:Label>
             <div class="Factuurregelbak">
-            <asp:GridView class="GvdOrder" ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" AllowSorting="True" GridLines="None">
+            <asp:GridView class="GvOrder" ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" AllowSorting="True" GridLines="None">
                 <Columns>
                     <asp:BoundField DataField="Hoeveel" HeaderText="Hoeveel" SortExpression="Hoeveel" >
                      </asp:BoundField>
@@ -29,7 +29,9 @@
         </div>
          <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:2020-BIM02-P1-P2-GroenbosConnectionString %>" SelectCommand="SELECT [Hoeveel], [Naam], cast([RegelTotaal]AS DECIMAL(18,2)) AS RegelTotaal FROM [RestaurantAfrekenOvericht]"></asp:SqlDataSource>
 
+
         <asp:Label ID="lblTotaal" CssClass="lblTotaal" runat="server" Text="Totaal"></asp:Label>
+        <%--<asp:Label ID="LblKostenTotaal" runat="server" Text="€ "></asp:Label>--%>
             <asp:GridView class="Gdvtotaal" ID="GridViewTotaal" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSourceTotaal" AllowSorting="True" GridLines="None">
                 <Columns>
                     <asp:BoundField DataField="Totaalbedrag" HeaderText="Totaalbedrag" ReadOnly="True" SortExpression="Totaalbedrag" />
@@ -42,5 +44,6 @@
             <asp:Button ID="btnBetalen" CssClass="buttongreen" runat="server" Text="Pin" OnClick="btnBetalen_Click" />
             <asp:Button ID="BtnContant" CssClass="buttongreen" runat="server" Text="Contant" OnClick="btnContant_Click" />
         </div>
+        <%--<asp:Label ID="LblSucces" runat="server"></asp:Label>--%>
     </div>
 </asp:Content>
