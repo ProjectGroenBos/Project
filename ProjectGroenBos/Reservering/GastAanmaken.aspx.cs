@@ -39,7 +39,16 @@ namespace ProjectGroenBos.Reservering
             string huisnummer = txbHuisnummer.Text;
             string postcode = txbPostcode.Text;
 
+            DateTime geboortedatum = new DateTime();
+
+            geboortedatum = DateTime.Parse(txbGeboortedatum.Text);
+            geboortedatum.ToShortDateString();
+
             string land = DropDownList2.Text;
+
+            Session["achternaam"] = achternaam;
+            Session["telefoonnummer"] = telefoonnummer;
+            Session["email"] = email;
 
             if (land == "")
             {
@@ -48,14 +57,18 @@ namespace ProjectGroenBos.Reservering
 
             if (CheckDatum() == true)
             {
+                InsGast(voornaam, tussenvoegsel, achternaam, email, telefoonnummer, geboortedatum);
+                int gastnummer = GetNummer(achternaam);
 
+                if(gastnummer == 0)
+                {
+                    lblUitkomst.Text = "Er ging iets mis. Neem zo snel mogelijk contact met ons op.";
+                }
+                else
+                {
+                    InsAdres(straat, huisnummer, postcode, land, woonplaats, gastnummer);
+                }
             }
-
-
-            InsGast(voornaam, tussenvoegsel, achternaam, email, telefoonnummer);
-            int gastnummer = GetNummer(achternaam);
-            InsAdres(straat, huisnummer, postcode, land, woonplaats, gastnummer);
-
         }
 
         private bool CheckDatum()
@@ -72,8 +85,9 @@ namespace ProjectGroenBos.Reservering
                 control = DateTime.Today;
                 control.AddYears(-18);
                 control.ToShortDateString();
+                DateTime control2 = control.AddYears(-18);
 
-                if (control >= geboortedatum)
+                if (control2 >= geboortedatum)
                 {
                     return true;
                 }
@@ -88,7 +102,7 @@ namespace ProjectGroenBos.Reservering
             }
         }
 
-        private void InsGast(string voornaam, string tussenvoegsel, string achternaam, string email, string telefoonnummer)
+        private void InsGast(string voornaam, string tussenvoegsel, string achternaam, string email, string telefoonnummer, DateTime geboortedatum)
         {
             using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["2020-BIM02-P1-P2-GroenbosConnectionString"].ConnectionString))
             {
@@ -105,6 +119,7 @@ namespace ProjectGroenBos.Reservering
                     cmd.Parameters.AddWithValue("@Achternaam", achternaam);
                     cmd.Parameters.AddWithValue("@Telefoonnummer", telefoonnummer);
                     cmd.Parameters.AddWithValue("@Email", email);
+                    cmd.Parameters.AddWithValue("@Geboortedatum", geboortedatum);
 
                     cmd.CommandType = System.Data.CommandType.StoredProcedure;
                     cmd.ExecuteNonQuery();
@@ -157,13 +172,24 @@ namespace ProjectGroenBos.Reservering
                 try
                 {
                     string query = "SELECT max(Nummer) from [dbo].[Gast] where Achternaam = @achternaam";
-                    int i = 1;
+
+                    con.Open();
+
+                    SqlCommand cmd = new SqlCommand(query, con);
+
+                    cmd.Parameters.AddWithValue("@achternaam", achternaam);
+
+                    cmd.CommandType = System.Data.CommandType.Text;
+
+                    int i = cmd.ExecuteNonQuery();
+
                     return i;
                 }
                 catch 
                 {
-                    int b = 2;
-                    return b;
+                    int i = 0;
+
+                    return i;
                 }
             }
         }

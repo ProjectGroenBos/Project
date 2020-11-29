@@ -83,6 +83,9 @@
     <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ControlToValidate="txbPostcode" ErrorMessage="Dit veld is verplicht." CssClass="validators"></asp:RequiredFieldValidator>
     
     <br />
+    <asp:Label ID="lblUitkomst" runat="server" Text=""></asp:Label>
+
+    <br />
     <asp:Button ID="btnAanmaken" runat="server" Text="Aanmaken" CssClass="btnUitloggen" OnClick="btnAanmaken_Click" Style="background-color: #009879; color: #fff" class="btn" />
     <asp:Button ID="btnTerug" runat="server" Text="Terug" CssClass="btnUitloggen" Style="background-color: #009879; color: #fff" class="btn" OnClick="btnTerug_Click" />
 
