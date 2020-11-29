@@ -72,19 +72,23 @@ namespace ProjectGroenBos.Financien
 
         protected void btnGoedkeuren_OnClick(object sender, EventArgs e)
         {
-            using (SqlConnection con = new SqlConnection(constr))
-            {
-                con.Open();
+          
+            
+                using (SqlConnection con = new SqlConnection(constr))
+                {
+                    con.Open();
 
-                int nummer = int.Parse(((Button)sender).CommandArgument);
+                    int nummer = int.Parse(((Button)sender).CommandArgument);
 
 
-                SqlCommand cmd = new SqlCommand("UPDATE InkoopOrderAanvraagSET InkoopOrderAanvraagStatusID = 2 WHERE Nummer = @nummer; ", con);
-                cmd.Parameters.AddWithValue("@nummer", nummer);
-                cmd.ExecuteNonQuery();
+                    SqlCommand cmd = new SqlCommand("UPDATE InkoopOrderAanvraag SET InkoopOrderAanvraagStatusID = 2 WHERE Nummer = @nummer ", con);
+                    cmd.Parameters.AddWithValue("@nummer", nummer);
+                    cmd.ExecuteNonQuery();
 
-                con.Close();
-            }
+                    con.Close();
+                }
+            
+
 
             gvInkooporderaanvragerMain.DataBind();
             ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "goedkeursuccess();", true);

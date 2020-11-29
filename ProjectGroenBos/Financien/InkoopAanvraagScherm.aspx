@@ -123,8 +123,8 @@ SELECT 'Alle Afdelingen' AS [Naam]"></asp:SqlDataSource>
                                     </tbody>
                                 </table>
 
-                                <input type="button" style="max-width: 80%; margin-left: auto; margin-right: auto;" data-toggle="modal" data-target="#exampleModal" class="btn btn-success btn-lg btn-block" value="Goedkeuren" />
-                                <input type="button" style="max-width: 80%; margin-left: auto; margin-right: auto;" data-toggle="modal" data-target="#modalAfkeuren<%# Eval("Nummer") %>" class="btn btn-danger btn-lg btn-block" value="Afkeuren" />
+                                <input type="button" style="max-width: 80%; margin-left: auto; margin-right: auto;" data-toggle="modal" data-target="#modalGoedkeuren<%# Eval("Nummer") %>" class="btn btn-success btn-lg btn-block" value="Goedkeuren" />
+                                <input type="button" style="max-width: 80%; margin-left: auto; margin-right: auto;" data-toggle="modal" data-target="#modalAfkeuren<%# Eval("Nummer") %>"   class="btn btn-danger btn-lg btn-block" value="Afkeuren" />
                             </div>
 
                             <div class="modal-footer">
@@ -168,7 +168,7 @@ SELECT 'Alle Afdelingen' AS [Naam]"></asp:SqlDataSource>
 
                             <div class="modal-body">
                                 <p>Weet je zeker dat je deze aanvraag wilt goedkeuren?</p>
-                                <asp:Button ID="btnGoedkeuren" OnClick="btnGoedkeuren_OnClick" CommandArgument='<%# Eval("Nummer") %>' Style="max-width: 80%; margin-left: auto; margin-right: auto; margin-top: 100px" CssClass="btn btn-danger btn-lg btn-block" runat="server" Text="Afkeuren" />
+                                <asp:Button ID="btnGoedkeuren" OnClick="btnGoedkeuren_OnClick" CommandArgument='<%# Eval("Nummer") %>' Style="max-width: 80%; margin-left: auto; margin-right: auto; margin-top: 100px" class="btn btn-success btn-lg btn-block" runat="server" text="Goedkeuren"  />
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Sluiten</button>
