@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="Site1.Master" AutoEventWireup="true" CodeBehind="ActiviteitWijzigen.aspx.cs" Inherits="recreatie.paginas.ActiviteitWijzigen" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="Site1.Master" AutoEventWireup="true" CodeBehind="ActiviteitWijzigen2.aspx.cs" Inherits="recreatie.paginas.ActiviteitWijzigen2" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script>function openModal(modalnaam) {
@@ -38,7 +38,7 @@
                        <asp:Label ID="Label1" runat="server" Text='<%# Bind("Naam") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:CommandField ShowSelectButton="True" />
+                <asp:CommandField ShowEditButton="True" />
                 <asp:BoundField DataField="FaciliteitID" HeaderText="FaciliteitID" Visible="False" />
             </Columns>
         </asp:GridView>
