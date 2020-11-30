@@ -1,0 +1,178 @@
+﻿
+.gridviewplanning {
+    position: relative;
+    width: 40px;
+    height: 10px;
+    top: -650px;
+    left: 20px;
+    font-size: 10px;
+}
+
+.textboxplanning {
+    position: relative;
+    float: right;
+    margin-right: 330px;
+    margin-left: 20px;
+}
+
+.textboxplanningb {
+    position: sticky;
+    float: right;
+    margin-right: 330px;
+    margin-top: 25px;
+}
+
+.labelplanning {
+    position: relative;
+    float: left;
+    margin-left: 1000px;
+    margin-top:20px; 
+}
+
+.kalenderplanning {
+    position: sticky;
+    left: 1300px;
+    padding: 70px 25px;
+    width: 100%;
+    background: #117b66;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    padding: 10px 0;
+    background-color: #117b66;
+    display: inline-block;
+    width: 13.6%;
+    color: #666;
+    text-align: center;
+    background: #eee;
+    margin: 0;
+    list-style-type: none;
+    width: 13.6%;
+    margin-bottom: 5px;
+    font-size: 12px;
+    color: #777;
+    padding: 5px;
+    background: #1abc9c;
+    color: white !important
+}
+
+.buttonplanning {
+    font-size: 25px;
+    position: relative;
+    float: left;
+    margin-left: 1000px;
+    background: #7fb241;
+}
+
+
+.labelbevestiging {
+    position: relative;
+    float: right;
+    right: 140px; 
+    top:10px; 
+}
+
+.labelplanningq {
+    left: 309px;
+    position: absolute;
+    top: 124px;
+}
+
+.textboxplanningactiviteit {
+    position: relative;
+    float: right;
+    margin-right: 330px;
+    margin-left: 20px;
+    margin-top:20px; 
+}
+
+.labellocatie {
+    position: relative;
+    float: left;
+    margin-left: 1000px;
+    margin-top: 1px;
+}
+
+.labelaantal {
+    position: relative;
+    float: left;
+    margin-left: 1000px;
+    margin-top: -20px;
+}
+
+.textboxaantal {
+    position: relative;
+    float: right;
+    margin-right: 330px;
+    margin-top: -20px; 
+}
+
+.labelbegintijd {
+    position: relative;
+    float: left;
+    margin-left: 1000px;
+    top: 60px;
+}
+
+.labelplanningdatum {
+    position: relative;
+    float: left;
+    margin-left: 1000px;
+    top: 20px;
+}
+
+.textboxbegintijd {
+    position: relative;
+    float: right;
+    margin-right: 330px;
+    top: 40px;
+}
+
+.textboxfaciliteitid{
+    position: relative;
+    float: right;
+    margin-right: 330px;
+    top: 20px;
+}
+
+.textboxinschrijfkosten {
+    position: relative;
+    float: right;
+    margin-right: 330px;
+    top: 20px;
+}
+
+.textboxdatum {
+    position: relative;
+    float: right;
+    margin-right: 330px;
+    top: 25px;
+}
+
+.textbbegeleider {
+    position: relative;
+    float: right;
+    margin-right: 330px;
+    top: -15px;
+}
+
+.plusknop {
+    background-color: #117b66;
+    font-size: 15px;
+    width: 35px;
+    top:20px; 
+    position:relative;
+    margin-right: 40px; 
+}
+
+    .plusknop:hover {
+        background: #7fb241;
+    }
+
+body {
+    overflow: hidden;
+}

@@ -1,0 +1,64 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Financien.Master.cs" Inherits="ProjectGroenBos.Financien.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <link rel="stylesheet" href="css/main.css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+        <div class="wrapper">
+            <div class="sidebar">
+                <h2>Groenbos</h2>
+                <h3>Financiën</h3>
+                <ul>
+                    <li><a href="/Financien/Home.aspx"><i class="fas fa-home"></i>Home</a></li>
+                    <li><a href="#"><i class="fas fa-user"></i>Administratie</a>
+                        <ul class="submenu">
+                            <li><a href="/Financien/Prijstabel.aspx">Prijsmanagement</a></li>
+                            <li><a href="#">Reserveringen-overzicht</a></li>
+                            <li><a href="#">Rekening-overzicht</a></li>
+                            <li><a href="#">Factuur-overzicht</a>
+                                <ul class="submenu">
+                                    <li><a href="#">Factuur-betaling</a></li>
+                                    <li><a href="#">Factuur-historie</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Personeel-overzicht</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#"><i class="fas fa-address-card"></i>Facturering</a>
+                        <ul class="submenu">
+                            <li><a href="#">Creditnota-overzicht</a>
+                                <ul class="submenu">
+                                    <li><a href="#">Creditnota-historie</a></li>
+                                    <li><a href="#">Openstaande creditnota's</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Automatisering reserveringsbevestiging</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#"><i class="fas fa-project-diagram"></i>Inkoop</a>
+                        <ul class="submenu">
+                            <li><a href="#">Inkopen producten</a></li>
+                            <li><a href="#">Facturen controleren</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="terug">
+                    <a href="#">&#8249; Terug naar home</a>
+                </div>
+            </div>
+            <div class="main_content">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
