@@ -118,5 +118,57 @@ namespace recreatie.paginas
         {
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal('#Popup');", true);
         }
+
+        protected void btnInplannen_Click(object sender, EventArgs e)
+        {
+            con.Open();
+            SqlCommand cmd = new SqlCommand("sp_Recreatie_VoegActiviteitToe", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@Naam", txtActiviteitNaam.Text.Trim());
+            cmd.Parameters.AddWithValue("@Locatie", txtLocatie.Text);
+            cmd.Parameters.AddWithValue("@Inschrijfkosten", txtInschrijfkosten.Text);
+            cmd.Parameters.AddWithValue("@MaximaalAantal", txtMaximaalAantal.Text);
+            cmd.Parameters.AddWithValue("@FaciliteitID", ddlOmschrijving.SelectedValue);
+            cmd.Parameters.AddWithValue("@Datum", Convert.ToDateTime(txtDatum.Text.Trim()));
+            cmd.Parameters.AddWithValue("@Begintijd", txtBegintijd.Text);
+            cmd.Parameters.AddWithValue("@Eindtijd", txtEindtijd.Text);
+            cmd.Parameters.AddWithValue("@MedewerkerID", ddlMedewerker.SelectedValue);
+            cmd.ExecuteNonQuery();
+            con.Close();
+            
+            txtActiviteitNaam.Text = "";
+            txtLocatie.Text = "";
+            txtInschrijfkosten.Text = "";
+            txtMaximaalAantal.Text = "";
+            txtDatum.Text = "";
+            txtBegintijd.Text = "";
+            txtEindtijd.Text = "";
+        }
+
+        protected void ddlOmschrijving_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DropDownList drp = sender as DropDownList;
+            FaciliteitID.Value = drp.SelectedValue;
+        }
+
+        protected void ddlMedewerker_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DropDownList drp = sender as DropDownList;
+            MedewerkerID.Value = drp.SelectedValue;
+        }
+
+        protected void GvActiviteitInplannen_PageIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void GvActiviteitInplannen_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            if (GvActiviteitInplannen.EditIndex != -1)
+            {
+                e.Cancel = true;
+                int newPageNumber = e.NewPageIndex + 1;
+            }
+        }
     }
 }
