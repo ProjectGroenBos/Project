@@ -11,7 +11,7 @@ namespace recreatie.paginas
 {
 
 
-    public partial class ActiviteitWijzigen2
+    public partial class ActiviteitWijzigenStandaard
     {
 
         /// <summary>

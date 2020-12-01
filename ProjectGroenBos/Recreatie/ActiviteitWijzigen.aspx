@@ -6,8 +6,7 @@
         }</script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="header">Activiteit Wijzigen</div>
-        <asp:GridView ID="GridView1"  CssClass="content-table tweedetable" runat="server" AutoGenerateColumns="False" DataKeyNames="Nummer" style="max-width:10%" DataSourceID="SqlDataSource5" AllowPaging="True" GridLines="None">
+    <div class="header">Activiteit Wijzigen<asp:GridView ID="GridView1"  CssClass="content-table tweedetable" runat="server" AutoGenerateColumns="False" DataKeyNames="Nummer" style="max-width:10%" DataSourceID="SqlDataSource5" AllowPaging="True" GridLines="None">
             <Columns>
                 <asp:BoundField DataField="Nummer" HeaderText="Nummer" ReadOnly="True" SortExpression="Nummer" />
                 <asp:BoundField DataField="Activiteitnaam" HeaderText="Activiteitnaam" SortExpression="Activiteitnaam" />
@@ -38,10 +37,19 @@
                        <asp:Label ID="Label1" runat="server" Text='<%# Bind("Naam") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:CommandField ShowSelectButton="True" />
+                    
+                <asp:TemplateField ShowHeader="False">
+                    <ItemTemplate>
+                        <asp:CheckBox ID="ActiviteitSelecteren" runat="server" />
+                    </ItemTemplate>
+                </asp:TemplateField>
+                    
                 <asp:BoundField DataField="FaciliteitID" HeaderText="FaciliteitID" Visible="False" />
             </Columns>
         </asp:GridView>
+
+        <asp:Button ID="WijzigenActiviteit" runat="server" OnClick="WijzigenActiviteit_Click" Text="Wijzigen Activiteit" />
+    </div>
 
     <asp:HiddenField ID="MedewerkerID" runat="server"
                                     Value='' />

@@ -77,7 +77,7 @@
     <Content Include="Recreatie\ActiviteitInplannen.aspx" />
     <Content Include="Recreatie\ActiviteitOverzicht.aspx" />
     <Content Include="Recreatie\ActiviteitVerwijderen.aspx" />
-    <Content Include="Recreatie\ActiviteitWijzigen2.aspx" />
+    <Content Include="Recreatie\ActiviteitWijzigenStandaard.aspx" />
     <Content Include="Recreatie\ActiviteitWijzigen.aspx" />
     <Content Include="Recreatie\CSS\styleechte.css" />
     <Content Include="Recreatie\CSS\stylegoeiee.css" />
@@ -430,12 +430,12 @@
     <Compile Include="Recreatie\ActiviteitVerwijderen.aspx.designer.cs">
       <DependentUpon>ActiviteitVerwijderen.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Recreatie\ActiviteitWijzigen2.aspx.cs">
-      <DependentUpon>ActiviteitWijzigen2.aspx</DependentUpon>
+    <Compile Include="Recreatie\ActiviteitWijzigenStandaard.aspx.cs">
+      <DependentUpon>ActiviteitWijzigenStandaard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Recreatie\ActiviteitWijzigen2.aspx.designer.cs">
-      <DependentUpon>ActiviteitWijzigen2.aspx</DependentUpon>
+    <Compile Include="Recreatie\ActiviteitWijzigenStandaard.aspx.designer.cs">
+      <DependentUpon>ActiviteitWijzigenStandaard.aspx</DependentUpon>
     </Compile>
     <Compile Include="Recreatie\ActiviteitWijzigen.aspx.cs">
       <DependentUpon>ActiviteitWijzigen.aspx</DependentUpon>

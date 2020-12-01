@@ -10,7 +10,7 @@ using System.Web.UI.WebControls;
 
 namespace recreatie.paginas
 {
-    public partial class ActiviteitWijzigen2 : System.Web.UI.Page
+    public partial class ActiviteitWijzigenStandaard : System.Web.UI.Page
     {
         string connectionstring = ConfigurationManager.ConnectionStrings["dbconnectie"].ToString();
         SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconnectie"].ConnectionString);
@@ -26,13 +26,37 @@ namespace recreatie.paginas
                 dt.Columns.AddRange(new DataColumn[1] { new DataColumn("Naam") });
                 //dt.Rows.Add("Yes");
                 ViewState["Medewerker"] = dt;
-                
+
             }
 
             if (ViewState["Medewerker"] == null)
             {
                 ViewState["Medewerker"] = dt;
             }
+
+            if (Session["SelectedRows"] == null)
+            {
+
+                GridView1.DataSource = dt;
+            }
+            else
+            {
+                Fucntio();
+            }
+        }
+        void Fucntio()
+        {
+
+            using (SqlConnection sqlCon = new SqlConnection(connectionstring))
+            {
+                SqlCommand cmd = new SqlCommand("Select[Nummer] from vActiviteit Where Nummer = @nummer", sqlCon);
+                cmd.Parameters.AddWithValue("nummer", Session["SelectedRows"].ToString());
+                sqlCon.Open();
+                cmd.ExecuteNonQuery();
+                sqlCon.Close();
+            }
+            GridView1.DataSource = (DataTable)Session["dt"];
+            GridView1.DataBind();
         }
 
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
@@ -46,6 +70,7 @@ namespace recreatie.paginas
             DropDownList drp2 = sender as DropDownList;
             FaciliteitID.Value = drp2.SelectedValue;
         }
+
         /*
 protected void BindGrid()
 {
