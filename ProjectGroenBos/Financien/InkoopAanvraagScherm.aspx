@@ -48,7 +48,7 @@ SELECT 'Alle Afdelingen' AS [Naam]"></asp:SqlDataSource>
                 <asp:BoundField DataField="Opmerking" HeaderText="Opmerking" ReadOnly="True" SortExpression="Opmerking" HtmlEncode="False" />
             </Columns>
         </asp:GridView>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="select * from inkooporderaanvraagmainLev order by datum DESC, opmerking DESC"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="select * from inkooporderaanvraagmainLev where [Status] = 'Geweigerd' OR [Status] = 'Wachten op goedkeuring' order by datum DESC, opmerking DESC"></asp:SqlDataSource>
     </div>
 
 
@@ -123,7 +123,7 @@ SELECT 'Alle Afdelingen' AS [Naam]"></asp:SqlDataSource>
                                     </tbody>
                                 </table>
 
-                                <input type="button" style="max-width: 80%; margin-left: auto; margin-right: auto;" data-toggle="modal" data-target="#exampleModal" class="btn btn-success btn-lg btn-block" value="Goedkeuren" />
+                                <input type="button" style="max-width: 80%; margin-left: auto; margin-right: auto;" data-toggle="modal" data-target="#modalGoedkeuren<%# Eval("Nummer") %>" class="btn btn-success btn-lg btn-block" value="Goedkeuren" />
                                 <input type="button" style="max-width: 80%; margin-left: auto; margin-right: auto;" data-toggle="modal" data-target="#modalAfkeuren<%# Eval("Nummer") %>" class="btn btn-danger btn-lg btn-block" value="Afkeuren" />
                             </div>
 
@@ -168,7 +168,7 @@ SELECT 'Alle Afdelingen' AS [Naam]"></asp:SqlDataSource>
 
                             <div class="modal-body">
                                 <p>Weet je zeker dat je deze aanvraag wilt goedkeuren?</p>
-                                <asp:Button ID="btnGoedkeuren" OnClick="btnGoedkeuren_OnClick" CommandArgument='<%# Eval("Nummer") %>' Style="max-width: 80%; margin-left: auto; margin-right: auto; margin-top: 100px" CssClass="btn btn-danger btn-lg btn-block" runat="server" Text="Afkeuren" />
+                                <asp:Button ID="btnGoedkeuren" OnClick="btnGoedkeuren_OnClick" CommandArgument='<%# Eval("Nummer") %>' Style="max-width: 80%; margin-left: auto; margin-right: auto; margin-top: 100px" CssClass="btn btn-success btn-lg btn-block" runat="server" Text="Goedkeuren" />
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Sluiten</button>
