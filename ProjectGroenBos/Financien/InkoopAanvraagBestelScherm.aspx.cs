@@ -54,5 +54,25 @@ namespace ProjectGroenBos.Financien
                 gvInkooporderaanvragerMain.DataBind();
             }
         }
+
+        protected void btnBestel_OnClick(object sender, EventArgs e)
+        {
+            using (SqlConnection con = new SqlConnection(constr))
+            {
+                con.Open();
+
+                int nummer = int.Parse(((Button)sender).CommandArgument);
+
+
+                SqlCommand cmd = new SqlCommand("UPDATE InkoopOrderAanvraag SET InkoopOrderAanvraagStatusID = 4 WHERE Nummer = @nummer; ", con);
+                cmd.Parameters.AddWithValue("@nummer", nummer);
+                cmd.ExecuteNonQuery();
+
+                con.Close();
+            }
+
+            gvInkooporderaanvragerMain.DataBind();
+            ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "Bestelsuccess();", true);
+        }
     }
 }
