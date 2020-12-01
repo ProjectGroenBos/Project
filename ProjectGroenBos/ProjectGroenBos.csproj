@@ -84,6 +84,7 @@
     <Content Include="Recreatie\CSS\styleoverzicht.css" />
     <Content Include="Recreatie\img\ascArrow.png" />
     <Content Include="Recreatie\img\descArrow.png" />
+    <Content Include="Recreatie\ProductPagina.aspx" />
     <Content Include="Recreatie\Voorraad.aspx" />
     <Content Include="Recreatie\CSS\Main.css" />
     <Content Include="Recreatie\CSS\style.css" />
@@ -436,6 +437,13 @@
     </Compile>
     <Compile Include="Recreatie\ActiviteitWijzigen.aspx.designer.cs">
       <DependentUpon>ActiviteitWijzigen.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Recreatie\ProductPagina.aspx.cs">
+      <DependentUpon>ProductPagina.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Recreatie\ProductPagina.aspx.designer.cs">
+      <DependentUpon>ProductPagina.aspx</DependentUpon>
     </Compile>
     <Compile Include="Recreatie\Voorraad.aspx.cs">
       <DependentUpon>Voorraad.aspx</DependentUpon>
