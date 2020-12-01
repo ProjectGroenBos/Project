@@ -79,6 +79,7 @@
     <Content Include="Recreatie\ActiviteitVerwijderen.aspx" />
     <Content Include="Recreatie\ActiviteitWijzigen.aspx" />
     <Content Include="Recreatie\CSS\Styledegoeiee.css" />
+    <Content Include="Recreatie\CSS\stylediejuistis.css" />
     <Content Include="Recreatie\CSS\styleechte.css" />
     <Content Include="Recreatie\CSS\stylegoeiee.css" />
     <Content Include="Recreatie\CSS\styleoverzicht.css" />

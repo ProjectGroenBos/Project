@@ -15,26 +15,26 @@
     <asp:HiddenField ID="MedewerkerID" runat="server"
                                     Value='' />
 
-    <asp:GridView ID="GvActiviteitInplannen" runat="server" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" CssClass="content-table2" DataKeyNames="Nummer" ForeColor="#333333" GridLines="None" ShowFooter="True" ShowHeaderWhenEmpty="True" Width="80%" OnRowCancelingEdit="GvActiviteitInplannen_RowCancelingEdit" OnRowCommand="GvActiviteitInplannen_RowCommand" OnRowDeleting="GvActiviteitInplannen_RowDeleting" OnRowEditing="GvActiviteitInplannen_RowEditing" OnRowUpdating="GvActiviteitInplannen_RowUpdating" OnSelectedIndexChanged="GvActiviteitInplannen_SelectedIndexChanged" OnSorting="OnSorting" AllowPaging="True" OnPageIndexChanged="GvActiviteitInplannen_PageIndexChanged" OnPageIndexChanging="GvActiviteitInplannen_PageIndexChanging">
+    <asp:GridView ID="GvActiviteitInplannen" runat="server" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" CssClass="content-table2" DataKeyNames="Nummer" ForeColor="#333333" GridLines="None" ShowFooter="True" ShowHeaderWhenEmpty="True" Width="80%" OnRowCancelingEdit="GvActiviteitInplannen_RowCancelingEdit" OnRowCommand="GvActiviteitInplannen_RowCommand" OnRowDeleting="GvActiviteitInplannen_RowDeleting" OnRowEditing="GvActiviteitInplannen_RowEditing" OnRowUpdating="GvActiviteitInplannen_RowUpdating" OnSelectedIndexChanged="GvActiviteitInplannen_SelectedIndexChanged" OnSorting="OnSorting" AllowPaging="True" OnPageIndexChanged="GvActiviteitInplannen_PageIndexChanged" OnPageIndexChanging="GvActiviteitInplannen_PageIndexChanging" >
         <Columns>
-            <asp:BoundField DataField="Nummer" HeaderText="Nummer" ReadOnly="True" SortExpression="Nummer" />
-            <asp:BoundField DataField="Activiteitnaam" HeaderText="Activiteitnaam" SortExpression="Activiteitnaam" />
-            <asp:BoundField DataField="Locatie" HeaderText="Locatie" SortExpression="Locatie" />
-            <asp:BoundField DataField="Inschrijfkosten" HeaderText="Inschrijfkosten" SortExpression="Inschrijfkosten" />
-            <asp:BoundField DataField="Maximaal aantal" HeaderText="Maximaal Aantal" SortExpression="Maximaalaantal" />
-            <asp:BoundField DataField="Omschrijving" HeaderText="Omschrijving" SortExpression="Omschrijving" />
-            <asp:BoundField DataField="Datum" HeaderText="Datum" ReadOnly="True" SortExpression="Datum" />
-            <asp:BoundField DataField="Begintijd" HeaderText="Begintijd" ReadOnly="True" SortExpression="Begintijd" />
-            <asp:BoundField DataField="Eindtijd" HeaderText="Eindtijd" ReadOnly="True" SortExpression="Eindtijd" />
-            <asp:BoundField DataField="Naam" HeaderText="Naam" SortExpression="Naam" />
-            <asp:BoundField DataField="MedewerkerID" HeaderText="MedewerkerID" SortExpression="MedewerkerID" />
+            <asp:BoundField DataField="Nummer" HeaderText="Nummer" HeaderStyle-ForeColor="White"  ReadOnly="True" SortExpression="Nummer"  />
+            <asp:BoundField DataField="Activiteitnaam" HeaderText="Activiteitnaam" HeaderStyle-ForeColor="White"  SortExpression="Activiteitnaam" />
+            <asp:BoundField DataField="Locatie" HeaderText="Locatie" HeaderStyle-ForeColor="White"  SortExpression="Locatie" />
+            <asp:BoundField DataField="Inschrijfkosten" HeaderText="Inschrijfkosten" HeaderStyle-ForeColor="White"  SortExpression="Inschrijfkosten" />
+            <asp:BoundField DataField="Maximaal aantal" HeaderText="Maximaal Aantal" HeaderStyle-ForeColor="White" SortExpression="Maximaalaantal" />
+            <asp:BoundField DataField="Omschrijving" HeaderText="Omschrijving" HeaderStyle-ForeColor="White"  SortExpression="Omschrijving" />
+            <asp:BoundField DataField="Datum" HeaderText="Datum" HeaderStyle-ForeColor="White"  ReadOnly="True" SortExpression="Datum" />
+            <asp:BoundField DataField="Begintijd" HeaderText="Begintijd" HeaderStyle-ForeColor="White"  ReadOnly="True" SortExpression="Begintijd" />
+            <asp:BoundField DataField="Eindtijd" HeaderText="Eindtijd" HeaderStyle-ForeColor="White"  ReadOnly="True" SortExpression="Eindtijd" />
+            <asp:BoundField DataField="Naam" HeaderText="Naam" HeaderStyle-ForeColor="White"  SortExpression="Naam" />
+            <asp:BoundField DataField="MedewerkerID" HeaderText="MedewerkerID" HeaderStyle-ForeColor="White"  SortExpression="MedewerkerID" />
         </Columns>
 
      </asp:GridView>
 
     <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT [Nummer], [Activiteitnaam], [Locatie], [Inschrijfkosten], [Maximaal aantal] AS Maximaal_aantal, [Omschrijving], [Datum], [Begintijd], [Eindtijd], [Naam], [MedewerkerID] FROM [vActiviteit]"></asp:SqlDataSource>
 
-    <asp:Button ID="btnNieuwActiviteit" runat="server" Style="max-width: 80%; margin-left: auto; margin-right: auto;" class="btn" CssClass="buttonAfboekenVoorraadmuteren" Text="Activiteit Toevoegen" OnClick="btnNieuwActiviteit_Click"/>
+    <asp:Button ID="btnNieuwActiviteit" runat="server" CssClass="btnnieuweactiviteitinplannen" Text="Activiteit Toevoegen" OnClick="btnNieuwActiviteit_Click" ForeColor="White"/>
 
 
     <div id="Popup" class="modal fade" role="dialog">
