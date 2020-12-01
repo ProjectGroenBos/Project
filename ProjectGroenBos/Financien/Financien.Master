@@ -49,6 +49,7 @@
                         <ul class="submenu">
                             <li><a href="/Financien/InkoopAanvraagScherm.aspx">Inkoopaanvragen</a></li>
                             <li><a href="/Financien/InkoopAanvraagBestelScherm.aspx">Inkoopaanvragen Bestellen</a></li>
+                            <li><a href="/Financien/FactuurKoppelScherm.aspx">Factuur koppelen</a></li>
                             <li><a href="/Financien/Factuurtoevoegen.aspx">Inkopen producten</a></li>
                             <li><a href="#">Facturen controleren</a></li>
                         </ul>
