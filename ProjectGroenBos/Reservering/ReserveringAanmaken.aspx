@@ -13,7 +13,8 @@
             $("#<%= txbAankomstdatum.ClientID %>").datepicker({
                     changeMonth: true, // Hierdoor kan de gebruiker de maand veranderen
                     changeYear: true, // Hierdoor kan de gebruiker het jaar veranderen
-                    minDate: new Date(currentYear, currentMonth, currentDate),
+                minDate: new Date(currentYear, currentMonth, currentDate),
+                dateFormat: 'dd/mm/yy',
                     beforeShowDay: function (date) {
                         if (date.getDay() == 0 || date.getDay() == 2 || date.getDay() == 3 || date.getDay() == 4 || date.getDay() == 6) {
                             return [false, ''];
@@ -33,6 +34,7 @@
                 changeMonth: true, // Hierdoor kan de gebruiker de maand veranderen
                 changeYear: true, // Hierdoor kan de gebruiker het jaar veranderen
                 minDate: new Date(currentYear, currentMonth, currentDate),
+                dateFormat: 'dd/mm/yy',
                 beforeShowDay: function (date) {
                     if (date.getDay() == 0 || date.getDay() == 2 || date.getDay() == 3 || date.getDay() == 4 || date.getDay() == 6) {
                         return [false, ''];
@@ -42,6 +44,9 @@
                 }
             });
         });
+
+
+        
 
     </script>
 
@@ -66,7 +71,9 @@
     <br />
     <asp:Label ID="Label4" runat="server" Text="Huisjenummer" CssClass="labelsnieuw"></asp:Label>
     <asp:Label ID="lblHuisjenummer" runat="server" Text="" CssClass="textboxchaos"></asp:Label>
-
-    <asp:GridView ID="GridView1" runat="server" CssClass="content-table"></asp:GridView>
+    <br />
+    <asp:Button ID="btnZoek" runat="server" Text="Zoek bungalow" CssClass="btnUitloggen" Style="background-color: #009879; color: #fff" class="btn" OnClick="btnZoek_Click"/>
+    <asp:Button ID="btnAanmaken" runat="server" Text="Aanmaken" CssClass="btnUitloggen" Style="background-color: #009879; color: #fff" class="btn"/>
+    <asp:GridView ID="GridView1" runat="server" CssClass="content-table" OnSelectedIndexChanged="GridView1_SelectedIndexChanged"></asp:GridView>
 
 </asp:Content>

@@ -4,7 +4,9 @@ using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Text.RegularExpressions;
 using System.Web;
+using System.Web.ModelBinding;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -12,6 +14,7 @@ namespace ProjectGroenBos.Reservering
 {
     public partial class GastAanmaken : System.Web.UI.Page
     {
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["controle"] == null)
@@ -50,7 +53,33 @@ namespace ProjectGroenBos.Reservering
             Session["telefoonnummer"] = telefoonnummer;
             Session["email"] = email;
 
-            if (land == "")
+            if (land == "--Selecteer--")
+            {
+                CustomValidator1.IsValid = false;
+            }
+
+            if (DropDownList2.SelectedValue == "Duitsland(+49)" || DropDownList2.SelectedValue == "Frankrijk(+33)")
+            {
+                if (txbPostcode.Text.Length != 5)
+                {
+                    CustomValidator1.IsValid = false;
+                }
+            }
+            else if (DropDownList2.SelectedValue == "België(+32)")
+            {
+                if (txbPostcode.Text.Length != 4)
+                {
+                    CustomValidator1.IsValid = false;
+                }
+            }
+            else if (DropDownList2.SelectedValue == "Nederland(+31)")
+            {
+                if (txbPostcode.Text.Length != 7)
+                {
+                    CustomValidator1.IsValid = false;
+                }
+            }
+            else if (DropDownList2.SelectedValue == "--Selecteer--")
             {
                 CustomValidator1.IsValid = false;
             }
@@ -60,7 +89,7 @@ namespace ProjectGroenBos.Reservering
                 InsGast(voornaam, tussenvoegsel, achternaam, email, telefoonnummer, geboortedatum);
                 int gastnummer = GetNummer(achternaam);
 
-                if(gastnummer == 0)
+                if (gastnummer == 0)
                 {
                     lblUitkomst.Text = "Er ging iets mis. Neem zo snel mogelijk contact met ons op.";
                 }
@@ -150,8 +179,8 @@ namespace ProjectGroenBos.Reservering
                     cmd.Parameters.AddWithValue("@Huisnummer", huisnummer);
                     cmd.Parameters.AddWithValue("@Postcode", postcode);
                     cmd.Parameters.AddWithValue("@Land", land);
-                    cmd.Parameters.AddWithValue("@Woonplaats", woonplaats);
                     cmd.Parameters.AddWithValue("@GastNummer", gastnummer);
+                    cmd.Parameters.AddWithValue("@Woonplaats", woonplaats);
 
                     cmd.CommandType = System.Data.CommandType.StoredProcedure;
                     cmd.ExecuteNonQuery();
@@ -181,11 +210,11 @@ namespace ProjectGroenBos.Reservering
 
                     cmd.CommandType = System.Data.CommandType.Text;
 
-                    int i = cmd.ExecuteNonQuery();
+                    int i = (int)cmd.ExecuteScalar();
 
                     return i;
                 }
-                catch 
+                catch
                 {
                     int i = 0;
 
@@ -197,6 +226,36 @@ namespace ProjectGroenBos.Reservering
         protected void btnTerug_Click(object sender, EventArgs e)
         {
             Response.Redirect("GastSelecteren.aspx");
+        }
+
+        protected void CustomValidator3_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            {
+                string expression = "";
+
+                switch (DropDownList2.SelectedValue)
+                {
+                    case "Nederland(+31)":
+                        expression = "^([0-9]{4}) {1}([A-Z]{2})$";
+                        break;
+                    case "Duitsland(+49)":
+                        expression = "^[0-9]{5}$";
+                        break;
+                    case "Frankrijk(+33)":
+                        expression = "^[0-9]{5}$";
+                        break;
+                    case "België(+32)":
+                        expression = "^(?:(?:[1-9])(?:[0-9]{3}))$";
+                        break;
+
+                }
+
+
+                if (Regex.IsMatch(txbPostcode.Text, expression, RegexOptions.IgnoreCase))
+                    args.IsValid = true;
+                else
+                    args.IsValid = false;
+            }
         }
     }
 }
