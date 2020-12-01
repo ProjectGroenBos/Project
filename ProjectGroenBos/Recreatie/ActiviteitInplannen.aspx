@@ -54,32 +54,40 @@
                          <div class="modal-body">
 
                              <asp:Label ID="Label2" runat="server" Text="ActiviteitNaam"></asp:Label>
-                             <asp:TextBox ID="txtActiviteitNaam" runat="server"></asp:TextBox>
-
+                             <asp:TextBox ID="txtActiviteitNaam" runat="server" CssClass="txbActiviteitnaam"></asp:TextBox>
+                             <br />
+                             <br />
                              <asp:Label ID="Label3" runat="server" Text="Locatie"></asp:Label>
-                             <asp:TextBox ID="txtLocatie" runat="server"></asp:TextBox>
-
+                             <asp:TextBox ID="txtLocatie" runat="server" CssClass="txblocatieactivitieit"></asp:TextBox>
+                             <br />
+                             <br />
                              <asp:Label ID="Label4" runat="server" Text="Inschrijfkosten"></asp:Label>
-                             <asp:TextBox ID="txtInschrijfkosten" runat="server"></asp:TextBox>
-
+                             <asp:TextBox ID="txtInschrijfkosten" runat="server" CssClass="txbInschrijfkostenactivitieit"></asp:TextBox>
+                             <br />
+                             <br />
                              <asp:Label ID="Label5" runat="server" Text="Maximaal Aantal"></asp:Label>
-                             <asp:TextBox ID="txtMaximaalAantal" runat="server"></asp:TextBox>
-
+                             <asp:TextBox ID="txtMaximaalAantal" runat="server" CssClass="txbMaximaalaantalactivitieit"></asp:TextBox>
+                             <br />
+                             <br />
                              <asp:Label ID="Label6" runat="server" Text='Omschrijving'></asp:Label>
-                             <asp:DropDownList ID="ddlOmschrijving" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource3" DataTextField="Omschrijving" DataValueField="ID" OnSelectedIndexChanged="ddlOmschrijving_SelectedIndexChanged"></asp:DropDownList>
-                           
+                             <asp:DropDownList ID="ddlOmschrijving" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource3" DataTextField="Omschrijving" DataValueField="ID" OnSelectedIndexChanged="ddlOmschrijving_SelectedIndexChanged" CssClass="txbOmschrijvingactivitieit"></asp:DropDownList>
+                             <br />
+                             <br />
 
                              <asp:Label ID="Label7" runat="server" Text="Datum"></asp:Label>
-                             <asp:TextBox ID="txtDatum" runat="server"></asp:TextBox>
-
+                             <asp:TextBox ID="txtDatum" runat="server" CssClass="txbDatumactivitieit"></asp:TextBox>
+                             <br />
+                             <br />
                              <asp:Label ID="Label8" runat="server" Text="Begintijd"></asp:Label>
-                             <asp:TextBox ID="txtBegintijd" runat="server" TextMode="Time"></asp:TextBox>
-
+                             <asp:TextBox ID="txtBegintijd" runat="server" TextMode="Time" CssClass="txbBegintijdactivitieit"></asp:TextBox>
+                             <br />
+                             <br />
                              <asp:Label ID="Label9" runat="server" Text="Eindtijd"></asp:Label>
-                             <asp:TextBox ID="txtEindtijd" runat="server" TextMode="Time"></asp:TextBox>
-
+                             <asp:TextBox ID="txtEindtijd" runat="server" TextMode="Time" CssClass="txbEindtijdactivitieit"></asp:TextBox>
+                             <br />
+                             <br />
                              <asp:Label ID="Label10" runat="server" Text="Medewerker"></asp:Label>
-                            <asp:DropDownList ID="ddlMedewerker" runat="server" DataSourceID="SqlDataSource1" DataTextField="Naam" DataValueField="Nummer" AutoPostBack="True" OnSelectedIndexChanged="ddlMedewerker_SelectedIndexChanged">
+                            <asp:DropDownList ID="ddlMedewerker" runat="server" DataSourceID="SqlDataSource1" DataTextField="Naam" DataValueField="Nummer" AutoPostBack="True" OnSelectedIndexChanged="ddlMedewerker_SelectedIndexChanged" CssClass="txbMedewerkeractivitieit">
 
                         </asp:DropDownList>
                         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT [Nummer], [Naam] FROM [Medewerker]"></asp:SqlDataSource>

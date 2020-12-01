@@ -1097,6 +1097,7 @@ nav ul {
     left: 80%;
     margin-top: 3%;
 }
+
 .content-table4 {
     border-collapse: collapse;
     margin: 25px 0;
@@ -1165,6 +1166,7 @@ nav ul {
                 background-color: #009879;
                 color: #ffffff;
             }
+
 .modal-dialog {
     width: 100%;
 }
@@ -1237,14 +1239,35 @@ nav ul {
                 background-color: #009879;
                 color: #ffffff;
             }
-      
-.txbActiviteitnaam{
-    margin-right: 5%;
-}
-.txblocatieactivitieit {
-    margin-right: 5%;
-}
-.txbInschrijfkostenactivitieit {
-    margin-right: 5%;
+
+.txbActiviteitnaam {
+    margin-left: 30%;
+
 }
 
+.txblocatieactivitieit {
+    margin-left: 42%;
+}
+
+.txbInschrijfkostenactivitieit {
+    margin-left:32%;
+}
+.txbMaximaalaantalactivitieit {
+    margin-left: 26%;
+}
+.txbOmschrijvingactivitieit {
+    margin-left: 33%;
+}
+.txbDatumactivitieit {
+    margin-left: 43%;
+}
+.txbBegintijdactivitieit {
+    margin-left: 40%;
+}
+.txbEindtijdactivitieit {
+    margin-left: 42%;
+}
+
+.txbMedewerkeractivitieit {
+    margin-left: 33%;
+}
