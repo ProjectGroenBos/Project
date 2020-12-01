@@ -32,7 +32,7 @@ namespace ProjectGroenBos.Reservering
             string aankomst = txbAankomstdatum.Text;
             string aankomst2 = aankomst.Replace("/", "-");
 
-            string vertrek = txbAankomstdatum.Text;
+            string vertrek = txbVertrekdatum.Text;
             string vertrek2 = vertrek.Replace("/", "-");
 
             DateTime aankomstDatum = DateTime.Parse(aankomst2);
@@ -45,8 +45,8 @@ namespace ProjectGroenBos.Reservering
 
             int aantalPersonen = int.Parse(txbAantalPersonen.Text);
 
-            //if (aankomstDatum < vertrekDatum && aankomstDatum > vandaag && vertrekDatum > vandaag)
-            //{
+            if (aankomstDatum < vertrekDatum && aankomstDatum > vandaag && vertrekDatum > vandaag)
+            {
 
                 //dataset om de gridview te vullen
                 using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["2020-BIM02-P1-P2-GroenbosConnectionString"].ConnectionString))
@@ -68,19 +68,19 @@ namespace ProjectGroenBos.Reservering
                     con.Close();
 
                 }
-            //}
-            //else if (aankomstDatum == vandaag || vertrekDatum == vandaag)
-            //{
-            //    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('U kunt niet vertrekken of aankomen op de dag van reservering.')", true);
-            //}
-            //else if (vertrekDatum == aankomstDatum)
-            //{
-            //    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Vertrekdatum is later als de aankomstdatum. Controleer deze nog even alstublieft.')", true);
-            //}
-            //else
-            //{
-            //    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('U kunt niet voor het verleden reserveren. Probeer het opnieuw.')", true);
-            //}
+            }
+            else if (aankomstDatum == vandaag || vertrekDatum == vandaag)
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('U kunt niet vertrekken of aankomen op de dag van reservering.')", true);
+            }
+            else if (vertrekDatum == aankomstDatum)
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Vertrekdatum is later als de aankomstdatum. Controleer deze nog even alstublieft.')", true);
+            }
+            else
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('U kunt niet voor het verleden reserveren. Probeer het opnieuw.')", true);
+            }
         }
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)

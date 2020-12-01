@@ -90,6 +90,7 @@
     <Content Include="Recreatie\Planning.aspx" />
     <Content Include="Recreatie\Uitloggen.aspx" />
     <Content Include="Recreatie\Voorraadfout.aspx" />
+    <Content Include="Reservering\Images\checksymbol.png" />
     <Content Include="Reservering\KlachtenAfhandeling.aspx" />
     <Content Include="Reservering\MailHuisReserveringGeannuleerd.html" />
     <Content Include="Reservering\MailReserveringGewijzigd.html" />

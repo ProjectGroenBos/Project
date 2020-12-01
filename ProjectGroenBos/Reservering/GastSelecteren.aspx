@@ -31,14 +31,16 @@
     
     <br />
     <br />
-    <asp:GridView ID="GridView1" runat="server" CssClass="content-table" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" DataKeyNames="Gastnummer" AutoGenerateSelectButton="True" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AllowSorting="True">
-        <Columns>
+    <asp:GridView ID="GridView1" runat="server" CssClass="content-table" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" DataKeyNames="Gastnummer" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AllowSorting="True">
+        <Columns>  
+            <asp:CommandField ShowSelectButton="true" ButtonType="Image" SelectImageUrl="~/Reservering/Images/checksymbol.png" />
             <asp:BoundField DataField="Gastnummer" HeaderText="Gastnummer" SortExpression="Gastnummer" InsertVisible="False" ReadOnly="True" />
             <asp:BoundField DataField="Voornaam" HeaderText="Voornaam" SortExpression="Voornaam" />
             <asp:BoundField DataField="Tussenvoegsel" HeaderText="Tussenvoegsel" SortExpression="Tussenvoegsel" />
             <asp:BoundField DataField="Achternaam" HeaderText="Achternaam" SortExpression="Achternaam" />
             <asp:BoundField DataField="Telefoonnummer" HeaderText="Telefoonnummer" SortExpression="Telefoonnummer" />
             <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" />
+            
         </Columns>
     </asp:GridView>
 

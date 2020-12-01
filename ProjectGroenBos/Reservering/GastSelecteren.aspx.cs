@@ -22,6 +22,7 @@ namespace ProjectGroenBos
 
         protected void btnZoek_Click(object sender, EventArgs e)
         {
+            //GridView1.AutoGenerateSelectButton.
             GridView1.Visible = true;
             GridView1.DataBind();
 
