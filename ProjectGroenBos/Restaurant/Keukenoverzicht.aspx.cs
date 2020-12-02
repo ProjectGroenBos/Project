@@ -9,7 +9,7 @@ using System.Data.SqlClient;
 
 namespace ProjectGroenBos.Restaurant
 {
-    public partial class WebForm1 : System.Web.UI.Page
+    public partial class WebForm5 : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -27,7 +27,7 @@ namespace ProjectGroenBos.Restaurant
             SqlDataAdapter da = new SqlDataAdapter();
             da.SelectCommand = cmd;
 
-            myquery = "UPDATE Item_RestaurantReservering SET Status = 'Gereed' WHERE Status = 'Besteld' AND Item_RestaurantReservering.Ronde = (SELECT MIN(Item_RestaurantReservering.Ronde) FROM Item_RestaurantReservering WHERE Status = 'Besteld')";
+            myquery = "UPDATE Item_RestaurantReservering SET Status = 'Gereed' WHERE Status = 'Besteld' AND Type != 'Drank' AND Item_RestaurantReservering.Ronde = (SELECT MIN(Item_RestaurantReservering.Ronde) FROM Item_RestaurantReservering WHERE Status = 'Besteld')";
 
             cmd.CommandText = myquery;
             scon.Open();
@@ -38,12 +38,6 @@ namespace ProjectGroenBos.Restaurant
             this.dtlBestelling3.DataBind();
             this.dtlBestelling4.DataBind();
             this.dtlBestelling5.DataBind();
-
-            this.dtlTafelnr.DataBind();
-            this.dtlTafelnr0.DataBind();
-            this.dtlTafelnr1.DataBind();
-            this.dtlTafelnr2.DataBind();
-            this.dtlTafelnr3.DataBind();
         }
 
         protected void btnGereed2_Click(object sender, EventArgs e)
@@ -68,12 +62,6 @@ namespace ProjectGroenBos.Restaurant
             this.dtlBestelling3.DataBind();
             this.dtlBestelling4.DataBind();
             this.dtlBestelling5.DataBind();
-
-            this.dtlTafelnr.DataBind();
-            this.dtlTafelnr0.DataBind();
-            this.dtlTafelnr1.DataBind();
-            this.dtlTafelnr2.DataBind();
-            this.dtlTafelnr3.DataBind();
         }
 
         protected void btnGereed3_Click(object sender, EventArgs e)
@@ -98,12 +86,6 @@ namespace ProjectGroenBos.Restaurant
             this.dtlBestelling3.DataBind();
             this.dtlBestelling4.DataBind();
             this.dtlBestelling5.DataBind();
-
-            this.dtlTafelnr.DataBind();
-            this.dtlTafelnr0.DataBind();
-            this.dtlTafelnr1.DataBind();
-            this.dtlTafelnr2.DataBind();
-            this.dtlTafelnr3.DataBind();
         }
 
         protected void btnGereed4_Click(object sender, EventArgs e)
@@ -128,12 +110,6 @@ namespace ProjectGroenBos.Restaurant
             this.dtlBestelling3.DataBind();
             this.dtlBestelling4.DataBind();
             this.dtlBestelling5.DataBind();
-
-            this.dtlTafelnr.DataBind();
-            this.dtlTafelnr0.DataBind();
-            this.dtlTafelnr1.DataBind();
-            this.dtlTafelnr2.DataBind();
-            this.dtlTafelnr3.DataBind();
         }
 
         protected void btnGereed5_Click(object sender, EventArgs e)
@@ -158,12 +134,6 @@ namespace ProjectGroenBos.Restaurant
             this.dtlBestelling3.DataBind();
             this.dtlBestelling4.DataBind();
             this.dtlBestelling5.DataBind();
-
-            this.dtlTafelnr.DataBind();
-            this.dtlTafelnr0.DataBind();
-            this.dtlTafelnr1.DataBind();
-            this.dtlTafelnr2.DataBind();
-            this.dtlTafelnr3.DataBind();
         }
     }
 }

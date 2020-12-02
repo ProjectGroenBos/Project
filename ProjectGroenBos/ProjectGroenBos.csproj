@@ -141,6 +141,7 @@
     <Content Include="Restaurant\img\productimg\varkenshaas.png" />
     <Content Include="Restaurant\tafeloverzicht.aspx" />
     <Content Include="Restaurant\reserveren.aspx" />
+    <Content Include="Restaurant\Keukenoverzicht.aspx" />
     <Content Include="Schoonmaak en Onderhoud\InventarisOverzicht.aspx" />
     <Content Include="Schoonmaak en Onderhoud\OffertesOverzicht.aspx" />
     <Content Include="Schoonmaak en Onderhoud\OnderhoudsOverzicht.aspx" />
@@ -578,6 +579,13 @@
     </Compile>
     <Compile Include="Restaurant\reserveren.aspx.designer.cs">
       <DependentUpon>reserveren.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Restaurant\Keukenoverzicht.aspx.cs">
+      <DependentUpon>Keukenoverzicht.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Restaurant\Keukenoverzicht.aspx.designer.cs">
+      <DependentUpon>Keukenoverzicht.aspx</DependentUpon>
     </Compile>
     <Compile Include="Schoonmaak en Onderhoud\InventarisOverzicht.aspx.cs">
       <DependentUpon>InventarisOverzicht.aspx</DependentUpon>

@@ -11,7 +11,10 @@
         <div class="winkelmandje" id="winkelmand">
 
             <div class="titel">
-                Besteld:
+                <asp:Label ID="Label1" runat="server" Text="Tafel "></asp:Label>
+                <asp:Label ID="lblTafelnr" runat="server" Text="tafelnr"></asp:Label>
+                <br />
+                <asp:Label ID="lblBesteld" runat="server" Text="Besteld:"></asp:Label>
                 <br />
                 <asp:Label ID="lblSelectedProducts" runat="server" Font-Bold="True" Font-Size="X-Large" ForeColor="White"></asp:Label>
             </div>

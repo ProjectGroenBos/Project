@@ -28,7 +28,7 @@
                     </li>
                     <li><a href="#"><i class="fas fa-user"></i>Keuken</a>
                         <ul class="submenu">
-                            <li><a href="#">Keukenscherm</a></li>
+                            <li><a href="Keukenoverzicht.aspx">Keukenscherm</a></li>
                         </ul>
                     </li>
                 </ul>
