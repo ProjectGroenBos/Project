@@ -1332,3 +1332,16 @@ nav ul {
     font-size: 80%;
     border-radius: 25px;
 }
+
+.labelzoekenProductpaginainactief {
+    position: absolute;
+    left: 28%;
+    margin-top: 3%;
+}
+
+.textboxzoekenProductpaginainactief {
+    position: absolute;
+    left: 33%;
+    margin-top: 3%;
+}
+
