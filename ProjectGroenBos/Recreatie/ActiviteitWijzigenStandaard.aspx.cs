@@ -36,35 +36,16 @@ namespace recreatie.paginas
 
             if (Session["SelectedRows"] == null)
             {
-                Session["SelectedRows"] = 64;
+                Session["SelectedRows"] = dt;
             }
 
-            Function();
         }
         void Function()
         {
-            DataTable table = new DataTable();
-            table.Columns.Add(new DataColumn("ID", typeof(int)));
-            table.Columns.Add(new DataColumn("Naam", typeof(string)));
-            table.Columns.Add(new DataColumn("Locatie", typeof(string)));
-            table.Columns.Add(new DataColumn("Inschrijfkosten", typeof(int)));
-            table.Columns.Add(new DataColumn("Maximaal aantal", typeof(int)));
-            table.Columns.Add(new DataColumn("Omschrijving", typeof(string)));
-            table.Columns.Add(new DataColumn("Datum", typeof(DateTime)));
-            table.Columns.Add(new DataColumn("Begintijd", typeof(TimeSpan)));
-            table.Columns.Add(new DataColumn("Eindtijd", typeof(TimeSpan)));
-            table.Columns.Add(new DataColumn("MedewerkerID", typeof(int)));
-            using (SqlConnection sqlCon = new SqlConnection(connectionstring))
-            {
-                SqlCommand cmd = new SqlCommand("select * from  vActiviteit Where Nummer = @Nummer", sqlCon);
-                cmd.Parameters.AddWithValue("Nummer", 61);
-                sqlCon.Open();
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                da.Fill(table);
-                sqlCon.Close();
-                //GridView1.DataSource = table;
-                GridView1.DataBind();
-            }
+            DataTable Data = (DataTable)Session["SelectedRows"];
+            System.Diagnostics.Debug.WriteLine((DataTable)Session["SelectedRows"]);
+            GridView1.DataSource = Data;
+            GridView1.DataBind();
         }
 
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)

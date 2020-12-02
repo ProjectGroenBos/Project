@@ -7,7 +7,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="header">Activiteit Wijzigen </div>
-        <asp:GridView ID="GridView1"  CssClass="content-table tweedetable" runat="server" AutoGenerateColumns="False" DataKeyNames="Nummer" style="max-width:10%" DataSourceID="SqlDataSource5" AllowPaging="True" GridLines="None">
+        <asp:GridView ID="GridView1"  CssClass="content-table tweedetable" runat="server" AutoGenerateColumns="False" DataKeyNames="Nummer" style="max-width:10%" AllowPaging="True" GridLines="None" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating">
             <Columns>
                 <asp:BoundField DataField="Nummer" HeaderText="Nummer" ReadOnly="True" SortExpression="Nummer" />
                 <asp:BoundField DataField="Activiteitnaam" HeaderText="Activiteitnaam" SortExpression="Activiteitnaam" />
@@ -50,7 +50,6 @@
         </asp:GridView>
 
         <asp:Button ID="WijzigenActiviteit" runat="server" OnClick="WijzigenActiviteit_Click" Text="Wijzigen Activiteit" />
-    </div>
 
     <asp:HiddenField ID="MedewerkerID" runat="server"
                                     Value='' />
