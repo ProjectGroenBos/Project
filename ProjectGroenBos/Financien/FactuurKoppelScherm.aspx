@@ -99,7 +99,7 @@ SELECT 'Alle Afdelingen' AS [Naam]"></asp:SqlDataSource>
                                                 <asp:HiddenField ID="Nummer" runat="server"
                                                     Value='<%# Eval("Nummer") %>' />
 
-                                                <asp:SqlDataSource ID="SqlDataSource7" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT dbo.InkoopAanvraagRegels.InkoopOrderAanvraagNummer AS Nummer, dbo.Voorraad.ID, dbo.Voorraad.Naam, dbo.Voorraad.Omschrijving, dbo.Voorraad.Prijs, dbo.InkoopAanvraagRegels.Aantal AS Inkoopaantal FROM dbo.InkoopAanvraagRegels INNER JOIN dbo.Voorraad ON dbo.InkoopAanvraagRegels.VoorraadID = dbo.Voorraad.ID where InkoopOrderAanvraagNummer = @Nummer" UpdateCommand="Update dbo.Voorraad Set [Prijs] = @Prijs Where [ID] = @ID">
+                                                <asp:SqlDataSource ID="SqlDataSource7" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="select * from aanpassenprijs where Nummer = @Nummer" UpdateCommand="Update dbo.Voorraad Set [Prijs] = @Prijs Where [ID] = @ID">
                                                     <UpdateParameters>
                                                         <asp:Parameter Name="Prijs" />
                                                         <asp:Parameter Name="ID" />
