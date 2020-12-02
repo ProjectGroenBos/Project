@@ -15,6 +15,33 @@ namespace ProjectGroenBos.Restaurant
     {
 
         /// <summary>
+        /// rdbJa control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton rdbJa;
+
+        /// <summary>
+        /// rdbNee control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton rdbNee;
+
+        /// <summary>
+        /// txtBungalownummer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtBungalownummer;
+
+        /// <summary>
         /// txtVoornaam control.
         /// </summary>
         /// <remarks>
@@ -103,33 +130,6 @@ namespace ProjectGroenBos.Restaurant
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlAantal;
-
-        /// <summary>
-        /// rdbJa control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rdbJa;
-
-        /// <summary>
-        /// rdbNee control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rdbNee;
-
-        /// <summary>
-        /// txtBungalownummer control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBungalownummer;
 
         /// <summary>
         /// btnReserveer control.
