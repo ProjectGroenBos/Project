@@ -21,10 +21,17 @@
                 <asp:ListItem Value="0">-- Selecteer -- </asp:ListItem>
                 <asp:ListItem>Bungalownummer</asp:ListItem>
                 <asp:ListItem>Schouwingsdatum</asp:ListItem>
+                <asp:ListItem>Status</asp:ListItem>
             </asp:DropDownList>
             <asp:TextBox ID="txtDatum" runat="server"></asp:TextBox>
             <asp:DropDownList ID="drop2" runat="server" DataSourceID="SqlDataSource2" DataTextField="Nummer" DataValueField="Nummer">
                 <asp:ListItem Text="--Selecteer--" Value="0" />
+            </asp:DropDownList>
+            <asp:DropDownList ID="dropStatus" runat="server">
+                <asp:ListItem Value="0">-- Selecteer --</asp:ListItem>
+                <asp:ListItem>Klaar</asp:ListItem>
+                <asp:ListItem>Bezig</asp:ListItem>
+                <asp:ListItem>Gepland</asp:ListItem>
             </asp:DropDownList>
             <asp:Button ID="Button1" runat="server" Text="Zoek" BackColor="#0E6251" BorderColor="#0E6251" CssClass="buttonstyle" ForeColor="White" OnClick="Button1_Click" />
             <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:con %>" SelectCommand="SELECT [Nummer] FROM [Bungalow]"></asp:SqlDataSource>
@@ -115,6 +122,35 @@
                     <asp:ControlParameter ControlID="txtDatum" DbType="Date" Name="Schouwingsdatum" PropertyName="Text" />
                 </SelectParameters>
             </asp:SqlDataSource>
+            </center>
+        </div>
+
+        <div>
+            <center>
+                    <asp:GridView ID="gridStatus" runat="server" AutoGenerateColumns="False" DataKeyNames="SchouwingID" DataSourceID="SqlDataSource5" AllowPaging="True">
+                    <Columns>
+                         <asp:CommandField  ButtonType="Image" SelectImageUrl="~/Images/SelectIcon.png" ShowSelectButton="True" />
+                    <asp:BoundField DataField="SchouwingID" HeaderText="Schouwing" ReadOnly="True" SortExpression="SchouwingID"/>
+                    <asp:BoundField DataField="BungalowID" HeaderText="Bungalow" SortExpression="BungalowID" />
+                    <asp:BoundField DataField="Schouwingsdatum" HeaderText="Schouwingsdatum" SortExpression="Schouwingsdatum" DataFormatString="{0:d}" />
+                    <asp:BoundField DataField="Omschrijving" HeaderText="Omschrijving" SortExpression="Omschrijving" />
+                    <asp:BoundField DataField="Status" HeaderText="Status" SortExpression="Status" />
+                  <asp:CommandField ButtonType="Image" DeleteImageUrl="~/Images/deleteRow.png" ShowDeleteButton="True" />
+                    </Columns>
+                    <FooterStyle BackColor="#CCCCCC" />
+                <HeaderStyle BackColor="#0E6251" ForeColor="White" />
+                <PagerStyle BackColor="#0E6251" ForeColor="Black" HorizontalAlign="Center" />
+                <SelectedRowStyle BackColor="#000099" ForeColor="Black" />
+                <SortedAscendingCellStyle BackColor="#F1F1F1" ForeColor="Black" />
+                <SortedAscendingHeaderStyle BackColor="Gray" />
+                <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                <SortedDescendingHeaderStyle BackColor="#383838" />
+                </asp:GridView>
+                <asp:SqlDataSource ID="SqlDataSource5" runat="server" ConnectionString="<%$ ConnectionStrings:con %>" SelectCommand="SELECT * FROM [Schouwing] WHERE ([Status] = @Status)">
+                    <SelectParameters>
+                        <asp:ControlParameter ControlID="dropStatus" Name="Status" PropertyName="SelectedValue" Type="String" />
+                    </SelectParameters>
+                </asp:SqlDataSource>
             </center>
         </div>
        

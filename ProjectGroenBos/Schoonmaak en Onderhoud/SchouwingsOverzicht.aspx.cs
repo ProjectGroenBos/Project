@@ -14,6 +14,7 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud
             GridView1.DataBind();
             txtDatum.Visible = false;
             drop2.Visible = false;
+            dropStatus.Visible = false;
         }
 
         protected void btnToevoegen_Click(object sender, EventArgs e)
@@ -38,11 +39,19 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud
             {
                 txtDatum.Visible = false;
                 drop2.Visible = true;
+                dropStatus.Visible = false;
             }
             if (DropDownList1.SelectedItem.Value == "Schouwingsdatum")
             {
                 txtDatum.Visible = true;
                 drop2.Visible = false;
+                dropStatus.Visible = false;
+            }
+            if (DropDownList1.SelectedItem.Value == "Status")
+            {
+                txtDatum.Visible = false;
+                drop2.Visible = false;
+                dropStatus.Visible = true;
             }
         }
 
@@ -52,6 +61,7 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud
             {
                 GridView1.Visible = false;
                 gridDatum.Visible = false;
+                gridStatus.Visible = false;
                 drop2.Visible = true;
 
             }
@@ -59,7 +69,15 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud
             {
                 GridView1.Visible = false;
                 gridBungalow.Visible = false;
+                gridStatus.Visible = false;
                 txtDatum.Visible = true;
+            }
+            if (DropDownList1.SelectedItem.Value == "Status")
+            {
+                GridView1.Visible = false;
+                gridBungalow.Visible = false;
+                gridDatum.Visible = false;
+                dropStatus.Visible = true;
             }
         }
 
