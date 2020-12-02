@@ -45,6 +45,7 @@ SELECT 'Alle Afdelingen' AS [Naam]"></asp:SqlDataSource>
     <asp:Repeater ID="rpFactuurToevoegen" runat="server">
         <ItemTemplate>
             <asp:UpdatePanel runat="server" ID="updatePanelTop" UpdateMode="Conditional" ChildrenAsTriggers="True">
+             
                 <ContentTemplate>
                     <!-- Modal -->
                     <div id="modal<%# Eval("Nummer") %>" class="modal fade" role="dialog">
@@ -82,11 +83,12 @@ SELECT 'Alle Afdelingen' AS [Naam]"></asp:SqlDataSource>
                                         <h4 class="modal-title">Factuur toevoegen</h4>
                                     </div>
                                     <div class="modal-body">
-                                        <asp:UpdatePanel runat="server">
+                                        <asp:UpdatePanel runat="server" UpdateMode="Always">
                                             <ContentTemplate>
-                                                <asp:GridView ID="gvFactuurreservering" DataKeyNames="ID" ShowHeaderWhenEmpty="True" EmptyDataText="Er zijn geen producten gevonden bij deze inkooporderaanvraag." CssClass="content-table" GridLines="None" AutoGenerateColumns="False" Style="text-align: center; min-width: 656px; margin-left: auto; margin-right: auto" runat="server" DataSourceID="SqlDataSource7">
+                                                <asp:GridView ID="gvFactuurreservering" DataKeyNames="ID, regelnummer" EnableCallbacks='false'  ShowHeaderWhenEmpty="True" EmptyDataText="Er zijn geen producten gevonden bij deze inkooporderaanvraag." CssClass="content-table" GridLines="None" AutoGenerateColumns="False" Style="text-align: center; min-width: 656px; margin-left: auto; margin-right: auto" runat="server" DataSourceID="SqlDataSource7">
                                                     <Columns>
                                                         <asp:BoundField DataField="ID" HeaderText="ID" ReadOnly="True" SortExpression="ID" />
+                                                        <asp:BoundField DataField="regelnummer" HeaderText="Regelnummer" ReadOnly="True" SortExpression="ID" />
                                                         <asp:BoundField DataField="Naam" HeaderText="Item" ReadOnly="True" SortExpression="Naam" />
                                                         <asp:BoundField DataField="Omschrijving" HeaderText="Omschrijving" ReadOnly="True" SortExpression="Omschrijving" />
                                                         <asp:BoundField DataFormatString="{0:C}" DataField="Prijs" HeaderText="Prijs" SortExpression="Prijs" />
@@ -99,7 +101,7 @@ SELECT 'Alle Afdelingen' AS [Naam]"></asp:SqlDataSource>
                                                 <asp:HiddenField ID="Nummer" runat="server"
                                                     Value='<%# Eval("Nummer") %>' />
 
-                                                <asp:SqlDataSource ID="SqlDataSource7" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="select * from aanpassenprijs where Nummer = @Nummer" UpdateCommand="Update dbo.Voorraad Set [Prijs] = @Prijs Where [ID] = @ID">
+                                                <asp:SqlDataSource ID="SqlDataSource7" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="select * from aanpassenprijs where Nummer = @Nummer" UpdateCommand="update InkoopAanvraagRegels set [Afwijking bedrag] = @Prijs Where ID = @regelnummer">
                                                     <UpdateParameters>
                                                         <asp:Parameter Name="Prijs" />
                                                         <asp:Parameter Name="ID" />
