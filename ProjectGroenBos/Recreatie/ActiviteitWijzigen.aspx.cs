@@ -57,19 +57,9 @@ namespace recreatie.paginas
                     CheckBox chk = (row.FindControl("ActiviteitSelecteren") as CheckBox);
                     if (chk.Checked)
                     {
-                        using (SqlConnection sqlCon = new SqlConnection(connectionstring))
-                        {
-                            SqlCommand cmd = new SqlCommand("Select[Nummer] from vActiviteit Where Nummer = @nummer", sqlCon);
-                            cmd.Parameters.AddWithValue("nummer", GridView1.DataKeys[row.RowIndex].Value.ToString());
-                            sqlCon.Open();
-                            int id = cmd.ExecuteNonQuery();
-                            SqlDataAdapter da = new SqlDataAdapter(cmd);
-                            da.Fill(Dt);
-                            sqlCon.Close();
-                        }
                         int SelectedRows = int.Parse(GridView1.DataKeys[row.RowIndex].Value.ToString());
-                        Session["dt"] = dt;
                         Session["SelectedRows"] = SelectedRows;
+
                     }
                 } 
                 Response.Redirect("ActiviteitWijzigenStandaard.aspx");
