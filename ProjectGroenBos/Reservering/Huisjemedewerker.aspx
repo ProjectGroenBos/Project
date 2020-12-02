@@ -1,10 +1,21 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="Site1.Master" AutoEventWireup="true" CodeBehind="Huisjemedewerker.aspx.cs" Inherits="ProjectGroenBos.Reservering.Huisjemedewerker" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head2" runat="server">
-    </asp:Content>
+    <style type="text/css">
+        .auto-style1 {
+            position: relative;
+            margin-left: 5%;
+            top: -3px;
+            left: -1px;
+            width: 690px;
+            height: 146px;
+        }
+    </style>
+</asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-    <h1>Reservering aanmaken</h1>
-    <br />
+    <p>
+        &nbsp;&nbsp;
+    </p>
     <p>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -
         Let tijdens het reserveren op de volgende punten:
@@ -22,77 +33,64 @@
     </p>
 
 
-     <p>   <asp:Label ID="lblAantalPersonen" runat="server" Text="Aantal personen" CssClass="labelsnieuw"></asp:Label>
+     <p>   <asp:Label ID="lblAantalPersonen" runat="server" Text="Aantal personen" CssClass="labelhuisjemedewerker"></asp:Label>
 
-    <asp:TextBox ID="txbAantalPersonen" runat="server" TextChanged="txbAantalPersonen_TextChanged" AutoPostBack="True" CssClass="textboxchaos"></asp:TextBox>
+    <asp:TextBox ID="txbAantalPersonen" runat="server" TextChanged="txbAantalPersonen_TextChanged" AutoPostBack="True" CssClass="labelhuisjemedewerker"></asp:TextBox>
 
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Aantal personen moet een even getal zijn." ControlToValidate="txbAantalPersonen" ValidationExpression="([246]{1})" ForeColor="Red"></asp:RegularExpressionValidator>
-    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txbAantalPersonen" ErrorMessage="Dit veld is verplicht." ForeColor="Red"></asp:RequiredFieldValidator>
+    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Aantal personen moet een even getal zijn." ControlToValidate="txbAantalPersonen" ValidationExpression="([246]{1})"></asp:RegularExpressionValidator>
+    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txbAantalPersonen" ErrorMessage="Dit veld is verplicht."></asp:RequiredFieldValidator>
 </p>
+    <br />
 
-       <p> <asp:Label ID="lblAankomstdatum" runat="server" Text="Aankomstdatum" CssClass="labelsnieuw"></asp:Label>
+       <p> <asp:Label ID="lblAankomstdatum" runat="server" Text="Aankomstdatum" CssClass="labelhuisjemedewerker"></asp:Label>
 
-    <asp:TextBox ID="txbAankomstdatum" runat="server" CssClass="textboxchaos" TextMode="Date"></asp:TextBox>
+    <asp:TextBox ID="txbAankomstdatum" runat="server" CssClass="labelhuisjemedewerker"></asp:TextBox>
 
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-    <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="Datum moet ingevult zijn als jjjj-mm-dd. Voorbeeld: 2021-13-02." ControlToValidate="txbAankomstdatum" ValidationExpression="^(19|20){1}\d\d[-](0[1-9]|1[012])[-](0[1-9]|[12][0-9]|3[01])$" ForeColor="Red"></asp:RegularExpressionValidator>
-    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txbAankomstdatum" ErrorMessage="Dit veld is verplicht." ForeColor="Red"></asp:RequiredFieldValidator>
+    <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="Datum moet ingevult zijn als jjjj-mm-dd. Voorbeeld: 2021-13-02." ControlToValidate="txbAankomstdatum" ValidationExpression="^(19|20){1}\d\d[-](0[1-9]|1[012])[-](0[1-9]|[12][0-9]|3[01])$"></asp:RegularExpressionValidator>
+    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txbAankomstdatum" ErrorMessage="Dit veld is verplicht."></asp:RequiredFieldValidator>
 </p>
-      <p>  <asp:Label ID="lblVertrekdatum" runat="server" Text="Vertrekdatum" CssClass="labelsnieuw"></asp:Label>
+    <br />
+      <p>  <asp:Label ID="lblVertrekdatum" runat="server" Text="Vertrekdatum" CssClass="labelhuisjemedewerker"></asp:Label>
 
-    <asp:TextBox ID="txbVertrekdatum" runat="server" CssClass="textboxchaos" TextMode="Date"></asp:TextBox>
+    <asp:TextBox ID="txbVertrekdatum" runat="server" CssClass="textboxhuisjemedewerker"></asp:TextBox>
 
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-    <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="Datum moet ingevult zijn als jjjj-mm-dd. Voorbeeld: 2021-13-02." ControlToValidate="txbVertrekdatum" ValidationExpression="^(19|20){1}\d\d[-](0[1-9]|1[012])[-](0[1-9]|[12][0-9]|3[01])$" ForeColor="Red"></asp:RegularExpressionValidator>
-    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txbVertrekdatum" ErrorMessage="Dit veld is verplicht." ForeColor="Red"></asp:RequiredFieldValidator>
+    <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="Datum moet ingevult zijn als jjjj-mm-dd. Voorbeeld: 2021-13-02." ControlToValidate="txbVertrekdatum" ValidationExpression="^(19|20){1}\d\d[-](0[1-9]|1[012])[-](0[1-9]|[12][0-9]|3[01])$"></asp:RegularExpressionValidator>
+    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txbVertrekdatum" ErrorMessage="Dit veld is verplicht."></asp:RequiredFieldValidator>
 </p>
-      <p>  <asp:Label ID="lblHuisje" runat="server" Text="Huisjenummer" CssClass="labelsnieuw"></asp:Label>
+    <br />
+      <p>  <asp:Label ID="lblHuisje" runat="server" Text="Huisjenummer" CssClass="labelhuisjemedewerker"></asp:Label>
 
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <asp:TextBox ID="txbHuisje" runat="server" CssClass="textboxhuisjemedewerker"></asp:TextBox>
 
-          <asp:Label ID="lblHuisjeNummer" runat="server" CssClass="textboxchaos"></asp:Label>
+    <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ErrorMessage="Dit huisje bestaat niet." ControlToValidate="txbHuisje" ValidationExpression="^([0-9]{1,2})$"></asp:RegularExpressionValidator>
+          <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txbHuisje" ErrorMessage="Dit veld is verplicht."></asp:RequiredFieldValidator>
 </p>
-    
-    <p>  
-        &nbsp;</p>
+    <br />
+
+        <script src="js/app.js"></script>
     <p>
-        &nbsp;</p>
-    <p>
-        <asp:Button ID="bntZoekHuis" runat="server" OnClick="bntZoekHuis_Click" Text="Zoek Huis" CssClass ="textboxbtn" />
+        &nbsp;
+            
     </p>
     <p>
-        &nbsp;</p>
-    <p>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateSelectButton="True" CssClass ="gridv" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+        &nbsp;<asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Nummer" DataSourceID="SqlDataSource1" CssClass="auto-style1">
+            <Columns>
+                <asp:BoundField DataField="Nummer" HeaderText="Nummer" InsertVisible="False" ReadOnly="True" SortExpression="Nummer" />
+                <asp:BoundField DataField="Maximale bezetting" HeaderText="Maximale bezetting" SortExpression="Maximale bezetting" />
+                <asp:BoundField DataField="Borgsom" HeaderText="Borgsom" SortExpression="Borgsom" />
+                <asp:BoundField DataField="BungalowtypeCode" HeaderText="BungalowtypeCode" SortExpression="BungalowtypeCode" />
+                <asp:BoundField DataField="Omschrijving" HeaderText="Omschrijving" SortExpression="Omschrijving" />
+            </Columns>
         </asp:GridView>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:2020-BIM02-P1-P2-GroenbosConnectionString %>" SelectCommand="select bun.Nummer, bun.[Maximale bezetting], bun.Borgsom, bun.BungalowtypeCode, loc.Omschrijving from [dbo].[bungalow] bun inner join [dbo].[Locatie] loc on bun.LocatieNaam = loc.Naam ">
+        </asp:SqlDataSource>
     </p>
-    <p>
-        &nbsp;</p>
-    <p>
-        &nbsp;</p>
     <p>
         &nbsp;
     </p>
     <p>
 
-        <asp:Button ID="btnBevestigen" runat="server" OnClick="btnBevestigen_Click" Text="Bevestigen" CssClass="textboxbtn" />
+        <asp:Button ID="btnBevestigen" runat="server" OnClick="btnBevestigen_Click" Text="Bevestigen" CssClass="labelhuisjemedewerker" />
 
     </p>
-    <p>
-
-        &nbsp;</p>
-    <p>
-
-        &nbsp;</p>
-    <p>
-
-        &nbsp;</p>
-    <p>
-
-        &nbsp;</p>
 </asp:Content>

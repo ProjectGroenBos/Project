@@ -11,7 +11,15 @@ namespace ProjectGroenBos.Financien
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if(Session["Login"] == null)
+            {
+                Response.Redirect("inlogscherm.aspx");
+            }
+        }
 
+        protected void BtnUitloggen_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("inlogscherm.aspx");
         }
     }
 }
