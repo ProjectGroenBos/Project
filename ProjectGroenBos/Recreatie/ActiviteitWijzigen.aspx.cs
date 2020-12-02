@@ -18,6 +18,7 @@ namespace recreatie.paginas
         int Currentactivity;
         DataTable dt = new DataTable();
         private int index;
+        DataTable dtbl = new DataTable();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -37,14 +38,15 @@ namespace recreatie.paginas
         }
         void InvullenGridview()
         {
-            DataTable dtbl = new DataTable();
             using (SqlConnection sqlCon = new SqlConnection(connectionstring))
             {
                 sqlCon.Open();
                 SqlDataAdapter sqlDa = new SqlDataAdapter("select Nummer, Activiteitnaam, Locatie, Inschrijfkosten, [Maximaal aantal] as 'MaximaalAantal', Omschrijving, Datum, Begintijd, Eindtijd, Naam, MedewerkerID, FaciliteitID from vactiviteit", sqlCon);
                 sqlDa.Fill(dtbl);
-                Session["vDB"] = dtbl;
+                ViewState["vDB"] = dtbl;
+                sqlCon.Close();
             }
+            GridView1.DataSourceID ="";
             GridView1.DataSource = dtbl;
             GridView1.DataBind();
         }
@@ -73,7 +75,7 @@ namespace recreatie.paginas
             {
                 if (row.RowType == DataControlRowType.DataRow)
                 {
-                    CheckBox chk = (row.FindControl("ActiviteitSelecteren") as CheckBox);
+                    CheckBox chk = (row.FindControl("Activiteitwijzigen") as CheckBox);
                     if (chk.Checked)
                     {
                         using (SqlConnection sqlCon = new SqlConnection(connectionstring))
@@ -96,9 +98,8 @@ namespace recreatie.paginas
             }
 
             GridView1.DataSource = table;
-            GridView1.AllowPaging = true;
-            GridView1.AutoGenerateEditButton = true;
             GridView1.Columns[10].Visible = false;
+            GridView1.Columns[11].Visible = true;
             GridView1.DataBind();
             //Response.Redirect("ActiviteitWijzigenStandaard.aspx");
         }
@@ -112,7 +113,17 @@ namespace recreatie.paginas
 
         protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
+            GridView1.EditIndex = -1;
+            GridView1.DataSource = (DataTable)Session["SelectedRows"];
+            GridView1.DataBind();
+        }
 
+        protected void GridView1_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        {
+            GridView1.Columns[11].Visible = true;
+            GridView1.EditIndex = -1;
+            GridView1.DataSource = (DataTable)Session["SelectedRows"];
+            GridView1.DataBind();
         }
 
         /*

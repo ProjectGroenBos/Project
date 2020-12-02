@@ -7,7 +7,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="header">Activiteit Wijzigen </div>
-        <asp:GridView ID="GridView1"  CssClass="content-table tweedetable" runat="server" AutoGenerateColumns="False" DataKeyNames="Nummer" style="max-width:10%" AllowPaging="True" GridLines="None" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating">
+        <asp:GridView ID="GridView1"  CssClass="content-table tweedetable" runat="server" AutoGenerateColumns="False" DataKeyNames="Nummer" style="max-width:10%" AllowPaging="True" GridLines="None" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating" OnRowCancelingEdit="GridView1_RowCancelingEdit" DataSourceID="SqlDataSource5" >
             <Columns>
                 <asp:BoundField DataField="Nummer" HeaderText="Nummer" ReadOnly="True" SortExpression="Nummer" />
                 <asp:BoundField DataField="Activiteitnaam" HeaderText="Activiteitnaam" SortExpression="Activiteitnaam" />
@@ -38,14 +38,13 @@
                        <asp:Label ID="Label1" runat="server" Text='<%# Bind("Naam") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
-                    
-                <asp:TemplateField ShowHeader="False">
+                <asp:TemplateField>
                     <ItemTemplate>
-                        <asp:CheckBox ID="ActiviteitSelecteren" runat="server" />
+                        <asp:CheckBox ID="Activiteitwijzigen" runat="server" />
                     </ItemTemplate>
                 </asp:TemplateField>
-                    
-                <asp:BoundField DataField="FaciliteitID" HeaderText="FaciliteitID" Visible="False" />
+                <asp:CommandField ShowEditButton="True" Visible="False" />
+                 <asp:BoundField DataField="FaciliteitID" HeaderText="FaciliteitID" Visible="False" />
             </Columns>
         </asp:GridView>
 
@@ -60,6 +59,10 @@
                 <asp:Parameter Name="ActiviteitNaam" />
                 <asp:Parameter Name="Locatie" />
                 <asp:Parameter Name="Inschrijfkosten" />
+                 <asp:ControlParameter
+                    Name="FaciliteitID"
+                    ControlID="FaciliteitID"
+                    PropertyName="Value" />
                 <asp:Parameter Name="Begintijd" />
                 <asp:Parameter Name="MaximaalAantal" />  
                 <asp:Parameter Name="Datum" DbType="Date" />
@@ -67,11 +70,6 @@
                 <asp:ControlParameter
                     Name="MedewerkerID"
                     ControlID="MedewerkerID"
-                    PropertyName="Value" />
-                <asp:Parameter Name="Nummer" />
-                 <asp:ControlParameter
-                    Name="FaciliteitID"
-                    ControlID="FaciliteitID"
                     PropertyName="Value" />
                 <asp:Parameter Name="Nummer" />
             </UpdateParameters>
