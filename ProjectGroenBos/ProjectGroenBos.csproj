@@ -146,7 +146,6 @@
     <Content Include="Restaurant\img\save.png" />
     <Content Include="Restaurant\tafeloverzicht.aspx" />
     <Content Include="Restaurant\Voorraad.aspx" />
-    <Content Include="Restaurant\WebForm5.aspx" />
     <Content Include="Schoonmaak en Onderhoud\InventarisOverzicht.aspx" />
     <Content Include="Schoonmaak en Onderhoud\OffertesOverzicht.aspx" />
     <Content Include="Schoonmaak en Onderhoud\OnderhoudsOverzicht.aspx" />
@@ -584,13 +583,6 @@
     </Compile>
     <Compile Include="Restaurant\Voorraad.aspx.designer.cs">
       <DependentUpon>Voorraad.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Restaurant\WebForm5.aspx.cs">
-      <DependentUpon>WebForm5.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Restaurant\WebForm5.aspx.designer.cs">
-      <DependentUpon>WebForm5.aspx</DependentUpon>
     </Compile>
     <Compile Include="Schoonmaak en Onderhoud\InventarisOverzicht.aspx.cs">
       <DependentUpon>InventarisOverzicht.aspx</DependentUpon>

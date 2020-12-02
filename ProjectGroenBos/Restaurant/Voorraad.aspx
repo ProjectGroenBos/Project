@@ -1,15 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Restaurant/Restaurant.Master" AutoEventWireup="true" CodeBehind="Voorraad.aspx.cs" Inherits="ProjectGroenBos.Restaurant.Voorraad" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <style type="text/css">
-        .auto-style1 {
-            height: 100%;
-            width: 90%;
-            margin-bottom: 1;
-        }
-        .auto-style2 {
-            margin-left: 80px;
-        }
-    </style>
+    <link rel="stylesheet" href="Voorraad.css">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h1>Voorraad overzicht</h1>
