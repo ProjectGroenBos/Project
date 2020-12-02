@@ -64,7 +64,7 @@ namespace ProjectGroenBos.Financien
                 int nummer = int.Parse(((Button)sender).CommandArgument);
 
 
-                SqlCommand cmd = new SqlCommand("UPDATE InkoopOrderAanvraag SET InkoopOrderAanvraagStatusID = 4 WHERE Nummer = @nummer; ", con);
+                SqlCommand cmd = new SqlCommand("UPDATE InkoopOrderAanvraag SET InkoopOrderAanvraagStatusID = 7 WHERE Nummer = @nummer; ", con);
                 cmd.Parameters.AddWithValue("@nummer", nummer);
                 cmd.ExecuteNonQuery();
 

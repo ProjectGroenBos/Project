@@ -84,8 +84,9 @@ SELECT 'Alle Afdelingen' AS [Naam]"></asp:SqlDataSource>
                                     <div class="modal-body">
                                         <asp:UpdatePanel runat="server">
                                             <ContentTemplate>
-                                                <asp:GridView ID="gvFactuurreservering" ShowHeaderWhenEmpty="True" EmptyDataText="Er zijn geen producten gevonden bij deze inkooporderaanvraag." CssClass="content-table" GridLines="None" AutoGenerateColumns="False" Style="text-align: center; margin-left: auto; margin-right: auto" runat="server" DataSourceID="SqlDataSource7">
+                                                <asp:GridView ID="gvFactuurreservering" DataKeyNames="ID" ShowHeaderWhenEmpty="True" EmptyDataText="Er zijn geen producten gevonden bij deze inkooporderaanvraag." CssClass="content-table" GridLines="None" AutoGenerateColumns="False" Style="text-align: center; min-width: 656px; margin-left: auto; margin-right: auto" runat="server" DataSourceID="SqlDataSource7">
                                                     <Columns>
+                                                        <asp:BoundField DataField="ID" HeaderText="ID" ReadOnly="True" SortExpression="ID" />
                                                         <asp:BoundField DataField="Naam" HeaderText="Item" ReadOnly="True" SortExpression="Naam" />
                                                         <asp:BoundField DataField="Omschrijving" HeaderText="Omschrijving" ReadOnly="True" SortExpression="Omschrijving" />
                                                         <asp:BoundField DataFormatString="{0:C}" DataField="Prijs" HeaderText="Prijs" SortExpression="Prijs" />
@@ -98,13 +99,19 @@ SELECT 'Alle Afdelingen' AS [Naam]"></asp:SqlDataSource>
                                                 <asp:HiddenField ID="Nummer" runat="server"
                                                     Value='<%# Eval("Nummer") %>' />
 
-                                                <asp:SqlDataSource ID="SqlDataSource7" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT dbo.InkoopAanvraagRegels.InkoopOrderAanvraagNummer AS Nummer, dbo.Voorraad.Naam, dbo.Voorraad.Omschrijving, dbo.Voorraad.Prijs, dbo.InkoopAanvraagRegels.Aantal AS Inkoopaantal FROM dbo.InkoopAanvraagRegels INNER JOIN dbo.Voorraad ON dbo.InkoopAanvraagRegels.VoorraadID = dbo.Voorraad.ID where InkoopOrderAanvraagNummer = @Nummer">
+                                                <asp:SqlDataSource ID="SqlDataSource7" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT dbo.InkoopAanvraagRegels.InkoopOrderAanvraagNummer AS Nummer, dbo.Voorraad.ID, dbo.Voorraad.Naam, dbo.Voorraad.Omschrijving, dbo.Voorraad.Prijs, dbo.InkoopAanvraagRegels.Aantal AS Inkoopaantal FROM dbo.InkoopAanvraagRegels INNER JOIN dbo.Voorraad ON dbo.InkoopAanvraagRegels.VoorraadID = dbo.Voorraad.ID where InkoopOrderAanvraagNummer = @Nummer" UpdateCommand="Update dbo.Voorraad Set [Prijs] = @Prijs Where [ID] = @ID">
+                                                    <UpdateParameters>
+                                                        <asp:Parameter Name="Prijs" />
+                                                        <asp:Parameter Name="ID" />
+                                                    </UpdateParameters>
+
                                                     <SelectParameters>
                                                         <asp:ControlParameter
                                                             Name="Nummer"
                                                             ControlID="Nummer"
                                                             PropertyName="Value" />
                                                     </SelectParameters>
+
                                                 </asp:SqlDataSource>
                                                 <table class="content-table" style="min-width: 656px; margin-top: -25px">
                                                     <tbody>
@@ -119,6 +126,9 @@ SELECT 'Alle Afdelingen' AS [Naam]"></asp:SqlDataSource>
 
                                                 <p style="margin-top: 1rem; margin-bottom: 0;">Uiterste betaaldatum</p>
                                                 <asp:TextBox ID="txbTermijn" placeholder="DD-MM-YYYY" Style="text-align: center" Height="50px" Width="100%" runat="server"></asp:TextBox>
+
+
+
 
                                             </ContentTemplate>
                                         </asp:UpdatePanel>
