@@ -885,14 +885,68 @@ nav ul {
 }
 
 .GvMuteren {
-    top: 170%; 
-    position:absolute; 
-    left: 30%; 
+    top: 170%;
+    position: absolute;
+    left: 30%;
 }
 
-.ReqActiviteitValidator{
-    left:15%; 
-    position:absolute; 
+.ReqActiviteitValidator {
+    top: 34.5%;
+    left: 35%;
+    position: absolute;
+    color: red;
+}
 
+.RegularActiviteitValidator {
+    color: red;
+}
 
+.ReqLocatieVaidator {
+    left: 43.5%;
+    top: 34.5%;
+    position: absolute;
+    color: red;
+}
+
+.ReqInschrijfkostenValidator {
+    left: 52%;
+    top: 34.5%;
+    position: absolute;
+    color: red;
+}
+
+.RegularInschrijfkostenValidator {
+    color: red;
+}
+
+.ReqTbMaxAantal {
+    left: 60.5%;
+    top: 34.5%;
+    position: absolute;
+    color: red;
+}
+
+.RegularTbMaxAantal {
+    color: red;
+}
+
+.ReqTbDatum {
+    left: 75.5%;
+    top: 34.5%;
+    position: absolute;
+    color: red;
+}
+
+.ReqTbBegintijd {
+    left: 84%;
+    top: 34.5%;
+    position: absolute;
+    color: red;
+}
+
+.ReqTbEindtijd {
+    left: 92.5%;
+    top:34.5%;
+    position: absolute;
+    color: red
 }

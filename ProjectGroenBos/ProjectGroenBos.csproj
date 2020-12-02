@@ -79,6 +79,10 @@
     <Content Include="Recreatie\ActiviteitVerwijderen.aspx" />
     <Content Include="Recreatie\ActiviteitWijzigen.aspx" />
     <Content Include="Recreatie\CSS\styleechte.css" />
+    <Content Include="Recreatie\CSS\stylegoeie13.css" />
+    <Content Include="Recreatie\CSS\stylegoeie14.css" />
+    <Content Include="Recreatie\CSS\stylegoeie15.css" />
+    <Content Include="Recreatie\CSS\stylegoeie16.css" />
     <Content Include="Recreatie\CSS\stylegoeiee.css" />
     <Content Include="Recreatie\CSS\styleoverzicht.css" />
     <Content Include="Recreatie\img\ascArrow.png" />

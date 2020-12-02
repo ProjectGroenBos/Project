@@ -885,14 +885,33 @@ nav ul {
 }
 
 .GvMuteren {
-    top: 170%; 
-    position:absolute; 
-    left: 30%; 
+    top: 170%;
+    position: absolute;
+    left: 30%;
 }
 
-.ReqActiviteitValidator{
-    left:15%; 
-    position:absolute; 
-
+.ReqActiviteitValidator {
+    top: 36%; 
+    left: 35%;
+    position: absolute;
+    color:red; 
+}
+.RegularActiviteitValidator{
+    color:red; 
+}
+.ReqLocatieVaidator {
+    left: 43.5%;
+    top: 36%;
+    position: absolute;
+    color: red;
+}
+.ReqInschrijfkostenValidator {
+    left: 52%;
+    top: 36%;
+    position: absolute;
+    color: red;
+}
+.RegularInschrijfkostenValidator {
+    color: red; 
 
 }
