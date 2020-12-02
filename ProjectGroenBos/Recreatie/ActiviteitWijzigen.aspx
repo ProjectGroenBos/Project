@@ -7,7 +7,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="header">Activiteit Wijzigen</div>
-        <asp:GridView ID="GridView1"  CssClass="content-table tweedetable" runat="server" AutoGenerateColumns="False" DataKeyNames="Nummer" style="max-width:10%" DataSourceID="SqlDataSource5" AllowPaging="True" GridLines="None">
+        <asp:GridView ID="GridView1"  CssClass="content-table4" runat="server" AutoGenerateColumns="False" DataKeyNames="Nummer"  DataSourceID="SqlDataSource5" AllowPaging="True" GridLines="None">
             <Columns>
                 <asp:BoundField DataField="Nummer" HeaderText="Nummer" ReadOnly="True" SortExpression="Nummer" />
                 <asp:TemplateField HeaderText="Activiteitnaam" SortExpression="Activiteitnaam">
@@ -116,7 +116,7 @@
                                     Value='' />
         <asp:SqlDataSource ID="SqlDataSource5" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="select Nummer, Activiteitnaam, Locatie, Inschrijfkosten, [Maximaal aantal] as 'MaximaalAantal', Omschrijving, Datum, Begintijd, Eindtijd, Naam, MedewerkerID, FaciliteitID from vactiviteit" UpdateCommand="update [dbo].[Activiteit] set [Naam] = @ActiviteitNaam , [Locatie]= @Locatie, [Inschrijfkosten] = @Inschrijfkosten, [FaciliteitID] = @FaciliteitID, [Begintijd] = @Begintijd, [Maximaal aantal] = @MaximaalAantal, [Datum] = @Datum, [Eindtijd] = @Eindtijd, [MedewerkerID] = @MedewerkerID Where Nummer = @Nummer">
             <UpdateParameters>
-                <asp:Parameter Name="ActiviteitNaam" />
+                <asp:Parameter Name="ActiviteitNaam"  />
                 <asp:Parameter Name="Locatie" />
                 <asp:Parameter Name="Inschrijfkosten" />
                 <asp:Parameter Name="Begintijd" />

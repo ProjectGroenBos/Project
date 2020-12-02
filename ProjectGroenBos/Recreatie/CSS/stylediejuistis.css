@@ -426,6 +426,7 @@ nav ul {
     margin-bottom: 25px;
     position: absolute;
     right: 306px;
+    border-radius: 25px;
 }
 
     .volgendeknop:hover {
@@ -440,6 +441,7 @@ nav ul {
     margin-bottom: 25px;
     position: absolute;
     right: 365px;
+    border-radius: 25px;
 }
 
     .vorigeknop:hover {
@@ -489,6 +491,7 @@ nav ul {
     margin-top: 180px;
     border: 3px solid #117b66;
     text-align: center;
+    
 }
 
 .lblgeplandeactiviteiten {
@@ -889,12 +892,13 @@ nav ul {
 
 .buttonAfboekenVoorraadmuteren {
     position: absolute;
-    top: 110%;
+    top: 100%;
     left: 28%;
     width: 10%;
-    height: 10%;
+    height: 5%;
     font-size: 80%;
     background-color: #009879;
+    border-radius: 25px;
 }
 
 .content-table2 {
@@ -907,7 +911,7 @@ nav ul {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
     margin-left: auto;
     margin-right: auto;
-    margin-top: 10%;
+    margin-top: 5%;
 }
 
     .content-table2 tbody tr th {
@@ -971,9 +975,10 @@ nav ul {
     top: 110%;
     left: 40%;
     width: 10%;
-    height: 10%;
+    height: 5%;
     font-size: 80%;
     background-color: #009879;
+    border-radius: 25px;
 }
 
 .ButtonOpboekenknop {
@@ -981,9 +986,10 @@ nav ul {
     top: 110%;
     left: 28%;
     width: 10%;
-    height: 10%;
+    height: 5%;
     font-size: 80%;
     background-color: #009879;
+    border-radius: 25px;
 }
 
 .labelzoekenvooraadmutatie {
@@ -1090,13 +1096,16 @@ nav ul {
     left: 50%;
     margin-top: 3%;
     background-color: #009879;
+    border-radius: 25px;
 }
 
 .BtnBestellenVooraad {
     position: absolute;
     left: 80%;
     margin-top: 3%;
+    border-radius: 25px;
 }
+
 .content-table4 {
     border-collapse: collapse;
     margin: 25px 0;
@@ -1108,6 +1117,8 @@ nav ul {
     margin-left: auto;
     margin-right: auto;
     margin-top: 8%;
+    
+
 }
 
     .content-table4 tbody tr th {
@@ -1165,6 +1176,7 @@ nav ul {
                 background-color: #009879;
                 color: #ffffff;
             }
+
 .modal-dialog {
     width: 100%;
 }
@@ -1237,3 +1249,87 @@ nav ul {
                 background-color: #009879;
                 color: #ffffff;
             }
+
+.txbActiviteitnaam {
+    margin-left: 30%;
+}
+
+.txblocatieactivitieit {
+    margin-left: 42%;
+}
+
+.txbInschrijfkostenactivitieit {
+    margin-left: 32%;
+}
+
+.txbMaximaalaantalactivitieit {
+    margin-left: 26%;
+}
+
+.txbOmschrijvingactivitieit {
+    margin-left: 33%;
+}
+
+.txbDatumactivitieit {
+    margin-left: 43%;
+}
+
+.txbBegintijdactivitieit {
+    margin-left: 40%;
+}
+
+.txbEindtijdactivitieit {
+    margin-left: 42%;
+}
+
+.txbMedewerkeractivitieit {
+    margin-left: 33%;
+}
+
+.btnToevoegenactiviteit {
+    position: absolute;
+    left: 10%;
+    margin-top: 5%;
+    background-color: #009879;
+    border-radius: 25px;
+}
+
+.btnwijzigenactiviteit {
+    position: absolute;
+    left: 40%;
+    margin-top: 5%;
+    background-color: #009879;
+    border-radius: 25px;
+}
+
+
+.btnverwijderenactiviteit {
+    position: absolute;
+    left: 70%;
+    margin-top: 5%;
+    background-color: #009879;
+    border-radius: 25px;
+}
+
+.ckbleverancierVAfboeken {
+    position: absolute;
+    left: 50%;
+    margin-top: 3%;
+}
+
+.ckbcategorieVAfboeken {
+    position: absolute;
+    left: 60%;
+    margin-top: 3%;
+}
+.btnnieuweactiviteitinplannen {
+    width: 15%;
+    height: 5%;
+    margin-left: 5%;
+    background-color: #009879;
+    font-size: 80%;
+    border-radius:25px;
+    
+}
+
+
