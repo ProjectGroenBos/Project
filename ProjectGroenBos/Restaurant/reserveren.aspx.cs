@@ -27,11 +27,7 @@ namespace ProjectGroenBos.Restaurant
             {
                 i = -1;
             }
-            
-
-
-
-
+           
 
             // String constring ="Data Source = SQL.BIM.OSOX.NL; Initial Catalog = 2020 - BIM02 - P1 - P2 - Groenbos; Persist Security Info = True; User ID = BIM022020; Password = BiM@IH2020";
             String constring = "Data Source=SQL.BIM.OSOX.NL;Initial Catalog=2020-BIM02-P1-P2-Groenbos;Persist Security Info=True;User ID=BIM022020;Password=BiM@IH2020";
@@ -44,7 +40,7 @@ namespace ProjectGroenBos.Restaurant
             com.Parameters.AddWithValue("@Datum", DateTime.Now);
             com.Parameters.AddWithValue("@AantalPersonen", i);
             com.Parameters.AddWithValue("@Opmerking", "---");
-            com.Parameters.AddWithValue("@Betaald", "0");
+            com.Parameters.AddWithValue("@Betaalt", "0");
                 
                 
 
