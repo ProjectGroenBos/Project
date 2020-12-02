@@ -48,7 +48,7 @@ namespace ProjectGroenBos.Recreatie
                 sqlCon.Open();
                 SqlDataAdapter sqlDa = new SqlDataAdapter("SELECT Nummer, Artikelnaam, Omschrijving, Prijs, Aantal, [Minimum voorraad] AS 'MinimumVoorraad', [Naam Leverancier] AS 'NaamLeverancier', Categorie, Huurtarief, LeverancierID, CategorieID FROM vRecreatieProductpagina", sqlCon);
                 sqlDa.Fill(dtbl);
-               ViewState["PB"] = dtbl;
+                ViewState["PB"] = dtbl;
             }
 
             GridView1.DataSourceID = "";
@@ -62,16 +62,19 @@ namespace ProjectGroenBos.Recreatie
         {
             if (rdbLeverancier.Checked == true)
             {
+
                 DataTable dtbl = (DataTable)ViewState["PB"];
-                GridviewVullen();
                 DataView dv = dtbl.DefaultView;
-                dv.RowFilter = string.Format("[Naam Leverancier] like '%{0}%'", txtProductZoeken.Text);
+                dv.RowFilter = string.Format("NaamLeverancier like '%{0}%'", txtProductZoeken.Text);
+                GridviewVullen();
                 GridView1.DataSource = dv.ToTable();
                 GridView1.DataBind();
+
+                rdbLeverancier.Checked = false;
             }
             else if (rdbCategorie.Checked == true)
             {
-                DataTable dtbl = (DataTable)ViewState["PB"];
+                 DataTable dtbl = (DataTable)ViewState["PB"];
                 DataView dv = dtbl.DefaultView;
                 dv.RowFilter = string.Format("Categorie like '%{0}%'", txtProductZoeken.Text);
                 GridviewVullen();
@@ -86,12 +89,44 @@ namespace ProjectGroenBos.Recreatie
                 GridviewVullen();
                 GridView1.DataSource = dv.ToTable();
                 GridView1.DataBind();
-
-                //(GridView1.DataSource as DataTable).DefaultView.RowFilter = string.Format("Artikelnaam LIKE '{0}%'", txtProductZoeken.Text);
-                //(GridView1.DataSource as DataTable).DefaultView.RowFilter = string.Format("Artikelnaam LIKE '{0}%'", txtProductZoeken.Text);
             }
+            //GridView1.DataBind();
+
         }
 
-  
+        protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            DataTable dtbl = (DataTable)ViewState["PB"];
+            DataView dv = dtbl.DefaultView;
+            dv.RowFilter = string.Format("Artikelnaam like '%{0}%'", txtProductZoeken.Text);
+            GridView1.DataSource = dv.ToTable();
+            txtProductZoeken.Text = "";
+            GridView1.EditIndex = e.NewEditIndex;
+            GridView1.DataBind();
+        }
+
+        protected void GridView1_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        {
+            GridView1.EditIndex = -1;
+            GridView1.DataBind();
+        }
+
+        protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+
+        }
+
+        protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        {
+            GridviewVullen();
+            GridView1.EditIndex = -1;
+            GridView1.DataBind();
+            
+        }
+
+        protected void GridView1_RowUpdated(object sender, GridViewUpdatedEventArgs e)
+        {
+            
+        }
     }
 }

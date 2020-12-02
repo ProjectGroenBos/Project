@@ -3,7 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="header">Productpagina </div>
-        <asp:GridView ID="GridView1" runat="server" CssClass="content-table2" AllowPaging="True" CellPadding="4" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False" DataKeyNames ="Nummer"  DataSourceID="SqlDataSource1" AllowSorting="True">
+        <asp:GridView ID="GridView1" runat="server" CssClass="content-table2" AllowPaging="True" CellPadding="4" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False" DataKeyNames ="Nummer"  DataSourceID="SqlDataSource1" AllowSorting="True" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowEditing="GridView1_RowEditing" OnRowCommand="GridView1_RowCommand" OnRowUpdated="GridView1_RowUpdated" OnRowUpdating="GridView1_RowUpdating">
             <Columns>
                 <asp:BoundField DataField="Nummer" HeaderText="Nummer" ReadOnly="true" SortExpression="Nummer" HeaderStyle-ForeColor="White"/>
                 <asp:BoundField DataField="Artikelnaam" HeaderText="Artikelnaam" SortExpression="Artikelnaam" HeaderStyle-ForeColor="White"/>
@@ -73,13 +73,13 @@ update [dbo].[Huuritem] set [CategorieID] = @CategorieID, [Prijs] = @Huurtarief 
     
 
     <asp:HiddenField ID="CategorieID" runat="server" />
-    <asp:RadioButton ID="rdbLeverancier" runat="server" />
+    <asp:RadioButton ID="rdbLeverancier" runat="server" Text="Leverancier" Groupname="Zoeken" />
     <asp:HiddenField ID="LeverancierID" runat="server" />
         
         
     
 
-    <asp:RadioButton ID="rdbCategorie" runat="server" />
+    <asp:RadioButton ID="rdbCategorie" runat="server" Text="Categorie" GroupName="Zoeken" />
             
         
     
