@@ -11,7 +11,7 @@ namespace ProjectGroenBos.Recreatie
 {
 
 
-    public partial class Voorraadmuteren
+    public partial class VoorraadAfboeken
     {
 
         /// <summary>
@@ -24,13 +24,22 @@ namespace ProjectGroenBos.Recreatie
         protected global::System.Web.UI.WebControls.Label Label2;
 
         /// <summary>
-        /// txbZoekenVoorraadmuteren control.
+        /// btnAfboeken control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txbZoekenVoorraadmuteren;
+        protected global::System.Web.UI.WebControls.Button btnAfboeken;
+
+        /// <summary>
+        /// txbAfboekenZoeken control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txbAfboekenZoeken;
 
         /// <summary>
         /// ckbLeverancier control.
@@ -42,30 +51,39 @@ namespace ProjectGroenBos.Recreatie
         protected global::System.Web.UI.WebControls.CheckBox ckbLeverancier;
 
         /// <summary>
-        /// btnOpboeken control.
+        /// ckbCategorie control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnOpboeken;
+        protected global::System.Web.UI.WebControls.CheckBox ckbCategorie;
 
         /// <summary>
-        /// btnAfboeken control.
+        /// GvAfboeken control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAfboeken;
+        protected global::System.Web.UI.WebControls.GridView GvAfboeken;
 
         /// <summary>
-        /// GvMuteren control.
+        /// GvVoorraadAfboeken control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GvMuteren;
+        protected global::System.Web.UI.WebControls.GridView GvVoorraadAfboeken;
+
+        /// <summary>
+        /// BtnVoorraadAfboeken control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnVoorraadAfboeken;
     }
 }
