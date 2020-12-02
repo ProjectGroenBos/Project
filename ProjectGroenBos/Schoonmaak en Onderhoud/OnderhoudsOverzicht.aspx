@@ -41,20 +41,23 @@
 <div class="col-xs-3" style="margin-left:auto; margin-right:auto;">
    <label for="ex3" style="color:rgba(0, 0, 0, 0)"></label>
     <br />
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:con %>" SelectCommand="select Nummer, Startdatum, VerwachteEinddatum, Kosten, BungalowNummer, OnderhoudsstatusID, Onderhoudtype, DatumvanConstatering  from Onderhoudsopdracht" DeleteCommand="delete from Onderhoudsopdracht where nummer = @nummer"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="select Nummer, Startdatum, VerwachteEinddatum, Kosten, BungalowNummer, OnderhoudsstatusID, Onderhoudtype, DatumvanConstatering  from Onderhoudsopdracht" DeleteCommand="delete from Onderhoudsopdracht where nummer = @nummer">
+        <DeleteParameters>
+            <asp:Parameter Name="nummer" />
+        </DeleteParameters>
+    </asp:SqlDataSource>
     <center>
     <asp:GridView ID="OverzichtGrid" runat="server" AutoGenerateColumns="False" BackColor="White" Width="80%" BorderColor="#0E6251" BorderStyle="Solid" BorderWidth="1px" CellPadding="5" DataKeyNames="Nummer" DataSourceID="SqlDataSource1" ForeColor="Black" GridLines="Vertical" AllowPaging="True" >
         <AlternatingRowStyle BackColor="#f0f0f0" />
         <Columns>
             <asp:BoundField DataField="Nummer" HeaderText="Nummer" InsertVisible="False" ReadOnly="True" SortExpression="Nummer" />
-            <asp:BoundField DataField="Startdatum" HeaderText="Startdatum" SortExpression="Startdatum" DataFormatString="{0:d}"/>
-            <asp:BoundField DataField="VerwachteEinddatum" HeaderText="Verwachte Einddatum" SortExpression="VerwachteEinddatum" DataFormatString="{0:d}" />
+            <asp:BoundField DataField="Startdatum" HeaderText="Startdatum" SortExpression="Startdatum"/>
+            <asp:BoundField DataField="VerwachteEinddatum" HeaderText="VerwachteEinddatum" SortExpression="VerwachteEinddatum" />
             <asp:BoundField DataField="Kosten" HeaderText="Kosten" SortExpression="Kosten"  />
-            <asp:BoundField DataField="BungalowNummer" HeaderText="Bungalow" SortExpression="BungalowNummer" />
-            <asp:BoundField DataField="OnderhoudsstatusID" HeaderText="Status" SortExpression="OnderhoudsstatusID" />
+            <asp:BoundField DataField="BungalowNummer" HeaderText="BungalowNummer" SortExpression="BungalowNummer" />
+            <asp:BoundField DataField="OnderhoudsstatusID" HeaderText="OnderhoudsstatusID" SortExpression="OnderhoudsstatusID" />
             <asp:BoundField DataField="Onderhoudtype" HeaderText="Onderhoudtype" SortExpression="Onderhoudtype" />
-            <asp:BoundField DataField="DatumvanConstatering" HeaderText="Datum Constatering" SortExpression="DatumvanConstatering" DataFormatString="{0:d}" />
-            <asp:CommandField ButtonType="Image" DeleteImageUrl="~/Images/deleteRow.png" ShowDeleteButton="True" />
+            <asp:BoundField DataField="DatumvanConstatering" HeaderText="DatumvanConstatering" SortExpression="DatumvanConstatering" />
         </Columns>
         <FooterStyle BackColor="#CCCCCC" />
         <HeaderStyle BackColor="#0E6251" Font-Bold="True" ForeColor="White" />
@@ -71,14 +74,14 @@
         <AlternatingRowStyle BackColor="#f0f0f0" />
         <Columns>
             <asp:BoundField DataField="Nummer" HeaderText="Nummer" InsertVisible="False" ReadOnly="True" SortExpression="Nummer" />
-            <asp:BoundField DataField="Startdatum" HeaderText="Startdatum" SortExpression="Startdatum" DataFormatString="{0:d}"/>
-            <asp:BoundField DataField="VerwachteEinddatum" HeaderText="Verwachte Einddatum" SortExpression="VerwachteEinddatum" DataFormatString="{0:d}" />
+            <asp:BoundField DataField="Omschrijving" HeaderText="Omschrijving" SortExpression="Omschrijving"/>
+            <asp:BoundField DataField="Startdatum" HeaderText="Startdatum" SortExpression="Startdatum" />
+            <asp:BoundField DataField="VerwachteEinddatum" HeaderText="VerwachteEinddatum" SortExpression="VerwachteEinddatum" />
             <asp:BoundField DataField="Kosten" HeaderText="Kosten" SortExpression="Kosten" />
-            <asp:BoundField DataField="BungalowNummer" HeaderText="Bungalow" SortExpression="BungalowNummer" />
-            <asp:BoundField DataField="OnderhoudsstatusID" HeaderText="Status" SortExpression="OnderhoudsstatusID" />
+            <asp:BoundField DataField="BungalowNummer" HeaderText="BungalowNummer" SortExpression="BungalowNummer" />
+            <asp:BoundField DataField="OnderhoudsstatusID" HeaderText="OnderhoudsstatusID" SortExpression="OnderhoudsstatusID" />
             <asp:BoundField DataField="Onderhoudtype" HeaderText="Onderhoudtype" SortExpression="Onderhoudtype" />
-            <asp:BoundField DataField="DatumvanConstatering" HeaderText="Datum Constatering" SortExpression="DatumvanConstatering" DataFormatString="{0:d}" />
-            <asp:CommandField ButtonType="Image" DeleteImageUrl="~/Images/deleteRow.png" ShowDeleteButton="True" />
+            <asp:BoundField DataField="DatumvanConstatering" HeaderText="DatumvanConstatering" SortExpression="DatumvanConstatering" />
         </Columns>
         <FooterStyle BackColor="#CCCCCC" />
         <HeaderStyle BackColor="#0E6251" Font-Bold="True" ForeColor="White" />
@@ -90,7 +93,10 @@
         <SortedDescendingHeaderStyle BackColor="#383838" />
     </asp:GridView>
         </center>
-    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:con %>" SelectCommand="SELECT * FROM [Onderhoudsopdracht] WHERE ([Startdatum] = @Startdatum)" DeleteCommand="delete from Onderhoudsopdracht where nummer = @nummer">
+    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT * FROM [Onderhoudsopdracht] WHERE ([Startdatum] = @Startdatum)" DeleteCommand="delete from Onderhoudsopdracht where nummer = @nummer">
+        <DeleteParameters>
+            <asp:Parameter Name="nummer" />
+        </DeleteParameters>
         <SelectParameters>
             <asp:ControlParameter ControlID="searchBox" Name="Startdatum" PropertyName="Text" DbType="Date" />
         </SelectParameters>
@@ -100,14 +106,14 @@
         <AlternatingRowStyle BackColor="#f0f0f0" />
         <Columns>
             <asp:BoundField DataField="Nummer" HeaderText="Nummer" InsertVisible="False" ReadOnly="True" SortExpression="Nummer" />
-            <asp:BoundField DataField="Startdatum" HeaderText="Startdatum" SortExpression="Startdatum" DataFormatString="{0:d}"/>
-            <asp:BoundField DataField="VerwachteEinddatum" HeaderText="Verwachte Einddatum" SortExpression="VerwachteEinddatum" DataFormatString="{0:d}"/>
+            <asp:BoundField DataField="Omschrijving" HeaderText="Omschrijving" SortExpression="Omschrijving"/>
+            <asp:BoundField DataField="Startdatum" HeaderText="Startdatum" SortExpression="Startdatum"/>
+            <asp:BoundField DataField="VerwachteEinddatum" HeaderText="VerwachteEinddatum" SortExpression="VerwachteEinddatum" />
             <asp:BoundField DataField="Kosten" HeaderText="Kosten" SortExpression="Kosten" />
-            <asp:BoundField DataField="BungalowNummer" HeaderText="Bungalow" SortExpression="BungalowNummer" />
-            <asp:BoundField DataField="OnderhoudsstatusID" HeaderText="Status" SortExpression="OnderhoudsstatusID" />
+            <asp:BoundField DataField="BungalowNummer" HeaderText="BungalowNummer" SortExpression="BungalowNummer" />
+            <asp:BoundField DataField="OnderhoudsstatusID" HeaderText="OnderhoudsstatusID" SortExpression="OnderhoudsstatusID" />
             <asp:BoundField DataField="Onderhoudtype" HeaderText="Onderhoudtype" SortExpression="Onderhoudtype" />
-            <asp:BoundField DataField="DatumvanConstatering" HeaderText="Datum Constatering" SortExpression="DatumvanConstatering" DataFormatString="{0:d}" />
-            <asp:CommandField ButtonType="Image" DeleteImageUrl="~/Images/deleteRow.png" ShowDeleteButton="True" />
+            <asp:BoundField DataField="DatumvanConstatering" HeaderText="DatumvanConstatering" SortExpression="DatumvanConstatering" />
         </Columns>
         <FooterStyle BackColor="#CCCCCC" />
         <HeaderStyle BackColor="#0E6251" Font-Bold="True" ForeColor="White" />
@@ -119,7 +125,10 @@
         <SortedDescendingHeaderStyle BackColor="#383838" />
     </asp:GridView>
         </center>
-    <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:con %>" SelectCommand="SELECT * FROM [Onderhoudsopdracht] WHERE ([BungalowNummer] = @BungalowNummer)"  DeleteCommand="delete from Onderhoudsopdracht where nummer = @nummer">
+    <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT * FROM [Onderhoudsopdracht] WHERE ([BungalowNummer] = @BungalowNummer)"  DeleteCommand="delete from Onderhoudsopdracht where nummer = @nummer">
+        <DeleteParameters>
+            <asp:Parameter Name="nummer" />
+        </DeleteParameters>
         <SelectParameters>
             <asp:ControlParameter ControlID="searchBox" Name="BungalowNummer" PropertyName="Text" Type="Int32" />
         </SelectParameters>
@@ -129,14 +138,14 @@
         <AlternatingRowStyle BackColor="#f0f0f0" />
         <Columns>
             <asp:BoundField DataField="Nummer" HeaderText="Nummer" InsertVisible="False" ReadOnly="True" SortExpression="Nummer" />
-            <asp:BoundField DataField="Startdatum" HeaderText="Startdatum" SortExpression="Startdatum" DataFormatString="{0:d}"/>
-            <asp:BoundField DataField="VerwachteEinddatum" HeaderText="Verwachte Einddatum" SortExpression="VerwachteEinddatum" DataFormatString="{0:d}" />
+            <asp:BoundField DataField="Omschrijving" HeaderText="Omschrijving" SortExpression="Omschrijving"/>
+            <asp:BoundField DataField="Startdatum" HeaderText="Startdatum" SortExpression="Startdatum" />
+            <asp:BoundField DataField="VerwachteEinddatum" HeaderText="VerwachteEinddatum" SortExpression="VerwachteEinddatum" />
             <asp:BoundField DataField="Kosten" HeaderText="Kosten" SortExpression="Kosten" />
-            <asp:BoundField DataField="BungalowNummer" HeaderText="Bungalow" SortExpression="BungalowNummer" />
-            <asp:BoundField DataField="OnderhoudsstatusID" HeaderText="Status" SortExpression="OnderhoudsstatusID" />
+            <asp:BoundField DataField="BungalowNummer" HeaderText="BungalowNummer" SortExpression="BungalowNummer" />
+            <asp:BoundField DataField="OnderhoudsstatusID" HeaderText="OnderhoudsstatusID" SortExpression="OnderhoudsstatusID" />
             <asp:BoundField DataField="Onderhoudtype" HeaderText="Onderhoudtype" SortExpression="Onderhoudtype" />
-            <asp:BoundField DataField="DatumvanConstatering" HeaderText="Datum Constatering" SortExpression="DatumvanConstatering" DataFormatString="{0:d}" />
-            <asp:CommandField ButtonType="Image" DeleteImageUrl="~/Images/deleteRow.png" ShowDeleteButton="True" />
+            <asp:BoundField DataField="DatumvanConstatering" HeaderText="DatumvanConstatering" SortExpression="DatumvanConstatering" />
         </Columns>
         <FooterStyle BackColor="#CCCCCC" />
        <HeaderStyle BackColor="#0E6251" Font-Bold="True" ForeColor="White" />
@@ -148,7 +157,10 @@
         <SortedDescendingHeaderStyle BackColor="#383838" />
     </asp:GridView>
     </center>
-    <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:con %>" SelectCommand="SELECT * FROM [Onderhoudsopdracht] WHERE ([OnderhoudsstatusID] = @OnderhoudsstatusID)"  DeleteCommand="delete from Onderhoudsopdracht where nummer = @nummer">
+    <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT * FROM [Onderhoudsopdracht] WHERE ([OnderhoudsstatusID] = @OnderhoudsstatusID)"  DeleteCommand="delete from Onderhoudsopdracht where nummer = @nummer">
+        <DeleteParameters>
+            <asp:Parameter Name="nummer" />
+        </DeleteParameters>
         <SelectParameters>
             <asp:ControlParameter ControlID="searchBox" Name="OnderhoudsstatusID" PropertyName="Text" Type="String" />
         </SelectParameters>
@@ -158,14 +170,14 @@
         <AlternatingRowStyle BackColor="#f0f0f0" />
         <Columns>
             <asp:BoundField DataField="Nummer" HeaderText="Nummer" InsertVisible="False" ReadOnly="True" SortExpression="Nummer" />
-            <asp:BoundField DataField="Startdatum" HeaderText="Startdatum" SortExpression="Startdatum" DataFormatString="{0:d}" />
-            <asp:BoundField DataField="VerwachteEinddatum" HeaderText="Verwachte Einddatum" SortExpression="VerwachteEinddatum" DataFormatString="{0:d}"/>
+            <asp:BoundField DataField="Omschrijving" HeaderText="Omschrijving" SortExpression="Omschrijving" />
+            <asp:BoundField DataField="Startdatum" HeaderText="Startdatum" SortExpression="Startdatum"/>
+            <asp:BoundField DataField="VerwachteEinddatum" HeaderText="VerwachteEinddatum" SortExpression="VerwachteEinddatum" />
             <asp:BoundField DataField="Kosten" HeaderText="Kosten" SortExpression="Kosten" />
-            <asp:BoundField DataField="BungalowNummer" HeaderText="Bungalow" SortExpression="BungalowNummer" />
-            <asp:BoundField DataField="OnderhoudsstatusID" HeaderText="Status" SortExpression="OnderhoudsstatusID" />
-            <asp:BoundField DataField="Onderhoudtype" HeaderText="Onderhoudtype" SortExpression="Onderhoudtype" />
-            <asp:BoundField DataField="DatumvanConstatering" HeaderText="Datum Constatering" SortExpression="DatumvanConstatering" DataFormatString="{0:d}"/>
-            <asp:CommandField ButtonType="Image" DeleteImageUrl="~/Images/deleteRow.png" ShowDeleteButton="True" />
+            <asp:BoundField DataField="BungalowNummer" HeaderText="BungalowNummer" SortExpression="BungalowNummer" />
+            <asp:BoundField DataField="OnderhoudsstatusID" HeaderText="OnderhoudsstatusID" SortExpression="OnderhoudsstatusID" />
+            <asp:BoundField DataField="Onderhoudtype" HeaderText="Onderhoudtype" SortExpression="Onderhoudtype"/>
+            <asp:BoundField DataField="DatumvanConstatering" HeaderText="DatumvanConstatering" SortExpression="DatumvanConstatering" />
         </Columns>
         <FooterStyle BackColor="#CCCCCC" />
         <HeaderStyle BackColor="#0E6251" Font-Bold="True" ForeColor="White" />
@@ -177,7 +189,10 @@
         <SortedDescendingHeaderStyle BackColor="#383838" />
     </asp:GridView>
     </center>
-    <asp:SqlDataSource ID="SqlDataSource5" runat="server" ConnectionString="<%$ ConnectionStrings:con %>" SelectCommand="SELECT * FROM [Onderhoudsopdracht] WHERE ([Onderhoudtype] = @Onderhoudtype)"  DeleteCommand="delete from Onderhoudsopdracht where nummer = @nummer">
+    <asp:SqlDataSource ID="SqlDataSource5" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT * FROM [Onderhoudsopdracht] WHERE ([Onderhoudtype] = @Onderhoudtype)"  DeleteCommand="delete from Onderhoudsopdracht where nummer = @nummer">
+        <DeleteParameters>
+            <asp:Parameter Name="nummer" />
+        </DeleteParameters>
         <SelectParameters>
             <asp:ControlParameter ControlID="searchBox" Name="Onderhoudtype" PropertyName="Text" Type="String" />
         </SelectParameters>
