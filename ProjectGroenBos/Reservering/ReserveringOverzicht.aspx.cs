@@ -19,8 +19,8 @@ namespace ProjectGroenBos.Reservering
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            btnToAnnuleren.Enabled = false;
-            btnToWijzigen.Enabled = false;
+            btnToAnnuleren.Visible = false;
+            btnToWijzigen.Visible = false;
         }
 
 
@@ -90,8 +90,8 @@ namespace ProjectGroenBos.Reservering
 
             Session["reserveringsnummer"] = (string)GridView1.SelectedRow.Cells[1].Text;
 
-            btnToAnnuleren.Enabled = true;
-            btnToWijzigen.Enabled = true;
+            btnToAnnuleren.Visible = true;
+            btnToWijzigen.Visible = true;
         }
 
         protected void btnZoek_Click(object sender, EventArgs e)
@@ -105,21 +105,8 @@ namespace ProjectGroenBos.Reservering
             {
                 try
                 {
-                    //radiobuttons om te kijken waarop de tabel gesorteerd moet worden
-                    if (rdbVoornaam.Checked == true)
-                    {
-                        querieadres = "select res.Nummer as Reserveringsnummer, gst.Achternaam, gst.Email, gst.Telefoonnummer,  res.Aantal_personen as [Aantal personen], res.Aankomstdatum, res.Vertrekdatum from Gast gst inner join Reservering res on gst.Nummer = res.GastNummer inner join Adres adr on adr.GastNummer = gst.Nummer where gst.Achternaam like @zoek and Aankomstdatum >= convert(date, GETDATE()) and Aankomstdatum <= @datum and ReserveringsstatusID != 5 order by gst.Voornaam ";
-
-                    }
-                    else if (rdbAchternaam.Checked == true)
-                    {
-                        querieadres = "select res.Nummer as Reserveringsnummer, gst.Achternaam, gst.Email, gst.Telefoonnummer,  res.Aantal_personen as [Aantal personen], res.Aankomstdatum, res.Vertrekdatum from Gast gst inner join Reservering res on gst.Nummer = res.GastNummer inner join Adres adr on adr.GastNummer = gst.Nummer where gst.Achternaam like @zoek and Aankomstdatum >= convert(date, GETDATE()) and Aankomstdatum <= @datum and ReserveringsstatusID != 5 order by gst.Achternaam";
-
-                    }
-                    else
-                    {
-                        querieadres = "select res.Nummer as Reserveringsnummer, gst.Achternaam, gst.Email, gst.Telefoonnummer,  res.Aantal_personen as [Aantal personen], res.Aankomstdatum, res.Vertrekdatum from Gast gst inner join Reservering res on gst.Nummer = res.GastNummer inner join Adres adr on adr.GastNummer = gst.Nummer where gst.Achternaam like @zoek and Aankomstdatum >= convert(date, GETDATE()) and Aankomstdatum <= @datum and ReserveringsstatusID != 5 order by res.Nummer";
-                    }
+                    querieadres = "select res.Nummer as [Nummer van reservering], gst.Achternaam, gst.Email, gst.Telefoonnummer,  res.Aantal_personen as [Aantal personen], res.Aankomstdatum, res.Vertrekdatum from Gast gst inner join Reservering res on gst.Nummer = res.GastNummer inner join Adres adr on adr.GastNummer = gst.Nummer where gst.Achternaam like @zoek and Aankomstdatum >= convert(date, GETDATE()) and Aankomstdatum <= @datum and ReserveringsstatusID != 5";
+                    
 
                     //laden van de info uit de database
                     DataSet ds = Data();

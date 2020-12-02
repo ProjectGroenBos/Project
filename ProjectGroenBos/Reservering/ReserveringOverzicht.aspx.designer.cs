@@ -15,33 +15,6 @@ namespace ProjectGroenBos.Reservering
     {
 
         /// <summary>
-        /// rdbVoornaam control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rdbVoornaam;
-
-        /// <summary>
-        /// rdbAchternaam control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rdbAchternaam;
-
-        /// <summary>
-        /// rdbReserveringsNummer control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rdbReserveringsNummer;
-
-        /// <summary>
         /// Label1 control.
         /// </summary>
         /// <remarks>

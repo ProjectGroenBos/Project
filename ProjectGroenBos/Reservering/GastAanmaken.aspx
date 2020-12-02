@@ -3,7 +3,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head2" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-    <h1>Gast aanmaken</h1>
+
+
+    <h2>Gast aanmaken</h2>
 
     <p>Vul hier de gegevens van de gast in om deze in de database neer te zetten.</p>
 
@@ -45,7 +47,6 @@
 
 
 
-
     <h2>Adresgegevens:</h2>
     <br />
     <asp:Label ID="Label8" runat="server" Text="Land" CssClass="labelsnieuw"></asp:Label>
@@ -58,7 +59,7 @@
         <asp:ListItem>België(+32)</asp:ListItem>
     </asp:DropDownList>
     <asp:CustomValidator ID="CustomValidator1" runat="server" ControlToValidate="DropDownList2" ErrorMessage="Er moet een land geselecteerd zijn." ValidateEmptyText="True" CssClass="validators" Display="Dynamic"></asp:CustomValidator>
-    
+
     <br />
     <asp:Label ID="Label13" runat="server" Text="Woonplaats*:" CssClass="labelsnieuw"></asp:Label>
     <asp:TextBox ID="txbWoonplaats" runat="server" CssClass="textboxchaos"></asp:TextBox>
@@ -82,9 +83,9 @@
     <asp:Label ID="Label11" runat="server" Text="Postcode*:" CssClass="labelsnieuw"></asp:Label>
     <asp:TextBox ID="txbPostcode" runat="server" CssClass="textboxchaos"></asp:TextBox>
     <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ControlToValidate="txbPostcode" ErrorMessage="Dit veld is verplicht." CssClass="validators" Display="Dynamic"></asp:RequiredFieldValidator>
-    
+
     <asp:CustomValidator ID="CustomValidator3" runat="server" ControlToValidate="txbPostcode" CssClass="validators" Display="Dynamic" ErrorMessage="Postcode niet geldig i.c.m. het land." ForeColor="Red" OnServerValidate="CustomValidator3_ServerValidate"></asp:CustomValidator>
-    
+
     <br />
     <asp:Label ID="lblUitkomst" runat="server" Text=""></asp:Label>
 

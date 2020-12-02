@@ -35,6 +35,7 @@ namespace ProjectGroenBos.Reservering
             string voornaam = txbVoornaam.Text;
             string tussenvoegsel = txbTussenvoegsel.Text;
             string achternaam = txbAchternaam.Text;
+            string controle = "";
             string telefoonnummer = txbTelefoonnummer.Text;
             string email = txbEmail.Text;
             string woonplaats = txbWoonplaats.Text;
@@ -50,13 +51,32 @@ namespace ProjectGroenBos.Reservering
             string land = DropDownList2.Text;
 
             Session["achternaam"] = achternaam;
-            Session["telefoonnummer"] = telefoonnummer;
+
             Session["email"] = email;
 
             if (land == "--Selecteer--")
             {
                 CustomValidator1.IsValid = false;
             }
+
+            switch (DropDownList2.SelectedValue)
+            {
+                case "Nederland(+31)":
+                    controle = "+31";
+                    break;
+                case "Duitsland(+49)":
+                    controle = "+49";
+                    break;
+                case "Frankrijk(+33)":
+                    controle = "+33";
+                    break;
+                case "België(+32)":
+                    controle = "+32";
+                    break;
+            }
+
+            string telefoonnummereind = controle + txbTelefoonnummer.Text;
+            Session["telefoonnummer"] = telefoonnummer;
 
             if (DropDownList2.SelectedValue == "Duitsland(+49)" || DropDownList2.SelectedValue == "Frankrijk(+33)")
             {
@@ -86,16 +106,23 @@ namespace ProjectGroenBos.Reservering
 
             if (CheckDatum() == true)
             {
-                InsGast(voornaam, tussenvoegsel, achternaam, email, telefoonnummer, geboortedatum);
-                int gastnummer = GetNummer(achternaam);
+                try
+                {
+                    InsGast(voornaam, tussenvoegsel, achternaam, email, telefoonnummereind, geboortedatum);
+                    int gastnummer = GetNummer(achternaam);
 
-                if (gastnummer == 0)
-                {
-                    lblUitkomst.Text = "Er ging iets mis. Neem zo snel mogelijk contact met ons op.";
+                    if (gastnummer == 0)
+                    {
+                        lblUitkomst.Text = "Er ging iets mis. Neem zo snel mogelijk contact met ons op.";
+                    }
+                    else
+                    {
+                        InsAdres(straat, huisnummer, postcode, land, woonplaats, gastnummer);
+                    }
                 }
-                else
+                catch
                 {
-                    InsAdres(straat, huisnummer, postcode, land, woonplaats, gastnummer);
+                    lblUitkomst.Text = "Er ging iets mis.";
                 }
             }
         }
@@ -157,7 +184,8 @@ namespace ProjectGroenBos.Reservering
                 }
                 catch
                 {
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Er ging iets mis, neem contact met ons op.')", true);
+                    //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Er ging iets mis, neem contact met ons op.')", true);
+                    lblUitkomst.Text = "Er ging iets mis.";
                 }
             }
 
@@ -189,7 +217,8 @@ namespace ProjectGroenBos.Reservering
                 }
                 catch
                 {
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Er ging iets mis, neem contact met ons op.')", true);
+                    //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Er ging iets mis, neem contact met ons op.')", true);
+                    lblUitkomst.Text = "Er ging iets mis.";
                 }
             }
         }
@@ -210,7 +239,7 @@ namespace ProjectGroenBos.Reservering
 
                     cmd.CommandType = System.Data.CommandType.Text;
 
-                    int i = (int)cmd.ExecuteScalar();
+                    int i = Convert.ToInt32(cmd.ExecuteScalar());
 
                     return i;
                 }

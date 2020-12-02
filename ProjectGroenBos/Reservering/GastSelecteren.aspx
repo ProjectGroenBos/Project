@@ -11,18 +11,21 @@
     <asp:Label ID="Label1" runat="server" Text="Achternaam" CssClass="labelsnieuw"></asp:Label>
     <asp:TextBox ID="txbAchternaam" runat="server" CssClass="textboxchaos"></asp:TextBox>
     
+    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" CssClass="validators" ErrorMessage="Dit veld is verplicht." ControlToValidate="txbAchternaam"></asp:RequiredFieldValidator>
     <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="txbAchternaam" ErrorMessage="In een achternaam staan geen getallen." ValidationExpression="^[a-zA-Z -]*$" ForeColor="Red" CssClass="validators" Display="Dynamic"></asp:RegularExpressionValidator>
 
     <br />
     <asp:Label ID="Label2" runat="server" Text="Email" CssClass="labelsnieuw"></asp:Label>
     <asp:TextBox ID="txbEmail" runat="server" CssClass="textboxchaos"></asp:TextBox>
     
+    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" CssClass="validators" ErrorMessage="Dit veld is verplicht." ControlToValidate="txbEmail"></asp:RequiredFieldValidator>
     <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ControlToValidate="txbEmail" ErrorMessage="Email is niet geldig" ValidationExpression="[a-z0-9!#$%&'+/=?^_`{|}~-]+(?:.[a-z0-9!#$%&'+/=?^_`{|}~-]+)@(?:[a-z0-9](?:[a-z0-9-][a-z0-9])?.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?" ForeColor="Red" CssClass="validators" Display="Dynamic"></asp:RegularExpressionValidator>
 
     <br />
     <asp:Label ID="Label3" runat="server" Text="Telefoonnummer" CssClass="labelsnieuw"></asp:Label>
     <asp:TextBox ID="txbTelefoonnummer" runat="server" CssClass="textboxchaos"></asp:TextBox>
     
+    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" CssClass="validators" ErrorMessage="Dit veld is verplicht." ControlToValidate="txbTelefoonnummer"></asp:RequiredFieldValidator>
     <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ControlToValidate="txbTelefoonnummer" ErrorMessage="Eerste 0 weglaten en 9 cijfers gebruiken." ValidationExpression="^[0-9]{9}$" ForeColor="Red" CssClass="validators" Display="Dynamic"></asp:RegularExpressionValidator>
 
     <br />
