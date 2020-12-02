@@ -7,13 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ProjectGroenBos.Recreatie
-{
-
-
-    public partial class ProductPagina
-    {
-
+namespace ProjectGroenBos.Recreatie {
+    
+    
+    public partial class ProductPagina {
+        
         /// <summary>
         /// GridView1 control.
         /// </summary>
@@ -22,7 +20,7 @@ namespace ProjectGroenBos.Recreatie
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView GridView1;
-
+        
         /// <summary>
         /// SqlDataSource1 control.
         /// </summary>
@@ -31,16 +29,16 @@ namespace ProjectGroenBos.Recreatie
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
-
+        
         /// <summary>
-        /// LeverancierID control.
+        /// txtProductZoeken control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField LeverancierID;
-
+        protected global::System.Web.UI.WebControls.TextBox txtProductZoeken;
+        
         /// <summary>
         /// CategorieID control.
         /// </summary>
@@ -49,5 +47,32 @@ namespace ProjectGroenBos.Recreatie
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField CategorieID;
+        
+        /// <summary>
+        /// rdbLeverancier control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton rdbLeverancier;
+        
+        /// <summary>
+        /// LeverancierID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField LeverancierID;
+        
+        /// <summary>
+        /// rdbCategorie control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton rdbCategorie;
     }
 }
