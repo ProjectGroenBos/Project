@@ -39,8 +39,11 @@
         <asp:Label ID="Label2" runat="server" Text="Datum tot en met:" CssClass="labelsnieuw"></asp:Label>
         <asp:TextBox ID="txbDatum" runat="server" CssClass="auto-style1" TextMode="Date"></asp:TextBox>
         <br />
+        &nbsp;&nbsp;
         <br />
-        <asp:Button ID="btnZoek" runat="server" Text="Zoek" CssClass="textboxbtn" OnClick="btnZoek_Click" />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:Button ID="btnZoek" runat="server" Text="Zoek" CssClass="btnUitloggen" OnClick="btnZoek_Click" style="background-color: #009879; color: #fff" class="btn"/>
+
         <br />
         <br />
         <asp:GridView ID="GridView1" runat="server" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" CssClass="content-table" AutoGenerateSelectButton="True">
@@ -54,9 +57,8 @@
 
 
 
-        <asp:Button ID="btnToWijzigen" runat="server" Text="Wijzigen" CssClass=" textboxbtn" OnClick="btnToWijzigen_Click"/>
-        <br />
-        <asp:Button ID="btnToAnnuleren" runat="server" Text="Annuleren" CssClass="textboxbtn" OnClick="btnToAnnuleren_Click" />
+        <asp:Button ID="btnToWijzigen" runat="server" Text="Wijzigen" CssClass="btnUitloggen" OnClick="btnToWijzigen_Click" style="background-color: #009879; color: #fff" class="btn"/>
+        <asp:Button ID="btnToAnnuleren" runat="server" Text="Annuleren" CssClass="btnUitloggen" OnClick="btnToAnnuleren_Click" style="background-color: #009879; color: #fff" class="btn" />
 
 
         <br />

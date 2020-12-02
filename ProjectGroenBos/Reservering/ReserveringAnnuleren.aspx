@@ -79,7 +79,7 @@
     <br />
     <br />
 
-    <asp:GridView ID="GridView1" runat="server" CssClass="gridv" DataKeyNames="GastNummer,Voornaam,Tussenvoegsel,Achternaam,Email,Telefoonnummer,Nummer,Aantal_personen,Aankomstdatum,Vertrekdatum,Opmerking,Straatnaam,Huisnummer,Postcode,Land">
+    <asp:GridView ID="GridView1" runat="server" CssClass="content-table" DataKeyNames="GastNummer,Voornaam,Tussenvoegsel,Achternaam,Email,Telefoonnummer,Nummer,Aantal_personen,Aankomstdatum,Vertrekdatum,Opmerking,Straatnaam,Huisnummer,Postcode,Land">
     </asp:GridView>
 
     <br />
