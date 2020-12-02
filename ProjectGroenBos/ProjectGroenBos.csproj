@@ -123,7 +123,8 @@
     <Content Include="Financien\img\Logo3.png" />
     <Content Include="Financien\InkoopAanvraagBestelScherm.aspx" />
     <Content Include="Financien\InkoopAanvraagScherm.aspx" />
-    <Content Include="Financien\Inlogscherm.aspx" />
+    <Content Include="Images\Logo3.png" />
+    <Content Include="Inlogscherm.aspx" />
     <Content Include="Financien\Overzicht.aspx" />
     <Content Include="Financien\Personeeloverzicht.aspx" />
     <Content Include="Financien\Prijstabel.aspx" />
@@ -752,11 +753,11 @@
     <Compile Include="Financien\InkoopAanvraagScherm.aspx.designer.cs">
       <DependentUpon>InkoopAanvraagScherm.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Financien\Inlogscherm.aspx.cs">
+    <Compile Include="Inlogscherm.aspx.cs">
       <DependentUpon>Inlogscherm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Financien\Inlogscherm.aspx.designer.cs">
+    <Compile Include="Inlogscherm.aspx.designer.cs">
       <DependentUpon>Inlogscherm.aspx</DependentUpon>
     </Compile>
     <Compile Include="Financien\Overzicht.aspx.cs">

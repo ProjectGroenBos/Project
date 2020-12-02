@@ -39,7 +39,7 @@
 <body style="height: 448px">
     <form id="form1" runat="server">
         <div class="logo">
-            <img src="img/Logo.png" alt="Logo" height="150" />
+            <img src="Financien/img/Logo.png" alt="Logo" height="150" />
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:con %>" SelectCommand="SELECT [Personeelsnummer], [Wachtwoord], [Voornaam], [Functie] FROM [Personeel]">
             </asp:SqlDataSource>
         </div>

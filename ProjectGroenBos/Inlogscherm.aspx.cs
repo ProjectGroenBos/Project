@@ -62,7 +62,12 @@ namespace ProjectGroenBos.Financien
                     if (functie == "2")
                     {
                         Session["Login"] = Id;
-                        Response.Redirect("Home.aspx");
+                        Response.Redirect("Financien/Home.aspx");
+                    }
+                    if (functie == "7")
+                    {
+                        Session["Login"] = Id;
+                        Response.Redirect("Schoonmaak en Onderhoud/Home.aspx");
                     }
                     else
                     {
