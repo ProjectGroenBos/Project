@@ -18,16 +18,37 @@ namespace ProjectGroenBos.Restaurant
 
         protected void btnReserveer_Click(object sender, EventArgs e)
         {
-            String constring ="Data Source = SQL.BIM.OSOX.NL; Initial Catalog = 2020 - BIM02 - P1 - P2 - Groenbos; Persist Security Info = True; User ID = BIM022020; Password = BiM@IH2020";
-              SqlConnection sqlcon = new SqlConnection(constring);
-            String pname = "reserveringaanmaak1"; ;
+
+            DateTime dt = DateTime.Parse(txtTijd.Text);
+            //int Aantal = int.Parse(ddlAantal.SelectedValue);
+            string Aantal = ddlAantal.SelectedValue;
+            int i = 0;
+            if (!Int32.TryParse(Aantal, out i))
+            {
+                i = -1;
+            }
+            
+
+
+
+
+
+            // String constring ="Data Source = SQL.BIM.OSOX.NL; Initial Catalog = 2020 - BIM02 - P1 - P2 - Groenbos; Persist Security Info = True; User ID = BIM022020; Password = BiM@IH2020";
+            String constring = "Data Source=SQL.BIM.OSOX.NL;Initial Catalog=2020-BIM02-P1-P2-Groenbos;Persist Security Info=True;User ID=BIM022020;Password=BiM@IH2020";
+            SqlConnection sqlcon = new SqlConnection(constring);
+            String pname = "Restaurrantaanmaak2"; ;
             sqlcon.Open();
             SqlCommand com = new SqlCommand(pname, sqlcon);
             com.CommandType = CommandType.StoredProcedure;
-            com.Parameters.AddWithValue("@Voornaam", txtVoornaam.Text.ToString());
-            com.Parameters.AddWithValue("@Achternaam", txtAchternaam.Text.ToString());
-            com.Parameters.AddWithValue("@Tussenvoegsel", txtTussenvoegsel.Text.ToString());
-            com.Parameters.AddWithValue("@Email", txtEmail.Text.ToString());
+            com.Parameters.AddWithValue("@BeginTijd", dt);
+            com.Parameters.AddWithValue("@Datum", DateTime.Now);
+            com.Parameters.AddWithValue("@AantalPersonen", i);
+            com.Parameters.AddWithValue("@Opmerking", "---");
+            com.Parameters.AddWithValue("@Betaald", "0");
+                
+                
+
+           
             com.ExecuteNonQuery();
             sqlcon.Close(); ; 
            
