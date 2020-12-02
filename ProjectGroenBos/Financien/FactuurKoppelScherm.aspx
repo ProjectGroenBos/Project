@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Financien/Financien.Master" AutoEventWireup="true" CodeBehind="FactuurKoppelScherm.aspx.cs" Inherits="ProjectGroenBos.Financien.FactuurKoppelScherm" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Financien/Financien.Master" AutoEventWireup="True" CodeBehind="FactuurKoppelScherm.aspx.cs" Inherits="ProjectGroenBos.Financien.FactuurKoppelScherm" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
@@ -15,7 +15,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="header">Inkoop-Aanvragen Bestel-Overzicht</div>
-
+    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <div class="container">
 
         <asp:DropDownList ID="DropDownList1" AutoPostBack="True" runat="server" DataSourceID="SqlDataSource2" DataTextField="Naam" DataValueField="Naam" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" CssClass="DropDownAfdeling"></asp:DropDownList>
@@ -42,87 +42,100 @@ SELECT 'Alle Afdelingen' AS [Naam]"></asp:SqlDataSource>
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="select * from inkooporderaanvraagmainLev where [Status] = 'Pakbon goedgekeurd' order by datum DESC, opmerking DESC"></asp:SqlDataSource>
     </div>
 
-    <asp:Repeater ID="rpInkoopOrderAanvragen" runat="server">
+    <asp:Repeater ID="rpFactuurToevoegen" runat="server">
         <ItemTemplate>
-            <!-- Modal -->
-            <div id="modal<%# Eval("Nummer") %>" class="modal fade" role="dialog">
-                <div class="modal-dialog modal-lg">
-                    <!-- Modal content-->
-                    <div class="modal-content">
+            <asp:UpdatePanel runat="server" ID="updatePanelTop" UpdateMode="Conditional" ChildrenAsTriggers="True">
+                <ContentTemplate>
+                    <!-- Modal -->
+                    <div id="modal<%# Eval("Nummer") %>" class="modal fade" role="dialog">
+                        <div class="modal-dialog modal-lg">
+                            <!-- Modal content-->
+                            <div class="modal-content">
 
-                        <div class="modal-header">
-                            <h4 class="modal-title">Inkooporderaanvraag <%# Eval("Nummer") %> </h4>
-                            <asp:Button runat="server" CssClass="btn btn-primary" Text="Sluiten"></asp:Button>
-                        </div>
-
-                        <div class="modal-body">
-                            <div class="inline-flex">
-                                <div>
-                                    <h4>Opmerking</h4>
-                                    <p>
-                                        <%# Eval("Opmerking") %><br />
-                                    </p>
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Factuur Koppelen <%# Eval("Nummer") %> </h4>
                                 </div>
 
-                                <div>
-                                    <h4>Leverancier gegevens</h4>
-                                    <p>
-                                        <%# Eval("Naam") %><br />
-                                        <%# Eval("Plaats") %><br />
-                                        <%# Eval("Adres") %><br />
-                                        <%# Eval("Postcode") %><br />
-                                        <%# Eval("Telefoonnummer") %><br />
-                                        <%# Eval("Email") %>
-                                    </p>
+                                <div class="modal-body">
+                                    <div class="inline-flex">
+                                        <div>
+                                            <h4>Opmerking</h4>
+                                            <p>
+                                                <%# Eval("Opmerking") %><br />
+                                            </p>
+                                        </div>
+
+                                        <div>
+                                            <h4>Leverancier gegevens</h4>
+                                            <p>
+                                                <%# Eval("Naam") %><br />
+                                                <%# Eval("Plaats") %><br />
+                                                <%# Eval("Adres") %><br />
+                                                <%# Eval("Postcode") %><br />
+                                                <%# Eval("Telefoonnummer") %><br />
+                                                <%# Eval("Email") %>
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Factuur toevoegen</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <asp:UpdatePanel runat="server">
+                                            <ContentTemplate>
+                                                <asp:GridView ID="gvFactuurreservering" ShowHeaderWhenEmpty="True" EmptyDataText="Er zijn geen producten gevonden bij deze inkooporderaanvraag." CssClass="content-table" GridLines="None" AutoGenerateColumns="False" Style="text-align: center; margin-left: auto; margin-right: auto" runat="server" DataSourceID="SqlDataSource7">
+                                                    <Columns>
+                                                        <asp:BoundField DataField="Naam" HeaderText="Item" ReadOnly="True" SortExpression="Naam" />
+                                                        <asp:BoundField DataField="Omschrijving" HeaderText="Omschrijving" ReadOnly="True" SortExpression="Omschrijving" />
+                                                        <asp:BoundField DataFormatString="{0:C}" DataField="Prijs" HeaderText="Prijs" SortExpression="Prijs" />
+                                                        <asp:BoundField DataField="Inkoopaantal" HeaderText="Inkoop Aantal" ReadOnly="True" SortExpression="Inkoopaantal" HeaderStyle-Width="100px" />
+                                                        <asp:CommandField ShowEditButton="True" />
+
+                                                    </Columns>
+                                                </asp:GridView>
+
+                                                <asp:HiddenField ID="Nummer" runat="server"
+                                                    Value='<%# Eval("Nummer") %>' />
+
+                                                <asp:SqlDataSource ID="SqlDataSource7" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT dbo.InkoopAanvraagRegels.InkoopOrderAanvraagNummer AS Nummer, dbo.Voorraad.Naam, dbo.Voorraad.Omschrijving, dbo.Voorraad.Prijs, dbo.InkoopAanvraagRegels.Aantal AS Inkoopaantal FROM dbo.InkoopAanvraagRegels INNER JOIN dbo.Voorraad ON dbo.InkoopAanvraagRegels.VoorraadID = dbo.Voorraad.ID where InkoopOrderAanvraagNummer = @Nummer">
+                                                    <SelectParameters>
+                                                        <asp:ControlParameter
+                                                            Name="Nummer"
+                                                            ControlID="Nummer"
+                                                            PropertyName="Value" />
+                                                    </SelectParameters>
+                                                </asp:SqlDataSource>
+                                                <table class="content-table" style="min-width: 656px; margin-top: -25px">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Totaalbedrag:</td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td style="width: 100px">€ <%# Eval("TotaalPrijs") %></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+
+                                                <p style="margin-top: 1rem; margin-bottom: 0;">Uiterste betaaldatum</p>
+                                                <asp:TextBox ID="txbTermijn" placeholder="DD-MM-YYYY" Style="text-align: center" Height="50px" Width="100%" runat="server"></asp:TextBox>
+
+                                            </ContentTemplate>
+                                        </asp:UpdatePanel>
+                                    </div>
+
+                                    <asp:Button ID="btnFactuurKoppelen" OnClick="btnFactuurKoppelen_OnClick" CommandArgument='<%# Eval("Nummer") %>' Style="max-width: 80%; margin-left: auto; margin-right: auto; margin-top: 10px" CssClass="btn btn-success btn-lg btn-block" runat="server" Text="Factuur Koppelen" />
+
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Sluiten</button>
                                 </div>
                             </div>
-
-                            <hr />
-                            <br />
-                            <asp:GridView ID="gvFactuurreservering" ShowHeaderWhenEmpty="True" EmptyDataText="Er zijn geen producten gevonden bij deze inkooporderaanvraag." CssClass="content-table" GridLines="None" AutoGenerateColumns="False" Style="text-align: center; margin-left: auto; margin-right: auto" runat="server" DataSourceID="SqlDataSource7">
-                                <Columns>
-                                    <asp:BoundField DataField="Naam" HeaderText="Item" ReadOnly="True" SortExpression="Naam" />
-                                    <asp:BoundField DataField="Omschrijving" HeaderText="Omschrijving" ReadOnly="True" SortExpression="Omschrijving" />
-                                    <asp:BoundField DataField="Minimum_Voorraad" HeaderText="Minimum Voorraad" ReadOnly="True" SortExpression="Minimum_Voorraad" ItemStyle-Width="50px" />
-                                    <asp:BoundField DataField="Huidige_voorraad" HeaderText="Huidige voorraad" HtmlEncode="False" ReadOnly="True" SortExpression="Huidige_voorraad" ItemStyle-Width="50px" />
-                                    <asp:BoundField DataFormatString="{0:C}" DataField="Prijs" HeaderText="Prijs" ReadOnly="True" SortExpression="Prijs" />
-                                    <asp:BoundField DataField="Inkoopaantal" HeaderText="Inkoop Aantal" ReadOnly="True" SortExpression="Inkoopaantal" HeaderStyle-Width="100px" />
-                                </Columns>
-                            </asp:GridView>
-
-
-                            <asp:HiddenField ID="Nummer" runat="server"
-                                Value='<%# Eval("Nummer") %>' />
-
-                            <asp:SqlDataSource ID="SqlDataSource7" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT Naam, Omschrijving, [Minimum Voorraad] AS Minimum_Voorraad, [Huidige voorraad] AS Huidige_voorraad, Prijs, Inkoopaantal from inkooporderaanvraagitems where InkoopOrderAanvraagNummer = @Nummer">
-                                <SelectParameters>
-                                    <asp:ControlParameter
-                                        Name="Nummer"
-                                        ControlID="Nummer"
-                                        PropertyName="Value" />
-                                </SelectParameters>
-                            </asp:SqlDataSource>
-                            <table class="content-table" style="min-width: 656px; margin-top: -25px">
-                                <tbody>
-                                    <tr>
-                                        <td>Totaalbedrag:</td>
-                                        <td></td>
-                                        <td></td>
-                                        <td style="width: 100px">€ <%# Eval("TotaalPrijs") %></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-
-                            <asp:Button ID="btnBestel" CommandArgument='<%# Eval("Nummer") %>' Style="max-width: 80%; margin-left: auto; margin-right: auto; margin-top: 100px" CssClass="btn btn-success btn-lg btn-block" runat="server" Text="Bestellen" />
-
-                        </div>
-
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Sluiten</button>
                         </div>
                     </div>
-                </div>
-            </div>
+                </ContentTemplate>
+            </asp:UpdatePanel>
 
         </ItemTemplate>
     </asp:Repeater>

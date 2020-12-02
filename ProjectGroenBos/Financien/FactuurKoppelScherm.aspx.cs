@@ -27,12 +27,12 @@ namespace ProjectGroenBos.Financien
             {
                 con.Open();
 
-                SqlCommand cmd = new SqlCommand("SELECT * FROM InkoopOrderAanvraag a LEFT JOIN InkooporderaanvraagItemsTotaalprijs n ON a.Nummer = n.InkooporderaanvraagNummer INNER JOIN Leverancier l ON a.LeverancieriD = l.ID", con);
+                SqlCommand cmd = new SqlCommand("SELECT * FROM InkoopOrderAanvraag a LEFT JOIN InkooporderaanvraagItemsTotaalprijs n ON a.Nummer = n.InkooporderaanvraagNummer INNER JOIN Leverancier l ON a.LeverancieriD = l.ID LEFT JOIN FactuurInvullen ON n.InkoopOrderAanvraagNummer = FactuurInvullen.InkoopOrderAanvraagNummer", con);
                 DataSet ds = new DataSet();
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 da.Fill(ds);
-                rpInkoopOrderAanvragen.DataSource = ds;
-                rpInkoopOrderAanvragen.DataBind();
+                rpFactuurToevoegen.DataSource = ds;
+                rpFactuurToevoegen.DataBind();
 
                 con.Close();
             }
@@ -53,6 +53,26 @@ namespace ProjectGroenBos.Financien
                     "select * from inkooporderaanvraagmainLev where Naam = '" + DropDownList1.Text + "' order by datum DESC, opmerking DESC";
                 gvInkooporderaanvragerMain.DataBind();
             }
+        }
+
+        protected void btnFactuurKoppelen_OnClick(object sender, EventArgs e)
+        {
+            using (SqlConnection con = new SqlConnection(constr))
+            {
+                con.Open();
+
+                int nummer = int.Parse(((Button)sender).CommandArgument);
+
+
+                SqlCommand cmd = new SqlCommand("UPDATE InkoopOrderAanvraag SET InkoopOrderAanvraagStatusID = 4 WHERE Nummer = @nummer; ", con);
+                cmd.Parameters.AddWithValue("@nummer", nummer);
+                cmd.ExecuteNonQuery();
+
+                con.Close();
+            }
+
+            gvInkooporderaanvragerMain.DataBind();
+            ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "Bestelsuccess();", true);
         }
     }
 }
