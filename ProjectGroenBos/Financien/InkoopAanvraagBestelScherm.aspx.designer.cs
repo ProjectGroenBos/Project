@@ -11,52 +11,52 @@ namespace ProjectGroenBos.Financien
 {
 
 
-    public partial class Reserveringen
+    public partial class InkoopAanvraagBestelScherm
     {
 
         /// <summary>
-        /// pdfbody control.
+        /// DropDownList1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pdfbody;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
 
         /// <summary>
-        /// gvReserveringen control.
+        /// SqlDataSource2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvReserveringen;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource2;
 
         /// <summary>
-        /// SqlDataSource6 control.
+        /// gvInkooporderaanvragerMain control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource6;
+        protected global::System.Web.UI.WebControls.GridView gvInkooporderaanvragerMain;
 
         /// <summary>
-        /// rpReservering control.
+        /// SqlDataSource1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rpReservering;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
 
         /// <summary>
-        /// rpTransactiemodals control.
+        /// rpInkoopOrderAanvragen control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rpTransactiemodals;
+        protected global::System.Web.UI.WebControls.Repeater rpInkoopOrderAanvragen;
     }
 }

@@ -114,18 +114,21 @@
     <Content Include="bin\roslyn\System.Xml.XPath.XDocument.dll" />
     <Content Include="bin\roslyn\vbc.exe" />
     <Content Include="bin\roslyn\VBCSCompiler.exe" />
-    <Content Include="Financien\Betaalscherm.aspx" />
+    <Content Include="Financien\CrediteurenFactuurBetaal.aspx" />
     <Content Include="Financien\css\main.css" />
+    <Content Include="Financien\FactuurKoppelScherm.aspx" />
+    <Content Include="Financien\Factuurtoevoegen.aspx" />
     <Content Include="Financien\Home.aspx" />
     <Content Include="Financien\img\Logo.png" />
     <Content Include="Financien\img\Logo3.png" />
+    <Content Include="Financien\InkoopAanvraagBestelScherm.aspx" />
+    <Content Include="Financien\InkoopAanvraagScherm.aspx" />
     <Content Include="Financien\Inlogscherm.aspx" />
     <Content Include="Financien\Overzicht.aspx" />
     <Content Include="Financien\Personeeloverzicht.aspx" />
     <Content Include="Financien\Prijstabel.aspx" />
     <Content Include="Financien\Rekeningen.aspx" />
     <Content Include="Financien\Reserveringen.aspx" />
-    <Content Include="Financien\WebForm5.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Homepagina.aspx" />
     <Content Include="Images\deleteRow.png" />
@@ -700,12 +703,26 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Financien\Betaalscherm.aspx.cs">
-      <DependentUpon>Betaalscherm.aspx</DependentUpon>
+    <Compile Include="Financien\CrediteurenFactuurBetaal.aspx.cs">
+      <DependentUpon>CrediteurenFactuurBetaal.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Financien\Betaalscherm.aspx.designer.cs">
-      <DependentUpon>Betaalscherm.aspx</DependentUpon>
+    <Compile Include="Financien\CrediteurenFactuurBetaal.aspx.designer.cs">
+      <DependentUpon>CrediteurenFactuurBetaal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Financien\FactuurKoppelScherm.aspx.cs">
+      <DependentUpon>FactuurKoppelScherm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Financien\FactuurKoppelScherm.aspx.designer.cs">
+      <DependentUpon>FactuurKoppelScherm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Financien\Factuurtoevoegen.aspx.cs">
+      <DependentUpon>Factuurtoevoegen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Financien\Factuurtoevoegen.aspx.designer.cs">
+      <DependentUpon>Factuurtoevoegen.aspx</DependentUpon>
     </Compile>
     <Compile Include="Financien\Financien.Master.cs">
       <DependentUpon>Financien.Master</DependentUpon>
@@ -720,6 +737,20 @@
     </Compile>
     <Compile Include="Financien\Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Financien\InkoopAanvraagBestelScherm.aspx.cs">
+      <DependentUpon>InkoopAanvraagBestelScherm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Financien\InkoopAanvraagBestelScherm.aspx.designer.cs">
+      <DependentUpon>InkoopAanvraagBestelScherm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Financien\InkoopAanvraagScherm.aspx.cs">
+      <DependentUpon>InkoopAanvraagScherm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Financien\InkoopAanvraagScherm.aspx.designer.cs">
+      <DependentUpon>InkoopAanvraagScherm.aspx</DependentUpon>
     </Compile>
     <Compile Include="Financien\Inlogscherm.aspx.cs">
       <DependentUpon>Inlogscherm.aspx</DependentUpon>
@@ -762,13 +793,6 @@
     </Compile>
     <Compile Include="Financien\Reserveringen.aspx.designer.cs">
       <DependentUpon>Reserveringen.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Financien\WebForm5.aspx.cs">
-      <DependentUpon>WebForm5.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Financien\WebForm5.aspx.designer.cs">
-      <DependentUpon>WebForm5.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

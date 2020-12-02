@@ -11,7 +11,7 @@ namespace ProjectGroenBos.Financien
 {
 
 
-    public partial class Reserveringen
+    public partial class Openstaandecreditnota
     {
 
         /// <summary>
@@ -24,13 +24,13 @@ namespace ProjectGroenBos.Financien
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl pdfbody;
 
         /// <summary>
-        /// gvReserveringen control.
+        /// gvRekeningen control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvReserveringen;
+        protected global::System.Web.UI.WebControls.GridView gvRekeningen;
 
         /// <summary>
         /// SqlDataSource6 control.
@@ -42,21 +42,39 @@ namespace ProjectGroenBos.Financien
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource6;
 
         /// <summary>
-        /// rpReservering control.
+        /// Panel1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rpReservering;
+        protected global::System.Web.UI.WebControls.Panel Panel1;
 
         /// <summary>
-        /// rpTransactiemodals control.
+        /// rpModals control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rpTransactiemodals;
+        protected global::System.Web.UI.WebControls.Repeater rpModals;
+
+        /// <summary>
+        /// Panel2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel Panel2;
+
+        /// <summary>
+        /// Repeater1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater Repeater1;
     }
 }

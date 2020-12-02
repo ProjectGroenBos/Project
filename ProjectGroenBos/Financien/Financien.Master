@@ -7,9 +7,14 @@
     <title></title>
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script
+        src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+        crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -19,7 +24,8 @@
         <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
         <div class="wrapper">
             <div class="sidebar">
-                <h2><img src="img/Logo.png" alt="Logo" height="150"></h2>
+                <h2>
+                    <img src="img/Logo.png" alt="Logo" height="150"></h2>
                 <h3>Financiën</h3>
                 <ul>
                     <li><a href="/Financien/Home.aspx"><i class="fas fa-home"></i>Home</a></li>
@@ -28,21 +34,15 @@
                             <li><a href="/Financien/Prijstabel.aspx">Prijsmanagement</a></li>
                             <li><a href="/Financien/Reserveringen.aspx">Reserveringen-overzicht</a></li>
                             <li><a href="/Financien/Rekeningen.aspx">Rekening-overzicht</a></li>
-                            <li><a href="#">Factuur-overzicht</a>
-                                <ul class="submenu">
-                                    <li><a href="#">Factuur-betaling</a></li>
-                                    <li><a href="#">Factuur-historie</a></li>
-                                </ul>
-                            </li>
                             <li><a href="/Financien/Personeeloverzicht.aspx">Personeel-overzicht</a></li>
                         </ul>
                     </li>
                     <li><a href="#"><i class="fas fa-address-card"></i>Facturering</a>
                         <ul class="submenu">
-                            <li><a href="#">Creditnota-overzicht</a>
+                            <li><a href="/Financien/Openstaandecreditnota.aspx">Creditnota-overzicht</a>
                                 <ul class="submenu">
                                     <li><a href="#">Creditnota-historie</a></li>
-                                    <li><a href="#">Openstaande creditnota's</a></li>
+                                    <li><a href="/Financien/Openstaandecreditnota.aspx">Openstaande creditnota's</a></li>
                                 </ul>
                             </li>
                             <li><a href="#">Automatisering reserveringsbevestiging</a></li>
@@ -50,7 +50,10 @@
                     </li>
                     <li><a href="#"><i class="fas fa-project-diagram"></i>Inkoop</a>
                         <ul class="submenu">
-                            <li><a href="#">Inkopen producten</a></li>
+                            <li><a href="/Financien/InkoopAanvraagScherm.aspx">Inkoopaanvragen</a></li>
+                            <li><a href="/Financien/InkoopAanvraagBestelScherm.aspx">Inkoopaanvragen Bestellen</a></li>
+                            <li><a href="/Financien/FactuurKoppelScherm.aspx">Factuur koppelen</a></li>
+                            <li><a href="/Financien/Factuurtoevoegen.aspx">Inkopen producten</a></li>
                             <li><a href="#">Facturen controleren</a></li>
                         </ul>
                     </li>
@@ -60,19 +63,19 @@
                 </div>
             </div>
             <div class="main_content">
-                <div class="navigator">  
-                <nav>
-                    <ul>
-                        <li><a href="/Homepagina.aspx">Home</a></li>
-                        <li><a href="/Recreatie/Overzicht.aspx">Recreatie</a></li>
-                        <li><a href="/Schoonmaak en Onderhoud/Home.aspx">Schoonmaak</a></li>
-                        <li><a href="#">Restaurant</a></li>
-                        <li><a href="#">Reserveringen</a></li>
-                        <li class="selected"><a href="/Financien/Home.aspx">Financiën</a></li>
-                        <asp:Button ID="btnUitloggen" runat="server" CssClass="btnUitloggen" Text="Uitloggen" />
-                    </ul>
-                </nav>
-            </div>
+                <div class="navigator">
+                    <nav class="navBar">
+                        <ul>
+                            <li><a href="">Home</a></li>
+                            <li><a href="/Recreatie/Overzicht.aspx">Recreatie</a></li>
+                            <li><a href="#">Schoonmaak</a></li>
+                            <li><a href="#">Restaurant</a></li>
+                            <li><a href="/Reservering/home.aspx">Reserveringen</a></li>
+                            <li class="selected"><a href="/Financien/Home.aspx">Financiën</a></li>
+                            <asp:Button ID="BtnUitloggen" runat="server" CssClass="btnUitloggen" Text="Uitloggen" OnClick="BtnUitloggen_Click" />
+                        </ul>
+                    </nav>
+                </div>
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                 </asp:ContentPlaceHolder>
             </div>

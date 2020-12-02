@@ -11,107 +11,80 @@ namespace ProjectGroenBos.Financien
 {
 
 
-    public partial class WebForm3
+    public partial class Factuurinvoerscherm
     {
 
         /// <summary>
-        /// gvPersoneelsOverzicht control.
+        /// SqlDataSource8 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvPersoneelsOverzicht;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource8;
 
         /// <summary>
-        /// SqlDataSource4 control.
+        /// GridView2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource4;
+        protected global::System.Web.UI.WebControls.GridView GridView2;
 
         /// <summary>
-        /// txbNaam control.
+        /// leverancier control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txbNaam;
+        protected global::System.Web.UI.WebControls.DropDownList leverancier;
 
         /// <summary>
-        /// txbGeboortedatum control.
+        /// txbTotaalbedrag control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txbGeboortedatum;
+        protected global::System.Web.UI.WebControls.TextBox txbTotaalbedrag;
 
         /// <summary>
-        /// txbAdres control.
+        /// txbTermijn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txbAdres;
+        protected global::System.Web.UI.WebControls.TextBox txbTermijn;
 
         /// <summary>
-        /// txbPostcode control.
+        /// dlFactuurtype control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txbPostcode;
+        protected global::System.Web.UI.WebControls.DropDownList dlFactuurtype;
 
         /// <summary>
-        /// dlFunctie control.
+        /// txbIBAN control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dlFunctie;
+        protected global::System.Web.UI.WebControls.TextBox txbIBAN;
 
         /// <summary>
-        /// dlAfdeling control.
+        /// txbORDERID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dlAfdeling;
-
-        /// <summary>
-        /// txbSalaris control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txbSalaris;
-
-        /// <summary>
-        /// txbContracturen control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txbContracturen;
-
-        /// <summary>
-        /// txbInDienst control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txbInDienst;
+        protected global::System.Web.UI.WebControls.TextBox txbORDERID;
 
         /// <summary>
         /// btnToevoegen control.
@@ -121,5 +94,59 @@ namespace ProjectGroenBos.Financien
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnToevoegen;
+
+        /// <summary>
+        /// BtnRetour control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnRetour;
+
+        /// <summary>
+        /// SqlDataSource9 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource9;
+
+        /// <summary>
+        /// GridView1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GridView1;
+
+        /// <summary>
+        /// txtbHoeveelheid control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtbHoeveelheid;
+
+        /// <summary>
+        /// txt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txt;
+
+        /// <summary>
+        /// txtbInkoopID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtbInkoopID;
     }
 }
