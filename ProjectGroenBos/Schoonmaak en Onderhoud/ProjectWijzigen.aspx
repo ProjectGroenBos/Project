@@ -123,7 +123,7 @@
 
                         <asp:DropDownList ID="DropDownList2" runat="server">
                             <asp:ListItem Value="0">-- Selecteer --</asp:ListItem>
-                            <asp:ListItem>Bij Financiën</asp:ListItem>
+                            <asp:ListItem>Bij Financien</asp:ListItem>
                             <asp:ListItem>Offerte Ontvangen</asp:ListItem>
                             <asp:ListItem>Offerte Ontbreekt</asp:ListItem>
                         </asp:DropDownList>
