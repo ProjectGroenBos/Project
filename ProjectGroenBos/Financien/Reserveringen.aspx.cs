@@ -39,8 +39,6 @@ namespace ProjectGroenBos.Financien
                 da.Fill(ds);
                 rpReservering.DataSource = ds;
                 rpReservering.DataBind();
-                rpTransactiemodals.DataSource = ds;
-                rpTransactiemodals.DataBind();
 
                 con.Close();
             }
@@ -64,27 +62,7 @@ namespace ProjectGroenBos.Financien
             HiddenField Emails = (HiddenField)rpReservering.Items[gridviewnr].FindControl("Emailgast");
             string email = Emails.Value;
 
-            HiddenField fNummers = (HiddenField)rpReservering.Items[gridviewnr].FindControl("fnummer");
-            string fnummer = fNummers.Value;
-
-
             Email(gridviewnr, nummer, Totaalbedrag, Naam, email);
-
-            using (SqlConnection con = new SqlConnection(constr))
-            {
-                con.Open();
-
-                SqlCommand cmd = new SqlCommand("UPDATE debiteurenfactuur SET BetaalstatusID = '5' where nummer = @nummer", con);
-                cmd.Parameters.AddWithValue("@nummer", fnummer);
-
-                cmd.ExecuteNonQuery();
-
-                con.Close();
-            }
-
-            gvReserveringen.DataBind();
-
-            ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "emailsuccess();", true);
         }
 
         protected void Email(int gridviewnr, string nummer, string totaal, string naam, string email)
@@ -135,6 +113,8 @@ namespace ProjectGroenBos.Financien
             smtpClient.EnableSsl = true;
             smtpClient.Send(mailMessage);
 
+            ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "emailsuccess();", true);
+
         }
 
         public string GetGridviewData(GridView gv)
@@ -150,56 +130,6 @@ namespace ProjectGroenBos.Financien
         public override void VerifyRenderingInServerForm(Control control)
         {
             /* Verifies that the control is rendered */
-        }
-
-        protected void btnTransactiehistory_OnClick(object sender, EventArgs e)
-        {
-            //HiddenField nummers = (HiddenField)rpTransactiemodals.Items[0].FindControl("Nummer");
-            //string nummer = nummers.Value;
-
-            SqlConnection con = new SqlConnection(constr);
-            con.Open();
-            //Label label1 = (Label)rpTransactiemodals.Items[0].FindControl("Lblreedsbetaald");
-            //SqlCommand ophaal = new SqlCommand("select CAST(SUM(Bedrag) AS real) as [Reeds betaald] from Transactie where CrediteurenfactuurNummer = @nummer", con);
-            //ophaal.Parameters.AddWithValue("@nummer", nummer);
-            //string result = ophaal.ExecuteScalar().ToString();
-            //label1.Text = result;
-            con.Close();
-            string modal = "#modal2" + ((Button)sender).CommandArgument;
-
-            TransactieRepeater(((Button)sender).CommandName, ((Button)sender).CommandArgument);
-
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal('" + modal + "');", true);
-        }
-
-        public void TransactieRepeater(string repeaternr, string fnummer)
-        {
-            using (SqlConnection con = new SqlConnection(constr))
-            {
-                con.Open();
-
-                Repeater transacties = (Repeater)rpTransactiemodals.Items[int.Parse(repeaternr)].FindControl("rpTransacties");
-                Label NoRecords = (Label)rpTransactiemodals.Items[int.Parse(repeaternr)].FindControl("lblNoRecords");
-
-                SqlCommand cmd = new SqlCommand("select * from reserveringbetalingen where debiteurenfactuurnummer = @nummer", con);
-                cmd.Parameters.AddWithValue("@nummer", fnummer);
-
-                DataSet ds = new DataSet();
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                da.Fill(ds);
-                transacties.DataSource = ds;
-                transacties.DataBind();
-
-
-                if (transacties.Items.Count < 1)
-                {
-                    NoRecords.Visible = true;
-                    transacties.Visible = false;
-                }
-
-                con.Close();
-            }
-
         }
     }
 }

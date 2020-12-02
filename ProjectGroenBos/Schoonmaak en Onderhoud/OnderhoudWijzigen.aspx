@@ -22,16 +22,6 @@
     <asp:GridView ID="GridView1" Width="75%" runat="server" AutoGenerateColumns="False" DataKeyNames="Nummer" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" BackColor="White" BorderColor="#0E6251" BorderStyle="Solid" BorderWidth="1px" CellPadding="5" ForeColor="Black" GridLines="Vertical" AllowPaging="True">
         <AlternatingRowStyle BackColor="#f0f0f0" />
         <Columns>
-<<<<<<< HEAD
-            <asp:BoundField DataField="Nummer" HeaderText="Nummer" InsertVisible="False" ReadOnly="True" SortExpression="Nummer" />
-            <asp:BoundField DataField="Startdatum" HeaderText="Startdatum" SortExpression="Startdatum"/>
-            <asp:BoundField DataField="VerwachteEinddatum" HeaderText="VerwachteEinddatum" SortExpression="VerwachteEinddatum"/>
-            <asp:BoundField DataField="Kosten" HeaderText="Kosten" SortExpression="Kosten" />
-            <asp:BoundField DataField="BungalowNummer" HeaderText="BungalowNummer" SortExpression="BungalowNummer" />
-            <asp:BoundField DataField="OnderhoudsstatusID" HeaderText="OnderhoudsstatusID" SortExpression="OnderhoudsstatusID" />
-            <asp:BoundField DataField="Onderhoudtype" HeaderText="Onderhoudtype" SortExpression="Onderhoudtype" />
-            <asp:BoundField DataField="DatumvanConstatering" HeaderText="DatumvanConstatering" SortExpression="DatumvanConstatering"/>
-=======
             <asp:CommandField  ButtonType="Image" SelectImageUrl="~/Images/SelectIcon.png" ShowSelectButton="True" />
             <asp:BoundField DataField="Nummer" HeaderText="Nummer" InsertVisible="False" ReadOnly="True" SortExpression="Nummer" />
             <asp:BoundField DataField="Startdatum" HeaderText="Startdatum" SortExpression="Startdatum" DataFormatString="{0:d}"/>
@@ -41,7 +31,6 @@
             <asp:BoundField DataField="OnderhoudsstatusID" HeaderText="Status" SortExpression="OnderhoudsstatusID" />
             <asp:BoundField DataField="Onderhoudtype" HeaderText="Type" SortExpression="Onderhoudtype" />
             <asp:BoundField DataField="DatumvanConstatering" HeaderText="Datum Constatering" SortExpression="DatumvanConstatering" DataFormatString="{0:d}"/>
->>>>>>> RecreatieTeam/DaanHeemskerk
         </Columns>
         <FooterStyle BackColor="#CCCCCC" />
         <HeaderStyle BackColor="#0E6251" Font-Bold="True" ForeColor="White" />
@@ -54,11 +43,7 @@
     </asp:GridView>
         </center>
         </div>
-<<<<<<< HEAD
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT [Nummer], [Startdatum], [VerwachteEinddatum], [Kosten], [BungalowNummer], [OnderhoudsstatusID], [Onderhoudtype], [DatumvanConstatering] FROM [Onderhoudsopdracht]"></asp:SqlDataSource>
-=======
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:con %>" SelectCommand="SELECT [Nummer], [Startdatum], [VerwachteEinddatum], [Kosten], [BungalowNummer], [OnderhoudsstatusID], [Onderhoudtype], [DatumvanConstatering] FROM [Onderhoudsopdracht]"></asp:SqlDataSource>
->>>>>>> RecreatieTeam/DaanHeemskerk
      <br />
     <div style="text-align:center;">
   <div style="width:65%; margin: 0 auto; text-align:left;">
