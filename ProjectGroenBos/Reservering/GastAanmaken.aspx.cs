@@ -125,6 +125,8 @@ namespace ProjectGroenBos.Reservering
                     lblUitkomst.Text = "Er ging iets mis.";
                 }
             }
+
+            Response.Redirect("GastSelecteren.aspx");
         }
 
         private bool CheckDatum()
