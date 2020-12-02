@@ -156,8 +156,7 @@ body {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
     margin-left: auto;
     margin-right: auto;
-    margin-top:10%;
-   
+    margin-top: 10%;
 }
 
     .content-table tbody tr th {
@@ -229,12 +228,13 @@ tr > td:last-of-type {
     width: 80%;
     margin-left: 10%;
 }
+  
 
 .hideGridColumn {
     display: none;
 }
 
-}
+
 
 .mainpanel {
     width: 70%;
@@ -427,6 +427,7 @@ nav ul {
     margin-bottom: 25px;
     position: absolute;
     right: 306px;
+    border-radius: 25px;
 }
 
     .volgendeknop:hover {
@@ -441,6 +442,7 @@ nav ul {
     margin-bottom: 25px;
     position: absolute;
     right: 365px;
+    border-radius: 25px;
 }
 
     .vorigeknop:hover {
@@ -540,8 +542,8 @@ nav ul {
 .textboxplanningactiviteit {
     position: absolute;
     float: right;
-    right: 15%;
-    top: 110%;
+    right: 18%;
+    top: -2147483648%;
 }
 
 .labellocatie {
@@ -561,8 +563,8 @@ nav ul {
 .labelbegeleider {
     position: absolute;
     float: right;
-    right: 30%;
-    top: 210%;
+    right: 36%;
+    top: -77550%;
 }
 
 .textboxaantal {
@@ -890,13 +892,15 @@ nav ul {
 
 .buttonAfboekenVoorraadmuteren {
     position: absolute;
-    top: 110%;
+    top: 100%;
     left: 28%;
     width: 10%;
-    height: 10%;
+    height: 5%;
     font-size: 80%;
     background-color: #009879;
+    border-radius: 25px;
 }
+
 .content-table2 {
     border-collapse: collapse;
     margin: 25px 0;
@@ -907,7 +911,7 @@ nav ul {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
     margin-left: auto;
     margin-right: auto;
-    margin-top: 10%;
+    margin-top: 5%;
 }
 
     .content-table2 tbody tr th {
@@ -971,24 +975,27 @@ nav ul {
     top: 110%;
     left: 40%;
     width: 10%;
-    height: 10%;
+    height: 5%;
     font-size: 80%;
     background-color: #009879;
+    border-radius: 25px;
 }
+
 .ButtonOpboekenknop {
     position: absolute;
     top: 110%;
     left: 28%;
     width: 10%;
-    height: 10%;
+    height: 5%;
     font-size: 80%;
     background-color: #009879;
+    border-radius: 25px;
 }
 
 .labelzoekenvooraadmutatie {
     position: absolute;
     left: 28%;
-    margin-top:3%;
+    margin-top: 3%;
 }
 
 .TextboxzoekenVooraadmutatie {
@@ -996,6 +1003,7 @@ nav ul {
     left: 33%;
     margin-top: 3%;
 }
+
 .checkboxleverancierVoorraadmutatie {
     position: absolute;
     left: 50%;
@@ -1088,18 +1096,93 @@ nav ul {
     left: 50%;
     margin-top: 3%;
     background-color: #009879;
-   
+    border-radius: 25px;
 }
 
 .BtnBestellenVooraad {
     position: absolute;
     left: 80%;
     margin-top: 3%;
-    
-   
+    border-radius: 25px;
 }
 
-.content-table6 {
+.content-table4 {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 60%;
+    min-width:400px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 8%;
+    font-size: 70%;
+}
+
+    .content-table4 tbody tr th {
+        background-color: #009879;
+        color: #ffffff;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    .content-table4 th,
+    .content-table4 td {
+        padding: 12px 3px;
+    }
+
+    .content-table4 tbody tr {
+        border-bottom: 1px solid #dddddd;
+    }
+
+        .content-table4 tbody tr:nth-of-type(even) {
+            background-color: #f3f3f3;
+        }
+
+
+        .content-table4 tbody tr:last-of-type {
+            border-bottom: 2px solid #009879;
+        }
+
+        .content-table4 tbody tr:hover {
+            font-weight: bold;
+            color: #009879;
+        }
+
+        .content-table4 tbody tr td a {
+            background-color: rgba(20,143,119,1);
+            border-radius: 5px;
+            color: #ffffff;
+            padding: .5em;
+            text-decoration: none;
+        }
+
+            .content-table4 tbody tr td a:nth-child(2) {
+                background-color: #C0392B;
+                border-radius: 5px;
+                color: #ffffff;
+                padding: .5em;
+                text-decoration: none;
+            }
+
+                .content-table4 tbody tr td a:nth-child(2):hover {
+                    background-color: #CD6155;
+                    color: #ffffff;
+                }
+
+            .content-table4 tbody tr td a:hover {
+                background-color: #009879;
+                color: #ffffff;
+            }
+
+            
+
+.modal-dialog {
+    width: 100%;
+}
+
+.content-table5 {
     border-collapse: collapse;
     margin: 25px 0;
     font-size: 0.9em;
@@ -1109,40 +1192,40 @@ nav ul {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
     margin-left: auto;
     margin-right: auto;
-    margin-top: 10%;
+    margin-top: 8%;
 }
 
-    .content-table6 tbody tr th {
+    .content-table5 tbody tr th {
         background-color: #009879;
         color: #ffffff;
         text-align: center;
         font-weight: bold;
     }
 
-    .content-table6 th,
-    .content-table6 td {
+    .content-table5 th,
+    .content-table5 td {
         padding: 12px 15px;
     }
 
-    .content-table6 tbody tr {
+    .content-table5 tbody tr {
         border-bottom: 1px solid #dddddd;
     }
 
-        .content-table6 tbody tr:nth-of-type(even) {
+        .content-table5 tbody tr:nth-of-type(even) {
             background-color: #f3f3f3;
         }
 
 
-        .content-table6 tbody tr:last-of-type {
+        .content-table5 tbody tr:last-of-type {
             border-bottom: 2px solid #009879;
         }
 
-        .content-table6 tbody tr:hover {
+        .content-table5 tbody tr:hover {
             font-weight: bold;
             color: #009879;
         }
 
-        .content-table6 tbody tr td a {
+        .content-table5 tbody tr td a {
             background-color: rgba(20,143,119,1);
             border-radius: 5px;
             color: #ffffff;
@@ -1150,7 +1233,7 @@ nav ul {
             text-decoration: none;
         }
 
-            .content-table6 tbody tr td a:nth-child(2) {
+            .content-table5 tbody tr td a:nth-child(2) {
                 background-color: #C0392B;
                 border-radius: 5px;
                 color: #ffffff;
@@ -1158,15 +1241,94 @@ nav ul {
                 text-decoration: none;
             }
 
-                .content-table6 tbody tr td a:nth-child(2):hover {
+                .content-table5 tbody tr td a:nth-child(2):hover {
                     background-color: #CD6155;
                     color: #ffffff;
                 }
 
-            .content-table6 tbody tr td a:hover {
+            .content-table5 tbody tr td a:hover {
                 background-color: #009879;
                 color: #ffffff;
             }
 
+.txbActiviteitnaam {
+    margin-left: 30%;
+}
+
+.txblocatieactivitieit {
+    margin-left: 42%;
+}
+
+.txbInschrijfkostenactivitieit {
+    margin-left: 32%;
+}
+
+.txbMaximaalaantalactivitieit {
+    margin-left: 26%;
+}
+
+.txbOmschrijvingactivitieit {
+    margin-left: 33%;
+}
+
+.txbDatumactivitieit {
+    margin-left: 43%;
+}
+
+.txbBegintijdactivitieit {
+    margin-left: 40%;
+}
+
+.txbEindtijdactivitieit {
+    margin-left: 42%;
+}
+
+.txbMedewerkeractivitieit {
+    margin-left: 33%;
+}
+
+.btnToevoegenactiviteit {
+    position: absolute;
+    left: 10%;
+    margin-top: 5%;
+    background-color: #009879;
+    border-radius: 25px;
+}
+
+.btnwijzigenactiviteit {
+    position: absolute;
+    left: 40%;
+    margin-top: 5%;
+    background-color: #009879;
+    border-radius: 25px;
+}
 
 
+.btnverwijderenactiviteit {
+    position: absolute;
+    left: 70%;
+    margin-top: 5%;
+    background-color: #009879;
+    border-radius: 25px;
+}
+
+.ckbleverancierVAfboeken {
+    position: absolute;
+    left: 50%;
+    margin-top: 3%;
+}
+
+.ckbcategorieVAfboeken {
+    position: absolute;
+    left: 60%;
+    margin-top: 3%;
+}
+
+.btnnieuweactiviteitinplannen {
+    width: 15%;
+    height: 5%;
+    margin-left: 5%;
+    background-color: #009879;
+    font-size: 80%;
+    border-radius: 25px;
+}
