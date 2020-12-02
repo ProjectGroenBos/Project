@@ -39,6 +39,7 @@
             <br />
             <br />
             <asp:GridView ID="GridView1" runat="server" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" CssClass="content-table" AutoGenerateSelectButton="True" AllowSorting="True">
+                <HeaderStyle ForeColor="White" />
             </asp:GridView>
            
             <br />

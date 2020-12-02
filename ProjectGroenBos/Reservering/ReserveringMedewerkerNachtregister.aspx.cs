@@ -80,6 +80,7 @@ namespace ProjectGroenBos.Reservering
                 InsGast(voornaam, tussenvoegsel, achternaam, telefoonnummer, email);
                 int gastnummer = GetNummer();
                 InsAdres(straat, huisnummer, postcode, land, gastnummer);
+
                 InsReservering(personen, opmerkingen, vandaag, vertrekdatum, aankomstdatum, reserveringsStatus, gastnummer);
                 reserveringnummer = GetReservering();
                 InsReserveringBungalow(reserveringnummer, bungalowGetal);

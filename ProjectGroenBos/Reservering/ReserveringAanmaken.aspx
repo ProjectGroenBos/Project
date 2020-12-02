@@ -69,11 +69,21 @@
     <asp:TextBox ID="txbVertrekdatum" runat="server" CssClass="textboxchaos"></asp:TextBox>
 
     <br />
+    <asp:Label ID="Label6" runat="server" Text="Opmerkingen" CssClass="labelsnieuw"></asp:Label>
+    <asp:TextBox ID="txbOpmerking" runat="server" CssClass="textboxchaos"></asp:TextBox>
+
+    <br />
     <asp:Label ID="Label4" runat="server" Text="Huisjenummer" CssClass="labelsnieuw"></asp:Label>
     <asp:Label ID="lblHuisjenummer" runat="server" Text="" CssClass="textboxchaos"></asp:Label>
+    
+    <br />
+    <asp:Label ID="lblUitkomst" runat="server"></asp:Label>
+
     <br />
     <asp:Button ID="btnZoek" runat="server" Text="Zoek bungalow" CssClass="btnUitloggen" Style="background-color: #009879; color: #fff" class="btn" OnClick="btnZoek_Click"/>
-    <asp:Button ID="btnAanmaken" runat="server" Text="Aanmaken" CssClass="btnUitloggen" Style="background-color: #009879; color: #fff" class="btn"/>
-    <asp:GridView ID="GridView1" runat="server" CssClass="content-table" OnSelectedIndexChanged="GridView1_SelectedIndexChanged"></asp:GridView>
+    <asp:Button ID="btnAanmaken" runat="server" Text="Aanmaken" CssClass="btnUitloggen" Style="background-color: #009879; color: #fff" class="btn" OnClick="btnAanmaken_Click"/>
+    <asp:GridView ID="GridView1" runat="server" CssClass="content-table" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AllowSorting="True" AutoGenerateSelectButton="True">
+        <HeaderStyle ForeColor="White" />
+    </asp:GridView>
 
 </asp:Content>
