@@ -15,6 +15,15 @@ namespace ProjectGroenBos.Financien
     {
 
         /// <summary>
+        /// ScriptManager1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
+
+        /// <summary>
         /// DropDownList1 control.
         /// </summary>
         /// <remarks>
@@ -51,12 +60,12 @@ namespace ProjectGroenBos.Financien
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
 
         /// <summary>
-        /// rpInkoopOrderAanvragen control.
+        /// rpFactuurToevoegen control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rpInkoopOrderAanvragen;
+        protected global::System.Web.UI.WebControls.Repeater rpFactuurToevoegen;
     }
 }
