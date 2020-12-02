@@ -11,7 +11,25 @@
                 timer: 4000
             })
         }
+
+        function Bestelerror() {
+            Swal.fire({
+                icon: 'error',
+                title: 'Het bestelnummer moet ingevuld zijn.',
+                showConfirmButton: false,
+                timer: 4000
+            })
+        }
     </script>
+
+    <style>
+        .center {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="header">Inkoop-Aanvragen Bestel-Overzicht</div>
@@ -112,8 +130,34 @@ SELECT 'Alle Afdelingen' AS [Naam]"></asp:SqlDataSource>
                                     </tr>
                                 </tbody>
                             </table>
+                            <input type="button" id="Button1" data-toggle="modal" data-target="#bestelModal<%# Eval("Nummer") %>" style="max-width: 80%; margin-left: auto; margin-right: auto; margin-top: 100px" class="btn btn-success btn-lg btn-block" value="Bestellen" />
+                        </div>
 
-                            <asp:Button ID="btnBestel" OnClick="btnBestel_OnClick" CommandArgument='<%# Eval("Nummer") %>' Style="max-width: 80%; margin-left: auto; margin-right: auto; margin-top: 100px" CssClass="btn btn-success btn-lg btn-block" runat="server" Text="Bestellen" />
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Sluiten</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Modal -->
+            <div id="bestelModal<%# Eval("Nummer") %>" class="modal fade center" role="dialog">
+                <div class="modal-dialog modal-lg">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+
+                        <div class="modal-header">
+                            <h4 class="modal-title">Inkooporderaanvraag <%# Eval("Nummer") %> </h4>
+                            <asp:Button runat="server" CssClass="btn btn-primary" Text="Sluiten"></asp:Button>
+                        </div>
+
+                        <div class="modal-body">
+                            <h3>Wat is het bijbehorende bestelnummer?</h3>
+
+                            <asp:TextBox ID="txbBestelnummer" runat="server" Width="80%" Style="margin-left: auto; margin-right: auto; text-align: center"></asp:TextBox>
+
+                            <asp:Button ID="btnBestel" OnClick="btnBestel_OnClick" CommandName='<%# Container.ItemIndex %>' CommandArgument='<%# Eval("Nummer") %>' Style="max-width: 80%; margin-left: auto; margin-right: auto; margin-top: 20px" CssClass="btn btn-success btn-lg btn-block" runat="server" Text="Bestellen" />
 
                         </div>
 
