@@ -9,7 +9,7 @@
 .contentvak {
     color: #fff;
     width: 48%;
-    height: 400px;
+    height: 500px;
     float: left;
     font-size: x-large;
     font-weight: bold;
@@ -22,7 +22,7 @@
 .contentvak2 {
     color: #fff;
     width: 48%;
-    height: 500px;
+    height: 400px;
     float: right;
     font-size: x-large;
     font-weight: bold;
@@ -72,4 +72,5 @@
     font-size: xx-large;
     padding: 20px 20px 20px 20px;
     margin-top: 20px;
+    float: right;
 }

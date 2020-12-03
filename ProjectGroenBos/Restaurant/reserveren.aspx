@@ -14,6 +14,24 @@
 
                 <div class="contentrij">
                     <div class="tekstlabel">
+                        <label>Bungalow</label>
+                    </div>
+                    <asp:RadioButton CssClass="form-control" ID="rdbJa"
+                        runat="server" placeholder="" Text="Ja" OnClick="rdbJa"></asp:RadioButton>
+                    <asp:RadioButton CssClass="form-control" ID="rdbNee"
+                        runat="server" placeholder="" Text="Nee" OnClick="rdbNee"></asp:RadioButton>
+                </div>
+
+                <div class="contentrij">
+                    <div class="tekstlabel">
+                        <label>nummer</label>
+                    </div>
+                    <asp:TextBox class="tekstbox" ID="txtBungalownummer"
+                        runat="server" placeholder=""></asp:TextBox>
+                </div>
+
+                <div class="contentrij">
+                    <div class="tekstlabel">
                         <label>Voornaam</label>
                     </div>
                     <asp:TextBox class="tekstbox" ID="txtVoornaam"
@@ -110,23 +128,7 @@
 
 
 
-                <div class="contentrij">
-                    <div class="tekstlabel">
-                        <label>Bungalow</label>
-                    </div>
-                    <asp:RadioButton CssClass="form-control" ID="rdbJa"
-                        runat="server" placeholder="" Text="Ja" OnClick="rdbJa"></asp:RadioButton>
-                    <asp:RadioButton CssClass="form-control" ID="rdbNee"
-                        runat="server" placeholder="" Text="Nee" OnClick="rdbNee"></asp:RadioButton>
-                </div>
-
-                <div class="contentrij">
-                    <div class="tekstlabel">
-                        <label>nummer</label>
-                    </div>
-                    <asp:TextBox class="tekstbox" ID="txtBungalownummer"
-                        runat="server" placeholder=""></asp:TextBox>
-                </div>
+                
 
             </div>
 
