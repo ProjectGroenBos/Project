@@ -74,6 +74,8 @@
                         <div class="modal-header">
                             <h4 class="modal-title">Aanvragen inkooporder</h4>
                         </div>
+                        <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
+                        <asp:Label ID="Label4" runat="server" Text="Label"></asp:Label>
                         <div class="modal-body">
                             <asp:GridView ID="gvOrderaanvragen" runat="server" AutoGenerateColumns="False" ShowFooter="true" DataKeyNames="ID" ShowHeaderWhenEmpty="true"
                              CellPadding="4" ForeColor="#333333" GridLines="none" Width="80%" CssClass="content-table">
@@ -104,12 +106,23 @@
                                          <asp:TextBox ID="tbAantal" runat="server" Width =" 100%" ></asp:TextBox>
                                      </ItemTemplate>
                                  </asp:TemplateField>
-                             </Columns>           
+
+                                 <asp:TemplateField HeaderText="Opmerking">
+                                     <ItemTemplate>
+                                         <asp:TextBox ID="tbOpmerking" runat="server" Width =" 100%" ></asp:TextBox>
+                                     </ItemTemplate>
+                                 </asp:TemplateField>
+
+                                  <asp:TemplateField HeaderText="LeverancierID" SortExpression="LeverancierID" Visible="false" >  
+                                     <ItemTemplate>
+                                         <asp:Label Text='<%# Eval("LeverancierID") %>' runat="server" />
+                                     </ItemTemplate>
+                                 </asp:TemplateField>
+                           
+                                 </Columns>           
                             </asp:GridView>
                             
                             <asp:Button ID="BtnAanvraag" runat="server" OnClick="BtnAanvraag_Click" type="button" Style="max-width: 80%; margin-left: auto; margin-right: auto;" class="btn btn-primary btn-lg btn-block" Text="Aanvragen" />
-                            <asp:Label ID="Label2" runat="server" Text="Opmerking:"></asp:Label>
-                            <asp:TextBox ID="tbOpmerking" runat="server" MaxLength="230" Width ="200px" Height="125px" Style="margin: 10px"></asp:TextBox>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Sluiten</button>
