@@ -35,10 +35,8 @@
                 </div>
 
             <div class="center">
-            <asp:button  runat="server" class="popupbutton" text="Reserveren"/>
-            <asp:button  runat="server" class="popupbutton" text="Bestellen" OnClick="Bestelling1_Click" />
-            <asp:button  runat="server" class="popupbutton" text="Afrekenen" OnClick="Afreken1_Click" />
-            
+            <asp:button  runat="server" class="popupbutton" text="Bestelling maken" OnClick="Bestelling1_Click" />
+            <asp:button  runat="server" class="popupbutton" text="naar afrekenen" OnClick="Button2_Click" />
             </div>
         </asp:Panel>
 
@@ -59,10 +57,8 @@
                 </div>
 
             <div class="center">
-            <asp:button  runat="server" class="popupbutton" text="Reserveren" />
-            <asp:button  runat="server" class="popupbutton" text="Bestellen" OnClick="Bestelling2_Click" />
-            <asp:button  runat="server" class="popupbutton" text="Afrekenen" OnClick="Afreken2_Click" />
-            
+            <asp:button  runat="server" class="popupbutton" text="Bestelling maken" OnClick="Bestelling2_Click" />
+            <asp:button  runat="server" class="popupbutton" text="naar afrekenen" OnClick="Button2_Click" />
             </div>
         </asp:Panel>
 
@@ -83,10 +79,8 @@
                 </div>
 
             <div class="center">
-            <asp:button  runat="server" class="popupbutton" text="Reserveren"  />
-            <asp:button  runat="server" class="popupbutton" text="Bestellen" OnClick="Bestelling3_Click" />
-            <asp:button  runat="server" class="popupbutton" text="Afrekenen" OnClick="Afreken3_Click" />
-            
+            <asp:button  runat="server" class="popupbutton" text="Bestelling maken" OnClick="Bestelling3_Click" />
+            <asp:button  runat="server" class="popupbutton" text="naar afrekenen" OnClick="Button2_Click" />
             </div>
         </asp:Panel>
 
@@ -106,10 +100,8 @@
                 </div>
 
             <div class="center">
-            <asp:button  runat="server" class="popupbutton" text="Reserveren" />
-            <asp:button  runat="server" class="popupbutton" text="Bestellen" OnClick="Bestelling4_Click" />
-            <asp:button  runat="server" class="popupbutton" text="Afrekenen" OnClick="Afreken4_Click" />
-            
+            <asp:button  runat="server" class="popupbutton" text="Bestelling maken" OnClick="Bestelling4_Click" />
+            <asp:button  runat="server" class="popupbutton" text="naar afrekenen" OnClick="Button2_Click" />
             </div>
         </asp:Panel>
 
@@ -128,9 +120,8 @@
                 <asp:button ID="btnclose5" Class="close" runat="server" text="X"/>
                 </div>
             <div class="center">
-            <asp:button  runat="server" class="popupbutton" text="Reserveren" />
-            <asp:button  runat="server" class="popupbutton" text="Bestellen" OnClick="Bestelling5_Click" />
-            <asp:button  runat="server" class="popupbutton" text="Afrekenen" OnClick="Afreken5_Click" />
+            <asp:button  runat="server" class="popupbutton" text="Bestelling maken" OnClick="Bestelling5_Click" />
+            <asp:button  runat="server" class="popupbutton" text="naar afrekenen" OnClick="Button2_Click" />
             </div>
         </asp:Panel>
 
