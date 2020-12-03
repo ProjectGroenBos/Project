@@ -91,7 +91,8 @@
     <br />
     <br />
     <br />
-    <asp:Button ID="btnWijzigen" runat="server" Text="Wijzigen" CssClass="labelsnieuw" OnClick="btnWijzigen_Click" />
+    <asp:Button ID="btnWijzigen" runat="server" Text="Wijzigen" CssClass="btnUitloggen" Style="background-color: #009879; color: #fff" class="btn" OnClick="btnWijzigen_Click" />
+    <asp:Button ID="btnTerug" runat="server" Style="background-color: #009879; color: #fff" class="btn" CssClass="btnUitloggen" Text="Terug" OnClick="btnTerug_Click" />
     <br />
     <asp:GridView ID="GridView1" runat="server" DataKeyNames="Nummer,Aankomstdatum,Vertrekdatum,Aantal_personen,GastNummer,Opmerking,Voornaam,Tussenvoegsel,Achternaam,Email,Telefoonnummer,Straatnaam,Huisnummer,Postcode,Land">
     </asp:GridView>

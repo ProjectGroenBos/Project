@@ -463,5 +463,10 @@ namespace ProjectGroenBos.Reservering
                 con.Close();
             }
         }
+
+        protected void btnTerug_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("GastAanmaken.aspx");
+        }
     }
 }
