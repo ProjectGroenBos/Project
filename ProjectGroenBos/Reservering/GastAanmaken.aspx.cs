@@ -125,7 +125,7 @@ namespace ProjectGroenBos.Reservering
                     lblUitkomst.Text = "Er ging iets mis.";
                 }
             }
-
+            Session["controle3"] = 1;
             Response.Redirect("GastSelecteren.aspx");
         }
 

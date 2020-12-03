@@ -148,6 +148,8 @@ namespace ProjectGroenBos.Reservering
                     cmd.ExecuteNonQuery();
                     con.Close();
                     StuurMail();
+
+                    Session["controle5"] = 1;
                     Response.Redirect("ReserveringOverzicht.aspx");
                 }
             }

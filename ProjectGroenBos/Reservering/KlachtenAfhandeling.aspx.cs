@@ -74,8 +74,8 @@ namespace ProjectGroenBos.Reservering
                     cmd.ExecuteNonQuery();
 
                     con.Close();
-
-                    Response.Redirect("Huisjemedewerker.aspx");
+                    Session["controle"] = 100;
+                    Response.Redirect("home.aspx");
 
                 }
                 else
@@ -100,8 +100,8 @@ namespace ProjectGroenBos.Reservering
                     cmd.ExecuteNonQuery();
 
                     con.Close();
-
-                    Response.Redirect("Huisjemedewerker.aspx");
+                    Session["controle2"] = 99;
+                    Response.Redirect("home.aspx");
                 }
 
             }

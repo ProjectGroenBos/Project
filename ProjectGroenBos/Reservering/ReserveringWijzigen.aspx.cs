@@ -189,6 +189,7 @@ namespace ProjectGroenBos.Reservering
                     int totaal = veranderdeRijen1 + veranderdeRijen2 + veranderdeRijen3;
                     StuurMail();
 
+                    Session["controle6"] = 1;
                     Response.Redirect("ReserveringOverzicht.aspx");
                 }
             }

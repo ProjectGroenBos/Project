@@ -56,7 +56,7 @@
                         </li>--%>
                 </ul>
                 <div class="terug">
-                    <a href="#">&#8249; Terug naar home</a>
+                    <a href="home.aspx">&#8249; Terug naar home</a>
                 </div>
             </div>
             <div class="main_content">

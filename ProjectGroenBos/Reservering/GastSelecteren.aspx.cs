@@ -18,6 +18,10 @@ namespace ProjectGroenBos
         {
             GridView1.Visible = true;
             btnGastAanmaken.Visible = false;
+            if (Session["controle3"] != null)
+            {
+                lblUitkomst.Text = "De gast is toegevoegd aan de database.";
+            }
         }
 
         protected void btnZoek_Click(object sender, EventArgs e)
