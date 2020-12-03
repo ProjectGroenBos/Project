@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace recreatie.paginas {
-    
-    
-    public partial class Beheer {
-        
+namespace recreatie.paginas
+{
+
+
+    public partial class Beheer
+    {
+
         /// <summary>
         /// Label3 control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace recreatie.paginas {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label3;
-        
+
         /// <summary>
         /// Image2 control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace recreatie.paginas {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image Image2;
-        
+
         /// <summary>
         /// txtZoekbalk control.
         /// </summary>
@@ -38,7 +40,7 @@ namespace recreatie.paginas {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtZoekbalk;
-        
+
         /// <summary>
         /// GridView1 control.
         /// </summary>
@@ -47,7 +49,7 @@ namespace recreatie.paginas {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView GridView1;
-        
+
         /// <summary>
         /// btnSelecteren control.
         /// </summary>
@@ -56,7 +58,7 @@ namespace recreatie.paginas {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSelecteren;
-        
+
         /// <summary>
         /// BtnBestellen control.
         /// </summary>
@@ -65,7 +67,7 @@ namespace recreatie.paginas {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button BtnBestellen;
-        
+
         /// <summary>
         /// gvVoorraad control.
         /// </summary>
@@ -74,25 +76,7 @@ namespace recreatie.paginas {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvVoorraad;
-        
-        /// <summary>
-        /// Label2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
-        
-        /// <summary>
-        /// Label4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label4;
-        
+
         /// <summary>
         /// gvOrderaanvragen control.
         /// </summary>
@@ -101,7 +85,7 @@ namespace recreatie.paginas {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvOrderaanvragen;
-        
+
         /// <summary>
         /// BtnAanvraag control.
         /// </summary>
