@@ -32,6 +32,7 @@
                         </ul>
                     </li>
                     <li><a href="reserveren.aspx">Reserveren</a></li>
+                    <li><a href="Voorraad.aspx">Voorraad</a></li>
                 </ul>
                 <div class="terug">
                     <a href="#">&#8249; Terug naar home</a>
