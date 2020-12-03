@@ -228,7 +228,7 @@ tr > td:last-of-type {
     width: 80%;
     margin-left: 10%;
 }
-  
+
 
 .hideGridColumn {
     display: none;
@@ -1110,14 +1110,14 @@ nav ul {
     border-collapse: collapse;
     margin: 25px 0;
     font-size: 60%;
-    min-width:400px;
+    min-width: 400px;
     border-radius: 5px 5px 0 0;
     overflow: hidden;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
     margin-left: auto;
     margin-right: auto;
     margin-top: 8%;
-    font-size: 70%;
+    font-size: 80%;
 }
 
     .content-table4 tbody tr th {
@@ -1176,7 +1176,7 @@ nav ul {
                 color: #ffffff;
             }
 
-            
+
 
 .modal-dialog {
     width: 100%;
@@ -1396,18 +1396,16 @@ nav ul {
 }
 
 .ReqActiviteitValidatorInplannen {
-    top:4%; 
-    left:92%; 
-    position:absolute;
+    top: 4%;
+    left: 92%;
+    position: absolute;
     color: red;
 }
 
 .RegularActiviteitvalidatorInplannen {
-    
-    left:56%; 
-    position:relative; 
+    left: 56%;
+    position: relative;
     color: red;
-
 }
 
 .ReqLocatieValidatorInplannen {
@@ -1418,14 +1416,13 @@ nav ul {
 }
 
 .RegularLocatieValidatorInplannen {
-
-    left:56.2%; 
-    position:relative; 
-    color:red; 
+    left: 56.2%;
+    position: relative;
+    color: red;
 }
 
 .ReqInschrijfkostenValidatorInplannen {
-    top:31.7%; 
+    top: 31.7%;
     left: 92%;
     position: absolute;
     color: red;
@@ -1460,3 +1457,15 @@ nav ul {
     position: relative;
     color: red;
 }
+.ReqTbDatumInplannen {
+    left: 92%;
+    position: absolute;
+    color: red;
+}
+
+.ReqBegintijdInplannen {
+    left: 92%;
+    position: absolute;
+    color: red;
+}
+
