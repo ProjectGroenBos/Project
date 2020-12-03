@@ -248,5 +248,9 @@ namespace ProjectGroenBos.Reservering
 
         }
 
+        protected void btnTerug_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ReserveringOverzicht.aspx");
+        }
     }
 }

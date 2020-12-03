@@ -91,7 +91,7 @@
 
     <br />
     <asp:Button ID="btnAanmaken" runat="server" Text="Aanmaken" CssClass="btnUitloggen" OnClick="btnAanmaken_Click" Style="background-color: #009879; color: #fff" class="btn" />
-    <asp:Button ID="btnTerug" runat="server" Text="Terug" CssClass="btnUitloggen" Style="background-color: #009879; color: #fff" class="btn" OnClick="btnTerug_Click" />
+    <asp:Button ID="btnTerug" runat="server" Text="Terug" CssClass="btnUitloggen" Style="background-color: #009879; color: #fff" class="btn" OnClick="btnTerug_Click" CausesValidation="False" />
 
 
 
