@@ -107,14 +107,13 @@ namespace recreatie.paginas
         protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
         {
             GridView1.EditIndex = e.NewEditIndex;
-            GridView1.DataSource = (DataTable)Session["SelectedRows"];
-            GridView1.DataBind();
+           GridView1.DataSource = (DataTable)Session["SelectedRows"];
+           GridView1.DataBind();
         }
 
         protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
             GridView1.EditIndex = -1;
-            GridView1.DataSource = (DataTable)Session["SelectedRows"];
             GridView1.DataBind();
         }
 
@@ -122,8 +121,8 @@ namespace recreatie.paginas
         {
             GridView1.Columns[11].Visible = true;
             GridView1.EditIndex = -1;
-            GridView1.DataSource = (DataTable)Session["SelectedRows"];
             GridView1.DataBind();
+            GridView1.DataSource = (DataTable)Session["SelectedRows"];
         }
 
         /*
