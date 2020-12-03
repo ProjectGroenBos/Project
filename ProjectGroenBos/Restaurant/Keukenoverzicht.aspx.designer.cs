@@ -11,17 +11,17 @@ namespace ProjectGroenBos.Restaurant
 {
 
 
-    public partial class WebForm1
+    public partial class WebForm5
     {
 
         /// <summary>
-        /// dtlTafelnr control.
+        /// lblTafelnr1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList dtlTafelnr;
+        protected global::System.Web.UI.WebControls.Label lblTafelnr1;
 
         /// <summary>
         /// dtlBestelling1 control.
@@ -42,13 +42,13 @@ namespace ProjectGroenBos.Restaurant
         protected global::System.Web.UI.WebControls.Button btnGereed1;
 
         /// <summary>
-        /// dtlTafelnr0 control.
+        /// lblTafelnr2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList dtlTafelnr0;
+        protected global::System.Web.UI.WebControls.Label lblTafelnr2;
 
         /// <summary>
         /// dtlBestelling2 control.
@@ -69,13 +69,13 @@ namespace ProjectGroenBos.Restaurant
         protected global::System.Web.UI.WebControls.Button btnGereed2;
 
         /// <summary>
-        /// dtlTafelnr1 control.
+        /// lblTafelnr3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList dtlTafelnr1;
+        protected global::System.Web.UI.WebControls.Label lblTafelnr3;
 
         /// <summary>
         /// dtlBestelling3 control.
@@ -96,13 +96,13 @@ namespace ProjectGroenBos.Restaurant
         protected global::System.Web.UI.WebControls.Button btnGereed3;
 
         /// <summary>
-        /// dtlTafelnr2 control.
+        /// lblTafelnr4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList dtlTafelnr2;
+        protected global::System.Web.UI.WebControls.Label lblTafelnr4;
 
         /// <summary>
         /// dtlBestelling4 control.
@@ -123,13 +123,13 @@ namespace ProjectGroenBos.Restaurant
         protected global::System.Web.UI.WebControls.Button btnGereed4;
 
         /// <summary>
-        /// dtlTafelnr3 control.
+        /// lblTafelnr5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList dtlTafelnr3;
+        protected global::System.Web.UI.WebControls.Label lblTafelnr5;
 
         /// <summary>
         /// dtlBestelling5 control.
@@ -193,50 +193,5 @@ namespace ProjectGroenBos.Restaurant
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource5;
-
-        /// <summary>
-        /// SqlDataSource6 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource6;
-
-        /// <summary>
-        /// SqlDataSource7 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource7;
-
-        /// <summary>
-        /// SqlDataSource8 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource8;
-
-        /// <summary>
-        /// SqlDataSource9 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource9;
-
-        /// <summary>
-        /// SqlDataSource10 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource10;
     }
 }

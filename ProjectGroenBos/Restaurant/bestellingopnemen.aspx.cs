@@ -16,6 +16,8 @@ namespace ProjectGroenBos.Restaurant
 
 		protected void Page_Load(object sender, EventArgs e)
         {
+			lblTafelnr.Text = Session["Tafelnr"].ToString();
+
             DataTable dt = new DataTable();
             dt = (DataTable)Session["bestelitems"];
             if (dt != null)
@@ -281,6 +283,8 @@ namespace ProjectGroenBos.Restaurant
 
 		protected void btnBestellen_Click(object sender, EventArgs e)
         {
+			int tafelnr = int.Parse(Session["Tafelnr"].ToString());
+
 			int resnr;
 			int rondenr;
 
@@ -306,7 +310,7 @@ namespace ProjectGroenBos.Restaurant
 				string value = Regex.Replace(hoeveelheid2, "[A-Za-z ]", "");
 				double HoeveelheidInDouble = double.Parse(value);
 
-				myquery = "INSERT into Item_RestaurantReservering (ItemID, RestaurantReserveringID, Ronde, Aantal, Status) VALUES (" + row["Id"] + "," + resnr + ", " + rondenr + ", " + HoeveelheidInDouble.ToString() + ", 'Besteld') ";
+				myquery = "INSERT into Item_RestaurantReservering (ItemID, RestaurantReserveringID, Ronde, Aantal, Status, Tafelnr) VALUES (" + row["Id"] + "," + resnr + ", " + rondenr + ", " + HoeveelheidInDouble.ToString() + ", 'Besteld', " + tafelnr + " ) ";
 				cmd.CommandText = myquery;
 				cmd.Connection = scon;
 				da.SelectCommand = cmd;

@@ -1,5 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Restaurant/Restaurant.Master" AutoEventWireup="true" CodeBehind="Bestellingenoverzicht.aspx.cs" Inherits="ProjectGroenBos.Restaurant.WebForm1" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Restaurant/Restaurant.Master" AutoEventWireup="true" CodeBehind="Keukenoverzicht.aspx.cs" Inherits="ProjectGroenBos.Restaurant.WebForm5" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="css/bestellingenoverzicht.css" rel="stylesheet" />
 </asp:Content>
@@ -9,13 +8,7 @@
 
         <div class="bestellingvak">
             <div class="tafelnummer">
-                <asp:DataList ID="dtlTafelnr" class="DatalistTafelnr" runat="server" DataSourceID="SqlDataSource6">
-                    <ItemTemplate>
-                        Tafel
-                        <asp:Label ID="Label1" runat="server" Text='<%# Eval("Column1") %>'></asp:Label>
-                    </ItemTemplate>
-
-                </asp:DataList>
+                <asp:Label ID="lblTafelnr1" runat="server" Text="Tafelnr"></asp:Label>
             </div>
             <div class="dtlvak">
                 <asp:DataList ID="dtlBestelling1" class="Datalist" runat="server" DataSourceID="SqlDataSource1">
@@ -34,13 +27,7 @@
 
         <div class="bestellingvak">
             <div class="tafelnummer">
-                <asp:DataList ID="dtlTafelnr0" class="DatalistTafelnr" runat="server" DataSourceID="SqlDataSource7">
-                    <ItemTemplate>
-                        Tafel
-                        <asp:Label ID="Label1" runat="server" Text='<%# Eval("Column1") %>'></asp:Label>
-                    </ItemTemplate>
-
-                </asp:DataList>
+                <asp:Label ID="lblTafelnr2" runat="server" Text="Tafelnr"></asp:Label>
             </div>
             <div class="dtlvak">
                 <asp:DataList ID="dtlBestelling2" class="Datalist" runat="server" DataSourceID="SqlDataSource2">
@@ -59,13 +46,7 @@
 
         <div class="bestellingvak">
             <div class="tafelnummer">
-                <asp:DataList ID="dtlTafelnr1" class="DatalistTafelnr" runat="server" DataSourceID="SqlDataSource8">
-                    <ItemTemplate>
-                        Tafel
-                        <asp:Label ID="Label1" runat="server" Text='<%# Eval("Column1") %>'></asp:Label>
-                    </ItemTemplate>
-
-                </asp:DataList>
+                <asp:Label ID="lblTafelnr3" runat="server" Text="Tafelnr"></asp:Label>
             </div>
             <div class="dtlvak">
                 <asp:DataList ID="dtlBestelling3" class="Datalist" runat="server" DataSourceID="SqlDataSource3">
@@ -85,13 +66,7 @@
 
         <div class="bestellingvak">
             <div class="tafelnummer">
-                <asp:DataList ID="dtlTafelnr2" class="DatalistTafelnr" runat="server" DataSourceID="SqlDataSource9">
-                    <ItemTemplate>
-                        Tafel
-                        <asp:Label ID="Label1" runat="server" Text='<%# Eval("Column1") %>'></asp:Label>
-                    </ItemTemplate>
-
-                </asp:DataList>
+                <asp:Label ID="lblTafelnr4" runat="server" Text="Tafelnr"></asp:Label>
             </div>
             <div class="dtlvak">
                 <asp:DataList ID="dtlBestelling4" class="Datalist" runat="server" DataSourceID="SqlDataSource4">
@@ -106,18 +81,12 @@
                     </ItemTemplate>
                 </asp:DataList>
             </div>
-            <asp:Button ID="btnGereed4" class="gereedknop" runat="server" Text="Gereed" />
+            <asp:Button ID="btnGereed4" class="gereedknop" runat="server" Text="Gereed" OnClick="btnGereed4_Click" />
         </div>
 
         <div class="bestellingvak">
             <div class="tafelnummer">
-                <asp:DataList ID="dtlTafelnr3" class="DatalistTafelnr" runat="server" DataSourceID="SqlDataSource10">
-                    <ItemTemplate>
-                        Tafel
-                        <asp:Label ID="Label1" runat="server" Text='<%# Eval("Column1") %>'></asp:Label>
-                    </ItemTemplate>
-
-                </asp:DataList>
+                <asp:Label ID="lblTafelnr5" runat="server" Text="Tafelnr"></asp:Label>
             </div>
             <div class="dtlvak">
                 <asp:DataList ID="dtlBestelling5" class="Datalist" runat="server" DataSourceID="SqlDataSource5">
@@ -132,7 +101,7 @@
                     </ItemTemplate>
                 </asp:DataList>
             </div>
-            <asp:Button ID="btnGereed5" class="gereedknop" runat="server" Text="Gereed" />
+            <asp:Button ID="btnGereed5" class="gereedknop" runat="server" Text="Gereed" OnClick="btnGereed5_Click" />
         </div>
 
 
@@ -140,47 +109,25 @@
 
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:2020-BIM02-P1-P2-GroenbosConnectionString %>" SelectCommand="SELECT *
         FROM (Item INNER JOIN Item_RestaurantReservering ON Item.ID = Item_RestaurantReservering.ItemID) INNER JOIN RestaurantReservering ON Item_RestaurantReservering.RestaurantReserveringID = RestaurantReservering.ID
-        WHERE Status = 'Besteld' AND Item_RestaurantReservering.Ronde = (SELECT MIN(Item_RestaurantReservering.Ronde) FROM Item_RestaurantReservering WHERE Status = 'Besteld')"></asp:SqlDataSource>
+        WHERE Status = 'Besteld' AND Type != 'Drank' AND Item_RestaurantReservering.Ronde = (SELECT MIN(Item_RestaurantReservering.Ronde) FROM Item_RestaurantReservering WHERE Status = 'Besteld')"></asp:SqlDataSource>
         <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:2020-BIM02-P1-P2-GroenbosConnectionString %>" SelectCommand="SELECT *
         FROM (Item INNER JOIN Item_RestaurantReservering ON Item.ID = Item_RestaurantReservering.ItemID) INNER JOIN RestaurantReservering ON Item_RestaurantReservering.RestaurantReserveringID = RestaurantReservering.ID
-        WHERE Status = 'Besteld' AND Item_RestaurantReservering.Ronde = 
+        WHERE Status = 'Besteld' AND Type != 'Drank' AND Item_RestaurantReservering.Ronde = 
         (SELECT MIN(Item_RestaurantReservering.Ronde) FROM Item_RestaurantReservering WHERE Status = 'Besteld' AND Item_RestaurantReservering.Ronde &gt;
         (SELECT MIN(Item_RestaurantReservering.Ronde) FROM Item_RestaurantReservering WHERE Status = 'Besteld'))"></asp:SqlDataSource>
         <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:2020-BIM02-P1-P2-GroenbosConnectionString %>" SelectCommand="SELECT *
         FROM (Item INNER JOIN Item_RestaurantReservering ON Item.ID = Item_RestaurantReservering.ItemID) INNER JOIN RestaurantReservering ON Item_RestaurantReservering.RestaurantReserveringID = RestaurantReservering.ID
-        WHERE Status = 'Besteld' AND Item_RestaurantReservering.Ronde = 
+        WHERE Status = 'Besteld' AND Type != 'Drank' AND Item_RestaurantReservering.Ronde = 
         (SELECT MIN(Item_RestaurantReservering.Ronde) FROM Item_RestaurantReservering WHERE Status = 'Besteld' AND Item_RestaurantReservering.Ronde &gt;(SELECT MIN(Item_RestaurantReservering.Ronde) FROM Item_RestaurantReservering WHERE Status = 'Besteld' AND Item_RestaurantReservering.Ronde &gt;
         (SELECT MIN(Item_RestaurantReservering.Ronde) FROM Item_RestaurantReservering WHERE Status = 'Besteld')))"></asp:SqlDataSource>
         <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:2020-BIM02-P1-P2-GroenbosConnectionString %>" SelectCommand="SELECT *
         FROM (Item INNER JOIN Item_RestaurantReservering ON Item.ID = Item_RestaurantReservering.ItemID) INNER JOIN RestaurantReservering ON Item_RestaurantReservering.RestaurantReserveringID = RestaurantReservering.ID
-        WHERE Status = 'Besteld' AND Item_RestaurantReservering.Ronde = 
+        WHERE Status = 'Besteld' AND Type != 'Drank' AND Item_RestaurantReservering.Ronde = 
         (SELECT MIN(Item_RestaurantReservering.Ronde) FROM Item_RestaurantReservering WHERE Status = 'Besteld' AND Item_RestaurantReservering.Ronde &gt;(SELECT MIN(Item_RestaurantReservering.Ronde) FROM Item_RestaurantReservering WHERE Status = 'Besteld' AND Item_RestaurantReservering.Ronde &gt;
         (SELECT MIN(Item_RestaurantReservering.Ronde) FROM Item_RestaurantReservering WHERE Status = 'Besteld' AND Item_RestaurantReservering.Ronde &gt;(SELECT MIN(Item_RestaurantReservering.Ronde) FROM Item_RestaurantReservering WHERE Status = 'Besteld'))))"></asp:SqlDataSource>
         <asp:SqlDataSource ID="SqlDataSource5" runat="server" ConnectionString="<%$ ConnectionStrings:2020-BIM02-P1-P2-GroenbosConnectionString %>" SelectCommand="SELECT *
         FROM (Item INNER JOIN Item_RestaurantReservering ON Item.ID = Item_RestaurantReservering.ItemID) INNER JOIN RestaurantReservering ON Item_RestaurantReservering.RestaurantReserveringID = RestaurantReservering.ID
-        WHERE Status = 'Besteld' AND Item_RestaurantReservering.Ronde = 
-        (SELECT MIN(Item_RestaurantReservering.Ronde) FROM Item_RestaurantReservering WHERE Status = 'Besteld' AND Item_RestaurantReservering.Ronde &gt;(SELECT MIN(Item_RestaurantReservering.Ronde) FROM Item_RestaurantReservering WHERE Status = 'Besteld' AND Item_RestaurantReservering.Ronde &gt;
-        (SELECT MIN(Item_RestaurantReservering.Ronde) FROM Item_RestaurantReservering WHERE Status = 'Besteld' AND Item_RestaurantReservering.Ronde &gt;(SELECT MIN(Item_RestaurantReservering.Ronde) FROM Item_RestaurantReservering WHERE Status = 'Besteld' AND Item_RestaurantReservering.Ronde &gt;(SELECT MIN(Item_RestaurantReservering.Ronde) FROM Item_RestaurantReservering WHERE Status = 'Besteld')))))"></asp:SqlDataSource>
-
-
-
-
-        <asp:SqlDataSource ID="SqlDataSource6" runat="server" ConnectionString="<%$ ConnectionStrings:2020-BIM02-P1-P2-GroenbosConnectionString %>" SelectCommand="SELECT MAX(Item_RestaurantReservering.Tafelnr)       FROM (Item INNER JOIN Item_RestaurantReservering ON Item.ID = Item_RestaurantReservering.ItemID) INNER JOIN RestaurantReservering ON Item_RestaurantReservering.RestaurantReserveringID = RestaurantReservering.ID
-        WHERE Status = 'Besteld' AND Item_RestaurantReservering.Ronde = (SELECT MIN(Item_RestaurantReservering.Ronde) FROM Item_RestaurantReservering WHERE Status = 'Besteld')"></asp:SqlDataSource>
-        <asp:SqlDataSource ID="SqlDataSource7" runat="server" ConnectionString="<%$ ConnectionStrings:2020-BIM02-P1-P2-GroenbosConnectionString %>" SelectCommand="SELECT MAX(Item_RestaurantReservering.Tafelnr)       FROM (Item INNER JOIN Item_RestaurantReservering ON Item.ID = Item_RestaurantReservering.ItemID) INNER JOIN RestaurantReservering ON Item_RestaurantReservering.RestaurantReserveringID = RestaurantReservering.ID
-        WHERE Status = 'Besteld' AND Item_RestaurantReservering.Ronde = 
-        (SELECT MIN(Item_RestaurantReservering.Ronde) FROM Item_RestaurantReservering WHERE Status = 'Besteld' AND Item_RestaurantReservering.Ronde &gt;
-        (SELECT MIN(Item_RestaurantReservering.Ronde) FROM Item_RestaurantReservering WHERE Status = 'Besteld'))"></asp:SqlDataSource>
-        <asp:SqlDataSource ID="SqlDataSource8" runat="server" ConnectionString="<%$ ConnectionStrings:2020-BIM02-P1-P2-GroenbosConnectionString %>" SelectCommand="SELECT MAX(Item_RestaurantReservering.Tafelnr)       FROM (Item INNER JOIN Item_RestaurantReservering ON Item.ID = Item_RestaurantReservering.ItemID) INNER JOIN RestaurantReservering ON Item_RestaurantReservering.RestaurantReserveringID = RestaurantReservering.ID
-        WHERE Status = 'Besteld' AND Item_RestaurantReservering.Ronde = 
-        (SELECT MIN(Item_RestaurantReservering.Ronde) FROM Item_RestaurantReservering WHERE Status = 'Besteld' AND Item_RestaurantReservering.Ronde &gt;(SELECT MIN(Item_RestaurantReservering.Ronde) FROM Item_RestaurantReservering WHERE Status = 'Besteld' AND Item_RestaurantReservering.Ronde &gt;
-        (SELECT MIN(Item_RestaurantReservering.Ronde) FROM Item_RestaurantReservering WHERE Status = 'Besteld')))"></asp:SqlDataSource>
-        <asp:SqlDataSource ID="SqlDataSource9" runat="server" ConnectionString="<%$ ConnectionStrings:2020-BIM02-P1-P2-GroenbosConnectionString %>" SelectCommand="SELECT MAX(Item_RestaurantReservering.Tafelnr)       FROM (Item INNER JOIN Item_RestaurantReservering ON Item.ID = Item_RestaurantReservering.ItemID) INNER JOIN RestaurantReservering ON Item_RestaurantReservering.RestaurantReserveringID = RestaurantReservering.ID
-        WHERE Status = 'Besteld' AND Item_RestaurantReservering.Ronde = 
-        (SELECT MIN(Item_RestaurantReservering.Ronde) FROM Item_RestaurantReservering WHERE Status = 'Besteld' AND Item_RestaurantReservering.Ronde &gt;(SELECT MIN(Item_RestaurantReservering.Ronde) FROM Item_RestaurantReservering WHERE Status = 'Besteld' AND Item_RestaurantReservering.Ronde &gt;
-        (SELECT MIN(Item_RestaurantReservering.Ronde) FROM Item_RestaurantReservering WHERE Status = 'Besteld' AND Item_RestaurantReservering.Ronde &gt;(SELECT MIN(Item_RestaurantReservering.Ronde) FROM Item_RestaurantReservering WHERE Status = 'Besteld'))))"></asp:SqlDataSource>
-        <asp:SqlDataSource ID="SqlDataSource10" runat="server" ConnectionString="<%$ ConnectionStrings:2020-BIM02-P1-P2-GroenbosConnectionString %>" SelectCommand="SELECT MAX(Item_RestaurantReservering.Tafelnr)       FROM (Item INNER JOIN Item_RestaurantReservering ON Item.ID = Item_RestaurantReservering.ItemID) INNER JOIN RestaurantReservering ON Item_RestaurantReservering.RestaurantReserveringID = RestaurantReservering.ID
-        WHERE Status = 'Besteld' AND Item_RestaurantReservering.Ronde = 
+        WHERE Status = 'Besteld' AND Type != 'Drank' AND Item_RestaurantReservering.Ronde = 
         (SELECT MIN(Item_RestaurantReservering.Ronde) FROM Item_RestaurantReservering WHERE Status = 'Besteld' AND Item_RestaurantReservering.Ronde &gt;(SELECT MIN(Item_RestaurantReservering.Ronde) FROM Item_RestaurantReservering WHERE Status = 'Besteld' AND Item_RestaurantReservering.Ronde &gt;
         (SELECT MIN(Item_RestaurantReservering.Ronde) FROM Item_RestaurantReservering WHERE Status = 'Besteld' AND Item_RestaurantReservering.Ronde &gt;(SELECT MIN(Item_RestaurantReservering.Ronde) FROM Item_RestaurantReservering WHERE Status = 'Besteld' AND Item_RestaurantReservering.Ronde &gt;(SELECT MIN(Item_RestaurantReservering.Ronde) FROM Item_RestaurantReservering WHERE Status = 'Besteld')))))"></asp:SqlDataSource>
 
