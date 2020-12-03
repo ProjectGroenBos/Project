@@ -19,8 +19,6 @@ namespace ProjectGroenBos.Financien
             if (!IsPostBack)
             {
                 Repeater();
-                ScriptManager.RegisterStartupScript(this, GetType(), "Text", "getChart('ma, di', '100, 200');", true);
-
             }
         }
 
