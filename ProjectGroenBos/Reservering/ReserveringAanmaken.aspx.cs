@@ -173,8 +173,9 @@ namespace ProjectGroenBos.Reservering
                 InsTransactie(vandaag, aan, prijs, reserveringnummer, debifactuur, rekeningnummer, typeID);
 
                 Session["prijs"] = prijs.ToString();
-
-                Response.Redirect("ReserveringMedewerkerNachtregister.aspx");
+                Session["personen"] = txbAantalPersonen.Text;
+                Session["reservering"] = reserveringnummer;
+                Response.Redirect("Nachtregister.aspx");
             }
             catch
             {
