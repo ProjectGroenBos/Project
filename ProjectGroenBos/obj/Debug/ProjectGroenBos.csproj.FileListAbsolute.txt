@@ -162,3 +162,7 @@ C:\Users\Daan Vlaar\Documents\GitHub\Project\ProjectGroenBos\obj\Debug\ProjectGr
 C:\Users\Daan Vlaar\Documents\GitHub\Project\ProjectGroenBos\obj\Debug\ProjectGroenBos.csproj.CopyComplete
 C:\Users\Daan Vlaar\Documents\GitHub\Project\ProjectGroenBos\obj\Debug\ProjectGroenBos.dll
 C:\Users\Daan Vlaar\Documents\GitHub\Project\ProjectGroenBos\obj\Debug\ProjectGroenBos.pdb
+C:\Users\Daan Vlaar\Documents\GitHub\Project\Project\ProjectGroenBos\obj\Debug\ProjectGroenBos.csprojAssemblyReference.cache
+C:\Users\Daan Vlaar\Documents\GitHub\Project\Project\ProjectGroenBos\obj\Debug\ProjectGroenBos.csproj.CoreCompileInputs.cache
+C:\Users\Daan Vlaar\Documents\GitHub\Project\Project\ProjectGroenBos\obj\Debug\ProjectGroenBos.dll
+C:\Users\Daan Vlaar\Documents\GitHub\Project\Project\ProjectGroenBos\obj\Debug\ProjectGroenBos.pdb
