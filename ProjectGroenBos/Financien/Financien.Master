@@ -11,6 +11,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -19,7 +21,8 @@
         <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
         <div class="wrapper">
             <div class="sidebar">
-                <h2><img src="img/Logo.png" alt="Logo" height="150"></h2>
+                <h2>
+                    <img src="img/Logo.png" alt="Logo" height="150"></h2>
                 <h3>Financiën</h3>
                 <ul>
                     <li><a href="/Financien/Home.aspx"><i class="fas fa-home"></i>Home</a></li>
@@ -44,8 +47,9 @@
                     </li>
                     <li><a href="#"><i class="fas fa-project-diagram"></i>Inkoop</a>
                         <ul class="submenu">
-                            <li><a href="#">Inkopen producten</a></li>
-                            <li><a href="/Financien/Factuurinvoerscherm.aspx.cs">Facturen controleren</a></li>
+                            <li><a href="/Financien/InkoopAanvraagScherm.aspx">Inkoopaanvragen</a></li>
+                            <li><a href="/Financien/Factuurtoevoegen.aspx">Inkopen producten</a></li>
+                            <li><a href="#">Facturen controleren</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -55,18 +59,18 @@
             </div>
             <div class="main_content">
                 <div class="navigator">
-                    <nav>
+                    <nav class="navBar">
                         <ul>
-                            <li><a href="#">Home</a></li>
+                            <li><a href="">Home</a></li>
                             <li><a href="/Recreatie/Overzicht.aspx">Recreatie</a></li>
-                            <li><a href="/Restaurant/home.aspx">Restaurant</a></li>
-                            <li><a href="/Reservering/home.aspx">Reserveringen & Balie</a></li>
+                            <li><a href="#">Schoonmaak</a></li>
+                            <li><a href="#">Restaurant</a></li>
+                            <li><a href="/Reservering/home.aspx">Reserveringen</a></li>
                             <li class="selected"><a href="/Financien/Home.aspx">Financiën</a></li>
-                            <li><a href="/Schoonmaak en Onderhoud/InventarisOverzicht.aspx">Schoonmaak</a></li>
-                            <asp:Button ID="btnUitloggen" runat="server" CssClass="btnUitloggen" Text="Uitloggen" />
+                            <asp:Button ID="BtnUitloggen" runat="server" CssClass="btnUitloggen" Text="Uitloggen" OnClick="BtnUitloggen_Click"/>
                         </ul>
                     </nav>
-            </div>
+                </div>
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                 </asp:ContentPlaceHolder>
             </div>
