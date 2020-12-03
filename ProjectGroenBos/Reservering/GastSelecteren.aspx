@@ -63,11 +63,7 @@
         <asp:Button ID="btnGastAanmaken" runat="server" Text="Gast aanmaken" CssClass="btnUitloggen" OnClick="btnGastAanmaken_Click" Style="background-color: #009879; color: #fff" class="btn" />
     
     <br />
-<<<<<<< HEAD
     <asp:Label ID="lblUitkomst" runat="server" Text=""></asp:Label>
-=======
-    <asp:Label ID="lblUitkomst" runat="server"></asp:Label>
->>>>>>> origin/ReserveringTeam/Karim
     <br />
 
     <asp:GridView ID="GridView1" runat="server" CssClass="content-table" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" DataKeyNames="Gastnummer" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AllowSorting="True" AutoGenerateSelectButton="True">
