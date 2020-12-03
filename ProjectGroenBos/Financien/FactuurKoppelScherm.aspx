@@ -6,7 +6,7 @@
         function Bestelsuccess() {
             Swal.fire({
                 icon: 'success',
-                title: 'Inkooporderaanvraag is besteld.',
+                title: 'Factuur is gekoppeld.',
                 showConfirmButton: false,
                 timer: 4000
             })
