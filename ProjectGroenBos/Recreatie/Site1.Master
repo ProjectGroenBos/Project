@@ -32,7 +32,7 @@
                             </ul></li>
                             <li><a href="/Recreatie/ProductPaginaInzien.aspx"">Productpagina</a>
                                  <ul class="submenu">
-                                     <li><a href="#">wijzigen</a></li>
+                                     <li><a href="/Recreatie/ProductPagina.aspx">wijzigen</a></li>
                                      <li><a href="/Recreatie/InactiefmakenProductpagina.aspx">Inactief maken</a></li>
                                       </ul></li>
                             <li><a href="/Financien/Personeeloverzicht.aspx">Personeel-overzicht</a></li>

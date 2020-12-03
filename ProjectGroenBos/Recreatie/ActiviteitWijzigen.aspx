@@ -75,7 +75,7 @@
                     <EditItemTemplate>
                         <asp:TextBox ID="TbBegintijd" runat="server" Text='<%# Bind("Begintijd") %>'></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="*" Display="Dynamic" ControlToValidate="TbBegintijd" CssClass="ReqTbBegintijd"></asp:RequiredFieldValidator>
-                        <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ErrorMessage="Voer een geldige begintijd in" Display="Dynamic" ControlToValidate="TbBegintijd" CssClass="RegularActiviteitValidator"></asp:RegularExpressionValidator>
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ErrorMessage="Voer een geldige begintijd in" Display="Dynamic" ControlToValidate="TbBegintijd" CssClass="RegularActiviteitValidator" ValidationExpression="(?:[01]?\d|2[0-3])(?::[0-5]\d){1,2}$"></asp:RegularExpressionValidator>
                     </EditItemTemplate>
                     <ItemTemplate>
 
@@ -85,9 +85,9 @@
                 <asp:TemplateField HeaderText="Eindtijd" SortExpression="Eindtijd">
                     <EditItemTemplate>
                         <asp:TextBox ID="TbEindtijd" runat="server" Text='<%# Bind("Eindtijd") %>'></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="*" ControlToValidate="TbEindtijd" Display="Dynamic" CssClass="ReqTbEindtijd"></asp:RequiredFieldValidator>
+                         <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="*" ControlToValidate="TbEindtijd" Display="Dynamic" CssClass="ReqTbEindtijd"></asp:RequiredFieldValidator>
                         <asp:CompareValidator ID="CompareValidator2" runat="server" ErrorMessage="Vul een geldige tijd in" ControlToValidate="TbEindtijd" ControlToCompare="TbBegintijd" Type="String" Operator="GreaterThan" CssClass="RegularActiviteitValidator"></asp:CompareValidator>
-
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidatorEindtijd" runat="server" ErrorMessage="Voer een geldige Eindtijd in" Display="Dynamic" CssClass="RegularActiviteitValidator" ValidationExpression="(?:[01]?\d|2[0-3])(?::[0-5]\d){1,2}$" ControlToValidate="TbEindtijd"></asp:RegularExpressionValidator>
                     </EditItemTemplate>
 
                     <ItemTemplate>
