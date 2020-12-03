@@ -22,11 +22,11 @@
      <asp:TextBox ID="txbAfboekenZoeken" runat="server" OnTextChanged="txbAfboekenZoeken_TextChanged" CssClass="textboxafboekenzoeken"></asp:TextBox>
 
 
-     <asp:CheckBox ID="ckbLeverancier" runat="server" Text="Leverancier" />
-     <asp:CheckBox ID="ckbCategorie" runat="server" Text="Categorie" />
+     <asp:CheckBox ID="ckbLeverancier" runat="server" Text="Leverancier" CssClass="ckbleverancierVAfboeken" />
+     <asp:CheckBox ID="ckbCategorie" runat="server" Text="Categorie" CssClass="ckbcategorieVAfboeken" />
 
 
-     <asp:GridView ID="GvAfboeken" runat="server" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" CssClass="content-table2" DataKeyNames="Nummer" ForeColor="#333333" GridLines="None" ShowFooter="True" ShowHeaderWhenEmpty="True" Width="80%" OnRowCancelingEdit="GvAfboeken_RowCancelingEdit" OnRowCommand="GvAfboeken_RowCommand" OnRowDeleting="GvAfboeken_RowDeleting" OnRowEditing="GvAfboeken_RowEditing" OnRowUpdating="GvAfboeken_RowUpdating" OnSelectedIndexChanged="GvAfboeken_SelectedIndexChanged" OnSorting="OnSorting">
+     <asp:GridView ID="GvAfboeken" runat="server" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" CssClass="content-table" DataKeyNames="Nummer" ForeColor="#333333" GridLines="None" ShowFooter="True" ShowHeaderWhenEmpty="True" Width="80%" OnRowCancelingEdit="GvAfboeken_RowCancelingEdit" OnRowCommand="GvAfboeken_RowCommand" OnRowDeleting="GvAfboeken_RowDeleting" OnRowEditing="GvAfboeken_RowEditing" OnRowUpdating="GvAfboeken_RowUpdating" OnSelectedIndexChanged="GvAfboeken_SelectedIndexChanged" OnSorting="OnSorting">
 
          <Columns>
 

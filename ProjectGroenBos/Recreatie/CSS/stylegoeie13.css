@@ -559,8 +559,8 @@ nav ul {
 .labelbegeleider {
     position: absolute;
     float: right;
-    right: 30%;
-    top: 210%;
+    right: 38%;
+    top: -29900%;
 }
 
 .textboxaantal {
@@ -636,6 +636,8 @@ nav ul {
     top: 270%;
 }
 
+
+
 .textboxeindtijd {
     position: absolute;
     float: right;
@@ -654,6 +656,13 @@ nav ul {
     position: absolute;
     float: right;
     right: 15%;
+    top: 360%;
+}
+
+.validatorfaciliteit {
+    position: absolute;
+    float: right;
+    right: 40%;
     top: 360%;
 }
 
@@ -693,6 +702,7 @@ nav ul {
     top: 170%;
 }
 
+
 .validatormedewerker {
     position: absolute;
     right: 40%;
@@ -701,13 +711,13 @@ nav ul {
 
 .validatordatum {
     position: absolute;
-    right: 2%;
+    right: 40%;
     top: 240%;
 }
 
 .validatordatumcompare {
     position: absolute;
-    right: 40%;
+    right: 50%;
     top: 240%;
 }
 
@@ -746,7 +756,7 @@ nav ul {
 .validatorinschrijfkosten {
     position: absolute;
     float: right;
-    right: 2%;
+    right: 40%;
     top: 330%;
 }
 
@@ -834,7 +844,7 @@ nav ul {
 
 .txbzoekenvoorraadmuteren {
     position: absolute;
-    top: 150%;
+    top: -2147483648%;
     left: 35%;
     height: 12%;
 }
@@ -874,20 +884,34 @@ nav ul {
     right: 2%;
 }
 
-.labelzoekafboeken {
+.GvMuteren {
+    top: 170%;
     position: absolute;
     left: 30%;
-    top: 50%;
-}
-.textboxafboekenzoeken {
-    position: absolute;
-    left: 40%;
-    top: 50%;
-   
 }
 
-.buttonAfboekenVoorraadmuteren{
+.ReqActiviteitValidator {
+    top: 36%; 
+    left: 35%;
     position: absolute;
-    top: 110%;
-    left: 30%;
+    color:red; 
+}
+.RegularActiviteitValidator{
+    color:red; 
+}
+.ReqLocatieVaidator {
+    left: 43.5%;
+    top: 36%;
+    position: absolute;
+    color: red;
+}
+.ReqInschrijfkostenValidator {
+    left: 52%;
+    top: 36%;
+    position: absolute;
+    color: red;
+}
+.RegularInschrijfkostenValidator {
+    color: red; 
+
 }

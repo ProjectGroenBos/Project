@@ -147,7 +147,7 @@ namespace recreatie.paginas
                     if (chk.Checked)
                     {
 
-                        using (SqlConnection sqlCon = new SqlConnection(connectionstring))
+                        using (SqlConnection sqlCon = new SqlConnection(connectionstring))  
                         {
 
                             SqlCommand cmd = new SqlCommand("Select [ID], [Artikelnaam] FROM vVoorraadRecreatie where ID=@id", sqlCon);
