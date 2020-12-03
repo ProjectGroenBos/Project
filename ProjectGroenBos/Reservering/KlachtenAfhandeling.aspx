@@ -21,7 +21,7 @@
     <asp:Label CssClass="labelsnieuw" runat="server" Text="Gastnummer"></asp:Label>
     <asp:TextBox ID="txbGastnummer" CssClass="textboxchaos" runat="server"></asp:TextBox>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Gastnummer mag alleen uit cijfers bestaan." ControlToValidate="txbGastnummer" ValidationExpression="^[0-9]*$"></asp:RegularExpressionValidator>
+    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Gastnummer mag alleen uit cijfers bestaan." ControlToValidate="txbGastnummer" ValidationExpression="^[0-9]*$" CssClass="validators" Display="Dynamic"></asp:RegularExpressionValidator>
     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Dit veld is verplicht." ControlToValidate="txbGastnummer"></asp:RequiredFieldValidator>
 
     <br />
@@ -30,8 +30,8 @@
     <asp:Label CssClass="labelsnieuw" runat="server" Text="Voornaam"></asp:Label>
     <asp:TextBox ID="txbVoornaam" CssClass="textboxchaos" runat="server"></asp:TextBox>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="In een naam kunnen geen getallen of leestekens zitten met uitzondering op (-)." ControlToValidate="txbVoornaam" ValidationExpression="^[a-zA-Z -]*$"></asp:RegularExpressionValidator>
-    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Dit veld is verplicht." ControlToValidate="txbVoornaam"></asp:RequiredFieldValidator>
+    <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="In een naam kunnen geen getallen of leestekens zitten met uitzondering op (-)." ControlToValidate="txbVoornaam" ValidationExpression="^[a-zA-Z -]*$" CssClass="validators" Display="Dynamic"></asp:RegularExpressionValidator>
+    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Dit veld is verplicht." ControlToValidate="txbVoornaam" CssClass="validators" Display="Dynamic"></asp:RequiredFieldValidator>
 
     <br />
     <br />
@@ -39,16 +39,16 @@
     <asp:Label CssClass="labelsnieuw" runat="server" Text="Tussenvoegsel"></asp:Label>
     <asp:TextBox ID="txbTussenvoegsel" CssClass="textboxchaos" runat="server"></asp:TextBox>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ErrorMessage="In een naam kunnen geen getallen of leestekens zitten met uitzondering op (-)." ControlToValidate="txbTussenvoegsel" ValidationExpression="^[a-zA-Z -]*$"></asp:RegularExpressionValidator>
+    <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ErrorMessage="In een naam kunnen geen getallen of leestekens zitten met uitzondering op (-)." ControlToValidate="txbTussenvoegsel" ValidationExpression="^[a-zA-Z -]*$" CssClass="validators" Display="Dynamic"></asp:RegularExpressionValidator>
 
     <br />
     <br />
 
     <asp:Label CssClass="labelsnieuw" runat="server" Text="Achternaam"></asp:Label>
     <asp:TextBox ID="txbAchternaam" CssClass="textboxchaos" runat="server"></asp:TextBox>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="In een naam kunnen geen getallen of leestekens zitten met uitzondering op (-)." ControlToValidate="txbAchternaam" ValidationExpression="^[a-zA-Z -]*$"></asp:RegularExpressionValidator>
-    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Dit veld is verplicht." ControlToValidate="txbAchternaam"></asp:RequiredFieldValidator>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="In een naam kunnen geen getallen of leestekens zitten met uitzondering op (-)." ControlToValidate="txbAchternaam" ValidationExpression="^[a-zA-Z -]*$" CssClass="validators" Display="Dynamic"></asp:RegularExpressionValidator>
+    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Dit veld is verplicht." ControlToValidate="txbAchternaam" CssClass="validators" Display="Dynamic"></asp:RequiredFieldValidator>
 
     <br />
     <br />
@@ -56,8 +56,8 @@
     <asp:Label CssClass="labelsnieuw" runat="server" Text="E-mail"></asp:Label>
     <asp:TextBox ID="txbEmail" CssClass="textboxchaos" runat="server"></asp:TextBox>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ErrorMessage="Email is niet geldig." ControlToValidate="txbEmail" ValidationExpression="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?" ForeColor="Black"></asp:RegularExpressionValidator>
-    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="Dit veld is verplicht." ControlToValidate="txbEmail"></asp:RequiredFieldValidator>
+    <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ErrorMessage="Email is niet geldig." ControlToValidate="txbEmail" ValidationExpression="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?" ForeColor="Black" CssClass="validators" Display="Dynamic"></asp:RegularExpressionValidator>
+    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="Dit veld is verplicht." ControlToValidate="txbEmail" CssClass="validators" Display="Dynamic"></asp:RequiredFieldValidator>
 
     <br />
     <br />
@@ -76,7 +76,7 @@
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
     <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="ddlCategorie"
-        ErrorMessage="Selecteer is geen geldige waarde." InitialValue="--Selecteer--"></asp:RequiredFieldValidator>
+        ErrorMessage="Selecteer is geen geldige waarde." InitialValue="--Selecteer--" CssClass="validators" Display="Dynamic"></asp:RequiredFieldValidator>
 
 
 
@@ -87,7 +87,7 @@
     <asp:Label CssClass="labelsnieuw" runat="server" Text="Klacht"></asp:Label>
 
     <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="txbKlacht"
-        ErrorMessage="Dit veld is verplicht."></asp:RequiredFieldValidator>
+        ErrorMessage="Dit veld is verplicht." CssClass="validators" Display="Dynamic"></asp:RequiredFieldValidator>
 
 
 
@@ -100,6 +100,6 @@
     <br />
     <br />
 
-    <asp:Button ID="btnVerzenden" CssClass="textboxbtn" runat="server" Text="Verzenden" OnClick="btnVerzenden_Click" />
+    <asp:Button ID="btnVerzenden" CssClass="btnUitloggen" runat="server" Text="Verzenden" OnClick="btnVerzenden_Click" style="background-color: #009879; color: #fff" class="btn"/>
 
 </asp:Content>
