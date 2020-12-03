@@ -73,6 +73,7 @@ update [dbo].[Huuritem] set [CategorieID] = @CategorieID, [Prijs] = @Huurtarief 
     
 
     <asp:HiddenField ID="CategorieID" runat="server" />
+    <asp:Button ID="btnZoeken" runat="server" OnClick="btnZoeken_Click" Text="Button" />
     <asp:RadioButton ID="rdbLeverancier" runat="server" Text="Leverancier" Groupname="Zoeken" />
     <asp:HiddenField ID="LeverancierID" runat="server" />
         

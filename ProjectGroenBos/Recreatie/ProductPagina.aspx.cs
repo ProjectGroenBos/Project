@@ -12,6 +12,7 @@ namespace ProjectGroenBos.Recreatie
 {
     public partial class ProductPagina : System.Web.UI.Page
     {
+        public bool zoeken = false;
         DataTable dtbl = new DataTable();
         string connectionstring = ConfigurationManager.ConnectionStrings["dbconnectie"].ToString();
         protected void Page_Load(object sender, EventArgs e)
@@ -24,6 +25,7 @@ namespace ProjectGroenBos.Recreatie
                     SqlDataAdapter sqlDa = new SqlDataAdapter("SELECT Nummer, Artikelnaam, Omschrijving, Prijs, Aantal, [Minimum voorraad] AS 'MinimumVoorraad', [Naam Leverancier] AS 'NaamLeverancier', Categorie, Huurtarief, LeverancierID, CategorieID FROM vRecreatieProductpagina", sqlCon);
                     sqlDa.Fill(dtbl);
                     ViewState["PB"] = dtbl;
+                    Session["Zoeken"] = zoeken;
                 }
             }
         }
@@ -60,47 +62,57 @@ namespace ProjectGroenBos.Recreatie
 
         protected void txtProductZoeken_TextChanged(object sender, EventArgs e)
         {
-            if (rdbLeverancier.Checked == true)
-            {
 
-                DataTable dtbl = (DataTable)ViewState["PB"];
-                DataView dv = dtbl.DefaultView;
-                dv.RowFilter = string.Format("NaamLeverancier like '%{0}%'", txtProductZoeken.Text);
-                GridviewVullen();
-                GridView1.DataSource = dv.ToTable();
-                GridView1.DataBind();
+            //    if (rdbLeverancier.Checked == true)
+            //    {
 
-                rdbLeverancier.Checked = false;
-            }
-            else if (rdbCategorie.Checked == true)
-            {
-                 DataTable dtbl = (DataTable)ViewState["PB"];
-                DataView dv = dtbl.DefaultView;
-                dv.RowFilter = string.Format("Categorie like '%{0}%'", txtProductZoeken.Text);
-                GridviewVullen();
-                GridView1.DataSource = dv.ToTable();
-                GridView1.DataBind();
-            }
-            else
-            {
-                DataTable dtbl = (DataTable)ViewState["PB"];
-                DataView dv = dtbl.DefaultView;
-                dv.RowFilter = string.Format("Artikelnaam like '%{0}%'", txtProductZoeken.Text);
-                GridviewVullen();
-                GridView1.DataSource = dv.ToTable();
-                GridView1.DataBind();
-            }
-            //GridView1.DataBind();
+            //        DataTable dtbl = (DataTable)ViewState["PB"];
+            //        DataView dv = dtbl.DefaultView;
+            //        dv.RowFilter = string.Format("NaamLeverancier like '%{0}%'", txtProductZoeken.Text);
+            //        GridviewVullen();
+            //        GridView1.DataSource = dv.ToTable();
+            //        GridView1.DataBind();
+
+            //        rdbLeverancier.Checked = false;
+            //    }
+            //    else if (rdbCategorie.Checked == true)
+            //    {
+            //        DataTable dtbl = (DataTable)ViewState["PB"];
+            //        DataView dv = dtbl.DefaultView;
+            //        dv.RowFilter = string.Format("Categorie like '%{0}%'", txtProductZoeken.Text);
+            //        GridviewVullen();
+            //        GridView1.DataSource = dv.ToTable();
+            //        GridView1.DataBind();
+
+            //        rdbCategorie.Checked = false;
+            //    }
+            //    else
+            //    {
+            //        DataTable dtbl = (DataTable)ViewState["PB"];
+            //        DataView dv = dtbl.DefaultView;
+            //        dv.RowFilter = string.Format("Artikelnaam like '%{0}%'", txtProductZoeken.Text);
+            //        GridviewVullen();
+            //        GridView1.DataSource = dv.ToTable();
+            //        GridView1.DataBind();
+
+            //    }
+            //    //GridView1.DataBind();
 
         }
 
         protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
         {
-            DataTable dtbl = (DataTable)ViewState["PB"];
-            DataView dv = dtbl.DefaultView;
-            dv.RowFilter = string.Format("Artikelnaam like '%{0}%'", txtProductZoeken.Text);
-            GridView1.DataSource = dv.ToTable();
-            txtProductZoeken.Text = "";
+            GridView1.EditIndex = e.NewEditIndex;
+            if ((bool)Session["zoeken"] == true)
+            {
+                DataTable dtbl = (DataTable)ViewState["PB"];
+                DataView dv = dtbl.DefaultView;
+                dv.RowFilter = string.Format("Artikelnaam like '%{0}%'", txtProductZoeken.Text);
+                GridView1.DataSource = dv.ToTable();
+               
+                txtProductZoeken.Text = "";
+            }
+
             GridView1.EditIndex = e.NewEditIndex;
             GridView1.DataBind();
         }
@@ -118,15 +130,61 @@ namespace ProjectGroenBos.Recreatie
 
         protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
-            GridviewVullen();
+            if ((bool)Session["Zoeken"] == true)
+            {
+                GridView1.DataSourceID = "";
+                GridView1.DataSource = SqlDataSource1;
+            }
+            
             GridView1.EditIndex = -1;
             GridView1.DataBind();
-            
+
         }
 
         protected void GridView1_RowUpdated(object sender, GridViewUpdatedEventArgs e)
         {
-            
+
+        }
+
+        protected void btnZoeken_Click(object sender, EventArgs e)
+        {
+            Session["zoeken"] = true;
+
+            if (rdbLeverancier.Checked == true)
+            {
+
+                DataTable dtbl = (DataTable)ViewState["PB"];
+                DataView dv = dtbl.DefaultView;
+                dv.RowFilter = string.Format("NaamLeverancier like '%{0}%'", txtProductZoeken.Text);
+                GridviewVullen();
+                GridView1.DataSource = dv.ToTable();
+                GridView1.DataBind();
+
+                rdbLeverancier.Checked = false;
+            }
+            else if (rdbCategorie.Checked == true)
+            {
+                DataTable dtbl = (DataTable)ViewState["PB"];
+                DataView dv = dtbl.DefaultView;
+                dv.RowFilter = string.Format("Categorie like '%{0}%'", txtProductZoeken.Text);
+                GridviewVullen();
+                GridView1.DataSource = dv.ToTable();
+                GridView1.DataBind();
+
+                rdbCategorie.Checked = false;
+            }
+            else
+            {
+                DataTable dtbl = (DataTable)ViewState["PB"];
+                DataView dv = dtbl.DefaultView;
+                dv.RowFilter = string.Format("Artikelnaam like '%{0}%'", txtProductZoeken.Text);
+                GridviewVullen();
+                GridView1.DataSource = dv.ToTable();
+                GridView1.DataBind();
+
+            }
+            //    //GridView1.DataBind();
+
         }
     }
 }
