@@ -73,7 +73,7 @@
     <asp:TextBox ID="txbOpmerking" runat="server" CssClass="textboxchaos"></asp:TextBox>
 
     <br />
-    <asp:Label ID="Label4" runat="server" Text="Huisjenummer" CssClass="labelsnieuw"></asp:Label>
+    <asp:Label ID="Label4" runat="server" Text="Bungalownummer" CssClass="labelsnieuw"></asp:Label>
     <asp:Label ID="lblHuisjenummer" runat="server" Text="" CssClass="textboxchaos"></asp:Label>
     
     <br />

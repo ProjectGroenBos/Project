@@ -174,7 +174,7 @@ namespace ProjectGroenBos.Reservering
 
                 Session["prijs"] = prijs.ToString();
                 Session["personen"] = txbAantalPersonen.Text;
-                Session["reservering"] = reserveringnummer;
+                Session["reserveringnummer"] = reserveringnummer;
                 Response.Redirect("Nachtregister.aspx");
             }
             catch

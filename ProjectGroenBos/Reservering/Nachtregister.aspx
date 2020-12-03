@@ -55,6 +55,12 @@
                     <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ErrorMessage="Datum moet ingevult zijn als  jjjj-mm-dd." ControlToValidate="TxBGeboortedatum" ValidationExpression="^(19|20)?\d\d[-](0[1-9]|1[012])[-](0[1-9]|[12][0-9]|3[01])$" Display="Dynamic" ForeColor="Red"></asp:RegularExpressionValidator>
                 </td>
             </tr>
+            <tr>
+                <td>
+                    <asp:Label ID="Label3" runat="server" Text="Reserveringnummer:"></asp:Label></td>
+                <td>
+                    <asp:Label ID="lblReserveringnummer" runat="server" Text=""></asp:Label></td>
+            </tr>
         </table>
 
 
@@ -70,6 +76,22 @@
         <asp:Button ID="btnBevestigen" runat="server" Click="btnBevestigen_Click1" Text="Bevestigen" OnClick="btnBevestigen_Click" CssClass="btnUitloggen" Style="background-color: #009879; color: #fff" class="btn" />
 
         <asp:Button ID="btnToevoegen" runat="server" OnClick="btnToevoegen_Click1" Text="Toevoegen" CssClass="btnUitloggen" Style="background-color: #009879; color: #fff" class="btn" />
+
+        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" DataKeyNames="Voornaam,Tussenvoegsel,Achternaam,Geboortedatum">
+            <Columns>
+                <asp:BoundField DataField="Voornaam" HeaderText="Voornaam" SortExpression="Voornaam" />
+                <asp:BoundField DataField="Tussenvoegsel" HeaderText="Tussenvoegsel" SortExpression="Tussenvoegsel" />
+                <asp:BoundField DataField="Achternaam" HeaderText="Achternaam" SortExpression="Achternaam" />
+                <asp:BoundField DataField="Geboortedatum" HeaderText="Geboortedatum" SortExpression="Geboortedatum" />
+            </Columns>
+        </asp:GridView>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:2020-BIM02-P1-P2-GroenbosConnectionString %>" SelectCommand="select Voornaam, Tussenvoegsel, Achternaam, Geboortedatum
+from Gast right join Reservering on Gast.Nummer = Reservering.GastNummer
+where Reservering.Nummer = @nummer">
+            <SelectParameters>
+                <asp:ControlParameter ControlID="lblReserveringnummer" Name="nummer" PropertyName="Text" />
+            </SelectParameters>
+        </asp:SqlDataSource>
 
     </div>
 

@@ -22,7 +22,7 @@ namespace ProjectGroenBos.Reservering
             {
                 lbluitkomst.Text = "De reservering is geannuleerd.";
             }
-            else if (Session["controel6"] != null)
+            else if (Session["controle6"] != null)
             {
                 lbluitkomst.Text = "De reservering is gewijzigd.";
             }
