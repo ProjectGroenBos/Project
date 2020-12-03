@@ -73,21 +73,23 @@ namespace ProjectGroenBos.Recreatie
 
         protected void txbZoekenProductpaginainactief_TextChanged(object sender, EventArgs e)
         {
-            if (CkbLeverancierproductpagina.Checked == true)
+            if (RdbProductpaginaLeverancier.Checked == true)
             {
                 DataTable dtbl = (DataTable)Session["vaDB"];
                 DataView dv = dtbl.DefaultView;
                 dv.RowFilter = string.Format("[Naam Leverancier] like '%{0}%'", txbZoekenProductpaginainactief.Text);
                 GVProductpaginaInactiefMaken.DataSource = dv.ToTable();
                 GVProductpaginaInactiefMaken.DataBind();
+                RdbProductpaginaLeverancier.Checked = false;
             }
-            else if (CkbCategorieproductpagina.Checked == true)
+            else if (RdbProductpaginaCategorie.Checked == true)
             {
                 DataTable dtbl = (DataTable)Session["vaDB"];
                 DataView dv = dtbl.DefaultView;
                 dv.RowFilter = string.Format("Categorie like '%{0}%'", txbZoekenProductpaginainactief.Text);
                 GVProductpaginaInactiefMaken.DataSource = dv.ToTable();
                 GVProductpaginaInactiefMaken.DataBind();
+                RdbProductpaginaCategorie.Checked = false;
             }
             else
             {

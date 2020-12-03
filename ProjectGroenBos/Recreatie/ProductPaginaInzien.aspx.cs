@@ -71,21 +71,23 @@ namespace ProjectGroenBos.Recreatie
 
         protected void TxbZoekenproductpagina_TextChanged(object sender, EventArgs e)
         {
-            if (CkbLeverancierinzien.Checked == true)
+            if (RdbLeverancier.Checked == true)
             {
                 DataTable dtbl = (DataTable)Session["vaDB"];
                 DataView dv = dtbl.DefaultView;
                 dv.RowFilter = string.Format("[Naam Leverancier] like '%{0}%'", TxbZoekenproductpagina.Text);
                 GVProductpagInzien.DataSource = dv.ToTable();
                 GVProductpagInzien.DataBind();
+                RdbLeverancier.Checked = false;
             }
-            else if (CkbCategorieproductpaginainzien.Checked == true)
+            else if (RdbCategorie.Checked == true)
             {
                 DataTable dtbl = (DataTable)Session["vaDB"];
                 DataView dv = dtbl.DefaultView;
                 dv.RowFilter = string.Format("Categorie like '%{0}%'", TxbZoekenproductpagina.Text);
                 GVProductpagInzien.DataSource = dv.ToTable();
                 GVProductpagInzien.DataBind();
+                RdbCategorie.Checked = false;
             }
             else
             {
@@ -102,7 +104,9 @@ namespace ProjectGroenBos.Recreatie
             InvullenGridview(e.SortExpression);
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
+       
+
+        protected void BtnProductpaginaInzieninactief_Click(object sender, EventArgs e)
         {
             Response.Redirect("InactiefmakenProductpagina.aspx");
         }

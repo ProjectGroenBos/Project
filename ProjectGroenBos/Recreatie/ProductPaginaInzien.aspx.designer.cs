@@ -33,22 +33,22 @@ namespace ProjectGroenBos.Recreatie
         protected global::System.Web.UI.WebControls.TextBox TxbZoekenproductpagina;
 
         /// <summary>
-        /// CkbLeverancierinzien control.
+        /// RdbLeverancier control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CkbLeverancierinzien;
+        protected global::System.Web.UI.WebControls.RadioButton RdbLeverancier;
 
         /// <summary>
-        /// CkbCategorieproductpaginainzien control.
+        /// RdbCategorie control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CkbCategorieproductpaginainzien;
+        protected global::System.Web.UI.WebControls.RadioButton RdbCategorie;
 
         /// <summary>
         /// GVProductpagInzien control.
@@ -58,5 +58,23 @@ namespace ProjectGroenBos.Recreatie
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView GVProductpagInzien;
+
+        /// <summary>
+        /// BtnProductpaginainzienWijzigen control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnProductpaginainzienWijzigen;
+
+        /// <summary>
+        /// BtnProductpaginaInzieninactief control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnProductpaginaInzieninactief;
     }
 }
