@@ -1,62 +1,93 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Reservering/Site1.Master" AutoEventWireup="true" CodeBehind="GastSelecteren.aspx.cs" Inherits="ProjectGroenBos.KlantSelecteren" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head2" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-
+    <div class="container">
     <h1>Selecteer de gast voor de reservering</h1>
     <br />
-    <p>Selecteer de gast door middel van achternaam en woonplaats. Als je de gast niet kan vinden,<br />  moet er een nieuw gastnummer worden aangemaakt inclusief gastgegevens.</p>
-    
-    <br />
-    <asp:Label ID="Label1" runat="server" Text="Achternaam" CssClass="labelsnieuw"></asp:Label>
-    <asp:TextBox ID="txbAchternaam" runat="server" CssClass="textboxchaos"></asp:TextBox>
-    
-    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" CssClass="validators" ErrorMessage="Dit veld is verplicht." ControlToValidate="txbAchternaam"></asp:RequiredFieldValidator>
-    <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="txbAchternaam" ErrorMessage="In een achternaam staan geen getallen." ValidationExpression="^[a-zA-Z -]*$" ForeColor="Red" CssClass="validators" Display="Dynamic"></asp:RegularExpressionValidator>
+    <p>
+        Selecteer de gast door middel van achternaam en woonplaats. Als je de gast niet kan vinden,<br />
+        moet er een nieuw gastnummer worden aangemaakt inclusief gastgegevens.
+    </p>
 
     <br />
-    <asp:Label ID="Label2" runat="server" Text="Email" CssClass="labelsnieuw"></asp:Label>
-    <asp:TextBox ID="txbEmail" runat="server" CssClass="textboxchaos"></asp:TextBox>
-    
-    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" CssClass="validators" ErrorMessage="Dit veld is verplicht." ControlToValidate="txbEmail"></asp:RequiredFieldValidator>
-    <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ControlToValidate="txbEmail" ErrorMessage="Email is niet geldig" ValidationExpression="[a-z0-9!#$%&'+/=?^_`{|}~-]+(?:.[a-z0-9!#$%&'+/=?^_`{|}~-]+)@(?:[a-z0-9](?:[a-z0-9-][a-z0-9])?.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?" ForeColor="Red" CssClass="validators" Display="Dynamic"></asp:RegularExpressionValidator>
 
-    <br />
-    <asp:Label ID="Label3" runat="server" Text="Telefoonnummer" CssClass="labelsnieuw"></asp:Label>
-    <asp:TextBox ID="txbTelefoonnummer" runat="server" CssClass="textboxchaos"></asp:TextBox>
-    
-    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" CssClass="validators" ErrorMessage="Dit veld is verplicht." ControlToValidate="txbTelefoonnummer"></asp:RequiredFieldValidator>
-    <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ControlToValidate="txbTelefoonnummer" ErrorMessage="Eerste 0 weglaten en 9 cijfers gebruiken." ValidationExpression="^[0-9]{9}$" ForeColor="Red" CssClass="validators" Display="Dynamic"></asp:RegularExpressionValidator>
+    <table style="text-align: left; margin-left: 5%">
+        <tr>
+            <td style="width: 15%">
+                <asp:Label ID="Label1" runat="server" Text="Achternaam" CssClass="labelsnieuw"></asp:Label>
+            </td>
+            <td style="width: 15%">
+                <asp:TextBox ID="txbAchternaam" runat="server" CssClass="textboxchaos"></asp:TextBox>
+            </td>
 
-    <br />
-    <asp:Button ID="btnZoek" runat="server" Text="Zoek gast" CssClass="btnUitloggen" OnClick="btnZoek_Click" style="background-color: #009879; color: #fff" class="btn"/>
-    <asp:Button ID="btnGastAanmaken" runat="server" Text="Gast aanmaken" CssClass="btnUitloggen" OnClick="btnGastAanmaken_Click" style="background-color: #009879; color: #fff" class="btn"/>
+
+            <td style="width: 40%">
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Dit veld is verplicht." ControlToValidate="txbAchternaam" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="txbAchternaam" ErrorMessage="In een achternaam staan geen getallen." ValidationExpression="^[a-zA-Z -]*$" ForeColor="Red" Display="Dynamic"></asp:RegularExpressionValidator>
+            </td>
+        </tr>
+
+        <tr>
+            <td style="width: 15%">
+                <asp:Label ID="Label2" runat="server" Text="Email" CssClass="labelsnieuw"></asp:Label>
+            </td>
+            <td style="width: 15%">
+                <asp:TextBox ID="txbEmail" runat="server" CssClass="textboxchaos"></asp:TextBox>
+            </td>
+            <td style="width: 40%">
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Dit veld is verplicht." ControlToValidate="txbEmail" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ControlToValidate="txbEmail" ErrorMessage="Email is niet geldig" ValidationExpression="[a-z0-9!#$%&'+/=?^_`{|}~-]+(?:.[a-z0-9!#$%&'+/=?^_`{|}~-]+)@(?:[a-z0-9](?:[a-z0-9-][a-z0-9])?.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?" ForeColor="Red" Display="Dynamic"></asp:RegularExpressionValidator>
+            </td>
+        </tr>
+       
+        <tr>
+            <td style="width: 15%">
+                <asp:Label ID="Label3" runat="server" Text="Telefoonnummer" CssClass="labelsnieuw"></asp:Label>
+            </td>
+            <td style="width: 15%">
+                <asp:TextBox ID="txbTelefoonnummer" runat="server" CssClass="textboxchaos"></asp:TextBox>
+            </td>
+            <td style="width: 40%">
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Dit veld is verplicht." ControlToValidate="txbTelefoonnummer" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ControlToValidate="txbTelefoonnummer" ErrorMessage="Eerste 0 weglaten en 9 cijfers gebruiken." ValidationExpression="^[0-9]{9}$" ForeColor="Red" Display="Dynamic"></asp:RegularExpressionValidator>
+            </td>
+        </tr>
+
+      
+  </table>
+        <br />
+        <asp:Button ID="btnZoek" runat="server" Text="Zoek gast" CssClass="btnUitloggen" OnClick="btnZoek_Click" Style="background-color: #009879; color: #fff" class="btn" />
+            
+        <asp:Button ID="btnGastAanmaken" runat="server" Text="Gast aanmaken" CssClass="btnUitloggen" OnClick="btnGastAanmaken_Click" Style="background-color: #009879; color: #fff" class="btn" />
     
     <br />
-    <asp:Label ID="lblUitkomst" runat="server" Text="Label"></asp:Label>
+    <asp:Label ID="lblUitkomst" runat="server"></asp:Label>
     <br />
+
     <asp:GridView ID="GridView1" runat="server" CssClass="content-table" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" DataKeyNames="Gastnummer" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AllowSorting="True" AutoGenerateSelectButton="True">
-        <Columns>  
-            <asp:BoundField DataField="Gastnummer" HeaderText="Gastnummer" SortExpression="Gastnummer" InsertVisible="False" ReadOnly="True" >
-            <HeaderStyle ForeColor="White" />
+        <Columns>
+            <asp:BoundField DataField="Gastnummer" HeaderText="Gastnummer" SortExpression="Gastnummer" InsertVisible="False" ReadOnly="True">
+                <HeaderStyle ForeColor="White" />
             </asp:BoundField>
-            <asp:BoundField DataField="Voornaam" HeaderText="Voornaam" SortExpression="Voornaam" >
-            <HeaderStyle ForeColor="White" />
+            <asp:BoundField DataField="Voornaam" HeaderText="Voornaam" SortExpression="Voornaam">
+                <HeaderStyle ForeColor="White" />
             </asp:BoundField>
-            <asp:BoundField DataField="Tussenvoegsel" HeaderText="Tussenvoegsel" SortExpression="Tussenvoegsel" >
-            <HeaderStyle ForeColor="White" />
+            <asp:BoundField DataField="Tussenvoegsel" HeaderText="Tussenvoegsel" SortExpression="Tussenvoegsel">
+                <HeaderStyle ForeColor="White" />
             </asp:BoundField>
-            <asp:BoundField DataField="Achternaam" HeaderText="Achternaam" SortExpression="Achternaam" >
-            <HeaderStyle ForeColor="White" />
+            <asp:BoundField DataField="Achternaam" HeaderText="Achternaam" SortExpression="Achternaam">
+                <HeaderStyle ForeColor="White" />
             </asp:BoundField>
-            <asp:BoundField DataField="Telefoonnummer" HeaderText="Telefoonnummer" SortExpression="Telefoonnummer" >
-            <HeaderStyle ForeColor="White" />
+            <asp:BoundField DataField="Telefoonnummer" HeaderText="Telefoonnummer" SortExpression="Telefoonnummer">
+                <HeaderStyle ForeColor="White" />
             </asp:BoundField>
-            <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" >
-            
-            <HeaderStyle ForeColor="White" />
+            <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email">
+
+                <HeaderStyle ForeColor="White" />
             </asp:BoundField>
-            
+
         </Columns>
     </asp:GridView>
 
