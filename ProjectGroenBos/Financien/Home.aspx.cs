@@ -42,6 +42,14 @@ namespace ProjectGroenBos.Financien
                 rpCirkel.DataSource = ds1;
                 rpCirkel.DataBind();
 
+                SqlCommand cmd2 = new SqlCommand("DECLARE @Maanden nvarchar(max) DECLARE @Bedrag nvarchar(max) SELECT @Maanden = COALESCE(@Maanden + ', ', '') + CAST(Maand.Maandnaam as nvarchar), @Bedrag = COALESCE(@Bedrag + ', ', '') + CAST(WINST.Bedrag as nvarchar) FROM WINST inner join Maand on WINST.Datum = Maand.Maandnummer SELECT @Maanden as Maanden, @Bedrag as Bedrag", con);
+                DataSet ds2 = new DataSet();
+                SqlDataAdapter da2 = new SqlDataAdapter(cmd2);
+                da2.Fill(ds2);
+                Repeater1.DataSource = ds2;
+                Repeater1.DataBind();
+
+
                 con.Close();
             }
         }
