@@ -12,7 +12,7 @@
         de gegevens van uw medevakantiegangers nodig. Dit alles om te weten of iedereen het park uit is.
    <br />
         <br />
-        <table class ="tabelReserveringen" >
+        <table style="text-align: left; margin-left: 5%">
             <tr>
                 <td style="width: 15%">
                     <asp:Label ID="Label2" runat="server" Text="Naam:" CssClass="labelsnieuw"></asp:Label></td>
