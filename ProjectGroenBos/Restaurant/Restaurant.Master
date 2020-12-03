@@ -46,7 +46,7 @@
                             <li><a href="#">Recreatie</a></li>
                             <li><a href="#">Schoonmaak</a></li>
                             <li><a href="#">Financiën</a></li>
-                            <asp:Button ID="btnUitloggen" runat="server" CssClass="btnUitloggen" Text="Uitloggen" />
+                            <asp:Button ID="btnUitloggen" runat="server" CssClass="btnUitloggen" Text="Uitloggen" OnClick="btnUitloggen_Click" />
                         </ul>
                     </nav>
                 </div>
