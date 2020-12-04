@@ -14,10 +14,11 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="header">Inkoop-Aanvragen Bestel-Overzicht</div>
+    <div class="header">Factuur-Koppel pagina</div>
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <div class="container">
 
+        <asp:TextBox ID="TextBox1" runat="server" AutoPostBack="True" BorderStyle="Solid" Height="23px" OnTextChanged="TextBox1_TextChanged" Width="215px"></asp:TextBox>
         <asp:DropDownList ID="DropDownList1" AutoPostBack="True" runat="server" DataSourceID="SqlDataSource2" DataTextField="Naam" DataValueField="Naam" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" CssClass="DropDownAfdeling"></asp:DropDownList>
 
         <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT [Naam] FROM [Afdeling] union
