@@ -60,19 +60,29 @@ namespace ProjectGroenBos.Financien
             using (SqlConnection con = new SqlConnection(constr))
             {
                 con.Open();
+                int repeaternummer = int.Parse(((Button)sender).CommandName);
 
-                int nummer = int.Parse(((Button)sender).CommandArgument);
+                TextBox bestelnummer = (TextBox)rpInkoopOrderAanvragen.Items[repeaternummer].FindControl("txbBestelnummer");
 
+                if(bestelnummer.Text.Length < 1)
+                {
+                    ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "Bestelerror();", true);
+                }
+                else
+                {
+                    int nummer = int.Parse(((Button)sender).CommandArgument);
 
-                SqlCommand cmd = new SqlCommand("UPDATE InkoopOrderAanvraag SET InkoopOrderAanvraagStatusID = 4 WHERE Nummer = @nummer; ", con);
-                cmd.Parameters.AddWithValue("@nummer", nummer);
-                cmd.ExecuteNonQuery();
+                    SqlCommand cmd = new SqlCommand("UPDATE InkoopOrderAanvraag SET InkoopOrderAanvraagStatusID = 4, Bestelnummer = @bestelnummer WHERE Nummer = @nummer; ", con);
+                    cmd.Parameters.AddWithValue("@nummer", nummer);
+                    cmd.Parameters.AddWithValue("@bestelnummer", bestelnummer.Text);
+                    cmd.ExecuteNonQuery();
+                    ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "Bestelsuccess();", true);
+                }
 
                 con.Close();
             }
 
             gvInkooporderaanvragerMain.DataBind();
-            ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "Bestelsuccess();", true);
         }
     }
 }
