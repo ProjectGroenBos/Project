@@ -152,7 +152,7 @@ body {
     border-collapse: collapse;
     margin: 25px 0;
     font-size: 0.9em;
-    min-width: 400px;
+    min-width: 655px;
     border-radius: 5px 5px 0 0;
     overflow: hidden;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
@@ -732,3 +732,82 @@ nav ul {
     background: rgba(14,98,81,1);
     color: #fff;
 }
+
+
+
+
+.content-table2 {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    min-width: 400px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+    .content-table2 tbody tr th {
+        background-color: #ffffff;
+        color: #007bff !important;
+        text-align: center;
+        font-weight: bold;
+    }
+
+        .content-table2 tbody tr th a {
+            color: #ffffff !important;
+        }
+
+    .content-table2 th,
+    .content-table2 td {
+        padding: 12px 15px;
+    }
+
+    .content-table2 tbody tr {
+        border-bottom: 1px solid #dddddd;
+    }
+
+        .content-table2 tbody tr:nth-of-type(even) {
+            background-color: #f3f3f3;
+        }
+
+
+        .content-table2 tbody tr:last-of-type {
+            border-bottom: 2px solid #007bff;
+        }
+
+        .content-table2 tbody tr:hover {
+            font-weight: bold;
+            color: #007bff !important;
+        }
+
+        .content-table2 tbody tr td a {
+            background-color: rgba(20,143,119,1);
+            border-radius: 5px;
+            color: #ffffff;
+            padding: .5em;
+            text-decoration: none;
+        }
+
+        .content-table2 tbody tr td p {
+            margin-bottom: 0 !important;
+        }
+
+        .content-table2 tbody tr td a:nth-child(2) {
+            background-color: #C0392B;
+            border-radius: 5px;
+            color: #ffffff;
+            padding: .5em;
+            text-decoration: none;
+        }
+
+            .content-table2 tbody tr td a:nth-child(2):hover {
+                background-color: #CD6155;
+                color: #ffffff;
+            }
+
+        .content-table2 tbody tr td a:hover {
+            background-color: #009879;
+            color: #ffffff;
+        }

@@ -8,6 +8,7 @@
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{551AF18F-B28D-4103-8D83-2E52958BF191}</ProjectGuid>
+    <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -78,10 +79,12 @@
     <Content Include=".idea\.idea.ProjectGroenBos\.idea\workspace.xml" />
     <Content Include="Financien\CrediteurenFactuurBetaal.aspx" />
     <Content Include="Financien\css\main.css" />
+    <Content Include="Financien\FactuurKoppelScherm.aspx" />
     <Content Include="Financien\Factuurtoevoegen.aspx" />
     <Content Include="Financien\Home.aspx" />
     <Content Include="Financien\img\Logo.png" />
     <Content Include="Financien\img\Logo3.png" />
+    <Content Include="Financien\InkoopAanvraagBestelScherm.aspx" />
     <Content Include="Financien\Inlogscherm.aspx" />
     <Content Include="Financien\Overzicht.aspx" />
     <Content Include="Financien\Prijstabel.aspx" />
@@ -696,6 +699,13 @@
     <Compile Include="Financien\CrediteurenFactuurBetaal.aspx.designer.cs">
       <DependentUpon>CrediteurenFactuurBetaal.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Financien\FactuurKoppelScherm.aspx.cs">
+      <DependentUpon>FactuurKoppelScherm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Financien\FactuurKoppelScherm.aspx.designer.cs">
+      <DependentUpon>FactuurKoppelScherm.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Financien\Factuurtoevoegen.aspx.cs">
       <DependentUpon>Factuurtoevoegen.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -716,6 +726,13 @@
     </Compile>
     <Compile Include="Financien\Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Financien\InkoopAanvraagBestelScherm.aspx.cs">
+      <DependentUpon>InkoopAanvraagBestelScherm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Financien\InkoopAanvraagBestelScherm.aspx.designer.cs">
+      <DependentUpon>InkoopAanvraagBestelScherm.aspx</DependentUpon>
     </Compile>
     <Compile Include="Financien\Inlogscherm.aspx.cs">
       <DependentUpon>Inlogscherm.aspx</DependentUpon>
@@ -879,6 +896,7 @@
     </Compile>
     <Compile Include="Reservering\test.aspx.cs">
       <DependentUpon>test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Reservering\test.aspx.designer.cs">
       <DependentUpon>test.aspx</DependentUpon>
@@ -920,6 +938,7 @@
     </Compile>
     <Compile Include="Restaurant\opnemenbestelling.aspx.cs">
       <DependentUpon>opnemenbestelling.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Restaurant\opnemenbestelling.aspx.designer.cs">
       <DependentUpon>opnemenbestelling.aspx</DependentUpon>
