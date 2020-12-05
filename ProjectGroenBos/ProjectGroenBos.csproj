@@ -146,9 +146,9 @@
     <Content Include="Restaurant\img\productimg\varkenshaas.png" />
     <Content Include="inlogscherm.aspx" />
     <Content Include="Restaurant\img\save.png" />
-    <Content Include="Restaurant\tafeloverzicht.aspx" />
     <Content Include="Restaurant\reserveren.aspx" />
     <Content Include="Restaurant\Keukenoverzicht.aspx" />
+    <Content Include="Restaurant\tafeloverzicht.aspx" />
     <Content Include="Restaurant\Voorraad.aspx" />
     <Content Include="Schoonmaak en Onderhoud\InventarisOverzicht.aspx" />
     <Content Include="Schoonmaak en Onderhoud\OffertesOverzicht.aspx" />
@@ -581,13 +581,6 @@
     <Compile Include="Restaurant\Restaurant.Master.designer.cs">
       <DependentUpon>Restaurant.Master</DependentUpon>
     </Compile>
-    <Compile Include="Restaurant\tafeloverzicht.aspx.cs">
-      <DependentUpon>tafeloverzicht.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Restaurant\tafeloverzicht.aspx.designer.cs">
-      <DependentUpon>tafeloverzicht.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Restaurant\reserveren.aspx.cs">
       <DependentUpon>reserveren.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -601,6 +594,13 @@
     </Compile>
     <Compile Include="Restaurant\Keukenoverzicht.aspx.designer.cs">
       <DependentUpon>Keukenoverzicht.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Restaurant\tafeloverzicht.aspx.cs">
+      <DependentUpon>tafeloverzicht.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Restaurant\tafeloverzicht.aspx.designer.cs">
+      <DependentUpon>tafeloverzicht.aspx</DependentUpon>
     </Compile>
     <Compile Include="Restaurant\Voorraad.aspx.cs">
       <DependentUpon>Voorraad.aspx</DependentUpon>
