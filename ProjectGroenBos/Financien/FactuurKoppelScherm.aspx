@@ -129,8 +129,9 @@ SELECT 'Alle Afdelingen' AS [Naam]"></asp:SqlDataSource>
 
                                                 <p style="margin-top: 1rem; margin-bottom: 0;">Uiterste betaaldatum</p>
                                                 <asp:TextBox ID="txbTermijn" placeholder="DD-MM-YYYY" Style="text-align: center" Height="50px" Width="100%" runat="server"></asp:TextBox>
-
-
+                                                <asp:FileUpload ID="FileUpload1" runat="server" />
+                                                <asp:Button ID="btnSavePdf" runat="server" Text="upload" CommandArgument='<%# Eval("Nummer") %>' OnClientClick="btnSavePdf" />
+                                                <asp:Button ID="btnOpenPDF" runat="server" Text="Button" CommandArgument='<%# Eval("Nummer") %>' OnClientClick="btnOpenPDF" />
 
 
                                             </ContentTemplate>
