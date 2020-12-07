@@ -9,7 +9,7 @@ using System.Web.UI.WebControls;
 
 namespace ProjectGroenBos.Financien
 {
-    public partial class FactuurKoppelScherm : System.Web.UI.Page
+    public partial class InzienInkoopTraject : System.Web.UI.Page
     {
         string constr = System.Configuration.ConfigurationManager.ConnectionStrings["dbconnectie"].ConnectionString;
 
@@ -32,8 +32,8 @@ namespace ProjectGroenBos.Financien
                 DataSet ds = new DataSet();
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 da.Fill(ds);
-                rpFactuurToevoegen.DataSource = ds;
-                rpFactuurToevoegen.DataBind();
+                rpInzienInkoopTraject.DataSource = ds;
+                rpInzienInkoopTraject.DataBind();
 
                 con.Close();
             }
@@ -44,36 +44,16 @@ namespace ProjectGroenBos.Financien
             if (DropDownList1.Text == "Alle Afdelingen")
             {
                 SqlDataSource1.SelectCommand =
-                "select * from inkooporderaanvraagmainLev where [Status] = 'Pakbon goedgekeurd' order by datum DESC, opmerking DESC";
+                "select * from inkooporderaanvraagmainLev order by datum DESC, opmerking DESC";
                 gvInkooporderaanvragerMain.DataBind();
             }
 
             else
             {
                 SqlDataSource1.SelectCommand =
-                    "select * from inkooporderaanvraagmainLev where Naam = '" + DropDownList1.Text + "' AND [Status] = 'Pakbon goedgekeurd' order by datum DESC, opmerking DESC";
+                    "select * from inkooporderaanvraagmainLev where Naam = '" + DropDownList1.Text + "' order by datum DESC, opmerking DESC";
                 gvInkooporderaanvragerMain.DataBind();
             }
-        }
-
-        protected void btnFactuurKoppelen_OnClick(object sender, EventArgs e)
-        {
-            using (SqlConnection con = new SqlConnection(constr))
-            {
-                con.Open();
-
-                int nummer = int.Parse(((Button)sender).CommandArgument);
-
-
-                SqlCommand cmd = new SqlCommand("UPDATE InkoopOrderAanvraag SET InkoopOrderAanvraagStatusID = 7, LaatsteUpdate = GETDATE() WHERE Nummer = @nummer; ", con);
-                cmd.Parameters.AddWithValue("@nummer", nummer);
-                cmd.ExecuteNonQuery();
-
-                con.Close();
-            }
-
-            gvInkooporderaanvragerMain.DataBind();
-            ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "Bestelsuccess();", true);
         }
 
         protected void TextBox1_TextChanged(object sender, EventArgs e)
@@ -81,43 +61,17 @@ namespace ProjectGroenBos.Financien
             if (TextBox1.Text != "")
             {
                 SqlDataSource1.SelectCommand =
-                "select * from inkooporderaanvraagmainLev where Bestelnummer LIKE '" + TextBox1.Text + "%' AND [Status] = 'Pakbon goedgekeurd' order by datum DESC, opmerking DESC";
+                "select * from inkooporderaanvraagmainLev where Bestelnummer LIKE '" + TextBox1.Text + "%' order by datum DESC, opmerking DESC";
                 gvInkooporderaanvragerMain.DataBind();
             }
 
             else
             {
                 SqlDataSource1.SelectCommand =
-                    "select * from inkooporderaanvraagmainLev where [Status] = 'Pakbon goedgekeurd' order by datum DESC, opmerking DESC";
+                    "select * from inkooporderaanvraagmainLev order by datum DESC, opmerking DESC";
                 gvInkooporderaanvragerMain.DataBind();
             }
         }
-        protected void btnSavePdf_OnClick(object sender, EventArgs e)
-        {
-            Button btn = sender as Button;
-            int gridviewnr = int.Parse(btn.CommandName);
-
-            FileUpload FileUpload1 = ((FileUpload)rpFactuurToevoegen.FindControl("FileUpload1"));
-
-            using (SqlConnection con = new SqlConnection(constr))
-            {
-
-                con.Open();
-                //Convert pdf in Binary formate
-                int lenght = FileUpload1.PostedFile.ContentLength;
-                byte[] data = new byte[lenght];
-                FileUpload1.PostedFile.InputStream.Read(data, 0, lenght);
-
-
-                using (SqlCommand cmd = new SqlCommand("insert into Crediteurenfactuur " + "(PdfData) values(@data)", con))
-                {
-                    cmd.Parameters.AddWithValue("@data", data);
-                    cmd.ExecuteNonQuery();
-                    Response.Write("Pdf File Save in Dab");
-                }
-            }
-        }
-
 
         protected void btnOpenPDF_OnClick(object sender, EventArgs e)
         {
@@ -162,4 +116,3 @@ namespace ProjectGroenBos.Financien
         }
     }
 }
-

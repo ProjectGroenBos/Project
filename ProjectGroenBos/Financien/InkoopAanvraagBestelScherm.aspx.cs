@@ -72,7 +72,7 @@ namespace ProjectGroenBos.Financien
                 {
                     int nummer = int.Parse(((Button)sender).CommandArgument);
 
-                    SqlCommand cmd = new SqlCommand("UPDATE InkoopOrderAanvraag SET InkoopOrderAanvraagStatusID = 4, Bestelnummer = @bestelnummer WHERE Nummer = @nummer; ", con);
+                    SqlCommand cmd = new SqlCommand("UPDATE InkoopOrderAanvraag SET InkoopOrderAanvraagStatusID = 4, LaatsteUpdate = GETDATE(), Bestelnummer = @bestelnummer WHERE Nummer = @nummer; ", con);
                     cmd.Parameters.AddWithValue("@nummer", nummer);
                     cmd.Parameters.AddWithValue("@bestelnummer", bestelnummer.Text);
                     cmd.ExecuteNonQuery();

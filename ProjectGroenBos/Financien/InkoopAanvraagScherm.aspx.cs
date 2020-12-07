@@ -58,7 +58,7 @@ namespace ProjectGroenBos.Financien
 
                 TextBox afkeurTextBox = (TextBox)rpInkoopOrderAanvragen.Items[repeaternummer].FindControl("txbInkoopOrderAfkeuren");
 
-                SqlCommand cmd = new SqlCommand("UPDATE InkoopOrderAanvraag SET Opmerking = @textbox, InkoopOrderAanvraagStatusID = 3 WHERE Nummer = @nummer", con);
+                SqlCommand cmd = new SqlCommand("UPDATE InkoopOrderAanvraag SET Opmerking = @textbox, InkoopOrderAanvraagStatusID = 3, LaatsteUpdate = GETDATE() WHERE Nummer = @nummer", con);
                 cmd.Parameters.AddWithValue("@nummer", nummer);
                 cmd.Parameters.AddWithValue("@textbox", afkeurTextBox.Text);
                 cmd.ExecuteNonQuery();
@@ -79,7 +79,7 @@ namespace ProjectGroenBos.Financien
                 int nummer = int.Parse(((Button)sender).CommandArgument);
 
 
-                SqlCommand cmd = new SqlCommand("UPDATE InkoopOrderAanvraag SET InkoopOrderAanvraagStatusID = 2 WHERE Nummer = @nummer; ", con);
+                SqlCommand cmd = new SqlCommand("UPDATE InkoopOrderAanvraag SET InkoopOrderAanvraagStatusID = 2, LaatsteUpdate = GETDATE() WHERE Nummer = @nummer; ", con);
                 cmd.Parameters.AddWithValue("@nummer", nummer);
                 cmd.ExecuteNonQuery();
 
