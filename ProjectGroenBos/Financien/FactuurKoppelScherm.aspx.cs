@@ -44,14 +44,14 @@ namespace ProjectGroenBos.Financien
             if (DropDownList1.Text == "Alle Afdelingen")
             {
                 SqlDataSource1.SelectCommand =
-                "select * from inkooporderaanvraagmainLev order by datum DESC, opmerking DESC";
+                "select * from inkooporderaanvraagmainLev where [Status] = 'Pakbon goedgekeurd' order by datum DESC, opmerking DESC";
                 gvInkooporderaanvragerMain.DataBind();
             }
 
             else
             {
                 SqlDataSource1.SelectCommand =
-                    "select * from inkooporderaanvraagmainLev where Naam = '" + DropDownList1.Text + "' order by datum DESC, opmerking DESC";
+                    "select * from inkooporderaanvraagmainLev where Naam = '" + DropDownList1.Text + "' AND [Status] = 'Pakbon goedgekeurd' order by datum DESC, opmerking DESC";
                 gvInkooporderaanvragerMain.DataBind();
             }
         }
@@ -74,6 +74,23 @@ namespace ProjectGroenBos.Financien
 
             gvInkooporderaanvragerMain.DataBind();
             ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "Bestelsuccess();", true);
+        }
+
+        protected void TextBox1_TextChanged(object sender, EventArgs e)
+        {
+            if (TextBox1.Text != "")
+            {
+                SqlDataSource1.SelectCommand =
+                "select * from inkooporderaanvraagmainLev where Bestelnummer LIKE '" + TextBox1.Text + "%' AND [Status] = 'Pakbon goedgekeurd' order by datum DESC, opmerking DESC";
+                gvInkooporderaanvragerMain.DataBind();
+            }
+
+            else
+            {
+                SqlDataSource1.SelectCommand =
+                    "select * from inkooporderaanvraagmainLev where [Status] = 'Pakbon goedgekeurd' order by datum DESC, opmerking DESC";
+                gvInkooporderaanvragerMain.DataBind();
+            }
         }
     }
 }

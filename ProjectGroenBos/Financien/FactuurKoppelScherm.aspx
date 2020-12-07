@@ -12,13 +12,64 @@
             })
         }
     </script>
+
+    <style>
+        .searchbar {
+            margin-bottom: auto;
+            margin-top: auto;
+            height: 60px;
+            background-color: #009879;
+            border-radius: 30px;
+            padding: 10px;
+        }
+
+        .search_input {
+            color: white;
+            border: 0;
+            outline: 0;
+            background: none;
+            width: 0;
+            caret-color: transparent;
+            line-height: 40px;
+            transition: width 0.4s linear;
+        }
+
+        .searchbar:hover > .search_input {
+            padding: 0 10px;
+            width: 450px;
+            caret-color: #009879;
+            transition: width 0.4s linear;
+        }
+
+        .searchbar:hover > .search_icon {
+            background: white;
+            color: #009879;
+        }
+
+        .search_icon {
+            height: 40px;
+            width: 40px;
+            float: right;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="header">Inkoop-Aanvragen Bestel-Overzicht</div>
+    <div class="header">Factuur-Koppel pagina</div>
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <div class="container">
-
         <asp:DropDownList ID="DropDownList1" AutoPostBack="True" runat="server" DataSourceID="SqlDataSource2" DataTextField="Naam" DataValueField="Naam" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" CssClass="DropDownAfdeling"></asp:DropDownList>
+        <div class="d-flex justify-content-center h-100" style="margin-top: 20px">
+            <div class="searchbar">
+                <asp:TextBox ID="TextBox1" runat="server" placeholder="Zoeken op bestelnummer..." CssClass="search_input" AutoPostBack="True" BorderStyle="Solid" OnTextChanged="TextBox1_TextChanged"></asp:TextBox>
+                <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
+            </div>
+        </div>
 
         <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT [Naam] FROM [Afdeling] union
 SELECT 'Alle Afdelingen' AS [Naam]"></asp:SqlDataSource>
@@ -45,7 +96,7 @@ SELECT 'Alle Afdelingen' AS [Naam]"></asp:SqlDataSource>
     <asp:Repeater ID="rpFactuurToevoegen" runat="server">
         <ItemTemplate>
             <asp:UpdatePanel runat="server" ID="updatePanelTop" UpdateMode="Conditional" ChildrenAsTriggers="True">
-             
+
                 <ContentTemplate>
                     <!-- Modal -->
                     <div id="modal<%# Eval("Nummer") %>" class="modal fade" role="dialog">
@@ -85,7 +136,7 @@ SELECT 'Alle Afdelingen' AS [Naam]"></asp:SqlDataSource>
                                     <div class="modal-body">
                                         <asp:UpdatePanel runat="server" UpdateMode="Always">
                                             <ContentTemplate>
-                                                <asp:GridView ID="gvFactuurreservering" DataKeyNames="ID, regelnummer" EnableCallbacks='false'  ShowHeaderWhenEmpty="True" EmptyDataText="Er zijn geen producten gevonden bij deze inkooporderaanvraag." CssClass="content-table" GridLines="None" AutoGenerateColumns="False" Style="text-align: center; min-width: 656px; margin-left: auto; margin-right: auto" runat="server" DataSourceID="SqlDataSource7">
+                                                <asp:GridView ID="gvFactuurreservering" DataKeyNames="ID, regelnummer" EnableCallbacks='false' ShowHeaderWhenEmpty="True" EmptyDataText="Er zijn geen producten gevonden bij deze inkooporderaanvraag." CssClass="content-table" GridLines="None" AutoGenerateColumns="False" Style="text-align: center; min-width: 656px; margin-left: auto; margin-right: auto" runat="server" DataSourceID="SqlDataSource7">
                                                     <Columns>
                                                         <asp:BoundField DataField="ID" HeaderText="ID" ReadOnly="True" SortExpression="ID" />
                                                         <asp:BoundField DataField="regelnummer" HeaderText="Regelnummer" ReadOnly="True" SortExpression="ID" />
