@@ -43,7 +43,7 @@ SELECT 'Alle Afdelingen' AS [Naam]"></asp:SqlDataSource>
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="select * from inkooporderaanvraagmainLev where [Status] = 'Pakbon goedgekeurd' order by datum DESC, opmerking DESC"></asp:SqlDataSource>
     </div>
 
-    <asp:Repeater ID="rpFactuurToevoegen" runat="server">
+    <asp:Repeater ID="rpFactuurToevoegen" runat="server" OnItemCommand="rep_ItemCommand">
         <ItemTemplate>
             <asp:UpdatePanel runat="server" ID="updatePanelTop" UpdateMode="Conditional" ChildrenAsTriggers="True">
              
@@ -129,15 +129,16 @@ SELECT 'Alle Afdelingen' AS [Naam]"></asp:SqlDataSource>
 
                                                 <p style="margin-top: 1rem; margin-bottom: 0;">Uiterste betaaldatum</p>
                                                 <asp:TextBox ID="txbTermijn" placeholder="DD-MM-YYYY" Style="text-align: center" Height="50px" Width="100%" runat="server"></asp:TextBox>
-                                                <asp:FileUpload ID="FileUpload1" runat="server" />
-                                                <asp:Button ID="btnSavePdf" runat="server" Text="upload" CommandArgument='<%# Eval("Nummer") %>' OnClientClick="btnSavePdf" />
-                                                <asp:Button ID="btnOpenPDF" runat="server" Text="Button" CommandArgument='<%# Eval("Nummer") %>' OnClientClick="btnOpenPDF" />
+
 
 
                                             </ContentTemplate>
                                         </asp:UpdatePanel>
-                                    </div>
 
+                                    </div>
+                                                <asp:FileUpload ID="FileUpload1" runat="server"/>
+                                                <asp:Button ID="btnSavePdf" runat="server" Text="upload" CommandArgument='<%# Eval("Nummer") %>' OnClick="btnSavePdf_OnClick" />
+                                                <asp:Button ID="btnOpenPDF" runat="server" Text="Button" CommandArgument='<%# Eval("Nummer") %>' OnClick="btnOpenPDF_OnClick" />
                                     <asp:Button ID="btnFactuurKoppelen" OnClick="btnFactuurKoppelen_OnClick" CommandArgument='<%# Eval("Nummer") %>' Style="max-width: 80%; margin-left: auto; margin-right: auto; margin-top: 10px" CssClass="btn btn-success btn-lg btn-block" runat="server" Text="Factuur Koppelen" />
 
                                 </div>
@@ -153,7 +154,7 @@ SELECT 'Alle Afdelingen' AS [Naam]"></asp:SqlDataSource>
 
         </ItemTemplate>
     </asp:Repeater>
-
+    
     <script>
         // Get the container element
         var btnContainer = document.getElementById("setting-drop");

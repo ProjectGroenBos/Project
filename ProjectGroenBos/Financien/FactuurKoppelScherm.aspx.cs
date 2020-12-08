@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -92,13 +93,23 @@ namespace ProjectGroenBos.Financien
                 gvInkooporderaanvragerMain.DataBind();
             }
         }
+
+
+
+        protected void rep_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+
+            RepeaterItem RI1 = e.Item; FileUpload FU = RI1.FindControl("FileUpload1") as FileUpload;
+        }
+
+
         protected void btnSavePdf_OnClick(object sender, EventArgs e)
         {
-            Button btn = sender as Button;
-            int gridviewnr = int.Parse(btn.CommandName);
+            int gridviewnr = int.Parse(((Button)sender).CommandArgument);
 
-            FileUpload FileUpload1 = ((FileUpload)rpFactuurToevoegen.FindControl("FileUpload1"));
 
+                   FileUpload FileUpload1 = ((FileUpload)rpFactuurToevoegen.FindControl("FileUpload1"));
+            string file = Path.GetFileName(FileUpload1.FileName);
             using (SqlConnection con = new SqlConnection(constr))
             {
 
