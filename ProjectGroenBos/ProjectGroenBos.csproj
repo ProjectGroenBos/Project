@@ -114,6 +114,7 @@
     <Content Include="Restaurant\css\Afrekenen.css" />
     <Content Include="Restaurant\css\bestellingenoverzicht.css" />
     <Content Include="Restaurant\css\opnemenbestelling.css" />
+    <Content Include="Restaurant\css\reserveren.css" />
     <Content Include="Restaurant\css\style.css" />
     <Content Include="Restaurant\css\tafeloverzicht.css" />
     <Content Include="Restaurant\css\test.css" />
@@ -139,7 +140,7 @@
     <Content Include="Restaurant\img\productimg\tomatensoep.png" />
     <Content Include="Restaurant\img\productimg\varkenshaas.png" />
     <Content Include="Restaurant\tafeloverzicht.aspx" />
-    <Content Include="Restaurant\WebForm5.aspx" />
+    <Content Include="Restaurant\reserveren.aspx" />
     <Content Include="Schoonmaak en Onderhoud\InventarisOverzicht.aspx" />
     <Content Include="Schoonmaak en Onderhoud\OffertesOverzicht.aspx" />
     <Content Include="Schoonmaak en Onderhoud\OnderhoudsOverzicht.aspx" />
@@ -571,12 +572,12 @@
     <Compile Include="Restaurant\tafeloverzicht.aspx.designer.cs">
       <DependentUpon>tafeloverzicht.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Restaurant\WebForm5.aspx.cs">
-      <DependentUpon>WebForm5.aspx</DependentUpon>
+    <Compile Include="Restaurant\reserveren.aspx.cs">
+      <DependentUpon>reserveren.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Restaurant\WebForm5.aspx.designer.cs">
-      <DependentUpon>WebForm5.aspx</DependentUpon>
+    <Compile Include="Restaurant\reserveren.aspx.designer.cs">
+      <DependentUpon>reserveren.aspx</DependentUpon>
     </Compile>
     <Compile Include="Schoonmaak en Onderhoud\InventarisOverzicht.aspx.cs">
       <DependentUpon>InventarisOverzicht.aspx</DependentUpon>
