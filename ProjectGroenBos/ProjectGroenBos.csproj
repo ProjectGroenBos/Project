@@ -107,6 +107,7 @@
     <Content Include="Reservering\ReserveringMedewerkerNachtregister.aspx" />
     <Content Include="Reservering\ReserveringWijzigen.aspx" />
     <Content Include="Restaurant\Afrekenen.aspx" />
+    <Content Include="Restaurant\BestellenFood.aspx" />
     <Content Include="Restaurant\Bestelling.aspx" />
     <Content Include="Restaurant\Bestellingenoverzicht.aspx" />
     <Content Include="Restaurant\bestellinggelukt.aspx" />
@@ -531,6 +532,13 @@
     </Compile>
     <Compile Include="Restaurant\Afrekenen.aspx.designer.cs">
       <DependentUpon>Afrekenen.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Restaurant\BestellenFood.aspx.cs">
+      <DependentUpon>BestellenFood.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Restaurant\BestellenFood.aspx.designer.cs">
+      <DependentUpon>BestellenFood.aspx</DependentUpon>
     </Compile>
     <Compile Include="Restaurant\Bestelling.aspx.cs">
       <DependentUpon>Bestelling.aspx</DependentUpon>
