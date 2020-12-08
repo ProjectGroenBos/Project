@@ -25,7 +25,7 @@ namespace ProjectGroenBos.Restaurant
 			}
 			else
 			{
-				// Response.Redirect("tafeloverzicht.aspx");
+				Response.Redirect("tafeloverzicht.aspx");
 			}
 
 			// Kijken welke totaalprijs hij moet berekenen
