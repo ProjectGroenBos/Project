@@ -57,6 +57,7 @@
 
       
   </table>
+         </div>
         <br />
         <asp:Button ID="btnZoek" runat="server" Text="Zoek gast" CssClass="btnUitloggen" OnClick="btnZoek_Click" Style="background-color: #009879; color: #fff" class="btn" />
             
