@@ -705,23 +705,13 @@ nav ul {
     }
 
 .DropDownAfdeling {
-    list-style: none;
-    font-weight: 400;
-    display: inline-block;
-    padding: 0;
-    cursor: pointer;
-    width: 400px;
-    background: rgba(14,98,81,1);
-    border-radius: 5px;
-    line-height: 55px;
-    font-size: 20px;
-    font-weight: 500;
+    margin-top: 10px;
     color: #fff;
-    padding: 0 20px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 20px
-
+    font-size: 20px;
+    padding: 5px 10px;
+    border-radius: 5px 12px;
+    background-color: #009879;
+    font-weight: bold;
 }
 
     .DropDownAfdeling Option {
