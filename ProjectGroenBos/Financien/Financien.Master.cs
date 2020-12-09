@@ -13,13 +13,14 @@ namespace ProjectGroenBos.Financien
         {
             if(Session["Login"] == null)
             {
-                Response.Redirect("inlogscherm.aspx");
+            Response.Redirect("~/inlogscherm.aspx");
             }
         }
 
         protected void BtnUitloggen_Click(object sender, EventArgs e)
         {
-            Response.Redirect("inlogscherm.aspx");
+            Session["Login"] = null;
+            Response.Redirect("~/inlogscherm.aspx");
         }
     }
 }

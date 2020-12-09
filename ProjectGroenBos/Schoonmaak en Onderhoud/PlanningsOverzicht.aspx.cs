@@ -24,7 +24,7 @@ namespace ProjectGroenBos.Schoonmaak_en_Onderhoud
 
             string querystring = "select Schoonmaakopdracht.Nummer, Medewerker.Naam, Datum, Omschrijving, BungalowNummer, MedewerkerNummer   from Schoonmaakopdracht left join Medewerker on Medewerker.Nummer = Schoonmaakopdracht.MedewerkerNummer";
 
-            using (SqlDataAdapter ad = new SqlDataAdapter(querystring, myConnection))
+            using SqlDataAdapter ad = new SqlDataAdapter(querystring, myConnection);
             {
                 DataSet ds = new DataSet();
                 ad.Fill(ds);
