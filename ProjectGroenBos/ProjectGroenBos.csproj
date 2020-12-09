@@ -68,6 +68,7 @@
     <Content Include="Financien\Home.aspx" />
     <Content Include="Financien\Prijstabel.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="Inlogscherm.aspx" />
     <Content Include="Reservering\GastAanmaken.aspx" />
     <Content Include="Reservering\GastSelecteren.aspx" />
     <Content Include="Recreatie\CSS\styleoverzicht.css" />
@@ -355,6 +356,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Inlogscherm.aspx.cs">
+      <DependentUpon>Inlogscherm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Inlogscherm.aspx.designer.cs">
+      <DependentUpon>Inlogscherm.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Reservering\GastAanmaken.aspx.cs">
       <DependentUpon>GastAanmaken.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -539,6 +547,13 @@
     <Compile Include="Schoonmaak en Onderhoud\PlanningsOverzicht.aspx.designer.cs">
       <DependentUpon>PlanningsOverzicht.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Schoonmaak en Onderhoud\Schoonmaak.Master.cs">
+      <DependentUpon>Schoonmaak.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Schoonmaak en Onderhoud\Schoonmaak.Master.designer.cs">
+      <DependentUpon>Schoonmaak.Master</DependentUpon>
+    </Compile>
     <Compile Include="Schoonmaak en Onderhoud\SchouwingsOverzicht.aspx.cs">
       <DependentUpon>SchouwingsOverzicht.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -554,6 +569,7 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery\jquery.min.map" />
     <Content Include="Scripts\jquery\jquery.slim.min.map" />
+    <Content Include="Schoonmaak en Onderhoud\Schoonmaak.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
