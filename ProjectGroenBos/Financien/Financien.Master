@@ -31,36 +31,27 @@
                     <li><a href="/Financien/Home.aspx"><i class="fas fa-home"></i>Home</a></li>
                     <li><a href="#"><i class="fas fa-user"></i>Administratie</a>
                         <ul class="submenu">
+                            <li><a href="/Financien/Personeeloverzicht.aspx">Personeel-overzicht</a></li>
                             <li><a href="/Financien/Prijstabel.aspx">Prijsmanagement</a></li>
                             <li><a href="/Financien/Reserveringen.aspx">Reserveringen-overzicht</a></li>
                             <li><a href="/Financien/Rekeningen.aspx">Rekening-overzicht</a></li>
-                            <li><a href="/Financien/Personeeloverzicht.aspx">Personeel-overzicht</a></li>
                         </ul>
                     </li>
                     <li><a href="#"><i class="fas fa-address-card"></i>Facturering</a>
-                        <ul class="submenu">
-                            <li><a href="/Financien/Openstaandecreditnota.aspx">Creditnota-overzicht</a>
-                                <ul class="submenu">
-                                    <li><a href="#">Creditnota-historie</a></li>
-                                    <li><a href="/Financien/Openstaandecreditnota.aspx">Openstaande creditnota's</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#">Automatisering reserveringsbevestiging</a></li>
+                        <ul class="submenu">    
+                            <li><a href="/Financien/FactuurKoppelScherm.aspx">Factuur koppelen</a></li>
+                            <li><a href="/Financien/">Factuur controleren</a></li>
+                            <li><a href="/Financien/CrediteurenFactuurBetaal.aspx">Factuur betalen</a></li>
+                            <li><a href="/Financien/CreditnotaBetaalScherm.aspx">Creditnota betalen</a></li>  
                         </ul>
                     </li>
                     <li><a href="#"><i class="fas fa-project-diagram"></i>Inkoop</a>
                         <ul class="submenu">
                             <li><a href="/Financien/InkoopAanvraagScherm.aspx">Inkoopaanvragen</a></li>
                             <li><a href="/Financien/InkoopAanvraagBestelScherm.aspx">Inkoopaanvragen Bestellen</a></li>
-                            <li><a href="/Financien/FactuurKoppelScherm.aspx">Factuur koppelen</a></li>
-                            <li><a href="/Financien/Factuurtoevoegen.aspx">Inkopen producten</a></li>
-                            <li><a href="#">Facturen controleren</a></li>
                         </ul>
                     </li>
                 </ul>
-                <div class="terug">
-                    <a href="#">&#8249; Terug naar home</a>
-                </div>
             </div>
             <div class="main_content">
                 <div class="navigator">
