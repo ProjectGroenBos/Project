@@ -15,13 +15,13 @@ namespace ProjectGroenBos.Recreatie
     {
 
         /// <summary>
-        /// Calendar1 control.
+        /// GvAanmeldenActiviteit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar Calendar1;
+        protected global::System.Web.UI.WebControls.GridView GvAanmeldenActiviteit;
 
         /// <summary>
         /// Button1 control.

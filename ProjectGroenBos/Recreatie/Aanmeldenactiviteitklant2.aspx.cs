@@ -1,80 +1,135 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
+using System.Globalization;
+using System.Threading;
+
 
 namespace ProjectGroenBos.Recreatie
 {
     public partial class Aanmeldenactiviteitklant2 : System.Web.UI.Page
     {
+        DataTable dt = new DataTable();
         string connectionstring = ConfigurationManager.ConnectionStrings["dbconnectie"].ToString();
         SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconnectie"].ConnectionString);
-        DataTable Activteit;
-        int Currentactivity;
-        private int index;
-        DataTable dt = new DataTable();
+       
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                dt.Columns.AddRange(new DataColumn[1] { new DataColumn("Naam") });
-                //dt.Rows.Add("Yes");
-                ViewState["Medewerker"] = dt;
+                InvullenGridview();
 
             }
         }
-        private DataSet GetData()
+        private string SortDirection
         {
-            string connectionString = "Data Source=SQL.BIM.OSOX.NL;Initial Catalog=2020-BIM02-P1-P2-Groenbos;Persist Security Info=True;User ID=BIM022020;Password=BiM@IH2020";
-
-            SqlConnection myConnection = new SqlConnection(connectionString);
-
-            string querystring = "SELECT A.Nummer, A.Naam AS Activiteitnaam, A.Locatie, A.Inschrijfkosten, A.[Maximaal aantal], F.Omschrijving, CONVERT(date, A.Datum) AS Datum, CONVERT(VARCHAR(5), A.Begintijd, 108) AS Begintijd, CONVERT(VARCHAR(5), A.Eindtijd, 108) AS Eindtijd, M.Naam FROM dbo.Activiteit AS A LEFT OUTER JOIN dbo.Faciliteit AS F ON A.FaciliteitID = F.ID LEFT OUTER JOIN dbo.Medewerker AS M ON M.Nummer = A.MedewerkerID WHERE(A.ActiviteitActief = 1)";
-
-            using (SqlDataAdapter ad = new SqlDataAdapter(querystring, myConnection))
-            {
-                DataSet ds = new DataSet();
-                ad.Fill(ds);
-                return ds;
-            }
+            get { return ViewState["SortDirection"] != null ? ViewState["SortDirection"].ToString() : "ASC"; }
+            set { ViewState["SortDirection"] = value; }
         }
-        protected void Calendar1_DayRender(object sender, DayRenderEventArgs e)
+        void InvullenGridview(string sortExpression = null)
         {
-            DataSet ds = GetData();
-
-            string s = e.Day.Date.ToShortDateString();
-
-            e.Cell.Text = e.Day.Date.Day.ToString() + "<BR>";
-
-            LiteralControl l = new LiteralControl();
-
-            l.Text = e.Day.Date.Day.ToString() + "<BR>";
-
-            e.Cell.Controls.Add(l);
-
-            foreach (DataRow row in ds.Tables[0].Rows)
+            DataTable dtbl = new DataTable();
+            using (SqlConnection sqlCon = new SqlConnection(connectionstring))
             {
-                string scheduledDate = Convert.ToDateTime(row["Datum"]).ToShortDateString();
-
-                if (scheduledDate.Equals(s))
+                sqlCon.Open();
+                SqlDataAdapter sqlDa = new SqlDataAdapter("SELECT * FROM vActiviteit", sqlCon);
+                sqlDa.Fill(dtbl);
+                Session["vaDB"] = dtbl;
+            }
+            if (dtbl.Rows.Count > 0)
+            {
+                if (sortExpression != null)
                 {
-                    LinkButton lb = new LinkButton();
+                    DataView dv = dtbl.AsDataView();
+                    this.SortDirection = this.SortDirection == "ASC" ? "DESC" : "ASC";
 
-                    lb.Text = "<br />" + row["Activiteitnaam"] + "<br />" + "Loctatie: " + row["Omschrijving"] + " / " + row["Locatie"] + "<br />" + "Aantal Deelnemers  / " + row["Maximaal aantal"] + "<br />" + "Begeleider: " + row["Naam"] as String + "</a>" + "<BR>";
-
-                    e.Cell.Controls.Add(lb);
+                    dv.Sort = sortExpression + " " + this.SortDirection;
+                    GvAanmeldenActiviteit.DataSource = dv;
                 }
+                else
+                {
+                    GvAanmeldenActiviteit.DataSource = dtbl;
+                }
+
+                GvAanmeldenActiviteit.DataBind();
             }
+
+            else
+            {
+                dtbl.Rows.Add(dtbl.NewRow());
+                GvAanmeldenActiviteit.DataSource = dtbl;
+                GvAanmeldenActiviteit.DataBind();
+                GvAanmeldenActiviteit.Rows[0].Cells.Clear();
+                GvAanmeldenActiviteit.Rows[0].Cells.Add(new TableCell());
+                GvAanmeldenActiviteit.Rows[0].Cells[0].ColumnSpan = dtbl.Columns.Count;
+                GvAanmeldenActiviteit.Rows[0].Cells[0].Text = "Geen Data Gevonden!";
+                GvAanmeldenActiviteit.Rows[0].Cells[0].HorizontalAlign = HorizontalAlign.Center;
+            }
+
         }
+       
 
         protected void Button1_Click(object sender, EventArgs e)
         {
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal('#Popup');", true);
+        }
+
+        protected void GvAanmeldenActiviteit_PageIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void GvAanmeldenActiviteit_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+
+            if (GvAanmeldenActiviteit.EditIndex != -1)
+            {
+                e.Cancel = true;
+                int newPageNumber = e.NewPageIndex + 1;
+            }
+        }
+
+        protected void GvAanmeldenActiviteit_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        {
+            GvAanmeldenActiviteit.EditIndex = -1;
+            InvullenGridview();
+        }
+
+        protected void GvAanmeldenActiviteit_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+
+        }
+
+        protected void GvAanmeldenActiviteit_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+
+        }
+
+        protected void GvAanmeldenActiviteit_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            GvAanmeldenActiviteit.EditIndex = e.NewEditIndex;
+            InvullenGridview();
+        }
+
+        protected void GvAanmeldenActiviteit_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void GvAanmeldenActiviteit_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
+        {
+
+        }
+
+        protected void GvAanmeldenActiviteit_Sorting(object sender, GridViewSortEventArgs e)
+        {
+            InvullenGridview(e.SortExpression);
         }
     }
 }
