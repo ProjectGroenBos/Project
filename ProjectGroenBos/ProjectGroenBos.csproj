@@ -78,12 +78,12 @@
     <Content Include="Recreatie\ActiviteitOverzicht.aspx" />
     <Content Include="Recreatie\ActiviteitVerwijderen.aspx" />
     <Content Include="Recreatie\ActiviteitWijzigen.aspx" />
-    <Content Include="Recreatie\CSS\Styledegoeiee.css" />
-    <Content Include="Recreatie\CSS\stylerecreatie.css" />
-    <Content Include="Recreatie\CSS\stylerecreatiejuist.css" />
+    <Content Include="Recreatie\CSS\stylegoeie17.css" />
+    <Content Include="Recreatie\CSS\stylerecreatiedieweljuistis.css" />
     <Content Include="Recreatie\img\ascArrow.png" />
     <Content Include="Recreatie\img\descArrow.png" />
     <Content Include="Recreatie\InactiefmakenProductpagina.aspx" />
+    <Content Include="Recreatie\ProductPagina.aspx" />
     <Content Include="Recreatie\ProductPaginaInzien.aspx" />
     <Content Include="Recreatie\Voorraad.aspx" />
     <Content Include="Recreatie\Documentatie.aspx" />
@@ -439,6 +439,13 @@
     </Compile>
     <Compile Include="Recreatie\InactiefmakenProductpagina.aspx.designer.cs">
       <DependentUpon>InactiefmakenProductpagina.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Recreatie\ProductPagina.aspx.cs">
+      <DependentUpon>ProductPagina.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Recreatie\ProductPagina.aspx.designer.cs">
+      <DependentUpon>ProductPagina.aspx</DependentUpon>
     </Compile>
     <Compile Include="Recreatie\ProductPaginaInzien.aspx.cs">
       <DependentUpon>ProductPaginaInzien.aspx</DependentUpon>

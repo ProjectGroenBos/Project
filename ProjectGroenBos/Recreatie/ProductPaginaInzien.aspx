@@ -4,11 +4,11 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <div class="header">Productpagina Inzien</div>
-    <asp:Label ID="LblZoekenInactiefmakenproductpagina" runat="server" Text="Zoeken:" CssClass="labelzoekenProductpaginainactief"></asp:Label>
+    <asp:Label ID="LblZoekenInactiefmakenproductpagina" runat="server" Text="Zoeken:" CssClass="labelzoekenProductpaginainzien"></asp:Label>
     <asp:TextBox ID="TxbZoekenproductpagina" runat="server" CssClass="textboxzoekenProductpaginainactief" OnTextChanged="TxbZoekenproductpagina_TextChanged"></asp:TextBox>
-    <asp:CheckBox ID="CkbLeverancierinzien" runat="server" Text="Leverancier" CssClass="ckbLeverancierProductpaginainactief" />
-    <asp:CheckBox ID="CkbCategorieproductpaginainzien" runat="server" Text="Categorie" CssClass="ckbCategorieProductpaginainactief" />
     
+    <asp:RadioButton ID="RdbLeverancier" Text="Leverancier" runat="server" GroupName="Productzoeken" CssClass="ckbLeverancierProductpaginainactief"/>
+    <asp:RadioButton ID="RdbCategorie" Text="Categorie" runat="server" GroupName="Productzoeken" CssClass="ckbCategorieProductpaginainactief"/>
     <asp:GridView ID="GVProductpagInzien" runat="server" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" CssClass="content-table6" DataKeyNames="Nummer" ForeColor="#333333" GridLines="None" ShowFooter="True" OnSelectedIndexChanged="GVProductpagInzien_SelectedIndexChanged" OnSorting="GVProductpagInzien_Sorting">
          <Columns>
 
@@ -118,13 +118,10 @@
 <HeaderStyle ForeColor="White"></HeaderStyle>
 
              </asp:TemplateField>
-             <asp:TemplateField>
-                 <ItemTemplate>
-                     <asp:Button ID="Button1" runat="server" CssClass="BtnProductpaginaInzieninactief" ForeColor="White" OnClick="Button1_Click" Text="Inactief" />
-                     <asp:Button ID="BtnVerwijderen" runat="server" CssClass="BtnProductpaginaInzienVerwijderen" ForeColor="White" Text="Verwijderen" />
-                     <asp:Button ID="BtnWijzigen" runat="server" CssClass="BtnProductpaginaInzienWijzigen" ForeColor="White" Text="Wijzigen" />
-                 </ItemTemplate>
-             </asp:TemplateField>
+            
+             
              </Columns>
              </asp:GridView>
+    <asp:Button ID="BtnProductpaginainzienWijzigen" runat="server" Text="Wijzigen" CssClass="BtnProductpaginaInzienWijzigen" OnClick="BtnProductpaginainzienWijzigen_Click" />
+    <asp:Button ID="BtnProductpaginaInzieninactief" runat="server" Text="Inactief maken" OnClick="BtnProductpaginaInzieninactief_Click" CssClass="BtnProductpaginaInzieninactief"/>
 </asp:Content>

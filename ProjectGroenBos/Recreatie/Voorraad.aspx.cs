@@ -138,6 +138,7 @@ namespace recreatie.paginas
             DataTable Aanvraag = new DataTable();
             Aanvraag.Columns.Add(new DataColumn("ID", typeof(int)));
             Aanvraag.Columns.Add(new DataColumn("Naam", typeof(string)));
+            Aanvraag.Columns.Add(new DataColumn("LeverancierID", typeof(int)));
 
             foreach (GridViewRow item in gvVoorraad.Rows)
             {
@@ -150,7 +151,7 @@ namespace recreatie.paginas
                         using (SqlConnection sqlCon = new SqlConnection(connectionstring))  
                         {
 
-                            SqlCommand cmd = new SqlCommand("Select [ID], [Artikelnaam] FROM vVoorraadRecreatie where ID=@id", sqlCon);
+                            SqlCommand cmd = new SqlCommand("Select [ID], [Artikelnaam],[LeverancierID] FROM vVoorraadRecreatie where ID=@id", sqlCon);
                             cmd.Parameters.AddWithValue("id", gvVoorraad.DataKeys[item.RowIndex].Value.ToString());
                             sqlCon.Open();
                             int id = cmd.ExecuteNonQuery();
@@ -160,6 +161,7 @@ namespace recreatie.paginas
 
                             sqlCon.Close();
                             gvOrderaanvragen.DataSource = Aanvraag;
+                            Session["Aanvraag"] = Aanvraag;
                         }
 
 
@@ -174,44 +176,59 @@ namespace recreatie.paginas
 
         protected void BtnAanvraag_Click(object sender, EventArgs e)
         {
+            DataTable Aanvraag = (DataTable)Session["Aanvraag"];
+            DataView view = new DataView(Aanvraag);
+            DataTable distinctValues = view.ToTable(true, "LeverancierID");
 
-            using (SqlConnection sqlCon = new SqlConnection(connectionstring))
+            foreach (DataRow row in distinctValues.Rows)
             {
-                sqlCon.Open();
-
-                SqlCommand cmd = new SqlCommand("sp_Recreatie_AanvragenBestelling", sqlCon);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@Opmerking", (tbOpmerking.Text.Trim()));
-                cmd.ExecuteNonQuery();
-                sqlCon.Close();
-
-                sqlCon.Open();
-                string selectquery = "SELECT TOP 1 Nummer  FROM [dbo].[InkoopOrderAanvraag] ORDER BY Nummer DESC";
-                SqlCommand sqlComd = new SqlCommand(selectquery, sqlCon);
-                SqlDataReader r;
-                r = sqlComd.ExecuteReader();
-
-                int ordernummer = -1;
-
-
-                while (r.Read())
-                {
-                    ordernummer = (int)r[0];
-                }
-                sqlCon.Close();
-                foreach (GridViewRow ding in gvOrderaanvragen.Rows)
+                using (SqlConnection sqlCon = new SqlConnection(connectionstring))
                 {
                     sqlCon.Open();
 
-                    SqlCommand vul = new SqlCommand("sp_Recreatie_VoegAanvraagregelToe", sqlCon);
-                    vul.CommandType = CommandType.StoredProcedure;
-                    vul.Parameters.AddWithValue("@ID", (ordernummer));
-                    vul.Parameters.AddWithValue("@Aantal", (int.Parse((gvOrderaanvragen.Rows[ding.RowIndex].FindControl("tbAantal") as TextBox).Text.Trim())));
-                    vul.Parameters.AddWithValue("@VoorraadID", (gvVoorraad.DataKeys[ding.RowIndex].Value.ToString()));
-                    vul.ExecuteNonQuery();
+                    SqlCommand cmd = new SqlCommand("sp_Recreatie_AanvragenBestelling", sqlCon);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@LeverancierID", (Int32.Parse(row["LeverancierID"].ToString())));
+                    cmd.ExecuteNonQuery();
                     sqlCon.Close();
 
+                    sqlCon.Open();
+                    string selectquery = "SELECT TOP 1 Nummer  FROM [dbo].[InkoopOrderAanvraag] ORDER BY Nummer DESC";
+                    SqlCommand sqlComd = new SqlCommand(selectquery, sqlCon);
+                    SqlDataReader r;
+                    r = sqlComd.ExecuteReader();
+
+                    int ordernummer = -1;
+
+
+                    while (r.Read())
+                    {
+                        ordernummer = (int)r[0];
+                    }
+
+
+                    sqlCon.Close();
+                    foreach (GridViewRow ding in gvOrderaanvragen.Rows)
+                    {
+                            if (int.Parse(Aanvraag.Rows[ding.RowIndex][2].ToString().Trim()) == int.Parse(row["LeverancierID"].ToString().Trim()))
+                            {
+                                sqlCon.Open();
+                                SqlCommand vul = new SqlCommand("sp_Recreatie_VoegAanvraagregelToe", sqlCon);
+                                vul.CommandType = CommandType.StoredProcedure;
+                                vul.Parameters.AddWithValue("@ID", (ordernummer));
+                                vul.Parameters.AddWithValue("@Aantal", (int.Parse((gvOrderaanvragen.Rows[ding.RowIndex].FindControl("tbAantal") as TextBox).Text.Trim())));
+                                vul.Parameters.AddWithValue("@VoorraadID", (gvVoorraad.DataKeys[ding.RowIndex].Value.ToString()));
+                                vul.Parameters.AddWithValue("@Opmerking", (gvOrderaanvragen.Rows[ding.RowIndex].FindControl("tbOpmerking") as TextBox).Text.Trim());
+                                vul.ExecuteNonQuery();
+                                sqlCon.Close();
+                            }
+
+                       
+                    }
+
+
                 }
+
             }
         }
     }

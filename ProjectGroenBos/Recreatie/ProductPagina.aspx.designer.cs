@@ -7,83 +7,81 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ProjectGroenBos.Recreatie
-{
-
-
-    public partial class InactiefmakenProductpagina
-    {
-
+namespace ProjectGroenBos.Recreatie {
+    
+    
+    public partial class ProductPagina {
+        
         /// <summary>
-        /// LblZoekenInactiefmakenproductpagina control.
+        /// GridView1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblZoekenInactiefmakenproductpagina;
-
+        protected global::System.Web.UI.WebControls.GridView GridView1;
+        
         /// <summary>
-        /// txbZoekenProductpaginainactief control.
+        /// SqlDataSource1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txbZoekenProductpaginainactief;
-
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
+        
         /// <summary>
-        /// RdbProductpaginaLeverancier control.
+        /// txtProductZoeken control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton RdbProductpaginaLeverancier;
-
+        protected global::System.Web.UI.WebControls.TextBox txtProductZoeken;
+        
         /// <summary>
-        /// RdbProductpaginaCategorie control.
+        /// CategorieID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton RdbProductpaginaCategorie;
-
+        protected global::System.Web.UI.WebControls.HiddenField CategorieID;
+        
         /// <summary>
-        /// GVProductpaginaInactiefMaken control.
+        /// btnZoeken control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GVProductpaginaInactiefMaken;
-
+        protected global::System.Web.UI.WebControls.Button btnZoeken;
+        
         /// <summary>
-        /// Label1 control.
+        /// rdbLeverancier control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
-
+        protected global::System.Web.UI.WebControls.RadioButton rdbLeverancier;
+        
         /// <summary>
-        /// BtnDoorgaanproduct control.
+        /// LeverancierID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnDoorgaanproduct;
-
+        protected global::System.Web.UI.WebControls.HiddenField LeverancierID;
+        
         /// <summary>
-        /// BtnAnnulerenProduct control.
+        /// rdbCategorie control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnAnnulerenProduct;
+        protected global::System.Web.UI.WebControls.RadioButton rdbCategorie;
     }
 }
