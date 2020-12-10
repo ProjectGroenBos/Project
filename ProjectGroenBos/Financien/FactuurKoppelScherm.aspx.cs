@@ -20,6 +20,7 @@ namespace ProjectGroenBos.Financien
             if (!IsPostBack)
             {
                 Repeater();
+                BindGrid();
             }
         }
 
@@ -59,6 +60,7 @@ namespace ProjectGroenBos.Financien
 
         protected void btnFactuurKoppelen_OnClick(object sender, EventArgs e)
         {
+
             using (SqlConnection con = new SqlConnection(constr))
             {
                 con.Open();
@@ -94,83 +96,126 @@ namespace ProjectGroenBos.Financien
             }
         }
 
-
-
-        protected void rep_ItemCommand(object source, RepeaterCommandEventArgs e)
+        private void BindGrid()
         {
-
-            RepeaterItem RI1 = e.Item; FileUpload FU = RI1.FindControl("FileUpload1") as FileUpload;
-        }
-
-
-        protected void btnSavePdf_OnClick(object sender, EventArgs e)
-        {
-            int gridviewnr = int.Parse(((Button)sender).CommandArgument);
-
-
-                   FileUpload FileUpload1 = ((FileUpload)rpFactuurToevoegen.FindControl("FileUpload1"));
-            string file = Path.GetFileName(FileUpload1.FileName);
             using (SqlConnection con = new SqlConnection(constr))
             {
-
-                con.Open();
-                //Convert pdf in Binary formate
-                int lenght = FileUpload1.PostedFile.ContentLength;
-                byte[] data = new byte[lenght];
-                FileUpload1.PostedFile.InputStream.Read(data, 0, lenght);
-
-
-                using (SqlCommand cmd = new SqlCommand("insert into Crediteurenfactuur " + "(PdfData) values(@data)", con))
+                using (SqlCommand cmd = new SqlCommand())
                 {
-                    cmd.Parameters.AddWithValue("@data", data);
-                    cmd.ExecuteNonQuery();
-                    Response.Write("Pdf File Save in Dab");
+                    cmd.CommandText = "select Id, Name from testtable";
+                    cmd.Connection = con;
+                    con.Open();
+                    GridView1.DataSource = cmd.ExecuteReader();
+                    GridView1.DataBind();
+                    con.Close();
                 }
             }
         }
 
-
-        protected void btnOpenPDF_OnClick(object sender, EventArgs e)
+        protected void Upload(object sender, EventArgs e)
         {
-            string sPathToSaveFileTo = @"C:\SelectedFile.pdf";  // on this path i will create selected PDF File Data    open pdf for checking
+            int nummer = int.Parse(((Button)sender).CommandName);
+            int inkoopnummer = int.Parse(((Button)sender).CommandArgument);
 
-
-            //Read Connection from web config
-            using (SqlConnection con = new SqlConnection(constr))
-            {
-                Button btn = sender as Button;
-                int gridviewnr = int.Parse(btn.CommandName);
-
-                con.Open();
-                using (SqlCommand cmd = new SqlCommand("select PdfData from Crediteurenfactuur where ID= gridviewnr", con))
+                FileUpload FileUpload1 = (FileUpload)rpFactuurToevoegen.Items[nummer].FindControl("FileUpload1");
+                string filename = Path.GetFileName(FileUpload1.PostedFile.FileName);
+                string contentType = FileUpload1.PostedFile.ContentType;
+                using (Stream fs = FileUpload1.PostedFile.InputStream)
                 {
-                    using (SqlDataReader dr = cmd.ExecuteReader(System.Data.CommandBehavior.Default))
+                    using (BinaryReader br = new BinaryReader(fs))
                     {
-                        if (dr.Read())
+                        byte[] bytes = br.ReadBytes((Int32)fs.Length);
+                        using (SqlConnection con = new SqlConnection(constr))
                         {
-                            // read in using GetValue and cast to byte array
-                            byte[] fileData = (byte[])dr.GetValue(0);
+                            string commandText = "INSERT INTO [dbo].[Crediteurenfactuur] ([Datum] ,[Totaal bedrag] ,[Termijn] ,[Omschrijving betaalcondities] ,[InkooporderID] ,[FactuurstatusID] ,[IBAN] ,[LeverancierID], Data, ContentType, Naam) VALUES " + "(@Datum, @Totaal_bedrag, (convert(datetime,@Termijn,104), @Omschrijving_betaalcondities, @InkooporderID, @FactuurstatusID, @IBAN, @LeverancierID, @Data, @ContentType, @Name)";
 
-
-                            // write bytes to disk as file
-                            using (System.IO.FileStream fs = new System.IO.FileStream(sPathToSaveFileTo, System.IO.FileMode.Create, System.IO.FileAccess.ReadWrite))
+                            using (SqlCommand cmd = new SqlCommand(commandText))
                             {
-                                // use a binary writer to write the bytes to disk
-                                using (System.IO.BinaryWriter bw = new System.IO.BinaryWriter(fs))
-                                {
-                                    bw.Write(fileData);
-                                    bw.Close();
-                                }
+                                SqlConnection constre = new SqlConnection(constr);
+                                SqlCommand cmd2 = new SqlCommand("SELECT I.*, A.LeverancierID FROM InkooporderaanvraagItemsTotaalprijs I LEFT JOIN InkoopOrderAanvraag A ON I.InkoopOrderAanvraagNummer = A.Nummer where InkoopOrderAanvraagNummer = @Nummer", constre);
+                                cmd2.Parameters.AddWithValue("@Nummer", inkoopnummer);
+                            con.Open();
+                                double prijs = double.Parse(cmd2.ExecuteNonQuery().ToString());
+                                double prijske = double.Parse(prijs["TotaalPrijs"].ToString());
+                                int leverancier = int.Parse(prijs["LeverancierID"].ToString());
+
+                                TextBox txbTermijn = (TextBox)rpFactuurToevoegen.Items[nummer].FindControl("txbTermijn");
+
+                                TextBox txbIBAN = (TextBox)rpFactuurToevoegen.Items[nummer].FindControl("txbIBAN");
+
+                                cmd.Connection = con;
+                                cmd.Parameters.AddWithValue("@Name", filename);
+                                cmd.Parameters.AddWithValue("@ContentType", contentType);
+                                cmd.Parameters.AddWithValue("@Data", bytes);
+                                cmd.Parameters.AddWithValue("@Datum", DateTime.Now);
+                                cmd.Parameters.AddWithValue("@Totaal_bedrag", prijske);
+                                cmd.Parameters.AddWithValue("@Termijn", txbTermijn.Text);
+                                cmd.Parameters.AddWithValue("@Omschrijving_betaalcondities", "Inkooporder");
+                                cmd.Parameters.AddWithValue("@InkooporderID", nummer);
+                                cmd.Parameters.AddWithValue("@FactuurstatusID", "1");
+                                cmd.Parameters.AddWithValue("@IBAN", txbIBAN.Text);
+                                cmd.Parameters.AddWithValue("@LeverancierID", leverancier);
+                                con.Open();
+                                cmd.ExecuteNonQuery();
+                                con.Close();
                             }
                         }
-
-
-                        // close reader to database
-                        dr.Close();
                     }
                 }
+
+                using (SqlConnection con = new SqlConnection(constr))
+                {
+                    con.Open();
+
+                    int nummer2 = int.Parse(((Button)sender).CommandArgument);
+
+
+                    SqlCommand cmd = new SqlCommand("UPDATE InkoopOrderAanvraag SET InkoopOrderAanvraagStatusID = 7 WHERE Nummer = @nummer; ", con);
+                    cmd.Parameters.AddWithValue("@nummer", nummer2);
+                    cmd.ExecuteNonQuery();
+
+                    con.Close();
+                }
+
+                gvInkooporderaanvragerMain.DataBind();
+                ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "Bestelsuccess();", true);
+
+        }
+
+        protected void DownloadFile(object sender, EventArgs e)
+        {
+            int id = int.Parse((sender as LinkButton).CommandArgument);
+            byte[] bytes;
+            string fileName, contentType;
+            using (SqlConnection con = new SqlConnection(constr))
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    //cmd.CommandText = "select Name, Data, ContentType from [testtable] where Id=@Id";
+                    cmd.Parameters.AddWithValue("@Id", id);
+                    cmd.Connection = con;
+                    con.Open();
+                    using (SqlDataReader sdr = cmd.ExecuteReader())
+                    {
+                        sdr.Read();
+                        bytes = (byte[])sdr["Data"];
+                        contentType = sdr["ContentType"].ToString();
+                        fileName = sdr["Name"].ToString();
+                    }
+                    con.Close();
+                }
             }
+            Response.Clear();
+            Response.Buffer = true;
+            Response.Charset = "";
+            Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            Response.ContentType = contentType;
+            Response.AppendHeader("Content-Disposition", "attachment; filename=" + fileName);
+            Response.BinaryWrite(bytes);
+            Response.Flush();
+            Response.End();
         }
     }
 }
+
 
