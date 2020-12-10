@@ -74,10 +74,12 @@
     <Content Include="Financien\Prijstabel.aspx" />
     <Content Include="Gerechten overzicht.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="Recreatie\Aanmeldenactiviteitklant2.aspx" />
     <Content Include="Recreatie\ActiviteitInplannen.aspx" />
     <Content Include="Recreatie\ActiviteitOverzicht.aspx" />
     <Content Include="Recreatie\ActiviteitVerwijderen.aspx" />
     <Content Include="Recreatie\ActiviteitWijzigen.aspx" />
+    <Content Include="Recreatie\CSS\klanten.css" />
     <Content Include="Recreatie\CSS\stylegoeie17.css" />
     <Content Include="Recreatie\CSS\stylerecreatiedieweljuistis.css" />
     <Content Include="Recreatie\img\ascArrow.png" />
@@ -85,6 +87,8 @@
     <Content Include="Recreatie\InactiefmakenProductpagina.aspx" />
     <Content Include="Recreatie\ProductPagina.aspx" />
     <Content Include="Recreatie\ProductPaginaInzien.aspx" />
+    <Content Include="Recreatie\Aanmeldenactiviteitklant.aspx" />
+    <Content Include="Recreatie\test.aspx" />
     <Content Include="Recreatie\Voorraad.aspx" />
     <Content Include="Recreatie\Documentatie.aspx" />
     <Content Include="Recreatie\home.aspx" />
@@ -405,6 +409,13 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Recreatie\Aanmeldenactiviteitklant2.aspx.cs">
+      <DependentUpon>Aanmeldenactiviteitklant2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Recreatie\Aanmeldenactiviteitklant2.aspx.designer.cs">
+      <DependentUpon>Aanmeldenactiviteitklant2.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Recreatie\ActiviteitInplannen.aspx.cs">
       <DependentUpon>ActiviteitInplannen.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -440,6 +451,20 @@
     <Compile Include="Recreatie\InactiefmakenProductpagina.aspx.designer.cs">
       <DependentUpon>InactiefmakenProductpagina.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Recreatie\klant2.Master.cs">
+      <DependentUpon>klant2.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Recreatie\klant2.Master.designer.cs">
+      <DependentUpon>klant2.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Recreatie\Klanten.Master.cs">
+      <DependentUpon>Klanten.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Recreatie\Klanten.Master.designer.cs">
+      <DependentUpon>Klanten.Master</DependentUpon>
+    </Compile>
     <Compile Include="Recreatie\ProductPagina.aspx.cs">
       <DependentUpon>ProductPagina.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -453,6 +478,20 @@
     </Compile>
     <Compile Include="Recreatie\ProductPaginaInzien.aspx.designer.cs">
       <DependentUpon>ProductPaginaInzien.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Recreatie\Aanmeldenactiviteitklant.aspx.cs">
+      <DependentUpon>Aanmeldenactiviteitklant.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Recreatie\Aanmeldenactiviteitklant.aspx.designer.cs">
+      <DependentUpon>Aanmeldenactiviteitklant.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Recreatie\test.aspx.cs">
+      <DependentUpon>test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Recreatie\test.aspx.designer.cs">
+      <DependentUpon>test.aspx</DependentUpon>
     </Compile>
     <Compile Include="Recreatie\Voorraad.aspx.cs">
       <DependentUpon>Voorraad.aspx</DependentUpon>
@@ -732,6 +771,8 @@
     <Content Include="Scripts\jquery\jquery.min.map" />
     <Content Include="Scripts\jquery\jquery.slim.min.map" />
     <Content Include="Schoonmaak en Onderhoud\Schoonmaak.Master" />
+    <Content Include="Recreatie\Klanten.Master" />
+    <Content Include="Recreatie\klant2.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

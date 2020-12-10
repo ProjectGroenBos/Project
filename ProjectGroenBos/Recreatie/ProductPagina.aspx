@@ -5,12 +5,56 @@
     <div class="header">Productpagina </div>
         <asp:GridView ID="GridView1" runat="server" CssClass="content-table2" AllowPaging="True" CellPadding="4" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False" DataKeyNames ="Nummer"  DataSourceID="SqlDataSource1" AllowSorting="True" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowEditing="GridView1_RowEditing" OnRowCommand="GridView1_RowCommand" OnRowUpdated="GridView1_RowUpdated" OnRowUpdating="GridView1_RowUpdating">
             <Columns>
-                <asp:BoundField DataField="Nummer" HeaderText="Nummer" ReadOnly="true" SortExpression="Nummer" HeaderStyle-ForeColor="White"/>
-                <asp:BoundField DataField="Artikelnaam" HeaderText="Artikelnaam" SortExpression="Artikelnaam" HeaderStyle-ForeColor="White"/>
-                <asp:BoundField DataField="Omschrijving" HeaderText="Omschrijving" SortExpression="Omschrijving" HeaderStyle-ForeColor="White"/>
-                <asp:BoundField DataField="Prijs" HeaderText="Prijs" SortExpression="Prijs" HeaderStyle-ForeColor="White"/>
-                <asp:BoundField DataField="Aantal" HeaderText="Aantal" ReadOnly="true" SortExpression="Aantal" HeaderStyle-ForeColor="White"/>
-                <asp:BoundField DataField="MinimumVoorraad" HeaderText="MinimumVoorraad" SortExpression="MinimumVoorraad" HeaderStyle-ForeColor="White"/>
+                <asp:BoundField DataField="Nummer" HeaderText="Nummer" ReadOnly="true" SortExpression="Nummer" HeaderStyle-ForeColor="White">
+<HeaderStyle ForeColor="White"></HeaderStyle>
+                </asp:BoundField>
+                <asp:TemplateField HeaderText="Artikelnaam" SortExpression="Artikelnaam">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="TbArtikelnaam" runat="server" Text='<%# Bind("Artikelnaam") %>'></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*" ControlToValidate="TbArtikelnaam"></asp:RequiredFieldValidator>
+<%--                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="RegularExpressionValidator" ControlToValidate="TbArtikelnaam"></asp:RegularExpressionValidator>--%>
+                    </EditItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label2" runat="server" Text='<%# Bind("Artikelnaam") %>'></asp:Label>
+
+                    </ItemTemplate>
+                    <HeaderStyle ForeColor="White" />
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Omschrijving" SortExpression="Omschrijving">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="TbOmschrijving" runat="server" Text='<%# Bind("Omschrijving") %>'></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="*" ControlToValidate="TbOmschrijving" Display="Dynamic"></asp:RequiredFieldValidator>
+<%--                        <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="RegularExpressionValidator" Display="Dynamic" ControlToValidate="TbOmschrijving"></asp:RegularExpressionValidator>--%>
+                    </EditItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label3" runat="server" Text='<%# Bind("Omschrijving") %>'></asp:Label>
+                    </ItemTemplate>
+                    <HeaderStyle ForeColor="White" />
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Prijs" SortExpression="Prijs">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="TbPrijs" runat="server" Text='<%# Bind("Prijs") %>'></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="TbPrijs" Display="Dynamic"></asp:RequiredFieldValidator>
+<%--                        <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="RegularExpressionValidator" ControlToValidate="TbPrijs" Display="Dynamic"></asp:RegularExpressionValidator>--%>
+                    </EditItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label4" runat="server" Text='<%# Bind("Prijs") %>'></asp:Label>
+                    </ItemTemplate>
+                    <HeaderStyle ForeColor="White" />
+                </asp:TemplateField>
+                <asp:BoundField DataField="Aantal" HeaderText="Aantal" ReadOnly="true" SortExpression="Aantal" HeaderStyle-ForeColor="White">
+<HeaderStyle ForeColor="White"></HeaderStyle>
+                </asp:BoundField>
+                <asp:TemplateField HeaderText="MinimumVoorraad" SortExpression="MinimumVoorraad">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="TbMinVoorraad" runat="server" Text='<%# Bind("MinimumVoorraad") %>'></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="RequiredFieldValidator" Display="Dynamic" ControlToValidate="TbMinVoorraad"></asp:RequiredFieldValidator>
+                    </EditItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label5" runat="server" Text='<%# Bind("MinimumVoorraad") %>'></asp:Label>
+                    </ItemTemplate>
+                    <HeaderStyle ForeColor="White" />
+                </asp:TemplateField>
                 
                 <asp:TemplateField HeaderText="Naam Leverancier" SortExpression="NaamLeverancier" HeaderStyle-ForeColor="White">
                     <EditItemTemplate>
@@ -21,6 +65,8 @@
                     <ItemTemplate>
                        <asp:Label ID="Label1" runat="server" Text='<%# Bind("NaamLeverancier") %>'></asp:Label>
                     </ItemTemplate>
+                    
+<HeaderStyle ForeColor="White"></HeaderStyle>
                 </asp:TemplateField>
 
                 <asp:TemplateField HeaderText="Categorie" SortExpression="Categorie" HeaderStyle-ForeColor="White">
@@ -32,12 +78,27 @@
                     <ItemTemplate>
                        <asp:Label ID="Label1" runat="server" Text='<%# Bind("Categorie") %>'></asp:Label>
                     </ItemTemplate>
+
+<HeaderStyle ForeColor="White"></HeaderStyle>
                 </asp:TemplateField>
 
-                <asp:BoundField DataField="Huurtarief" HeaderText="Huurtarief" SortExpression="Huurtarief" HeaderStyle-ForeColor="White"/>
+                <asp:TemplateField HeaderText="Huurtarief" SortExpression="Huurtarief">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="TbHuurtarief" runat="server" Text='<%# Bind("Huurtarief") %>'></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="*" ControlToValidate="TbHuurtarief" Display="Dynamic"></asp:RequiredFieldValidator>
+<%--                        <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ErrorMessage="RegularExpressionValidator" ControlToValidate="TbHuurtarief" Display="Dynamic"></asp:RegularExpressionValidator>--%>
+                        </EditItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label6" runat="server" Text='<%# Bind("Huurtarief") %>'></asp:Label>
+                    </ItemTemplate>
+                    <HeaderStyle ForeColor="White" />
+                </asp:TemplateField>
+                
                 <asp:BoundField DataField="LeverancierID" HeaderText="LeverancierID" ReadOnly="true" SortExpression="LeverancierID" Visible ="false" />
                 <asp:BoundField DataField="CategorieID" HeaderText="CategorieID" ReadOnly="true" SortExpression="CategorieID" Visible ="false"/>
-                <asp:CommandField ShowEditButton="True" ItemStyle-ForeColor="White" />
+                <asp:CommandField ShowEditButton="True" ItemStyle-ForeColor="White" >
+<ItemStyle ForeColor="White"></ItemStyle>
+                </asp:CommandField>
             </Columns>
         </asp:GridView>
 
