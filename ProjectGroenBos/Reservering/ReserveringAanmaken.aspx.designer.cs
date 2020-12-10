@@ -123,15 +123,6 @@ namespace ProjectGroenBos.Reservering
         protected global::System.Web.UI.WebControls.Label lblHuisjenummer;
 
         /// <summary>
-        /// lblUitkomst control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblUitkomst;
-
-        /// <summary>
         /// btnZoek control.
         /// </summary>
         /// <remarks>
@@ -157,6 +148,15 @@ namespace ProjectGroenBos.Reservering
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnTerug;
+
+        /// <summary>
+        /// lblUitkomst control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblUitkomst;
 
         /// <summary>
         /// GridView1 control.

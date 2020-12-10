@@ -11,13 +11,9 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
 
-    <!DOCTYPE html>
-
-    <html>
-    <head>
-        <title></title>
-    </head>
-    <body>
+    
+    <div class="container">
+    
         
             <h1>Reservering overzicht</h1>
             <br />
@@ -44,6 +40,7 @@
            
             <br />
             <asp:Label ID="lblUitkomst" runat="server" CssClass="labelsnieuw"></asp:Label>
+        <br />
             <br />
 
 
@@ -53,8 +50,7 @@
 
 
             <br />
-            <br />
-        
-    </body>
-    </html>
+           
+     </div>   
+    
 </asp:Content>

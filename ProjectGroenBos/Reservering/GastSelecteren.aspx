@@ -29,31 +29,7 @@
                 </td>
             </tr>
 
-            <tr>
-                <td style="width: 15%">
-                    <asp:Label ID="Label2" runat="server" Text="Email" CssClass="labelsnieuw"></asp:Label>
-                </td>
-                <td style="width: 15%">
-                    <asp:TextBox ID="txbEmail" runat="server" CssClass="textboxchaos"></asp:TextBox>
-                </td>
-                <td style="width: 40%">
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Dit veld is verplicht." ControlToValidate="txbEmail" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
-                    <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ControlToValidate="txbEmail" ErrorMessage="Email is niet geldig" ValidationExpression="[a-z0-9!#$%&'+/=?^_`{|}~-]+(?:.[a-z0-9!#$%&'+/=?^_`{|}~-]+)@(?:[a-z0-9](?:[a-z0-9-][a-z0-9])?.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?" ForeColor="Red" Display="Dynamic"></asp:RegularExpressionValidator>
-                </td>
-            </tr>
-
-            <tr>
-                <td style="width: 15%">
-                    <asp:Label ID="Label3" runat="server" Text="Telefoonnummer" CssClass="labelsnieuw"></asp:Label>
-                </td>
-                <td style="width: 15%">
-                    <asp:TextBox ID="txbTelefoonnummer" runat="server" CssClass="textboxchaos"></asp:TextBox>
-                </td>
-                <td style="width: 40%">
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Dit veld is verplicht." ControlToValidate="txbTelefoonnummer" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
-                    <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ControlToValidate="txbTelefoonnummer" ErrorMessage="Eerste 0 weglaten en 9 cijfers gebruiken." ValidationExpression="^[0-9]{9}$" ForeColor="Red" Display="Dynamic"></asp:RegularExpressionValidator>
-                </td>
-            </tr>
+            
 
 
         </table>
@@ -64,42 +40,37 @@
         <asp:Button ID="btnGastAanmaken" runat="server" Text="Gast aanmaken" CssClass="btnUitloggen" OnClick="btnGastAanmaken_Click" Style="background-color: #009879; color: #fff" class="btn" />
 
         <br />
+        <br />
         <asp:Label ID="lblUitkomst" runat="server" Text=""></asp:Label>
         <br />
+       
 
         <asp:GridView ID="GridView1" runat="server" CssClass="content-table" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" DataKeyNames="Gastnummer" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AllowSorting="True" AutoGenerateSelectButton="True">
             <Columns>
                 <asp:BoundField DataField="Gastnummer" HeaderText="Gastnummer" SortExpression="Gastnummer" InsertVisible="False" ReadOnly="True">
-                    <HeaderStyle ForeColor="White" />
                 </asp:BoundField>
                 <asp:BoundField DataField="Voornaam" HeaderText="Voornaam" SortExpression="Voornaam">
-                    <HeaderStyle ForeColor="White" />
                 </asp:BoundField>
                 <asp:BoundField DataField="Tussenvoegsel" HeaderText="Tussenvoegsel" SortExpression="Tussenvoegsel">
-                    <HeaderStyle ForeColor="White" />
                 </asp:BoundField>
                 <asp:BoundField DataField="Achternaam" HeaderText="Achternaam" SortExpression="Achternaam">
-                    <HeaderStyle ForeColor="White" />
                 </asp:BoundField>
                 <asp:BoundField DataField="Telefoonnummer" HeaderText="Telefoonnummer" SortExpression="Telefoonnummer">
-                    <HeaderStyle ForeColor="White" />
                 </asp:BoundField>
                 <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email">
 
-                    <HeaderStyle ForeColor="White" />
                 </asp:BoundField>
 
             </Columns>
+            <HeaderStyle ForeColor="White" />
         </asp:GridView>
 
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:2020-BIM02-P1-P2-GroenbosConnectionString %>" SelectCommand="select top(10) Nummer as [Gastnummer], Voornaam, Tussenvoegsel, Achternaam, Telefoonnummer, Email 
 from Gast 
-where Achternaam like '%'+@achternaam+'%' and Telefoonnummer like '%'+@telefoonnummer+'%' and Email like '%'+@email+'%'
+where Achternaam like '%'+@achternaam+'%' 
 order by Nummer desc">
             <SelectParameters>
                 <asp:ControlParameter ControlID="txbAchternaam" DefaultValue="%" Name="achternaam" PropertyName="Text" />
-                <asp:ControlParameter ControlID="txbTelefoonnummer" DefaultValue="%" Name="telefoonnummer" PropertyName="Text" />
-                <asp:ControlParameter ControlID="txbEmail" DefaultValue="%" Name="email" PropertyName="Text" />
             </SelectParameters>
         </asp:SqlDataSource>
     </div>

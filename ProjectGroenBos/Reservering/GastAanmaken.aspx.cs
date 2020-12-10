@@ -4,6 +4,7 @@ using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Net;
 using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.ModelBinding;
@@ -17,7 +18,8 @@ namespace ProjectGroenBos.Reservering
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["controle"] == null)
+           
+            if (Session["controle0"] == null)
             {
                 Response.Redirect("GastSelecteren.aspx");
             }

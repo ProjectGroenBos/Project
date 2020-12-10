@@ -33,15 +33,14 @@ namespace ProjectGroenBos
             if(GridView1.Rows.Count == 0)
             {
                 btnGastAanmaken.Visible = true;
+                lblUitkomst.Text = "Geen gasten gevonden.";
             }
         }
 
         protected void btnGastAanmaken_Click(object sender, EventArgs e)
         {
-            Session["controle"] = 420;
+            Session["controle0"] = 420;
             Session["achternaam"] = txbAchternaam.Text;
-            Session["email"] = txbEmail.Text;
-            Session["telefoonnummer"] = txbTelefoonnummer.Text;
             Response.Redirect("GastAanmaken.aspx");
         }
 

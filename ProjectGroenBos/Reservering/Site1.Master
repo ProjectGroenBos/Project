@@ -29,12 +29,15 @@
                     <li><a href="home.aspx"><i class="fas fa-home"></i>Home</a></li>
                     <li><a href="#"><i class="fas fa-user"></i>Reserveren</a>
                         <ul class="submenu">
-                            <li><a href="GastSelecteren.aspx">Reservering aanmaken</a></li>
-                            <li><a href="ReserveringOverzicht.aspx">Reservering overzicht</a></li>
+                            <li><a href="GastSelecteren.aspx">Aanmaken</a></li>
+                            <li><a href="ReserveringOverzicht.aspx">Overzicht</a></li>
 
                         </ul>
                         <li><a href="#"><i class="fas fa-user"></i>Klanten</a>
                             <ul class="submenu">
+                                <li><a href="GastAanmaken.aspx">Aanmaken</a></li>
+                                <li><a href="Klantoverzicht.aspx">Overzicht</a></li>
+                               
 
                             </ul>
                             <li><a href="#"><i class="fas fa-user"></i>Klachten</a>

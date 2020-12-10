@@ -93,6 +93,8 @@
     <Content Include="Recreatie\Uitloggen.aspx" />
     <Content Include="Reservering\Images\checksymbol.png" />
     <Content Include="Reservering\KlachtenAfhandeling.aspx" />
+    <Content Include="Reservering\Klantoverzicht.aspx" />
+    <Content Include="Reservering\KlantWijzigen.aspx" />
     <Content Include="Reservering\MailHuisReserveringGeannuleerd.html" />
     <Content Include="Reservering\MailReserveringGewijzigd.html" />
     <Content Include="Reservering\Nachtregister.aspx" />
@@ -435,6 +437,20 @@
     </Compile>
     <Compile Include="Reservering\KlachtenAfhandeling.aspx.designer.cs">
       <DependentUpon>KlachtenAfhandeling.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reservering\Klantoverzicht.aspx.cs">
+      <DependentUpon>Klantoverzicht.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reservering\Klantoverzicht.aspx.designer.cs">
+      <DependentUpon>Klantoverzicht.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reservering\KlantWijzigen.aspx.cs">
+      <DependentUpon>KlantWijzigen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reservering\KlantWijzigen.aspx.designer.cs">
+      <DependentUpon>KlantWijzigen.aspx</DependentUpon>
     </Compile>
     <Compile Include="Reservering\Nachtregister.aspx.cs">
       <DependentUpon>Nachtregister.aspx</DependentUpon>

@@ -93,13 +93,17 @@
             </tr>
         </table>
 
-        <asp:Label ID="lblUitkomst" runat="server"></asp:Label>
+
 
 
         <br />
         <asp:Button ID="btnZoek" runat="server" Text="Zoek bungalow" CssClass="btnUitloggen" Style="background-color: #009879; color: #fff" class="btn" OnClick="btnZoek_Click" />
         <asp:Button ID="btnAanmaken" runat="server" Text="Aanmaken" CssClass="btnUitloggen" Style="background-color: #009879; color: #fff" class="btn" OnClick="btnAanmaken_Click" />
         <asp:Button ID="btnTerug" runat="server" CssClass="btnUitloggen" Style="background-color: #009879; color: #fff" class="btn" OnClick="btnTerug_Click" Text="Terug" />
+        <br />
+        <br />
+        <asp:Label ID="lblUitkomst" runat="server"></asp:Label>
+        <br />
         <asp:GridView ID="GridView1" runat="server" CssClass="content-table" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AllowSorting="True" AutoGenerateSelectButton="True">
             <HeaderStyle ForeColor="White" />
         </asp:GridView>
