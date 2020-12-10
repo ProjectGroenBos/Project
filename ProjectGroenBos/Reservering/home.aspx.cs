@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace ProjectGroenBos.Reservering
 {
@@ -26,6 +29,26 @@ namespace ProjectGroenBos.Reservering
             {
                 lbluitkomst.Text = "De reservering is gewijzigd.";
             }
+
+
+            if (GridView3.Rows.Count==0)
+            {
+                lblAankomend.Text = "Vandaag komen er geen gasten binnen.";
+            }
+            if (GridView4.Rows.Count == 0)
+            {
+                lblVertrekkend.Text = "Vandaag gaan er geen gasten vertrekken.";
+            }
+            if (GridView1.Rows.Count == 0)
+            {
+                lblReserveringen.Text = "Er zijn geen reserveringen gemaakt.";
+            }
+            if (GridView2.Rows.Count == 0)
+            {
+                lblGasten.Text = "Er zijn geen gasten aangemaakt.";
+            }
         }
+
+        
     }
 }
