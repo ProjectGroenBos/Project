@@ -82,7 +82,6 @@
                <asp:Label ID="lblProduct" runat="server" Text="Kies product"></asp:Label>
                <asp:DropDownList ID="ddlProduct" runat="server" DataSourceID="SqlDataSource1" DataTextField="Naam" DataValueField="ID">
                </asp:DropDownList>
-<%--               <asp:Button ID="btnPlaatsOrder" runat="server" Text="Order plaatsen" OnClick="btnPlaatsOrder_Click" ValidationGroup="validation" />--%>
                
                
         <br />
@@ -92,6 +91,10 @@
                <br />
          <br />
                <asp:Button ID="btnMaakOrderRegel" runat="server" Text="Voeg product toe aan order" OnClick="btnMaakOrderRegel_Click" ValidationGroup="validation" Height="25px" Width="262px" />
+
+               <br /><br />
+
+               <asp:Button ID="btnPlaatsOrder" runat="server" Text="Order plaatsen" OnClick="btnPlaatsOrder_Click" ValidationGroup="validation" Height="25px" Width="262px" />
 
                <br />
 

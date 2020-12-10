@@ -106,6 +106,9 @@ namespace ProjectGroenBos.Restaurant
 
                 int Leveranciernummer = Int32.Parse(ddlLeverancier.SelectedItem.Value);
 
+                Random b = new Random();
+                int num = b.Next(1000, 9999);
+
 
                 if (Leveranciernummer == -1)
                 {
@@ -118,15 +121,18 @@ namespace ProjectGroenBos.Restaurant
                     {
                         // Maak Inkooporder aan
                         sqlCon.Open();
-                        String query = "INSERT INTO Inkooporder ([PK leverancier]) VALUES (@Leveranciernummer)";
+                        String query = "INSERT INTO VoedselRestaurantInkoopOrder (LeverancierID, Datum, Bestelnummer, Aanvraagstatus) VALUES (@Leveranciernummer, @Datum, @Bestelnummer, @Aanvraagstatus)";
                         SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
                         sqlCmd.Parameters.AddWithValue("@Leveranciernummer", Leveranciernummer);
+                        SqlParameter sqlParameter0 = sqlCmd.Parameters.AddWithValue("@Datum", DateTime.Now);
+                        SqlParameter sqlParameter1 = sqlCmd.Parameters.AddWithValue("@Bestelnummer", b);
+                        SqlParameter sqlParameter2 = sqlCmd.Parameters.AddWithValue("@Aanvraagstatus", "2".Trim());
                         sqlCmd.ExecuteNonQuery();
                         sqlCon.Close();
 
                         // Haal zojuist aangemaakt Inkooporder op om ID uit te halen
                         sqlCon.Open();
-                        string selectquery = "SELECT TOP 1 PKorder FROM [dbo].[Inkooporder] ORDER BY PKorder DESC";
+                        string selectquery = "SELECT TOP 1 Nummer FROM [dbo].[VoedselRestaurantInkoopOrder] ORDER BY Nummer DESC";
                         SqlCommand sqlComd = new SqlCommand(selectquery, sqlCon);
                         SqlDataReader r;
                         r = sqlComd.ExecuteReader();
@@ -153,17 +159,17 @@ namespace ProjectGroenBos.Restaurant
 
 
                             sqlCon.Open();
-                            String orderregels = "INSERT INTO inkooporderregel (Hoeveelheid,ProductID,InkooporderPKorder) VALUES (@Hoeveelheid,@ProductID,@ordernummer)";
+                            String orderregels = "INSERT INTO VoedselRestaurantAanvraagRegels (VoorraadID,Aantal,VoedselOrderAanvraag) VALUES (@VoorraadID,@Aantal,@VoedselOrderAanvraag)";
                             SqlCommand sqlCemd = new SqlCommand(orderregels, sqlCon);
-                            sqlCemd.Parameters.AddWithValue("@Hoeveelheid", Hoeveelheid);
-                            sqlCemd.Parameters.AddWithValue("@ProductID", PK_Product);
-                            sqlCemd.Parameters.AddWithValue("@ordernummer", ordernummer);
+                            sqlCemd.Parameters.AddWithValue("@VoorraadID", PK_Product);
+                            sqlCemd.Parameters.AddWithValue("@Aantal", Hoeveelheid);
+                            sqlCemd.Parameters.AddWithValue("@VoedselOrderAanvraag", ordernummer);
                             sqlCemd.ExecuteNonQuery();
                             sqlCon.Close();
                         }
                     }
 
-                    Response.Redirect("~/Startscherm.aspx");
+                    Response.Redirect("~/BestellenFood.aspx");
 
 
                 }
