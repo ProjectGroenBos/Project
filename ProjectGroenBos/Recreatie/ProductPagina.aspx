@@ -128,20 +128,20 @@ update [dbo].[Huuritem] set [CategorieID] = @CategorieID, [Prijs] = @Huurtarief 
         
     
 
-    <asp:TextBox ID="txtProductZoeken" runat="server" AutoPostBack="True" OnTextChanged="txtProductZoeken_TextChanged"></asp:TextBox>
+    <asp:TextBox ID="txtProductZoeken" runat="server" AutoPostBack="True" OnTextChanged="txtProductZoeken_TextChanged" CssClass="Textboxproductpaginawijzigen"></asp:TextBox>
         
         
     
 
     <asp:HiddenField ID="CategorieID" runat="server" />
-    <asp:Button ID="btnZoeken" runat="server" OnClick="btnZoeken_Click" Text="Button" />
-    <asp:RadioButton ID="rdbLeverancier" runat="server" Text="Leverancier" Groupname="Zoeken" />
+    <asp:Button ID="btnZoeken" runat="server" OnClick="btnZoeken_Click" Text="Zoeken" CssClass="buttonproductpaginawijzigen"/>
+    <asp:RadioButton ID="rdbLeverancier" runat="server" Text="Leverancier" Groupname="Zoeken" CssClass="RDBproductpaginawijzigenLeverancier" />
     <asp:HiddenField ID="LeverancierID" runat="server" />
         
         
     
 
-    <asp:RadioButton ID="rdbCategorie" runat="server" Text="Categorie" GroupName="Zoeken" />
+    <asp:RadioButton ID="rdbCategorie" runat="server" Text="Categorie" GroupName="Zoeken" CssClass="RDBproductpaginawijzigencategorie"/>
             
         
     

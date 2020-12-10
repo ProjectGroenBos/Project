@@ -1129,7 +1129,7 @@ nav ul {
 
     .content-table4 th,
     .content-table4 td {
-        padding: 12px 3px;
+        padding: 12px 10px;
     }
 
     .content-table4 tbody tr {
@@ -1432,7 +1432,7 @@ nav ul {
     border-radius: 25px;
     width: 10%;
     margin-top: 1%;
-    margin-left: 20%;
+    margin-left: 28%;
     color: white;
 }
 
@@ -1452,13 +1452,176 @@ nav ul {
     border-radius: 25px;
     width: 10%;
     margin-top: 1%;
-    margin-left: 7%;
+    margin-left: 12%;
     color: white;
 }
 
 .labelzoekenProductpaginainzien {
     position: absolute;
-    margin-left: 7%;
+    margin-left: 12%;
     margin-top: 3%;
+    
+}
+
+.ReqActiviteitValidator {
+    top: 42%;
+    position: relative;
+    color: red;
+}
+
+.RegularActiviteitValidator {
+    color: red;
+}
+
+.ReqLocatieVaidator {
+   
+    top: 42%;
+    position: relative;
+    color: red;
+}
+
+.ReqInschrijfkostenValidator {
+   
+    top: 42%;
+    position: relative;
+    color: red;
+}
+
+.RegularInschrijfkostenValidator {
+    color: red;
+}
+
+.ReqTbMaxAantal {
+    
+    top: 42%;
+    position: relative;
+    color: red;
+}
+
+.RegularTbMaxAantal {
+    color: red;
+}
+
+.ReqTbDatum {
+   
+    top: 42%;
+    position: relative;
+    color: red;
+}
+
+.ReqTbBegintijd {
+   
+    top: 42%;
+    position: relative;
+    color: red;
+}
+
+.ReqTbEindtijd {
+    
+    top: 42%;
+    position: relative;
+    color: red
+}
+
+.ReqActiviteitValidatorInplannen {
+    top: 4%;
+    left: 92%;
+    position: absolute;
+    color: red;
+}
+
+.RegularActiviteitvalidatorInplannen {
+    left: 56%;
+    position: relative;
+    color: red;
+}
+
+.ReqLocatieValidatorInplannen {
+    top: 19%;
+    left: 92%;
+    position: absolute;
+    color: red;
+}
+
+.RegularLocatieValidatorInplannen {
+    left: 56.2%;
+    position: relative;
+    color: red;
+}
+
+.ReqInschrijfkostenValidatorInplannen {
+    top: 31.7%;
+    left: 92%;
+    position: absolute;
+    color: red;
+}
+
+.RegularInschrijfkostenValidatorInplannen {
+    left: 56.2%;
+    position: relative;
+    color: red;
+}
+
+.ReqMaximaalAantal {
+    left: 92%;
+    position: absolute;
+    color: red;
+}
+
+.RegularMaximaalAantalInplannen {
+    left: 56.2%;
+    position: relative;
+    color: red;
+}
+
+.ReqDatumValidatorInplannen {
+    left: 92%;
+    position: absolute;
+    color: red;
+}
+
+.RegularDatumInplannen {
+    left: 56.2%;
+    position: relative;
+    color: red;
+}
+
+.ReqTbDatumInplannen {
+    left: 92%;
+    position: absolute;
+    color: red;
+}
+
+.ReqBegintijdInplannen {
+    left: 92%;
+    position: absolute;
+    color: red;
+}
+
+.Textboxproductpaginawijzigen {
+    position: fixed;
+    top: 25%;
+    left: 27%;
+    
+}
+.RDBproductpaginawijzigencategorie {
+    position: fixed;
+    top: 25%;
+    left: 60%;
+
+}
+.RDBproductpaginawijzigenLeverancier {
+    position: fixed;
+    top: 25%;
+    left: 50%;
+    display: inline;
+}
+.buttonproductpaginawijzigen {
+    position: fixed;
+    top: 25%;
+    left: 40%;
+    background-color: #009879;
+    border-radius: 25px;
+    color: white;
     
 }

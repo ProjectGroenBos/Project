@@ -122,6 +122,6 @@
              
              </Columns>
              </asp:GridView>
-    <asp:Button ID="BtnProductpaginainzienWijzigen" runat="server" Text="Wijzigen" CssClass="BtnProductpaginaInzienWijzigen" />
+    <asp:Button ID="BtnProductpaginainzienWijzigen" runat="server" Text="Wijzigen" CssClass="BtnProductpaginaInzienWijzigen" OnClick="BtnProductpaginainzienWijzigen_Click" />
     <asp:Button ID="BtnProductpaginaInzieninactief" runat="server" Text="Inactief maken" OnClick="BtnProductpaginaInzieninactief_Click" CssClass="BtnProductpaginaInzieninactief"/>
 </asp:Content>
