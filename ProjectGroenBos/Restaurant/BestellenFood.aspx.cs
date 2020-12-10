@@ -106,11 +106,19 @@ namespace ProjectGroenBos.Restaurant
 
                 int Leveranciernummer = Int32.Parse(ddlLeverancier.SelectedItem.Value);
 
+
+                if (Leveranciernummer == -1)
+                {
+                    lblErrorMessage.Text = "Kies een leverancier uit";
+                }
+
+                else
+                {
                     using (SqlConnection sqlCon = new SqlConnection(connectionString))
                     {
                         // Maak Inkooporder aan
                         sqlCon.Open();
-                        String query = "INSERT INTO InkoopOrderAanvraag ([LeverancierID]) VALUES (@Leveranciernummer)";
+                        String query = "INSERT INTO Inkooporder ([PK leverancier]) VALUES (@Leveranciernummer)";
                         SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
                         sqlCmd.Parameters.AddWithValue("@Leveranciernummer", Leveranciernummer);
                         sqlCmd.ExecuteNonQuery();
@@ -155,7 +163,7 @@ namespace ProjectGroenBos.Restaurant
                         }
                     }
 
-                    Response.Redirect("~/BestellenFood.aspx");
+                    Response.Redirect("~/Startscherm.aspx");
 
 
                 }
@@ -163,6 +171,15 @@ namespace ProjectGroenBos.Restaurant
 
 
             }
+
+            else
+            {
+                lblErrorMessage.Text = "Kies een product voor dat u de order maakt";
+            }
+
+
+
+        }
 
         }
     }

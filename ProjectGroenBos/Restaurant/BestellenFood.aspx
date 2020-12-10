@@ -1,27 +1,21 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Restaurant/Restaurant.Master" AutoEventWireup="true" CodeBehind="BestellenFood.aspx.cs" Inherits="ProjectGroenBos.Restaurant.BestellenFood" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <style type="text/css">
-        .auto-style1 {
-            margin-bottom: 38;
-        }
-        </style>
-</asp:Content>
+             <link rel="stylesheet" href="css/BestellenVoorraad.css" />
+     </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
      <div>
         <h1>Bestellen Food artikelen</h1> 
-         <asp:Label ID="lblLeverancier" runat="server" Text="Kies leverancier"></asp:Label>
-        <asp:DropDownList ID="ddlLeverancier" runat="server" DataSourceID="SqlDataSource2" DataTextField="Naam" DataValueField="ID">
-        </asp:DropDownList>
-        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT [ID], [Naam] FROM [Leverancier]"></asp:SqlDataSource>
-        
 
            <div>
                <br />
+               <br />
+               
+            <div class="Gridview">
             <asp:GridView ID="gvInkoopOrderregel" runat="server" AutoGenerateColumns="False" ShowFooter ="true" DataKeyNames="PK_Product" ShowHeaderWhenEmpty="true"
 
                 OnRowCommand="gvInkoopOrderregel_RowCommand" OnRowEditing ="gvInkoopOrderregel_RowEditing" OnRowCancelingEdit="gvInkoopOrderregel_RowCancelingEdit" OnRowUpdating ="gvInkoopOrderregel_RowUpdating" OnRowDeleting ="gvInkoopOrderregel_RowDeleting"
             
-            CellPadding="4" ForeColor="#333333" GridLines="None" Width="40%" Align="center">
+            CellPadding="4" ForeColor="#333333" GridLines="None">
             
             <%--<AlternatingRowStyle BackColor="White" ForeColor="#284775" />
             <EditRowStyle BackColor="#999999" />
@@ -51,7 +45,7 @@
           <Columns>
     
 
-                    <asp:TemplateField HeaderText="Product">
+                    <asp:TemplateField HeaderText="Product" runat="server">
                         <ItemTemplate>
                             <asp:Label Text='<%# Eval("Product") %>' runat="server" />
                         </ItemTemplate>
@@ -60,7 +54,7 @@
                         </EditItemTemplate>
                     </asp:TemplateField>
                     
-                    <asp:TemplateField HeaderText="Hoeveelheid">
+                    <asp:TemplateField HeaderText="Hoeveelheid" runat="server">
                         <ItemTemplate>
                             <asp:Label Text='<%# Eval("Hoeveelheid") %>' runat="server" />
                         </ItemTemplate>
@@ -69,7 +63,7 @@
                         </EditItemTemplate>
                     </asp:TemplateField>
 
-                    <asp:TemplateField>
+                    <asp:TemplateField runat="server">
                         <ItemTemplate>
                             <asp:ImageButton ImageUrl="~/Restaurant/img/delete.png" runat="server" CommandName="Delete" ToolTip="Verwijderen" Width="20px" Height="20px" />
                         </ItemTemplate>
@@ -77,14 +71,21 @@
                     </asp:TemplateField>
               </Columns>
         </asp:GridView>
+                </div>
+               <br />
+                        <asp:Label ID="lblLeverancier" runat="server" Text="Kies leverancier"></asp:Label>
+        <asp:DropDownList ID="ddlLeverancier" runat="server" DataSourceID="SqlDataSource2" DataTextField="Naam" DataValueField="ID">
+        </asp:DropDownList>
+        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT [ID], [Naam] FROM [Leverancier]"></asp:SqlDataSource>
+               <br />
                <br />
                <asp:Label ID="lblProduct" runat="server" Text="Kies product"></asp:Label>
                <asp:DropDownList ID="ddlProduct" runat="server" DataSourceID="SqlDataSource1" DataTextField="Naam" DataValueField="ID">
                </asp:DropDownList>
 <%--               <asp:Button ID="btnPlaatsOrder" runat="server" Text="Order plaatsen" OnClick="btnPlaatsOrder_Click" ValidationGroup="validation" />--%>
                
-               <br />
                
+        <br />
         <br />
                <asp:Label ID="lblHoeveelheid" runat="server" Text="Hoeveelheid"></asp:Label>
                <asp:TextBox ID="txtQty" runat="server" CssClass="auto-style1"></asp:TextBox>

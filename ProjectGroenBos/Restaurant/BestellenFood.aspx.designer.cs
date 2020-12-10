@@ -15,6 +15,15 @@ namespace ProjectGroenBos.Restaurant
     {
 
         /// <summary>
+        /// gvInkoopOrderregel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvInkoopOrderregel;
+
+        /// <summary>
         /// lblLeverancier control.
         /// </summary>
         /// <remarks>
@@ -40,15 +49,6 @@ namespace ProjectGroenBos.Restaurant
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource2;
-
-        /// <summary>
-        /// gvInkoopOrderregel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvInkoopOrderregel;
 
         /// <summary>
         /// lblProduct control.
