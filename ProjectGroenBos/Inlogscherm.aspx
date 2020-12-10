@@ -40,7 +40,7 @@
     <form id="form1" runat="server">
         <div class="logo">
             <img src="Financien/img/Logo.png" alt="Logo" height="150" />
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:con %>" SelectCommand="SELECT [Personeelsnummer], [Wachtwoord], [Voornaam], [Functie] FROM [Personeel]">
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:2020-BIM02-P1-P2-GroenbosConnectionString %>" SelectCommand="SELECT [Personeelsnummer], [Wachtwoord], [Voornaam], [Functie] FROM [Personeel]">
             </asp:SqlDataSource>
         </div>
         <div class="container">

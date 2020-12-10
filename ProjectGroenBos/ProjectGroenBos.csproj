@@ -67,6 +67,7 @@
     <Content Include="Financien\css\main.css" />
     <Content Include="Financien\Home.aspx" />
     <Content Include="Financien\Prijstabel.aspx" />
+    <Content Include="Financien\Reserveringen.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Inlogscherm.aspx" />
     <Content Include="Reservering\GastAanmaken.aspx" />
@@ -352,6 +353,13 @@
     </Compile>
     <Compile Include="Financien\Prijstabel.aspx.designer.cs">
       <DependentUpon>Prijstabel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Financien\Reserveringen.aspx.cs">
+      <DependentUpon>Reserveringen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Financien\Reserveringen.aspx.designer.cs">
+      <DependentUpon>Reserveringen.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

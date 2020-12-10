@@ -494,7 +494,7 @@
                                                 <asp:BoundField DataField="Bedrag" HeaderText="Bedrag" SortExpression="Bedrag" />
                                             </Columns>
                                         </asp:GridView>
-                                        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:con %>" SelectCommand="SELECT [Kenmerk], [Aan], [Bedrag] FROM [recentetransacties]"></asp:SqlDataSource>
+                                        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:2020-BIM02-P1-P2-GroenbosConnectionString %>" SelectCommand="SELECT [Kenmerk], [Aan], [Bedrag] FROM [recentetransacties]"></asp:SqlDataSource>
                                     </div>
                                 </div>
                             </div>
