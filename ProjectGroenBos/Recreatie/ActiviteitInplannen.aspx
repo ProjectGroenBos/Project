@@ -85,13 +85,13 @@
                              <asp:Label ID="Label2" runat="server" Text="ActiviteitNaam"></asp:Label>
                              <asp:TextBox ID="txtActiviteitNaam" runat="server" CssClass="txbActiviteitnaam" ></asp:TextBox>
                              <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="*" ControlToValidate="txtActiviteitNaam" CssClass="ReqActiviteitValidatorInplannen" ></asp:RequiredFieldValidator>
-                             <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Voer een activiteit in" ControlToValidate="txtActiviteitNaam" ValidationExpression="^[a-zA-Z]+$" CssClass="RegularActiviteitvalidatorInplannen"></asp:RegularExpressionValidator>
+                             <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Voer een activiteit in" ControlToValidate="txtActiviteitNaam" ValidationExpression="^[a-zA-Z]+$" CssClass="RegularActiviteitvalidatorInplannen" Display="Dynamic"></asp:RegularExpressionValidator>
                              <br />
                              <br />
                              <asp:Label ID="Label3" runat="server" Text="Locatie"></asp:Label>
                              <asp:TextBox ID="txtLocatie" runat="server" CssClass="txblocatieactivitieit"></asp:TextBox>
                              <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="*" Display="Dynamic" ControlToValidate="txtLocatie" CssClass="ReqLocatieValidatorInplannen"></asp:RequiredFieldValidator>
-                             <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="Voer een locatie in" ValidationExpression="^[a-zA-Z]+$" CssClass="RegularLocatieValidatorInplannen" ControlToValidate="txtLocatie"></asp:RegularExpressionValidator>
+                             <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="Voer een locatie in" ValidationExpression="^[a-zA-Z]+$" CssClass="RegularLocatieValidatorInplannen" ControlToValidate="txtLocatie" Display="Dynamic"></asp:RegularExpressionValidator>
                              <br />
                              <br />
                              <asp:Label ID="Label4" runat="server" Text="Inschrijfkosten"></asp:Label>
