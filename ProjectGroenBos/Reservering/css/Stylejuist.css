@@ -403,7 +403,8 @@ nav ul {
     width: 289px;
     ;
     display: inline-block;
-    
+    top: 0px;
+    left: 0px;
 }
 
 .textboxbtn {

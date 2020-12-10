@@ -33,7 +33,7 @@
                             <li><a href="ReserveringOverzicht.aspx">Overzicht</a></li>
 
                         </ul>
-                        <li><a href="#"><i class="fas fa-user"></i>Klanten</a>
+                        <li><a href="#"><i class="fas fa-user"></i>Gasten</a>
                             <ul class="submenu">
                                 <li><a href="GastAanmaken.aspx">Aanmaken</a></li>
                                 <li><a href="Klantoverzicht.aspx">Overzicht</a></li>
