@@ -11,23 +11,13 @@
                 timer: 4000
             })
         }
-
-        function Bestelfout() {
-            Swal.fire({
-                icon: 'error',
-                title: 'Er is een fout opgetreden. Een factuur moet toegevoegd worden.',
-                showConfirmButton: false,
-                timer: 4000
-            })
-        }
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="header">Factuur-Koppel pagina</div>
+    <div class="header">Inkoop-Aanvragen Bestel-Overzicht</div>
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <div class="container">
 
-        <asp:TextBox ID="TextBox1" runat="server" AutoPostBack="True" BorderStyle="Solid" Height="23px" OnTextChanged="TextBox1_TextChanged" Width="215px"></asp:TextBox>
         <asp:DropDownList ID="DropDownList1" AutoPostBack="True" runat="server" DataSourceID="SqlDataSource2" DataTextField="Naam" DataValueField="Naam" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" CssClass="DropDownAfdeling"></asp:DropDownList>
 
         <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT [Naam] FROM [Afdeling] union
@@ -51,21 +41,6 @@ SELECT 'Alle Afdelingen' AS [Naam]"></asp:SqlDataSource>
         </asp:GridView>
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="select * from inkooporderaanvraagmainLev where [Status] = 'Pakbon goedgekeurd' order by datum DESC, opmerking DESC"></asp:SqlDataSource>
     </div>
-
-
-      <asp:GridView ID="GridView1" runat="server" HeaderStyle-BackColor="#3AC0F2" HeaderStyle-ForeColor="White"
-            RowStyle-BackColor="#A1DCF2" AlternatingRowStyle-BackColor="White" AlternatingRowStyle-ForeColor="#000"
-            AutoGenerateColumns="false">
-            <Columns>
-                <asp:BoundField DataField="Name" HeaderText="File Name" />
-                <asp:TemplateField ItemStyle-HorizontalAlign="Center">
-                    <ItemTemplate>
-                        <asp:LinkButton ID="lnkDownload" runat="server" Text="Download" OnClick="DownloadFile"
-                            CommandArgument='<%# Eval("Id") %>'></asp:LinkButton>
-                    </ItemTemplate>
-                </asp:TemplateField>
-            </Columns>
-        </asp:GridView>
 
     <asp:Repeater ID="rpFactuurToevoegen" runat="server">
         <ItemTemplate>
@@ -108,10 +83,8 @@ SELECT 'Alle Afdelingen' AS [Naam]"></asp:SqlDataSource>
                                         <h4 class="modal-title">Factuur toevoegen</h4>
                                     </div>
                                     <div class="modal-body">
-                                                
-                                        <asp:UpdatePanel runat="server" UpdateMode="Conditional" ChildrenAsTriggers="true">
+                                        <asp:UpdatePanel runat="server" UpdateMode="Always">
                                             <ContentTemplate>
-
                                                 <asp:GridView ID="gvFactuurreservering" DataKeyNames="ID, regelnummer" EnableCallbacks='false'  ShowHeaderWhenEmpty="True" EmptyDataText="Er zijn geen producten gevonden bij deze inkooporderaanvraag." CssClass="content-table" GridLines="None" AutoGenerateColumns="False" Style="text-align: center; min-width: 656px; margin-left: auto; margin-right: auto" runat="server" DataSourceID="SqlDataSource7">
                                                     <Columns>
                                                         <asp:BoundField DataField="ID" HeaderText="ID" ReadOnly="True" SortExpression="ID" />
@@ -124,6 +97,7 @@ SELECT 'Alle Afdelingen' AS [Naam]"></asp:SqlDataSource>
 
                                                     </Columns>
                                                 </asp:GridView>
+
                                                 <asp:HiddenField ID="Nummer" runat="server"
                                                     Value='<%# Eval("Nummer") %>' />
 
@@ -157,11 +131,13 @@ SELECT 'Alle Afdelingen' AS [Naam]"></asp:SqlDataSource>
 
 
 
+
                                             </ContentTemplate>
                                         </asp:UpdatePanel>
-
                                     </div>
-                                    <input type="button" id="btnNaarPdf" data-toggle="modal" data-target="#bestelModal<%# Eval("Nummer") %>" style="max-width: 80%; margin-left: auto; margin-right: auto; margin-top: 100px" class="btn btn-success btn-lg btn-block" value="PDF Toevoegen" />
+
+                                    <asp:Button ID="btnFactuurKoppelen" OnClick="btnFactuurKoppelen_OnClick" CommandArgument='<%# Eval("Nummer") %>' Style="max-width: 80%; margin-left: auto; margin-right: auto; margin-top: 10px" CssClass="btn btn-success btn-lg btn-block" runat="server" Text="Factuur Koppelen" />
+
                                 </div>
 
                                 <div class="modal-footer">
@@ -172,34 +148,10 @@ SELECT 'Alle Afdelingen' AS [Naam]"></asp:SqlDataSource>
                     </div>
                 </ContentTemplate>
             </asp:UpdatePanel>
-                        <div id="bestelModal<%# Eval("Nummer") %>" class="modal fade center" role="dialog">
-
-                <div class="modal-dialog modal-lg">
-                    <!-- Modal content-->
-                    <div class="modal-content">
-
-                        <div class="modal-header">
-                            <h4 class="modal-title">PDF Uploaden <%# Eval("Nummer") %> </h4>
-                            <asp:Button runat="server" CssClass="btn btn-primary" Text="Sluiten"></asp:Button>
-                        </div>
-
-                        <div class="modal-body">
-                            <h3>Kies hier uw bestand</h3>
-                            <asp:FileUpload ID="FileUpload2" runat="server"/>
-                            <asp:Button ID="btnUpload" OnClick="Upload" CommandName='<%# Container.ItemIndex %>' CommandArgument='<%# Eval("Nummer") %>' Style="max-width: 80%; margin-left: auto; margin-right: auto; margin-top: 20px" CssClass="btn btn-success btn-lg btn-block" runat="server" Text="Bestellen" />
-
-                        </div>
-
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Sluiten</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
         </ItemTemplate>
     </asp:Repeater>
-    
+
     <script>
         // Get the container element
         var btnContainer = document.getElementById("setting-drop");

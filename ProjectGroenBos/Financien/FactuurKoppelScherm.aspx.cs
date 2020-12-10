@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -16,11 +15,10 @@ namespace ProjectGroenBos.Financien
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
             if (!IsPostBack)
             {
                 Repeater();
-                BindGrid();
             }
         }
 
@@ -46,21 +44,20 @@ namespace ProjectGroenBos.Financien
             if (DropDownList1.Text == "Alle Afdelingen")
             {
                 SqlDataSource1.SelectCommand =
-                "select * from inkooporderaanvraagmainLev where [Status] = 'Pakbon goedgekeurd' order by datum DESC, opmerking DESC";
+                "select * from inkooporderaanvraagmainLev order by datum DESC, opmerking DESC";
                 gvInkooporderaanvragerMain.DataBind();
             }
 
             else
             {
                 SqlDataSource1.SelectCommand =
-                    "select * from inkooporderaanvraagmainLev where Naam = '" + DropDownList1.Text + "' AND [Status] = 'Pakbon goedgekeurd' order by datum DESC, opmerking DESC";
+                    "select * from inkooporderaanvraagmainLev where Naam = '" + DropDownList1.Text + "' order by datum DESC, opmerking DESC";
                 gvInkooporderaanvragerMain.DataBind();
             }
         }
 
         protected void btnFactuurKoppelen_OnClick(object sender, EventArgs e)
         {
-
             using (SqlConnection con = new SqlConnection(constr))
             {
                 con.Open();
@@ -68,7 +65,7 @@ namespace ProjectGroenBos.Financien
                 int nummer = int.Parse(((Button)sender).CommandArgument);
 
 
-                SqlCommand cmd = new SqlCommand("UPDATE InkoopOrderAanvraag SET InkoopOrderAanvraagStatusID = 7, LaatsteUpdate = GETDATE() WHERE Nummer = @nummer; ", con);
+                SqlCommand cmd = new SqlCommand("UPDATE InkoopOrderAanvraag SET InkoopOrderAanvraagStatusID = 7 WHERE Nummer = @nummer; ", con);
                 cmd.Parameters.AddWithValue("@nummer", nummer);
                 cmd.ExecuteNonQuery();
 
@@ -78,144 +75,5 @@ namespace ProjectGroenBos.Financien
             gvInkooporderaanvragerMain.DataBind();
             ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "Bestelsuccess();", true);
         }
-
-        protected void TextBox1_TextChanged(object sender, EventArgs e)
-        {
-            if (TextBox1.Text != "")
-            {
-                SqlDataSource1.SelectCommand =
-                "select * from inkooporderaanvraagmainLev where Bestelnummer LIKE '" + TextBox1.Text + "%' AND [Status] = 'Pakbon goedgekeurd' order by datum DESC, opmerking DESC";
-                gvInkooporderaanvragerMain.DataBind();
-            }
-
-            else
-            {
-                SqlDataSource1.SelectCommand =
-                    "select * from inkooporderaanvraagmainLev where [Status] = 'Pakbon goedgekeurd' order by datum DESC, opmerking DESC";
-                gvInkooporderaanvragerMain.DataBind();
-            }
-        }
-
-        private void BindGrid()
-        {
-            using (SqlConnection con = new SqlConnection(constr))
-            {
-                using (SqlCommand cmd = new SqlCommand())
-                {
-                    cmd.CommandText = "select Id, Name from testtable";
-                    cmd.Connection = con;
-                    con.Open();
-                    GridView1.DataSource = cmd.ExecuteReader();
-                    GridView1.DataBind();
-                    con.Close();
-                }
-            }
-        }
-
-        protected void Upload(object sender, EventArgs e)
-        {
-            int nummer = int.Parse(((Button)sender).CommandName);
-            int inkoopnummer = int.Parse(((Button)sender).CommandArgument);
-
-                FileUpload FileUpload1 = (FileUpload)rpFactuurToevoegen.Items[nummer].FindControl("FileUpload1");
-                string filename = Path.GetFileName(FileUpload1.PostedFile.FileName);
-                string contentType = FileUpload1.PostedFile.ContentType;
-                using (Stream fs = FileUpload1.PostedFile.InputStream)
-                {
-                    using (BinaryReader br = new BinaryReader(fs))
-                    {
-                        byte[] bytes = br.ReadBytes((Int32)fs.Length);
-                        using (SqlConnection con = new SqlConnection(constr))
-                        {
-                            string commandText = "INSERT INTO [dbo].[Crediteurenfactuur] ([Datum] ,[Totaal bedrag] ,[Termijn] ,[Omschrijving betaalcondities] ,[InkooporderID] ,[FactuurstatusID] ,[IBAN] ,[LeverancierID], Data, ContentType, Naam) VALUES " + "(@Datum, @Totaal_bedrag, (convert(datetime,@Termijn,104), @Omschrijving_betaalcondities, @InkooporderID, @FactuurstatusID, @IBAN, @LeverancierID, @Data, @ContentType, @Name)";
-
-                            using (SqlCommand cmd = new SqlCommand(commandText))
-                            {
-                                SqlConnection constre = new SqlConnection(constr);
-                                SqlCommand cmd2 = new SqlCommand("SELECT I.*, A.LeverancierID FROM InkooporderaanvraagItemsTotaalprijs I LEFT JOIN InkoopOrderAanvraag A ON I.InkoopOrderAanvraagNummer = A.Nummer where InkoopOrderAanvraagNummer = @Nummer", constre);
-                                cmd2.Parameters.AddWithValue("@Nummer", inkoopnummer);
-                            con.Open();
-                                double prijs = double.Parse(cmd2.ExecuteNonQuery().ToString());
-                                double prijske = double.Parse(prijs["TotaalPrijs"].ToString());
-                                int leverancier = int.Parse(prijs["LeverancierID"].ToString());
-
-                                TextBox txbTermijn = (TextBox)rpFactuurToevoegen.Items[nummer].FindControl("txbTermijn");
-
-                                TextBox txbIBAN = (TextBox)rpFactuurToevoegen.Items[nummer].FindControl("txbIBAN");
-
-                                cmd.Connection = con;
-                                cmd.Parameters.AddWithValue("@Name", filename);
-                                cmd.Parameters.AddWithValue("@ContentType", contentType);
-                                cmd.Parameters.AddWithValue("@Data", bytes);
-                                cmd.Parameters.AddWithValue("@Datum", DateTime.Now);
-                                cmd.Parameters.AddWithValue("@Totaal_bedrag", prijske);
-                                cmd.Parameters.AddWithValue("@Termijn", txbTermijn.Text);
-                                cmd.Parameters.AddWithValue("@Omschrijving_betaalcondities", "Inkooporder");
-                                cmd.Parameters.AddWithValue("@InkooporderID", nummer);
-                                cmd.Parameters.AddWithValue("@FactuurstatusID", "1");
-                                cmd.Parameters.AddWithValue("@IBAN", txbIBAN.Text);
-                                cmd.Parameters.AddWithValue("@LeverancierID", leverancier);
-                                con.Open();
-                                cmd.ExecuteNonQuery();
-                                con.Close();
-                            }
-                        }
-                    }
-                }
-
-                using (SqlConnection con = new SqlConnection(constr))
-                {
-                    con.Open();
-
-                    int nummer2 = int.Parse(((Button)sender).CommandArgument);
-
-
-                    SqlCommand cmd = new SqlCommand("UPDATE InkoopOrderAanvraag SET InkoopOrderAanvraagStatusID = 7 WHERE Nummer = @nummer; ", con);
-                    cmd.Parameters.AddWithValue("@nummer", nummer2);
-                    cmd.ExecuteNonQuery();
-
-                    con.Close();
-                }
-
-                gvInkooporderaanvragerMain.DataBind();
-                ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "Bestelsuccess();", true);
-
-        }
-
-        protected void DownloadFile(object sender, EventArgs e)
-        {
-            int id = int.Parse((sender as LinkButton).CommandArgument);
-            byte[] bytes;
-            string fileName, contentType;
-            using (SqlConnection con = new SqlConnection(constr))
-            {
-                using (SqlCommand cmd = new SqlCommand())
-                {
-                    //cmd.CommandText = "select Name, Data, ContentType from [testtable] where Id=@Id";
-                    cmd.Parameters.AddWithValue("@Id", id);
-                    cmd.Connection = con;
-                    con.Open();
-                    using (SqlDataReader sdr = cmd.ExecuteReader())
-                    {
-                        sdr.Read();
-                        bytes = (byte[])sdr["Data"];
-                        contentType = sdr["ContentType"].ToString();
-                        fileName = sdr["Name"].ToString();
-                    }
-                    con.Close();
-                }
-            }
-            Response.Clear();
-            Response.Buffer = true;
-            Response.Charset = "";
-            Response.Cache.SetCacheability(HttpCacheability.NoCache);
-            Response.ContentType = contentType;
-            Response.AppendHeader("Content-Disposition", "attachment; filename=" + fileName);
-            Response.BinaryWrite(bytes);
-            Response.Flush();
-            Response.End();
-        }
     }
 }
-
-
