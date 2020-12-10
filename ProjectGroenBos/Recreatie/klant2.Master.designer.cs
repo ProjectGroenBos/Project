@@ -11,70 +11,52 @@ namespace ProjectGroenBos.Recreatie
 {
 
 
-    public partial class ProductPaginaInzien
+    public partial class klant2
     {
 
         /// <summary>
-        /// LblZoekenInactiefmakenproductpagina control.
+        /// head control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblZoekenInactiefmakenproductpagina;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
 
         /// <summary>
-        /// TxbZoekenproductpagina control.
+        /// form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxbZoekenproductpagina;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// RdbLeverancier control.
+        /// Image1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton RdbLeverancier;
+        protected global::System.Web.UI.WebControls.Image Image1;
 
         /// <summary>
-        /// RdbCategorie control.
+        /// btnUitloggen control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton RdbCategorie;
+        protected global::System.Web.UI.WebControls.Button btnUitloggen;
 
         /// <summary>
-        /// GVProductpagInzien control.
+        /// ContentPlaceHolder1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GVProductpagInzien;
-
-        /// <summary>
-        /// BtnProductpaginaInzienWijzigen control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnProductpaginaInzienWijzigen;
-
-        /// <summary>
-        /// BtnProductpaginaInzieninactief control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnProductpaginaInzieninactief;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder1;
     }
 }
