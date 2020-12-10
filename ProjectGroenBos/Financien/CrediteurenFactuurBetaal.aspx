@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Financien/Financien.Master" CodeBehind="Openstaandecreditnota.aspx.cs" Inherits="ProjectGroenBos.Financien.Openstaandecreditnota" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Financien/Financien.Master" CodeBehind="CrediteurenFactuurBetaal.aspx.cs" Inherits="ProjectGroenBos.Financien.Openstaandecreditnota" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
@@ -58,7 +58,7 @@
         function betalingsuccess() {
             Swal.fire({
                 icon: 'success',
-                title: 'Betaling succesvol in database gezet.',
+                title: 'Factuur is betaald!',
                 showConfirmButton: false,
                 timer: 4000
             })
@@ -84,8 +84,8 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="header">Inkoopfacturen</div>
     <div class="container" runat="server" id="pdfbody">
-        <h2>Inkoopfactuur-overzicht</h2>
-        <p>Overzicht van alle inkoopfacturen.</p>
+        <h2>Crediteuren Factuur Betaalscherm</h2>
+        <p>Overzicht van alle crediteurfacturen die nog betaald moeten worden.</p>
 
         <asp:GridView ID="gvRekeningen" runat="server" CssClass="content-table tweedetable" GridLines="None" AutoGenerateColumns="False" DataSourceID="SqlDataSource6" DataKeyNames="Nummer">
             <Columns>
@@ -97,12 +97,12 @@
                 <asp:BoundField DataField="Omschrijving" HeaderText="Status" SortExpression="Omschrijving" />
                 <asp:TemplateField>
                     <ItemTemplate>
-                        <button type="button" style="background-color: #009879; color: #fff" class="btn" data-toggle="modal" data-target="#modal<%# Eval("Nummer") %>">Zie rekeningen</button>
+                         <asp:Button ID="btnRekeningen" runat="server" OnClick="btnRekeningen_Click" style="background-color: #009879; color: #fff" class="btn"  CommandArgument='<%# Eval("Nummer")%>' Text="Zie Factuur" />
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>
         </asp:GridView>
-        <asp:SqlDataSource ID="SqlDataSource6" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="select Nummer, [Betalen aan], [Totaal bedrag], Termijn, [Omschrijving betaalcondities], Omschrijving from Crediteurenfactuur inner join Factuurstatus on Factuurstatus.ID = Crediteurenfactuur.FactuurstatusID"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSource6" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="select Nummer, [Betalen aan], [Totaal bedrag], Termijn, [Omschrijving betaalcondities], Omschrijving from Crediteurenfactuur inner join Factuurstatus on Factuurstatus.ID = Crediteurenfactuur.FactuurstatusID Where Omschrijving != 'Factuur Betaald'"></asp:SqlDataSource>
     </div>
     <asp:Panel ID="Panel1" runat="server">
         <asp:Repeater ID="rpModals" runat="server">
@@ -239,7 +239,7 @@
 
                                 <br />
                               
-                                <asp:Button ID="btnBetalen" runat="server" OnClick="btnBetalen_Click" CssClass="btn btn-primary" CommandName="<%# Container.ItemIndex %>" CommandArgument='<%# Eval("Nummer")%>' Text="Betaal factuur" />
+                                <asp:Button ID="btnBetalen" runat="server" OnClick="btnBetalen_OnClick" CssClass="btn btn-primary btn-lg btn-block" CommandArgument='<%# Eval("Nummer")%>' Text="Betaal factuur" />
 
                             </div>
                             <div class="modal-footer">
@@ -276,23 +276,12 @@
                                             <td><%# Eval("Betalen aan") %> <%# Eval("IBAN") %></td>
                                         </tr>
                                         <tr>
-                                            <td>Reeds betaald</td><td> <asp:Label ID="Lblreedsbetaald" runat="server" Text="Nog niks"></asp:Label></td>
+                                          
                                         </tr>
                                     </tbody>
                                 </table>
                                
 
-                                <table class="content-table" style="margin-top: +25px">
-                                    <tbody>
-                                        <tr>
-                                            <td>Bedrag overgemaakt</td>
-                                            <td>
-                                                <asp:TextBox ID="txtBedrag" runat="server"> </asp:TextBox>
-                                                <asp:RangeValidator ID="RangeValidator1" runat="server" ErrorMessage="Invoer is onjuist" ControlToValidate="txtBedrag" MinimumValue="0" MaximumValue="9999999999999"></asp:RangeValidator>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
 
                                 <asp:HiddenField ID="Winkel" runat="server"
                                     Value='<%# Eval("Betalen aan") %>' />
@@ -305,7 +294,7 @@
 
 
 
-                                <asp:Button ID="btnBetaal" class="btn btn-primary btn-lg btn-block" OnClick="btnToevoegen2_Click" runat="server" Text="Betaal factuur" />
+                                <asp:Button ID="btnBetaal" class="btn btn-primary btn-lg btn-block" OnClick="btnToevoegen2_Click" CommandName="<%# Container.ItemIndex %>"  runat="server" Text="Betaal factuur" />
 
                             </div>
                             <div class="modal-footer">

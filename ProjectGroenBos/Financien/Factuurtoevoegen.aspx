@@ -1,13 +1,33 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Financien/Financien.Master" AutoEventWireup="true" CodeBehind="Factuurinvoerscherm.aspx.cs" Inherits="ProjectGroenBos.Financien.Factuurinvoerscherm" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Financien/Financien.Master" AutoEventWireup="true" CodeBehind="Factuurtoevoegen.aspx.cs" Inherits="ProjectGroenBos.Financien.Factuurinvoerscherm" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script>
+        function factuursuccess() {
+            Swal.fire({
+                icon: 'success',
+                title: 'De factuur is aangemaakt.',
+                showConfirmButton: false,
+                timer: 4000
+            })
+        }
+        function retoursuccess() {
+            Swal.fire({
+                icon: 'success',
+                title: 'De factuur is naar retour verzonden.',
+                showConfirmButton: false,
+                timer: 4000
+            })
+        }
+        </script> 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
 <!DOCTYPE html>
+
     <div class="container">
 
-<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#ToevoegenModal1">Factuur toevoegen</button>
-<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#ToevoegenModal2">Factuur Retourzenden</button>
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#ToevoegenModal1">Factuur inkooporder</button>
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#ToevoegenModal2">Factuur Offerte</button>
 
 
 
@@ -18,18 +38,17 @@
                 <div class="modal-header">
                     <h4 class="modal-title">Factuur toevoegen</h4>
                 </div>
-                <asp:SqlDataSource ID="SqlDataSource8" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="select Inkooporderregel.ID as Nummer, Inkooporderregel.prijs as Kosten, Voorraad.Naam as omschrijving
-from Inkooporderregel cross join Voorraad
-where Inkooporderregel.VoorraadID = Voorraad.ID
-union
-select  op.Prijs as Kosten, op.OnderhoudsopdrachtNummer as nummer, ond.Onderhoudtype as omschrijving
-from offerte op cross join Onderhoudsopdracht ond
-where op.OnderhoudsopdrachtNummer = ond.Nummer"></asp:SqlDataSource>
+                <asp:SqlDataSource ID="SqlDataSource8" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="select Inkooporderregel.InkooporderID as inkoopID,Voorraad.Naam as Naam, Voorraad.Omschrijving as Omschrijving, Inkooporderregel.Hoeveelheid as Hoeveelheid, Inkooporderregel.prijs as Prijs,Leverancier.Naam as Leverancier
+from Inkooporderregel cross join Leverancier left join Voorraad 
+on Inkooporderregel.VoorraadID= Voorraad.ID"></asp:SqlDataSource>
                  <asp:GridView ID="GridView2" CssClass="content-table" GridLines="None" AutoGenerateColumns="False" Style="text-align: center; margin-left: auto; margin-right: auto; width:auto; height:100px; overflow:scroll"  runat="server" AutoGenerateSelectButton="True" OnSelectedIndexChanged="GridView2_SelectedIndexChanged" DataSourceID="SqlDataSource8">
                                     <Columns>
-                                        <asp:BoundField DataField="Nummer" HeaderText="Nummer" ReadOnly="True" SortExpression="Nummer" />
-                                        <asp:BoundField DataField="Kosten" HeaderText="Kosten" ReadOnly="True" SortExpression="Kosten" />
+                                        <asp:BoundField DataField="inkoopID" HeaderText="inkoopID" ReadOnly="True" SortExpression="inkoopID" />
+                                        <asp:BoundField DataField="Naam" HeaderText="Naam" ReadOnly="True" SortExpression="Naam" />
                                         <asp:BoundField DataField="Omschrijving" HeaderText="Omschrijving" ReadOnly="True" SortExpression="Omschrijving" />
+                                        <asp:BoundField DataField="Hoeveelheid" HeaderText="Hoeveelheid" ReadOnly="True" SortExpression="Hoeveelheid" />
+                                        <asp:BoundField DataField="Prijs" HeaderText="Prijs" ReadOnly="True" SortExpression="Prijs" />
+                                        <asp:BoundField DataField="Leverancier" HeaderText="Leverancier" ReadOnly="True" SortExpression="Leverancier" />
                                     </Columns>
                                     <EditRowStyle BackColor="#009879" ForeColor="White" />
                                     <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
@@ -43,12 +62,12 @@ where op.OnderhoudsopdrachtNummer = ond.Nummer"></asp:SqlDataSource>
                                     <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                                 </asp:GridView>
                 <div class="modal-body">
-                    <p>Leverancier of aannemer</p>
-                    <asp:DropDownList ID="leverancieraanemer" runat="server">  
+                    <p>Leverancierr</p>
+                    <asp:DropDownList ID="leverancier" runat="server"> 
         </asp:DropDownList>
                     <p>Totaalbedrag</p>
                     <asp:TextBox ID="txbTotaalbedrag" Style="text-align: center" Height="50px" Width="100%" runat="server"></asp:TextBox>
-                    <p>Termijn</p>
+                    <p>Uiterste betaaldatum</p>
                     <asp:TextBox ID="txbTermijn" Style="text-align: center" Height="50px" Width="100%" runat="server"></asp:TextBox>
                     <p>Factuurtype</p>
                     <asp:DropDownList ID="dlFactuurtype" Style="text-align: center; margin-top: 10px;" Height="50px" Width="100%" runat="server">
@@ -61,9 +80,8 @@ where op.OnderhoudsopdrachtNummer = ond.Nummer"></asp:SqlDataSource>
                     <asp:TextBox ID="txbIBAN" Style="text-align: center" Height="50px" Width="100%" runat="server"></asp:TextBox>
                     <p>OrderID/OnderhoudsID</p>
                     <asp:TextBox ID="txbORDERID" Style="text-align: center" Height="50px" Width="100%" runat="server"></asp:TextBox>
-                    <p>OffereID</p>
-                    <asp:TextBox ID="txtbOfferte" placeholder="hoeft alleen bij offerte" Style="text-align: center" Height="50px" Width="100%" runat="server"></asp:TextBox>
                     <asp:Button ID="btnToevoegen" CssClass="btnToevoegen" runat="server" Text="goedkeuren" OnClick="btnToevoegen_Click" />
+                    <asp:Button ID="BtnRetour" CssClass="btnToevoegen" runat="server" Text="Retour" OnClick="BtnRetour_Click" />
                 </div>
 
                 <div class="modal-footer">
@@ -87,6 +105,7 @@ from Inkooporderregel ink cross join Voorraad
 where ink.VoorraadID = Voorraad.ID"></asp:SqlDataSource>
                 <asp:GridView ID="GridView1" CssClass="content-table" GridLines="None" AutoGenerateColumns="False" Style="text-align: center; margin-left: auto; margin-right: auto; width:auto; height:100px; overflow:scroll" runat="server" AutoGenerateSelectButton="True" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" DataSourceID="SqlDataSource9">
                                     <Columns>
+                                        
                                         <asp:BoundField DataField="Inkoopnummer" HeaderText="Inkoopnummer" ReadOnly="True" SortExpression="Inkoopnummer" />
                                         <asp:BoundField DataField="Kosten" HeaderText="Kosten" ReadOnly="True" SortExpression="Kosten" />
                                         <asp:BoundField DataField="Hoeveelheid" HeaderText="Hoeveelheid" ReadOnly="True" SortExpression="Hoeveelheid" />
@@ -111,9 +130,9 @@ where ink.VoorraadID = Voorraad.ID"></asp:SqlDataSource>
                     <p>InkoopOrderID</p>
                     <asp:TextBox ID="txtbInkoopID" Style="text-align: center" Height="50px" Width="100%" runat="server"></asp:TextBox>
                     <p>Leverancier</p>
-                   <asp:DropDownList ID="leverancier" runat="server">  
+                     
         </asp:DropDownList> 
-                    <asp:Button ID="BtnRetour" CssClass="btnToevoegen" runat="server" Text="Retour" OnClick="BtnRetour_Click" />
+                    
                 </div>
 
                 <div class="modal-footer">
