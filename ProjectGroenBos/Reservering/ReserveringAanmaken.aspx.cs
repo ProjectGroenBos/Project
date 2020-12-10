@@ -140,12 +140,12 @@ namespace ProjectGroenBos.Reservering
                 InsReserveringBungalow(reserveringnummer, bungalownummer);
                 GetKlantgegevens(gastnummer);
 
-                string voornaam = (string)GridView1.DataKeyNames[0]["Voornaam"];
-                string tussenvoegsel = (string)GridView1.DataKeyNames[0]["Tussenvoegsel"];
-                string achternaam = (string)GridView1.DataKeyNames[0]["Achternaam"];
-                DateTime geboortedatum = (DateTime)GridView1.DataKeyNames[0]["Geboortedatum"];
+                //string voornaam = (string)GridView1.DataKeyNames[0]["Voornaam"];
+                //string tussenvoegsel = (string)GridView1.DataKeyNames[0]["Tussenvoegsel"];
+                //string achternaam = (string)GridView1.DataKeyNames[0]["Achternaam"];
+                //DateTime geboortedatum = (DateTime)GridView1.DataKeyNames[0]["Geboortedatum"];
 
-                ReserveerderToevoegen(voornaam, tussenvoegsel, achternaam, geboortedatum, reserveringnummer);
+                //ReserveerderToevoegen(voornaam, tussenvoegsel, achternaam, geboortedatum, reserveringnummer);
 
                 InsDebiteurenFactuur(vandaag, betaalmethode, betaalstatus, factuurtype, reserveringnummer);
                 int debifactuur = GetDebiNummer();

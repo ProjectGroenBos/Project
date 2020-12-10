@@ -31,7 +31,7 @@
         <br />
         <asp:Button ID="btnZoek" runat="server" Text="Zoek"  CssClass="btnUitloggen" Style="background-color: #009879; color: #fff" class="btn" />
         <br />
-        <asp:GridView ID="GridView1" CssClass="content-table" runat="server" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="Gast nummer" DataSourceID="SqlDataSource1" AutoGenerateSelectButton="True" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+        <asp:GridView ID="GridView1" CssClass="content-table" runat="server" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="Gast nummer" DataSourceID="SqlDataSource1" AutoGenerateSelectButton="True" SelectedIndexChanged="GridView1_SelectedIndexChanged">
             <Columns>
                 <asp:BoundField DataField="Gast nummer" HeaderText="Gast nummer" InsertVisible="False" ReadOnly="True" SortExpression="Gast nummer" />
                 <asp:BoundField DataField="Voornaam" HeaderText="Voornaam" SortExpression="Voornaam" />
@@ -39,7 +39,7 @@
                 <asp:BoundField DataField="Achternaam" HeaderText="Achternaam" SortExpression="Achternaam" />
                 <asp:BoundField DataField="Telefoonnummer" HeaderText="Telefoonnummer" SortExpression="Telefoonnummer" />
                 <asp:BoundField DataField="E-mail" HeaderText="E-mail" SortExpression="E-mail" />
-                <asp:BoundField DataField="Geboortedatum" HeaderText="Geboortedatum" SortExpression="Geboortedatum" />
+                <asp:BoundField DataField="Geboortedatum" HeaderText="Geboortedatum" SortExpression="Geboortedatum" DataFormatString="{0:d}" />
             </Columns>
             <HeaderStyle ForeColor="White" />
     </asp:GridView>
