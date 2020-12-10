@@ -138,6 +138,14 @@ namespace ProjectGroenBos.Reservering
                 InsReservering(personen, opmerking, vandaag, vertrekDatum, aankomstDatum, reserveringsStatus, gastnummer);
                 int reserveringnummer = GetReservering();
                 InsReserveringBungalow(reserveringnummer, bungalownummer);
+                GetKlantgegevens(gastnummer);
+
+                string voornaam = (string)GridView1.DataKeyNames[0]["Voornaam"];
+                string tussenvoegsel = (string)GridView1.DataKeyNames[0]["Tussenvoegsel"];
+                string achternaam = (string)GridView1.DataKeyNames[0]["Achternaam"];
+                DateTime geboortedatum = (DateTime)GridView1.DataKeyNames[0]["Geboortedatum"];
+
+                ReserveerderToevoegen(voornaam, tussenvoegsel, achternaam, geboortedatum, reserveringnummer);
 
                 InsDebiteurenFactuur(vandaag, betaalmethode, betaalstatus, factuurtype, reserveringnummer);
                 int debifactuur = GetDebiNummer();
@@ -169,7 +177,7 @@ namespace ProjectGroenBos.Reservering
 
                 }
 
-                
+
                 InsTransactie(vandaag, aan, prijs, reserveringnummer, debifactuur, rekeningnummer, typeID);
 
                 Session["prijs"] = prijs.ToString();
@@ -461,6 +469,56 @@ namespace ProjectGroenBos.Reservering
                 cmd.ExecuteNonQuery();
 
                 con.Close();
+            }
+        }
+
+        private void GetKlantgegevens(int gastnummer)
+        {
+            using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["2020-BIM02-P1-P2-GroenbosConnectionString"].ConnectionString))
+            {
+                con.Open();
+
+                string query = "select Voornaam, Tussenvoegsel, Achternaam, Geboortedatum from Gast where Nummer = @nummer";
+
+                SqlCommand cmd = new SqlCommand(query, con);
+
+                cmd.Parameters.AddWithValue("@nummer", gastnummer);
+
+                cmd.ExecuteNonQuery();
+
+                DataTable dt = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+                GridView1.DataSource = dt;
+                GridView1.DataBind();
+
+                con.Close();
+            }
+        }
+
+        private void ReserveerderToevoegen(string voornaam, string tussenvoegsel, string achternaam, DateTime geboortedatum, int reserveringnummer)
+        {
+            geboortedatum.ToShortDateString();
+
+            using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["2020-BIM02-P1-P2-GroenbosConnectionString"].ConnectionString))
+            {
+
+                con.Open();
+
+                SqlCommand sqlquery = new SqlCommand("[dbo].[InsertNachtRegister]");
+
+                sqlquery.Parameters.AddWithValue("@Voornaam", voornaam);
+                sqlquery.Parameters.AddWithValue("@Tussenvoegsel", tussenvoegsel);
+                sqlquery.Parameters.AddWithValue("@Achternaam", achternaam);
+                sqlquery.Parameters.AddWithValue("@Geboortedatum", geboortedatum);
+                sqlquery.Parameters.AddWithValue("@ReserveringNummer2", reserveringnummer);
+
+                sqlquery.CommandType = System.Data.CommandType.StoredProcedure;
+                sqlquery.Connection = con;
+                sqlquery.ExecuteNonQuery();
+
+                con.Close();
+
             }
         }
 

@@ -104,7 +104,7 @@
         <br />
         <asp:Label ID="lblUitkomst" runat="server"></asp:Label>
         <br />
-        <asp:GridView ID="GridView1" runat="server" CssClass="content-table" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AllowSorting="True" AutoGenerateSelectButton="True">
+        <asp:GridView ID="GridView1" runat="server" CssClass="content-table" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AllowSorting="True" AutoGenerateSelectButton="True" DataKeyNames="Voornaam,Tussenvoegsel,Achternaam,Geboortedatum">
             <HeaderStyle ForeColor="White" />
         </asp:GridView>
     </div>
