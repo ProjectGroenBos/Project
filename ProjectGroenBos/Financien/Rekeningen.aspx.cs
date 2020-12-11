@@ -21,7 +21,7 @@ namespace ProjectGroenBos.Financien
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (int.Parse(Session["Functie"].ToString()) == 4)
+            if (int.Parse(Session["Functie"].ToString()) != 2 || int.Parse(Session["Functie"].ToString()) != 3)
             {
                 Response.Redirect("Home.aspx");
             }
