@@ -12,20 +12,14 @@ using System.Web.Services.Description;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-
 namespace ProjectGroenBos.Financien
 {
-    public partial class Reserveringen : System.Web.UI.Page
+    public partial class CreditnotaBetaalScherm : System.Web.UI.Page
     {
         string constr = System.Configuration.ConfigurationManager.ConnectionStrings["dbconnectie"].ConnectionString;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (int.Parse(Session["Functie"].ToString()) != 2 || int.Parse(Session["Functie"].ToString()) != 3)
-            {
-                Response.Redirect("Home.aspx");
-            }
-
             if (!IsPostBack)
             {
                 Repeater();
@@ -42,10 +36,9 @@ namespace ProjectGroenBos.Financien
                 DataSet ds = new DataSet();
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 da.Fill(ds);
-                rpReservering.DataSource = ds;
-                rpReservering.DataBind();
-                rpTransactiemodals.DataSource = ds;
-                rpTransactiemodals.DataBind();
+                rpCreditnota.DataSource = ds;
+                rpCreditnota.DataBind();
+
 
                 con.Close();
             }
@@ -57,23 +50,28 @@ namespace ProjectGroenBos.Financien
             Button btn = sender as Button;
 
             int gridviewnr = int.Parse(btn.CommandName);
-            HiddenField nummers = (HiddenField)rpReservering.Items[gridviewnr].FindControl("Nummer");
+            HiddenField nummers = (HiddenField)rpCreditnota.Items[gridviewnr].FindControl("Nummer");
             string nummer = nummers.Value;
 
-            HiddenField Totaalbedragen = (HiddenField)rpReservering.Items[gridviewnr].FindControl("Totaalbedrag");
+            HiddenField Totaalbedragen = (HiddenField)rpCreditnota.Items[gridviewnr].FindControl("Totaalbedrag");
             string Totaalbedrag = Totaalbedragen.Value;
 
-            HiddenField Namen = (HiddenField)rpReservering.Items[gridviewnr].FindControl("Naamgast");
+            HiddenField Namen = (HiddenField)rpCreditnota.Items[gridviewnr].FindControl("Naamgast");
             string Naam = Namen.Value;
 
-            HiddenField Emails = (HiddenField)rpReservering.Items[gridviewnr].FindControl("Emailgast");
+            HiddenField Emails = (HiddenField)rpCreditnota.Items[gridviewnr].FindControl("Emailgast");
             string email = Emails.Value;
 
-            HiddenField fNummers = (HiddenField)rpReservering.Items[gridviewnr].FindControl("fnummer");
+            HiddenField fNummers = (HiddenField)rpCreditnota.Items[gridviewnr].FindControl("fnummer");
             string fnummer = fNummers.Value;
 
+            //HiddenField Datums = (HiddenField)rpCreditnota.Items[gridviewnr].FindControl("datum");
+            //string datum = Datums.Value;
 
-            Email(gridviewnr, nummer, Totaalbedrag, Naam, email);
+            HiddenField Banknummers = (HiddenField)rpCreditnota.Items[gridviewnr].FindControl("banknummer");
+            string banknummer = Banknummers.Value;
+
+            Email(gridviewnr, nummer, Totaalbedrag, Naam, email, banknummer);
 
             using (SqlConnection con = new SqlConnection(constr))
             {
@@ -92,7 +90,7 @@ namespace ProjectGroenBos.Financien
             ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "emailsuccess();", true);
         }
 
-        protected void Email(int gridviewnr, string nummer, string totaal, string naam, string email)
+        protected void Email(int gridviewnr, string nummer, string totaal, string naam, string email, string banknummer)
         {
 
             MailMessage mail = new MailMessage();
@@ -102,12 +100,19 @@ namespace ProjectGroenBos.Financien
 
             // email body tekst
             StringBuilder sbEmailBody = new StringBuilder();
-            sbEmailBody.Append("Hallo " + naam + ",");
+            sbEmailBody.Append("Geachte meneer/mevrouw " + naam + ",");
             sbEmailBody.Append("<br/><br/>");
-            sbEmailBody.Append("hierbij sturen wij de factuur van de reservering die u heeft gemaakt op.");
+            sbEmailBody.Append("Op TESTDATUM j.l. hebben wij van u een schriftelijke annulering ontvangen met betrekking tot uw reservering die in onze administratie onder nummer " + nummer + " geregistreerd was. ");
             //link veranderen als website wordt gehost.
+            sbEmailBody.Append("Wij hebben uw reservering doen vervallen.");
+            sbEmailBody.Append("Op grond van ons reglement ontvangt u 40% van de huursom verminderd met de aanbetaling retour. ");
+            sbEmailBody.Append("De hoogte van dit bedrag gelieve u aan te treffen aan de onderzijde van dit schrijven.");
+            sbEmailBody.Append("Wij hebben het restitutiebedrag heden gestort op bankrekening nummer " + banknummer + ".");
             sbEmailBody.Append("<br/><br/>");
-            sbEmailBody.Append(GetGridviewData((GridView)rpReservering.Items[gridviewnr].FindControl("gvFactuurreservering")));
+            sbEmailBody.Append("Het spijt ons zeer u niet te kunnen verwelkomen op ons park.");
+            sbEmailBody.Append("<br/><br/>");
+            sbEmailBody.Append("<br/><br/>");
+            sbEmailBody.Append(GetGridviewData((GridView)rpCreditnota.Items[gridviewnr].FindControl("gvFactuurreservering")));
             sbEmailBody.Append("<br/><br/>");
             sbEmailBody.Append("<h4>Te betalen bedrag: " + totaal + "</h4>");
             sbEmailBody.Append("<br/><br/>");
@@ -126,7 +131,7 @@ namespace ProjectGroenBos.Financien
             mailMessage.IsBodyHtml = true;
             //body naar email tekst
             mailMessage.Body = sbEmailBody.ToString();
-            mailMessage.Subject = "Reservering Factuur " + nummer;
+            mailMessage.Subject = "Creditnota " + nummer;
             SmtpClient smtpClient = new SmtpClient("smtp.live.com", 587);
 
             //email login
@@ -156,57 +161,6 @@ namespace ProjectGroenBos.Financien
         {
             /* Verifies that the control is rendered */
         }
-
-        protected void btnTransactiehistory_OnClick(object sender, EventArgs e)
-        {
-            //HiddenField nummers = (HiddenField)rpTransactiemodals.Items[0].FindControl("Nummer");
-            //string nummer = nummers.Value;
-
-            SqlConnection con = new SqlConnection(constr);
-            con.Open();
-            //Label label1 = (Label)rpTransactiemodals.Items[0].FindControl("Lblreedsbetaald");
-            //SqlCommand ophaal = new SqlCommand("select CAST(SUM(Bedrag) AS real) as [Reeds betaald] from Transactie where CrediteurenfactuurNummer = @nummer", con);
-            //ophaal.Parameters.AddWithValue("@nummer", nummer);
-            //string result = ophaal.ExecuteScalar().ToString();
-            //label1.Text = result;
-            con.Close();
-            string modal = "#modal2" + ((Button)sender).CommandArgument;
-
-            TransactieRepeater(((Button)sender).CommandName, ((Button)sender).CommandArgument);
-
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal('" + modal + "');", true);
-        }
-
-        public void TransactieRepeater(string repeaternr, string fnummer)
-        {
-            using (SqlConnection con = new SqlConnection(constr))
-            {
-                con.Open();
-
-                Repeater transacties = (Repeater)rpTransactiemodals.Items[int.Parse(repeaternr)].FindControl("rpTransacties");
-                Label NoRecords = (Label)rpTransactiemodals.Items[int.Parse(repeaternr)].FindControl("lblNoRecords");
-
-                SqlCommand cmd = new SqlCommand("select * from reserveringbetalingen where debiteurenfactuurnummer = @nummer", con);
-                cmd.Parameters.AddWithValue("@nummer", fnummer);
-
-                DataSet ds = new DataSet();
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                da.Fill(ds);
-                transacties.DataSource = ds;
-                transacties.DataBind();
-
-
-                if (transacties.Items.Count < 1)
-                {
-                    NoRecords.Visible = true;
-                    transacties.Visible = false;
-                }
-
-                con.Close();
-            }
-
-        }
-
 
     }
 }
