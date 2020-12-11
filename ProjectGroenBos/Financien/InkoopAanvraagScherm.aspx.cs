@@ -17,6 +17,11 @@ namespace ProjectGroenBos.Financien
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (int.Parse(Session["Functie"].ToString()) != 4)
+            {
+                Response.Redirect("Home.aspx");
+            }
+
             if (!IsPostBack)
             {
                 Repeater();

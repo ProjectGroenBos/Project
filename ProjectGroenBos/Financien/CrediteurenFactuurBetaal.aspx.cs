@@ -15,6 +15,11 @@ namespace ProjectGroenBos.Financien
         string constr = System.Configuration.ConfigurationManager.ConnectionStrings["dbconnectie"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (int.Parse(Session["Functie"].ToString()) != 2)
+            {
+                Response.Redirect("Home.aspx");
+            }
+
             if (!IsPostBack)
             {
                 Repeater();
