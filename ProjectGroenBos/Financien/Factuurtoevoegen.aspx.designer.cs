@@ -33,13 +33,13 @@ namespace ProjectGroenBos.Financien
         protected global::System.Web.UI.WebControls.GridView GridView2;
 
         /// <summary>
-        /// leverancieraanemer control.
+        /// leverancier control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList leverancieraanemer;
+        protected global::System.Web.UI.WebControls.DropDownList leverancier;
 
         /// <summary>
         /// txbTotaalbedrag control.
@@ -87,15 +87,6 @@ namespace ProjectGroenBos.Financien
         protected global::System.Web.UI.WebControls.TextBox txbORDERID;
 
         /// <summary>
-        /// txtbOfferte control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtbOfferte;
-
-        /// <summary>
         /// btnToevoegen control.
         /// </summary>
         /// <remarks>
@@ -103,6 +94,15 @@ namespace ProjectGroenBos.Financien
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnToevoegen;
+
+        /// <summary>
+        /// BtnRetour control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnRetour;
 
         /// <summary>
         /// SqlDataSource9 control.
@@ -148,23 +148,5 @@ namespace ProjectGroenBos.Financien
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtbInkoopID;
-
-        /// <summary>
-        /// leverancier control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList leverancier;
-
-        /// <summary>
-        /// BtnRetour control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnRetour;
     }
 }

@@ -49,12 +49,12 @@
                 <div class="navigator">
                     <nav>
                         <ul>
-                            <li><a href="index.html">Home</a></li>
-                            <li class="selected"><a href="#">Restraurant</a></li>
-                            <li><a href="#">Reserveringen</a></li>
-                            <li><a href="#">Recreatie</a></li>
-                            <li><a href="#">Schoonmaak</a></li>
-                            <li><a href="#">Financiën</a></li>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="/Recreatie/Overzicht.aspx">Recreatie</a></li>
+                            <li class="selected"><a href="/Restaurant/home.aspx">Restaurant</a></li>
+                            <li><a href="/Reservering/home.aspx">Reserveringen & Balie</a></li>
+                            <li><a href="/Financien/Home.aspx">Financiën</a></li>
+                            <li><a href="/Schoonmaak en Onderhoud/InventarisOverzicht.aspx">Schoonmaak</a></li>
                             <asp:Button ID="btnUitloggen" runat="server" CssClass="btnUitloggen" Text="Uitloggen" />
                         </ul>
                     </nav>

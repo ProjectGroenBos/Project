@@ -24,7 +24,7 @@ namespace ProjectGroenBos.Financien
         protected void Page_Load(object sender, EventArgs e)
         {
             dropdownLeverancier();
-            dropdownLeverancierAanemers();
+            
         }
         private void dropdownLeverancier()
         {
@@ -41,28 +41,27 @@ namespace ProjectGroenBos.Financien
                 leverancier.DataBind();
             }
         }
-        private void dropdownLeverancierAanemers()
-        {
-            string commandText = "select Leverancier.Naam from Leverancier union select Aannemers.Naam from Aannemers";
-            using (SqlConnection connection = new SqlConnection(constr))
-            {
-                SqlDataAdapter adpt = new SqlDataAdapter(commandText, connection);
-                DataTable dt = new DataTable();
-                adpt.Fill(dt);
-                leverancieraanemer.DataSource = dt;
-                leverancieraanemer.DataBind();
-                leverancieraanemer.DataTextField = "Naam";
-                leverancieraanemer.DataValueField = "Naam";
-                leverancieraanemer.DataBind();
-            }
-        }
+       // private void dropdownLeverancierAanemers()
+        //{
+          //  string commandText = "select Leverancier.Naam from Leverancier union select Aannemers.Naam from Aannemers";
+           // using (SqlConnection connection = new SqlConnection(constr))
+            //{
+            //    SqlDataAdapter adpt = new SqlDataAdapter(commandText, connection);
+             //   DataTable dt = new DataTable();
+             //   adpt.Fill(dt);
+             //   leverancieraanemer.DataSource = dt;
+              //  leverancieraanemer.DataBind();
+            //    leverancieraanemer.DataTextField = "Naam";
+             //   leverancieraanemer.DataValueField = "Naam";
+             //   leverancieraanemer.DataBind();
+           // }
+        //}
 
 
         protected void btnToevoegen_Click(object sender, EventArgs e)
         {
 
             int ID = int.Parse(txbORDERID.Text);
-            int Offerte= int.Parse(txtbOfferte.Text);
             double Tbetaald = double.Parse(txbTotaalbedrag.Text);
 
             if (dlFactuurtype.SelectedItem.Text == "Inkooporder")
@@ -74,7 +73,7 @@ namespace ProjectGroenBos.Financien
                 {
                     SqlCommand command = new SqlCommand(commandText, connection);
                     command.Parameters.AddWithValue("@Datum", DateTime.Now);
-                    command.Parameters.AddWithValue("@Betalen_aan",leverancieraanemer.SelectedItem.Text);
+                    command.Parameters.AddWithValue("@Betalen_aan",leverancier.SelectedItem.Text);
                     command.Parameters.AddWithValue("@Totaal_bedrag", Tbetaald);
                     command.Parameters.AddWithValue("@Termijn", txbTermijn.Text);
                     command.Parameters.AddWithValue("@Omschrijving", dlFactuurtype.SelectedItem.Text);
@@ -87,28 +86,37 @@ namespace ProjectGroenBos.Financien
                     command.ExecuteNonQuery();
                 }
             }
-
+            
             else if (dlFactuurtype.SelectedItem.Text == "Offerte")
             {
-                string commandText = "INSERT INTO [dbo].[Crediteurenfactuur] ([Datum],[Betalen aan],[Offerte],[Totaal bedrag],[Termijn],[Omschrijving betaalcondities],[OnderhoudsopdrachtNummer],[FactuurstatusID],[IBAN]) VALUES" +
-                    "(@Datum, @Betalen_aan, @Totaal_bedrag, @Termijn, @Omschrijving, @OnderhoudsopdrachtNummer, @FactuurstatusID, @IBAN),@Offerte";
-
-                using (SqlConnection connection = new SqlConnection(constr))
+                try
                 {
-                    SqlCommand command = new SqlCommand(commandText, connection);
-                    command.Parameters.AddWithValue("@Datum", DateTime.Now);
-                    command.Parameters.AddWithValue("@Betalen_aan", leverancieraanemer.SelectedItem.Text);
-                    command.Parameters.AddWithValue("@Totaal_bedrag", Tbetaald);
-                    command.Parameters.AddWithValue("@Termijn", txbTermijn.Text);
-                    command.Parameters.AddWithValue("@Omschrijving", dlFactuurtype.SelectedItem.Text);
-                    command.Parameters.AddWithValue("@OnderhoudsopdrachtNummer", ID);
-                    command.Parameters.AddWithValue("@FactuurstatusID", "4");
-                    command.Parameters.AddWithValue("@Offerte", Offerte);
-                    command.Parameters.AddWithValue("@IBAN", txbIBAN.Text);
+                   // int Offerte = int.Parse(txtbOfferte.Text);
+                    string commandText = "INSERT INTO [dbo].[Crediteurenfactuur] ([Datum],[Betalen aan],[OfferteNummer],[Totaal bedrag],[Termijn],[Omschrijving betaalcondities],[OnderhoudsopdrachtNummer],[FactuurstatusID],[IBAN]) VALUES" +
+                        "(@Datum, @Betalen_aan,@OfferteNummer, convert(real, @Totaal_bedrag), @Termijn, @Omschrijving, @OnderhoudsopdrachtNummer, @FactuurstatusID, @IBAN)";
 
-                    connection.Open();
+                    using (SqlConnection connection = new SqlConnection(constr))
 
-                    command.ExecuteNonQuery();
+                    {
+                        SqlCommand command = new SqlCommand(commandText, connection);
+                        command.Parameters.AddWithValue("@Datum", DateTime.Now);
+                        command.Parameters.AddWithValue("@Betalen_aan", leverancier.SelectedItem.Text);
+                        command.Parameters.AddWithValue("@Totaal_bedrag", Tbetaald);
+                        command.Parameters.AddWithValue("@Termijn", txbTermijn.Text);
+                        command.Parameters.AddWithValue("@Omschrijving", dlFactuurtype.SelectedItem.Text);
+                        command.Parameters.AddWithValue("@OnderhoudsopdrachtNummer", ID);
+                        command.Parameters.AddWithValue("@FactuurstatusID", "4");
+                       // command.Parameters.AddWithValue("@OfferteNummer", Offerte);
+                        command.Parameters.AddWithValue("@IBAN", txbIBAN.Text);
+
+                        connection.Open();
+
+                        command.ExecuteNonQuery();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Response.Write("Error occured: " + ex.Message.ToString());
                 }
             }
            
@@ -121,7 +129,7 @@ namespace ProjectGroenBos.Financien
                 {
                     SqlCommand command = new SqlCommand(commandText, connection);
                     command.Parameters.AddWithValue("@Datum", DateTime.Now);
-                    command.Parameters.AddWithValue("@Betalen_aan", leverancieraanemer.SelectedItem.Text);
+                    command.Parameters.AddWithValue("@Betalen_aan", leverancier.SelectedItem.Text);
                     command.Parameters.AddWithValue("@Totaal_bedrag", Tbetaald);     
                     command.Parameters.AddWithValue("@Termijn", txbTermijn.Text);
                     command.Parameters.AddWithValue("@Omschrijving", dlFactuurtype.SelectedItem.Text);
@@ -133,6 +141,7 @@ namespace ProjectGroenBos.Financien
                     command.ExecuteNonQuery();
                 }
             }
+            ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "factuursuccess();", true);
         }
         protected void BtnRetour_Click(object sender, EventArgs e)
         {
@@ -157,6 +166,7 @@ namespace ProjectGroenBos.Financien
 
                 command.ExecuteNonQuery();
             }
+            ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "retoursuccess();", true);
         }
         protected void GridView2_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -169,8 +179,8 @@ namespace ProjectGroenBos.Financien
         {
             GridViewRow row = GridView1.SelectedRow;
             txtbInkoopID.Text = row.Cells[1].Text;
-            txt.Text = row.Cells[2].Text;
-           txtbHoeveelheid.Text = row.Cells[3].Text;
+            txt.Text = row.Cells[5].Text;
+           txtbHoeveelheid.Text = row.Cells[4].Text;
 
         }
     }
