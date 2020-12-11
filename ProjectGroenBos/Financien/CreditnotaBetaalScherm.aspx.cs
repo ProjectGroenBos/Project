@@ -68,16 +68,16 @@ namespace ProjectGroenBos.Financien
             //HiddenField Datums = (HiddenField)rpCreditnota.Items[gridviewnr].FindControl("datum");
             //string datum = Datums.Value;
 
-            HiddenField Banknummers = (HiddenField)rpCreditnota.Items[gridviewnr].FindControl("banknummer");
-            string banknummer = Banknummers.Value;
+            HiddenField IBANS = (HiddenField)rpCreditnota.Items[gridviewnr].FindControl("IBAN");
+            string iban = IBANS.Value;
 
-            Email(gridviewnr, nummer, Totaalbedrag, Naam, email, banknummer);
+            Email(gridviewnr, nummer, Totaalbedrag, Naam, email, iban);
 
             using (SqlConnection con = new SqlConnection(constr))
             {
                 con.Open();
 
-                SqlCommand cmd = new SqlCommand("UPDATE debiteurenfactuur SET BetaalstatusID = '5' where nummer = @nummer", con);
+                SqlCommand cmd = new SqlCommand("UPDATE debiteurenfactuur SET ReserveringsstatusID = '6' where nummer = @nummer", con);
                 cmd.Parameters.AddWithValue("@nummer", fnummer);
 
                 cmd.ExecuteNonQuery();

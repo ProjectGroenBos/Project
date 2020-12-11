@@ -91,7 +91,7 @@
         </asp:GridView>
 
         <asp:SqlDataSource ID="SqlDataSource6" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT Nummer, [Naam], [Aantal_personen], [Aankomstdatum], [Vertrekdatum], Omschrijving
-FROM reserveringengv WHERE ReserveringsstatusID != 5"></asp:SqlDataSource>
+FROM reserveringengv WHERE ReserveringsstatusID != 5 AND ReserveringsstatusID != 6"></asp:SqlDataSource>
         <br />
     </div>
 

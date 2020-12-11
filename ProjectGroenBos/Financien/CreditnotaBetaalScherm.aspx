@@ -74,8 +74,9 @@
         <p>Dit is een overzicht van alle geannuleerde reserveringen bij recreatiepark Groenbos.</p>
 
 
-        <asp:GridView ID="gvReserveringen" DataKeyNames="Nummer" CssClass="content-table tweedetable" GridLines="None" runat="server" AutoGenerateColumns="false" DataSourceID="SqlDataSource6">
+        <asp:GridView ID="gvReserveringen" DataKeyNames="Nummer" CssClass="content-table tweedetable" GridLines="None" runat="server" AutoGenerateColumns="false" DataSourceID="SqlDataSource6" AllowSorting="True">
             <Columns>
+                <asp:BoundField DataField="Annuleringsdatum" DataFormatString="{0:d}" HeaderText="Annuleringsdatum" SortExpression="Annuleringsdatum" />
                 <asp:BoundField DataField="Nummer" HeaderText="Reserveringsnummer" InsertVisible="False" SortExpression="Nummer" ReadOnly="True" />
                 <asp:BoundField DataField="Naam" HeaderText="Naam" SortExpression="Naam" ReadOnly="True" />
                 <asp:BoundField DataField="Aantal_personen" HeaderText="Aantal Personen" SortExpression="Aantal_personen" />
@@ -90,8 +91,8 @@
             </Columns>
         </asp:GridView>
 
-        <asp:SqlDataSource ID="SqlDataSource6" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT Nummer, [Naam], [Aantal_personen], [Aankomstdatum], [Vertrekdatum], Omschrijving
-FROM reserveringengv WHERE ReserveringsstatusID = 5"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSource6" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT Nummer, [Naam], [Aantal_personen], [Aankomstdatum], [Vertrekdatum], [Omschrijving], [Annuleringsdatum]
+FROM reserveringengv WHERE ReserveringsstatusID = 5 OR ReserveringsstatusID = 6 "></asp:SqlDataSource>
         <br />
     </div>
 
@@ -177,13 +178,13 @@ FROM reserveringengv WHERE ReserveringsstatusID = 5"></asp:SqlDataSource>
                                         <tr>
                                             <td></td>
                                             <td></td>
-                                            <td style="text-align: right">Bedrag wat u terug krijgt:</td>
-                                            <td style="width: 100px">€ <%# Eval("Nogtebetalen") %></td>
+                                            <td style="text-align: right">Bedrag wat de gast terug krijgt:</td>
+                                            <td style="width: 100px">€ <%# Eval("TerugTeBetalen") %></td>
                                         </tr>
                                     </tbody>
                                 </table>
 
-                                <asp:HiddenField ID="fnummer" runat="server"
+                                 <asp:HiddenField ID="fnummer" runat="server"
                                     Value='<%# Eval("fnummer") %>' />
                                 <asp:HiddenField ID="Nummer" runat="server"
                                     Value='<%# Eval("Nummer") %>' />
@@ -193,6 +194,8 @@ FROM reserveringengv WHERE ReserveringsstatusID = 5"></asp:SqlDataSource>
                                     Value='<%# Eval("Naam") %>' />
                                 <asp:HiddenField ID="Emailgast" runat="server"
                                     Value='<%# Eval("Email") %>' />
+                                <asp:HiddenField ID="IBAN" runat="server"
+                                    Value='<%# Eval("IBAN") %>' />
 
                                 <asp:SqlDataSource ID="SqlDataSource7" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="select ('Bungalow Type ' + Code) AS 'Naam', Prijs, Naam AS 'Periode',  Seizoen, 1 AS 'Aantal', Prijs AS 'Totaal' from ReserveringHuis where Nummer = @Nummer
                                 union
