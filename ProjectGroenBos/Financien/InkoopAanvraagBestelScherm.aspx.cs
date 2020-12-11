@@ -43,14 +43,14 @@ namespace ProjectGroenBos.Financien
             if (DropDownList1.Text == "Alle Afdelingen")
             {
                 SqlDataSource1.SelectCommand =
-                "select * from inkooporderaanvraagmainLev order by datum DESC, opmerking DESC";
+                "select * from inkooporderaanvraagmainLev where [Status] = 'Wachten op bestelling' OR [Status] = 'Besteld' order by datum DESC, opmerking DESC";
                 gvInkooporderaanvragerMain.DataBind();
             }
 
             else
             {
                 SqlDataSource1.SelectCommand =
-                    "select * from inkooporderaanvraagmainLev where Naam = '" + DropDownList1.Text + "' order by datum DESC, opmerking DESC";
+                    "select * from inkooporderaanvraagmainLev where Naam = '" + DropDownList1.Text + "' AND [Status] = 'Wachten op bestelling' OR [Status] = 'Besteld' order by datum DESC, opmerking DESC";
                 gvInkooporderaanvragerMain.DataBind();
             }
         }
@@ -72,7 +72,7 @@ namespace ProjectGroenBos.Financien
                 {
                     int nummer = int.Parse(((Button)sender).CommandArgument);
 
-                    SqlCommand cmd = new SqlCommand("UPDATE InkoopOrderAanvraag SET InkoopOrderAanvraagStatusID = 4, Bestelnummer = @bestelnummer WHERE Nummer = @nummer; ", con);
+                    SqlCommand cmd = new SqlCommand("UPDATE InkoopOrderAanvraag SET InkoopOrderAanvraagStatusID = 4, LaatsteUpdate = GETDATE(), Bestelnummer = @bestelnummer WHERE Nummer = @nummer; ", con);
                     cmd.Parameters.AddWithValue("@nummer", nummer);
                     cmd.Parameters.AddWithValue("@bestelnummer", bestelnummer.Text);
                     cmd.ExecuteNonQuery();

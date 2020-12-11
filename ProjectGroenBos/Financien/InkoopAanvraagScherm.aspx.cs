@@ -58,7 +58,7 @@ namespace ProjectGroenBos.Financien
 
                 TextBox afkeurTextBox = (TextBox)rpInkoopOrderAanvragen.Items[repeaternummer].FindControl("txbInkoopOrderAfkeuren");
 
-                SqlCommand cmd = new SqlCommand("UPDATE InkoopOrderAanvraag SET Opmerking = @textbox, InkoopOrderAanvraagStatusID = 3 WHERE Nummer = @nummer", con);
+                SqlCommand cmd = new SqlCommand("UPDATE InkoopOrderAanvraag SET Opmerking = @textbox, InkoopOrderAanvraagStatusID = 3, LaatsteUpdate = GETDATE() WHERE Nummer = @nummer", con);
                 cmd.Parameters.AddWithValue("@nummer", nummer);
                 cmd.Parameters.AddWithValue("@textbox", afkeurTextBox.Text);
                 cmd.ExecuteNonQuery();
@@ -79,7 +79,7 @@ namespace ProjectGroenBos.Financien
                 int nummer = int.Parse(((Button)sender).CommandArgument);
 
 
-                SqlCommand cmd = new SqlCommand("UPDATE InkoopOrderAanvraag SET InkoopOrderAanvraagStatusID = 2 WHERE Nummer = @nummer; ", con);
+                SqlCommand cmd = new SqlCommand("UPDATE InkoopOrderAanvraag SET InkoopOrderAanvraagStatusID = 2, LaatsteUpdate = GETDATE() WHERE Nummer = @nummer; ", con);
                 cmd.Parameters.AddWithValue("@nummer", nummer);
                 cmd.ExecuteNonQuery();
 
@@ -95,14 +95,14 @@ namespace ProjectGroenBos.Financien
             if (DropDownList1.Text == "Alle Afdelingen")
             {
                 SqlDataSource1.SelectCommand =
-                "select * from inkooporderaanvraagmainLev order by datum DESC, opmerking DESC";
+                "select * from inkooporderaanvraagmainLev where [Status] = 'Geweigerd' OR [Status] = 'Wachten op goedkeuring' order by datum DESC, opmerking DESC";
                 gvInkooporderaanvragerMain.DataBind();
             }
 
             else
             {
                 SqlDataSource1.SelectCommand =
-                    "select * from inkooporderaanvraagmainLev where Naam = '" + DropDownList1.Text + "' order by datum DESC, opmerking DESC";
+                    "select * from inkooporderaanvraagmainLev where Naam = '" + DropDownList1.Text + "' AND [Status] = 'Geweigerd' OR [Status] = 'Wachten op goedkeuring' order by datum DESC, opmerking DESC";
                 gvInkooporderaanvragerMain.DataBind();
             }
         }

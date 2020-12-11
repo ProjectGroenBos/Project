@@ -29,7 +29,11 @@ namespace ProjectGroenBos.Financien
             {
                 con.Open();
 
+<<<<<<< HEAD
                 SqlCommand cmd = new SqlCommand("select Crediteurenfactuur.*, Leverancier.* from Crediteurenfactuur inner join Leverancier on Leverancier.ID = Crediteurenfactuur.LeverancierID", con);
+=======
+                SqlCommand cmd = new SqlCommand("select * from Crediteurenfactuur inner join Leverancier on Leverancier.ID = Crediteurenfactuur.LeverancierID union select Crediteurenfactuur.*, 1 as ID, Naam, Adres, Contactpersoon, Telefoonnummer, Email, Postcode, Plaats from Crediteurenfactuur inner join Aannemers on Aannemers.Naam = Crediteurenfactuur.[Omschrijving betaalcondities]", con);
+>>>>>>> parent of bd53a4a... Merge branch 'FinanciënTeam/KyleSieraad' of https://github.com/ProjectGroenBos/Project into FinanciënTeam/KyleSieraad
                 DataSet ds = new DataSet();
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 da.Fill(ds);
