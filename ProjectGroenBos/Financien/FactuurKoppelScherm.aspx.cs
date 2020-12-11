@@ -135,9 +135,9 @@ namespace ProjectGroenBos.Financien
                                 SqlCommand cmd2 = new SqlCommand("SELECT I.*, A.LeverancierID FROM InkooporderaanvraagItemsTotaalprijs I LEFT JOIN InkoopOrderAanvraag A ON I.InkoopOrderAanvraagNummer = A.Nummer where InkoopOrderAanvraagNummer = @Nummer", constre);
                                 cmd2.Parameters.AddWithValue("@Nummer", inkoopnummer);
                             con.Open();
-                                double prijs = double.Parse(cmd2.ExecuteNonQuery().ToString());
-                                double prijske = double.Parse(prijs["TotaalPrijs"].ToString());
-                                int leverancier = int.Parse(prijs["LeverancierID"].ToString());
+                               // double prijs = double.Parse(cmd2.ExecuteNonQuery().ToString());
+                               // double prijske = double.Parse(prijs["TotaalPrijs"].ToString());
+                               // int leverancier = int.Parse(prijs["LeverancierID"].ToString());
 
                                 TextBox txbTermijn = (TextBox)rpFactuurToevoegen.Items[nummer].FindControl("txbTermijn");
 
@@ -148,13 +148,13 @@ namespace ProjectGroenBos.Financien
                                 cmd.Parameters.AddWithValue("@ContentType", contentType);
                                 cmd.Parameters.AddWithValue("@Data", bytes);
                                 cmd.Parameters.AddWithValue("@Datum", DateTime.Now);
-                                cmd.Parameters.AddWithValue("@Totaal_bedrag", prijske);
+                             //   cmd.Parameters.AddWithValue("@Totaal_bedrag", prijske);
                                 cmd.Parameters.AddWithValue("@Termijn", txbTermijn.Text);
                                 cmd.Parameters.AddWithValue("@Omschrijving_betaalcondities", "Inkooporder");
                                 cmd.Parameters.AddWithValue("@InkooporderID", nummer);
                                 cmd.Parameters.AddWithValue("@FactuurstatusID", "1");
                                 cmd.Parameters.AddWithValue("@IBAN", txbIBAN.Text);
-                                cmd.Parameters.AddWithValue("@LeverancierID", leverancier);
+                              //  cmd.Parameters.AddWithValue("@LeverancierID", leverancier);
                                 con.Open();
                                 cmd.ExecuteNonQuery();
                                 con.Close();

@@ -38,29 +38,16 @@
                         </ul>
                     </li>
                     <li><a href="#"><i class="fas fa-address-card"></i>Facturering</a>
-                        <ul class="submenu">    
+                        <ul class="submenu">
                             <li><a href="/Financien/FactuurKoppelScherm.aspx">Factuur koppelen</a></li>
-                            <li><a href="/Financien/">Factuur controleren</a></li>
                             <li><a href="/Financien/CrediteurenFactuurBetaal.aspx">Factuur betalen</a></li>
-                            <li><a href="/Financien/CreditnotaBetaalScherm.aspx">Creditnota betalen</a></li>  
+                            <li><a href="/Financien/CreditnotaBetaalScherm.aspx">Creditnota betalen</a></li>
                         </ul>
                     </li>
                     <li><a href="#"><i class="fas fa-project-diagram"></i>Inkoop</a>
                         <ul class="submenu">
-<<<<<<< HEAD
                             <li><a href="/Financien/InkoopAanvraagScherm.aspx">Inkoopaanvragen</a></li>
                             <li><a href="/Financien/InkoopAanvraagBestelScherm.aspx">Inkoopaanvragen Bestellen</a></li>
-=======
-                            <li><a href="/Financien/InzienInkoopTraject.aspx">Inkooptraject</a>
-                                <ul class="submenu">
-                                    <li><a href="/Financien/InkoopAanvraagScherm.aspx">Inkoopaanvragen</a></li>
-                                    <li><a href="/Financien/InkoopAanvraagBestelScherm.aspx">Inkoopaanvragen Bestellen</a></li>
-                                    <li><a href="/Financien/FactuurKoppelScherm.aspx">Factuur koppelen</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="/Financien/Factuurtoevoegen.aspx">Inkopen producten</a></li>
-                            <li><a href="#">Facturen controleren</a></li>
->>>>>>> parent of bd53a4a... Merge branch 'FinanciënTeam/KyleSieraad' of https://github.com/ProjectGroenBos/Project into FinanciënTeam/KyleSieraad
                         </ul>
                     </li>
                 </ul>

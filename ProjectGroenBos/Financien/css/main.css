@@ -801,3 +801,64 @@ nav ul {
             background-color: #009879;
             color: #ffffff;
         }
+
+
+.dropdownFilter .dropdownFilterWrapper ul li a .icon {
+    height: 40px;
+    width: 40px;
+    margin-right: 13px;
+    background: #ffffff1a;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    border-radius: 50%;
+}
+
+    .dropdownFilter .dropdownFilterWrapper ul li a .icon span {
+        line-height: 40px;
+        font-size: 20px;
+        color: #b0b3b8;
+    }
+
+.dropdownFilter .dropdownFilterWrapper ul li a i {
+    position: absolute;
+    right: 10px;
+    font-size: 25px;
+    pointer-events: none;
+}
+
+.dropdownFilter .dropdownFilterWrapper ul.setting-drop,
+.dropdownFilter .dropdownFilterWrapper ul.help-drop {
+    display: none;
+}
+
+.dropdownFilter .dropdownFilterWrapper .arrow {
+    padding-left: 10px;
+    font-size: 20px;
+    font-weight: 500;
+    color: #b0b3b8;
+    cursor: pointer;
+}
+
+    .dropdownFilter .dropdownFilterWrapper .arrow span {
+        margin-right: 15px;
+    }
+
+.DropDownAfdeling {
+    margin-top: 10px;
+    color: #fff;
+    font-size: 20px;
+    padding: 5px 10px;
+    border-radius: 5px 12px;
+    background-color: #009879;
+    font-weight: bold;
+}
+
+    .DropDownAfdeling Option {
+        background-color: rgba(20,143,119,1);
+    }
+
+        .DropDownAfdeling Option:hover {
+            background: rgba(14,98,81,1);
+            color: #fff;
+        }
