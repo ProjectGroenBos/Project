@@ -13,16 +13,15 @@ namespace ProjectGroenBos.Reservering
         {
 
         }
+        protected void btnZoek_Click(object sender, EventArgs e)
+        {
+
+        }
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
         {
             Session["gastnummer"] = (string)GridView1.SelectedRow.Cells[1].Text;
             Response.Redirect("KlantWijzigen.aspx");
-        }
-
-        protected void btnZoek_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

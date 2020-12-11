@@ -1,5 +1,15 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Reservering/Site1.Master" AutoEventWireup="true" CodeBehind="Klantoverzicht.aspx.cs" Inherits="ProjectGroenBos.Reservering.Klantoverzicht" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head2" runat="server">
+    <style type="text/css">
+        .auto-style1 {
+            width: 15%;
+            height: 22px;
+        }
+        .auto-style2 {
+            width: 40%;
+            height: 22px;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <div class="container">
@@ -9,15 +19,15 @@
 
         <table style="text-align: left; margin-left: 5%">
             <tr>
-                <td style="width: 15%">
+                <td class="auto-style1">
                     <asp:Label ID="Label1" runat="server" Text="Achternaam" CssClass="labelsnieuw"></asp:Label>
                 </td>
-                <td style="width: 15%">
+                <td class="auto-style1">
                     <asp:TextBox ID="txbAchternaam" runat="server" CssClass="textboxchaos"></asp:TextBox>
                 </td>
 
 
-                <td style="width: 40%">
+                <td class="auto-style2">
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Dit veld is verplicht." ControlToValidate="txbAchternaam" Display="Dynamic" ForeColor="Red" Enabled="False"></asp:RequiredFieldValidator>
                     <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="txbAchternaam" ErrorMessage="In een achternaam staan geen getallen." ValidationExpression="^[a-zA-Z -]*$" ForeColor="Red" Display="Dynamic" Enabled="False"></asp:RegularExpressionValidator>
                 </td>
@@ -31,7 +41,7 @@
         <br />
         <asp:Button ID="btnZoek" runat="server" Text="Zoek"  CssClass="btnUitloggen" Style="background-color: #009879; color: #fff" class="btn" />
         <br />
-        <asp:GridView ID="GridView1" CssClass="content-table" runat="server" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="Gast nummer" DataSourceID="SqlDataSource1" AutoGenerateSelectButton="True" SelectedIndexChanged="GridView1_SelectedIndexChanged">
+        <asp:GridView ID="GridView1" CssClass="content-table" runat="server" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="Gast nummer" DataSourceID="SqlDataSource1" AutoGenerateSelectButton="True" SelectedIndexChanged="GridView1_SelectedIndexChanged" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
             <Columns>
                 <asp:BoundField DataField="Gast nummer" HeaderText="Gast nummer" InsertVisible="False" ReadOnly="True" SortExpression="Gast nummer" />
                 <asp:BoundField DataField="Voornaam" HeaderText="Voornaam" SortExpression="Voornaam" />
