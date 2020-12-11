@@ -78,6 +78,7 @@
     <Content Include=".idea\.idea.ProjectGroenBos\.idea\vcs.xml" />
     <Content Include=".idea\.idea.ProjectGroenBos\.idea\workspace.xml" />
     <Content Include="Financien\CrediteurenFactuurBetaal.aspx" />
+    <Content Include="Financien\CreditnotaBetaalScherm.aspx" />
     <Content Include="Financien\css\main.css" />
     <Content Include="Financien\FactuurKoppelScherm.aspx" />
     <Content Include="Financien\Factuurtoevoegen.aspx" />
@@ -700,6 +701,13 @@
     </Compile>
     <Compile Include="Financien\CrediteurenFactuurBetaal.aspx.designer.cs">
       <DependentUpon>CrediteurenFactuurBetaal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Financien\CreditnotaBetaalScherm.aspx.cs">
+      <DependentUpon>CreditnotaBetaalScherm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Financien\CreditnotaBetaalScherm.aspx.designer.cs">
+      <DependentUpon>CreditnotaBetaalScherm.aspx</DependentUpon>
     </Compile>
     <Compile Include="Financien\FactuurKoppelScherm.aspx.cs">
       <DependentUpon>FactuurKoppelScherm.aspx</DependentUpon>
