@@ -78,11 +78,14 @@
     <Content Include=".idea\.idea.ProjectGroenBos\.idea\vcs.xml" />
     <Content Include=".idea\.idea.ProjectGroenBos\.idea\workspace.xml" />
     <Content Include="Financien\CrediteurenFactuurBetaal.aspx" />
+    <Content Include="Financien\Creditnota.aspx" />
     <Content Include="Financien\css\main.css" />
+    <Content Include="Financien\FactuurKoppelScherm.aspx" />
     <Content Include="Financien\Factuurtoevoegen.aspx" />
     <Content Include="Financien\Home.aspx" />
     <Content Include="Financien\img\Logo.png" />
     <Content Include="Financien\img\Logo3.png" />
+    <Content Include="Financien\InkoopAanvraagBestelScherm.aspx" />
     <Content Include="Financien\Inlogscherm.aspx" />
     <Content Include="Financien\Overzicht.aspx" />
     <Content Include="Financien\Prijstabel.aspx" />
@@ -697,6 +700,20 @@
     <Compile Include="Financien\CrediteurenFactuurBetaal.aspx.designer.cs">
       <DependentUpon>CrediteurenFactuurBetaal.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Financien\Creditnota.aspx.cs">
+      <DependentUpon>Creditnota.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Financien\Creditnota.aspx.designer.cs">
+      <DependentUpon>Creditnota.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Financien\FactuurKoppelScherm.aspx.cs">
+      <DependentUpon>FactuurKoppelScherm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Financien\FactuurKoppelScherm.aspx.designer.cs">
+      <DependentUpon>FactuurKoppelScherm.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Financien\Factuurtoevoegen.aspx.cs">
       <DependentUpon>Factuurtoevoegen.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -717,6 +734,13 @@
     </Compile>
     <Compile Include="Financien\Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Financien\InkoopAanvraagBestelScherm.aspx.cs">
+      <DependentUpon>InkoopAanvraagBestelScherm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Financien\InkoopAanvraagBestelScherm.aspx.designer.cs">
+      <DependentUpon>InkoopAanvraagBestelScherm.aspx</DependentUpon>
     </Compile>
     <Compile Include="Financien\Inlogscherm.aspx.cs">
       <DependentUpon>Inlogscherm.aspx</DependentUpon>
