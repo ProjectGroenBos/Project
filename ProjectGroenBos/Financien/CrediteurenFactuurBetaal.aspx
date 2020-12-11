@@ -90,7 +90,7 @@
         <asp:GridView ID="gvRekeningen" runat="server" CssClass="content-table tweedetable" GridLines="None" AutoGenerateColumns="False" DataSourceID="SqlDataSource6" DataKeyNames="Nummer">
             <Columns>
                 <asp:BoundField DataField="Nummer" HeaderText="Factuurnummer" SortExpression="Nummer" ReadOnly="True" />
-                <asp:BoundField DataField="Naam" HeaderText="Betalen aan" SortExpression="Naam" ReadOnly="True" />
+                <asp:BoundField DataField="Betalen aan" HeaderText="Betalen aan" SortExpression="Betalen aan" ReadOnly="True" />
                 <asp:BoundField DataField="Totaal bedrag" HeaderText="Totaal Bedrag" SortExpression="Totaal bedrag" DataFormatString="{0:C}" />
                 <asp:BoundField DataField="Termijn" DataFormatString="{0:d}" HeaderText="Termijn" SortExpression="Termijn" />
                 <asp:BoundField DataField="Omschrijving betaalcondities" HeaderText="Omschrijving betaalcondities" SortExpression="Omschrijving betaalcondities" />
@@ -102,7 +102,7 @@
                 </asp:TemplateField>
             </Columns>
         </asp:GridView>
-        <asp:SqlDataSource ID="SqlDataSource6" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="select Nummer, Leverancier.Naam, [Totaal bedrag], Termijn, [Omschrijving betaalcondities], Omschrijving from Crediteurenfactuur inner join Factuurstatus on Factuurstatus.ID = Crediteurenfactuur.FactuurstatusID inner join Leverancier on Leverancier.ID = Crediteurenfactuur.LeverancierID Where Omschrijving != 'Factuur Betaald'"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSource6" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="select Nummer, [Betalen aan], [Totaal bedrag], Termijn, [Omschrijving betaalcondities], Omschrijving from Crediteurenfactuur inner join Factuurstatus on Factuurstatus.ID = Crediteurenfactuur.FactuurstatusID Where Omschrijving != 'Factuur Betaald'"></asp:SqlDataSource>
     </div>
     <asp:Panel ID="Panel1" runat="server">
         <asp:Repeater ID="rpModals" runat="server">
@@ -113,7 +113,7 @@
                         <!-- Modal content-->
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h4 class="modal-title">Inkoopfactuur <%# Eval("Naam") %></h4>
+                                <h4 class="modal-title">Inkoopfactuur <%# Eval("Betalen aan") %></h4>
                                 <asp:Button runat="server" CssClass="btn btn-primary" Text="Sluiten"></asp:Button>
                             </div>
                             <div class="modal-body">
@@ -121,7 +121,7 @@
                                     <div>
                                         <div class="gegevens_factuur">
                                             <p><b>Leverancier:</b></p>
-                                            <p><%# Eval("Naam") %></p>
+                                            <p><%# Eval("Betalen aan") %></p>
                                         </div>
                                         <div class="gegevens_factuur">
                                             <p><b>Adres:</b></p>
@@ -222,7 +222,7 @@
 
                                     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="select onderhoudtype as Naam, 1 as Hoeveelheid, Prijs, (Prijs * 1) AS 'Totaal' from CreditOnderhoud where Nummer = @Nummer
 								union
-								select Naam, Inkoopaantal, Prijs, (Prijs * Inkoopaantal) AS 'Totaal' from [InkooporderaanvraagItems] where InkoopOrderAanvraagNummer = @Nummer">
+								select Naam, Hoeveelheid, Prijs, (Prijs * hoeveelheid) AS 'Totaal' from creditinkoop where Nummer = @Nummer">
                                         <SelectParameters>
                                             <asp:ControlParameter
                                                 Name="Nummer"
@@ -261,7 +261,7 @@
                         <!-- Modal content-->
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h4 class="modal-title">Inkoopfactuur <%# Eval("Naam") %></h4>
+                                <h4 class="modal-title">Inkoopfactuur <%# Eval("Betalen aan") %></h4>
                                 <asp:Button runat="server" CssClass="btn btn-primary" Text="Sluiten"></asp:Button>
                             </div>
                             <div class="modal-body">
@@ -273,7 +273,7 @@
                                         </tr>
                                         <tr>
                                             <td>Geld overmaken naar</td>
-                                            <td><%# Eval("Naam") %> <%# Eval("IBAN") %></td>
+                                            <td><%# Eval("Betalen aan") %> <%# Eval("IBAN") %></td>
                                         </tr>
                                         <tr>
                                           
@@ -284,7 +284,7 @@
 
 
                                 <asp:HiddenField ID="Winkel" runat="server"
-                                    Value='<%# Eval("Naam") %>' />
+                                    Value='<%# Eval("Betalen aan") %>' />
                                 <asp:HiddenField ID="Nummer" runat="server"
                                     Value='<%# Eval("Nummer") %>' />
                                 <asp:HiddenField ID="Totaalbedrag" runat="server"
