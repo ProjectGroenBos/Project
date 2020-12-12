@@ -42,6 +42,24 @@ namespace ProjectGroenBos.Financien
         protected global::System.Web.UI.WebControls.TextBox txbNaam;
 
         /// <summary>
+        /// Naam control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator Naam;
+
+        /// <summary>
+        /// Naam1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator Naam1;
+
+        /// <summary>
         /// txbGeboortedatum control.
         /// </summary>
         /// <remarks>
@@ -49,6 +67,24 @@ namespace ProjectGroenBos.Financien
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txbGeboortedatum;
+
+        /// <summary>
+        /// Geboortedatum control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator Geboortedatum;
+
+        /// <summary>
+        /// Geboortedatum1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator Geboortedatum1;
 
         /// <summary>
         /// txbAdres control.
@@ -60,6 +96,24 @@ namespace ProjectGroenBos.Financien
         protected global::System.Web.UI.WebControls.TextBox txbAdres;
 
         /// <summary>
+        /// Adres control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator Adres;
+
+        /// <summary>
+        /// Adres1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator Adres1;
+
+        /// <summary>
         /// txbPostcode control.
         /// </summary>
         /// <remarks>
@@ -67,6 +121,24 @@ namespace ProjectGroenBos.Financien
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txbPostcode;
+
+        /// <summary>
+        /// Postcode control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator Postcode;
+
+        /// <summary>
+        /// Postcode1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator Postcode1;
 
         /// <summary>
         /// dlFunctie control.
@@ -96,6 +168,24 @@ namespace ProjectGroenBos.Financien
         protected global::System.Web.UI.WebControls.TextBox txbSalaris;
 
         /// <summary>
+        /// Salaris control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator Salaris;
+
+        /// <summary>
+        /// Salaris1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator Salaris1;
+
+        /// <summary>
         /// txbContracturen control.
         /// </summary>
         /// <remarks>
@@ -103,6 +193,42 @@ namespace ProjectGroenBos.Financien
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txbContracturen;
+
+        /// <summary>
+        /// Contracturen_per_week control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator Contracturen_per_week;
+
+        /// <summary>
+        /// Contracturen_per_week1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator Contracturen_per_week1;
+
+        /// <summary>
+        /// In_dienst_sinds control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator In_dienst_sinds;
+
+        /// <summary>
+        /// In_dienst_sinds1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator In_dienst_sinds1;
 
         /// <summary>
         /// txbInDienst control.
