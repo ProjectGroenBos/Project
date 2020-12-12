@@ -118,9 +118,19 @@ SELECT 'Alle Afdelingen' AS [Naam]"></asp:SqlDataSource>
                                                         <asp:BoundField DataField="regelnummer" HeaderText="Regelnummer" ReadOnly="True" SortExpression="ID" />
                                                         <asp:BoundField DataField="Naam" HeaderText="Item" ReadOnly="True" SortExpression="Naam" />
                                                         <asp:BoundField DataField="Omschrijving" HeaderText="Omschrijving" ReadOnly="True" SortExpression="Omschrijving" />
-                                                        <asp:BoundField DataFormatString="{0:C}" DataField="Prijs" HeaderText="Prijs" SortExpression="Prijs" />
+
+                                                         <asp:TemplateField HeaderText="Prijs" SortExpression="Prijs">
+                                                             <EditItemTemplate>
+                                                                <asp:TextBox ID="TxtP" runat="server" Text='<%# Bind("Prijs") %>'></asp:TextBox>
+                                                                <asp:RequiredFieldValidator ID="Prijs" runat="server" ErrorMessage="*" ControlToValidate="TxtP" ForeColor="Red" ValidationGroup="Validation" Display="Dynamic"></asp:RequiredFieldValidator>
+                                                                <asp:RegularExpressionValidator ID="Prijs1" runat="server" ErrorMessage="bijv. 345,90" ControlToValidate="TxtP" ForeColor="Red" ValidationExpression="^\d{0,8}(\,\d{1,4})?$" ValidationGroup="Validation" Display="Dynamic"></asp:RegularExpressionValidator>                    
+                                                            </EditItemTemplate>
+                                                            <ItemTemplate>
+                                                                <asp:Label ID="Label2" runat="server" Text='<%# Bind("Prijs", "{0:C}") %>'></asp:Label>
+                                                            </ItemTemplate>
+                                                        </asp:TemplateField>
                                                         <asp:BoundField DataField="Inkoopaantal" HeaderText="Inkoop Aantal" ReadOnly="True" SortExpression="Inkoopaantal" HeaderStyle-Width="100px" />
-                                                        <asp:CommandField ShowEditButton="True" />
+                                                        <asp:CommandField ShowEditButton="True" ValidationGroup="Validation"/>
 
                                                     </Columns>
                                                 </asp:GridView>
@@ -154,14 +164,15 @@ SELECT 'Alle Afdelingen' AS [Naam]"></asp:SqlDataSource>
 
                                                 <p style="margin-top: 1rem; margin-bottom: 0;">Uiterste betaaldatum</p>
                                                 <asp:TextBox ID="txbTermijn" placeholder="DD-MM-YYYY" Style="text-align: center" Height="50px" Width="100%" runat="server"></asp:TextBox>
-
+                                                <asp:RequiredFieldValidator ID="Termijn" runat="server" ErrorMessage="*" ControlToValidate="txbTermijn" ForeColor="red" ValidationGroup="Validation" Display="Dynamic"></asp:RequiredFieldValidator>
+                     <asp:RegularExpressionValidator ID="Termijn1" runat="server" ErrorMessage="dd/MM/yyyy" ControlToValidate="txbTermijn" ForeColor="Red" ValidationExpression="(^((((0[1-9])|([1-2][0-9])|(3[0-1]))|([1-9]))-(((0[1-9])|(1[0-2]))|([1-9]))-(([0-9]{2})|(((19)|([2]([0]{1})))([0-9]{2}))))$)" ValidationGroup="Validation" Display="Dynamic"></asp:RegularExpressionValidator>
 
 
                                             </ContentTemplate>
                                         </asp:UpdatePanel>
 
                                     </div>
-                                    <input type="button" id="btnNaarPdf" data-toggle="modal" data-target="#bestelModal<%# Eval("Nummer") %>" style="max-width: 80%; margin-left: auto; margin-right: auto; margin-top: 100px" class="btn btn-success btn-lg btn-block" value="PDF Toevoegen" />
+                                    <input type="button" ValidationGroup="Validation" id="btnNaarPdf" data-toggle="modal" data-target="#bestelModal<%# Eval("Nummer") %>" style="max-width: 80%; margin-left: auto; margin-right: auto; margin-top: 100px" class="btn btn-success btn-lg btn-block" value="PDF Toevoegen" />
                                 </div>
 
                                 <div class="modal-footer">
@@ -185,8 +196,10 @@ SELECT 'Alle Afdelingen' AS [Naam]"></asp:SqlDataSource>
 
                         <div class="modal-body">
                             <h3>Kies hier uw bestand</h3>
-                            <asp:FileUpload ID="FileUpload2" runat="server"/>
-                            <asp:Button ID="btnUpload" OnClick="Upload" CommandName='<%# Container.ItemIndex %>' CommandArgument='<%# Eval("Nummer") %>' Style="max-width: 80%; margin-left: auto; margin-right: auto; margin-top: 20px" CssClass="btn btn-success btn-lg btn-block" runat="server" Text="Bestellen" />
+                            <asp:FileUpload ID="FileUpload2" runat="server" accept=".pdf"/>
+                            <asp:RequiredFieldValidator ID="ValidateF1" runat="server"  ErrorMessage="*" CssClass="row-validate"  ControlToValidate="FileUpload2" ValidationGroup="Validation"></asp:RequiredFieldValidator>
+                            <asp:RegularExpressionValidator ID="ValidateEx" runat="server"   ValidationExpression="^.*\.(pdf|PDF)$" ControlToValidate="FileUpload2" ValidationGroup="Validation" ErrorMessage="*"></asp:RegularExpressionValidator>
+                            <asp:Button ID="btnUpload" ValidationGroup="Validation" OnClick="Upload" CommandName='<%# Container.ItemIndex %>' CommandArgument='<%# Eval("Nummer") %>' Style="max-width: 80%; margin-left: auto; margin-right: auto; margin-top: 20px" CssClass="btn btn-success btn-lg btn-block" runat="server" Text="Bestellen" />
 
                         </div>
 
