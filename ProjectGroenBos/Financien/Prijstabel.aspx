@@ -13,7 +13,7 @@
                 <asp:BoundField DataField="seizoen" InsertVisible="False" ReadOnly="True" HeaderText="Seizoen" SortExpression="seizoen" />
                 <asp:BoundField DataField="begindatum" ApplyFormatInEditMode="true" DataFormatString="{0:dd/MM/yyyy}" HeaderText="Begindatum" SortExpression="begindatum" />
                 <asp:BoundField DataField="einddatum" ApplyFormatInEditMode="true" DataFormatString="{0:dd/MM/yyyy}" HeaderText="Einddatum" SortExpression="einddatum" />
-                <asp:CommandField ShowEditButton="True" />
+                <asp:CommandField ShowEditButton="True"/>
             </Columns>
         </asp:GridView>
         <h2>Feestdagen 2020-2021</h2>

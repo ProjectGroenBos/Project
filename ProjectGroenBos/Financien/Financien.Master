@@ -31,6 +31,7 @@
                     <li><a href="/Financien/Home.aspx"><i class="fas fa-home"></i>Home</a></li>
                     <li><a href="#"><i class="fas fa-user"></i>Administratie</a>
                         <ul class="submenu">
+
                             <li><a href="/Financien/Personeeloverzicht.aspx">Personeel-overzicht</a></li>
                             <li><a href="/Financien/Prijstabel.aspx">Prijsmanagement</a></li>
                             <li><a href="/Financien/Reserveringen.aspx">Reserveringen-overzicht</a></li>

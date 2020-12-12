@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Financien/Financien.Master" AutoEventWireup="true" CodeBehind="Reserveringen.aspx.cs" Inherits="ProjectGroenBos.Financien.Reserveringen" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Financien/Financien.Master" CodeBehind="CreditnotaBetaalScherm.aspx.cs" Inherits="ProjectGroenBos.Financien.CreditnotaBetaalScherm" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
@@ -68,14 +68,15 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="header">Reserveringen</div>
+    <div class="header">Creditnota's</div>
     <div class="container" runat="server" id="pdfbody">
-        <h2>Reserveringen-overzicht</h2>
-        <p>Dit is een overzicht van alle reserveringen bij recreatiepark Groenbos.</p>
+        <h2>Creditnota-overzicht</h2>
+        <p>Dit is een overzicht van alle geannuleerde reserveringen bij recreatiepark Groenbos.</p>
 
 
-        <asp:GridView ID="gvReserveringen" DataKeyNames="Nummer" CssClass="content-table tweedetable" GridLines="None" runat="server" AutoGenerateColumns="false" DataSourceID="SqlDataSource6">
+        <asp:GridView ID="gvReserveringen" DataKeyNames="Nummer" CssClass="content-table tweedetable" GridLines="None" runat="server" AutoGenerateColumns="false" DataSourceID="SqlDataSource6" AllowSorting="True">
             <Columns>
+                <asp:BoundField DataField="Annuleringsdatum" DataFormatString="{0:d}" HeaderText="Annuleringsdatum" SortExpression="Annuleringsdatum" />
                 <asp:BoundField DataField="Nummer" HeaderText="Reserveringsnummer" InsertVisible="False" SortExpression="Nummer" ReadOnly="True" />
                 <asp:BoundField DataField="Naam" HeaderText="Naam" SortExpression="Naam" ReadOnly="True" />
                 <asp:BoundField DataField="Aantal_personen" HeaderText="Aantal Personen" SortExpression="Aantal_personen" />
@@ -90,12 +91,12 @@
             </Columns>
         </asp:GridView>
 
-        <asp:SqlDataSource ID="SqlDataSource6" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT Nummer, [Naam], [Aantal_personen], [Aankomstdatum], [Vertrekdatum], Omschrijving
-FROM reserveringengv WHERE ReserveringsstatusID != 5 AND ReserveringsstatusID != 6"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSource6" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT Nummer, [Naam], [Aantal_personen], [Aankomstdatum], [Vertrekdatum], [Omschrijving], [Annuleringsdatum]
+FROM reserveringengv WHERE ReserveringsstatusID = 5 OR ReserveringsstatusID = 6 "></asp:SqlDataSource>
         <br />
     </div>
 
-    <asp:Repeater ID="rpReservering" runat="server">
+    <asp:Repeater ID="rpCreditnota" runat="server">
         <ItemTemplate>
             <!-- Modal -->
             <div id="modal<%# Eval("Nummer") %>" class="modal fade" role="dialog">
@@ -177,13 +178,13 @@ FROM reserveringengv WHERE ReserveringsstatusID != 5 AND ReserveringsstatusID !=
                                         <tr>
                                             <td></td>
                                             <td></td>
-                                            <td style="text-align: right">Nog te betalen:</td>
-                                            <td style="width: 100px">€ <%# Eval("Nogtebetalen") %></td>
+                                            <td style="text-align: right">Bedrag wat de gast terug krijgt:</td>
+                                            <td style="width: 100px">€ <%# Eval("TerugTeBetalen") %></td>
                                         </tr>
                                     </tbody>
                                 </table>
 
-                                <asp:HiddenField ID="fnummer" runat="server"
+                                 <asp:HiddenField ID="fnummer" runat="server"
                                     Value='<%# Eval("fnummer") %>' />
                                 <asp:HiddenField ID="Nummer" runat="server"
                                     Value='<%# Eval("Nummer") %>' />
@@ -193,6 +194,8 @@ FROM reserveringengv WHERE ReserveringsstatusID != 5 AND ReserveringsstatusID !=
                                     Value='<%# Eval("Naam") %>' />
                                 <asp:HiddenField ID="Emailgast" runat="server"
                                     Value='<%# Eval("Email") %>' />
+                                <asp:HiddenField ID="IBAN" runat="server"
+                                    Value='<%# Eval("IBAN") %>' />
 
                                 <asp:SqlDataSource ID="SqlDataSource7" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="select ('Bungalow Type ' + Code) AS 'Naam', Prijs, Naam AS 'Periode',  Seizoen, 1 AS 'Aantal', Prijs AS 'Totaal' from ReserveringHuis where Nummer = @Nummer
                                 union
@@ -205,8 +208,6 @@ FROM reserveringengv WHERE ReserveringsstatusID != 5 AND ReserveringsstatusID !=
                                             PropertyName="Value" />
                                     </SelectParameters>
                                 </asp:SqlDataSource>
-
-                                <h4 style="text-align: center">Te betalen voor: <%# Eval("Aankomstdatum", "{0: dd/MM/yyyy}") %></h4>
 
                                 <div class="fixed-bottom">
                                     <div class="footerfactuur">
@@ -235,9 +236,7 @@ FROM reserveringengv WHERE ReserveringsstatusID != 5 AND ReserveringsstatusID !=
                                 </div>
                             </div>
 
-                            <asp:Button ID="btnTransactiehistory" Style="max-width: 80%; margin-left: auto; margin-right: auto;" class="btn btn-primary btn-lg btn-block" CommandArgument='<%# Eval("fnummer")%>' CommandName="<%# Container.ItemIndex %>" runat="server" Text="Zie transactie historie" OnClick="btnTransactiehistory_OnClick" />
-
-                                <input type="button" style="max-width: 80%; margin-left: auto; margin-right: auto;" class="btn btn-primary btn-lg btn-block" onclick="printDiv('printModal<%# Eval("Nummer") %>')" value="Print Factuur" />
+                            <input type="button" style="max-width: 80%; margin-left: auto; margin-right: auto;" class="btn btn-primary btn-lg btn-block" onclick="printDiv('printModal<%# Eval("Nummer") %>')" value="Print Factuur" />
 
                             <asp:Button ID="btnExport" Style="max-width: 80%; margin-left: auto; margin-right: auto;" class="btn btn-primary btn-lg btn-block" CommandName="<%# Container.ItemIndex %>" runat="server" Text="Email naar klant" OnClick="btnExport_Click" />
                         </div>
@@ -251,51 +250,4 @@ FROM reserveringengv WHERE ReserveringsstatusID != 5 AND ReserveringsstatusID !=
         </ItemTemplate>
     </asp:Repeater>
 
-    <asp:Repeater ID="rpTransactiemodals" runat="server">
-        <ItemTemplate>
-            <!-- Modal -->
-            <div id="modal2<%# Eval("fnummer") %>" class="modal fade" role="dialog">
-                <div class="modal-dialog">
-                    <!-- Modal content-->
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h4 class="modal-title">Transactiehistory Debiteurenfactuur nummer <%# Eval("fnummer") %></h4>
-                            <asp:Button runat="server" CssClass="btn btn-primary" Text="Sluiten"></asp:Button>
-                        </div>
-                        <div class="modal-body">
-                            <asp:Label ID="lblNoRecords" Visible="false" runat="server" Text="Er zijn nog geen transacties bij dit factuur gevonden."></asp:Label>
-                            <asp:Repeater ID="rpTransacties" runat="server">
-                                <HeaderTemplate>
-                                    <div class="timeline">
-                                        <ul>
-                                </HeaderTemplate>
-                                <ItemTemplate>
-                                    <li>
-                                        <div class="content">
-                                            <h3><%# Eval("TransactieOmschrijving") %></h3>
-                                            <p>
-                                                <%# Eval("Omschrijving") %><br />
-                                                &euro;<%# Eval("Bedrag") %>
-                                            </p>
-                                        </div>
-                                        <div class="point"></div>
-                                        <div class="date">
-                                            <h6><%# Eval("Datum", "{0: dd/MM/yyyy}") %></h6>
-                                        </div>
-                                    </li>
-                                </ItemTemplate>
-                                <FooterTemplate>
-                                    </ul>
-                                </div>
-                                </FooterTemplate>
-                            </asp:Repeater>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Sluiten</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </ItemTemplate>
-    </asp:Repeater>
 </asp:Content>

@@ -12,20 +12,14 @@ using System.Web.Services.Description;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-
 namespace ProjectGroenBos.Financien
 {
-    public partial class WebForm4 : System.Web.UI.Page
+    public partial class CreditnotaBetaalScherm : System.Web.UI.Page
     {
         string constr = System.Configuration.ConfigurationManager.ConnectionStrings["dbconnectie"].ConnectionString;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (int.Parse(Session["Functie"].ToString()) != 2 || int.Parse(Session["Functie"].ToString()) != 3)
-            {
-                Response.Redirect("Home.aspx");
-            }
-
             if (!IsPostBack)
             {
                 Repeater();
@@ -38,12 +32,13 @@ namespace ProjectGroenBos.Financien
             {
                 con.Open();
 
-                SqlCommand cmd = new SqlCommand("select * from rekeningen", con);
+                SqlCommand cmd = new SqlCommand("select * from reserveringen", con);
                 DataSet ds = new DataSet();
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 da.Fill(ds);
-                rpModals.DataSource = ds;
-                rpModals.DataBind();
+                rpCreditnota.DataSource = ds;
+                rpCreditnota.DataBind();
+
 
                 con.Close();
             }
@@ -55,29 +50,34 @@ namespace ProjectGroenBos.Financien
             Button btn = sender as Button;
 
             int gridviewnr = int.Parse(btn.CommandName);
-
-            HiddenField fnummers = (HiddenField)rpModals.Items[gridviewnr].FindControl("DebiteurNr");
-            string fnummer = fnummers.Value;
-
-            HiddenField nummers = (HiddenField)rpModals.Items[gridviewnr].FindControl("Nummer");
+            HiddenField nummers = (HiddenField)rpCreditnota.Items[gridviewnr].FindControl("Nummer");
             string nummer = nummers.Value;
 
-            HiddenField Totaalbedragen = (HiddenField)rpModals.Items[gridviewnr].FindControl("Totaalbedrag");
+            HiddenField Totaalbedragen = (HiddenField)rpCreditnota.Items[gridviewnr].FindControl("Totaalbedrag");
             string Totaalbedrag = Totaalbedragen.Value;
 
-            HiddenField Namen = (HiddenField)rpModals.Items[gridviewnr].FindControl("Naamgast");
+            HiddenField Namen = (HiddenField)rpCreditnota.Items[gridviewnr].FindControl("Naamgast");
             string Naam = Namen.Value;
 
-            HiddenField Emails = (HiddenField)rpModals.Items[gridviewnr].FindControl("Emailgast");
+            HiddenField Emails = (HiddenField)rpCreditnota.Items[gridviewnr].FindControl("Emailgast");
             string email = Emails.Value;
 
-            Email(gridviewnr, nummer, Totaalbedrag, Naam, email);
+            HiddenField fNummers = (HiddenField)rpCreditnota.Items[gridviewnr].FindControl("fnummer");
+            string fnummer = fNummers.Value;
+
+            //HiddenField Datums = (HiddenField)rpCreditnota.Items[gridviewnr].FindControl("datum");
+            //string datum = Datums.Value;
+
+            HiddenField IBANS = (HiddenField)rpCreditnota.Items[gridviewnr].FindControl("IBAN");
+            string iban = IBANS.Value;
+
+            Email(gridviewnr, nummer, Totaalbedrag, Naam, email, iban);
 
             using (SqlConnection con = new SqlConnection(constr))
             {
                 con.Open();
 
-                SqlCommand cmd = new SqlCommand("UPDATE debiteurenfactuur SET BetaalstatusID = '5' where nummer = @nummer", con);
+                SqlCommand cmd = new SqlCommand("UPDATE debiteurenfactuur SET ReserveringsstatusID = '6' where nummer = @nummer", con);
                 cmd.Parameters.AddWithValue("@nummer", fnummer);
 
                 cmd.ExecuteNonQuery();
@@ -85,32 +85,38 @@ namespace ProjectGroenBos.Financien
                 con.Close();
             }
 
-            gvRekeningen.DataBind();
+            gvReserveringen.DataBind();
 
             ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "emailsuccess();", true);
-
         }
 
-        protected void Email(int gridviewnr, string nummer, string totaal, string naam, string email)
+        protected void Email(int gridviewnr, string nummer, string totaal, string naam, string email, string banknummer)
         {
 
             MailMessage mail = new MailMessage();
-            
+
 
             MailMessage mailMessage = new MailMessage("groenbosfinances@hotmail.com", email);
 
             // email body tekst
             StringBuilder sbEmailBody = new StringBuilder();
-            sbEmailBody.Append("Hallo " + naam + ",");
+            sbEmailBody.Append("Geachte meneer/mevrouw " + naam + ",");
             sbEmailBody.Append("<br/><br/>");
-            sbEmailBody.Append("Hierbij uw factuur van de rekeningen die u heeft gemaakt op ons park.");
+            sbEmailBody.Append("Op TESTDATUM j.l. hebben wij van u een schriftelijke annulering ontvangen met betrekking tot uw reservering die in onze administratie onder nummer " + nummer + " geregistreerd was. ");
             //link veranderen als website wordt gehost.
+            sbEmailBody.Append("Wij hebben uw reservering doen vervallen.");
+            sbEmailBody.Append("Op grond van ons reglement ontvangt u 40% van de huursom verminderd met de aanbetaling retour. ");
+            sbEmailBody.Append("De hoogte van dit bedrag gelieve u aan te treffen aan de onderzijde van dit schrijven.");
+            sbEmailBody.Append("Wij hebben het restitutiebedrag heden gestort op bankrekening nummer " + banknummer + ".");
             sbEmailBody.Append("<br/><br/>");
-            sbEmailBody.Append(GetGridviewData((GridView)rpModals.Items[gridviewnr].FindControl("gvFactuurrekening")));
+            sbEmailBody.Append("Het spijt ons zeer u niet te kunnen verwelkomen op ons park.");
+            sbEmailBody.Append("<br/><br/>");
+            sbEmailBody.Append("<br/><br/>");
+            sbEmailBody.Append(GetGridviewData((GridView)rpCreditnota.Items[gridviewnr].FindControl("gvFactuurreservering")));
             sbEmailBody.Append("<br/><br/>");
             sbEmailBody.Append("<h4>Te betalen bedrag: " + totaal + "</h4>");
             sbEmailBody.Append("<br/><br/>");
-            sbEmailBody.Append("Wij verzoeken u vriendelijk het bedrag van " + totaal + " binnen 14 dagen over te maken naar rekeningnummer NL32 RABO 0220.96.13.200 onder vermelding van reserveringsnummer " + nummer);
+            sbEmailBody.Append("Wij verzoeken u vriendelijk het bedrag van " + totaal + " euro voor aanvang van uw bezoek over te maken naar rekeningnummer NL32 RABO 0220.96.13.200 onder vermelding van reserveringsnummer " + nummer + ".");
             sbEmailBody.Append("<br/><br/>");
             sbEmailBody.Append("Wij hopen u hierbij voldoende geïnformeerd te hebben. Als u vragen heeft kunt u deze email beantwoorden.");
             sbEmailBody.Append("<br/><br/>");
@@ -120,12 +126,12 @@ namespace ProjectGroenBos.Financien
             sbEmailBody.Append("<br/>");
             sbEmailBody.Append("Noorderpark 12, 6755 VB Aalterveld");
             sbEmailBody.Append("<br/>");
-            sbEmailBody.Append("<img src='https://cdn.discordapp.com/attachments/749932863847137304/762614070687825950/Logo3.png' width='150' height='180' >");
+            sbEmailBody.Append("<img src='https://cdn.discordapp.com/attachments/749932863847137304/762614070687825950/Logo3.png' width='150' height='150'>");
 
             mailMessage.IsBodyHtml = true;
             //body naar email tekst
             mailMessage.Body = sbEmailBody.ToString();
-            mailMessage.Subject = "Rekeningen Factuur " + nummer;
+            mailMessage.Subject = "Creditnota " + nummer;
             SmtpClient smtpClient = new SmtpClient("smtp.live.com", 587);
 
             //email login
@@ -138,7 +144,6 @@ namespace ProjectGroenBos.Financien
             //email wordt verzonden
             smtpClient.EnableSsl = true;
             smtpClient.Send(mailMessage);
-
 
         }
 
@@ -156,5 +161,6 @@ namespace ProjectGroenBos.Financien
         {
             /* Verifies that the control is rendered */
         }
+
     }
 }
