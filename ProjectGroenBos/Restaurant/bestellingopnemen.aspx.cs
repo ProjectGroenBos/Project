@@ -332,7 +332,32 @@ namespace ProjectGroenBos.Restaurant
 
 			scon.Close();
 
-			Response.Redirect("Bestellingenoverzicht.aspx");
+			// Verbinding met de database maken en een factuur aanmaken voor op rekening
+
+			//string commandText = "INSERT INTO [dbo].[Debiteurenfactuur] ([Datum],[BetaalmethodeID],[BetaalstatusID],[RetourzendingID],[FactuurtypeID],[RestaurantReserveringID]) VALUES" +
+			//	"(@Datum, @Totaal_bedrag, @BetaalmethodeID, @BetaalstatusID, @RetourzendingID, @FactuurtypeID, @Reserveringnummer),@Offerte";
+
+			//using (SqlConnection connection = new SqlConnection(connectionString))
+			//{
+			//	SqlCommand command = new SqlCommand(commandText, connection);
+			//	command.Parameters.AddWithValue("@Datum", DateTime.Now);
+			//	command.Parameters.AddWithValue("@BetaalmethodeID", "5");
+			//	command.Parameters.AddWithValue("@BetaalstatusID", "1");
+			//	command.Parameters.AddWithValue("@RetourzendingID", ID);
+			//	command.Parameters.AddWithValue("@FactuurtypeID", "4");
+			//	command.Parameters.AddWithValue("@Offerte", Offerte);
+			//	command.Parameters.AddWithValue("@Reserveringnummer", Text);
+
+			//	connection.Open();
+
+			//	command.ExecuteNonQuery();
+		    //}
+
+		  //sqlCon.Close();
+		  //LblSucces.Text = " SUBMIT SUCCESSFULLY";
+		  //CLEAR();
+
+		Response.Redirect("Bestellingenoverzicht.aspx");
 
         }
     }

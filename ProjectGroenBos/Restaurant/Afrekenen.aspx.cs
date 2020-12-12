@@ -30,68 +30,98 @@ namespace ProjectGroenBos.Restaurant
 
 			// Kijken welke totaalprijs hij moet berekenen
 
+			//lblTotaal.Text = "Totaal: €" + RestaurantAfrekenOvericht.cast(SUM(RegelTotaal) AS DECIMAL(18, 2));
+			//lblTotaal.DataBind();
 		}
 
 		protected void btnRekening_Click(object sender, EventArgs e)
 		{
-			//Factuurregels plaatsen
-			//String commandText = "INSERT INTO [dbo].[Factuurregel] VALUES" + 
-			
-			// Verbinding met de database maken en een factuur aanmaken voor op rekening
+			//Factuurregels aanmaken
+			String commandText = "INSERT INTO [dbo].[Factuurregel] (Aantal, Prijs, RestaurantItemID) VALUES" + 
+			"(@Aantal, @Prijs, @RestaurantItemID)";
 
-			//string commandText = "INSERT INTO [dbo].[Debiteurenfactuur] ([Datum],[Totaal bedrag],[BetaalmethodeID],[BetaalstatusID],[RetourzendingID],[FactuurtypeID],[Reserveringnummer]) VALUES" +
-			//	"(@Datum, @Totaal_bedrag, @BetaalmethodeID, @BetaalstatusID, @RetourzendingID, @FactuurtypeID, @Reserveringnummer),@Offerte";
+			using (SqlConnection connection = new SqlConnection(connectionString))
+			{
+				SqlCommand command = new SqlCommand(commandText, connection);
+				command.Parameters.AddWithValue("@Aantal", DfHoeveel.Text );
+				command.Parameters.AddWithValue("@Prijs",  );
+				command.Parameters.AddWithValue("@RestaurantItemID", );
+				connection.Open();
 
-			//using (SqlConnection connection = new SqlConnection(connectionString))
-			//{
-			//	SqlCommand command = new SqlCommand(commandText, connection);
-			//	command.Parameters.AddWithValue("@Datum", DateTime.Now);
-			//	command.Parameters.AddWithValue("@Totaal_bedrag", Tbetaald);
-			//	command.Parameters.AddWithValue("@BetaalmethodeID", "5");
-			//	command.Parameters.AddWithValue("@BetaalstatusID", "2");
-			//	command.Parameters.AddWithValue("@RetourzendingID", ID);
-			//	command.Parameters.AddWithValue("@FactuurtypeID", "4");
-			//	command.Parameters.AddWithValue("@Offerte", Offerte);
-			//	command.Parameters.AddWithValue("@Reserveringnummer", Text);
+				command.ExecuteNonQuery();
 
-			//	connection.Open();
+			}
 
-			//	command.ExecuteNonQuery();
-			//}
+			// Verbinding met de database voor een betaling op rekening tussen de facatures af maken
+			string commandText = "UPDATE [dbo].[Debiteurenfactuur] ([Datum],[Totaal bedrag],[BetaalmethodeID],[BetaalstatusID]) VALUES" +
+			"(@Datum, @Totaal_bedrag, @BetaalmethodeID, @BetaalstatusID)";
+
+			using (SqlConnection connection = new SqlConnection(connectionString))
+			{
+				SqlCommand command = new SqlCommand(commandText, connection);
+				command.Parameters.AddWithValue("@Datum", DateTime.Now);
+				command.Parameters.AddWithValue("@Totaal_bedrag", lblbetaald.text);
+			    command.Parameters.AddWithValue("@BetaalmethodeID", "5");
+				command.Parameters.AddWithValue("@BetaalstatusID", "2");
+
+				connection.Open();
+
+				command.ExecuteNonQuery();
+			}
 
 			//sqlCon.Close();
 			//LblSucces.Text = " SUBMIT SUCCESSFULLY";
 			//CLEAR();
 		}
-		
+
 
 		protected void btnBetalen_Click(object sender, EventArgs e)
 		{
 			// Verbinding met de database voor een pin betaling tussen de facatures
 
-			//string commandText = "INSERT INTO [dbo].[Debiteurenfactuur] ([Datum],[Totaal bedrag],[BetaalmethodeID],[BetaalstatusID],[RetourzendingID],[FactuurtypeID]) VALUES" +
-			//	"(@Datum, @Totaal_bedrag, @BetaalmethodeID, @BetaalstatusID, @RetourzendingID, @FactuurtypeID),@Offerte";
+			string commandText = "UPDATE [dbo].[Debiteurenfactuur] ([Datum],[Totaal bedrag],[BetaalmethodeID],[BetaalstatusID]) VALUES" +
+			"(@Datum, @Totaal_bedrag, @BetaalmethodeID, @BetaalstatusID)";
 
-			//using (SqlConnection connection = new SqlConnection(connectionString))
-			//{
-			//	SqlCommand command = new SqlCommand(commandText, connection);
-			//	command.Parameters.AddWithValue("@Datum", DateTime.Now);
-			//	command.Parameters.AddWithValue("@Totaal_bedrag", Tbetaald);
-			//	command.Parameters.AddWithValue("@BetaalmethodeID", "2");
-			//	command.Parameters.AddWithValue("@BetaalstatusID", "2");
-			//	command.Parameters.AddWithValue("@RetourzendingID", ID);
-			//	command.Parameters.AddWithValue("@FactuurtypeID", "4");
-			//	command.Parameters.AddWithValue("@Offerte", Offerte);
+			using (SqlConnection connection = new SqlConnection(connectionString))
+			{
+				SqlCommand command = new SqlCommand(commandText, connection);
+				command.Parameters.AddWithValue("@Datum", DateTime.Now);
+				command.Parameters.AddWithValue("@Totaal_bedrag", lblbetaald.text);
+				command.Parameters.AddWithValue("@BetaalmethodeID", "2");
+				command.Parameters.AddWithValue("@BetaalstatusID", "2");
 
-			//	connection.Open();
+				connection.Open();
 
-			//	command.ExecuteNonQuery();
-			//}
+				command.ExecuteNonQuery();
+			}
+
+			//sqlCon.Close();
+			//LblSucces.Text = " SUBMIT SUCCESSFULLY";
+			//CLEAR();
 		}
 
 		protected void btnContant_Click(object sender, EventArgs e)
 		{
+			// verbinding maken om de factuur af te maken voor contant
+			string commandText = "UPDATE [dbo].[Debiteurenfactuur] ([Datum],[Totaal bedrag],[BetaalmethodeID],[BetaalstatusID]) VALUES" +
+			"(@Datum, @Totaal_bedrag, @BetaalmethodeID, @BetaalstatusID)";
 
+			using (SqlConnection connection = new SqlConnection(connectionString))
+			{
+				SqlCommand command = new SqlCommand(commandText, connection);
+				command.Parameters.AddWithValue("@Datum", DateTime.Now);
+				command.Parameters.AddWithValue("@Totaal_bedrag", lblbetaald.text);
+				command.Parameters.AddWithValue("@BetaalmethodeID", "6");
+				command.Parameters.AddWithValue("@BetaalstatusID", "2");
+
+				connection.Open();
+
+				command.ExecuteNonQuery();
+			}
+
+			//sqlCon.Close();
+			//LblSucces.Text = " SUBMIT SUCCESSFULLY";
+			//CLEAR();
 		}
 	}
 }
