@@ -32,7 +32,7 @@ namespace ProjectGroenBos.Financien
             {
                 con.Open();
 
-                SqlCommand cmd = new SqlCommand("select * from reserveringen", con);
+                SqlCommand cmd = new SqlCommand("select * from betalengauw", con);
                 DataSet ds = new DataSet();
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 da.Fill(ds);
@@ -44,7 +44,50 @@ namespace ProjectGroenBos.Financien
             }
         }
 
-        protected void btnExport_Click(object sender, EventArgs e)
+        protected void btnUitbetalen_Click(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
+
+            int gridviewnr = int.Parse(btn.CommandName);
+
+            HiddenField IBANS = (HiddenField)rpCreditnota.Items[gridviewnr].FindControl("IBAN");
+            string iban = IBANS.Value;
+
+            HiddenField Bedragen = (HiddenField)rpCreditnota.Items[gridviewnr].FindControl("TerugTeBetalen");
+            string Bedrag = Bedragen.Value;
+
+            HiddenField nummers = (HiddenField)rpCreditnota.Items[gridviewnr].FindControl("Nummer");
+            string nummer = nummers.Value;
+
+            HiddenField fNummers = (HiddenField)rpCreditnota.Items[gridviewnr].FindControl("fnummer");
+            string fnummer = fNummers.Value;
+
+
+            string commandText = "INSERT INTO [dbo].[Transactie] ([Datum] ,[Aan] ,[Bedrag] ,[Omschrijving], [DebiteurenfactuurNummer] ,[BankrekeningBanknummer] ,[PersoneelNummer] ,[TypeID]) VALUES (CONVERT(date, getdate()), @Aan, @Bedrag, @Omschrijving, @DebiteurenfactuurNummer, @Iban, @PeroneelNummer, @TypeID)";
+
+            using (SqlConnection connection = new SqlConnection(constr))
+            {
+                SqlCommand command = new SqlCommand(commandText, connection);
+                command.Parameters.AddWithValue("@Wachtwoord", "1");
+                command.Parameters.AddWithValue("@Aan", iban);
+                command.Parameters.AddWithValue("@Bedrag", Bedrag);
+                command.Parameters.AddWithValue("@Omschrijving", nummer);
+                command.Parameters.AddWithValue("@DebiteurenfactuurNummer", fnummer);
+                command.Parameters.AddWithValue("@Iban", iban);
+                command.Parameters.AddWithValue("@PeroneelNummer", "1");
+                command.Parameters.AddWithValue("@TypeID", "1");
+
+
+                connection.Open();
+
+                command.ExecuteNonQuery();
+            }
+        }
+
+        protected void btnKassa_Click(object sender, EventArgs e)
+        {
+        }
+            protected void btnExport_Click(object sender, EventArgs e)
         {
 
             Button btn = sender as Button;
@@ -73,7 +116,7 @@ namespace ProjectGroenBos.Financien
 
             Email(gridviewnr, nummer, Totaalbedrag, Naam, email, iban);
 
-            using (SqlConnection con = new SqlConnection(constr))
+           /* using (SqlConnection con = new SqlConnection(constr))
             {
                 con.Open();
 
@@ -83,7 +126,7 @@ namespace ProjectGroenBos.Financien
                 cmd.ExecuteNonQuery();
 
                 con.Close();
-            }
+            }*/
 
             gvReserveringen.DataBind();
 
