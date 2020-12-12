@@ -175,15 +175,35 @@ FROM reserveringengv WHERE ReserveringsstatusID = 5 OR ReserveringsstatusID = 6 
                                             <td style="width: 100px">€ <%# Eval("Totaal") %></td>
                                         </tr>
 
+                                         <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td style="text-align: right">Afboeken factuur:</td>
+                                            <td style="width: 100px">€ <%# Eval("Afboeken factuur") %></td>
+                                        </tr>
+                                        </table>
+                                         <table class="content-table" style="min-width: 656px; margin-top: -25px">
+
                                         <tr>
                                             <td></td>
                                             <td></td>
                                             <td style="text-align: right">Bedrag wat de gast terug krijgt:</td>
                                             <td style="width: 100px">€ <%# Eval("TerugTeBetalen") %></td>
                                         </tr>
+
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td style="text-align: right">Bedrag wat de gast nog moet betalen:</td>
+                                            <td style="width: 100px">€ <%# Eval("Nog verschuligd") %></td>
+                                        </tr>
+
+                                       
+
                                     </tbody>
                                 </table>
-
+                                <asp:HiddenField ID="TerugTeBetalen" runat="server"
+                                    Value='<%# Eval("TerugTeBetalen") %>' />
                                  <asp:HiddenField ID="fnummer" runat="server"
                                     Value='<%# Eval("fnummer") %>' />
                                 <asp:HiddenField ID="Nummer" runat="server"
@@ -239,6 +259,8 @@ FROM reserveringengv WHERE ReserveringsstatusID = 5 OR ReserveringsstatusID = 6 
                             <input type="button" style="max-width: 80%; margin-left: auto; margin-right: auto;" class="btn btn-primary btn-lg btn-block" onclick="printDiv('printModal<%# Eval("Nummer") %>')" value="Print Factuur" />
 
                             <asp:Button ID="btnExport" Style="max-width: 80%; margin-left: auto; margin-right: auto;" class="btn btn-primary btn-lg btn-block" CommandName="<%# Container.ItemIndex %>" runat="server" Text="Email naar klant" OnClick="btnExport_Click" />
+                             <asp:Button ID="btnUitbetalen" Style="max-width: 80%; margin-left: auto; margin-right: auto;" class="btn btn-primary btn-lg btn-block" CommandName="<%# Container.ItemIndex %>" runat="server" Text="Uitbelalen" OnClick="btnUitbetalen_Click" />
+                             <asp:Button ID="btnBetalen" Style="max-width: 80%; margin-left: auto; margin-right: auto;" class="btn btn-primary btn-lg btn-block" CommandName="<%# Container.ItemIndex %>" runat="server" Text="Incasso versturen" OnClick="btnKassa_Click" />
                         </div>
 
                         <div class="modal-footer">
