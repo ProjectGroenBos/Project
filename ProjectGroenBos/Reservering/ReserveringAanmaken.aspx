@@ -54,42 +54,51 @@
 
         <table>
             <tr>
-                <td>
+                <td style="width:15%">
                     <asp:Label ID="Label5" runat="server" Text="Gastnummer" CssClass="labelsnieuw"></asp:Label></td>
-                <td>
+                <td style="width:15%">
                     <asp:Label ID="lblGastnummer" runat="server" Text="" CssClass="textboxchaos"></asp:Label></td>
+                <td style="width:40%"></td>
             </tr>
             <tr>
-                <td>
+                <td style="width:15%">
                     <asp:Label ID="Label2" runat="server" Text="Aantal personen" CssClass="labelsnieuw"></asp:Label></td>
-                <td>
+                <td style="width:15%">
                     <asp:TextBox ID="txbAantalPersonen" runat="server" CssClass="textboxchaos"></asp:TextBox></td>
+                <td style="width:40%">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Dit veld is verplicht." ControlToValidate="txbAantalPersonen" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator></td>
             </tr>
             <tr>
-                <td>
+                <td style="width:15%">
                     <asp:Label ID="Label3" runat="server" Text="Aankomstdatum" CssClass="labelsnieuw"></asp:Label>
                 </td>
-                <td>
+                <td style="width:15%">
                     <asp:TextBox ID="txbAankomstdatum" runat="server" CssClass="textboxchaos"></asp:TextBox>
-                </td>
+                    </td>
+                <td style="width:40%">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Dit veld is verplicht." ControlToValidate="txbAankomstdatum" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator></td>
             </tr>
             <tr>
-                <td>
+                <td style="width:15%">
                     <asp:Label ID="Label1" runat="server" Text="Vertrekdatum" CssClass="labelsnieuw"></asp:Label></td>
-                <td>
+                <td style="width:15%">
                     <asp:TextBox ID="txbVertrekdatum" runat="server" CssClass="textboxchaos"></asp:TextBox></td>
+                <td style="width:40%">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Dit veld is verplicht." ControlToValidate="txbVertrekdatum" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator></td>
             </tr>
             <tr>
-                <td>
+                <td style="width:15%" >
                     <asp:Label ID="Label6" runat="server" Text="Opmerkingen" CssClass="labelsnieuw"></asp:Label></td>
                 <td>
                     <asp:TextBox ID="txbOpmerking" runat="server" CssClass="textboxchaos"></asp:TextBox></td>
+                <td style="width:40%"></td>
             </tr>
             <tr>
-                <td>
+                <td style="width:15%">
                     <asp:Label ID="Label4" runat="server" Text="Bungalownummer" CssClass="labelsnieuw"></asp:Label></td>
-                <td>
+                <td style="width:15%">
                     <asp:Label ID="lblHuisjenummer" runat="server" Text="" CssClass="textboxchaos"></asp:Label></td>
+                <td style="width:40%"></td>
             </tr>
         </table>
 
@@ -104,9 +113,26 @@
         <br />
         <asp:Label ID="lblUitkomst" runat="server"></asp:Label>
         <br />
-        <asp:GridView ID="GridView1" runat="server" CssClass="content-table" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AllowSorting="True" AutoGenerateSelectButton="True" DataKeyNames="Voornaam,Tussenvoegsel,Achternaam,Geboortedatum">
+        <asp:GridView ID="GridView1" runat="server" CssClass="content-table" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AllowSorting="True" AutoGenerateSelectButton="True">
             <HeaderStyle ForeColor="White" />
         </asp:GridView>
+
+
+        <asp:GridView ID="GridView2" runat="server" CssClass="content-table" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
+            <Columns>
+                <asp:BoundField DataField="Voornaam" HeaderText="Voornaam" SortExpression="Voornaam" />
+                <asp:BoundField DataField="Tussenvoegsel" HeaderText="Tussenvoegsel" SortExpression="Tussenvoegsel" />
+                <asp:BoundField DataField="Achternaam" HeaderText="Achternaam" SortExpression="Achternaam" />
+                <asp:BoundField DataField="Geboortedatum" DataFormatString="{0:d}" HeaderText="Geboortedatum" SortExpression="Geboortedatum" />
+            </Columns>
+        </asp:GridView>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:2020-BIM02-P1-P2-GroenbosConnectionString %>" SelectCommand="select Voornaam, Tussenvoegsel, Achternaam, Geboortedatum
+from Gast gst inner join Reservering res on res.GastNummer = gst.Nummer
+where res.Nummer = @nummer">
+            <SelectParameters>
+                <asp:ControlParameter ControlID="lblGastnummer" Name="nummer" PropertyName="Text" />
+            </SelectParameters>
+        </asp:SqlDataSource>
     </div>
 
 </asp:Content>

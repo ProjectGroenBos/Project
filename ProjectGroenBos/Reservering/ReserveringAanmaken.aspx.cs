@@ -30,6 +30,8 @@ namespace ProjectGroenBos.Reservering
             {
                 lblGastnummer.Text = Session["gastnummer"].ToString();
                 lblUitkomst.Text = "";
+                GridView2.Visible = false;
+                btnAanmaken.Enabled = false;
             }
         }
 
@@ -96,10 +98,12 @@ namespace ProjectGroenBos.Reservering
         {
             //huisjenummer selecteren
             lblHuisjenummer.Text = (string)GridView1.SelectedRow.Cells[1].Text;
+            btnAanmaken.Enabled = true;
         }
 
         protected void btnAanmaken_Click(object sender, EventArgs e)
         {
+
             //waarden uit de ingevulde velden
             int bungalownummer = int.Parse(lblHuisjenummer.Text);
             int gastnummer = int.Parse(lblGastnummer.Text);
@@ -140,12 +144,14 @@ namespace ProjectGroenBos.Reservering
                 InsReserveringBungalow(reserveringnummer, bungalownummer);
                 GetKlantgegevens(gastnummer);
 
-                //string voornaam = (string)GridView1.DataKeyNames[0]["Voornaam"];
-                //string tussenvoegsel = (string)GridView1.DataKeyNames[0]["Tussenvoegsel"];
-                //string achternaam = (string)GridView1.DataKeyNames[0]["Achternaam"];
-                //DateTime geboortedatum = (DateTime)GridView1.DataKeyNames[0]["Geboortedatum"];
+                string voornaam = (string)GridView2.DataKeys[0]["Voornaam"];
+                string tussenvoegsel = (string)GridView2.DataKeys[0]["Tussenvoegsel"];
+                string achternaam = (string)GridView2.DataKeys[0]["Achternaam"];
+                DateTime geboortedatum = (DateTime)GridView2.DataKeys[0]["Geboortedatum"];
 
-                //ReserveerderToevoegen(voornaam, tussenvoegsel, achternaam, geboortedatum, reserveringnummer);
+                geboortedatum.ToShortDateString();
+
+                ReserveerderToevoegen(voornaam, tussenvoegsel, achternaam, geboortedatum, reserveringnummer);
 
                 InsDebiteurenFactuur(vandaag, betaalmethode, betaalstatus, factuurtype, reserveringnummer);
                 int debifactuur = GetDebiNummer();
@@ -489,8 +495,8 @@ namespace ProjectGroenBos.Reservering
                 DataTable dt = new DataTable();
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 da.Fill(dt);
-                GridView1.DataSource = dt;
-                GridView1.DataBind();
+                GridView2.DataSource = dt;
+                GridView2.DataBind();
 
                 con.Close();
             }

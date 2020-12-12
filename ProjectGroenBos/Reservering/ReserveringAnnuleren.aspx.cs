@@ -140,10 +140,14 @@ namespace ProjectGroenBos.Reservering
                 using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["2020-BIM02-P1-P2-GroenbosConnectionString"].ConnectionString))
                 {
                     string reserveringsnummer = lblReserveringsnummer.Text;
+                    DateTime vandaag = DateTime.Today;
+                    vandaag.ToShortDateString();
+
                     con.Open();
-                    string query = "update Reservering set ReserveringsstatusID = 5 where Nummer = @reserveringsnummer";
+                    string query = "update Reservering set ReserveringsstatusID = 5, Annuleringsdatum = @vandaag where Nummer = @reserveringsnummer";
                     SqlCommand cmd = new SqlCommand(query, con);
                     cmd.Parameters.AddWithValue("@reserveringsnummer", reserveringsnummer);
+                    cmd.Parameters.AddWithValue("@vandaag", vandaag);
                     cmd.CommandType = System.Data.CommandType.Text;
                     cmd.ExecuteNonQuery();
                     con.Close();
