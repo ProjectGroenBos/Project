@@ -197,10 +197,12 @@ SELECT 'Alle Afdelingen' AS [Naam]"></asp:SqlDataSource>
                         <div class="modal-body">
                             <h3>Kies hier uw bestand</h3>
                             <asp:FileUpload ID="FileUpload2" runat="server" accept=".pdf"/>
-                            <asp:RequiredFieldValidator ID="ValidateF1" runat="server"  ErrorMessage="*"  ForeColor="Red"CssClass="row-validate"  ControlToValidate="FileUpload2" ValidationGroup="Validation"></asp:RequiredFieldValidator>
+                           <%-- <asp:RequiredFieldValidator ID="ValidateF1" runat="server"  ErrorMessage="*"  ForeColor="Red"CssClass="row-validate"  ControlToValidate="FileUpload2" ValidationGroup="Validation"></asp:RequiredFieldValidator>
                             <asp:RegularExpressionValidator ID="ValidateEx" runat="server"  ErrorMessage="Moet .pdf/.PDF zijn"  ForeColor="Red" ValidationExpression="^.*\.(pdf|PDF)$" ControlToValidate="FileUpload2" ValidationGroup="Validation" ></asp:RegularExpressionValidator>
+                                    --%>
                             <asp:Button ID="btnUpload" ValidationGroup="Validation" OnClick="Upload" CommandName='<%# Container.ItemIndex %>' CommandArgument='<%# Eval("Nummer") %>' Style="max-width: 80%; margin-left: auto; margin-right: auto; margin-top: 20px" CssClass="btn btn-success btn-lg btn-block" runat="server" Text="Bestellen" />
 
+                           
                         </div>
 
                         <div class="modal-footer">
