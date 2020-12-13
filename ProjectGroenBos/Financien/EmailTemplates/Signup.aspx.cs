@@ -24,7 +24,7 @@ namespace ProjectGroenBos.Financien.EmailTemplates
             //Fetching Settings from WEB.CONFIG file.  
             string emailSender = "groenbosfinances@hotmail.com";
             string emailSenderPassword = "MarionenAndries";
-            string emailSenderHost = "smtp.gmail.com";
+            string emailSenderHost = "smtp.live.com";
             int emailSenderPort = 587;
             Boolean emailIsSSL = true;
 
@@ -37,6 +37,12 @@ namespace ProjectGroenBos.Financien.EmailTemplates
 
             //Repalce [newusername] = signup user name   
             MailText = MailText.Replace("[newusername]", txtUserName.Text.Trim());
+            MailText = MailText.Replace("[Totaalbedrag]", txtUserName.Text.Trim());
+            MailText = MailText.Replace("[Betaald]", txtUserName.Text.Trim());
+            MailText = MailText.Replace("[Afboeken]", txtUserName.Text.Trim());
+            MailText = MailText.Replace("[Terugbetalen]", txtUserName.Text.Trim());
+            MailText = MailText.Replace("[Geldontvangen]", txtUserName.Text.Trim());
+
 
 
             string subject = "Welcome to CSharpCorner.Com";
