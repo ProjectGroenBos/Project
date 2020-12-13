@@ -80,6 +80,8 @@
     <Content Include="Financien\CrediteurenFactuurBetaal.aspx" />
     <Content Include="Financien\CreditnotaBetaalScherm.aspx" />
     <Content Include="Financien\css\main.css" />
+    <Content Include="Financien\EmailTemplates\Signup.aspx" />
+    <Content Include="Financien\EmailTemplates\SignUp.html" />
     <Content Include="Financien\FactuurKoppelScherm.aspx" />
     <Content Include="Financien\Factuurtoevoegen.aspx" />
     <Content Include="Financien\Home.aspx" />
@@ -708,6 +710,13 @@
     </Compile>
     <Compile Include="Financien\CreditnotaBetaalScherm.aspx.designer.cs">
       <DependentUpon>CreditnotaBetaalScherm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Financien\EmailTemplates\Signup.aspx.cs">
+      <DependentUpon>Signup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Financien\EmailTemplates\Signup.aspx.designer.cs">
+      <DependentUpon>Signup.aspx</DependentUpon>
     </Compile>
     <Compile Include="Financien\FactuurKoppelScherm.aspx.cs">
       <DependentUpon>FactuurKoppelScherm.aspx</DependentUpon>

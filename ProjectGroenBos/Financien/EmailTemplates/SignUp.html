@@ -1,0 +1,929 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>Air New Zealand</title>
+    <style>
+        body {
+            width: 100% !important;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: #eeeeee;
+        }
+
+        #backgroundTable {
+            margin: 0;
+            padding: 0;
+            width: 100% !important;
+            line-height: 100% !important;
+        }
+
+        img {
+            outline: none;
+            text-decoration: none;
+            border: none;
+            -ms-interpolation-mode: bicubic;
+        }
+
+        table {
+            table-layout: fixed !important;
+            margin: 0 auto;
+            border-collapse: collapse;
+            mso-table-lspace: 0pt;
+            mso-table-rspace: 0pt;
+        }
+
+            table td {
+                border-collapse: collapse;
+            }
+
+        a {
+            color: #009ec1;
+            text-decoration: none;
+            text-decoration: none !important;
+        }
+
+            a img {
+                border: none;
+            }
+
+        .center {
+            text-align: center !important;
+        }
+
+        .block {
+            display: block;
+        }
+
+        .droppable {
+        }
+
+        /* Hide ios links */
+        .appleLinks a {
+            color: #13100d;
+            text-decoration: none;
+        }
+
+        .appleLinksWhite a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .appleLinksFooter a {
+            color: #a19f9e;
+            text-decoration: none;
+        }
+
+        /* yahoo */
+        @media yahoo {
+            table {
+                table-layout: fixed !important;
+                margin: 0 auto;
+                border-collapse: collapse;
+                mso-table-lspace: 0pt;
+                mso-table-rspace: 0pt;
+            }
+        }
+
+        /* mobile */
+        @media only screen and (max-width: 480px) {
+            .devicewidth {
+                width: 300px !important;
+                text-align: center !important;
+            }
+
+            .m-width {
+                width: 300px !important;
+                text-align: center !important;
+            }
+
+            .m-w100 {
+                width: 100% !important;
+            }
+
+            .m-w270 {
+                width: 270px !important;
+            }
+
+            .m-w80 {
+                width: 80% !important;
+            }
+
+            .m-img-center {
+                margin: 0 auto;
+            }
+
+            .m-h-auto {
+                height: auto !important;
+            }
+
+            .m-h-5 {
+                height: 5px !important;
+            }
+
+            .m-h-15 {
+                height: 15px !important;
+            }
+
+            .m-h-20 {
+                height: 20px !important;
+            }
+
+            .m-f-normal {
+                font-weight: normal !important;
+            }
+
+            .m-f-white {
+                color: #ffffff !important;
+            }
+
+            .m-btn {
+                width: 100% !important;
+                border-width: 12px 0 14px !important;
+                padding: 0 !important;
+            }
+
+            .m-btn-15 {
+                padding-top: 15px !important;
+                padding-left: 0 !important;
+                padding-right: 0 !important;
+            }
+
+            .m-gbtn-15 {
+                padding-top: 15px !important;
+                padding-bottom: 15px !important;
+            }
+
+            .m-center {
+                text-align: center !important;
+            }
+
+            .m-block {
+                display: block;
+            }
+
+            .m-f-13 {
+                font-size: 13px !important;
+            }
+
+            .m-w-15 {
+                width: 15% !important;
+            }
+
+            /* JULIE added */
+            .m-w-80 {
+                width: 80% !important;
+            }
+
+            /* JULIE added */
+
+            .no-mob {
+                display: none !important;
+            }
+
+            .no-bdr {
+                border: none !important;
+            }
+
+            .no-bgc {
+                background: none !important;
+            }
+
+            .p0 {
+                padding: 0 !important;
+            }
+
+            .p15 {
+                padding: 15px !important;
+            }
+
+            .pb10 {
+                padding-bottom: 10px !important;
+            }
+
+            .pb15 {
+                padding-bottom: 15px !important;
+            }
+
+            .pl15 {
+                padding-left: 15px !important;
+            }
+
+            .prl10 {
+                padding-right: 10px !important;
+                padding-left: 10px !important;
+            }
+
+            .prl15 {
+                padding-right: 15px !important;
+                padding-left: 15px !important;
+            }
+
+            .prl20 {
+                padding-right: 20px !important;
+                padding-left: 20px !important;
+            }
+
+            .ptrl15 {
+                padding-top: 15px !important;
+                padding-right: 15px !important;
+                padding-left: 15px !important;
+            }
+
+            .pt10 {
+                padding-top: 10px !important;
+            }
+
+            .pt15 {
+                padding-top: 15px !important;
+            }
+
+            .m-header {
+                width: 100%;
+                height: 490px;
+                background: url('https://assets.mailcharts.com/emails/images/2b6e089b14efee75616049cb2b5740fe844a7b61.jpeg') no-repeat;
+                color: #ffffff !important;
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="preheader" style="display:none !important;overflow:hidden;visibility:hidden;opacity:0;color:#ffffff;height:0;line-height:0;width:0;font-size:0px;mso-hide:all;">Tips on how to make the most of being an Airpoints member</div>
+
+    <img src="https://assets.mailcharts.com/emails/images/d5fceb6532643d0d84ffe09c40c481ecdf59e15a.gif" width="1" height="1" data-mc-image-bytes="42" data-mc-width="1" data-mc-height="1" data-mc-natural-width="1" data-mc-natural-height="1" />
+
+    <img border="0" class="no-mob" height="1" src="https://assets.mailcharts.com/emails/images/e9fc3aa9f61108fce5f5e3a6233751ba35e7af87.gif" style="display:block;max-height:1px;min-height:1px;min-width:600px;" data-mc-image-bytes="1096" data-mc-width="1" data-mc-height="1" data-mc-natural-width="1" data-mc-natural-height="1" />
+    <div style="display:none;white-space:nowrap;font:15px courier;line-height:0;">                                                           </div>
+    <!-- view online -->
+    <table bgcolor="#eeeeee" border="0" cellpadding="0" cellspacing="0" id="backgroundTable" width="100%">
+
+        <tbody>
+            <tr>
+                <td>
+                    <table align="center" bgcolor="#13100d" border="0" cellpadding="0" cellspacing="0" class="m-width" width="600">
+
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <table align="left" border="0" cellpadding="0" cellspacing="0" width="100%">
+
+                                        <tbody>
+                                            <tr>
+                                                <td bgcolor="#13100d" height="9"> </td>
+                                            </tr>
+                                            <tr>
+                                                <td align="center" bgcolor="#13100d" st-content="viewonline" style="font-family:arial, sans-serif;font-size:12px;color:#ffffff;" valign="middle">Trouble viewing this email? <a href="#" name="Hyperlink_20160616_110741252" target="_blank" xt="SPCLICKTOVIEW"><span class="droppable" id="view-online-here" style="color:#009ec1;">View it online here</span></a></td>
+                                            </tr>
+                                            <tr>
+                                                <td bgcolor="#13100d" height="9"> </td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <!-- view online -->
+
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+
+        <tbody>
+            <tr>
+                <td>
+                    <!-- header - WELCOME -->
+                    <table border="0" cellpadding="0" cellspacing="0" id="backgroundTable" style="background-color:#eeeeee" width="100%">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <table border="0" cellpadding="0" cellspacing="0" class="m-width" width="600" align="center" bgcolor="#13100d">
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td align="center"><a name="www_airnewzealand_com_earning_" href="#" target="_blank"><img src="https://assets.mailcharts.com/emails/images/8fc3cd449f842c752f260fa41440861570b0d514.jpeg" alt="Welcome (Header)" border="0" style="border:none;outline:none;text-decoration:none;display:block;" class="m-w100 block droppable" data-mc-image-bytes="37721" data-mc-width="300" data-mc-height="135" data-mc-natural-width="600" data-mc-natural-height="270" /></a></td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <!-- header - WELCOME -->
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <!-- greeting with dynamic airpoints status - WELCOME -->
+                    <table border="0" cellpadding="0" cellspacing="0" id="backgroundTable" style="background-color:#eeeeee" width="100%">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <table align="center" border="0" cellpadding="0" cellspacing="0" class="m-width" width="600">
+                                        <tbody>
+                                            <tr>
+                                                <td bgcolor="#ffffff" class="prl15" style="padding:30px 30px 0 30px;">
+                                                    <table align="left" border="0" cellpadding="0" cellspacing="0" class="m-w100" width="100%">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td align="left" style="font-size:22px;color:#13100d;font-family:Helvetica, arial, sans-serif;padding-bottom:15px;line-height:30px;">Hello Kevin</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td align="left" style="font-size:16px;color:#13100d;font-family:Helvetica, arial, sans-serif;line-height:22px;padding-bottom:10px;">Welcome to Airpoints<span style="font-size: 8px; vertical-align: 6px;">TM</span>. You'll find your membership number below. Please store this somewhere safe as it's your key to all the perks of Airpoints.</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td bgcolor="#ffffff" class="prl15" style="padding:20px 30px 0 30px;">
+                                                    <table align="left" border="0" cellpadding="0" cellspacing="0" class="m-w100" width="45%">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td align="center" class="p15" style="padding-bottom:10px;padding-top:0px;">
+                                                                    <!-- Airpoints status circle -->
+                                                                    <table border="0" cellpadding="0" cellspacing="0">
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td align="center" background="http://www.airnzimage.co.nz/2016/shared-images/airpoints-circle-bg.png" height="202" valign="top" width="202">
+                                                                                    <!--[if gte mso 9]>
+                                                                                        <v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width:202px;height:202px;">
+                                                                                        <v:fill type="tile" src="http://www.airnzimage.co.nz/2016/shared-images/airpoints-circle-bg.png" color="#009ec1" />
+                                                                                        <v:textbox inset="0,0,0,0">
+                                                                                    <![endif]-->
+                                                                                    <table align="center" border="0" cellpadding="0" cellspacing="0" width="76%">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <td height="50"> </td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td style="font-size:28px;line-height:1em;color:#ffffff;font-family:Helvetica, arial, sans-serif;font-weight:normal;padding-bottom:5px;text-align:center;background-color:#009ec1;">Your</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td style="font-size:16px;line-height:1em;color:#ffffff;font-family:Helvetica, arial, sans-serif;font-weight:normal;padding-bottom:5px;text-align:center;background-color:#009ec1;">Airpoints<span style="font-size: 8px; vertical-align: 6px;">TM</span> Number</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td style="font-size:32px;line-height:1em;color:#ffffff;font-family:Helvetica, arial, sans-serif;font-weight:bold;padding-bottom:5px;text-align:center;background-color:#009ec1;">11958904</td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                    <!--[if gte mso 9]>
+                                                                                        </v:textbox>
+                                                                                        </v:rect>
+                                                                                    <![endif]-->
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                    <!-- Airpoints status circle -->
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+
+                                                    <table align="right" border="0" cellpadding="0" cellspacing="0" class="m-w100" style="table-layout:fixed !important;" width="50%">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td align="left" style="font-size:16px;color:#13100d;font-family:Helvetica, arial, sans-serif;line-height:22px;padding-bottom:10px;">Our Airpoints programme is all about getting you where you want to go quicker. You can earn Airpoints Dollars<span style="font-size: 8px; vertical-align: 6px;">TM</span> in the air or on the ground and spend them on flights, exclusive <a name="www_airnewzealand_co_nz_oneup_" href="#" style="color: #16819b; font-weight: bold;" target="_blank">seat upgrades</a> and even <a name="winestore_airnewzealand_co_nz_" href="#" style="color: #16819b; font-weight: bold;" target="_blank">some fine wine</a>.</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td bgcolor="#ffffff" class="prl15" style="padding:0 30px 30px 30px;">
+                                                    <table align="left" border="0" cellpadding="0" cellspacing="0" class="m-w100" width="100%">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td class="pt15" style="border-bottom: 1px dashed #cfcfcf; line-height: 0; height: 1px; min-height: 1px; padding-top: 30px;"> </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <!-- greeting with dynamic airpoints status - WELCOME -->
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <!-- keep track download app - WELCOME -->
+                    <table border="0" cellpadding="0" cellspacing="0" id="backgroundTable" style="background-color:#eeeeee" width="100%">
+
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <table align="center" border="0" cellpadding="0" cellspacing="0" class="m-width" width="600">
+
+                                        <tbody>
+                                            <tr>
+                                                <td bgcolor="#ffffff" class="prl15" style="padding:10px 30px 0 30px;">
+                                                    <table align="left" border="0" cellpadding="0" cellspacing="0" class="m-w100" width="100%">
+
+                                                        <tbody>
+                                                            <tr>
+                                                                <td align="left" style="font-size:22px;color:#13100d;font-family:Helvetica, arial, sans-serif;padding-bottom:15px;line-height:30px;">Here are a couple of ways you can keep track of your Airpoints Dollars<span style="font-size: 8px; vertical-align: 6px;">TM</span></td>
+                                                            </tr>
+
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td bgcolor="#ffffff" class="p15" style="padding:0 30px 0 30px;">
+                                                    <table align="left" border="0" cellpadding="0" cellspacing="0" class="m-w100" width="49%">
+
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>
+                                                                    <table align="left" border="0" cellpadding="0" cellspacing="0" width="100%">
+
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td align="left" class="m-w-15" style="font-size:16px;color:#13100d;font-family:Helvetica, arial, sans-serif;font-weight:bold;line-height:22px;padding-bottom:10px;" width="15%"><img alt="" border="0" src="https://assets.mailcharts.com/emails/images/b41163525dfb9f7a8b19d8fc32c2b0de4bb68751.jpeg" style="border:none;outline:none;text-decoration:none;text-align:left;" data-mc-image-bytes="2878" data-mc-width="37" data-mc-height="37" data-mc-natural-width="37" data-mc-natural-height="37" /></td>
+                                                                                <td align="left" class="m-w-80" style="font-size:16px;color:#13100d;font-family:Helvetica, arial, sans-serif;font-weight:bold;line-height:22px;padding-bottom:10px;" width="80%">Download the Air NZ mobile app</td>
+                                                                            </tr>
+
+                                                                        </tbody>
+                                                                    </table>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td align="left" style="font-size:16px;color:#13100d;font-family:Helvetica, arial, sans-serif;line-height:22px;padding-bottom:10px;">Download the Air NZ mobile app to book flights, check in and manage your travel plans. Plus access your digital card and keep a record of your Airpoints number, Airpoints Dollar balance and Status Points on the go.</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    <table align="left" border="0" cellpadding="0" cellspacing="0" class="m-w100" width="100%">
+
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td align="left" style="padding-bottom:30px;"><a name="itunes_apple_com_us_app_air_ne" href="#" style="text-decoration:none;" target="_blank"><img alt="Download ios (Welcome)" border="0" class="m-center droppable" src="https://assets.mailcharts.com/emails/images/302365db4eafe4fc7deafcb690d3eaac2bba4171.jpeg" style="border:none;outline:none;text-decoration:none;text-align:left;" width="131" data-mc-image-bytes="4877" data-mc-width="131" data-mc-height="40" data-mc-natural-width="139" data-mc-natural-height="42" /></a></td>
+                                                                                <td align="left" style="padding-bottom:30px;"><a name="play_google_com_store_apps_det" href="#" style="text-decoration:none;" target="_blank"><img alt="Download Android (Welcome)" border="0" class="m-center droppable" src="https://assets.mailcharts.com/emails/images/90dc41d4dd1bab29f75819a356c2b230c3903ac3.jpeg" style="border:none;outline:none;text-decoration:none;text-align:left;" width="131" data-mc-image-bytes="5274" data-mc-width="131" data-mc-height="41" data-mc-natural-width="134" data-mc-natural-height="42" /></a></td>
+                                                                            </tr>
+
+                                                                        </tbody>
+                                                                    </table>
+                                                                </td>
+                                                            </tr>
+
+                                                        </tbody>
+                                                    </table>
+
+                                                    <table align="right" border="0" cellpadding="0" cellspacing="0" class="m-w100" style="table-layout:auto !important;" width="49%">
+
+                                                        <tbody>
+                                                            <tr>
+                                                                <td align="center" class="pt15" style="padding-bottom:10px;padding-top:10px;"><img alt="" border="0" class="m-w100 droppable" src="https://assets.mailcharts.com/emails/images/cc83622e89a7560065a45daafbf40292e589ba71.jpeg" style="border:none;outline:none;text-decoration:none;text-align:center;" width="255" data-mc-image-bytes="45013" data-mc-width="270" data-mc-height="270" data-mc-natural-width="255" data-mc-natural-height="255" /></td>
+                                                            </tr>
+
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                    <!-- keep track download app - WELCOME -->
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <!-- set up account - WELCOME -->
+                    <table border="0" cellpadding="0" cellspacing="0" id="backgroundTable" style="background-color:#eeeeee" width="100%">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <table align="center" border="0" cellpadding="0" cellspacing="0" class="m-width" width="600">
+                                        <tbody>
+                                            <tr>
+                                                <td bgcolor="#ffffff" class="p15" style="padding:0 30px 30px 30px;">
+                                                    <table align="left" border="0" cellpadding="0" cellspacing="0" class="m-w100" width="100%">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>
+                                                                    <table align="left" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td align="left" class="m-w-15" style="font-size:16px;color:#13100d;font-family:Helvetica, arial, sans-serif;font-weight:bold;line-height:22px;padding-bottom:10px;" width="8%"><img alt="" border="0" src="https://assets.mailcharts.com/emails/images/8eb3e82ed2c61b328ce5d28b0e28bc3e452a656b.jpeg" style="border:none;outline:none;text-decoration:none;text-align:left;" data-mc-image-bytes="2926" data-mc-width="37" data-mc-height="37" data-mc-natural-width="37" data-mc-natural-height="37" /></td>
+                                                                                <td align="left" class="m-w-80" style="font-size:16px;color:#13100d;font-family:Helvetica, arial, sans-serif;font-weight:bold;line-height:22px;padding-bottom:10px;" width="90%">Set up an online account</td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td align="left" style="font-size:16px;color:#13100d;font-family:Helvetica, arial, sans-serif;line-height:22px;padding-bottom:10px;">You can set up an Airpoints account online at <a name="www_airnewzealand_com_utm_sour" href="#" style="color: #16819b; font-weight: bold;" target="_blank">airnz.com</a> for a quick and easy way to keep track of your Airpoints Dollars and Status Points.</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td align="leftr" style="padding-bottom:10px;"><a name="www_airnewzealand_com_vloyalty" href="#" style="text-decoration:none;" target="_blank"><img alt="Set up online account (Welcome)" border="0" class="m-center droppable" src="https://assets.mailcharts.com/emails/images/765a74ff9ad4d48e478dd652eee75ca41f118595.jpeg" style="border:none;outline:none;text-decoration:none;text-align:left;" width="190" data-mc-image-bytes="10281" data-mc-width="190" data-mc-height="42" data-mc-natural-width="190" data-mc-natural-height="42" /></a></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="pt15" style="border-bottom: 1px dashed #cfcfcf; line-height: 0; height: 1px; min-height: 1px; padding-top: 30px;"> </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <!-- set up account - WELCOME -->
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <!-- dont miss out - WELCOME -->
+                    <table border="0" cellpadding="0" cellspacing="0" id="backgroundTable" style="background-color: #eeeeee" width="100%">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <table border="0" cellpadding="0" cellspacing="0" class="m-width" width="600" align="center" bgcolor="#ffffff">
+                                        <tbody>
+                                            <tr>
+                                                <td style="padding:0 30px 30px 30px;" bgcolor="#ffffff" class="p15">
+                                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td align="left" style="font-size:22px;color:#13100d;font-family:Helvetica, arial, sans-serif;padding-bottom:15px;line-height:30px;">Let's get you earning</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td align="left" style="font-size:16px;color:#13100d;font-family:Helvetica, arial, sans-serif;line-height:22px;padding-bottom:20px;">Last year more than 750,000 flights were taken by Airpoints members using their Airpoints Dollars. Here's how to make sure you’re one of them this year.</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="m-w100 m-header" background="http://www.airnzimage.co.nz/2016/airpoints/other/20160421-row/earn-ap-dt1.jpg" bgcolor="#fafafa" width="540" height="287" valign="top">
+
+                                                                    <!--[if gte mso 9]>
+                                                                    <v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width:540px;height:287px;">
+                                                                        <v:fill type="frame" src="http://www.airnzimage.co.nz/2016/airpoints/other/20160421-row/earn-ap-dt1.jpg" color="#fafafa" />
+                                                                        <v:textbox inset="0,0,0,0">
+
+                                                                        </v:textbox>
+                                                                        </v:rect>
+                                                                    <![endif]-->
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td align="center" style="padding:10px 0 0 0">
+                                                                    <a name="www_airnewzealand_com_earning_" href="#" target="_blank" style="text-decoration:none;"><img width="140" src="https://assets.mailcharts.com/emails/images/71eab0136c208f14622fa6f3f540d7b2fd82242b.jpeg" alt="Start earning (Welcome)" border="0" style="border:none;outline:none;text-decoration:none;text-align:center;" class="m-center droppable" data-mc-image-bytes="8710" data-mc-width="140" data-mc-height="42" data-mc-natural-width="140" data-mc-natural-height="42" /></a>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <!-- dont miss out - WELCOME -->
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <!-- seperator 30 -->
+
+    <table border="0" cellpadding="0" cellspacing="0" id="backgroundTable" style="background-color: #eeeeee" width="100%">
+
+        <tbody>
+            <tr>
+                <td>
+                    <table align="center" border="0" cellpadding="0" cellspacing="0" class="m-width" width="600">
+
+                        <tbody>
+                            <tr>
+                                <td align="center" class="m-h-15" height="30" style="background-color: #eeeeee; font-size: 1px; line-height: 0;"> </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <!-- seperator 30 -->
+    <!-- footer -->
+
+    <table border="0" cellpadding="0" cellspacing="0" id="backgroundTable" style="background-color: #eeeeee" width="100%">
+
+        <tbody>
+            <tr>
+                <td>
+                    <table align="center" bgcolor="#fcfcfc" border="0" cellpadding="0" cellspacing="0" class="m-width" width="600">
+
+                        <tbody>
+                            <tr>
+                                <td class="ptrl15" style="padding: 30px 30px 0 30px;">
+                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+
+                                        <tbody>
+                                            <tr>
+                                                <td align="center" style="font-size: 14px; color: #a19f9e; font-family: Helvetica, arial, sans-serif;line-height: 22px;padding-bottom: 10px;">What you need to know</td>
+                                            </tr>
+                                            <tr>
+                                                <td align="center" style="font-size: 14px; color: #a19f9e; font-family: Helvetica, arial, sans-serif;line-height: 22px;padding-bottom: 10px;"><span style="font-size: 11px; vertical-align: 4px;">*</span>Earn Airpoints Dollars and Status Points on all regularly available Air New Zealand airfares, excluding grabaseat greenlight F class fares and tickets purchased using Airpoints Dollars.</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="pt15" style="border-bottom: 1px dashed #cfcfcf; line-height: 0; height: 1px; min-height: 1px; padding-top: 30px;"> </td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                            <!-- **************** START: Something we can help **************** -->
+
+                            <tr>
+                                <td class="three-column" style="padding:10px 20px 0px 20px;text-align:center;font-size:0;background-color : #ffffff">
+                                    <!--[if (gte mso 9)|(IE)]>
+                                    <table width="100%">
+                                    <tr>
+                                    <td width="200" valign="top">
+                                    <![endif]-->
+                                    <div class="column" style="width:100%;max-width:184px;display:inline-block;vertical-align:top;">
+                                        <table width="100%" class="m-no-brdr-rght m-brdr-bot" style="border-spacing:0;">
+                                            <tbody>
+                                                <tr>
+                                                    <td class="inner" style="padding:30px 13px 10px 13px;">
+                                                        <table class="contents" style="border-spacing:0;width:100%;text-align:center;">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td style="padding:5px 0 0 0;font-family:Helvetica, arial, sans-serif;font-size:16px;font-weight:bold;color:#009ec1;line-height:23px;text-align:center;">
+                                                                        <!-- *** START: Change the width of the button image below based on the image name *** -->
+                                                                        <a href="#" style="color:#009ec1;text-decoration:none;" target="_blank" name="Update your details"><img src="https://assets.mailcharts.com/emails/images/9b736b73c632fde248e4f0a8a112166dc31a21c8.png" width="150" alt="Update your Details" style="border-width:0;width:150px;height:auto;" data-mc-image-bytes="4287" data-mc-width="150" data-mc-height="34" data-mc-natural-width="300" data-mc-natural-height="68" /></a>
+                                                                        <!-- *** END *** -->
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!--[if (gte mso 9)|(IE)]>
+                                    </td><td width="200" valign="top">
+                                    <![endif]-->
+                                    <div class="column" style="width:100%;max-width:184px;display:inline-block;vertical-align:top;">
+                                        <table width="100%" class="m-no-brdr-rght m-brdr-bot" style="border-spacing:0;">
+                                            <tbody>
+                                                <tr>
+                                                    <td class="inner" style="padding:30px 13px 10px 13px;">
+                                                        <table class="contents" style="border-spacing:0;width:100%;text-align:center;">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td style="padding:5px 0 0 0;font-family:Helvetica, arial, sans-serif;font-size:16px;font-weight:bold;color:#009ec1;line-height:23px;text-align:center;">
+                                                                        <!-- *** START: Change the width of the button image below based on the image name *** -->
+                                                                        <a href="#" style="color:#009ec1;text-decoration:none;" target="_blank" name="Check your balance"><img src="https://assets.mailcharts.com/emails/images/3cdad1c29b3f24cb4a1af64cf756128523cf367c.png" width="150" alt="Check your Balance" style="border-width:0;width:150px;height:auto;" data-mc-image-bytes="4422" data-mc-width="150" data-mc-height="34" data-mc-natural-width="300" data-mc-natural-height="68" /></a>
+                                                                        <!-- *** END *** -->
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!--[if (gte mso 9)|(IE)]>
+                                    </td><td width="200" valign="top">
+                                    <![endif]-->
+                                    <div class="column" style="width:100%;max-width:184px;display:inline-block;vertical-align:top;">
+                                        <table width="100%" style="border-spacing:0;">
+                                            <tbody>
+                                                <tr>
+                                                    <td class="inner" style="padding:30px 13px 10px 13px;">
+                                                        <table class="contents" style="border-spacing:0;width:100%;text-align:center;">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td style="padding:5px 0 0 0;font-family:Helvetica, arial, sans-serif;font-size:16px;font-weight:bold;color:#009ec1;line-height:23px;text-align:center;">
+                                                                        <!-- *** START: Change the width of the button image below based on the image name *** -->
+                                                                        <a href="#" style="color:#009ec1;text-decoration:none;" target="_blank" name="Lost your card"><img src="https://assets.mailcharts.com/emails/images/d1453251bfeebc72fd8ed14bd295cb01e8d896de.png" width="150" alt="Lost your Card" style="border-width:0;width:150px;height:auto;" data-mc-image-bytes="3764" data-mc-width="150" data-mc-height="34" data-mc-natural-width="300" data-mc-natural-height="68" /></a>
+                                                                        <!-- *** END *** -->
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!--[if (gte mso 9)|(IE)]>
+                                    </td>
+                                    </tr>
+                                    </table>
+                                    <![endif]-->
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="one-column" style="padding:0 30px;">
+                                    <table width="100%" style="border-spacing:0;">
+                                        <tbody>
+                                            <tr>
+                                                <td style="border-bottom: 1px dashed #cfcfcf; line-height: 0; height: 1px; min-height: 1px; padding-top: 30px;"></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                            <!-- **************** END: Something we can help **************** -->
+                            <tr>
+                                <td class="ptrl15" style="padding: 30px 30px 0 30px;">
+                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+
+                                        <tbody>
+                                            <tr>
+                                                <td align="center" style="line-height: 18px; text-align: center; padding-bottom: 15px; font-family: arial, sans-serif; color: #999999; font-size: 14px;">Connect with us</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <table align="left" border="0" cellpadding="0" cellspacing="0" class="m-w100" width="52%">
+
+                                                        <tbody>
+                                                            <tr>
+                                                                <td align="left" class="center pb15" style="padding-left: 0px; padding-top: 15px; font-family: arial, sans-serif; font-size: 14px;"><a href="#" name="www_airnewzealand_co_nz_" style="color: #42403d; font-weight: bold; text-decoration: none;" target="_blank">Home</a> . <a href="#" name="www_airnewzealand_co_nz_home" style="color: #42403d; font-weight: bold; text-decoration: none;" target="_blank">Flights</a> . <a href="#" name="www_airnewzealand_co_nz_hotels" style="color: #42403d; font-weight: bold; text-decoration: none;" target="_blank">Hotels</a> . <a href="#" name="www_airnewzealand_co_nz_cars" style="color: #42403d; font-weight: bold; text-decoration: none;" target="_blank">Cars</a> . <a href="#" name="www_airnewzealand_co_nz_special_dea" style="color: #42403d; font-weight: bold; text-decoration: none;" target="_blank">Specials</a></td>
+                                                            </tr>
+
+                                                        </tbody>
+                                                    </table>
+
+                                                    <table align="right" border="0" cellpadding="0" cellspacing="0" class="m-w100" width="47%">
+
+                                                        <tbody>
+                                                            <tr>
+                                                                <td align="right">
+                                                                    <table align="center">
+
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td style="width:52px; text-align:center;"><a href="#" name="www_facebook_com_AirNewZealand" target="_blank"><img alt="Facebook" border="0" src="https://assets.mailcharts.com/emails/images/f21cd7fd83d8e87ceb549e167061ecb66153bcd4.jpeg" style="border:none; outline:none; text-decoration:none;" data-mc-image-bytes="3177" data-mc-width="45" data-mc-height="45" data-mc-natural-width="45" data-mc-natural-height="45" /></a></td>
+                                                                                <td style="width:52px; text-align:center;"><a href="#" name="twitter_com_flyairnz" target="_blank"><img alt="Twitter" border="0" src="https://assets.mailcharts.com/emails/images/29abe22beee74eec03818ebc8fa0bf3b3a2208c9.jpeg" style="border:none; outline:none; text-decoration:none;" data-mc-image-bytes="3334" data-mc-width="45" data-mc-height="45" data-mc-natural-width="45" data-mc-natural-height="45" /></a></td>
+                                                                                <td style="width:52px; text-align:center;"><a href="#" name="www_youtube_com_user_airnewzealand" target="_blank"><img alt="YouTube" border="0" src="https://assets.mailcharts.com/emails/images/6c9d69c661c9d3d73aa9bb55645610c42886e611.jpeg" style="border:none; outline:none; text-decoration:none;" data-mc-image-bytes="3461" data-mc-width="45" data-mc-height="45" data-mc-natural-width="45" data-mc-natural-height="45" /></a></td>
+                                                                                <td style="width:52px; text-align:center;"><a href="#" name="www_instagram_com_airnz_" target="_blank"><img alt="Instagram" border="0" src="https://assets.mailcharts.com/emails/images/4b1c4e1fa6b2ed407e2ff11812a98dfd6b2592c6.jpeg" style="border:none; outline:none; text-decoration:none;" data-mc-image-bytes="3584" data-mc-width="45" data-mc-height="45" data-mc-natural-width="45" data-mc-natural-height="45" /></a></td>
+                                                                            </tr>
+
+                                                                        </tbody>
+                                                                    </table>
+                                                                </td>
+                                                            </tr>
+
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="pt15" style="border-bottom: 1px dashed #cfcfcf; line-height: 0; height: 1px; min-height: 1px; padding-top: 30px;"> </td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                            </tr>
+                            <!-- **************** START: Unsubscribe - Airpoints News & Updates	**************** -->
+                            <tr>
+                                <td class="inner contents" style="padding:15px 0 10px 0;width:100%;">
+                                    <p align="center" style="font-family:Helvetica, arial, sans-serif;font-size:14px;font-weight:normal;color:#a19f9e;line-height:21px;text-align:center;margin:0;">
+                                        You're currently subscribed to Airpoints News &amp; Updates communications.<br />Click here to <a href="#" style="color:#42403d;font-weight:bold;text-decoration:none;" target="_blank" name="Unsubscribe">unsubscribe</a> or <a href="#" style="color:#42403d;font-weight:bold;text-decoration:none;" target="_blank" name="Unsubscribe_1">update your preferences.</a>
+                                    </p>
+                                </td>
+                            </tr>
+                            <!-- **************** END: Unsubscribe - Airpoints News & Updates **************** -->
+                            <tr>
+                                <td style="padding-bottom: 10px; line-height: 20px; text-align: center; font-family: Helvetica, arial, sans-serif;color:#a19f9e; font-size: 14px;">Air New Zealand Limited, Air New Zealand House, <span class="appleLinksFooter">185 Fanshawe Street, Auckland 1010</span>, New Zealand.</td>
+                            </tr>
+                            <tr>
+                                <td style="padding-bottom: 10px; line-height: 20px; text-align: center; font-family: Helvetica, arial, sans-serif;color:#a19f9e; font-size: 14px;">Air New Zealand Limited, Private Bag 92007, Auckland, New Zealand.</td>
+                            </tr>
+                            <tr>
+                                <td style="line-height: 20px; text-align: center; font-family: Helvetica, arial, sans-serif;color:#a19f9e; font-size: 14px; padding:10px 10px 20px 10px;"><a href="#" name="www_airnewzealand_co_nz_conditions_" style="color: #42403d; font-weight: bold; text-decoration: none;" target="_blank">Conditions of Carriage</a> . <a href="#" name="www_airnewzealand_co_nz_airpoints_t" style="color: #42403d; font-weight: bold; text-decoration: none;" target="_blank">Airpoints Terms and Conditions</a> . <a href="#" name="www_airnewzealand_co_nz_privacy_pol" style="color: #42403d; font-weight: bold; text-decoration: none;" target="_blank">Privacy Policy</a></td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+
+    <table border="0" cellpadding="0" cellspacing="0" id="backgroundTable" style="background-color: #EDEDED" width="100%">
+
+        <tbody>
+            <tr>
+                <td>
+                    <table align="center" border="0" cellpadding="0" cellspacing="0" class="m-width" style="background-color: #13100d" width="600">
+
+                        <tbody>
+                            <tr>
+                                <td style="color:#333333; font-size: 14px; font-family: Helvetica, arial, sans-serif; padding-top: 30px; padding-bottom: 30px;">
+                                    <table align="right" border="0" cellpadding="0" cellspacing="0" class="m-w100" style="padding-bottom: 10px;" width="49%">
+
+                                        <tbody>
+                                            <tr>
+                                                <td align="center" style="min-width: 280px;"><a href="#" name="www_airnewzealand_co_nz__2" target="_blank"><img alt="Air New Zealand" border="0" src="https://assets.mailcharts.com/emails/images/fa78d641c6e2275c5ae7aae8503bf0c43e50a44c.jpeg" style="border:none; outline:none; text-decoration:none;" data-mc-image-bytes="9022" data-mc-width="230" data-mc-height="40" data-mc-natural-width="230" data-mc-natural-height="40" /></a></td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+
+                                    <table align="left" border="0" cellpadding="0" cellspacing="0" class="m-w100" width="49%">
+
+                                        <tbody>
+                                            <tr>
+                                                <td align="center" style="padding-top: 17px; min-width: 280px;"><a href="#" name="www_staralliance_com_en_" target="_blank"><img alt="Star Alliance" border="0" src="https://assets.mailcharts.com/emails/images/be46557d9f545300ff4f0aeb7e1bc4a6289120c9.jpeg" style="border:none; outline:none; text-decoration:none;" data-mc-image-bytes="4923" data-mc-width="171" data-mc-height="18" data-mc-natural-width="171" data-mc-natural-height="18" /></a></td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center" style="padding-left: 20px; padding-right: 20px;">
+                                    <table align="left" border="0" cellpadding="0" cellspacing="0" width="100%">
+
+                                        <tbody>
+                                            <tr>
+                                                <td align="center" style="font-size:1px; line-height:1px; border-top: 1px dotted #999999;"> </td>
+                                            </tr>
+                                            <tr>
+                                                <td height="30"> </td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center" style="color:#999999; font-size: 14px; font-family: Helvetica, arial, sans-serif;">
+                                    <table align="left" border="0" cellpadding="0" cellspacing="0" width="100%">
+
+                                        <tbody>
+                                            <tr>
+                                                <td align="center" style="color:#999999; font-size: 14px; font-family: Helvetica, arial, sans-serif; padding:0px 30px; padding-bottom:90px;">Copyright Ⓒ 2002 – 2020 Air New Zealand Limited. All Rights Reserved.</td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td height="90"> </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <!-- footer -->
+
+
+
+    <img src="https://assets.mailcharts.com/emails/images/246d2debd7e914d5f07f08d8075b456cc1a4e476.gif" data-mc-image-bytes="100" data-mc-width="1" data-mc-height="1" data-mc-natural-width="1" data-mc-natural-height="1" />
+
+
+
+</body>
+
+</html>
