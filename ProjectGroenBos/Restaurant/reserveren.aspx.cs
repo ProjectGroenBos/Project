@@ -32,19 +32,24 @@ namespace ProjectGroenBos.Restaurant
             // String constring ="Data Source = SQL.BIM.OSOX.NL; Initial Catalog = 2020 - BIM02 - P1 - P2 - Groenbos; Persist Security Info = True; User ID = BIM022020; Password = BiM@IH2020";
             String constring = "Data Source=SQL.BIM.OSOX.NL;Initial Catalog=2020-BIM02-P1-P2-Groenbos;Persist Security Info=True;User ID=BIM022020;Password=BiM@IH2020";
             SqlConnection sqlcon = new SqlConnection(constring);
-            String pname = "Restaurrantaanmaak2"; ;
+            String pname = "RestaurantReserveringGoed"; ;
             sqlcon.Open();
             SqlCommand com = new SqlCommand(pname, sqlcon);
             com.CommandType = CommandType.StoredProcedure;
-            com.Parameters.AddWithValue("@BeginTijd", dt);
+
+             com.Parameters.AddWithValue("@BeginTijd", dt );
             com.Parameters.AddWithValue("@Datum", DateTime.Now);
             com.Parameters.AddWithValue("@AantalPersonen", i);
             com.Parameters.AddWithValue("@Opmerking", "---");
             com.Parameters.AddWithValue("@Betaalt", "0");
-                
-                
+            com.Parameters.AddWithValue("@Voornaam", txtVoornaam.Text);
+            com.Parameters.AddWithValue("@Achternaam", txtAchternaam.Text);
+            com.Parameters.AddWithValue("@Tussenvoegsel", txtTussenvoegsel.Text);
+            com.Parameters.AddWithValue("@Email", "-");
 
-           
+
+
+
             com.ExecuteNonQuery();
             sqlcon.Close(); ; 
            
