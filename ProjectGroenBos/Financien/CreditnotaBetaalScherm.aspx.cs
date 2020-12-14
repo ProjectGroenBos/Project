@@ -110,11 +110,73 @@ namespace ProjectGroenBos.Financien
                 connection.Open();
 
                 command.ExecuteNonQuery();
+
+                Email(gridviewnr, nummer, Totaalbedrag, Naam, email, iban, Afboeken, Terugbetalen, schuldig, Totaalbetaald, Voornaam);
+
+                gvReserveringen.DataBind();
+
+                ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "emailsuccess();", true);
             }
         }
 
         protected void btnKassa_Click(object sender, EventArgs e)
         {
+            Button btn = sender as Button;
+
+            int gridviewnr = int.Parse(btn.CommandName);
+            HiddenField nummers = (HiddenField)rpCreditnota.Items[gridviewnr].FindControl("Nummer");
+            string nummer = nummers.Value;
+
+            HiddenField Totaalbedragen = (HiddenField)rpCreditnota.Items[gridviewnr].FindControl("Totaalbedrag");
+            string Totaalbedrag = Totaalbedragen.Value;
+
+            HiddenField Namen = (HiddenField)rpCreditnota.Items[gridviewnr].FindControl("Naamgast");
+            string Naam = Namen.Value;
+
+            HiddenField Emails = (HiddenField)rpCreditnota.Items[gridviewnr].FindControl("Emailgast");
+            string email = Emails.Value;
+
+            HiddenField fNummers = (HiddenField)rpCreditnota.Items[gridviewnr].FindControl("fnummer");
+            string fnummer = fNummers.Value;
+
+            //HiddenField Datums = (HiddenField)rpCreditnota.Items[gridviewnr].FindControl("datum");
+            //string datum = Datums.Value;
+
+            HiddenField IBANS = (HiddenField)rpCreditnota.Items[gridviewnr].FindControl("IBAN");
+            string iban = IBANS.Value;
+
+            HiddenField Totaalbetaling = (HiddenField)rpCreditnota.Items[gridviewnr].FindControl("Totaalbetaald");
+            string Totaalbetaald = Totaalbetaling.Value;
+
+            HiddenField Afboeking = (HiddenField)rpCreditnota.Items[gridviewnr].FindControl("Afboekenfactuur");
+            string Afboeken = Afboeking.Value;
+
+            HiddenField Terugbetalenen = (HiddenField)rpCreditnota.Items[gridviewnr].FindControl("TerugTeBetalen");
+            string Terugbetalen = Terugbetalenen.Value;
+
+            HiddenField Voornaming = (HiddenField)rpCreditnota.Items[gridviewnr].FindControl("Voornaam");
+            string Voornaam = Voornaming.Value;
+
+            HiddenField schulding = (HiddenField)rpCreditnota.Items[gridviewnr].FindControl("Nogverschuligd");
+            string schuldig = schulding.Value;
+
+            Email(gridviewnr, nummer, Totaalbedrag, Naam, email, iban, Afboeken, Terugbetalen, schuldig, Totaalbetaald, Voornaam);
+
+            /* using (SqlConnection con = new SqlConnection(constr))
+             {
+                 con.Open();
+
+                 SqlCommand cmd = new SqlCommand("UPDATE debiteurenfactuur SET ReserveringsstatusID = '6' where nummer = @nummer", con);
+                 cmd.Parameters.AddWithValue("@nummer", fnummer);
+
+                 cmd.ExecuteNonQuery();
+
+                 con.Close();
+             }*/
+
+            gvReserveringen.DataBind();
+
+            ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "emailsuccess();", true);
         }
             protected void btnExport_Click(object sender, EventArgs e)
         {
@@ -189,7 +251,7 @@ namespace ProjectGroenBos.Financien
 
 
             //Fetching Email Body Text from EmailTemplate File.  
-            string FilePath = "https://discord.com/channels/749932863847137300/749932863847137304/787978152663449621";
+            string FilePath = "C:\\Users\\telef\\Documents\\GitHub\\Project\\ProjectGroenBos\\Financien\\EmailTemplates\\SignUp.html";
             StreamReader str = new StreamReader(FilePath);
             string MailText = str.ReadToEnd();
             str.Close();
@@ -209,7 +271,7 @@ namespace ProjectGroenBos.Financien
  
 
 
-            string subject = "Welcome to CSharpCorner.Com";
+            string subject = "Uw annulering bij Groenbos";
 
             //Base class for sending email  
             MailMessage _mailmsg = new MailMessage();
