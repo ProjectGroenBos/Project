@@ -92,7 +92,7 @@ namespace ProjectGroenBos.Financien
         void PopulateGridview()
 
         { DataTable dtbl = new DataTable();
-            using (SqlConnection sqlCon = new SqlConnection(connectionString))
+            using (SqlConnection sqlCon = new SqlConnection(constr))
             {
                 sqlCon.Open();
                 SqlDataAdapter sqlDa = new SqlDataAdapter("SELECT Med.Nummer, Med.Naam, Med.Geboortedatum, Med.[In dienst sinds] AS In_dienst_sinds, Med.[Salaris per maand] AS Salaris_per_maand, Fun.naam as FunctieID, Afd.Naam as AfdelingID FROM (( dbo.Medewerker Med  inner join dbo.Functie Fun on Med.FunctieID = Fun.ID) inner join dbo.Afdeling Afd on Med.AfdelingID= Afd.ID) where Med.FunctieID= Fun.ID and Med.AfdelingID= Afd.ID", sqlCon);
@@ -123,7 +123,7 @@ namespace ProjectGroenBos.Financien
         {
             if(e.CommandName.Equals("AddNew"))
             {
-                using (SqlConnection sqlCon = new SqlConnection(connectionString)) 
+                using (SqlConnection sqlCon = new SqlConnection(constr)) 
                 {
                     sqlCon.Open();
                     string query = "INSERT INTO dbo.Medewerker (Naam, Geboortedatum, In_dienst_sinds, Salaris_per_maand, FunctieID, AfdelingID) VALUES (@Naam, @Geboortedatum, @In_dienst_sinds, @Salaris_per_maand, @FunctieID, @AfdelingID)";

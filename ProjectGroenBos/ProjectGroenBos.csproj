@@ -84,9 +84,11 @@
     <Content Include="Financien\Home.aspx" />
     <Content Include="Financien\img\Logo.png" />
     <Content Include="Financien\img\Logo3.png" />
+    <Content Include="Financien\img\oom dagobert.jpg" />
     <Content Include="Financien\InkoopAanvraagBestelScherm.aspx" />
     <Content Include="Financien\Inlogscherm.aspx" />
     <Content Include="Financien\InzienInkoopTraject.aspx" />
+    <Content Include="Financien\nietgeautoriseerd.aspx" />
     <Content Include="Financien\Overzicht.aspx" />
     <Content Include="Financien\Prijstabel.aspx" />
     <Content Include="Financien\Personeeloverzicht.aspx" />
@@ -749,6 +751,13 @@
     </Compile>
     <Compile Include="Financien\InzienInkoopTraject.aspx.designer.cs">
       <DependentUpon>InzienInkoopTraject.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Financien\nietgeautoriseerd.aspx.cs">
+      <DependentUpon>nietgeautoriseerd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Financien\nietgeautoriseerd.aspx.designer.cs">
+      <DependentUpon>nietgeautoriseerd.aspx</DependentUpon>
     </Compile>
     <Compile Include="Financien\Overzicht.aspx.cs">
       <DependentUpon>Overzicht.aspx</DependentUpon>
