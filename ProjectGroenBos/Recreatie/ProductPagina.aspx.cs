@@ -109,7 +109,7 @@ namespace ProjectGroenBos.Recreatie
                 DataView dv = dtbl.DefaultView;
                 dv.RowFilter = string.Format("Artikelnaam like '%{0}%'", txtProductZoeken.Text);
                 GridView1.DataSource = dv.ToTable();
-               
+
                 txtProductZoeken.Text = "";
             }
 
@@ -135,7 +135,7 @@ namespace ProjectGroenBos.Recreatie
                 GridView1.DataSourceID = "";
                 GridView1.DataSource = SqlDataSource1;
             }
-           
+
             GridView1.EditIndex = -1;
             GridView1.DataBind();
 
@@ -179,7 +179,6 @@ namespace ProjectGroenBos.Recreatie
                 DataTable dtbl = (DataTable)ViewState["PB"];
                 DataView dv = dtbl.DefaultView;
                 dv.RowFilter = string.Format("Artikelnaam like '%{0}%'", txtProductZoeken.Text);
-                ;
                 GridView1.DataSource = dv.ToTable();
                 GridView1.DataBind();
 

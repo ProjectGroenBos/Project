@@ -110,5 +110,12 @@ namespace ProjectGroenBos.Recreatie
         {
             Response.Redirect("InactiefmakenProductpagina.aspx");
         }
+
+      
+
+        protected void BtnProductpaginaInzienWijzigen_Click1(object sender, EventArgs e)
+        {
+            Response.Redirect("ProductPagina.aspx");
+        }
     }
 }

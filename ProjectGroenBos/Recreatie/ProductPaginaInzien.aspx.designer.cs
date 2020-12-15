@@ -60,13 +60,13 @@ namespace ProjectGroenBos.Recreatie
         protected global::System.Web.UI.WebControls.GridView GVProductpagInzien;
 
         /// <summary>
-        /// BtnProductpaginainzienWijzigen control.
+        /// BtnProductpaginaInzienWijzigen control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnProductpaginainzienWijzigen;
+        protected global::System.Web.UI.WebControls.Button BtnProductpaginaInzienWijzigen;
 
         /// <summary>
         /// BtnProductpaginaInzieninactief control.
