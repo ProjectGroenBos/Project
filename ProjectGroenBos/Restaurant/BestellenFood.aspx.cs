@@ -125,7 +125,7 @@ namespace ProjectGroenBos.Restaurant
                         SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
                         sqlCmd.Parameters.AddWithValue("@Leveranciernummer", Leveranciernummer);
                         SqlParameter sqlParameter0 = sqlCmd.Parameters.AddWithValue("@Datum", DateTime.Now);
-                        SqlParameter sqlParameter1 = sqlCmd.Parameters.AddWithValue("@Bestelnummer", b);
+                        SqlParameter sqlParameter1 = sqlCmd.Parameters.AddWithValue("@Bestelnummer", num);
                         SqlParameter sqlParameter2 = sqlCmd.Parameters.AddWithValue("@Aanvraagstatus", "2".Trim());
                         sqlCmd.ExecuteNonQuery();
                         sqlCon.Close();
