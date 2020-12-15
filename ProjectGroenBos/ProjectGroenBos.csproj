@@ -111,6 +111,7 @@
     <Content Include="Reservering\ReserveringenMedewerkerGelukt.aspx" />
     <Content Include="Reservering\ReserveringMedewerkerNachtregister.aspx" />
     <Content Include="Reservering\ReserveringWijzigen.aspx" />
+    <Content Include="Reservering\NachtregisterOverzicht.aspx" />
     <Content Include="Schoonmaak en Onderhoud\InventarisOverzicht.aspx" />
     <Content Include="Schoonmaak en Onderhoud\OffertesOverzicht.aspx" />
     <Content Include="Schoonmaak en Onderhoud\OnderhoudsOverzicht.aspx" />
@@ -542,6 +543,13 @@
     </Compile>
     <Compile Include="Reservering\ReserveringWijzigen.aspx.designer.cs">
       <DependentUpon>ReserveringWijzigen.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reservering\NachtregisterOverzicht.aspx.cs">
+      <DependentUpon>NachtregisterOverzicht.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reservering\NachtregisterOverzicht.aspx.designer.cs">
+      <DependentUpon>NachtregisterOverzicht.aspx</DependentUpon>
     </Compile>
     <Compile Include="Schoonmaak en Onderhoud\InventarisOverzicht.aspx.cs">
       <DependentUpon>InventarisOverzicht.aspx</DependentUpon>
