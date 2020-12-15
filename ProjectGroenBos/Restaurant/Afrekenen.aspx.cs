@@ -21,7 +21,7 @@ namespace ProjectGroenBos.Restaurant
 			// neem de tafel op vanuit het tafeloverzicht
 			if (Session["tafelnr"] != null)
 			{
-				lbltafel.Text = "Tafel " + Session["Tafelnr"].ToString();
+				lblnummer.Text = Session["tafelnr"].ToString();
 			}
 			else
 			{
@@ -29,9 +29,8 @@ namespace ProjectGroenBos.Restaurant
 			}
 
 			// Kijken welke totaalprijs hij moet berekenen
-
-			//lblTotaal.Text = "Totaal: €" + RestaurantAfrekenOvericht.cast(SUM(RegelTotaal) AS DECIMAL(18, 2));
-			//lblTotaal.DataBind();
+			int nummer = Convert.ToInt16(Session["tafelnr"].ToString());
+			SqlDataSource1.SelectCommand = "SELECT [Hoeveel], [Naam], [Prijs], [RegelTotaal] FROM [RestaurantAfrekenOvericht] WHERE Tafelnr =" + nummer + "";
 		}
 
 		protected void btnRekening_Click(object sender, EventArgs e)
@@ -52,17 +51,19 @@ namespace ProjectGroenBos.Restaurant
 
 			}
 
-			// Verbinding met de database voor een betaling op rekening tussen de facatures af maken
-			string commandText = "UPDATE [dbo].[Debiteurenfactuur] ([Datum],[Totaal bedrag],[BetaalmethodeID],[BetaalstatusID]) VALUES" +
-			"(@Datum, @Totaal_bedrag, @BetaalmethodeID, @BetaalstatusID)";
+			// Verbinding met de database maken en een factuur aanmaken voor op rekening
+
+			string cmdText = "INSERT INTO [dbo].[Debiteurenfactuur] ([Datum],[BetaalmethodeID],[BetaalstatusID],[FactuurtypeID],[RestaurantReserveringID]) VALUES" +
+				"(@Datum, @Totaal_bedrag, @BetaalmethodeID, @BetaalstatusID, @FactuurtypeID, @RestaurantReserveringID)";
 
 			using (SqlConnection connection = new SqlConnection(connectionString))
 			{
-				SqlCommand command = new SqlCommand(commandText, connection);
+				SqlCommand command = new SqlCommand(cmdText, connection);
 				command.Parameters.AddWithValue("@Datum", DateTime.Now);
-				command.Parameters.AddWithValue("@Totaal_bedrag", lblbetaald.text);
-			    command.Parameters.AddWithValue("@BetaalmethodeID", "5");
+				command.Parameters.AddWithValue("@BetaalmethodeID", "5");
 				command.Parameters.AddWithValue("@BetaalstatusID", "2");
+				command.Parameters.AddWithValue("@FactuurtypeID", "4");
+				//command.Parameters.AddWithValue("@RestaurantReserveringID", );
 
 				connection.Open();
 
@@ -72,6 +73,7 @@ namespace ProjectGroenBos.Restaurant
 			//sqlCon.Close();
 			//LblSucces.Text = " SUBMIT SUCCESSFULLY";
 			//CLEAR();
+
 		}
 
 
@@ -79,16 +81,17 @@ namespace ProjectGroenBos.Restaurant
 		{
 			// Verbinding met de database voor een pin betaling tussen de facatures
 
-			string commandText = "UPDATE [dbo].[Debiteurenfactuur] ([Datum],[Totaal bedrag],[BetaalmethodeID],[BetaalstatusID]) VALUES" +
-			"(@Datum, @Totaal_bedrag, @BetaalmethodeID, @BetaalstatusID)";
+			string cmdText = "INSERT INTO [dbo].[Debiteurenfactuur] ([Datum],[BetaalmethodeID],[BetaalstatusID],[FactuurtypeID],[RestaurantReserveringID]) VALUES" +
+				"(@Datum, @Totaal_bedrag, @BetaalmethodeID, @BetaalstatusID, @FactuurtypeID, @RestaurantReserveringID)";
 
 			using (SqlConnection connection = new SqlConnection(connectionString))
 			{
-				SqlCommand command = new SqlCommand(commandText, connection);
+				SqlCommand command = new SqlCommand(cmdText, connection);
 				command.Parameters.AddWithValue("@Datum", DateTime.Now);
-				command.Parameters.AddWithValue("@Totaal_bedrag", lblbetaald.text);
 				command.Parameters.AddWithValue("@BetaalmethodeID", "2");
 				command.Parameters.AddWithValue("@BetaalstatusID", "2");
+				command.Parameters.AddWithValue("@FactuurtypeID", "4");
+				//command.Parameters.AddWithValue("@RestaurantReserveringID", );
 
 				connection.Open();
 
@@ -103,16 +106,17 @@ namespace ProjectGroenBos.Restaurant
 		protected void btnContant_Click(object sender, EventArgs e)
 		{
 			// verbinding maken om de factuur af te maken voor contant
-			string commandText = "UPDATE [dbo].[Debiteurenfactuur] ([Datum],[Totaal bedrag],[BetaalmethodeID],[BetaalstatusID]) VALUES" +
-			"(@Datum, @Totaal_bedrag, @BetaalmethodeID, @BetaalstatusID)";
+			string cmdText = "INSERT INTO [dbo].[Debiteurenfactuur] ([Datum],[BetaalmethodeID],[BetaalstatusID],[FactuurtypeID],[RestaurantReserveringID]) VALUES" +
+				"(@Datum, @Totaal_bedrag, @BetaalmethodeID, @BetaalstatusID, @FactuurtypeID, @RestaurantReserveringID)";
 
 			using (SqlConnection connection = new SqlConnection(connectionString))
 			{
-				SqlCommand command = new SqlCommand(commandText, connection);
+				SqlCommand command = new SqlCommand(cmdText, connection);
 				command.Parameters.AddWithValue("@Datum", DateTime.Now);
-				command.Parameters.AddWithValue("@Totaal_bedrag", lblbetaald.text);
 				command.Parameters.AddWithValue("@BetaalmethodeID", "6");
 				command.Parameters.AddWithValue("@BetaalstatusID", "2");
+				command.Parameters.AddWithValue("@FactuurtypeID", "4");
+				//command.Parameters.AddWithValue("@RestaurantReserveringID", );
 
 				connection.Open();
 
