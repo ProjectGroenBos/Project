@@ -17,7 +17,7 @@ namespace ProjectGroenBos
         protected void Page_Load(object sender, EventArgs e)
         {
             GridView1.Visible = true;
-            btnGastAanmaken.Visible = false;
+            btnGastAanmaken.Visible = true;
             if (Session["controle3"] != null)
             {
                 lblUitkomst.Text = "De gast is toegevoegd aan de database.";

@@ -118,21 +118,8 @@
         </asp:GridView>
 
 
-        <asp:GridView ID="GridView2" runat="server" CssClass="content-table" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
-            <Columns>
-                <asp:BoundField DataField="Voornaam" HeaderText="Voornaam" SortExpression="Voornaam" />
-                <asp:BoundField DataField="Tussenvoegsel" HeaderText="Tussenvoegsel" SortExpression="Tussenvoegsel" />
-                <asp:BoundField DataField="Achternaam" HeaderText="Achternaam" SortExpression="Achternaam" />
-                <asp:BoundField DataField="Geboortedatum" DataFormatString="{0:d}" HeaderText="Geboortedatum" SortExpression="Geboortedatum" />
-            </Columns>
+        <asp:GridView ID="GridView2" runat="server" CssClass="content-table" AutoGenerateColumns="False" DataKeyNames="Voornaam,Tussenvoegsel,Achternaam,Geboortedatum">
         </asp:GridView>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:2020-BIM02-P1-P2-GroenbosConnectionString %>" SelectCommand="select Voornaam, Tussenvoegsel, Achternaam, Geboortedatum
-from Gast gst inner join Reservering res on res.GastNummer = gst.Nummer
-where res.Nummer = @nummer">
-            <SelectParameters>
-                <asp:ControlParameter ControlID="lblGastnummer" Name="nummer" PropertyName="Text" />
-            </SelectParameters>
-        </asp:SqlDataSource>
     </div>
 
 </asp:Content>

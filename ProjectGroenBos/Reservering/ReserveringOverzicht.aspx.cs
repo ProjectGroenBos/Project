@@ -12,7 +12,6 @@ namespace ProjectGroenBos.Reservering
 {
     public partial class ReserveringAnnuleren : System.Web.UI.Page
     {
-     
         string zoek;
         string datum;
         string querieadres;
@@ -105,7 +104,7 @@ namespace ProjectGroenBos.Reservering
             {
                 try
                 {
-                    querieadres = "select res.Nummer as [Nummer van reservering], gst.Achternaam, gst.Email, gst.Telefoonnummer,  res.Aantal_personen as [Aantal personen], res.Aankomstdatum, res.Vertrekdatum from Gast gst inner join Reservering res on gst.Nummer = res.GastNummer inner join Adres adr on adr.GastNummer = gst.Nummer where gst.Achternaam like @zoek and Aankomstdatum >= convert(date, GETDATE()) and Aankomstdatum <= @datum and ReserveringsstatusID != 5";
+                    querieadres = "select res.Nummer as [Nummer van reservering], gst.Achternaam, gst.Email, gst.Telefoonnummer,  res.Aantal_personen as [Aantal personen], res.Aankomstdatum, res.Vertrekdatum from Gast gst inner join Reservering res on gst.Nummer = res.GastNummer inner join Adres adr on adr.GastNummer = gst.Nummer where gst.Achternaam like @zoek and Aankomstdatum >= convert(date, GETDATE()) and Aankomstdatum <= @datum and ReserveringsstatusID != 5 order by res.Nummer";
                     
 
                     //laden van de info uit de database
@@ -131,5 +130,7 @@ namespace ProjectGroenBos.Reservering
         {
             Response.Redirect("ReserveringAnnuleren.aspx");
         }
+
+        
     }
 }

@@ -21,13 +21,11 @@ namespace ProjectGroenBos.Reservering
            
             if (Session["controle0"] == null)
             {
-                Response.Redirect("GastSelecteren.aspx");
+                txbAchternaam.Text = "";
             }
             else
             {
                 txbAchternaam.Text = Session["achternaam"].ToString();
-                txbTelefoonnummer.Text = Session["telefoonnummer"].ToString();
-                txbEmail.Text = Session["email"].ToString();
             }
         }
 

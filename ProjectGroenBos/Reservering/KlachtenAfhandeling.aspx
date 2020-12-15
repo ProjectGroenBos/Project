@@ -5,18 +5,16 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <div class="container">
         <h1>Klachten pagina</h1>
-
         <br />
-        <br />
+        
+        <table>
+            <tr>
+                <td><asp:RadioButton ID="rdbBezoeker" runat="server" Text=" Geen bestaande gast" GroupName="rdbGastCheck" CssClass="labelsnieuw" AutoPostBack="True"></asp:RadioButton></td>
+                <td><asp:RadioButton ID="rdbGast" runat="server" Text=" Bestaande gast" GroupName="rdbGastCheck" CssClass="labelsnieuw" Checked="True" AutoPostBack="True"></asp:RadioButton></td>
+            </tr>
+        </table>
 
-        <asp:RadioButton ID="rdbBezoeker" runat="server" Text="Geen bestaande gast" GroupName="rdbGastCheck" CssClass="labelsnieuw" AutoPostBack="True"></asp:RadioButton>
-
-        <br />
-
-        <asp:RadioButton ID="rdbGast" runat="server" Text="Bestaande gast" GroupName="rdbGastCheck" CssClass="labelsnieuw" Checked="True" AutoPostBack="True"></asp:RadioButton>
-
-        <br />
-        <br />
+      <br />
 
         <table style="text-align: left; margin-left: 5%">
             <tr>
