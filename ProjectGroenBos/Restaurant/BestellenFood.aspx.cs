@@ -36,22 +36,30 @@ namespace ProjectGroenBos.Restaurant
         protected void btnMaakOrderRegel_Click(object sender, EventArgs e)
         {
 
-            DataTable dta = (DataTable)Session["dte"];
+            try
+            {
 
-            string Product = ddlProduct.SelectedItem.Text.ToString();
-            int ProductID = int.Parse(ddlProduct.SelectedItem.Value.ToString());
-            int Quantity = int.Parse(txtQty.Text);
-            DataRow dr = dta.NewRow();
+                DataTable dta = (DataTable)Session["dte"];
 
-            dr["PK_Product"] = ProductID;
-            dr["Product"] = Product;
-            dr["Hoeveelheid"] = Quantity;
+                string Product = ddlProduct.SelectedItem.Text.ToString();
+                int ProductID = int.Parse(ddlProduct.SelectedItem.Value.ToString());
+                int Quantity = int.Parse(txtQty.Text);
+                DataRow dr = dta.NewRow();
+
+                dr["PK_Product"] = ProductID;
+                dr["Product"] = Product;
+                dr["Hoeveelheid"] = Quantity;
 
 
 
-            dta.Rows.Add(dr);
-            gvInkoopOrderregel.DataSource = dta;
-            gvInkoopOrderregel.DataBind();
+                dta.Rows.Add(dr);
+                gvInkoopOrderregel.DataSource = dta;
+                gvInkoopOrderregel.DataBind();
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
 
 
         }

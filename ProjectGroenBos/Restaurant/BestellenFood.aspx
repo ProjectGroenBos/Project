@@ -88,13 +88,15 @@
         <br />
                <asp:Label ID="lblHoeveelheid" runat="server" Text="Hoeveelheid"></asp:Label>
                <asp:TextBox ID="txtQty" runat="server" CssClass="auto-style1"></asp:TextBox>
+               <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtQty" ErrorMessage="Voer hoeveelheid in" Font-Bold="True" ForeColor="#CC3300" ValidationGroup="Validation"></asp:RequiredFieldValidator>
+               <asp:RegularExpressionValidator ID="HoeveelheidValidator" runat="server" ErrorMessage="Er mag alleen een cijfer tussen 5 én 99 ingevoerd worden" ControlToValidate="txtQty" Font-Bold="True" ForeColor="Red" ValidationExpression="^[5-99]{1,2}$" ValidationGroup="Validation" Display="Dynamic"></asp:RegularExpressionValidator>
                <br />
          <br />
-               <asp:Button ID="btnMaakOrderRegel" runat="server" Text="Voeg product toe aan order" OnClick="btnMaakOrderRegel_Click" ValidationGroup="validation" Height="25px" Width="262px" />
+               <asp:Button ID="btnMaakOrderRegel" runat="server" Text="Voeg product toe aan order" OnClick="btnMaakOrderRegel_Click" ValidationGroup="Validation" Height="25px" Width="262px" />
 
                <br /><br />
 
-               <asp:Button ID="btnPlaatsOrder" runat="server" Text="Order plaatsen" OnClick="btnPlaatsOrder_Click" ValidationGroup="validation" Height="25px" Width="262px" />
+               <asp:Button ID="btnPlaatsOrder" runat="server" Text="Order plaatsen" OnClick="btnPlaatsOrder_Click" Height="25px" Width="262px" />
 
                <br />
 
