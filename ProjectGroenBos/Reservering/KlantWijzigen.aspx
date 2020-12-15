@@ -139,7 +139,33 @@
         <br />
         <br />
         <br />
-        <asp:Button ID="btnWijzigen" runat="server" Text="Wijzigen" CssClass="btnUitloggen" Style="background-color: #009879; color: #fff" class="btn" />
+        <asp:Button ID="btnWijzigen" runat="server" Text="Wijzigen" CssClass="btnUitloggen" Style="background-color: #009879; color: #fff" class="btn" OnClick="btnWijzigen_Click" />
+
+        <br />
+        <br />
+        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Voornaam,Tussenvoegsel,Achternaam,Telefoonnummer,Email,IBAN,Straatnaam,Huisnummer,Postcode,Land,Woonplaats" DataSourceID="SqlDataSource1">
+            <Columns>
+                <asp:BoundField DataField="Voornaam" HeaderText="Voornaam" SortExpression="Voornaam" />
+                <asp:BoundField DataField="Tussenvoegsel" HeaderText="Tussenvoegsel" SortExpression="Tussenvoegsel" />
+                <asp:BoundField DataField="Achternaam" HeaderText="Achternaam" SortExpression="Achternaam" />
+                <asp:BoundField DataField="Telefoonnummer" HeaderText="Telefoonnummer" SortExpression="Telefoonnummer" />
+                <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" />
+                <asp:BoundField DataField="IBAN" HeaderText="IBAN" SortExpression="IBAN" />
+                <asp:BoundField DataField="Straatnaam" HeaderText="Straatnaam" SortExpression="Straatnaam" />
+                <asp:BoundField DataField="Huisnummer" HeaderText="Huisnummer" ReadOnly="True" SortExpression="Huisnummer" />
+                <asp:BoundField DataField="Postcode" HeaderText="Postcode" ReadOnly="True" SortExpression="Postcode" />
+                <asp:BoundField DataField="Land" HeaderText="Land" SortExpression="Land" />
+                <asp:BoundField DataField="Woonplaats" HeaderText="Woonplaats" SortExpression="Woonplaats" />
+            </Columns>
+        </asp:GridView>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:2020-BIM02-P1-P2-GroenbosConnectionString %>" SelectCommand="SELECT Gast.Voornaam, Gast.Tussenvoegsel, Gast.Achternaam, Gast.Telefoonnummer, Gast.Email, Gast.IBAN, Adres.Straatnaam, Adres.Huisnummer, Adres.Postcode, Adres.Land, Adres.Woonplaats
+FROM     Gast INNER JOIN
+                  Adres ON Gast.Nummer = Adres.GastNummer
+                  where Gast.Nummer = @nummer">
+            <SelectParameters>
+                <asp:ControlParameter ControlID="lblGastnummer" Name="nummer" PropertyName="Text" />
+            </SelectParameters>
+        </asp:SqlDataSource>
 
     </div>
 </asp:Content>
