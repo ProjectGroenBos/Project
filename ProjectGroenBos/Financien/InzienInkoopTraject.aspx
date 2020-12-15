@@ -12,6 +12,11 @@
         <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT [Naam] FROM [Afdeling] union
 SELECT 'Alle Afdelingen' AS [Naam]"></asp:SqlDataSource>
 
+        <asp:DropDownList ID="DropDownList2" AutoPostBack="True" runat="server" DataSourceID="SqlDataSource3" DataTextField="Status" DataValueField="Status" OnSelectedIndexChanged="DropDownList2_SelectedIndexChanged" CssClass="DropDownAfdeling"></asp:DropDownList>
+
+        <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT [Omschrijving] AS [Status] FROM [InkoopOrderAanvraagStatus] union
+SELECT 'Alle Statussen' AS [Status]"></asp:SqlDataSource>
+
         <asp:GridView ID="gvInkooporderaanvragerMain" CssClass="content-table tweedetable" GridLines="None" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" DataKeyNames="Nummer" AllowSorting="True">
             <Columns>
 
