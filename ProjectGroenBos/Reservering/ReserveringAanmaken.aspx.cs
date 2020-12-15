@@ -144,10 +144,13 @@ namespace ProjectGroenBos.Reservering
                 InsReserveringBungalow(reserveringnummer, bungalownummer);
                 GetKlantgegevens(gastnummer);
 
-                string voornaam = (string)GridView2.DataKeys[0]["Voornaam"];
-                string tussenvoegsel = (string)GridView2.DataKeys[0]["Tussenvoegsel"];
-                string achternaam = (string)GridView2.DataKeys[0]["Achternaam"];
-                DateTime geboortedatum = (DateTime)GridView2.DataKeys[0]["Geboortedatum"];
+                string voornaam = (string)GridView2.DataKeys[0]["Voornaam"].ToString();
+                string tussenvoegsel = (string)GridView2.DataKeys[0]["Tussenvoegsel"].ToString();
+                string achternaam = (string)GridView2.DataKeys[0]["Achternaam"].ToString();
+                string gb = (string)GridView2.DataKeys[0]["Geboortedatum"].ToString();
+
+                DateTime geboortedatum = new DateTime();
+                geboortedatum = Convert.ToDateTime(gb);
 
                 geboortedatum.ToShortDateString();
 

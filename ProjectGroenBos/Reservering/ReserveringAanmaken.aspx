@@ -119,6 +119,12 @@
 
 
         <asp:GridView ID="GridView2" runat="server" CssClass="content-table" AutoGenerateColumns="False" DataKeyNames="Voornaam,Tussenvoegsel,Achternaam,Geboortedatum">
+            <Columns>
+                <asp:BoundField DataField="Voornaam" HeaderText="Voornaam" />
+                <asp:BoundField DataField="Tussenvoegsel" HeaderText="Tussenvoegsel" />
+                <asp:BoundField DataField="Achternaam" HeaderText="Achternaam" />
+               <asp:BoundField DataField="Geboortedatum" HeaderText="Geboortedatum" />
+            </Columns>
         </asp:GridView>
     </div>
 
