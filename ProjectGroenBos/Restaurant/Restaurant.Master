@@ -32,7 +32,14 @@
                         </ul>
                     </li>
                     <li><a href="reserveren.aspx">Reserveren</a></li>
-                    <li><a href="Voorraad.aspx">Voorraad</a></li>
+                    <li><a href="VoorraadZien.aspx">Voorraad</a></li>
+                    <li><a href="#"><i class="fas fa-user"></i>Bestellen</a>
+                        <ul class="submenu">
+                        <li><a href="Voorraad.aspx">Voorraad Muteren</a></li>
+                        <li><a href="BestellenFood.aspx">Bestellen Food</a></li>
+                        <li><a href="3">Bestellen Non-Food</a></li>
+                        </ul>
+                    </li>
                 </ul>
                 <div class="terug">
                     <a href="#">&#8249; Terug naar home</a>
@@ -43,7 +50,7 @@
                     <nav>
                         <ul>
                             <li><a href="index.html">Home</a></li>
-                            <li class="selected"><a href="#">Restraurant</a></li>
+                            <li class="selected"><a href="#">Restaurant</a></li>
                             <li><a href="#">Reserveringen</a></li>
                             <li><a href="#">Recreatie</a></li>
                             <li><a href="#">Schoonmaak</a></li>
