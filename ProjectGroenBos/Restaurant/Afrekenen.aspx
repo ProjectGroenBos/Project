@@ -11,6 +11,7 @@
         <br />
         <br />
         <asp:Label ID="lbltafel" CssClass="lblTafel" runat="server" Text="Tafel"></asp:Label>
+        <asp:Label ID="lblnummer" CssClass="lblTafel" runat="server" Text="0"></asp:Label>
             <div class="Factuurregelbak">
             <asp:GridView class="GvOrder" ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" AllowSorting="True" GridLines="None">
                 <Columns>
@@ -18,8 +19,10 @@
                      </asp:BoundField>
                     <asp:BoundField DataField="Naam" HeaderText="Naam" SortExpression="Naam" >
                      </asp:BoundField>
-                    <asp:BoundField DataField="RegelTotaal" HeaderText="RegelTotaal" SortExpression="RegelTotaal" ReadOnly="True">
+                    <asp:BoundField DataField="Prijs" HeaderText="Prijs" SortExpression="Prijs">
                      </asp:BoundField>
+
+                    <asp:BoundField DataField="RegelTotaal" HeaderText="RegelTotaal" ReadOnly="True" SortExpression="RegelTotaal" />
 
                 </Columns>             
                 <HeaderStyle CssClass="GdvHeader"/>
@@ -27,7 +30,7 @@
                 
             </asp:GridView>
         </div>
-         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:2020-BIM02-P1-P2-GroenbosConnectionString %>" SelectCommand="SELECT [Hoeveel], [Naam], cast([RegelTotaal]AS DECIMAL(18,2)) AS RegelTotaal FROM [RestaurantAfrekenOvericht]"></asp:SqlDataSource>
+         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:2020-BIM02-P1-P2-GroenbosConnectionString %>" ></asp:SqlDataSource>
 
 
         <asp:Label ID="lblTotaal" CssClass="lblTotaal" runat="server" Text="Totaal"></asp:Label>
