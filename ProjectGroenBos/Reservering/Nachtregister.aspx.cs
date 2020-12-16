@@ -15,6 +15,7 @@ namespace ProjectGroenBos.Reservering
         string personen;
         static int count = 0;
         int reserveringnummer;
+        int aantalPersonen = 0;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -26,14 +27,20 @@ namespace ProjectGroenBos.Reservering
                 reserveringnummer = int.Parse(lblReserveringnummer.Text);
 
                 btnBevestigen.Visible = false;
-                lblOutput.Text = "Geregistreerde bezoekers: ";
+                lblOutput.Text = "Geregistreerde bezoekers:";
                 btnToevoegen.Visible = true;
-                GridView1.DataBind();
-                GridView1.Visible = false;
+                //GridView1.DataBind();
+                //GridView1.Visible = false;
             }
             else
             {
                 Response.Redirect("GastSelecteren.aspx");
+            }
+
+            if (count > aantalPersonen)
+            {
+                btnBevestigen.Visible = true;
+                btnToevoegen.Visible = false;
             }
         }
 
@@ -46,9 +53,7 @@ namespace ProjectGroenBos.Reservering
             string geboortedatum = TxBGeboortedatum.Text;
             int reserveringnummer = int.Parse(Session["reserveringnummer"].ToString());
 
-            int aantalPersonen = int.Parse(Session["personen"].ToString()) - 2;
-
-            lblOutput.Text = lblOutput.Text + Voornaam + " " + Tussenvoegsel + " " + Achternaam + " " + geboortedatum + "<br/>";
+            aantalPersonen = int.Parse(Session["personen"].ToString()) - 2;
 
             if (count == aantalPersonen)
             {
@@ -84,56 +89,16 @@ namespace ProjectGroenBos.Reservering
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Er ging iets mis, neem contact met ons op.')", true);
                 }
             }
+
+            GridView2.DataBind();
         }
 
         protected void btnBevestigen_Click(object sender, EventArgs e)
         {
-            string voornaam = (string)GridView1.DataKeys[0]["Voornaam"];
-            string tussenvoegsel = (string)GridView1.DataKeys[0]["Tussnevoegsel"];
-            string achternaam = (string)GridView1.DataKeys[0]["Achternaam"];
-            DateTime gb = (DateTime)GridView1.DataKeys[0]["Geboortedatum"];
-            //DateTime geboortedatum = DateTime.Parse(gb);
-            gb.ToShortDateString();
-
             reserveringnummer = int.Parse(lblReserveringnummer.Text);
-
-            InsReserveerder( voornaam, tussenvoegsel, achternaam, gb, reserveringnummer);
 
             Session["controle4"] = 1;
             Response.Redirect("home.aspx");
-        }
-
-        private void InsReserveerder( string voornaam, string tussenvoegsel, string achternaam, DateTime geboortedatum, int reserveringnummer)
-        {
-
-            using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["2020-BIM02-P1-P2-GroenbosConnectionString"].ConnectionString))
-            {
-
-                try
-                {
-                    con.Open();
-
-                    SqlCommand sqlquery = new SqlCommand("insert into Nachtregister(Voornaam, Tussenvoegsel, Achternaam, Geboortedatum, ReserveringNummer2) values (@Voornaam, @Tussenvoegsel, @Achternaam, @Geboortedatum, @ReserveringNummer2)");
-
-                    sqlquery.Parameters.AddWithValue("@Voornaam", voornaam);
-                    sqlquery.Parameters.AddWithValue("@Tussenvoegsel", tussenvoegsel);
-                    sqlquery.Parameters.AddWithValue("@Achternaam", achternaam);
-                    sqlquery.Parameters.AddWithValue("@Geboortedatum", geboortedatum);
-                    sqlquery.Parameters.AddWithValue("@ReserveringNummer2", reserveringnummer);
-
-                    sqlquery.CommandType = System.Data.CommandType.StoredProcedure;
-                    sqlquery.Connection = con;
-                    sqlquery.ExecuteNonQuery();
-
-                    con.Close();
-                }
-
-                catch
-                {
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Er ging iets mis, neem contact met ons op.')", true);
-                }
-            }
-
         }
     }
 }

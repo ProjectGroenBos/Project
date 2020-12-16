@@ -69,30 +69,91 @@
 
 
 
-        <br />
-        <asp:Label ID="lblOutput" runat="server" CssClass="labelsnieuw"></asp:Label>
+        
+        
 
         <br />
         <asp:Button ID="btnBevestigen" runat="server" Click="btnBevestigen_Click1" Text="Bevestigen" OnClick="btnBevestigen_Click" CssClass="btnUitloggen" Style="background-color: #009879; color: #fff" class="btn" />
 
         <asp:Button ID="btnToevoegen" runat="server" OnClick="btnToevoegen_Click1" Text="Toevoegen" CssClass="btnUitloggen" Style="background-color: #009879; color: #fff" class="btn" />
+        <br />
+        <br />
+        <asp:Label ID="lblOutput" runat="server" CssClass="labelsnieuw"></asp:Label>
 
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" DataKeyNames="Voornaam,Tussenvoegsel,Achternaam,Geboortedatum">
+        <!---<asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" DataKeyNames="volgnummer,ReserveringNummer2" CssClass="content-table">
             <Columns>
+                <asp:CommandField ShowEditButton="True" />
+                <asp:BoundField DataField="volgnummer" HeaderText="volgnummer" SortExpression="volgnummer" InsertVisible="False" ReadOnly="True" />
+                <asp:BoundField DataField="Voornaam" HeaderText="Voornaam" SortExpression="Voornaam" />
+                <asp:BoundField DataField="Tussenvoegsel" HeaderText="Tussenvoegsel" SortExpression="Tussenvoegsel" />
+                <asp:BoundField DataField="Achternaam" HeaderText="Achternaam" SortExpression="Achternaam"/>
+                <asp:BoundField DataField="Geboortedatum" HeaderText="Geboortedatum" SortExpression="Geboortedatum" />
+                <asp:BoundField DataField="ReserveringNummer2" HeaderText="ReserveringNummer2" ReadOnly="True" SortExpression="ReserveringNummer2" />
+            </Columns>
+            <HeaderStyle ForeColor="White" />
+        </asp:GridView>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:2020-BIM02-P1-P2-GroenbosConnectionString %>" SelectCommand="SELECT * FROM [Nachtregister] WHERE ([ReserveringNummer2] = @ReserveringNummer2)"
+            UpdateCommand="UPDATE [Nachtregister] SET [Voornaam] = @Voornaam, [Tussenvoegsel] = @Tussenvoegsel, [Achternaam] = @Achternaam, [Geboortedatum] = @Geboortedatum WHERE [volgnummer] = @volgnummer AND [ReserveringNummer2] = @ReserveringNummer2" DeleteCommand="DELETE FROM [Nachtregister] WHERE [volgnummer] = @volgnummer AND [ReserveringNummer2] = @ReserveringNummer2" InsertCommand="INSERT INTO [Nachtregister] ([Voornaam], [Tussenvoegsel], [Achternaam], [Geboortedatum], [ReserveringNummer2]) VALUES (@Voornaam, @Tussenvoegsel, @Achternaam, @Geboortedatum, @ReserveringNummer2)">
+            <DeleteParameters>
+                <asp:Parameter Name="volgnummer" Type="Int32" />
+                <asp:Parameter Name="ReserveringNummer2" Type="Int32" />
+            </DeleteParameters>
+            <InsertParameters>
+                <asp:Parameter Name="Voornaam" Type="String" />
+                <asp:Parameter Name="Tussenvoegsel" Type="String" />
+                <asp:Parameter Name="Achternaam" Type="String" />
+                <asp:Parameter DbType="Date" Name="Geboortedatum" />
+                <asp:Parameter Name="ReserveringNummer2" Type="Int32" />
+            </InsertParameters>
+            <SelectParameters>
+                <asp:ControlParameter ControlID="lblReserveringnummer" Name="ReserveringNummer2" PropertyName="Text" Type="Int32" />
+            </SelectParameters>
+            <UpdateParameters>
+                <asp:Parameter Name="Voornaam" Type="String" />
+                <asp:Parameter Name="Tussenvoegsel" Type="String" />
+                <asp:Parameter Name="Achternaam" Type="String" />
+                <asp:Parameter DbType="Date" Name="Geboortedatum" />
+                <asp:Parameter Name="volgnummer" Type="Int32" />
+                <asp:Parameter Name="ReserveringNummer2" Type="Int32" />
+            </UpdateParameters>
+        </asp:SqlDataSource>--->
+
+
+        <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" DataKeyNames="volgnummer,ReserveringNummer2" DataSourceID="SqlDataSource2" CssClass="content-table">
+            <Columns>
+                <asp:CommandField ShowEditButton="True" />
+                <asp:BoundField DataField="volgnummer" HeaderText="volgnummer" InsertVisible="False" ReadOnly="True" SortExpression="volgnummer" Visible="false" />
                 <asp:BoundField DataField="Voornaam" HeaderText="Voornaam" SortExpression="Voornaam" />
                 <asp:BoundField DataField="Tussenvoegsel" HeaderText="Tussenvoegsel" SortExpression="Tussenvoegsel" />
                 <asp:BoundField DataField="Achternaam" HeaderText="Achternaam" SortExpression="Achternaam" />
-                <asp:BoundField DataField="Geboortedatum" HeaderText="Geboortedatum" SortExpression="Geboortedatum" />
+                <asp:BoundField DataField="Geboortedatum" HeaderText="Geboortedatum" SortExpression="Geboortedatum" DataFormatString="{0:dd/MM/yyyy}" ApplyFormatInEditMode="true"/>
+                <asp:BoundField DataField="ReserveringNummer2" HeaderText="ReserveringNummer2" ReadOnly="True" SortExpression="ReserveringNummer2" Visible="false" />
             </Columns>
         </asp:GridView>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:2020-BIM02-P1-P2-GroenbosConnectionString %>" SelectCommand="select Voornaam, Tussenvoegsel, Achternaam, Geboortedatum
-from Gast right join Reservering on Gast.Nummer = Reservering.GastNummer
-where Reservering.Nummer = @nummer">
+        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:2020-BIM02-P1-P2-GroenbosConnectionString %>" DeleteCommand="DELETE FROM [Nachtregister] WHERE [volgnummer] = @volgnummer AND [ReserveringNummer2] = @ReserveringNummer2" InsertCommand="INSERT INTO [Nachtregister] ([Voornaam], [Tussenvoegsel], [Achternaam], [Geboortedatum], [ReserveringNummer2]) VALUES (@Voornaam, @Tussenvoegsel, @Achternaam, @Geboortedatum, @ReserveringNummer2)" SelectCommand="SELECT * FROM [Nachtregister] WHERE ([ReserveringNummer2] = @ReserveringNummer2)" UpdateCommand="UPDATE [Nachtregister] SET [Voornaam] = @Voornaam, [Tussenvoegsel] = @Tussenvoegsel, [Achternaam] = @Achternaam, [Geboortedatum] = @Geboortedatum WHERE [volgnummer] = @volgnummer AND [ReserveringNummer2] = @ReserveringNummer2">
+            <DeleteParameters>
+                <asp:Parameter Name="volgnummer" Type="Int32" />
+                <asp:Parameter Name="ReserveringNummer2" Type="Int32" />
+            </DeleteParameters>
+            <InsertParameters>
+                <asp:Parameter Name="Voornaam" Type="String" />
+                <asp:Parameter Name="Tussenvoegsel" Type="String" />
+                <asp:Parameter Name="Achternaam" Type="String" />
+                <asp:Parameter DbType="Date" Name="Geboortedatum" />
+                <asp:Parameter Name="ReserveringNummer2" Type="Int32" />
+            </InsertParameters>
             <SelectParameters>
-                <asp:ControlParameter ControlID="lblReserveringnummer" Name="nummer" PropertyName="Text" />
+                <asp:ControlParameter ControlID="lblReserveringnummer" Name="ReserveringNummer2" PropertyName="Text" Type="Int32" />
             </SelectParameters>
+            <UpdateParameters>
+                <asp:Parameter Name="Voornaam" Type="String" />
+                <asp:Parameter Name="Tussenvoegsel" Type="String" />
+                <asp:Parameter Name="Achternaam" Type="String" />
+                <asp:Parameter DbType="Date" Name="Geboortedatum" />
+                <asp:Parameter Name="volgnummer" Type="Int32" />
+                <asp:Parameter Name="ReserveringNummer2" Type="Int32" />
+            </UpdateParameters>
         </asp:SqlDataSource>
-
     </div>
 
 </asp:Content>
