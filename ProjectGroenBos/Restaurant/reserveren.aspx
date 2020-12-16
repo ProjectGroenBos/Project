@@ -11,7 +11,7 @@
             <div class="contentvak">
 
                 <h1 class="informatietitel">Persoonlijke gegevens</h1>
-
+                
                 <div class="contentrij">
                     <div class="tekstlabel">
                         <label>Bungalow</label>
@@ -125,14 +125,12 @@
                         <asp:ListItem Text="6" Value="select" />
                     </asp:DropDownList>
                 </div>
+           
 
 
+                </div>
 
-                
-
-            </div>
-
-            <asp:Button class="reserveerknop" ID="btnReserveer" runat="server" placeholder="" Text="Reserveer"></asp:Button>
+            <asp:Button class="reserveerknop" ID="btnReserveer" runat="server" placeholder="" Text="Reserveer" OnClick="btnReserveer_Click"></asp:Button>
 
         </div>
     </div>
