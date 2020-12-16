@@ -422,6 +422,7 @@
     <Content Include="Recreatie\img\winkelwagen.png" />
     <Content Include="Recreatie\img\Winkelwagenicoon %282%29.png" />
     <Content Include="Recreatie\InactiefmakenProductpagina.aspx" />
+    <Content Include="Recreatie\InlogschermKlanten.aspx" />
     <Content Include="Recreatie\Overzicht.aspx" />
     <Content Include="Recreatie\Planning.aspx" />
     <Content Include="Recreatie\ProductPagina.aspx" />
@@ -852,6 +853,13 @@
     </Compile>
     <Compile Include="Recreatie\InactiefmakenProductpagina.aspx.designer.cs">
       <DependentUpon>InactiefmakenProductpagina.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Recreatie\InlogschermKlanten.aspx.cs">
+      <DependentUpon>InlogschermKlanten.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Recreatie\InlogschermKlanten.aspx.designer.cs">
+      <DependentUpon>InlogschermKlanten.aspx</DependentUpon>
     </Compile>
     <Compile Include="Recreatie\klant2.Master.cs">
       <DependentUpon>klant2.Master</DependentUpon>
