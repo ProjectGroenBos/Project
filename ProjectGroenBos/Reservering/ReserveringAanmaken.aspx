@@ -118,7 +118,7 @@
         </asp:GridView>
 
 
-        <asp:GridView ID="GridView2" runat="server" CssClass="content-table" AutoGenerateColumns="False" DataKeyNames="Voornaam,Tussenvoegsel,Achternaam,Geboortedatum">
+        <asp:GridView ID="GridView2" runat="server" CssClass="content-table" AutoGenerateColumns="False" DataKeyNames="Voornaam,Tussenvoegsel,Achternaam,Geboortedatum,Email">
             <Columns>
                 <asp:BoundField DataField="Voornaam" HeaderText="Voornaam" />
                 <asp:BoundField DataField="Tussenvoegsel" HeaderText="Tussenvoegsel" />

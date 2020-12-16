@@ -99,6 +99,7 @@
     <Content Include="Reservering\MailReserveringGewijzigd.html" />
     <Content Include="Reservering\Nachtregister.aspx" />
     <Content Include="Reservering\ReserveringAanmaken.aspx" />
+    <Content Include="Reservering\ReserveringAanmaken.html" />
     <Content Include="Reservering\ReserveringOverzicht.aspx" />
     <Content Include="Reservering\ReserveringAnnuleren.aspx" />
     <Content Include="Reservering\ReserveringenWijzigenOverzicht.aspx" />

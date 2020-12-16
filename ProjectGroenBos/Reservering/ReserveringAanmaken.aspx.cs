@@ -192,6 +192,11 @@ namespace ProjectGroenBos.Reservering
                 Session["prijs"] = prijs.ToString();
                 Session["personen"] = txbAantalPersonen.Text;
                 Session["reserveringnummer"] = reserveringnummer;
+                Session["aankomstdatum"] = aankomst2;
+                Session["vertrekdatum"] = vertrek2;
+                Session["achternaam"] = achternaam;
+                Session["email"] = (string)GridView2.DataKeys[0]["Email"].ToString();
+
                 Response.Redirect("Nachtregister.aspx");
             }
             catch
@@ -487,7 +492,7 @@ namespace ProjectGroenBos.Reservering
             {
                 con.Open();
 
-                string query = "select Voornaam, Tussenvoegsel, Achternaam, Geboortedatum from Gast where Nummer = @nummer";
+                string query = "select Voornaam, Tussenvoegsel, Achternaam, Geboortedatum, Email from Gast where Nummer = @nummer";
 
                 SqlCommand cmd = new SqlCommand(query, con);
 

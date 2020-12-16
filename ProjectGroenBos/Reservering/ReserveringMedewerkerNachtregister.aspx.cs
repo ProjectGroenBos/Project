@@ -157,8 +157,8 @@ namespace ProjectGroenBos.Reservering
                 //parameters html pagina
                 body = body.Replace("{reserveringsnummer}", reserveringnummer.ToString());
                 body = body.Replace("{achternaam}", Session["Achternaam"].ToString());
-                body = body.Replace("{aankomstdatum}", Session["Aankomst"].ToString());
-                body = body.Replace("{vertrekdatum}", Session["Vertrek"].ToString());
+                body = body.Replace("{aankomstdatum}", Session["aankomstdatum"].ToString());
+                body = body.Replace("{vertrekdatum}", Session["vertrekdatum"].ToString());
                 body = body.Replace("{personen}", Session["Personen"].ToString());
                 body = body.Replace("{email}", Session["Email"].ToString());
 
