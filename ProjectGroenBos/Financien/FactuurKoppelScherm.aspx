@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Financien/Financien.Master" AutoEventWireup="True" CodeBehind="FactuurKoppelScherm.aspx.cs" Inherits="ProjectGroenBos.Financien.FactuurKoppelScherm" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-       <style>
+    <style>
         .searchbar {
             margin-bottom: auto;
             margin-top: auto;
@@ -10,6 +10,7 @@
             border-radius: 30px;
             padding: 10px;
         }
+
         .search_input {
             color: white;
             border: 0;
@@ -20,16 +21,19 @@
             line-height: 40px;
             transition: width 0.4s linear;
         }
+
         .searchbar:hover > .search_input {
             padding: 0 10px;
             width: 450px;
             caret-color: #009879;
             transition: width 0.4s linear;
         }
+
         .searchbar:hover > .search_icon {
             background: white;
             color: #009879;
         }
+
         .search_icon {
             height: 40px;
             width: 40px;
@@ -56,7 +60,7 @@
         function Bestelfout() {
             Swal.fire({
                 icon: 'error',
-                title: 'Er is een fout opgetreden. Een factuur moet toegevoegd worden.',
+                title: 'Er is een fout opgetreden. Alle velden moeten ingevuld worden.',
                 showConfirmButton: false,
                 timer: 4000
             })
@@ -99,24 +103,24 @@ SELECT 'Alle Afdelingen' AS [Naam]"></asp:SqlDataSource>
     </div>
 
 
-      <asp:GridView ID="GridView1" runat="server" HeaderStyle-BackColor="#3AC0F2" HeaderStyle-ForeColor="White"
-            RowStyle-BackColor="#A1DCF2" AlternatingRowStyle-BackColor="White" AlternatingRowStyle-ForeColor="#000"
-            AutoGenerateColumns="false">
-            <Columns>
-                <asp:BoundField DataField="Name" HeaderText="File Name" />
-                <asp:TemplateField ItemStyle-HorizontalAlign="Center">
-                    <ItemTemplate>
-                        <asp:LinkButton ID="lnkDownload" runat="server" Text="Download" OnClick="DownloadFile"
-                            CommandArgument='<%# Eval("Id") %>'></asp:LinkButton>
-                    </ItemTemplate>
-                </asp:TemplateField>
-            </Columns>
-        </asp:GridView>
+    <asp:GridView ID="GridView1" runat="server" HeaderStyle-BackColor="#3AC0F2" HeaderStyle-ForeColor="White"
+        RowStyle-BackColor="#A1DCF2" AlternatingRowStyle-BackColor="White" AlternatingRowStyle-ForeColor="#000"
+        AutoGenerateColumns="false">
+        <Columns>
+            <asp:BoundField DataField="Name" HeaderText="File Name" />
+            <asp:TemplateField ItemStyle-HorizontalAlign="Center">
+                <ItemTemplate>
+                    <asp:LinkButton ID="lnkDownload" runat="server" Text="Download" OnClick="DownloadFile"
+                        CommandArgument='<%# Eval("Id") %>'></asp:LinkButton>
+                </ItemTemplate>
+            </asp:TemplateField>
+        </Columns>
+    </asp:GridView>
 
     <asp:Repeater ID="rpFactuurToevoegen" runat="server">
         <ItemTemplate>
             <asp:UpdatePanel runat="server" ID="updatePanelTop" UpdateMode="Conditional" ChildrenAsTriggers="True">
-             
+
                 <ContentTemplate>
                     <!-- Modal -->
                     <div id="modal<%# Eval("Nummer") %>" class="modal fade" role="dialog">
@@ -154,29 +158,29 @@ SELECT 'Alle Afdelingen' AS [Naam]"></asp:SqlDataSource>
                                         <h4 class="modal-title">Factuur toevoegen</h4>
                                     </div>
                                     <div class="modal-body">
-                                                
+
                                         <asp:UpdatePanel runat="server" UpdateMode="Conditional" ChildrenAsTriggers="true">
                                             <ContentTemplate>
 
-                                                <asp:GridView ID="gvFactuurreservering" DataKeyNames="ID, regelnummer" EnableCallbacks='false'  ShowHeaderWhenEmpty="True" EmptyDataText="Er zijn geen producten gevonden bij deze inkooporderaanvraag." CssClass="content-table" GridLines="None" AutoGenerateColumns="False" Style="text-align: center; min-width: 656px; margin-left: auto; margin-right: auto" runat="server" DataSourceID="SqlDataSource7">
+                                                <asp:GridView ID="gvFactuurreservering" DataKeyNames="ID, regelnummer" EnableCallbacks='false' ShowHeaderWhenEmpty="True" EmptyDataText="Er zijn geen producten gevonden bij deze inkooporderaanvraag." CssClass="content-table" GridLines="None" AutoGenerateColumns="False" Style="text-align: center; min-width: 656px; margin-left: auto; margin-right: auto" runat="server" DataSourceID="SqlDataSource7">
                                                     <Columns>
                                                         <asp:BoundField DataField="ID" HeaderText="ID" ReadOnly="True" SortExpression="ID" />
                                                         <asp:BoundField DataField="regelnummer" HeaderText="Regelnummer" ReadOnly="True" SortExpression="ID" />
                                                         <asp:BoundField DataField="Naam" HeaderText="Item" ReadOnly="True" SortExpression="Naam" />
                                                         <asp:BoundField DataField="Omschrijving" HeaderText="Omschrijving" ReadOnly="True" SortExpression="Omschrijving" />
 
-                                                         <asp:TemplateField HeaderText="Prijs" SortExpression="Prijs">
-                                                             <EditItemTemplate>
+                                                        <asp:TemplateField HeaderText="Prijs" SortExpression="Prijs">
+                                                            <EditItemTemplate>
                                                                 <asp:TextBox ID="TxtP" runat="server" Text='<%# Bind("Prijs") %>'></asp:TextBox>
                                                                 <asp:RequiredFieldValidator ID="Prijs" runat="server" ErrorMessage="*" ControlToValidate="TxtP" ForeColor="Red" ValidationGroup="Validation" Display="Dynamic"></asp:RequiredFieldValidator>
-                                                                <asp:RegularExpressionValidator ID="Prijs1" runat="server" ErrorMessage="bijv. 345,90" ControlToValidate="TxtP" ForeColor="Red" ValidationExpression="^\d{0,8}(\,\d{1,4})?$" ValidationGroup="Validation" Display="Dynamic"></asp:RegularExpressionValidator>                    
+                                                                <asp:RegularExpressionValidator ID="Prijs1" runat="server" ErrorMessage="bijv. 345,90" ControlToValidate="TxtP" ForeColor="Red" ValidationExpression="^\d{0,8}(\,\d{1,4})?$" ValidationGroup="Validation" Display="Dynamic"></asp:RegularExpressionValidator>
                                                             </EditItemTemplate>
                                                             <ItemTemplate>
                                                                 <asp:Label ID="Label2" runat="server" Text='<%# Bind("Prijs", "{0:C}") %>'></asp:Label>
                                                             </ItemTemplate>
                                                         </asp:TemplateField>
                                                         <asp:BoundField DataField="Inkoopaantal" HeaderText="Inkoop Aantal" ReadOnly="True" SortExpression="Inkoopaantal" HeaderStyle-Width="100px" />
-                                                        <asp:CommandField ShowEditButton="True" ValidationGroup="Validation"/>
+                                                        <asp:CommandField ShowEditButton="True" ValidationGroup="Validation" />
 
                                                     </Columns>
                                                 </asp:GridView>
@@ -211,14 +215,15 @@ SELECT 'Alle Afdelingen' AS [Naam]"></asp:SqlDataSource>
                                                 <p style="margin-top: 1rem; margin-bottom: 0;">Uiterste betaaldatum</p>
                                                 <asp:TextBox ID="txbTermijn" placeholder="DD-MM-YYYY" Style="text-align: center" Height="50px" Width="100%" runat="server"></asp:TextBox>
                                                 <asp:RequiredFieldValidator ID="Termijn" runat="server" ErrorMessage="*" ControlToValidate="txbTermijn" ForeColor="red" ValidationGroup="Validation" Display="Dynamic"></asp:RequiredFieldValidator>
-                     <asp:RegularExpressionValidator ID="Termijn1" runat="server" ErrorMessage="dd/MM/yyyy" ControlToValidate="txbTermijn" ForeColor="Red" ValidationExpression="(^((((0[1-9])|([1-2][0-9])|(3[0-1]))|([1-9]))-(((0[1-9])|(1[0-2]))|([1-9]))-(([0-9]{2})|(((19)|([2]([0]{1})))([0-9]{2}))))$)" ValidationGroup="Validation" Display="Dynamic"></asp:RegularExpressionValidator>
+                                                <asp:RegularExpressionValidator ID="Termijn1" runat="server" ErrorMessage="dd/MM/yyyy" ControlToValidate="txbTermijn" ForeColor="Red" ValidationExpression="(^((((0[1-9])|([1-2][0-9])|(3[0-1]))|([1-9]))-(((0[1-9])|(1[0-2]))|([1-9]))-(([0-9]{2})|(((19)|([2]([0]{1})))([0-9]{2}))))$)" ValidationGroup="Validation" Display="Dynamic"></asp:RegularExpressionValidator>
 
-
+                                                <p style="margin-top: 1rem; margin-bottom: 0;">IBAN</p>
+                                                <asp:TextBox ID="txbIban" placeholder="IBAN" Style="text-align: center" Height="50px" Width="100%" runat="server"></asp:TextBox>
                                             </ContentTemplate>
                                         </asp:UpdatePanel>
 
                                     </div>
-                                    <input type="button" ValidationGroup="Validation" id="btnNaarPdf" data-toggle="modal" data-target="#bestelModal<%# Eval("Nummer") %>" style="max-width: 80%; margin-left: auto; margin-right: auto; margin-top: 100px" class="btn btn-success btn-lg btn-block" value="PDF Toevoegen" />
+                                    <input type="button" validationgroup="Validation" id="btnNaarPdf" data-toggle="modal" data-target="#bestelModal<%# Eval("Nummer") %>" style="max-width: 80%; margin-left: auto; margin-right: auto; margin-top: 100px" class="btn btn-success btn-lg btn-block" value="PDF Toevoegen" />
                                 </div>
 
                                 <div class="modal-footer">
@@ -229,7 +234,7 @@ SELECT 'Alle Afdelingen' AS [Naam]"></asp:SqlDataSource>
                     </div>
                 </ContentTemplate>
             </asp:UpdatePanel>
-                        <div id="bestelModal<%# Eval("Nummer") %>" class="modal fade center" role="dialog">
+            <div id="bestelModal<%# Eval("Nummer") %>" class="modal fade center" role="dialog">
 
                 <div class="modal-dialog modal-lg">
                     <!-- Modal content-->
@@ -241,18 +246,16 @@ SELECT 'Alle Afdelingen' AS [Naam]"></asp:SqlDataSource>
                         </div>
 
                         <div class="modal-body">
-                            <h3>Kies hier uw bestand</h3>
-                            <asp:FileUpload ID="FileUpload2" runat="server" accept=".pdf"/>
-                           <%-- <asp:RequiredFieldValidator ID="ValidateF1" runat="server"  ErrorMessage="*"  ForeColor="Red"CssClass="row-validate"  ControlToValidate="FileUpload2" ValidationGroup="Validation"></asp:RequiredFieldValidator>
-                            <asp:RegularExpressionValidator ID="ValidateEx" runat="server"  ErrorMessage="Moet .pdf/.PDF zijn"  ForeColor="Red" ValidationExpression="^.*\.(pdf|PDF)$" ControlToValidate="FileUpload2" ValidationGroup="Validation" ></asp:RegularExpressionValidator>
-                                    --%>
-                            <asp:Button ID="btnUpload" ValidationGroup="Validation" OnClick="Upload" CommandName='<%# Container.ItemIndex %>' CommandArgument='<%# Eval("Nummer") %>' Style="max-width: 80%; margin-left: auto; margin-right: auto; margin-top: 20px" CssClass="btn btn-success btn-lg btn-block" runat="server" Text="Bestellen" />
+                            <h3>Upload hier uw PDF</h3>
+                            <div>
+                                <asp:FileUpload Style="margin-left: auto; margin-right: auto" ID="FileUpload1" runat="server" accept=".pdf" />
+                            </div>
 
-                           
+                            <asp:Button ID="btnUpload" OnClick="Upload" CommandName='<%# Container.ItemIndex %>' CommandArgument='<%# Eval("Nummer") %>' Style="max-width: 80%; margin-left: auto; margin-right: auto; margin-top: 20px" CssClass="btn btn-success btn-lg btn-block" runat="server" Text="Bestellen" />
+
                         </div>
 
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Sluiten</button>
                         </div>
                     </div>
                 </div>
@@ -260,7 +263,7 @@ SELECT 'Alle Afdelingen' AS [Naam]"></asp:SqlDataSource>
 
         </ItemTemplate>
     </asp:Repeater>
-    
+
     <script>
         // Get the container element
         var btnContainer = document.getElementById("setting-drop");

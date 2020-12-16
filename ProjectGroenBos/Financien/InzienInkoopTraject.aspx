@@ -46,13 +46,24 @@
             text-decoration: none;
         }
     </style>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script>
+        function Downloadfout() {
+            Swal.fire({
+                icon: 'error',
+                title: 'Er is nog geen pdf toegevoegd aan deze inkoop order.',
+                showConfirmButton: false,
+                timer: 4000
+            })
+        }
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="header">Alle inkoopaanvragen en bestellingen</div>
     <div class="container">
         <div class="d-flex justify-content-center h-100" style="margin-top: 20px">
             <div class="searchbar">
-                <asp:TextBox ID="TextBox1" runat="server" placeholder="Zoeken op bestelnummer..." CssClass="search_input" style="color: #fff" AutoPostBack="True" BorderStyle="Solid" OnTextChanged="TextBox1_TextChanged"></asp:TextBox>
+                <asp:TextBox ID="TextBox1" runat="server" placeholder="Zoeken op bestelnummer..." CssClass="search_input" Style="color: #fff" AutoPostBack="True" BorderStyle="Solid" OnTextChanged="TextBox1_TextChanged"></asp:TextBox>
                 <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
             </div>
         </div>
@@ -81,6 +92,12 @@ SELECT 'Alle Statussen' AS [Status]"></asp:SqlDataSource>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:BoundField DataField="Bestelnummer" HeaderText="Bestelnummer" ReadOnly="True" SortExpression="Bestelnummer" />
+                <asp:TemplateField ItemStyle-HorizontalAlign="Center" HeaderText="Factuur PDF">
+                    <ItemTemplate>
+                        <asp:LinkButton ID="lnkDownload" runat="server" Text="Download" OnClick="DownloadFile"
+                            CommandArgument='<%# Eval("Nummer") %>'></asp:LinkButton>
+                    </ItemTemplate>
+                </asp:TemplateField>
             </Columns>
         </asp:GridView>
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="select * from inkooporderaanvraagmainLev order by datum DESC, opmerking DESC"></asp:SqlDataSource>

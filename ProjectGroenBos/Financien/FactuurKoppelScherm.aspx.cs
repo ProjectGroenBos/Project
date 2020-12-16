@@ -23,6 +23,7 @@ namespace ProjectGroenBos.Financien
 
             if (!IsPostBack)
             {
+                Page.Form.Enctype = "multipart/form-data";
                 Repeater();
                 BindGrid();
             }
@@ -121,8 +122,18 @@ namespace ProjectGroenBos.Financien
             int nummer = int.Parse(((Button)sender).CommandName);
             int inkoopnummer = int.Parse(((Button)sender).CommandArgument);
 
-                FileUpload FileUpload1 = (FileUpload)rpFactuurToevoegen.Items[nummer].FindControl("FileUpload1");
-                string filename = Path.GetFileName(FileUpload1.PostedFile.FileName);
+            FileUpload FileUpload1 = (FileUpload)rpFactuurToevoegen.Items[nummer].FindControl("FileUpload1");
+            string filename = Path.GetFileName(FileUpload1.PostedFile.FileName);
+
+            TextBox txbIban = (TextBox)rpFactuurToevoegen.Items[nummer].FindControl("txbIban");
+
+            TextBox txbTermijn = (TextBox)rpFactuurToevoegen.Items[nummer].FindControl("txbTermijn");
+            if (txbIban.Text == "" || txbTermijn.Text == "" || FileUpload1 == null)
+            {
+                ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "Bestelfout();", true);
+            }
+            else
+            {
                 string contentType = FileUpload1.PostedFile.ContentType;
                 using (Stream fs = FileUpload1.PostedFile.InputStream)
                 {
@@ -131,58 +142,56 @@ namespace ProjectGroenBos.Financien
                         byte[] bytes = br.ReadBytes((Int32)fs.Length);
                         using (SqlConnection con = new SqlConnection(constr))
                         {
-                            string commandText = "INSERT INTO [dbo].[Crediteurenfactuur] ([Datum] ,[Totaal bedrag] ,[Termijn] ,[Omschrijving betaalcondities] ,[InkooporderID] ,[FactuurstatusID] ,[IBAN] ,[LeverancierID], Data, ContentType, Naam) VALUES " + "(@Datum, @Totaal_bedrag, (convert(datetime,@Termijn,104), @Omschrijving_betaalcondities, @InkooporderID, @FactuurstatusID, @IBAN, @LeverancierID, @Data, @ContentType, @Name)";
+                            string commandText = "INSERT INTO [dbo].[Crediteurenfactuur] ([Datum], [Totaal bedrag], [Termijn], [Omschrijving betaalcondities], [InkooporderID], [FactuurstatusID], [IBAN], [LeverancierID], Data, ContentType, Naam) VALUES (@Datum, @Totaal_bedrag, (convert(datetime,@Termijn,104)), @Omschrijving_betaalcondities, @InkooporderID, @FactuurstatusID, @IBAN, @LeverancierID, @Data, @ContentType, @Name)";
 
                             using (SqlCommand cmd = new SqlCommand(commandText))
                             {
+                                con.Open();
                                 SqlConnection constre = new SqlConnection(constr);
-                                SqlCommand cmd2 = new SqlCommand("SELECT I.*, A.LeverancierID FROM InkooporderaanvraagItemsTotaalprijs I LEFT JOIN InkoopOrderAanvraag A ON I.InkoopOrderAanvraagNummer = A.Nummer where InkoopOrderAanvraagNummer = @Nummer", constre);
+                                SqlCommand cmd2 = new SqlCommand("SELECT I.Totaalprijs FROM InkooporderaanvraagItemsTotaalprijs I LEFT JOIN InkoopOrderAanvraag A ON I.InkoopOrderAanvraagNummer = A.Nummer where InkoopOrderAanvraagNummer = @Nummer", con);
                                 cmd2.Parameters.AddWithValue("@Nummer", inkoopnummer);
-                            con.Open();
-                               // double prijs = double.Parse(cmd2.ExecuteNonQuery().ToString());
-                               // double prijske = double.Parse(prijs["TotaalPrijs"].ToString());
-                               // int leverancier = int.Parse(prijs["LeverancierID"].ToString());
+                                SqlCommand cmd3 = new SqlCommand("SELECT A.LeverancierID FROM InkooporderaanvraagItemsTotaalprijs I LEFT JOIN InkoopOrderAanvraag A ON I.InkoopOrderAanvraagNummer = A.Nummer where InkoopOrderAanvraagNummer = @Nummer", con);
+                                cmd3.Parameters.AddWithValue("@Nummer", inkoopnummer);
 
-                                TextBox txbTermijn = (TextBox)rpFactuurToevoegen.Items[nummer].FindControl("txbTermijn");
-
-                                TextBox txbIBAN = (TextBox)rpFactuurToevoegen.Items[nummer].FindControl("txbIBAN");
+                                double prijske = double.Parse(cmd2.ExecuteScalar().ToString());
+                                int leverancier = int.Parse(cmd3.ExecuteScalar().ToString());
 
                                 cmd.Connection = con;
                                 cmd.Parameters.AddWithValue("@Name", filename);
                                 cmd.Parameters.AddWithValue("@ContentType", contentType);
                                 cmd.Parameters.AddWithValue("@Data", bytes);
                                 cmd.Parameters.AddWithValue("@Datum", DateTime.Now);
-                             //   cmd.Parameters.AddWithValue("@Totaal_bedrag", prijske);
+                                cmd.Parameters.AddWithValue("@Totaal_bedrag", prijske);
                                 cmd.Parameters.AddWithValue("@Termijn", txbTermijn.Text);
                                 cmd.Parameters.AddWithValue("@Omschrijving_betaalcondities", "Inkooporder");
-                                cmd.Parameters.AddWithValue("@InkooporderID", nummer);
+                                cmd.Parameters.AddWithValue("@InkooporderID", inkoopnummer);
                                 cmd.Parameters.AddWithValue("@FactuurstatusID", "1");
-                                cmd.Parameters.AddWithValue("@IBAN", txbIBAN.Text);
-                              //  cmd.Parameters.AddWithValue("@LeverancierID", leverancier);
-                                con.Open();
+                                cmd.Parameters.AddWithValue("@IBAN", txbIban.Text);
+                                cmd.Parameters.AddWithValue("@LeverancierID", leverancier);
                                 cmd.ExecuteNonQuery();
                                 con.Close();
                             }
                         }
                     }
                 }
+            }
 
-                using (SqlConnection con = new SqlConnection(constr))
-                {
-                    con.Open();
+            using (SqlConnection con = new SqlConnection(constr))
+            {
+                con.Open();
 
-                    int nummer2 = int.Parse(((Button)sender).CommandArgument);
+                int nummer2 = int.Parse(((Button)sender).CommandArgument);
 
 
-                    SqlCommand cmd = new SqlCommand("UPDATE InkoopOrderAanvraag SET InkoopOrderAanvraagStatusID = 7 WHERE Nummer = @nummer; ", con);
-                    cmd.Parameters.AddWithValue("@nummer", nummer2);
-                    cmd.ExecuteNonQuery();
+                SqlCommand cmd = new SqlCommand("UPDATE InkoopOrderAanvraag SET InkoopOrderAanvraagStatusID = 7 WHERE Nummer = @nummer; ", con);
+                cmd.Parameters.AddWithValue("@nummer", nummer2);
+                cmd.ExecuteNonQuery();
 
-                    con.Close();
-                }
+                con.Close();
+            }
 
-                gvInkooporderaanvragerMain.DataBind();
-                ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "Bestelsuccess();", true);
+            gvInkooporderaanvragerMain.DataBind();
+            ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "Bestelsuccess();", true);
 
         }
 

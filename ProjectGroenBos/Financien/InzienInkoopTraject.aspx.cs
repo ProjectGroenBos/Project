@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -97,45 +98,44 @@ namespace ProjectGroenBos.Financien
             }
         }
 
-        protected void btnOpenPDF_OnClick(object sender, EventArgs e)
+        protected void DownloadFile(object sender, EventArgs e)
         {
-            string sPathToSaveFileTo = @"C:\SelectedFile.pdf";  // on this path i will create selected PDF File Data    open pdf for checking
-
-
-            //Read Connection from web config
-            using (SqlConnection con = new SqlConnection(constr))
+            try
             {
-                Button btn = sender as Button;
-                int gridviewnr = int.Parse(btn.CommandName);
-
-                con.Open();
-                using (SqlCommand cmd = new SqlCommand("select PdfData from Crediteurenfactuur where ID= gridviewnr", con))
+                int id = int.Parse((sender as LinkButton).CommandArgument);
+                byte[] bytes;
+                string fileName, contentType;
+                using (SqlConnection con = new SqlConnection(constr))
                 {
-                    using (SqlDataReader dr = cmd.ExecuteReader(System.Data.CommandBehavior.Default))
+                    using (SqlCommand cmd = new SqlCommand())
                     {
-                        if (dr.Read())
+                        cmd.CommandText = "select Naam, Data, ContentType from Crediteurenfactuur where InkooporderID=@Id";
+                        cmd.Parameters.AddWithValue("@Id", id);
+                        cmd.Connection = con;
+                        con.Open();
+                        using (SqlDataReader sdr = cmd.ExecuteReader())
                         {
-                            // read in using GetValue and cast to byte array
-                            byte[] fileData = (byte[])dr.GetValue(0);
-
-
-                            // write bytes to disk as file
-                            using (System.IO.FileStream fs = new System.IO.FileStream(sPathToSaveFileTo, System.IO.FileMode.Create, System.IO.FileAccess.ReadWrite))
-                            {
-                                // use a binary writer to write the bytes to disk
-                                using (System.IO.BinaryWriter bw = new System.IO.BinaryWriter(fs))
-                                {
-                                    bw.Write(fileData);
-                                    bw.Close();
-                                }
-                            }
+                            sdr.Read();
+                            bytes = (byte[])sdr["Data"];
+                            contentType = sdr["ContentType"].ToString();
+                            fileName = sdr["Naam"].ToString();
                         }
-
-
-                        // close reader to database
-                        dr.Close();
+                        con.Close();
                     }
                 }
+                Response.Clear();
+                Response.Buffer = true;
+                Response.Charset = "";
+                Response.Cache.SetCacheability(HttpCacheability.NoCache);
+                Response.ContentType = contentType;
+                Response.AppendHeader("Content-Disposition", "attachment; filename=" + fileName);
+                Response.BinaryWrite(bytes);
+                Response.Flush();
+                Response.End();
+            }
+            catch
+            {
+                ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "Downloadfout();", true);
             }
         }
     }
