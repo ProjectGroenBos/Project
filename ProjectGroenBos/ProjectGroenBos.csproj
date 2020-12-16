@@ -74,6 +74,7 @@
     <Content Include="Financien\Prijstabel.aspx" />
     <Content Include="Gerechten overzicht.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="Recreatie\Aanmeldenactiviteitklant.aspx" />
     <Content Include="Recreatie\Aanmeldenactiviteitklant2.aspx" />
     <Content Include="Recreatie\ActiviteitInplannen.aspx" />
     <Content Include="Recreatie\ActiviteitOverzicht.aspx" />
@@ -87,6 +88,7 @@
     <Content Include="Recreatie\img\Logo12.png" />
     <Content Include="Recreatie\img\Logo9.png" />
     <Content Include="Recreatie\InactiefmakenProductpagina.aspx" />
+    <Content Include="Recreatie\InlogschermKlanten.aspx" />
     <Content Include="Recreatie\Klantenoverzichtaanmelding.aspx" />
     <Content Include="Recreatie\MijnAanmeldingen.aspx" />
     <Content Include="Recreatie\ProductPagina.aspx" />
@@ -152,7 +154,6 @@
     <Content Include="Schoonmaak en Onderhoud\InventarisOverzicht.aspx" />
     <Content Include="Schoonmaak en Onderhoud\OffertesOverzicht.aspx" />
     <Content Include="Schoonmaak en Onderhoud\OnderhoudsOverzicht.aspx" />
-    <Content Include="Schoonmaak en Onderhoud\OnderhoudToevoegen.aspx" />
     <Content Include="Schoonmaak en Onderhoud\OnderhoudWijzigen.aspx" />
     <Content Include="Schoonmaak en Onderhoud\PlanningsOverzicht.aspx" />
     <Content Include="Schoonmaak en Onderhoud\PlanningToevoegen.aspx" />
@@ -411,6 +412,13 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Recreatie\Aanmeldenactiviteitklant.aspx.cs">
+      <DependentUpon>Aanmeldenactiviteitklant.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Recreatie\Aanmeldenactiviteitklant.aspx.designer.cs">
+      <DependentUpon>Aanmeldenactiviteitklant.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Recreatie\Aanmeldenactiviteitklant2.aspx.cs">
       <DependentUpon>Aanmeldenactiviteitklant2.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -452,6 +460,13 @@
     </Compile>
     <Compile Include="Recreatie\InactiefmakenProductpagina.aspx.designer.cs">
       <DependentUpon>InactiefmakenProductpagina.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Recreatie\InlogschermKlanten.aspx.cs">
+      <DependentUpon>InlogschermKlanten.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Recreatie\InlogschermKlanten.aspx.designer.cs">
+      <DependentUpon>InlogschermKlanten.aspx</DependentUpon>
     </Compile>
     <Compile Include="Recreatie\klant2.Master.cs">
       <DependentUpon>klant2.Master</DependentUpon>
@@ -698,13 +713,6 @@
     </Compile>
     <Compile Include="Schoonmaak en Onderhoud\OnderhoudsOverzicht.aspx.designer.cs">
       <DependentUpon>OnderhoudsOverzicht.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Schoonmaak en Onderhoud\OnderhoudToevoegen.aspx.cs">
-      <DependentUpon>OnderhoudToevoegen.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Schoonmaak en Onderhoud\OnderhoudToevoegen.aspx.designer.cs">
-      <DependentUpon>OnderhoudToevoegen.aspx</DependentUpon>
     </Compile>
     <Compile Include="Schoonmaak en Onderhoud\OnderhoudWijzigen.aspx.cs">
       <DependentUpon>OnderhoudWijzigen.aspx</DependentUpon>

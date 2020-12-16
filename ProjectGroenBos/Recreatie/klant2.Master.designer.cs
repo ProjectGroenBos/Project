@@ -11,75 +11,43 @@ namespace ProjectGroenBos.Recreatie
 {
 
 
-<<<<<<< HEAD:ProjectGroenBos/Recreatie/AnnulerenMijnAanmeldingen.aspx.designer.cs
-    public partial class AnnulerenMijnAanmeldingen
-    {
-
-        /// <summary>
-        /// gvAanmeldingAnnuleren control.
-=======
     public partial class klant2
     {
 
         /// <summary>
         /// head control.
->>>>>>> RecreatieTeam/AymanCharki:ProjectGroenBos/Recreatie/klant2.Master.designer.cs
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-<<<<<<< HEAD:ProjectGroenBos/Recreatie/AnnulerenMijnAanmeldingen.aspx.designer.cs
-        protected global::System.Web.UI.WebControls.GridView gvAanmeldingAnnuleren;
-
-        /// <summary>
-        /// Label1 control.
-=======
         protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
 
         /// <summary>
         /// form1 control.
->>>>>>> RecreatieTeam/AymanCharki:ProjectGroenBos/Recreatie/klant2.Master.designer.cs
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-<<<<<<< HEAD:ProjectGroenBos/Recreatie/AnnulerenMijnAanmeldingen.aspx.designer.cs
-        protected global::System.Web.UI.WebControls.Label Label1;
-
-        /// <summary>
-        /// btnDoorgaan control.
-=======
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
         /// Image2 control.
->>>>>>> RecreatieTeam/AymanCharki:ProjectGroenBos/Recreatie/klant2.Master.designer.cs
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-<<<<<<< HEAD:ProjectGroenBos/Recreatie/AnnulerenMijnAanmeldingen.aspx.designer.cs
-        protected global::System.Web.UI.WebControls.Button btnDoorgaan;
-
-        /// <summary>
-        /// btnAnnuleren control.
-=======
         protected global::System.Web.UI.WebControls.Image Image2;
 
         /// <summary>
         /// btninloggen control.
->>>>>>> RecreatieTeam/AymanCharki:ProjectGroenBos/Recreatie/klant2.Master.designer.cs
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-<<<<<<< HEAD:ProjectGroenBos/Recreatie/AnnulerenMijnAanmeldingen.aspx.designer.cs
-        protected global::System.Web.UI.WebControls.Button btnAnnuleren;
-=======
         protected global::System.Web.UI.WebControls.Button btninloggen;
 
         /// <summary>
@@ -90,6 +58,5 @@ namespace ProjectGroenBos.Recreatie
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder1;
->>>>>>> RecreatieTeam/AymanCharki:ProjectGroenBos/Recreatie/klant2.Master.designer.cs
     }
 }

@@ -24,6 +24,7 @@ namespace ProjectGroenBos.Recreatie
             if (!IsPostBack)
             {
                 InvullenGridview();
+                int i = int.Parse((string)Session["GastNummer"]);
 
             }
         }

@@ -110,7 +110,7 @@ namespace ProjectGroenBos.Recreatie
             SqlCommand cmd = new SqlCommand("sp_Recreatie_Aanmeldenactiviteitklant", con);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@ActiviteitNummer", (int)Session["Nummer"]);
-            cmd.Parameters.AddWithValue("@GastNummer", 6);
+            cmd.Parameters.AddWithValue("@GastNummer", int.Parse((string)Session["GastNummer"]));
             cmd.Parameters.AddWithValue("@Aantalpersonen", GridView1.Rows.Count);
             cmd.Parameters.AddWithValue("@Nummer", counter());
             cmd.ExecuteNonQuery();

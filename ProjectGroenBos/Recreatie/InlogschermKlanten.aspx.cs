@@ -54,11 +54,12 @@ namespace ProjectGroenBos.Recreatie
                 string resulaat = dr.Read().ToString();
 
                 Label3.Text = dr["Email"].ToString();
+                Session["GastNummer"] = dr["GastNummer"].ToString();
 
                 if (dr["Email"].ToString() == Email && dr["Wachtwoord"].ToString() == password)
                 {
                     //Label3.Text = "in";
-                    Response.Redirect("Home.aspx");
+                    Response.Redirect("Aanmeldenactiviteitklant2.aspx");
 
                 }
                 dr.Close();
