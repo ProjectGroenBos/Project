@@ -134,6 +134,7 @@ ul li ul {
        
     }
 
+
 .btnUitloggen {
     font-weight: bold;
     margin-left: 10px;
@@ -229,5 +230,10 @@ ul li ul {
     height:90%;
     width:10%;
 }
+.txbmaximaalaantalklanten {
+    margin-left: 26%;
+}
 
-
+.txbnamenklanten {
+    margin-left: 30%;
+}
