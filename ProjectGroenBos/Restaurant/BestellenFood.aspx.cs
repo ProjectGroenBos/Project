@@ -114,17 +114,11 @@ namespace ProjectGroenBos.Restaurant
 
                 int Leveranciernummer = Int32.Parse(ddlLeverancier.SelectedItem.Value);
 
+                //Genereer random getallen voor Bestelnummer
                 Random b = new Random();
                 int num = b.Next(1000, 9999);
 
-
-                if (Leveranciernummer == -1)
-                {
-                    lblErrorMessage.Text = "Kies een leverancier uit";
-                }
-
-                else
-                {
+                    //Informatie toevoegen in database 'VoedselRestaurantInkoopOrder'
                     using (SqlConnection sqlCon = new SqlConnection(connectionString))
                     {
                         // Maak Inkooporder aan
@@ -153,14 +147,9 @@ namespace ProjectGroenBos.Restaurant
                         }
                         sqlCon.Close();
 
+                        //Informatie uit grid view toevoegen aan database VoedselRestaurantAanvraagRegels
                         foreach (DataRow rij in dta.Rows)
                         {
-                            /*
-                             * dta.Columns.Add(new DataColumn("PK_Product", typeof(int)));
-                             * dta.Columns.Add(new DataColumn("Product", typeof(string)));
-                             * dta.Columns.Add(new DataColumn("Hoeveelheid", typeof(string)));
-                            */
-
                             int PK_Product = (int)rij[0];
                             string Product = (string)rij[1];
                             string Hoeveelheid = (string)rij[2];
@@ -177,10 +166,7 @@ namespace ProjectGroenBos.Restaurant
                         }
                     }
 
-                    Response.Redirect("~/BestellenFood.aspx");
-
-
-                }
+                    Response.Redirect("BestellenFood.aspx");
 
 
 

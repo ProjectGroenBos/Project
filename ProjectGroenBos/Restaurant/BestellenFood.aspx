@@ -15,7 +15,7 @@
 
                 OnRowCommand="gvInkoopOrderregel_RowCommand" OnRowEditing ="gvInkoopOrderregel_RowEditing" OnRowCancelingEdit="gvInkoopOrderregel_RowCancelingEdit" OnRowUpdating ="gvInkoopOrderregel_RowUpdating" OnRowDeleting ="gvInkoopOrderregel_RowDeleting"
             
-            CellPadding="4" ForeColor="#333333" GridLines="None">
+            CellPadding="4" ForeColor="#333333" GridLines="None" Width="421px">
             
             <%--<AlternatingRowStyle BackColor="White" ForeColor="#284775" />
             <EditRowStyle BackColor="#999999" />
@@ -43,7 +43,7 @@
 
                
           <Columns>
-    
+    <%--Hier beginnen de kolommen van de grid view--%>
 
                     <asp:TemplateField HeaderText="Product" runat="server">
                         <ItemTemplate>
@@ -73,6 +73,7 @@
         </asp:GridView>
                 </div>
                <br />
+               <%--Hier beginnen de labels, textboxen en buttons--%>
                         <asp:Label ID="lblLeverancier" runat="server" Text="Kies leverancier"></asp:Label>
         <asp:DropDownList ID="ddlLeverancier" runat="server" DataSourceID="SqlDataSource2" DataTextField="Naam" DataValueField="ID">
         </asp:DropDownList>
@@ -89,7 +90,7 @@
                <asp:Label ID="lblHoeveelheid" runat="server" Text="Hoeveelheid"></asp:Label>
                <asp:TextBox ID="txtQty" runat="server" CssClass="auto-style1"></asp:TextBox>
                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtQty" ErrorMessage="Voer hoeveelheid in" Font-Bold="True" ForeColor="#CC3300" ValidationGroup="Validation"></asp:RequiredFieldValidator>
-               <asp:RegularExpressionValidator ID="HoeveelheidValidator" runat="server" ErrorMessage="Er mag alleen een cijfer tussen 5 én 99 ingevoerd worden" ControlToValidate="txtQty" Font-Bold="True" ForeColor="Red" ValidationExpression="^[5-99]{1,2}$" ValidationGroup="Validation" Display="Dynamic"></asp:RegularExpressionValidator>
+               <asp:RegularExpressionValidator ID="HoeveelheidValidator" runat="server" ErrorMessage="Er mag alleen een cijfer tussen 10 én 99 ingevoerd worden" ControlToValidate="txtQty" Font-Bold="True" ForeColor="Red" ValidationExpression="^[10-99]{2}$" ValidationGroup="Validation" Display="Dynamic"></asp:RegularExpressionValidator>
                <br />
          <br />
                <asp:Button ID="btnMaakOrderRegel" runat="server" Text="Voeg product toe aan order" OnClick="btnMaakOrderRegel_Click" ValidationGroup="Validation" Height="25px" Width="262px" />
