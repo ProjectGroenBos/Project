@@ -62,6 +62,35 @@ namespace ProjectGroenBos.Financien
             HiddenField fNummers = (HiddenField)rpCreditnota.Items[gridviewnr].FindControl("fnummer");
             string fnummer = fNummers.Value;
 
+            HiddenField Totaalbedragen = (HiddenField)rpCreditnota.Items[gridviewnr].FindControl("Totaalbedrag");
+            string Totaalbedrag = Totaalbedragen.Value;
+
+            HiddenField Namen = (HiddenField)rpCreditnota.Items[gridviewnr].FindControl("Naamgast");
+            string Naam = Namen.Value;
+
+            HiddenField Emails = (HiddenField)rpCreditnota.Items[gridviewnr].FindControl("Emailgast");
+            string email = Emails.Value;
+
+            //HiddenField Datums = (HiddenField)rpCreditnota.Items[gridviewnr].FindControl("datum");
+            //string datum = Datums.Value;
+
+            HiddenField Totaalbetaling = (HiddenField)rpCreditnota.Items[gridviewnr].FindControl("Totaalbetaald");
+            string Totaalbetaald = Totaalbetaling.Value;
+
+            HiddenField Afboeking = (HiddenField)rpCreditnota.Items[gridviewnr].FindControl("Afboekenfactuur");
+            string Afboeken = Afboeking.Value;
+
+            HiddenField Terugbetalenen = (HiddenField)rpCreditnota.Items[gridviewnr].FindControl("TerugTeBetalen");
+            string Terugbetalen = Terugbetalenen.Value;
+
+            HiddenField Voornaming = (HiddenField)rpCreditnota.Items[gridviewnr].FindControl("Voornaam");
+            string Voornaam = Voornaming.Value;
+
+            HiddenField schulding = (HiddenField)rpCreditnota.Items[gridviewnr].FindControl("Nogverschuligd");
+            string schuldig = schulding.Value;
+
+            Email(gridviewnr, nummer, Totaalbedrag, Naam, email, iban, Afboeken, Terugbetalen, schuldig, Totaalbetaald, Voornaam);
+
 
             string commandText = "INSERT INTO [dbo].[Transactie] ([Datum] ,[Aan] ,[Bedrag] ,[Omschrijving], [DebiteurenfactuurNummer] ,[BankrekeningBanknummer] ,[PersoneelNummer] ,[TypeID]) VALUES (CONVERT(date, getdate()), @Aan, @Bedrag, @Omschrijving, @DebiteurenfactuurNummer, @Iban, @PeroneelNummer, @TypeID)";
 
@@ -81,11 +110,73 @@ namespace ProjectGroenBos.Financien
                 connection.Open();
 
                 command.ExecuteNonQuery();
+
+                Email(gridviewnr, nummer, Totaalbedrag, Naam, email, iban, Afboeken, Terugbetalen, schuldig, Totaalbetaald, Voornaam);
+
+                gvReserveringen.DataBind();
+
+                ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "emailsuccess();", true);
             }
         }
 
         protected void btnKassa_Click(object sender, EventArgs e)
         {
+            Button btn = sender as Button;
+
+            int gridviewnr = int.Parse(btn.CommandName);
+            HiddenField nummers = (HiddenField)rpCreditnota.Items[gridviewnr].FindControl("Nummer");
+            string nummer = nummers.Value;
+
+            HiddenField Totaalbedragen = (HiddenField)rpCreditnota.Items[gridviewnr].FindControl("Totaalbedrag");
+            string Totaalbedrag = Totaalbedragen.Value;
+
+            HiddenField Namen = (HiddenField)rpCreditnota.Items[gridviewnr].FindControl("Naamgast");
+            string Naam = Namen.Value;
+
+            HiddenField Emails = (HiddenField)rpCreditnota.Items[gridviewnr].FindControl("Emailgast");
+            string email = Emails.Value;
+
+            HiddenField fNummers = (HiddenField)rpCreditnota.Items[gridviewnr].FindControl("fnummer");
+            string fnummer = fNummers.Value;
+
+            //HiddenField Datums = (HiddenField)rpCreditnota.Items[gridviewnr].FindControl("datum");
+            //string datum = Datums.Value;
+
+            HiddenField IBANS = (HiddenField)rpCreditnota.Items[gridviewnr].FindControl("IBAN");
+            string iban = IBANS.Value;
+
+            HiddenField Totaalbetaling = (HiddenField)rpCreditnota.Items[gridviewnr].FindControl("Totaalbetaald");
+            string Totaalbetaald = Totaalbetaling.Value;
+
+            HiddenField Afboeking = (HiddenField)rpCreditnota.Items[gridviewnr].FindControl("Afboekenfactuur");
+            string Afboeken = Afboeking.Value;
+
+            HiddenField Terugbetalenen = (HiddenField)rpCreditnota.Items[gridviewnr].FindControl("TerugTeBetalen");
+            string Terugbetalen = Terugbetalenen.Value;
+
+            HiddenField Voornaming = (HiddenField)rpCreditnota.Items[gridviewnr].FindControl("Voornaam");
+            string Voornaam = Voornaming.Value;
+
+            HiddenField schulding = (HiddenField)rpCreditnota.Items[gridviewnr].FindControl("Nogverschuligd");
+            string schuldig = schulding.Value;
+
+            Email(gridviewnr, nummer, Totaalbedrag, Naam, email, iban, Afboeken, Terugbetalen, schuldig, Totaalbetaald, Voornaam);
+
+            /* using (SqlConnection con = new SqlConnection(constr))
+             {
+                 con.Open();
+
+                 SqlCommand cmd = new SqlCommand("UPDATE debiteurenfactuur SET ReserveringsstatusID = '6' where nummer = @nummer", con);
+                 cmd.Parameters.AddWithValue("@nummer", fnummer);
+
+                 cmd.ExecuteNonQuery();
+
+                 con.Close();
+             }*/
+
+            gvReserveringen.DataBind();
+
+            ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "emailsuccess();", true);
         }
             protected void btnExport_Click(object sender, EventArgs e)
         {
@@ -114,7 +205,22 @@ namespace ProjectGroenBos.Financien
             HiddenField IBANS = (HiddenField)rpCreditnota.Items[gridviewnr].FindControl("IBAN");
             string iban = IBANS.Value;
 
-            Email(gridviewnr, nummer, Totaalbedrag, Naam, email, iban);
+            HiddenField Totaalbetaling = (HiddenField)rpCreditnota.Items[gridviewnr].FindControl("Totaalbetaald");
+            string Totaalbetaald = Totaalbetaling.Value;
+
+            HiddenField Afboeking = (HiddenField)rpCreditnota.Items[gridviewnr].FindControl("Afboekenfactuur");
+            string Afboeken = Afboeking.Value;
+
+            HiddenField Terugbetalenen = (HiddenField)rpCreditnota.Items[gridviewnr].FindControl("TerugTeBetalen");
+            string Terugbetalen = Terugbetalenen.Value;
+
+            HiddenField Voornaming = (HiddenField)rpCreditnota.Items[gridviewnr].FindControl("Voornaam");
+            string Voornaam = Voornaming.Value;
+
+            HiddenField schulding = (HiddenField)rpCreditnota.Items[gridviewnr].FindControl("Nogverschuligd");
+            string schuldig = schulding.Value;
+
+            Email(gridviewnr, nummer, Totaalbedrag, Naam, email, iban, Afboeken, Terugbetalen, schuldig, Totaalbetaald, Voornaam);
 
            /* using (SqlConnection con = new SqlConnection(constr))
             {
@@ -133,9 +239,83 @@ namespace ProjectGroenBos.Financien
             ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "emailsuccess();", true);
         }
 
-        protected void Email(int gridviewnr, string nummer, string totaal, string naam, string email, string banknummer)
+        protected void Email(int gridviewnr, string nummer, string totaal, string naam, string email, string banknummer, string Afboeken, string Terugbetalen, string schuldig, string Totaalbetaald, string Voornaam)
         {
+            
+            //Fetching Settings from WEB.CONFIG file.  
+            string emailSender = "groenbosfinances@hotmail.com";
+            string emailSenderPassword = "MarionenAndries";
+            string emailSenderHost = "smtp.live.com";
+            int emailSenderPort = 587;
+            Boolean emailIsSSL = true;
 
+
+            //Fetching Email Body Text from EmailTemplate File.  
+            string FilePath = "C:\\Users\\lucsw\\Documents\\GitHub\\Project\\ProjectGroenBos\\Financien\\EmailTemplates\\SignUp.html";
+            StreamReader str = new StreamReader(FilePath);
+            string MailText = str.ReadToEnd();
+            str.Close();
+
+            DateTime today = DateTime.Today;
+
+            //Repalce [newusername] = signup user name   
+            MailText = MailText.Replace("[Voornaam]", Voornaam);
+            MailText = MailText.Replace("[Totaalbedrag]", totaal);
+            MailText = MailText.Replace("[Betaald]", Totaalbetaald);
+            MailText = MailText.Replace("[Afboeken]", Afboeken);
+            MailText = MailText.Replace("[Terugbetalen]", Terugbetalen);
+            MailText = MailText.Replace("[Geldontvangen]", schuldig);
+            MailText = MailText.Replace("[Nummer]", nummer);
+            MailText = MailText.Replace("[Datum]", today.ToString("dd/MM/yyyy"));
+            MailText = MailText.Replace("[Rij]", (GetGridviewData((GridView)rpCreditnota.Items[gridviewnr].FindControl("gvFactuurreservering"))).ToString());
+ 
+
+
+            string subject = "Uw annulering bij Groenbos";
+
+            //Base class for sending email  
+            MailMessage _mailmsg = new MailMessage();
+
+            //Make TRUE because our body text is html  
+            _mailmsg.IsBodyHtml = true;
+
+            //Set From Email ID  
+            _mailmsg.From = new MailAddress(emailSender);
+
+            //Set To Email ID  
+            _mailmsg.To.Add(email);
+
+            //Set Subject  
+            _mailmsg.Subject = subject;
+
+            //Set Body Text of Email   
+            _mailmsg.Body = MailText;
+
+
+            //Now set your SMTP   
+            SmtpClient _smtp = new SmtpClient();
+
+            //Set HOST server SMTP detail  
+            _smtp.Host = emailSenderHost;
+
+            //Set PORT number of SMTP  
+            _smtp.Port = emailSenderPort;
+
+            //Set SSL --> True / False  
+            _smtp.EnableSsl = emailIsSSL;
+
+            //Set Sender UserEmailID, Password  
+            NetworkCredential _network = new NetworkCredential(emailSender, emailSenderPassword);
+            _smtp.Credentials = _network;
+
+            //Send Method will send your MailMessage create above.  
+            _smtp.Send(_mailmsg);
+
+
+
+
+
+            /*
             MailMessage mail = new MailMessage();
 
 
@@ -187,7 +367,7 @@ namespace ProjectGroenBos.Financien
             //email wordt verzonden
             smtpClient.EnableSsl = true;
             smtpClient.Send(mailMessage);
-
+            */
         }
 
         public string GetGridviewData(GridView gv)

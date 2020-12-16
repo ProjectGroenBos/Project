@@ -216,6 +216,17 @@ FROM reserveringengv WHERE ReserveringsstatusID = 5 OR ReserveringsstatusID = 6 
                                     Value='<%# Eval("Email") %>' />
                                 <asp:HiddenField ID="IBAN" runat="server"
                                     Value='<%# Eval("IBAN") %>' />
+                                <asp:HiddenField ID="Totaalbetaald" runat="server"
+                                    Value='<%# Eval("Totaal") %>' />
+
+                                <asp:HiddenField ID="Voornaam" runat="server"
+                                    Value='<%# Eval("Naam") %>' />
+
+                                <asp:HiddenField ID="Afboekenfactuur" runat="server"
+                                    Value='<%# Eval("Afboeken factuur") %>' />
+
+                                <asp:HiddenField ID="Nogverschuligd" runat="server"
+                                    Value='<%# Eval("Nog verschuligd") %>' />
 
                                 <asp:SqlDataSource ID="SqlDataSource7" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="select ('Bungalow Type ' + Code) AS 'Naam', Prijs, Naam AS 'Periode',  Seizoen, 1 AS 'Aantal', Prijs AS 'Totaal' from ReserveringHuis where Nummer = @Nummer
                                 union
