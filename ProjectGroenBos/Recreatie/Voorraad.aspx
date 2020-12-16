@@ -5,7 +5,7 @@
         }</script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="header">Voorraad</div>
+    <div class="header">Producten bestellen</div>
 
     <asp:Label ID="Label3" runat="server" Text="Zoeken:" CssClass="labelVoorraadzoeken"></asp:Label>
     <asp:Image ID="Image2" runat="server" CssClass="imagevoorraad" Height="171px" ImageUrl="~/Recreatie/img/Logo1.png" Width="212px" />

@@ -80,15 +80,17 @@
     <Content Include="Recreatie\ActiviteitVerwijderen.aspx" />
     <Content Include="Recreatie\ActiviteitWijzigen.aspx" />
     <Content Include="Recreatie\CSS\klanten.css" />
-    <Content Include="Recreatie\CSS\stylegoeie17.css" />
+    <Content Include="Recreatie\CSS\klantwebsite.css" />
     <Content Include="Recreatie\CSS\stylerecreatiedieweljuistis.css" />
     <Content Include="Recreatie\img\ascArrow.png" />
     <Content Include="Recreatie\img\descArrow.png" />
+    <Content Include="Recreatie\img\Logo12.png" />
+    <Content Include="Recreatie\img\Logo9.png" />
     <Content Include="Recreatie\InactiefmakenProductpagina.aspx" />
+    <Content Include="Recreatie\Klantenoverzichtaanmelding.aspx" />
+    <Content Include="Recreatie\MijnAanmeldingen.aspx" />
     <Content Include="Recreatie\ProductPagina.aspx" />
     <Content Include="Recreatie\ProductPaginaInzien.aspx" />
-    <Content Include="Recreatie\Aanmeldenactiviteitklant.aspx" />
-    <Content Include="Recreatie\test.aspx" />
     <Content Include="Recreatie\Voorraad.aspx" />
     <Content Include="Recreatie\Documentatie.aspx" />
     <Content Include="Recreatie\home.aspx" />
@@ -458,12 +460,19 @@
     <Compile Include="Recreatie\klant2.Master.designer.cs">
       <DependentUpon>klant2.Master</DependentUpon>
     </Compile>
-    <Compile Include="Recreatie\Klanten.Master.cs">
-      <DependentUpon>Klanten.Master</DependentUpon>
+    <Compile Include="Recreatie\Klantenoverzichtaanmelding.aspx.cs">
+      <DependentUpon>Klantenoverzichtaanmelding.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Recreatie\Klanten.Master.designer.cs">
-      <DependentUpon>Klanten.Master</DependentUpon>
+    <Compile Include="Recreatie\Klantenoverzichtaanmelding.aspx.designer.cs">
+      <DependentUpon>Klantenoverzichtaanmelding.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Recreatie\MijnAanmeldingen.aspx.cs">
+      <DependentUpon>MijnAanmeldingen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Recreatie\MijnAanmeldingen.aspx.designer.cs">
+      <DependentUpon>MijnAanmeldingen.aspx</DependentUpon>
     </Compile>
     <Compile Include="Recreatie\ProductPagina.aspx.cs">
       <DependentUpon>ProductPagina.aspx</DependentUpon>
@@ -478,20 +487,6 @@
     </Compile>
     <Compile Include="Recreatie\ProductPaginaInzien.aspx.designer.cs">
       <DependentUpon>ProductPaginaInzien.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Recreatie\Aanmeldenactiviteitklant.aspx.cs">
-      <DependentUpon>Aanmeldenactiviteitklant.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Recreatie\Aanmeldenactiviteitklant.aspx.designer.cs">
-      <DependentUpon>Aanmeldenactiviteitklant.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Recreatie\test.aspx.cs">
-      <DependentUpon>test.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Recreatie\test.aspx.designer.cs">
-      <DependentUpon>test.aspx</DependentUpon>
     </Compile>
     <Compile Include="Recreatie\Voorraad.aspx.cs">
       <DependentUpon>Voorraad.aspx</DependentUpon>
@@ -771,7 +766,6 @@
     <Content Include="Scripts\jquery\jquery.min.map" />
     <Content Include="Scripts\jquery\jquery.slim.min.map" />
     <Content Include="Schoonmaak en Onderhoud\Schoonmaak.Master" />
-    <Content Include="Recreatie\Klanten.Master" />
     <Content Include="Recreatie\klant2.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
