@@ -156,5 +156,40 @@ namespace ProjectGroenBos.Restaurant
             // verstuur mensen naar het plaatsen van een bestelling
             Response.Redirect("Afrekenen.aspx");
         }
+
+        protected void Reserveer1_Click(object sender, EventArgs e)
+        {
+            Session["Tafelnr"] = lbltafel1popup.Text;
+          
+            Response.Redirect("reserveren.aspx");
+
+        }
+
+        protected void Reserveer2_Click(object sender, EventArgs e)
+        {
+            Session["Tafelnr"] = lbltafel2popup.Text;
+
+            Response.Redirect("reserveren.aspx");
+        }
+        protected void Reserveer3_Click(object sender, EventArgs e)
+        {
+            Session["Tafelnr"] = lbltafel3popup.Text;
+
+            Response.Redirect("reserveren.aspx");
+        }
+        protected void Reserveer4_Click(object sender, EventArgs e)
+        {
+            Session["Tafelnr"] = lbltafel4popup.Text;
+
+            Response.Redirect("reserveren.aspx");
+        }
+        protected void Reserveer5_Click(object sender, EventArgs e)
+        {
+            Session["Tafelnr"] = lbltafel5popup.Text;
+
+            Response.Redirect("reserveren.aspx");
+        }
+
+       
     }
 }

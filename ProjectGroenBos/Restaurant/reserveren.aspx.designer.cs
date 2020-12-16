@@ -15,22 +15,22 @@ namespace ProjectGroenBos.Restaurant
     {
 
         /// <summary>
-        /// rdbJa control.
+        /// btnJa control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rdbJa;
+        protected global::System.Web.UI.WebControls.Button btnJa;
 
         /// <summary>
-        /// rdbNee control.
+        /// btnNee control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rdbNee;
+        protected global::System.Web.UI.WebControls.Button btnNee;
 
         /// <summary>
         /// txtBungalownummer control.
@@ -87,13 +87,13 @@ namespace ProjectGroenBos.Restaurant
         protected global::System.Web.UI.WebControls.TextBox txtEmail;
 
         /// <summary>
-        /// ddlTafelnummer control.
+        /// lblTafelnummer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlTafelnummer;
+        protected global::System.Web.UI.WebControls.Label lblTafelnummer;
 
         /// <summary>
         /// txtDatum control.
@@ -123,13 +123,40 @@ namespace ProjectGroenBos.Restaurant
         protected global::System.Web.UI.WebControls.TextBox txtTijd;
 
         /// <summary>
-        /// ddlAantal control.
+        /// TxtAantalP control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlAantal;
+        protected global::System.Web.UI.WebControls.TextBox TxtAantalP;
+
+        /// <summary>
+        /// lblAantalP control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAantalP;
+
+        /// <summary>
+        /// TxtOpmerkingen control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TxtOpmerkingen;
+
+        /// <summary>
+        /// LblOpmerkingen control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblOpmerkingen;
 
         /// <summary>
         /// btnReserveer control.
