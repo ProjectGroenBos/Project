@@ -8,7 +8,7 @@
         <h2>U bent niet geautoriseerd</h2>
         <p>De gegevens waar u mee ingelogd heeft, geeft geen autorisatie voor het gebruik van deze pagina.</p>
      </div>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <div style="display: flex; justify-content: center; align-items: center">
     <img src="img/oom%20dagobert.jpg" />
     <asp:Button ID="btnterug" runat="server" Text="Terug naar mijn eigen afdeling!" style=" width: 25%;
     height: 50px;
@@ -17,4 +17,5 @@
     border-radius: 5px;
     color: #ffffff;
     padding: .5em;" />
+      </div>
  </asp:Content>
