@@ -40,22 +40,22 @@ namespace ProjectGroenBos.Recreatie
             {
                 cnn.Open();
 
-                string query = "Select GastNummer, Wachtwoord from GastAccount where Wachtwoord = @Wachtwoord and GastNummer = @Nummer";
+                string query = "Select * from GastAccount, Gast where GastNummer = Gast.Nummer and Wachtwoord = @Wachtwoord and Email = @Email";
 
                 string Email = TextBox1.Text;
                 string password = TextBox2.Text;
 
                 SqlCommand cmdSchedule = new SqlCommand(query, cnn);
 
-                cmdSchedule.Parameters.AddWithValue("@Nummer", Email);
+                cmdSchedule.Parameters.AddWithValue("@Email", Email);
                 cmdSchedule.Parameters.AddWithValue("@Wachtwoord", password);
 
                 SqlDataReader dr = cmdSchedule.ExecuteReader();
                 string resulaat = dr.Read().ToString();
 
-                Label3.Text = dr["GastNummer"].ToString();
+                Label3.Text = dr["Email"].ToString();
 
-                if (dr["GastNummer"].ToString() == Email && dr["Wachtwoord"].ToString() == password)
+                if (dr["Email"].ToString() == Email && dr["Wachtwoord"].ToString() == password)
                 {
                     //Label3.Text = "in";
                     Response.Redirect("Home.aspx");
@@ -66,7 +66,7 @@ namespace ProjectGroenBos.Recreatie
 
             catch
             {
-                //Label3.Text = "inloggen mislukt";
+                Label3.Text = "inloggen mislukt";
             }
             finally
             {
