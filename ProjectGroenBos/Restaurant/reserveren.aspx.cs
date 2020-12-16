@@ -19,9 +19,9 @@ namespace ProjectGroenBos.Restaurant
             }
             else
             {
-                lblTafelnummer.Text = "0";
+                Response.Redirect("Tafeloverzicht.aspx");
             }
-           
+
 
 
         }
@@ -31,9 +31,9 @@ namespace ProjectGroenBos.Restaurant
 
             DateTime dt = DateTime.Parse(txtTijd.Text);
             //int Aantal = int.Parse(ddlAantal.SelectedValue);
-           
-           
-           
+
+
+
 
             // String constring ="Data Source = SQL.BIM.OSOX.NL; Initial Catalog = 2020 - BIM02 - P1 - P2 - Groenbos; Persist Security Info = True; User ID = BIM022020; Password = BiM@IH2020";
             String constring = "Data Source=SQL.BIM.OSOX.NL;Initial Catalog=2020-BIM02-P1-P2-Groenbos;Persist Security Info=True;User ID=BIM022020;Password=BiM@IH2020";
@@ -43,7 +43,7 @@ namespace ProjectGroenBos.Restaurant
             SqlCommand com = new SqlCommand(pname, sqlcon);
             com.CommandType = CommandType.StoredProcedure;
 
-             com.Parameters.AddWithValue("@BeginTijd", dt );
+            com.Parameters.AddWithValue("@BeginTijd", dt);
             com.Parameters.AddWithValue("@Datum", DateTime.Now);
             com.Parameters.AddWithValue("@AantalPersonen", TxtAantalP.Text);
             com.Parameters.AddWithValue("@Opmerking", TxtOpmerkingen.Text);
@@ -57,8 +57,8 @@ namespace ProjectGroenBos.Restaurant
 
 
             com.ExecuteNonQuery();
-            sqlcon.Close(); ; 
-           
+            sqlcon.Close(); ;
+
         }
 
         protected void btnJa_Click(object sender, EventArgs e)
@@ -73,6 +73,25 @@ namespace ProjectGroenBos.Restaurant
             txtBungalownummer.Enabled = false;
             btnJa.Enabled = true;
             btnNee.Enabled = false;
+        }
+
+        protected void txtBungalownummer_TextChanged(object sender, EventArgs e)
+        {
+            SqlConnection con = new SqlConnection("Data Source=SQL.BIM.OSOX.NL;Initial Catalog=2020-BIM02-P1-P2-Groenbos;Persist Security Info=True;User ID=BIM022020;Password=BiM@IH2020");
+            con.Open();
+            if (txtBungalownummer.Text != "")
+            {
+                SqlCommand cmd = new SqlCommand("SELECT Gast.Voornaam, Gast.Tussenvoegsel, Gast.Achternaam FROM Reservering INNER JOIN Reservering_Bungalow ON Reservering.Nummer = Reservering_Bungalow.ReserveringNummer INNER JOIN Bungalow ON Reservering_Bungalow.BungalowNummer = Bungalow.Nummer INNER JOIN Gast ON Reservering.GastNummer = Gast.Nummer where Bungalow.Nummer = @BungalowNummer and Aankomstdatum <= getdate() and Vertrekdatum >= getdate()",con);
+                cmd.Parameters.AddWithValue("@Bungalownummer", int.Parse(txtBungalownummer.Text));
+                SqlDataReader da = cmd.ExecuteReader();
+                while (da.Read())
+                {
+                    txtVoornaam.Text = da.GetValue(0).ToString();
+                    txtTussenvoegsel.Text = da.GetValue(1).ToString();
+                    txtAchternaam.Text = da.GetValue(2).ToString();
+                }
+                con.Close();
+            }
         }
     }
 }

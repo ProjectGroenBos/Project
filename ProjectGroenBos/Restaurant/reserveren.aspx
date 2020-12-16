@@ -27,7 +27,7 @@
                         <label>nummer</label>
                     </div>
                     <asp:TextBox class="tekstbox" ID="txtBungalownummer"
-                        runat="server" placeholder=""></asp:TextBox>
+                        runat="server" placeholder="" OnTextChanged="txtBungalownummer_TextChanged"></asp:TextBox>
                 </div>
 
                 <div class="contentrij">
