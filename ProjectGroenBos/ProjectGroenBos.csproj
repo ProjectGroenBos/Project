@@ -402,6 +402,7 @@
     <Content Include="Recreatie\ActiviteitOverzicht.aspx" />
     <Content Include="Recreatie\ActiviteitVerwijderen.aspx" />
     <Content Include="Recreatie\ActiviteitWijzigen.aspx" />
+    <Content Include="Recreatie\AnnulerenMijnAanmeldingen.aspx" />
     <Content Include="Recreatie\CSS\Main.css" />
     <Content Include="Recreatie\CSS\style.css" />
     <Content Include="Recreatie\CSS\stylegoeie.css" />
@@ -830,6 +831,13 @@
     </Compile>
     <Compile Include="Recreatie\ActiviteitWijzigen.aspx.designer.cs">
       <DependentUpon>ActiviteitWijzigen.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Recreatie\AnnulerenMijnAanmeldingen.aspx.cs">
+      <DependentUpon>AnnulerenMijnAanmeldingen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Recreatie\AnnulerenMijnAanmeldingen.aspx.designer.cs">
+      <DependentUpon>AnnulerenMijnAanmeldingen.aspx</DependentUpon>
     </Compile>
     <Compile Include="Recreatie\Documentatie.aspx.cs">
       <DependentUpon>Documentatie.aspx</DependentUpon>
