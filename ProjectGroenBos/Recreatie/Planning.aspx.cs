@@ -299,5 +299,10 @@ namespace recreatie.paginas
             }
             GridView1.SelectedIndex = -1;
         }
+
+        protected void ddlFaciliteit_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

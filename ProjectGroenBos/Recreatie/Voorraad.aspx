@@ -73,8 +73,6 @@
                         <div class="modal-header">
                             <h4 class="modal-title">Aanvragen inkooporder</h4>
                         </div>
-                        <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
-                        <asp:Label ID="Label4" runat="server" Text="Label"></asp:Label>
                         <div class="modal-body">
                             <asp:GridView ID="gvOrderaanvragen" runat="server" AutoGenerateColumns="False" ShowFooter="true" DataKeyNames="ID" ShowHeaderWhenEmpty="true"
                              CellPadding="4" ForeColor="#333333" GridLines="none" Width="80%" CssClass="content-table">

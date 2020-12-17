@@ -9,9 +9,8 @@
     <div class="header">Product pagina inactief maken</div>
     <asp:Label ID="LblZoekenInactiefmakenproductpagina" runat="server" Text="Zoeken:" CssClass="labelzoekenProductpaginainactief"></asp:Label>
     <asp:TextBox ID="txbZoekenProductpaginainactief" runat="server" OnTextChanged="txbZoekenProductpaginainactief_TextChanged" CssClass="textboxzoekenProductpaginainactief"></asp:TextBox>
-    <asp:CheckBox ID="CkbLeverancierproductpagina" runat="server" Text="Leverancier" CssClass="ckbLeverancierProductpaginainactief" />
-    <asp:CheckBox ID="CkbCategorieproductpagina" runat="server" Text="Categorie" CssClass="ckbCategorieProductpaginainactief" />
-
+    <asp:RadioButton ID="RdbProductpaginaLeverancier" Text="Leverancier" runat="server" GroupName="RdbProductpaginaInactief" CssClass="ckbLeverancierProductpaginainactief"/>
+    <asp:RadioButton ID="RdbProductpaginaCategorie" runat="server" GroupName="RdbProductpaginaInactief" CssClass="ckbCategorieProductpaginainactief" Text="Categorie"/>
     <asp:GridView ID="GVProductpaginaInactiefMaken" runat="server" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" CssClass="content-table5" DataKeyNames="Nummer" ForeColor="#333333" GridLines="None" ShowFooter="True" OnSorting="GVProductpaginaInactiefMaken_Sorting1" OnSelectedIndexChanged="GVProductpaginaInactiefMaken_SelectedIndexChanged1">
          <Columns>
 

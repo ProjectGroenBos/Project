@@ -33,22 +33,22 @@ namespace ProjectGroenBos.Recreatie
         protected global::System.Web.UI.WebControls.TextBox txbZoekenProductpaginainactief;
 
         /// <summary>
-        /// CkbLeverancierproductpagina control.
+        /// RdbProductpaginaLeverancier control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CkbLeverancierproductpagina;
+        protected global::System.Web.UI.WebControls.RadioButton RdbProductpaginaLeverancier;
 
         /// <summary>
-        /// CkbCategorieproductpagina control.
+        /// RdbProductpaginaCategorie control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CkbCategorieproductpagina;
+        protected global::System.Web.UI.WebControls.RadioButton RdbProductpaginaCategorie;
 
         /// <summary>
         /// GVProductpaginaInactiefMaken control.
