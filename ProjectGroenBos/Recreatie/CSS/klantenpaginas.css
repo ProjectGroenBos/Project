@@ -40,12 +40,12 @@ body {
     display: block;
     list-style: none;
     text-align: center;
-    position: sticky;
+    position: absolute;
 }
 
 
 
-    .nav li {
+    ul li {
         float: left;
         display: block;
         margin-top: 15px;
@@ -60,17 +60,17 @@ body {
         text-decoration: none;
     }
 
-    .nav a {
+    ul li a {
         color: #fff;
         text-decoration: none;
     }
 
-        .nav a:hover {
+         a:hover {
             color: #fff;
             text-decoration: none;
         }
 
-    .nav ul {
+    ul {
         list-style-type: none;
         overflow: hidden;
     }

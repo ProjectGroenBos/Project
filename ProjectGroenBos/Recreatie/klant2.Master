@@ -27,7 +27,7 @@
             
                 <div class="navigator">
                     
-                        <ul class="nav">
+                        <ul>
                             
                             <li><a href="#">Home</a></li>
                             <li><a href="/Recreatie/Klantenoverzichtaanmelding.aspx">Aanmelden</a>
@@ -42,7 +42,7 @@
                             <li><a href="#">Over ons</a></li>
                             <li><a href="#">Contact</a></li>
                             <li><a href="#">Mijn profiel</a></li>
-                            <asp:Button ID="btninloggen" runat="server" CssClass="btninloggen" Text="Uitloggen" />
+                            <asp:Button ID="btninloggen" runat="server" CssClass="btninloggen" Text="Uitloggen" OnClick="btninloggen_Click" />
                         </ul>
                   
                 </div>
