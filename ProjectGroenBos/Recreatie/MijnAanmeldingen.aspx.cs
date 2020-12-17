@@ -119,7 +119,7 @@ namespace ProjectGroenBos.Recreatie
         }
         public int counter()
         {
-            string stmt = "select COUNT(Nummer) from Aanmelding";
+            string stmt = "SELECT MAX(Nummer) FROM Aanmelding;";
             int count = 0;
 
             using (SqlConnection thisConnection = new SqlConnection(connectionstring))
