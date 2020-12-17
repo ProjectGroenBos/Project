@@ -155,8 +155,7 @@ SELECT 'Alle Afdelingen' AS [Naam]"></asp:SqlDataSource>
                             <h3>Wat is het bijbehorende bestelnummer?</h3>
 
                             <asp:TextBox ID="txbBestelnummer" runat="server" Width="80%" Style="margin-left: auto; margin-right: auto; text-align: center"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="Bestelnummer" runat="server" ErrorMessage="*" ControlToValidate="txbBestelnummer" ForeColor="red" ValidationGroup="Validation" Display="Dynamic"></asp:RequiredFieldValidator>
-                    <asp:RegularExpressionValidator ID="Bestelnummer1" runat="server" ErrorMessage="Bijv. 2020005" ControlToValidate="txbBestelnummer" ForeColor="Red" ValidationExpression="^\d+$" ValidationGroup="Validation" Display="Dynamic"></asp:RegularExpressionValidator>                    
+
                             <asp:Button ID="btnBestel" ValidationGroup="Validation" OnClick="btnBestel_OnClick" CommandName='<%# Container.ItemIndex %>' CommandArgument='<%# Eval("Nummer") %>' Style="max-width: 80%; margin-left: auto; margin-right: auto; margin-top: 20px" CssClass="btn btn-success btn-lg btn-block" runat="server" Text="Bestellen" />
 
                         </div>

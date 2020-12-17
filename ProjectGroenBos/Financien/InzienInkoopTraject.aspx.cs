@@ -69,7 +69,7 @@ namespace ProjectGroenBos.Financien
             else if (DropDownList1.Text == "Alle Afdelingen" && DropDownList2.Text != "Alle Statussen")
             {
                 SqlDataSource1.SelectCommand =
-                "select * from inkooporderaanvraagmainLev where Naam = '" + DropDownList2.Text + "' order by datum DESC, opmerking DESC";
+                "select * from inkooporderaanvraagmainLev where Status = '" + DropDownList2.Text + "' order by datum DESC, opmerking DESC";
                 gvInkooporderaanvragerMain.DataBind();
             }
 

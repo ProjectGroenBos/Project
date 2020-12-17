@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -80,7 +81,7 @@ namespace ProjectGroenBos.Financien
 
                 TextBox bestelnummer = (TextBox)rpInkoopOrderAanvragen.Items[repeaternummer].FindControl("txbBestelnummer");
 
-                if(bestelnummer.Text.Length < 1)
+                if(bestelnummer.Text.Length < 1 )
                 {
                     ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "Bestelerror();", true);
                 }
