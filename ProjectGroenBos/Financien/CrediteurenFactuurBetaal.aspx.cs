@@ -34,7 +34,7 @@ namespace ProjectGroenBos.Financien
             {
                 con.Open();
 
-                SqlCommand cmd = new SqlCommand("select * from Crediteurenfactuur inner join Leverancier on Leverancier.Naam = Crediteurenfactuur.[Betalen aan] union select Crediteurenfactuur.*, 1 as ID, Naam, Adres, Contactpersoon, Telefoonnummer, Email, Postcode, Plaats from Crediteurenfactuur inner join Aannemers on Aannemers.Naam = Crediteurenfactuur.[Betalen aan]", con);
+                SqlCommand cmd = new SqlCommand("select Crediteurenfactuur.Nummer, Crediteurenfactuur.Datum, [Totaalprijs], Termijn, [Omschrijving betaalcondities], OfferteNummer, InkooporderID, FactuurstatusID, IBAN, Crediteurenfactuur.LeverancierID, Crediteurenfactuur.Data, ContentType, Leverancier.*  from Crediteurenfactuur inner join Leverancier on Crediteurenfactuur.LeverancierID = Leverancier.ID inner join InkoopOrderAanvraag on Crediteurenfactuur.InkooporderID = InkoopOrderAanvraag.Nummer inner join InkooporderaanvraagItemsTotaalprijs on InkoopOrderAanvraag.Nummer = InkooporderaanvraagItemsTotaalprijs.InkoopOrderAanvraagNummer", con);
                 DataSet ds = new DataSet();
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 da.Fill(ds);
