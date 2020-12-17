@@ -24,7 +24,11 @@ namespace ProjectGroenBos.Financien
             {
                 Repeater();
             }
+
+
+            
         }
+
 
         public void Repeater()
         {
@@ -43,6 +47,7 @@ namespace ProjectGroenBos.Financien
                 con.Close();
             }
         }
+
 
         protected void btnUitbetalen_Click(object sender, EventArgs e)
         {
@@ -91,31 +96,33 @@ namespace ProjectGroenBos.Financien
 
             Email(gridviewnr, nummer, Totaalbedrag, Naam, email, iban, Afboeken, Terugbetalen, schuldig, Totaalbetaald, Voornaam);
 
-
-            string commandText = "INSERT INTO [dbo].[Transactie] ([Datum] ,[Aan] ,[Bedrag] ,[Omschrijving], [DebiteurenfactuurNummer] ,[BankrekeningBanknummer] ,[PersoneelNummer] ,[TypeID]) VALUES (CONVERT(date, getdate()), @Aan, @Bedrag, @Omschrijving, @DebiteurenfactuurNummer, @Iban, @PeroneelNummer, @TypeID)";
-
-            using (SqlConnection connection = new SqlConnection(constr))
+            if (double.Parse(Bedrag) > 0)
             {
-                SqlCommand command = new SqlCommand(commandText, connection);
-                command.Parameters.AddWithValue("@Wachtwoord", "1");
-                command.Parameters.AddWithValue("@Aan", iban);
-                command.Parameters.AddWithValue("@Bedrag", Bedrag);
-                command.Parameters.AddWithValue("@Omschrijving", nummer);
-                command.Parameters.AddWithValue("@DebiteurenfactuurNummer", fnummer);
-                command.Parameters.AddWithValue("@Iban", iban);
-                command.Parameters.AddWithValue("@PeroneelNummer", "1");
-                command.Parameters.AddWithValue("@TypeID", "1");
+                string commandText = "INSERT INTO [dbo].[Transactie] ([Datum] ,[Aan] ,[Bedrag] ,[Omschrijving], [DebiteurenfactuurNummer] ,[BankrekeningBanknummer] ,[PersoneelNummer] ,[TypeID]) VALUES (CONVERT(date, getdate()), @Aan, @Bedrag, @Omschrijving, @DebiteurenfactuurNummer, @Iban, @PeroneelNummer, @TypeID)";
+
+                using (SqlConnection connection = new SqlConnection(constr))
+                {
+                    SqlCommand command = new SqlCommand(commandText, connection);
+                    command.Parameters.AddWithValue("@Wachtwoord", "1");
+                    command.Parameters.AddWithValue("@Aan", iban);
+                    command.Parameters.AddWithValue("@Bedrag", Bedrag);
+                    command.Parameters.AddWithValue("@Omschrijving", nummer);
+                    command.Parameters.AddWithValue("@DebiteurenfactuurNummer", fnummer);
+                    command.Parameters.AddWithValue("@Iban", iban);
+                    command.Parameters.AddWithValue("@PeroneelNummer", "1");
+                    command.Parameters.AddWithValue("@TypeID", "1");
 
 
-                connection.Open();
+                    connection.Open();
 
-                command.ExecuteNonQuery();
+                    command.ExecuteNonQuery();
 
-                Email(gridviewnr, nummer, Totaalbedrag, Naam, email, iban, Afboeken, Terugbetalen, schuldig, Totaalbetaald, Voornaam);
+                    Email(gridviewnr, nummer, Totaalbedrag, Naam, email, iban, Afboeken, Terugbetalen, schuldig, Totaalbetaald, Voornaam);
 
-                gvReserveringen.DataBind();
+                    gvReserveringen.DataBind();
 
-                ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "emailsuccess();", true);
+                    ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "emailsuccess();", true);
+                }
             }
         }
 

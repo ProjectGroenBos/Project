@@ -91,8 +91,8 @@
             </Columns>
         </asp:GridView>
 
-        <asp:SqlDataSource ID="SqlDataSource6" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT Nummer, [Naam], [Aantal_personen], [Aankomstdatum], [Vertrekdatum], [Omschrijving], [Annuleringsdatum]
-FROM reserveringengv WHERE ReserveringsstatusID = 5 OR ReserveringsstatusID = 6 "></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSource6" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT Nummer, [Naam], [Aantal_personen], [Aankomstdatum], [Vertrekdatum], Reserveringsstatus.Omschrijving, [Annuleringsdatum]
+FROM reserveringengv inner join Reserveringsstatus on reserveringengv.ReserveringsstatusID = Reserveringsstatus.ID WHERE ReserveringsstatusID = 5 OR ReserveringsstatusID = 6 "></asp:SqlDataSource>
         <br />
     </div>
 
@@ -266,7 +266,7 @@ FROM reserveringengv WHERE ReserveringsstatusID = 5 OR ReserveringsstatusID = 6 
                                     </div>
                                 </div>
                             </div>
-
+                         
                             <input type="button" style="max-width: 80%; margin-left: auto; margin-right: auto;" class="btn btn-primary btn-lg btn-block" onclick="printDiv('printModal<%# Eval("Nummer") %>')" value="Print Factuur" />
                              <asp:Button ID="btnUitbetalen" Style="max-width: 80%; margin-left: auto; margin-right: auto;" class="btn btn-primary btn-lg btn-block" CommandName="<%# Container.ItemIndex %>" runat="server" Text="Uitbelalen" OnClick="btnUitbetalen_Click" />
                              <asp:Button ID="btnBetalen" Style="max-width: 80%; margin-left: auto; margin-right: auto;" class="btn btn-primary btn-lg btn-block" CommandName="<%# Container.ItemIndex %>" runat="server" Text="Incasso versturen" OnClick="btnKassa_Click" />
