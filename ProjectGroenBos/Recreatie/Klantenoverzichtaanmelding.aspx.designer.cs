@@ -11,52 +11,92 @@ namespace ProjectGroenBos.Recreatie
 {
 
 
+<<<<<<< HEAD:ProjectGroenBos/Recreatie/Klantenoverzichtaanmelding.aspx.designer.cs
     public partial class Klantenoverzichtaanmelding
     {
 
         /// <summary>
         /// gvAanmeldingAnnuleren control.
+=======
+    public partial class WebForm5
+    {
+
+        /// <summary>
+        /// DropDownList1 control.
+>>>>>>> RecreatieTeam/DaanHeemskerk:ProjectGroenBos/Financien/InkoopAanvraagScherm.aspx.designer.cs
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
+<<<<<<< HEAD:ProjectGroenBos/Recreatie/Klantenoverzichtaanmelding.aspx.designer.cs
         protected global::System.Web.UI.WebControls.GridView gvAanmeldingAnnuleren;
 
         /// <summary>
         /// SqlDataSource1 control.
+=======
+        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
+
+        /// <summary>
+        /// SqlDataSource2 control.
+>>>>>>> RecreatieTeam/DaanHeemskerk:ProjectGroenBos/Financien/InkoopAanvraagScherm.aspx.designer.cs
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
+<<<<<<< HEAD:ProjectGroenBos/Recreatie/Klantenoverzichtaanmelding.aspx.designer.cs
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
 
         /// <summary>
         /// Label1 control.
+=======
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource2;
+
+        /// <summary>
+        /// gvInkooporderaanvragerMain control.
+>>>>>>> RecreatieTeam/DaanHeemskerk:ProjectGroenBos/Financien/InkoopAanvraagScherm.aspx.designer.cs
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
+<<<<<<< HEAD:ProjectGroenBos/Recreatie/Klantenoverzichtaanmelding.aspx.designer.cs
         protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
         /// btnDoorgaan control.
+=======
+        protected global::System.Web.UI.WebControls.GridView gvInkooporderaanvragerMain;
+
+        /// <summary>
+        /// SqlDataSource1 control.
+>>>>>>> RecreatieTeam/DaanHeemskerk:ProjectGroenBos/Financien/InkoopAanvraagScherm.aspx.designer.cs
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
+<<<<<<< HEAD:ProjectGroenBos/Recreatie/Klantenoverzichtaanmelding.aspx.designer.cs
         protected global::System.Web.UI.WebControls.Button btnDoorgaan;
 
         /// <summary>
         /// btnAnnuleren control.
+=======
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
+
+        /// <summary>
+        /// rpInkoopOrderAanvragen control.
+>>>>>>> RecreatieTeam/DaanHeemskerk:ProjectGroenBos/Financien/InkoopAanvraagScherm.aspx.designer.cs
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
+<<<<<<< HEAD:ProjectGroenBos/Recreatie/Klantenoverzichtaanmelding.aspx.designer.cs
         protected global::System.Web.UI.WebControls.Button btnAnnuleren;
+=======
+        protected global::System.Web.UI.WebControls.Repeater rpInkoopOrderAanvragen;
+>>>>>>> RecreatieTeam/DaanHeemskerk:ProjectGroenBos/Financien/InkoopAanvraagScherm.aspx.designer.cs
     }
 }
