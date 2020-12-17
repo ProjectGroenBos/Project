@@ -5,6 +5,8 @@
     <script>function openModal(modalnaam) {
             $(modalnaam).modal('show');
         }</script>
+    <div class="header">Aanmelden activiteit</div>
+    <br />
     <asp:Label ID="Label1" runat="server" Text="" BorderStyle="Solid" style="font-size:25px; border-color:rgba(20,143,119,1); padding:5px 5px 5px 5px;"></asp:Label>
     <br />
     <br />
@@ -33,7 +35,7 @@
     <asp:Button ID="BtnVoegtoe" runat="server" CssClass="btnVoegtoemijnaanmelding" Text="Voeg toe" OnClick="BtnVoegtoe_Click"/>
     <asp:Label ID="Label9" runat="server" Text="Naam" CssClass="lblnaammijnaanmelding"></asp:Label>
     <asp:Button ID="Button1" runat="server" CssClass="btnAanmeldenmijnaanmelding" Text="Aanmelden" OnClick="Button1_Click" />
-
+    
     
     <div id="Popup" class="modal fade" role="dialog">
 
@@ -78,5 +80,6 @@
                  </div>
 
              </div>
+    
 
 </asp:Content>

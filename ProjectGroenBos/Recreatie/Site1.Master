@@ -47,7 +47,7 @@
                                 <li><a href="/Recreatie/ActiviteitVerwijderen.aspx">Activiteit Verwijderen</a></li>
                             </ul></li>
                             <li><a href="/Recreatie/Voorraad.aspx">Producten bestellen</a></li>
-                             <li><a href="/Recreatie/Nieuweproductbestellen.aspx">Nieuwe Producten bestellen</a></li>
+                             <li><a href="/Recreatie/Nieuwproductbestellen.aspx">Nieuwe Producten bestellen</a></li>
                         </ul>
                     </li>
                 </ul>
