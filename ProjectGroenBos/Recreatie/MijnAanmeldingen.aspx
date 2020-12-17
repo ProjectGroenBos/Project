@@ -26,7 +26,7 @@
     <asp:Button ID="BtnVoegtoe" runat="server" Text="Voeg toe" OnClick="BtnVoegtoe_Click" />
     <asp:Label ID="Label9" runat="server" Text="Naam"></asp:Label>
     <asp:Button ID="Button1" runat="server" Text="Aanmelden" OnClick="Button1_Click" />
-
+    <asp:Label ID="Label11" runat="server" Text="U bent hier al voor aangemeld" Visible="false" ></asp:Label>
     
     <div id="Popup" class="modal fade" role="dialog">
 
@@ -47,13 +47,6 @@
                              <asp:Label ID="Label10" runat="server" Text="Weet u zeker dat u wilt aanmelden?"></asp:Label>
                           
                              
-                             
-
-                      
-                             
-
-
-                               
                          </div>
 
                          <div class="modal-footer">
@@ -62,6 +55,41 @@
                              <button type="button" class="btn btn-default" data-dismiss="modal">Sluiten</button>
 
 
+
+                         </div>
+
+
+                     </div>
+
+                 </div>
+
+             </div>
+
+    <div id="Popup2" class="modal fade" role="dialog">
+
+                 <div class="modal-dialog">
+
+                     <!-- Modal content-->
+
+                     <div class="modal-content">
+
+                         <div class="modal-header">
+
+                             <h4 class="modal-title">Aanmelden actviteit</h4>
+
+                         </div>
+
+                         <div class="modal-body">
+
+                             <asp:Label ID="Label12" runat="server" Text="U bent hier al voor aangemeld"></asp:Label>
+                          
+                               
+                         </div>
+
+                         <div class="modal-footer">
+
+                             <asp:Button ID="btnTerug" runat="server" Style="max-width: 80%; margin-left: auto; margin-right: auto;" class="btn btn-primary btn-lg btn-block" Text="Terug" OnClick="btnTerug_Click"/>
+                           
 
                          </div>
 

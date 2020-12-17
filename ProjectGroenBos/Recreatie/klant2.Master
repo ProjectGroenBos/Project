@@ -30,7 +30,7 @@
                         <ul class="nav">
                             
                             <li><a href="#">Home</a></li>
-                            <li><a href="#">Aanmelden</a>
+                            <li><a href="/Recreatie/Klantenoverzichtaanmelding.aspx">Aanmelden</a>
                             <ul>
                             <li><a href="/Recreatie/Aanmeldenactiviteitklant2.aspx">Activiteit</a></li>
                             </ul></li>
