@@ -64,6 +64,14 @@
             })
         }
 
+        function Downloadfout() {
+            Swal.fire({
+                icon: 'error',
+                title: 'Er is nog geen pdf toegevoegd aan deze inkoop order.',
+                showConfirmButton: false,
+                timer: 4000
+            })
+        }
 
         function printDiv(divName) {
             var printContents = document.getElementById(divName).innerHTML;
@@ -98,6 +106,12 @@
                 <asp:TemplateField>
                     <ItemTemplate>
                          <asp:Button ID="btnRekeningen" runat="server" OnClick="btnRekeningen_Click" style="background-color: #009879; color: #fff" class="btn"  CommandArgument='<%# Eval("Nummer")%>' Text="Zie Factuur" />
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField ItemStyle-HorizontalAlign="Center" HeaderText="Factuur PDF">
+                    <ItemTemplate>
+                        <asp:LinkButton ID="lnkDownload" runat="server" Text="Download" OnClick="DownloadFile"
+                                        CommandArgument='<%# Eval("Nummer") %>'></asp:LinkButton>
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>

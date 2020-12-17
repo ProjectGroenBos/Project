@@ -16,16 +16,9 @@ namespace ProjectGroenBos.Financien
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            if (int.Parse(Session["Functie"].ToString()) != 2)
+            if (int.Parse(Session["Functie"].ToString()) != 2 || int.Parse(Session["Functie"].ToString()) != 10)
             {
                 Response.Redirect("~/Financien/nietgeautoriseerd.aspx");
-            }
-            else
-            {
-                if (int.Parse(Session["Functie"].ToString()) != 10)
-                {
-                    Response.Redirect("~/Financien/nietgeautoriseerd.aspx");
-                }
             }
 
             if (!IsPostBack)
@@ -117,6 +110,47 @@ namespace ProjectGroenBos.Financien
         {
             string modal = "#modal2" + ((Button)sender).CommandArgument;
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal('" + modal + "');", true);
+        }
+
+        protected void DownloadFile(object sender, EventArgs e)
+        {
+            try
+            {
+                int id = int.Parse((sender as LinkButton).CommandArgument);
+                byte[] bytes;
+                string fileName, contentType;
+                using (SqlConnection con = new SqlConnection(constr))
+                {
+                    using (SqlCommand cmd = new SqlCommand())
+                    {
+                        cmd.CommandText = "select Naam, Data, ContentType from Crediteurenfactuur where InkooporderID=@Id";
+                        cmd.Parameters.AddWithValue("@Id", id);
+                        cmd.Connection = con;
+                        con.Open();
+                        using (SqlDataReader sdr = cmd.ExecuteReader())
+                        {
+                            sdr.Read();
+                            bytes = (byte[])sdr["Data"];
+                            contentType = sdr["ContentType"].ToString();
+                            fileName = sdr["Naam"].ToString();
+                        }
+                        con.Close();
+                    }
+                }
+                Response.Clear();
+                Response.Buffer = true;
+                Response.Charset = "";
+                Response.Cache.SetCacheability(HttpCacheability.NoCache);
+                Response.ContentType = contentType;
+                Response.AppendHeader("Content-Disposition", "attachment; filename=" + fileName);
+                Response.BinaryWrite(bytes);
+                Response.Flush();
+                Response.End();
+            }
+            catch
+            {
+                ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "Downloadfout();", true);
+            }
         }
     }
 }
