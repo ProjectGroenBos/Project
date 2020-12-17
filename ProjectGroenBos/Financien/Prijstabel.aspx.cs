@@ -14,18 +14,22 @@ namespace ProjectGroenBos.Financien
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            string func = Session["Functie"].ToString();
-            if (int.Parse(Session["Functie"].ToString()) != 2)
+            if (int.Parse(Session["Functie"].ToString()) != 4)
             {
                 gvSeizoenen.Columns[4].Visible = false;
                 gvFeesdagen.Columns[5].Visible = false;
                 gvBungalow.Columns[4].Visible = false;
                 gvSeizoentoeslag.Columns[6].Visible = false;
             }
-
             else
             {
-                
+                if (int.Parse(Session["Functie"].ToString()) != 10)
+                {
+                    gvSeizoenen.Columns[4].Visible = false;
+                    gvFeesdagen.Columns[5].Visible = false;
+                    gvBungalow.Columns[4].Visible = false;
+                    gvSeizoentoeslag.Columns[6].Visible = false;
+                }
             }
         }
     }

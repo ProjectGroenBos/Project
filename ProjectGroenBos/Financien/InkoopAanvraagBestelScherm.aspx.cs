@@ -17,7 +17,14 @@ namespace ProjectGroenBos.Financien
         {
             if (int.Parse(Session["Functie"].ToString()) != 4)
             {
-                Response.Redirect("Home.aspx");
+                Response.Redirect("~/Financien/nietgeautoriseerd.aspx");
+            }
+            else
+            {
+                if (int.Parse(Session["Functie"].ToString()) != 10)
+                {
+                    Response.Redirect("~/Financien/nietgeautoriseerd.aspx");
+                }
             }
 
             if (!IsPostBack)
