@@ -37,13 +37,16 @@
                             <ul class="submenu">
                                 <li><a href="GastAanmaken.aspx">Aanmaken</a></li>
                                 <li><a href="Klantoverzicht.aspx">Overzicht</a></li>
-                               
+
 
                             </ul>
                             <li><a href="#"><i class="fas fa-user"></i>Klachten</a>
                                 <ul class="submenu">
                                     <li><a href="KlachtenAfhandeling.aspx">Klacht afhandeling</a></li>
                                 </ul>
+
+                                <li><a href="NachtregisterOverzicht.aspx"><i class="fas fa-user"></i>Nachtregister</a></li>
+
                             </li>
                     <%--<li><a href="#"><i class="fas fa-user"></i>Optie</a>
                             <ul class="submenu">
@@ -63,18 +66,18 @@
                 </div>
             </div>
             <div class="main_content">
-               <div class="navigator">
-                        <nav>
-                            <ul>
-                                <li><a href="#">Home</a></li>
-                                <li><a href="/Recreatie/Overzicht.aspx">Recreatie</a></li>
-                                <li><a href="/Restaurant/home.aspx">Restaurant</a></li>
-                                <li class="selected"><a href="/Reservering/home.aspx">Reserveringen & Balie</a></li>
-                                <li><a href="/Financien/Home.aspx">Financiën</a></li>
-                                <li><a href="/Schoonmaak en Onderhoud/InventarisOverzicht.aspx">Schoonmaak</a></li>
-                                <asp:Button ID="btnUitloggen" runat="server" CssClass="btnUitloggen" Text="Uitloggen" />
-                            </ul>
-                        </nav>
+                <div class="navigator">
+                    <nav>
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="/Recreatie/Overzicht.aspx">Recreatie</a></li>
+                            <li><a href="/Restaurant/home.aspx">Restaurant</a></li>
+                            <li class="selected"><a href="/Reservering/home.aspx">Reserveringen & Balie</a></li>
+                            <li><a href="/Financien/Home.aspx">Financiën</a></li>
+                            <li><a href="/Schoonmaak en Onderhoud/InventarisOverzicht.aspx">Schoonmaak</a></li>
+                            <asp:Button ID="btnUitloggen" runat="server" CssClass="btnUitloggen" Text="Uitloggen" />
+                        </ul>
+                    </nav>
                 </div>
                 <div class="werkgebied">
                     <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
