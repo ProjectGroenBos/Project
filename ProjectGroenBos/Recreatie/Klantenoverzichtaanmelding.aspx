@@ -8,7 +8,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="header">Aanmelding Annuleren</div>
 
-   <asp:GridView ID="gvAanmeldingAnnuleren" runat="server" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" CssClass="content-table2" DataKeyNames="GastNummer,ActiviteitNummer" ForeColor="#333333" GridLines="None" ShowFooter="True" DataSourceID="SqlDataSource1" >
+   <asp:GridView ID="gvAanmeldingAnnuleren" runat="server" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" CssClass="content-table" DataKeyNames="GastNummer,ActiviteitNummer" ForeColor="#333333" GridLines="None" ShowFooter="True" DataSourceID="SqlDataSource1" HeaderStyle-ForeColor="White">
          <Columns>
 
              <asp:BoundField DataField="GastNummer" HeaderText="GastNummer" ReadOnly="True" SortExpression="GastNummer" />
