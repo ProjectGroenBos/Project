@@ -18,16 +18,13 @@
     <asp:GridView ID="GvActiviteitInplannen" runat="server" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" CssClass="content-table2" DataKeyNames="Nummer" ForeColor="#333333" GridLines="None" ShowFooter="True" ShowHeaderWhenEmpty="True" Width="80%" OnRowCancelingEdit="GvActiviteitInplannen_RowCancelingEdit" OnRowCommand="GvActiviteitInplannen_RowCommand" OnRowDeleting="GvActiviteitInplannen_RowDeleting" OnRowEditing="GvActiviteitInplannen_RowEditing" OnRowUpdating="GvActiviteitInplannen_RowUpdating" OnSelectedIndexChanged="GvActiviteitInplannen_SelectedIndexChanged" OnSorting="OnSorting" AllowPaging="True" OnPageIndexChanged="GvActiviteitInplannen_PageIndexChanged" OnPageIndexChanging="GvActiviteitInplannen_PageIndexChanging" >
         <Columns>
             <asp:BoundField DataField="Nummer" HeaderText="Nummer" HeaderStyle-ForeColor="White"  ReadOnly="True" SortExpression="Nummer"  />
-            <asp:BoundField DataField="Activiteitnaam" HeaderText="Activiteitnaam" HeaderStyle-ForeColor="White"  SortExpression="Activiteitnaam" />
-            <asp:BoundField DataField="Locatie" HeaderText="Locatie" HeaderStyle-ForeColor="White"  SortExpression="Locatie" />
-            <asp:BoundField DataField="Inschrijfkosten" HeaderText="Inschrijfkosten" HeaderStyle-ForeColor="White"  SortExpression="Inschrijfkosten" />
-            <asp:BoundField DataField="Maximaal aantal" HeaderText="Maximaal Aantal" HeaderStyle-ForeColor="White" SortExpression="Maximaalaantal" />
-            <asp:BoundField DataField="Omschrijving" HeaderText="Omschrijving" HeaderStyle-ForeColor="White"  SortExpression="Omschrijving" />
-            <asp:BoundField DataField="Datum" HeaderText="Datum" HeaderStyle-ForeColor="White"  ReadOnly="True" SortExpression="Datum" />
-            <asp:BoundField DataField="Begintijd" HeaderText="Begintijd" HeaderStyle-ForeColor="White"  ReadOnly="True" SortExpression="Begintijd" />
-            <asp:BoundField DataField="Eindtijd" HeaderText="Eindtijd" HeaderStyle-ForeColor="White"  ReadOnly="True" SortExpression="Eindtijd" />
-            <asp:BoundField DataField="Naam" HeaderText="Naam" HeaderStyle-ForeColor="White"  SortExpression="Naam" />
-            <asp:BoundField DataField="MedewerkerID" HeaderText="MedewerkerID" HeaderStyle-ForeColor="White"  SortExpression="MedewerkerID" />
+            <asp:BoundField DataField="Activiteitnaam" HeaderText="Activiteitnaam" HeaderStyle-ForeColor="White"  SortExpression="Activiteitnaam" /> 
+            
+            <asp:TemplateField HeaderText="Opmerking">
+               <ItemTemplate>
+                 <asp:TextBox ID="tbOpmerking" runat="server" Width =" 100%" ></asp:TextBox>
+               </ItemTemplate>
+            </asp:TemplateField>
         </Columns>
 
      </asp:GridView>

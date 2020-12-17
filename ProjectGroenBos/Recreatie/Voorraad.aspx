@@ -30,8 +30,7 @@
 
 
                 <asp:TemplateField HeaderText="Artikelnaam | Omschrijving " SortExpression="Artikelnaam" HeaderStyle-ForeColor="White">  
-                    <ItemTemplate>
-                        <asp:Label Text='<%# Eval("Artikelnaam") %>' runat="server" />
+                    <ItemTemplate>                        <asp:Label Text='<%# Eval("Artikelnaam") %>' runat="server" />
                     </ItemTemplate>
                 </asp:TemplateField>
 
