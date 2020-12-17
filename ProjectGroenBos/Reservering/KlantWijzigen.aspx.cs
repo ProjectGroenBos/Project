@@ -48,6 +48,26 @@ namespace ProjectGroenBos.Reservering
         protected void btnWijzigen_Click(object sender, EventArgs e)
         {
 
+            string gast = lblGastnummer.Text;
+            string voornaam = txbVoornaam.Text;
+            string tussenvoegsel = txbTussenvoegsel.Text;
+            string achternaam = txbAchternaam.Text;
+            DateTime tussen = new DateTime();
+            tussen = Convert.ToDateTime(txbGeboortedatum.Text);
+            tussen.ToShortDateString();
+            string IBAN = txbIBAN.Text;
+
+            string email = txbEmail.Text;
+            string telefoonnummer = txbTelefoonnummer.Text;
+
+            string straatnaam = txbStraatnaam.Text;
+            string huisnummer = txbHuisnummer.Text;
+            string postcode = txbPostcode.Text;
+            string woonplaats = txbWoonplaats.Text;
+
+
+
+          
         }
 
 
