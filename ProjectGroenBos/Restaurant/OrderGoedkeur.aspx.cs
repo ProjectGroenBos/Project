@@ -35,7 +35,7 @@ namespace ProjectGroenBos.Restaurant
             using (SqlConnection sqlCon = new SqlConnection(connectionString))
             {
                 sqlCon.Open();
-                SqlDataAdapter sqlDa = new SqlDataAdapter("select * from VoedselRestaurantInkoopOrder;", sqlCon);
+                SqlDataAdapter sqlDa = new SqlDataAdapter("SELECT * FROM  VoedselRestaurantInkoopOrder LEFT JOIN Leverancier ON VoedselRestaurantInkoopOrder.LeverancierID = Leverancier.ID; ", sqlCon);
                 sqlDa.Fill(dtbl);
                 Session["vLE"] = dtbl;
             }

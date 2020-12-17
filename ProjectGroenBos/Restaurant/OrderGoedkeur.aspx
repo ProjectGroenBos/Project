@@ -46,7 +46,7 @@
 
                     <asp:TemplateField HeaderText="Leverancier">
                         <ItemTemplate>
-                            <asp:Label Text='<%# Eval("LeverancierID") %>' runat="server" />
+                            <asp:Label Text='<%# Eval("Naam") %>' runat="server" />
                         </ItemTemplate>
                     </asp:TemplateField>
                 
