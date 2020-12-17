@@ -127,7 +127,10 @@
 
             </div>
 
-        <asp:Button class="reserveerknop" ID="btnReserveer" runat="server" placeholder="" Text="Reserveer" OnClick="btnReserveer_Click"></asp:Button>
+            <asp:Button class="reserveerknop" ID="btnReserveer" runat="server" placeholder="" Text="Reserveer" OnClick="btnReserveer_Click"></asp:Button>
 
+        </div>
+        <asp:Label CssClass="form-control" ID="lblGelukt"
+            runat="server" placeholder=""></asp:Label>
     </div>
 </asp:Content>

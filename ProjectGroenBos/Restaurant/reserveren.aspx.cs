@@ -28,10 +28,29 @@ namespace ProjectGroenBos.Restaurant
 
         protected void btnReserveer_Click(object sender, EventArgs e)
         {
+            //Gereserveerd op datum van vandaag.
+            DateTime datee = DateTime.Now;
+            string Datumm = datee.ToString("yyyy-MM-dd HH:mm:ss");
 
             DateTime dt = DateTime.Parse(txtTijd.Text);
             //int Aantal = int.Parse(ddlAantal.SelectedValue);
 
+
+            DateTime date = DateTime.Parse(txtDatum.Text);
+            string Datum = date.ToString("yyyy-MM-dd HH:mm:ss");
+
+
+
+            DateTime datecompare = date.Add(DateTime.Now.TimeOfDay);
+            int value = DateTime.Compare(datecompare, DateTime.Now);
+            if (value < 0)
+            {
+                lblOutput.Text = "U kunt niet in het verleden reserveren";
+                return;
+            }
+        
+
+           
 
 
 
@@ -58,6 +77,8 @@ namespace ProjectGroenBos.Restaurant
 
             com.ExecuteNonQuery();
             sqlcon.Close(); ;
+
+            lblGelukt.Text = "Reservering is geslaagd";
 
         }
 

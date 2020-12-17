@@ -6,42 +6,53 @@
 <head runat="server">
     <title>Groenbos</title>
     <link rel="stylesheet" href="css/style.css">
+
+    <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">-->
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
-
+        <!--<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>-->
         <div class="wrapper">
             <div class="sidebar">
                 <h2>
                     <img src="img/Logo4.png" alt="Logo" height="150"></h2>
                 <h3>RESTAURANT</h3>
                 <ul>
-                    <li><a href="tafeloverzicht.aspx">Bestelling opnemen</a></li>
-                    <li><a href="#"><i class="fas fa-user"></i>Bestellingen</a>
+                    <li><a href="# "><i class="fas fa-home"></i>Home</a></li>
+                    <li><a href="tafeloverzicht.aspx"><i class="fas fa-user"></i>Tafeloverzicht</a>
                         <ul class="submenu">
-                            <li><a href="Bestellingenoverzicht.aspx">Bestellingen overzicht</a></li>
-                            <li><a href="#">Dranken overzicht</a></li>
-                            <li><a href="#">Gerechten overzicht</a></li>
+
+                            <li><a href="# ">#</a></li>
+                            <li><a href="# ">#</a></li>
+                            <li><a href="#">#</a></li>
+                            <li><a href="# "># </a></li>
                         </ul>
                     </li>
-                    <li><a href="#"><i class="fas fa-user"></i>Keuken</a>
+                    <li><a href="Voorraad.aspx"><i class="fas fa-address-card"></i>Voorraad</a>
                         <ul class="submenu">
-                            <li><a href="Keukenoverzicht.aspx">Keukenscherm</a></li>
+                            <li><a href="# "># </a></li>
+                            <li><a href="# ">#</a></li>
+                            <li><a href="# "># </a></li>
                         </ul>
                     </li>
-                    <li><a href="reserveren.aspx">Reserveren</a></li>
-                    <li><a href="VoorraadZien.aspx">Voorraad</a></li>
-                    <li><a href="#"><i class="fas fa-user"></i>Bestellen</a>
+                    <li><a href="#"><i class="fas fa-project-diagram"></i>Inkoop</a>
                         <ul class="submenu">
-                        <li><a href="Voorraad.aspx">Voorraad Muteren</a></li>
-                        <li><a href="BestellenFood.aspx">Bestellen Food</a></li>
-                        <li><a href="3">Bestellen Non-Food</a></li>
-                        <li><a href="OrderGoedkeur.aspx">Order</a></li>
+                            <li><a href="# "># </a></li>
+                            <li><a href="# "># </a></li>
+                            <li><a href="# ">#</a></li>
                         </ul>
                     </li>
                 </ul>
+
                 <div class="terug">
                     <a href="#">&#8249; Terug naar home</a>
                 </div>
@@ -51,7 +62,7 @@
                     <nav>
                         <ul>
                             <li><a href="index.html">Home</a></li>
-                            <li class="selected"><a href="#">Restaurant</a></li>
+                            <li class="selected"><a href="#">Restraurant</a></li>
                             <li><a href="#">Reserveringen</a></li>
                             <li><a href="#">Recreatie</a></li>
                             <li><a href="#">Schoonmaak</a></li>
