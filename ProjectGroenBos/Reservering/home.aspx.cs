@@ -39,14 +39,7 @@ namespace ProjectGroenBos.Reservering
             {
                 lblVertrekkend.Text = "Vandaag gaan er geen gasten vertrekken.";
             }
-            if (GridView1.Rows.Count == 0)
-            {
-                lblReserveringen.Text = "Er zijn geen reserveringen gemaakt.";
-            }
-            if (GridView2.Rows.Count == 0)
-            {
-                lblGasten.Text = "Er zijn geen gasten aangemaakt.";
-            }
+            
         }
 
         

@@ -29,7 +29,7 @@ namespace ProjectGroenBos.Reservering
                 txbTussenvoegsel.Text = (string)GridView1.DataKeys[0]["Tussenvoegsel"].ToString();
                 txbAchternaam.Text = (string)GridView1.DataKeys[0]["Achternaam"].ToString();
                 txbGeboortedatum.Text = (string)GridView1.DataKeys[0]["Achternaam"].ToString();
-                txbIBAN.Text = (string)GridView1.DataKeys[0]["Achternaam"].ToString();
+                txbIBAN.Text = (string)GridView1.DataKeys[0]["IBAN"].ToString();
 
 
                 txbEmail.Text = (string)GridView1.DataKeys[0]["Email"].ToString();
