@@ -5,27 +5,34 @@
     <script>function openModal(modalnaam) {
             $(modalnaam).modal('show');
         }</script>
-    <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
+    <asp:Label ID="Label1" runat="server" Text="" BorderStyle="Solid" style="font-size:25px; border-color:rgba(20,143,119,1); padding:5px 5px 5px 5px;"></asp:Label>
+    <br />
     <br />
     <asp:Label ID="Label2" runat="server" Text="Locatie: "></asp:Label>
     <br />
+    <br />
     <asp:Label ID="Label3" runat="server" Text="Inschrijfkosten: "></asp:Label>
+    <br />
     <br />
     <asp:Label ID="Label4" runat="server" Text="Maximaal Aantal: "></asp:Label>
     <br />
+    <br />
     <asp:Label ID="Label5" runat="server" Text="Omschrijving: "></asp:Label>
+    <br />
     <br />
     <asp:Label ID="Label6" runat="server" Text="Datum: "></asp:Label>
     <br />
+    <br />
     <asp:Label ID="Label7" runat="server" Text="Begintijd: "></asp:Label>
+    <br />
     <br />
     <asp:Label ID="Label8" runat="server" Text="Eindtijd: "></asp:Label>
     
-    <asp:TextBox ID="Txbnamen" runat="server" OnTextChanged="Txbnamen_TextChanged"></asp:TextBox>
-    <asp:GridView ID="GridView1" runat="server"></asp:GridView>
-    <asp:Button ID="BtnVoegtoe" runat="server" Text="Voeg toe" OnClick="BtnVoegtoe_Click" />
-    <asp:Label ID="Label9" runat="server" Text="Naam"></asp:Label>
-    <asp:Button ID="Button1" runat="server" Text="Aanmelden" OnClick="Button1_Click" />
+    <asp:TextBox ID="Txbnamen" runat="server" OnTextChanged="Txbnamen_TextChanged" CssClass="txbnamenmijnaanmelding"></asp:TextBox>
+    <asp:GridView ID="GridView1" runat="server" CssClass="content-table2"></asp:GridView>
+    <asp:Button ID="BtnVoegtoe" runat="server" CssClass="btnVoegtoemijnaanmelding" Text="Voeg toe" OnClick="BtnVoegtoe_Click"/>
+    <asp:Label ID="Label9" runat="server" Text="Naam" CssClass="lblnaammijnaanmelding"></asp:Label>
+    <asp:Button ID="Button1" runat="server" CssClass="btnAanmeldenmijnaanmelding" Text="Aanmelden" OnClick="Button1_Click" />
 
     
     <div id="Popup" class="modal fade" role="dialog">

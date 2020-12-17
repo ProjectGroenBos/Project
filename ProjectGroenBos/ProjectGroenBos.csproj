@@ -80,7 +80,7 @@
     <Content Include="Recreatie\ActiviteitOverzicht.aspx" />
     <Content Include="Recreatie\ActiviteitVerwijderen.aspx" />
     <Content Include="Recreatie\ActiviteitWijzigen.aspx" />
-    <Content Include="Recreatie\CSS\klanten.css" />
+    <Content Include="Recreatie\CSS\klantenpaginas.css" />
     <Content Include="Recreatie\CSS\klantwebsite.css" />
     <Content Include="Recreatie\CSS\stylerecreatiedieweljuistis.css" />
     <Content Include="Recreatie\img\ascArrow.png" />
