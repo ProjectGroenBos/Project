@@ -5,7 +5,7 @@
      <script>function openModal(modalnaam) {
              $(modalnaam).modal('show');
          }</script>
-    <div class="header">Aanmelden voor activiteit</div>
+    <div class="header">Overzicht Activiteiten</div>
      <br />
     <asp:GridView ID="GvAanmeldenActiviteit" runat="server" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" CssClass="content-table" DataKeyNames="Nummer" ForeColor="#333333" GridLines="None" ShowFooter="True" ShowHeaderWhenEmpty="True" Width="80%" AllowPaging="True" OnPageIndexChanged="GvAanmeldenActiviteit_PageIndexChanged" OnPageIndexChanging="GvAanmeldenActiviteit_PageIndexChanging" OnRowCancelingEdit="GvAanmeldenActiviteit_RowCancelingEdit" OnRowCommand="GvAanmeldenActiviteit_RowCommand" OnRowDeleting="GvAanmeldenActiviteit_RowDeleting" OnRowEditing="GvAanmeldenActiviteit_RowEditing" OnSelectedIndexChanged="GvAanmeldenActiviteit_SelectedIndexChanged" OnSelectedIndexChanging="GvAanmeldenActiviteit_SelectedIndexChanging" OnSorting="GvAanmeldenActiviteit_Sorting">
         <Columns>

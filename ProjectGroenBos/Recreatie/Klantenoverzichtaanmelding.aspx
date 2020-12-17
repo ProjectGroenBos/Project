@@ -8,7 +8,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="header">Overzicht Mijn Aanmeldingen</div>
 
-   <asp:GridView ID="gvAanmeldingAnnuleren" runat="server" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" CssClass="content-table2" DataKeyNames="GastNummer,ActiviteitNummer" ForeColor="#333333" GridLines="None" ShowFooter="True" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="gvAanmeldingAnnuleren_SelectedIndexChanged" >
+   <asp:GridView ID="gvAanmeldingAnnuleren" runat="server" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" CssClass="content-table" DataKeyNames="GastNummer,ActiviteitNummer" ForeColor="#333333" GridLines="None" ShowFooter="True" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="gvAanmeldingAnnuleren_SelectedIndexChanged" HeaderStyle-ForeColor="White" >
          <Columns>
              <asp:BoundField DataField="GastNummer" HeaderText="GastNummer" ReadOnly="True" SortExpression="GastNummer" Visible="False" />
              <asp:BoundField DataField="Nummer" HeaderText="Nummer" SortExpression="Nummer" />
@@ -19,7 +19,7 @@
              <asp:BoundField DataField="Begeleider" HeaderText="Begeleider" SortExpression="Begeleider" />
              <asp:BoundField DataField="Inschrijfkosten" HeaderText="Inschrijfkosten" SortExpression="Inschrijfkosten" />
              <asp:BoundField DataField="ActiviteitNummer" HeaderText="ActiviteitNummer" ReadOnly="True" SortExpression="ActiviteitNummer" Visible="False" />
-             <asp:CommandField ShowSelectButton="True" />
+             <asp:CommandField ShowSelectButton="True" ItemStyle-ForeColor="White" />
          </Columns>
     </asp:GridView>
 

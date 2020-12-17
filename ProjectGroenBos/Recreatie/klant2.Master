@@ -21,13 +21,13 @@
         <div class="wrapper">
 
         <div class="banner">
-            <asp:Image ID="Image2" runat="server" ImageUrl="~/Recreatie/img/Logo12.png" Width="40%" Height="250px" />
+            <asp:Image ID="Image2" runat="server" ImageUrl="~/Recreatie/img/Logo12.png" Width="20%" Height="150px" />
             </div>
            
             
                 <div class="navigator">
                     
-                        <ul>
+                        <ul class="nav">
                             
                             <li><a href="#">Home</a></li>
                             <li><a href="/Recreatie/Klantenoverzichtaanmelding.aspx">Aanmelden</a>
