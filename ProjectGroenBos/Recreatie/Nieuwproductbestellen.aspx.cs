@@ -118,7 +118,7 @@ namespace ProjectGroenBos.Recreatie
         }
         protected void btnDoorgaan_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("ProductBestellenMebu.aspx");
         }
 
         protected void gvNieuwenProductenaanvragen_SelectedIndexChanged1(object sender, EventArgs e)

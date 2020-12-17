@@ -71,6 +71,7 @@
   <ItemGroup>
     <Content Include="Financien\css\main.css" />
     <Content Include="Financien\Home.aspx" />
+    <Content Include="Financien\Inlogscherm.aspx" />
     <Content Include="Financien\Prijstabel.aspx" />
     <Content Include="Gerechten overzicht.aspx" />
     <Content Include="Global.asax" />
@@ -91,6 +92,7 @@
     <Content Include="Recreatie\InlogschermKlanten.aspx" />
     <Content Include="Recreatie\Klantenoverzichtaanmelding.aspx" />
     <Content Include="Recreatie\MijnAanmeldingen.aspx" />
+    <Content Include="Recreatie\Nieuwproductbestellen.aspx" />
     <Content Include="Recreatie\ProductPagina.aspx" />
     <Content Include="Recreatie\ProductPaginaInzien.aspx" />
     <Content Include="Recreatie\Voorraad.aspx" />
@@ -395,6 +397,13 @@
     <Compile Include="Financien\Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Financien\Inlogscherm.aspx.cs">
+      <DependentUpon>Inlogscherm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Financien\Inlogscherm.aspx.designer.cs">
+      <DependentUpon>Inlogscherm.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Financien\Prijstabel.aspx.cs">
       <DependentUpon>Prijstabel.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -489,6 +498,13 @@
     </Compile>
     <Compile Include="Recreatie\MijnAanmeldingen.aspx.designer.cs">
       <DependentUpon>MijnAanmeldingen.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Recreatie\Nieuwproductbestellen.aspx.cs">
+      <DependentUpon>Nieuwproductbestellen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Recreatie\Nieuwproductbestellen.aspx.designer.cs">
+      <DependentUpon>Nieuwproductbestellen.aspx</DependentUpon>
     </Compile>
     <Compile Include="Recreatie\ProductPagina.aspx.cs">
       <DependentUpon>ProductPagina.aspx</DependentUpon>
