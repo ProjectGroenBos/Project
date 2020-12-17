@@ -194,6 +194,12 @@ FROM reserveringengv WHERE ReserveringsstatusID != 5 AND ReserveringsstatusID !=
                                 <asp:HiddenField ID="Emailgast" runat="server"
                                     Value='<%# Eval("Email") %>' />
 
+                                <asp:HiddenField ID="Betaald" runat="server"
+                                    Value='<%# Eval("Totaal") %>' />
+
+                                <asp:HiddenField ID="Nogbetalen" runat="server"
+                                    Value='<%# Eval("Nogtebetalen") %>' />
+
                                 <asp:SqlDataSource ID="SqlDataSource7" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="select ('Bungalow Type ' + Code) AS 'Naam', Prijs, Naam AS 'Periode',  Seizoen, 1 AS 'Aantal', Prijs AS 'Totaal' from ReserveringHuis where Nummer = @Nummer
                                 union
                                 select Naam, Prijs, Periode, Seizoen, Aantal, (Prijs * Aantal) AS 'Totaal' from ReserveringWens where Nummer = @Nummer
