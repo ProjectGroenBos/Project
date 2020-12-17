@@ -45,68 +45,58 @@ namespace ProjectGroenBos.Recreatie
 
         void InvullenGridview(string sortExpression = null)
         {
-            //DataTable dtbl = new DataTable();
-            //using (SqlConnection sqlCon = new SqlConnection(connectionstring))
-            //{
-            //    sqlCon.Open();
-            //    SqlDataAdapter sqlDa = new SqlDataAdapter("SELECT * FROM vAanmeldingen", sqlCon);
-            //    sqlDa.Fill(dtbl);
-            //    Session["vaDB"] = dtbl;
-            //}
-            //if (dtbl.Rows.Count > 0)
-            //{
-            //    if (sortExpression != null)
-            //    {
-            //        DataView dv = dtbl.AsDataView();
-            //        this.SortDirection = this.SortDirection == "ASC" ? "DESC" : "ASC";
+            DataTable dtbl = new DataTable();
+            using (SqlConnection sqlCon = new SqlConnection(connectionstring))
+            {
+                sqlCon.Open();
+                SqlDataAdapter sqlDa = new SqlDataAdapter("SELECT * FROM vAanmeldingen", sqlCon);
+                sqlDa.Fill(dtbl);
+                Session["vaDB"] = dtbl;
+            }
+            if (dtbl.Rows.Count > 0)
+            {
+                if (sortExpression != null)
+                {
+                    DataView dv = dtbl.AsDataView();
+                    this.SortDirection = this.SortDirection == "ASC" ? "DESC" : "ASC";
 
-            //        dv.Sort = sortExpression + " " + this.SortDirection;
-            //        gvAanmeldingAnnuleren.DataSource = dv;
-            //    }
-            //    else
-            //    {
-            //        gvAanmeldingAnnuleren.DataSource = dtbl;
-            //    }
+                    dv.Sort = sortExpression + " " + this.SortDirection;
+                    gvAanmeldingAnnuleren.DataSource = dv;
+                }
+                else
+                {
+                    gvAanmeldingAnnuleren.DataSource = dtbl;
+                }
 
-            //    gvAanmeldingAnnuleren.DataBind();
-            //}
+                gvAanmeldingAnnuleren.DataBind();
+            }
         }
 
         protected void BtnDoorgaan_Click1(object sender, EventArgs e)
         {
-            GridViewRow row = this.gvAanmeldingAnnuleren.SelectedRow;
             DataTable dtbl = new DataTable();
+            string rowIndex = gvAanmeldingAnnuleren.SelectedRow.Cells[1].Text;
+
             using (SqlConnection Sqlcon = new SqlConnection(connectionstring))
             {
 
                 Sqlcon.Open();
 
                 SqlDataAdapter ada = new SqlDataAdapter();
-
-                int index2 = Convert.ToInt32(gvAanmeldingAnnuleren.DataKeys[row.RowIndex].Value);
-
-
-                string sql = "UPDATE dbo.Aanmelding SET Status = 3 WHERE Nummer = @Nummer";
-
+                int index2 = int.Parse(rowIndex);
+                string sql = "UPDATE dbo.Aanmelding SET Status = 0 WHERE Nummer = @Nummer";
                 SqlCommand command = new SqlCommand(sql, Sqlcon);
-
                 command.Parameters.AddWithValue("@Nummer", Convert.ToInt32(index2));
-
                 command.ExecuteNonQuery();
-
-                //gvActiviteitVerwijderen.DataBind();
-
                 command.Dispose();
-
-                SqlDataAdapter sqlDa = new SqlDataAdapter("SELECT * FROM vAanmeldingen", Sqlcon);
+                gvAanmeldingAnnuleren.DataBind();
+                SqlDataAdapter sqlDa = new SqlDataAdapter("SELECT * FROM vActiviteit WHERE ActiviteitActief = 1", Sqlcon);
                 sqlDa.Fill(dtbl);
                 //gvActiviteitVerwijderen.DataSource = dtbl;
 
 
                 Sqlcon.Close();
                 gvAanmeldingAnnuleren.DataBind();
-
-
             }
         }
 

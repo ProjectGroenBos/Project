@@ -18,7 +18,6 @@ namespace ProjectGroenBos.Recreatie
         
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session.Clear();
             connetionString = "Data Source=SQL.BIM.OSOX.NL;Initial Catalog=2020-BIM02-P1-P2-Groenbos;User ID=BIM022020;Password=BiM@IH2020";
             
             cnn = new SqlConnection(connetionString);
@@ -53,12 +52,10 @@ namespace ProjectGroenBos.Recreatie
                 SqlDataReader dr = cmdSchedule.ExecuteReader();
                 string resulaat = dr.Read().ToString();
 
-                Label3.Text = dr["Email"].ToString();
-                Session["GastNummer"] = dr["GastNummer"].ToString();
-
                 if (dr["Email"].ToString() == Email && dr["Wachtwoord"].ToString() == password)
                 {
                     //Label3.Text = "in";
+                    Session["GastNummer"] = dr["GastNummer"].ToString();
                     Response.Redirect("Aanmeldenactiviteitklant2.aspx");
 
                 }

@@ -10,7 +10,7 @@
 
    <asp:GridView ID="gvAanmeldingAnnuleren" runat="server" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" CssClass="content-table2" DataKeyNames="GastNummer,ActiviteitNummer" ForeColor="#333333" GridLines="None" ShowFooter="True" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="gvAanmeldingAnnuleren_SelectedIndexChanged" >
          <Columns>
-             <asp:BoundField DataField="GastNummer" HeaderText="GastNummer" ReadOnly="True" SortExpression="GastNummer" />
+             <asp:BoundField DataField="GastNummer" HeaderText="GastNummer" ReadOnly="True" SortExpression="GastNummer" Visible="False" />
              <asp:BoundField DataField="Nummer" HeaderText="Nummer" SortExpression="Nummer" />
              <asp:BoundField DataField="Naam" HeaderText="Naam" SortExpression="Naam" />
              <asp:BoundField DataField="Datum" HeaderText="Datum" SortExpression="Datum" />
@@ -18,15 +18,18 @@
              <asp:BoundField DataField="Eindtijd" HeaderText="Eindtijd" SortExpression="Eindtijd" />
              <asp:BoundField DataField="Begeleider" HeaderText="Begeleider" SortExpression="Begeleider" />
              <asp:BoundField DataField="Inschrijfkosten" HeaderText="Inschrijfkosten" SortExpression="Inschrijfkosten" />
-             <asp:BoundField DataField="ActiviteitNummer" HeaderText="ActiviteitNummer" ReadOnly="True" SortExpression="ActiviteitNummer" />
+             <asp:BoundField DataField="ActiviteitNummer" HeaderText="ActiviteitNummer" ReadOnly="True" SortExpression="ActiviteitNummer" Visible="False" />
              <asp:CommandField ShowSelectButton="True" />
          </Columns>
     </asp:GridView>
 
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT * FROM [vAanmeldingen] WHERE ([GastNummer] = @GastNummer)">
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT * FROM [vAanmeldingen] WHERE ([GastNummer] = @GastNummer) AND Status = 1" UpdateCommand="UPDATE Aanmelding SET Status = 0 WHERE (Nummer = @Nummer)">
         <SelectParameters>
             <asp:SessionParameter Name="GastNummer" SessionField="GastNummer" Type="Int32" />
         </SelectParameters>
+        <UpdateParameters>
+            <asp:Parameter Name="Nummer" />
+        </UpdateParameters>
     </asp:SqlDataSource>
 
     <div id="Popup" class="modal fade" role="dialog">
