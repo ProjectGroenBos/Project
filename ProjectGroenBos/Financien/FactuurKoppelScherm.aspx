@@ -251,7 +251,7 @@ SELECT 'Alle Afdelingen' AS [Naam]"></asp:SqlDataSource>
                                 <asp:FileUpload Style="margin-left: auto; margin-right: auto" ID="FileUpload1" runat="server" accept=".pdf" />
                             </div>
 
-                            <asp:Button ID="btnUpload" OnClick="Upload" CommandName='<%# Container.ItemIndex %>' CommandArgument='<%# Eval("Nummer") %>' Style="max-width: 80%; margin-left: auto; margin-right: auto; margin-top: 20px" CssClass="btn btn-success btn-lg btn-block" runat="server" Text="Bestellen" />
+                            <asp:Button ID="btnUpload" OnClick="Upload" CommandName='<%# Container.ItemIndex %>' CommandArgument='<%# Eval("Nummer") %>' Style="max-width: 80%; margin-left: auto; margin-right: auto; margin-top: 20px" CssClass="btn btn-success btn-lg btn-block" runat="server" Text="Koppelen" />
 
                         </div>
 

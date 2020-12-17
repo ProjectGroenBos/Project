@@ -132,7 +132,7 @@ namespace ProjectGroenBos.Financien
                 {
                     using (SqlCommand cmd = new SqlCommand())
                     {
-                        cmd.CommandText = "select Naam, Data, ContentType from Crediteurenfactuur where InkooporderID=@Id";
+                        cmd.CommandText = "select Naam, Data, ContentType from Crediteurenfactuur where Nummer=@Id";
                         cmd.Parameters.AddWithValue("@Id", id);
                         cmd.Connection = con;
                         con.Open();

@@ -110,8 +110,8 @@
                 </asp:TemplateField>
                 <asp:TemplateField ItemStyle-HorizontalAlign="Center" HeaderText="Factuur PDF">
                     <ItemTemplate>
-                        <asp:LinkButton ID="lnkDownload" runat="server" Text="Download" OnClick="DownloadFile"
-                                        CommandArgument='<%# Eval("Nummer") %>'></asp:LinkButton>
+                        <asp:LinkButton  style="background-color: #009879; color: #fff" class="btn" ID="lnkDownload" runat="server" OnClick="DownloadFile"
+                                        CommandArgument='<%# Eval("Nummer") %>'><i class="fas fa-file-download"></i></asp:LinkButton>
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>
@@ -123,7 +123,7 @@
             <ItemTemplate>
                 <!-- Modal -->
                 <div id="modal<%# Eval("Nummer") %>" class="modal fade" role="dialog">
-                    <div class="modal-dialog">
+                    <div class="modal-dialog modal-lg">
                         <!-- Modal content-->
                         <div class="modal-content">
                             <div class="modal-header">
