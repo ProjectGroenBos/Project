@@ -1625,3 +1625,21 @@ nav ul {
     color: white;
     
 }
+
+.lblproductnaam {
+    position: absolute;
+    margin-top: 5%;
+    margin-left: 3%;
+}
+
+.lblproducthoeveelheid {
+    position: absolute;
+    margin-top: 5%;
+    margin-left: 3%;
+}
+
+.lblprductopmerking {
+    position: absolute;
+    margin-top: 5%;
+    margin-left: 3%;
+}

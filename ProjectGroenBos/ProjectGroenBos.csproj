@@ -82,8 +82,7 @@
     <Content Include="Recreatie\ActiviteitVerwijderen.aspx" />
     <Content Include="Recreatie\ActiviteitWijzigen.aspx" />
     <Content Include="Recreatie\CSS\klantenpaginas.css" />
-    <Content Include="Recreatie\CSS\klantwebsite.css" />
-    <Content Include="Recreatie\CSS\stylegoeie17.css" />
+    <Content Include="Recreatie\CSS\Stylerecreatiediehetgoeddoet.css" />
     <Content Include="Recreatie\CSS\stylerecreatiedieweljuistis.css" />
     <Content Include="Recreatie\img\ascArrow.png" />
     <Content Include="Recreatie\img\descArrow.png" />
