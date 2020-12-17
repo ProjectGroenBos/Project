@@ -125,6 +125,8 @@ namespace ProjectGroenBos.Financien
             MailText = MailText.Replace("[Datum]", today.ToString("dd/MM/yyyy"));
             MailText = MailText.Replace("[Rij]", GetGridviewData((GridView)rpReservering.Items[gridviewnr].FindControl("gvFactuurreservering"))).ToString();
             MailText = MailText.Replace("[Totaalbedrag]", '€' + totaal);
+            MailText = MailText.Replace("[Totaalbedrag]", '€' + betaald);
+            MailText = MailText.Replace("[Totaalbedrag]", '€' + albetaald);
 
 
             string subject = "Uw rekeningfactuur van Groenbos";
