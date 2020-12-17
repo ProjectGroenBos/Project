@@ -121,9 +121,37 @@ namespace ProjectGroenBos.Financien
 
                     gvReserveringen.DataBind();
 
-                    ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "emailsuccess();", true);
+                    using (SqlConnection con = new SqlConnection(constr))
+                    {
+                        con.Open();
+
+
+                        SqlCommand cmd = new SqlCommand("update Reservering set ReserveringsstatusID = 7 where Nummer = @Nummer", con);
+                        cmd.Parameters.AddWithValue("@nummer", nummer);
+
+                        cmd.ExecuteNonQuery();
+                        ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "Bestelsuccess();", true);
+
+
+                        con.Close();
+                    }
                 }
             }
+            else
+            {
+                using (SqlConnection con = new SqlConnection(constr))
+                {
+                    con.Open();
+                    SqlCommand cmd = new SqlCommand("update Reservering set ReserveringsstatusID = 6 where Nummer = @Nummer", con);
+                    cmd.Parameters.AddWithValue("@nummer", nummer);
+
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+                ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "emailsuccess();", true);
+            } 
+                
+           
         }
 
         protected void btnKassa_Click(object sender, EventArgs e)

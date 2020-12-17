@@ -92,7 +92,7 @@
         </asp:GridView>
 
         <asp:SqlDataSource ID="SqlDataSource6" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT Nummer, [Naam], [Aantal_personen], [Aankomstdatum], [Vertrekdatum], Reserveringsstatus.Omschrijving, [Annuleringsdatum]
-FROM reserveringengv inner join Reserveringsstatus on reserveringengv.ReserveringsstatusID = Reserveringsstatus.ID WHERE ReserveringsstatusID = 5 OR ReserveringsstatusID = 6 "></asp:SqlDataSource>
+FROM reserveringengv inner join Reserveringsstatus on reserveringengv.ReserveringsstatusID = Reserveringsstatus.ID WHERE ReserveringsstatusID = 5"></asp:SqlDataSource>
         <br />
     </div>
 
