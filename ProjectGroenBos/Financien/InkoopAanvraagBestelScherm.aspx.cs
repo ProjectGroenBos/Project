@@ -81,7 +81,7 @@ namespace ProjectGroenBos.Financien
 
                 TextBox bestelnummer = (TextBox)rpInkoopOrderAanvragen.Items[repeaternummer].FindControl("txbBestelnummer");
 
-                if(bestelnummer.Text.Length < 1 || Regex.IsMatch(bestelnummer.Text, @"^[a-zA-Z]+$") == false)
+                if(bestelnummer.Text.Length < 1 )
                 {
                     ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "Bestelerror();", true);
                 }
