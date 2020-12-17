@@ -268,8 +268,6 @@ FROM reserveringengv WHERE ReserveringsstatusID = 5 OR ReserveringsstatusID = 6 
                             </div>
 
                             <input type="button" style="max-width: 80%; margin-left: auto; margin-right: auto;" class="btn btn-primary btn-lg btn-block" onclick="printDiv('printModal<%# Eval("Nummer") %>')" value="Print Factuur" />
-
-                            <asp:Button ID="btnExport" Style="max-width: 80%; margin-left: auto; margin-right: auto;" class="btn btn-primary btn-lg btn-block" CommandName="<%# Container.ItemIndex %>" runat="server" Text="Email naar klant" OnClick="btnExport_Click" />
                              <asp:Button ID="btnUitbetalen" Style="max-width: 80%; margin-left: auto; margin-right: auto;" class="btn btn-primary btn-lg btn-block" CommandName="<%# Container.ItemIndex %>" runat="server" Text="Uitbelalen" OnClick="btnUitbetalen_Click" />
                              <asp:Button ID="btnBetalen" Style="max-width: 80%; margin-left: auto; margin-right: auto;" class="btn btn-primary btn-lg btn-block" CommandName="<%# Container.ItemIndex %>" runat="server" Text="Incasso versturen" OnClick="btnKassa_Click" />
                         </div>
