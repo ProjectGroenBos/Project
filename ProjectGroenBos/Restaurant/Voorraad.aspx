@@ -5,7 +5,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="werkgebied">
-        <h1>Voorraad overzicht</h1>
+        <h1>Voorraad Muteren</h1>
         <div>
             <%--Hier begint de zoekbalk--%>
             <p class="auto-style2">
@@ -135,10 +135,9 @@
             </asp:GridView>
 
             <%--Hier beginnnen de labels die onder de gridview staan--%>
-            <asp:Label ID="Label1" runat="server" Text="Het BTW tarief is onderverdeeld onder 2 catogorieën 1 is het hoge tarief en 2 is het lage tarief"></asp:Label>
-
-
-            <br />
+            BTW Tarief legenda:<br />
+            Tarief 1 = Hoge tarief(21%)<br />
+            Tarief 2 = Lage tarief(9%)<br />
             <asp:Label ID="lblSuccessMessage" Text="" runat="server" ForeColor="Green" />
             <br />
 

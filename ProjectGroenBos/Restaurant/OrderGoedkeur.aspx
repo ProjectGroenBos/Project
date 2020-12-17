@@ -52,14 +52,40 @@
                 
                     <asp:TemplateField>
                         <ItemTemplate>
-                            <asp:Button ID="btnOpen" runat="server" Text="Druk voor info" />
+                            <asp:Button ID="btnOpen" runat="server" OnClick="btnOpen_Click" Text="Druk voor info" />
                         </ItemTemplate>
                     </asp:TemplateField>
 
                 </Columns>
             </asp:GridView>
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:2020-BIM02-P1-P2-GroenbosConnectionString %>" SelectCommand="SELECT [ID], [VoorraadID], [Aantal], [VoedselOrderAanvraag] FROM [VoedselRestaurantAanvraagRegels]"></asp:SqlDataSource>
         </div>
 <br />
+    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource2" HorizontalAlign="Center" Width="90%">
+
+        <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                <EditRowStyle BackColor="#999999" />
+                <FooterStyle BackColor="#10715e" Font-Bold="True" ForeColor="White" />
+                <HeaderStyle BackColor="#10715e" Font-Bold="True" ForeColor="White" />
+                <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                <RowStyle BackColor="#7fb241" ForeColor="#333333" />
+                <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                <SortedAscendingCellStyle BackColor="#e9e7e2" />
+                <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+
+        <Columns>
+            <asp:BoundField DataField="Naam" HeaderText="Naam" SortExpression="Naam" />
+            <asp:BoundField DataField="Bestelnummer" HeaderText="Bestelnummer" SortExpression="Bestelnummer" />
+            <asp:BoundField DataField="Datum" HeaderText="Datum" SortExpression="Datum" />
+            <asp:BoundField DataField="Aantal" HeaderText="Aantal" SortExpression="Aantal" />
+        </Columns>
+            </asp:GridView>
+            <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:2020-BIM02-P1-P2-GroenbosConnectionString %>" SelectCommand="SELECT Voorraad.Naam, VoedselRestaurantInkoopOrder.Bestelnummer, VoedselRestaurantInkoopOrder.Datum, VoedselRestaurantAanvraagRegels.Aantal
+FROM     Voorraad INNER JOIN
+                  VoedselRestaurantAanvraagRegels ON Voorraad.ID = VoedselRestaurantAanvraagRegels.VoorraadID INNER JOIN
+                  VoedselRestaurantInkoopOrder ON VoedselRestaurantAanvraagRegels.VoedselOrderAanvraag = VoedselRestaurantInkoopOrder.Nummer"></asp:SqlDataSource>
             <asp:Label ID="lblSuccessMessage" Text="" runat="server" ForeColor="Green" />
             <asp:Label ID="lblErrorMessage" Text="" runat="server" ForeColor="Red" />
       </asp:Content>

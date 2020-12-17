@@ -98,5 +98,11 @@ namespace ProjectGroenBos.Restaurant
         {
 
         }
+
+        protected void btnOpen_Click(object sender, EventArgs e)
+        {
+            int nummer = Convert.ToInt32(GridView1.Columns[1]);
+            SqlDataSource2.SelectCommand = "SELECT Voorraad.Naam, VoedselRestaurantInkoopOrder.Bestelnummer, VoedselRestaurantInkoopOrder.Datum, VoedselRestaurantAanvraagRegels.Aantal FROM Voorraad INNER JOIN VoedselRestaurantAanvraagRegels ON Voorraad.ID = VoedselRestaurantAanvraagRegels.VoorraadID INNER JOIN VoedselRestaurantInkoopOrder ON VoedselRestaurantAanvraagRegels.VoedselOrderAanvraag = VoedselRestaurantInkoopOrder.Nummer WHERE VoedselRestaurantInkoopOrder.Bestelnummer =" + nummer + "";
+        }
     }
 }

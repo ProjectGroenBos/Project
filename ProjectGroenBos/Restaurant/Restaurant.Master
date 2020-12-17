@@ -27,34 +27,33 @@
                     <img src="img/Logo4.png" alt="Logo" height="150"></h2>
                 <h3>RESTAURANT</h3>
                 <ul>
-                    <li><a href="# "><i class="fas fa-home"></i>Home</a></li>
-                    <li><a href="tafeloverzicht.aspx"><i class="fas fa-user"></i>Tafeloverzicht</a>
+                    <li><a href="tafeloverzicht.aspx">Bestelling opnemen</a></li>
+                    <li><a href="#"><i class="fas fa-user"></i>Bestellingen</a>
                         <ul class="submenu">
-
-                            <li><a href="# ">#</a></li>
-                            <li><a href="# ">#</a></li>
-                            <li><a href="#">#</a></li>
-                            <li><a href="# "># </a></li>
+                            <li><a href="Bestellingenoverzicht.aspx">Bestellingen overzicht</a></li>
+                            <li><a href="#">Dranken overzicht</a></li>
+                            <li><a href="#">Gerechten overzicht</a></li>
                         </ul>
                     </li>
-                    <li><a href="Voorraad.aspx"><i class="fas fa-address-card"></i>Voorraad</a>
+                    <li><a href="#"><i class="fas fa-user"></i>Keuken</a>
                         <ul class="submenu">
-                            <li><a href="# "># </a></li>
-                            <li><a href="# ">#</a></li>
-                            <li><a href="# "># </a></li>
+                            <li><a href="Keukenoverzicht.aspx">Keukenscherm</a></li>
                         </ul>
                     </li>
-                    <li><a href="#"><i class="fas fa-project-diagram"></i>Inkoop</a>
+                    <li><a href="reserveren.aspx">Reserveren</a></li>
+                    <li><a href="VoorraadZien.aspx">Voorraad</a></li>
+                    <li><a href="#"><i class="fas fa-user"></i>Bestellen</a>
                         <ul class="submenu">
-                            <li><a href="# "># </a></li>
-                            <li><a href="# "># </a></li>
-                            <li><a href="# ">#</a></li>
+                        <li><a href="Voorraad.aspx">Voorraad Muteren</a></li>
+                        <li><a href="BestellenFood.aspx">Bestellen Food</a></li>
+                        <li><a href="#">Bestellen Non-Food</a></li>
+                        <li><a href="OrderGoedkeur.aspx">Order</a></li>
                         </ul>
                     </li>
                 </ul>
 
                 <div class="terug">
-                    <a href="#">&#8249; Terug naar home</a>
+                    <a href="home.aspx">&#8249; Terug naar home</a>
                 </div>
             </div>
             <div class="main_content">
@@ -62,7 +61,7 @@
                     <nav>
                         <ul>
                             <li><a href="index.html">Home</a></li>
-                            <li class="selected"><a href="#">Restraurant</a></li>
+                            <li class="selected"><a href="#">Restaurant</a></li>
                             <li><a href="#">Reserveringen</a></li>
                             <li><a href="#">Recreatie</a></li>
                             <li><a href="#">Schoonmaak</a></li>

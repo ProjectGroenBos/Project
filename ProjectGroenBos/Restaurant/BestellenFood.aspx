@@ -77,7 +77,7 @@
                         <asp:Label ID="lblLeverancier" runat="server" Text="Kies leverancier"></asp:Label>
         <asp:DropDownList ID="ddlLeverancier" runat="server" DataSourceID="SqlDataSource2" DataTextField="Naam" DataValueField="ID">
         </asp:DropDownList>
-        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT [ID], [Naam] FROM [Leverancier]"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT [ID], [Naam] FROM [Leverancier] WHERE Naam='Sligro'"></asp:SqlDataSource>
                <br />
                <br />
                <asp:Label ID="lblProduct" runat="server" Text="Kies product"></asp:Label>
