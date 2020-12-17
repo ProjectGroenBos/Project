@@ -3,8 +3,7 @@
 <asp:Content runat="server" ContentPlaceHolderID="head">
 </asp:Content>
 <asp:content id="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="header">Overzicht</div>
-    
+            <div class="header">Overzicht</div>
             <asp:Label ID="lblActiviteiten" runat="server" Text="Geplande Activiteiten" CssClass="lblgeplandeactiviteiten"></asp:Label>
             <asp:Label ID="lblDatum" runat="server" Text="Datum:" CssClass="lbldatum"></asp:Label>
             <asp:Label ID="lbldatumNu" runat="server" Text="" CssClass="lbldatumnu"></asp:Label>
@@ -14,7 +13,7 @@
 
             <asp:Button ID="Forward" runat="server" CssClass="volgendeknop" OnClick="OnButtonPress" Text="&gt;" type="button" style="background-color: #009879; color: #fff" class="btn" />
 
-            <asp:GridView ID="gvActiveiten" runat="server" DataSourceID="SqlDataSource1" Height="215px" Width="70%" CssClass="gridviewoverzicht" AutoGenerateColumns="False">
+            <asp:GridView ID="gvActiveiten" runat="server" DataSourceID="SqlDataSource1" Height="215px" width="70%" CssClass="gridviewoverzicht" AutoGenerateColumns="False">
                 <Columns>
                     <asp:BoundField DataField="Weeknummer" HeaderText="Weeknummer" ReadOnly="True" SortExpression="Weeknummer" />
                     <asp:BoundField DataField="Naam" HeaderText="Naam" SortExpression="Naam" />
