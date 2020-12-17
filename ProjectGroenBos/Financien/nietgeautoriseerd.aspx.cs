@@ -13,5 +13,10 @@ namespace ProjectGroenBos.Financien
         {
 
         }
+
+        protected void btnterug_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Home.aspx");
+        }
     }
 }

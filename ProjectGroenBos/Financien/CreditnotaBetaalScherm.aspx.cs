@@ -229,7 +229,7 @@ namespace ProjectGroenBos.Financien
             //Fetching Email Body Text from EmailTemplate File.  
             string userPath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
 
-               string FilePath = Path.Combine(userPath, "Documents\\GitHub\\Project\\ProjectGroenBos\\Financien\\EmailTemplates\\SignUp.html");
+               string FilePath =  "C:\\Users\\rosah\\OneDrive\\Documenten\\GitHub\\Project\\ProjectGroenBos\\Financien\\EmailTemplates\\SignUp.html";
          
             StreamReader str = new StreamReader(FilePath);
             string MailText = str.ReadToEnd();
