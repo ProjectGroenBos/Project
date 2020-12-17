@@ -13,5 +13,13 @@ namespace ProjectGroenBos.Recreatie
         {
 
         }
+
+        protected void btninloggen_Click(object sender, EventArgs e)
+        {
+            Session["GastNummer"] = null;
+            Session["Nummer"] = null;
+            Response.Redirect("InlogschermKlanten.aspx");
+            
+        }
     }
 }
