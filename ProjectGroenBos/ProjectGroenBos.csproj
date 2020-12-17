@@ -80,6 +80,7 @@
     <Content Include="Financien\CrediteurenFactuurBetaal.aspx" />
     <Content Include="Financien\CreditnotaBetaalScherm.aspx" />
     <Content Include="Financien\css\main.css" />
+    <Content Include="Financien\EmailTemplates\Reservering.html" />
     <Content Include="Financien\EmailTemplates\Signup.aspx" />
     <Content Include="Financien\EmailTemplates\SignUp.html" />
     <Content Include="Financien\FactuurKoppelScherm.aspx" />

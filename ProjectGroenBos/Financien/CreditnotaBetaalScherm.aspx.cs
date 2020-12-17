@@ -244,7 +244,7 @@ namespace ProjectGroenBos.Financien
             MailText = MailText.Replace("[Afboeken]", Afboeken);
             MailText = MailText.Replace("[Terugbetalen]", Terugbetalen);
             MailText = MailText.Replace("[Geldontvangen]", schuldig);
-            MailText = MailText.Replace("[Nummer]", nummer);
+            MailText = MailText.Replace("[nummer]", nummer);
             MailText = MailText.Replace("[Datum]", today.ToString("dd/MM/yyyy"));
             MailText = MailText.Replace("[Rij]", (GetGridviewData((GridView)rpCreditnota.Items[gridviewnr].FindControl("gvFactuurreservering"))).ToString());
  
