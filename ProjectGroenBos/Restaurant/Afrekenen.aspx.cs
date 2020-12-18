@@ -21,7 +21,7 @@ namespace ProjectGroenBos.Restaurant
 			// neem de tafel op vanuit het tafeloverzicht
 			if (Session["tafelnr"] != null)
 			{
-				lblnummer.Text = Session["tafelnr"].ToString();
+				lbltafel.Text = Session["tafelnr"].ToString();
 			}
 			else
 			{
@@ -30,7 +30,7 @@ namespace ProjectGroenBos.Restaurant
 
 			// Kijken welke totaalprijs hij moet berekenen
 			int nummer = Convert.ToInt16(Session["tafelnr"].ToString());
-			SqlDataSource1.SelectCommand = "SELECT [Hoeveel], [Naam], [Prijs], [RegelTotaal] FROM [RestaurantAfrekenOvericht] WHERE Tafelnr =" + nummer + "";
+			factuurregels.SelectCommand = "SELECT [Hoeveel], [Naam], [Prijs], [RegelTotaal] FROM [RestaurantAfrekenOvericht] WHERE Tafelnr =" + nummer + "";
 		}
 
 		protected void btnRekening_Click(object sender, EventArgs e)
