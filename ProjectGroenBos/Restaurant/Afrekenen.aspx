@@ -13,7 +13,7 @@
         <asp:Label ID="lbltafel" CssClass="lblTafel" runat="server" Text="Tafel"></asp:Label>
         <%--<asp:Label ID="lblnummer" CssClass="lblTafel" runat="server" Text="0"></asp:Label> --%>
             <div class="Factuurregelbak">
-            <asp:GridView class="GvOrder" ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" AllowSorting="True" GridLines="None">
+            <asp:GridView class="GvOrder" ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="factuurregels" AllowSorting="True" GridLines="None">
                 <Columns>
                     <asp:BoundField DataField="Hoeveel" HeaderText="Hoeveel" SortExpression="Hoeveel" >
                      </asp:BoundField>
@@ -30,10 +30,10 @@
                 
             </asp:GridView>
         </div>
-         <asp:SqlDataSource ID="factuurregels" runat="server" ConnectionString="<%$ ConnectionStrings:2020-BIM02-P1-P2-GroenbosConnectionString %>" SelectCommand = "SELECT [Hoeveel], [Naam], [Prijs], [RegelTotaal] FROM [RestaurantAfrekenOvericht]"></asp:SqlDataSource>
+         <asp:SqlDataSource ID="factuurregels" runat="server" ConnectionString="<%$ ConnectionStrings:2020-BIM02-P1-P2-GroenbosConnectionString %>" ></asp:SqlDataSource>
 
 
-        <asp:Label ID="lblTotaal" CssClass="lblTotaal" runat="server" Text="Totaal"></asp:Label>
+        <%--Het totaal bedrag zichtbaar maken--%>
         <%--<asp:Label ID="LblKostenTotaal" runat="server" Text="€ "></asp:Label>--%>
             <asp:GridView class="Gdvtotaal" ID="GridViewTotaal" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSourceTotaal" AllowSorting="True" GridLines="None">
                 <Columns>
@@ -47,6 +47,6 @@
             <asp:Button ID="btnBetalen" CssClass="buttongreen" runat="server" Text="Pin" OnClick="btnBetalen_Click" />
             <asp:Button ID="BtnContant" CssClass="buttongreen" runat="server" Text="Contant" OnClick="btnContant_Click" />
         </div>
-        <%--<asp:Label ID="LblSucces" runat="server"></asp:Label>--%>
+        <asp:Label ID="LblSucces" runat="server"></asp:Label>
     </div>
 </asp:Content>
