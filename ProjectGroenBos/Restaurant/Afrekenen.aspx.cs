@@ -39,17 +39,17 @@ namespace ProjectGroenBos.Restaurant
 			String commandText = "INSERT INTO [dbo].[Factuurregel] (Aantal, Prijs, RestaurantItemID) VALUES" + 
 			"(@Aantal, @Prijs, @RestaurantItemID)";
 
-			using (SqlConnection connection = new SqlConnection(connectionString))
-			{
-				SqlCommand command = new SqlCommand(commandText, connection);
-				command.Parameters.AddWithValue("@Aantal", DfHoeveel.Text );
-				command.Parameters.AddWithValue("@Prijs",  );
-				command.Parameters.AddWithValue("@RestaurantItemID", );
-				connection.Open();
+			//using (SqlConnection connection = new SqlConnection(connectionString))
+			//{
+			//	SqlCommand command = new SqlCommand(commandText, connection);
+			//	command.Parameters.AddWithValue("@Aantal", DfHoeveel.Text );
+			//	command.Parameters.AddWithValue("@Prijs",  );
+			//	command.Parameters.AddWithValue("@RestaurantItemID", );
+			//	connection.Open();
 
-				command.ExecuteNonQuery();
+			//	command.ExecuteNonQuery();
 
-			}
+			//}
 
 			// Verbinding met de database maken en een factuur aanmaken voor op rekening
 

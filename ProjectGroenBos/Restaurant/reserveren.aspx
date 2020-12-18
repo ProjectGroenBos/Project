@@ -16,10 +16,10 @@
                     <div class="tekstlabel">
                         <label>Bungalow</label>
                     </div>
-                    <asp:RadioButton CssClass="form-control" ID="rdbJa"
-                        runat="server" placeholder="" Text="Ja" OnClick="rdbJa"></asp:RadioButton>
-                    <asp:RadioButton CssClass="form-control" ID="rdbNee"
-                        runat="server" placeholder="" Text="Nee" OnClick="rdbNee"></asp:RadioButton>
+
+                    <asp:Button ID="btnJa" runat="server" OnClick="btnJa_Click" Text="Ja" />
+                    <asp:Button ID="btnNee" runat="server" Text="Nee" OnClick="btnNee_Click" />
+
                 </div>
 
                 <div class="contentrij">
@@ -27,7 +27,7 @@
                         <label>nummer</label>
                     </div>
                     <asp:TextBox class="tekstbox" ID="txtBungalownummer"
-                        runat="server" placeholder=""></asp:TextBox>
+                        runat="server" placeholder="" OnTextChanged="txtBungalownummer_TextChanged"></asp:TextBox>
                 </div>
 
                 <div class="contentrij">
@@ -80,14 +80,7 @@
                     <div class="tekstlabel">
                         <label>Tafelnummer</label>
                     </div>
-                    <asp:DropDownList class="DropDown" ID="ddlTafelnummer"
-                        runat="server">
-                        <asp:ListItem Text="1" Value="select" />
-                        <asp:ListItem Text="2" Value="select" />
-                        <asp:ListItem Text="3" Value="select" />
-                        <asp:ListItem Text="4" Value="select" />
-                        <asp:ListItem Text="5" Value="select" />
-                    </asp:DropDownList>
+                    <asp:Label ID="lblTafelnummer" runat="server"></asp:Label>
                 </div>
 
 
@@ -115,25 +108,29 @@
                     <div class="tekstlabel">
                         <label>Aantal personen</label>
                     </div>
-                    <asp:DropDownList class="DropDown" ID="ddlAantal"
-                        runat="server">
-                        <asp:ListItem Text="1" Value="select" />
-                        <asp:ListItem Text="2" Value="select" />
-                        <asp:ListItem Text="3" Value="select" />
-                        <asp:ListItem Text="4" Value="select" />
-                        <asp:ListItem Text="5" Value="select" />
-                        <asp:ListItem Text="6" Value="select" />
-                    </asp:DropDownList>
+                    <asp:TextBox class="tekstbox" ID="TxtAantalP"
+                        runat="server" placeholder=""></asp:TextBox>
+                    <asp:Label CssClass="form-control" ID="lblAantalP"
+                        runat="server" placeholder=""></asp:Label>
+                </div>
+                <div class="contentrij">
+                    <div class="tekstlabel">
+                        <label>Opmerkingen</label>
+                    </div>
+                    <asp:TextBox class="tekstbox" ID="TxtOpmerkingen"
+                        runat="server" placeholder="" TextMode="MultiLine"></asp:TextBox>
+                    <asp:Label CssClass="form-control" ID="LblOpmerkingen"
+                        runat="server" placeholder=""></asp:Label>
                 </div>
 
 
 
-                
-
             </div>
 
-            <asp:Button class="reserveerknop" ID="btnReserveer" runat="server" placeholder="" Text="Reserveer"></asp:Button>
+            <asp:Button class="reserveerknop" ID="btnReserveer" runat="server" placeholder="" Text="Reserveer" OnClick="btnReserveer_Click"></asp:Button>
 
         </div>
+        <asp:Label CssClass="form-control" ID="lblGelukt"
+            runat="server" placeholder=""></asp:Label>
     </div>
 </asp:Content>

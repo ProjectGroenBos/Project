@@ -192,6 +192,6 @@ namespace ProjectGroenBos.Restaurant
                 lblErrorMessage.Text = ex.Message;
                 throw;
             }
-}
+        }
     }
 }
