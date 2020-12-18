@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Reservering/Site1.Master" AutoEventWireup="true" CodeBehind="Klantoverzicht.aspx.cs" Inherits="ProjectGroenBos.Reservering.Klantoverzicht" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Reservering/Site1.Master" AutoEventWireup="true" CodeBehind="Gastoverzicht.aspx.cs" Inherits="ProjectGroenBos.Reservering.Klantoverzicht" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head2" runat="server">
     <style type="text/css">
         .auto-style1 {
@@ -13,7 +13,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <div class="container">
-<h2>Klant Overzicht</h2>
+<h2>Gast Overzicht</h2>
         <br />
         <br />
 
@@ -41,7 +41,7 @@
         <br />
         <asp:Button ID="btnZoek" runat="server" Text="Zoek"  CssClass="btnUitloggen" Style="background-color: #009879; color: #fff" class="btn" />
         <br />
-        <asp:GridView ID="GridView1" CssClass="content-table" runat="server" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="Gast nummer" DataSourceID="SqlDataSource1" AutoGenerateSelectButton="True" SelectedIndexChanged="GridView1_SelectedIndexChanged" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+        <asp:GridView ID="GridView1" CssClass="content-table" runat="server" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="Gast nummer" DataSourceID="SqlDataSource1" AutoGenerateSelectButton="True" SelectedIndexChanged="GridView1_SelectedIndexChanged" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AllowPaging="True">
             <Columns>
                 <asp:BoundField DataField="Gast nummer" HeaderText="Gast nummer" InsertVisible="False" ReadOnly="True" SortExpression="Gast nummer" />
                 <asp:BoundField DataField="Voornaam" HeaderText="Voornaam" SortExpression="Voornaam" />

@@ -21,7 +21,7 @@ namespace ProjectGroenBos.Reservering
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
         {
             Session["gastnummer"] = (string)GridView1.SelectedRow.Cells[1].Text;
-            Response.Redirect("KlantWijzigen.aspx");
+            Response.Redirect("GastWijzigen.aspx");
         }
     }
 }

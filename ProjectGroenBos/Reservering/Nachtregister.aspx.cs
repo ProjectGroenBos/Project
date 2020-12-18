@@ -33,6 +33,13 @@ namespace ProjectGroenBos.Reservering
                 btnToevoegen.Visible = true;
                 //GridView1.DataBind();
                 //GridView1.Visible = false;
+
+
+                if (this.PreviousPage == null || this.PreviousPage.ToString() == "ReserveringAanmaken.aspx")
+                {
+                    count = 0;
+                }
+
             }
             else
             {
