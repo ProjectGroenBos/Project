@@ -29,6 +29,8 @@ namespace ProjectGroenBos.Restaurant
 				Response.Redirect("tafeloverzicht.aspx");
 			}
 
+			
+
 			// Kijken welke totaalprijs hij moet berekenen
 			int nummer = Convert.ToInt16(Session["tafelnr"].ToString());
 			factuurregels.SelectCommand = "SELECT [Hoeveel], [Naam], [Prijs], [RegelTotaal] FROM [RestaurantAfrekenOvericht] WHERE Status = 'Gereed' and Tafelnr =" + nummer + "";
@@ -39,41 +41,19 @@ namespace ProjectGroenBos.Restaurant
 
 		protected void Factuurregelsmaken()
 		{
-			if (GvOrder.Rows.Count != 0)
-			{
-				//Forloop for header
-				for (int i = 0; i < GvOrder.HeaderRow.Cells.Count; i++)
-				{
-					dta.Columns.Add(GvOrder.HeaderRow.Cells[i].Text);
-				}
-				//foreach for datarow
-				foreach (GridViewRow row in GvOrder.Rows)
-				{
-					DataRow dr = dta.NewRow();
-					for (int j = 0; j < row.Cells.Count; j++)
-					{
-						dr[GvOrder.HeaderRow.Cells[j].Text] = row.Cells[j].Text;
-					}
-					dta.Rows.Add(dr);
-				}
-				//Loop for footer
-				if (GvOrder.FooterRow.Cells.Count != 0)
-				{
-					DataRow dr = dta.NewRow();
-					for (int i = 0; i < GvOrder.FooterRow.Cells.Count; i++)
-					{
-						//You have to re-do the work if you did anything in databound for footer.  
-					}
-					dta.Rows.Add(dr);
-				}
-				dta.TableName = "tb";
-			}
+			//foreach(GridViewRow row in GvOrder.Rows)
+			//{
+			//	//int Aantal = (int)row[0];
+			//	//int Prijs = (int)row(2);
+			//	String aantal = row.Cells[0].ToString();
+			//	String Prijs = row.Cells[2].ToString();
+			//}
 			// factuurregels aanmaken en in de database zetten
 			if (GvOrder.Rows.Count > 0)
 			{
 				using (SqlConnection sqlCon = new SqlConnection(connectionString))
 				{
-					foreach (DataRow rij in dta.Rows)
+					foreach (DataRow rij in GvOrder.Rows)
 					{
 						//uit de tabel de informatie halen die nodig is
 						int Aantal = (int)rij[0];
@@ -130,12 +110,21 @@ namespace ProjectGroenBos.Restaurant
 			using (SqlConnection connection = new SqlConnection(connectionString))
 			{
 				int nummer = Convert.ToInt16(Session["tafelnr"].ToString());
-				// Haal aangemaakte ID van de reservering op
+				
 
+				//Update de status naar klaar zijn
+				string Updatequery = "UPDATE Item_RestaurantReservering SET Status = 'Afgerond' WHERE Status = 'Gereed' AND Tafelnr =" + nummer + "";
+				SqlCommand cmd = new SqlCommand();
+				cmd.CommandText = Updatequery;
 				connection.Open();
-				string selectquery = "UPDATE Status FROM Item_RestaurantReservering WHERE Status = 'Gereed' and Tafelnr =" + nummer + "";
+				cmd.ExecuteNonQuery();
 				connection.Close();
 			}
+		}
+
+		private void Voorraadmuteren()
+		{
+
 		}
 
 		protected void btnRekening_Click(object sender, EventArgs e)
@@ -169,7 +158,7 @@ namespace ProjectGroenBos.Restaurant
 				command.ExecuteNonQuery();
 				connection.Close();
 			}
-
+			statusverandering();
 			LblSucces.Text = " SUBMIT SUCCESSFULLY";
 			//CLEAR();
 
@@ -204,7 +193,7 @@ namespace ProjectGroenBos.Restaurant
 				command.ExecuteNonQuery();
 				connection.Close();
 			}
-
+			statusverandering();
 			LblSucces.Text = " SUBMIT SUCCESSFULLY";
 			//CLEAR();
 		}
@@ -237,7 +226,7 @@ namespace ProjectGroenBos.Restaurant
 				command.ExecuteNonQuery();
 				connection.Close();
 			}
-
+			statusverandering();
 			LblSucces.Text = " SUBMIT SUCCESSFULLY";
 			//CLEAR();
 		}
