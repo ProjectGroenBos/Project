@@ -36,7 +36,6 @@ namespace ProjectGroenBos.Restaurant
 
         protected void btnBevestiging_Click(object sender, EventArgs e)
         {
-            //Hier open je de pop up om de bestelling op de tafel te kunnen zetten of kan kiezen voor afrekenen voor de tafel
             popupBevestiging.Show();
         }
 

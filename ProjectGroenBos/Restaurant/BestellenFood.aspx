@@ -78,6 +78,9 @@
         <asp:DropDownList ID="ddlLeverancier" runat="server" DataSourceID="SqlDataSource2" DataTextField="Naam" DataValueField="ID">
         </asp:DropDownList>
         <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT [ID], [Naam] FROM [Leverancier] WHERE Naam='Sligro'"></asp:SqlDataSource>
+            <asp:ScriptManager ID="ToolkitScriptManager1" runat="server">
+            </asp:ScriptManager>
+
                <br />
                <br />
                <asp:Label ID="lblProduct" runat="server" Text="Kies product"></asp:Label>
@@ -97,15 +100,17 @@
                <ajaxtoolkit:modalpopupextender ID="popupBevestiging" TargetControlID="btnMaakOrderRegel" popupControlID="modelpanBevestiging" CancelcontrolID="btnclose2" runat="server">
 
         </ajaxtoolkit:modalpopupextender>
-               <asp:Panel ID="modelpantafel2" Class="popup" runat="server">
+               <asp:Panel ID="modelpanBevestiging" Class="popup" runat="server">
          
                 <div ID="header2" class=header>
-                    <asp:Label ID="lbltafel2popup" class="Tafelpopup" runat="server" Text="2"/>
-                <asp:button ID="btnclose2" Class="close" runat="server" text="X"/>
+                    <asp:Label ID="lbltafel2popup" class="Tafelpopup" runat="server" Text="Weet u het zeker?"/>
+                
                 </div>
 
             <div class="center">
-            <asp:button  runat="server" class="popupbutton" text="Ja" OnClick="btnMaakOrderRegel_Click" />
+            <asp:button  runat="server" class="popupbutton" text="Ja" OnClick="btnMaakOrderRegel_Click" ValidationGroup="Validation" />
+                &nbsp;
+            <asp:button ID="btnclose2" Class="close" runat="server" text="Nee"/>
             
             </div>
         </asp:Panel>
