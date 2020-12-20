@@ -14,8 +14,7 @@ namespace ProjectGroenBos.Restaurant
     {
         //Connectionstring
         string connectionString = ConfigurationManager.ConnectionStrings["dbconnectie"].ConnectionString;
-        //Datatable
-        DataTable dta;
+
         //Dit gebeurt er als de pagina geladen wordt
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -73,13 +72,7 @@ namespace ProjectGroenBos.Restaurant
 
         protected void gvOrderBekijken_selectedindexchanged(object sender, EventArgs e)
         {
-            DataControlFieldCell[] arrCells = new DataControlFieldCell[gvOrderBekijken.Columns.Count];
-            gvOrderBekijken.SelectedRow.Cells.CopyTo(arrCells, 0);
 
-            foreach (DataControlFieldCell cell in arrCells)
-            {
-                Response.Write(cell.Text + "<BR/>");
-            }
         }
 
         protected void gvOrderBekijken_rowcommand(object sender, GridViewCommandEventArgs e)
@@ -111,18 +104,9 @@ namespace ProjectGroenBos.Restaurant
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                DataTable dta = (DataTable)Session["dte"];
-                if (!IsPostBack)
+                foreach (GridViewRow row in gvOrderBekijken.Rows)
                 {
-                    dta = new DataTable();
-                    dta.Columns.Add(new DataColumn("Bestelnummer", typeof(int)));
-                    Session["dte"] = dta;
-                    gvOrderBekijken.DataSource = dta;
-                    gvOrderBekijken.DataBind();
-                }
-                foreach (DataRow rij in gvOrderBekijken.Rows)
-                {
-                    int nummer = (int)rij[0];
+                    string nummer = row.Cells[0].ToString();
                     SqlDataSource2.SelectCommand = "SELECT Voorraad.Naam, VoedselRestaurantInkoopOrder.Bestelnummer, VoedselRestaurantInkoopOrder.Datum, VoedselRestaurantAanvraagRegels.Aantal FROM Voorraad INNER JOIN VoedselRestaurantAanvraagRegels ON Voorraad.ID = VoedselRestaurantAanvraagRegels.VoorraadID INNER JOIN VoedselRestaurantInkoopOrder ON VoedselRestaurantAanvraagRegels.VoedselOrderAanvraag = VoedselRestaurantInkoopOrder.Nummer WHERE VoedselRestaurantInkoopOrder.Bestelnummer =" + nummer + "";
                 }
             }

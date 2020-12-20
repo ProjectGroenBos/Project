@@ -92,8 +92,23 @@
                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtQty" ErrorMessage="Voer hoeveelheid in" Font-Bold="True" ForeColor="#CC3300" ValidationGroup="Validation"></asp:RequiredFieldValidator>
                <br />
          <br />
-               <asp:Button ID="btnMaakOrderRegel" runat="server" Text="Voeg product toe aan order" OnClick="btnMaakOrderRegel_Click" ValidationGroup="Validation" Height="25px" Width="262px" />
+               <asp:Button ID="btnMaakOrderRegel" runat="server" Text="Voeg product toe aan order" OnClick="btnBevestiging_Click" ValidationGroup="Validation" Height="25px" Width="262px" />
 
+               <ajaxtoolkit:modalpopupextender ID="popupBevestiging" TargetControlID="btnMaakOrderRegel" popupControlID="modelpanBevestiging" CancelcontrolID="btnclose2" runat="server">
+
+        </ajaxtoolkit:modalpopupextender>
+               <asp:Panel ID="modelpantafel2" Class="popup" runat="server">
+         
+                <div ID="header2" class=header>
+                    <asp:Label ID="lbltafel2popup" class="Tafelpopup" runat="server" Text="2"/>
+                <asp:button ID="btnclose2" Class="close" runat="server" text="X"/>
+                </div>
+
+            <div class="center">
+            <asp:button  runat="server" class="popupbutton" text="Ja" OnClick="btnMaakOrderRegel_Click" />
+            
+            </div>
+        </asp:Panel>
                <br /><br />
 
                <asp:Button ID="btnPlaatsOrder" runat="server" Text="Order plaatsen" OnClick="btnPlaatsOrder_Click" Height="25px" Width="262px" />

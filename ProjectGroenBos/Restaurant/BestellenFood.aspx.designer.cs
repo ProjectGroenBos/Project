@@ -105,6 +105,42 @@ namespace ProjectGroenBos.Restaurant
         protected global::System.Web.UI.WebControls.Button btnMaakOrderRegel;
 
         /// <summary>
+        /// popupBevestiging control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ModalPopupExtender popupBevestiging;
+
+        /// <summary>
+        /// modelpantafel2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel modelpantafel2;
+
+        /// <summary>
+        /// lbltafel2popup control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbltafel2popup;
+
+        /// <summary>
+        /// btnclose2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnclose2;
+
+        /// <summary>
         /// btnPlaatsOrder control.
         /// </summary>
         /// <remarks>
