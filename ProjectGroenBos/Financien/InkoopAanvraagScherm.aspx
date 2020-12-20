@@ -35,7 +35,7 @@ SELECT 'Alle Afdelingen' AS [Naam]"></asp:SqlDataSource>
         <asp:GridView ID="gvInkooporderaanvragerMain" CssClass="content-table tweedetable" GridLines="None" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" DataKeyNames="Nummer" AllowSorting="True">
             <Columns>
 
-                <asp:BoundField DataField="Nummer" HeaderText="Nummer" ReadOnly="True" SortExpression="Nummer" />
+                <asp:BoundField DataField="Nummer" HeaderText="Aanvraagnummer" ReadOnly="True" SortExpression="Nummer" />
                 <asp:BoundField DataField="Naam" HeaderText="Afdeling" SortExpression="Naam" />
                 <asp:BoundField DataField="Datum" DataFormatString="{0:d}" HeaderText="Datum" SortExpression="Datum" />
                 <asp:BoundField DataField="Leverancier" HeaderText="Leverancier" SortExpression="Leverancier" />
