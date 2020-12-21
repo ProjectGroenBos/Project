@@ -72,6 +72,7 @@
     <Content Include="Financien\css\main.css" />
     <Content Include="Financien\Home.aspx" />
     <Content Include="Financien\Prijstabel.aspx" />
+    <Content Include="Financien\Reserveringen.aspx" />
     <Content Include="Gerechten overzicht.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Recreatie\CSS\stylegoeiee.css" />
@@ -405,6 +406,13 @@
     </Compile>
     <Compile Include="Financien\Prijstabel.aspx.designer.cs">
       <DependentUpon>Prijstabel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Financien\Reserveringen.aspx.cs">
+      <DependentUpon>Reserveringen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Financien\Reserveringen.aspx.designer.cs">
+      <DependentUpon>Reserveringen.aspx</DependentUpon>
     </Compile>
     <Compile Include="Gerechten overzicht.aspx.cs">
       <DependentUpon>Gerechten overzicht.aspx</DependentUpon>
