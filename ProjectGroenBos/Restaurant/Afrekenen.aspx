@@ -36,7 +36,7 @@
 
         <%--Het totaal bedrag zichtbaar maken--%>
         <%--<asp:Label ID="LblKostenTotaal" runat="server" Text="€ "></asp:Label>--%>
-            <asp:GridView class="Gdvtotaal" ID="GridViewTotaal" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSourceTotaal" AllowSorting="True" GridLines="None">
+            <asp:GridView class="Gdvtotaal" ID="GridViewTotaal" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSourceTotaal" AllowSorting="True" GridLines="None" DataKeyNames="TotaalBedrag">
                 <Columns>
                     <asp:BoundField DataField="Totaalbedrag" HeaderText="Totaalbedrag" ReadOnly="True" SortExpression="Totaalbedrag" />
                 </Columns>
