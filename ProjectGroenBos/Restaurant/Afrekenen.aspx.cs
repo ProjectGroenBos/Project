@@ -58,9 +58,11 @@ namespace ProjectGroenBos.Restaurant
 
 							//uit de tabel de informatie halen die nodig is
 							int Aantal = (int)GvOrder.DataKeys[i]["Hoeveel"];
-							int Prijs = (int)GvOrder.DataKeys[i]["Prijs"];
-							//int ID = (int)GvOrder.DataKeys[i]["ID"];
+							string Prijsstring = (string)GvOrder.DataKeys[i]["Prijs"].ToString();
+							int ID = (int)GvOrder.DataKeys[i]["ID"];
 
+						//Prijs omzetten naar double
+							double Prijs = Convert.ToDouble(Prijsstring);
 
 							sqlCon.Open();
 							String factuurregels = "INSERT INTO [dbo].[Factuurregel] (Aantal, Prijs, RestaurantItemID) VALUES" + "(@Aantal, @Prijs, @RestaurantItemID)";
@@ -71,7 +73,6 @@ namespace ProjectGroenBos.Restaurant
 
 							command.ExecuteNonQuery();
 							sqlCon.Close();
-							i = i + 1;
 					}
 				}
 			}
