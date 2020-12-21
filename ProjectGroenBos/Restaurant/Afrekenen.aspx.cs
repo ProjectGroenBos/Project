@@ -53,23 +53,25 @@ namespace ProjectGroenBos.Restaurant
 			{
 				using (SqlConnection sqlCon = new SqlConnection(connectionString))
 				{
-					foreach (DataRow rij in GvOrder.Rows)
+					for (int i = 0; i < GvOrder.Rows.Count; i++) 
 					{
-						//uit de tabel de informatie halen die nodig is
-						int Aantal = (int)rij[0];
-						int Prijs = (int)rij[2];
-						int ID = (int)rij[4];
+
+							//uit de tabel de informatie halen die nodig is
+							int Aantal = (int)GvOrder.DataKeys[i]["Hoeveel"];
+							int Prijs = (int)GvOrder.DataKeys[i]["Prijs"];
+							//int ID = (int)GvOrder.DataKeys[i]["ID"];
 
 
-						sqlCon.Open();
-						String factuurregels = "INSERT INTO [dbo].[Factuurregel] (Aantal, Prijs, RestaurantItemID) VALUES" + "(@Aantal, @Prijs, @RestaurantItemID)";
-						SqlCommand command = new SqlCommand(factuurregels, sqlCon);
-						command.Parameters.AddWithValue("@Aantal", Aantal);
-						command.Parameters.AddWithValue("@Prijs", Prijs);
-						command.Parameters.AddWithValue("@RestaurantItemID", ID);
+							sqlCon.Open();
+							String factuurregels = "INSERT INTO [dbo].[Factuurregel] (Aantal, Prijs, RestaurantItemID) VALUES" + "(@Aantal, @Prijs, @RestaurantItemID)";
+							SqlCommand command = new SqlCommand(factuurregels, sqlCon);
+							command.Parameters.AddWithValue("@Aantal", Aantal);
+							command.Parameters.AddWithValue("@Prijs", Prijs);
+							command.Parameters.AddWithValue("@RestaurantItemID", ID);
 
-						command.ExecuteNonQuery();
-						sqlCon.Close();
+							command.ExecuteNonQuery();
+							sqlCon.Close();
+							i = i + 1;
 					}
 				}
 			}
@@ -124,7 +126,14 @@ namespace ProjectGroenBos.Restaurant
 
 		private void Voorraadmuteren()
 		{
+			using (SqlConnection connection = new SqlConnection(connectionString))
+			{
+				int nummer = Convert.ToInt16(Session["tafelnr"].ToString());
 
+
+				//Uit de voorraad halen wat er is besteld
+
+			}
 		}
 
 		protected void btnRekening_Click(object sender, EventArgs e)
@@ -159,6 +168,7 @@ namespace ProjectGroenBos.Restaurant
 				connection.Close();
 			}
 			statusverandering();
+			Voorraadmuteren();
 			LblSucces.Text = " SUBMIT SUCCESSFULLY";
 			//CLEAR();
 
@@ -194,6 +204,7 @@ namespace ProjectGroenBos.Restaurant
 				connection.Close();
 			}
 			statusverandering();
+			Voorraadmuteren();
 			LblSucces.Text = " SUBMIT SUCCESSFULLY";
 			//CLEAR();
 		}
@@ -227,6 +238,7 @@ namespace ProjectGroenBos.Restaurant
 				connection.Close();
 			}
 			statusverandering();
+			Voorraadmuteren();
 			LblSucces.Text = " SUBMIT SUCCESSFULLY";
 			//CLEAR();
 		}

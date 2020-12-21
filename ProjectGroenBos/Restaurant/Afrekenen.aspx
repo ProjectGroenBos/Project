@@ -40,7 +40,7 @@
                     <asp:BoundField DataField="Totaalbedrag" HeaderText="Totaalbedrag" ReadOnly="True" SortExpression="Totaalbedrag" />
                 </Columns>
             </asp:GridView>
-        <asp:SqlDataSource ID="SqlDataSourceTotaal" runat="server" ConnectionString="<%$ ConnectionStrings:2020-BIM02-P1-P2-GroenbosConnectionString %>" SelectCommand="SELECT cast(SUM(RegelTotaal) AS DECIMAL(18,2)) AS Totaalbedrag FROM RestaurantAfrekenOvericht"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSourceTotaal" runat="server" ConnectionString="<%$ ConnectionStrings:2020-BIM02-P1-P2-GroenbosConnectionString %>" ></asp:SqlDataSource>
 
         <div class="btnbak">
             <asp:Button ID="btnRekening" CssClass="buttongreen" runat="server" Text="Op rekening" OnClick="btnRekening_Click" />
