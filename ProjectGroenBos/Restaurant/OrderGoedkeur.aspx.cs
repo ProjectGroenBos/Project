@@ -104,11 +104,8 @@ namespace ProjectGroenBos.Restaurant
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                foreach (GridViewRow row in gvOrderBekijken.Rows)
-                {
-                    string nummer = row.Cells[0].ToString();
-                    SqlDataSource2.SelectCommand = "SELECT Voorraad.Naam, VoedselRestaurantInkoopOrder.Bestelnummer, VoedselRestaurantInkoopOrder.Datum, VoedselRestaurantAanvraagRegels.Aantal FROM Voorraad INNER JOIN VoedselRestaurantAanvraagRegels ON Voorraad.ID = VoedselRestaurantAanvraagRegels.VoorraadID INNER JOIN VoedselRestaurantInkoopOrder ON VoedselRestaurantAanvraagRegels.VoedselOrderAanvraag = VoedselRestaurantInkoopOrder.Nummer WHERE VoedselRestaurantInkoopOrder.Bestelnummer =" + nummer + "";
-                }
+                string nummer = (string)gvOrderBekijken.DataKeys[0]["Bestelnummer"];
+                SqlDataSource2.SelectCommand = "SELECT Voorraad.Naam, VoedselRestaurantInkoopOrder.Bestelnummer, VoedselRestaurantInkoopOrder.Datum, VoedselRestaurantAanvraagRegels.Aantal FROM Voorraad INNER JOIN VoedselRestaurantAanvraagRegels ON Voorraad.ID = VoedselRestaurantAanvraagRegels.VoorraadID INNER JOIN VoedselRestaurantInkoopOrder ON VoedselRestaurantAanvraagRegels.VoedselOrderAanvraag = VoedselRestaurantInkoopOrder.Nummer WHERE VoedselRestaurantInkoopOrder.Bestelnummer =" + nummer + "";
             }
         }
     }

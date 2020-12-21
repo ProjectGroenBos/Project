@@ -149,6 +149,7 @@
     <Content Include="inlogscherm.aspx" />
     <Content Include="Restaurant\img\save.png" />
     <Content Include="Restaurant\OrderGoedkeur.aspx" />
+    <Content Include="Restaurant\OrderPagina.aspx" />
     <Content Include="Restaurant\reserveren.aspx" />
     <Content Include="Restaurant\Keukenoverzicht.aspx" />
     <Content Include="Restaurant\tafeloverzicht.aspx" />
@@ -591,6 +592,13 @@
     </Compile>
     <Compile Include="Restaurant\OrderGoedkeur.aspx.designer.cs">
       <DependentUpon>OrderGoedkeur.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Restaurant\OrderPagina.aspx.cs">
+      <DependentUpon>OrderPagina.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Restaurant\OrderPagina.aspx.designer.cs">
+      <DependentUpon>OrderPagina.aspx</DependentUpon>
     </Compile>
     <Compile Include="Restaurant\Restaurant.Master.cs">
       <DependentUpon>Restaurant.Master</DependentUpon>

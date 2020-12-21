@@ -61,7 +61,7 @@
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:2020-BIM02-P1-P2-GroenbosConnectionString %>" SelectCommand="SELECT [ID], [VoorraadID], [Aantal], [VoedselOrderAanvraag] FROM [VoedselRestaurantAanvraagRegels]"></asp:SqlDataSource>
         </div>
 <br />
-    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource2" HorizontalAlign="Center" Width="90%">
+    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource2" HorizontalAlign="Center" Width="90%" DataKeyNames="Bestelnummer">
 
         <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                 <EditRowStyle BackColor="#999999" />
