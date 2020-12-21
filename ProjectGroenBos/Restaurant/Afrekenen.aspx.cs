@@ -14,7 +14,6 @@ namespace ProjectGroenBos.Restaurant
     {
 		//Connectionstring
 		string connectionString = ConfigurationManager.ConnectionStrings["dbconnectie"].ConnectionString;
-		private DataTable dta;
 
 		protected void Page_Load(object sender, EventArgs e)
         {
@@ -33,7 +32,7 @@ namespace ProjectGroenBos.Restaurant
 
 			// Kijken welke totaalprijs hij moet berekenen
 			int nummer = Convert.ToInt16(Session["tafelnr"].ToString());
-			factuurregels.SelectCommand = "SELECT [Hoeveel], [Naam], [Prijs], [RegelTotaal] FROM [RestaurantAfrekenOvericht] WHERE Status = 'Gereed' and Tafelnr =" + nummer + "";
+			factuurregels.SelectCommand = "SELECT [Hoeveel], [Naam], [Prijs], [RegelTotaal], [Item_ID] FROM [RestaurantAfrekenOvericht] WHERE Status = 'Gereed' and Tafelnr =" + nummer + "";
 			SqlDataSourceTotaal.SelectCommand = "SELECT cast(SUM(RegelTotaal) AS DECIMAL(18,2)) AS Totaalbedrag FROM RestaurantAfrekenOvericht WHERE Status = 'Gereed' and Tafelnr =" + nummer + "";
 
 			
@@ -59,14 +58,15 @@ namespace ProjectGroenBos.Restaurant
 							//uit de tabel de informatie halen die nodig is
 							int Aantal = (int)GvOrder.DataKeys[i]["Hoeveel"];
 							string Prijsstring = (string)GvOrder.DataKeys[i]["Prijs"].ToString();
-							int ID = (int)GvOrder.DataKeys[i]["ID"];
+							int ID = (int)GvOrder.DataKeys[i]["Item_ID"];
 
 						//Prijs omzetten naar double
 							double Prijs = Convert.ToDouble(Prijsstring);
 
 							sqlCon.Open();
-							String factuurregels = "INSERT INTO [dbo].[Factuurregel] (Aantal, Prijs, RestaurantItemID) VALUES" + "(@Aantal, @Prijs, @RestaurantItemID)";
+							String factuurregels = "INSERT INTO [dbo].[Factuurregel] (DebiteurenfactuurNummer, Aantal, Prijs, RestaurantItemID) VALUES" + "(@debiteurfactuurnummer, @Aantal, @Prijs, @RestaurantItemID)";
 							SqlCommand command = new SqlCommand(factuurregels, sqlCon);
+							command.Parameters.AddWithValue("@debiteurfactuurnummer", );
 							command.Parameters.AddWithValue("@Aantal", Aantal);
 							command.Parameters.AddWithValue("@Prijs", Prijs);
 							command.Parameters.AddWithValue("@RestaurantItemID", ID);
@@ -125,22 +125,8 @@ namespace ProjectGroenBos.Restaurant
 			}
 		}
 
-		private void Voorraadmuteren()
-		{
-			using (SqlConnection connection = new SqlConnection(connectionString))
-			{
-				int nummer = Convert.ToInt16(Session["tafelnr"].ToString());
-
-
-				//Uit de voorraad halen wat er is besteld
-
-			}
-		}
-
 		protected void btnRekening_Click(object sender, EventArgs e)
 		{
-			//factuurregels laten aanmaken
-			Factuurregelsmaken();
 
 
 
@@ -168,18 +154,20 @@ namespace ProjectGroenBos.Restaurant
 				command.ExecuteNonQuery();
 				connection.Close();
 			}
+			//factuurregels laten aanmaken
+			Factuurregelsmaken();
+
+			//status veranderen
 			statusverandering();
-			Voorraadmuteren();
+
 			LblSucces.Text = " SUBMIT SUCCESSFULLY";
-			//CLEAR();
 
 		}
 
 
 		protected void btnBetalen_Click(object sender, EventArgs e)
 		{
-			//factuurregels laten aanmaken
-			Factuurregelsmaken();
+
 
 
 			using (SqlConnection connection = new SqlConnection(connectionString))
@@ -204,16 +192,19 @@ namespace ProjectGroenBos.Restaurant
 				command.ExecuteNonQuery();
 				connection.Close();
 			}
+			//factuurregels laten aanmaken
+			Factuurregelsmaken();
+
+			//status veranderen
 			statusverandering();
-			Voorraadmuteren();
+
 			LblSucces.Text = " SUBMIT SUCCESSFULLY";
-			//CLEAR();
+
 		}
 
 		protected void btnContant_Click(object sender, EventArgs e)
 		{
-			//factuurregels laten aanmaken
-			Factuurregelsmaken();
+
 
 
 
@@ -238,10 +229,14 @@ namespace ProjectGroenBos.Restaurant
 				command.ExecuteNonQuery();
 				connection.Close();
 			}
+			//factuurregels laten aanmaken
+			Factuurregelsmaken();
+
+			//status veranderen
 			statusverandering();
-			Voorraadmuteren();
+
 			LblSucces.Text = " SUBMIT SUCCESSFULLY";
-			//CLEAR();
+
 		}
 	}
 }

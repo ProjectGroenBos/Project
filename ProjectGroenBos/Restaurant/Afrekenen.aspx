@@ -13,7 +13,7 @@
         <asp:Label ID="lbltafel" CssClass="lblTafel" runat="server" Text="Tafel"></asp:Label>
         <%--<asp:Label ID="lblnummer" CssClass="lblTafel" runat="server" Text="0"></asp:Label> --%>
             <div class="Factuurregelbak">
-            <asp:GridView class="GvOrder" ID="GvOrder" runat="server" AutoGenerateColumns="False" DataSourceID="factuurregels" AllowSorting="True" GridLines="None" DataKeyNames="Hoeveel,Prijs,ID">
+            <asp:GridView class="GvOrder" ID="GvOrder" runat="server" AutoGenerateColumns="False" DataSourceID="factuurregels" AllowSorting="True" GridLines="None" DataKeyNames="Hoeveel,Prijs,Item_ID">
                 <Columns>
                     <asp:BoundField DataField="Hoeveel" HeaderText="Hoeveel" SortExpression="Hoeveel" >
                      </asp:BoundField>
@@ -21,8 +21,9 @@
                      </asp:BoundField>
                     <asp:BoundField DataField="Prijs" HeaderText="Prijs" SortExpression="Prijs">
                      </asp:BoundField>
-
                     <asp:BoundField DataField="RegelTotaal" HeaderText="RegelTotaal" ReadOnly="True" SortExpression="RegelTotaal" />
+                    <asp:BoundField DataField="Item_ID" HeaderText="Item_ID" SortExpression="Item_ID" Visible="False">
+                     </asp:BoundField>
 
                 </Columns>             
                 <HeaderStyle CssClass="GdvHeader"/>
