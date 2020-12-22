@@ -486,7 +486,7 @@ margin-top: 10%
 
         <asp:GridView ID="gvOrderBekijken" DataKeyNames="Nummer" CssClass="content-table tweedetable" GridLines="None" runat="server" AutoGenerateColumns="false" DataSourceID="SqlDataSource6">
             <Columns>
-                <asp:BoundField DataField="Nummer" HeaderText="Nummer" InsertVisible="False" SortExpression="Nummer" ReadOnly="True" />
+                <asp:BoundField DataField="Bestelnummer" HeaderText="Bestelnummer" InsertVisible="False" SortExpression="Bestelnummer" ReadOnly="True" />
                 <asp:BoundField DataField="Datum" HeaderText="Datum" SortExpression="Datum" ReadOnly="True" />
                 <asp:BoundField DataField="Naam" HeaderText="Leverancier" SortExpression="Naam" />
                 <asp:TemplateField>
@@ -582,7 +582,10 @@ margin-top: 10%
                                     </tbody>
                                 </table>--%>
 
-                                <asp:SqlDataSource ID="SqlDataSource7" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="select * from orderinfo where Nummer = @Nummer">
+                                <asp:SqlDataSource ID="SqlDataSource7" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT *
+FROM     Voorraad INNER JOIN
+                  VoedselRestaurantAanvraagRegels ON Voorraad.ID = VoedselRestaurantAanvraagRegels.VoorraadID INNER JOIN
+                  VoedselRestaurantInkoopOrder ON VoedselRestaurantAanvraagRegels.VoedselOrderAanvraag = VoedselRestaurantInkoopOrder.Nummer where Nummer = @Nummer">
                                     <SelectParameters>
                                         <asp:ControlParameter
                                             Name="Nummer"
@@ -626,7 +629,7 @@ margin-top: 10%
                         </div>
 
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Sluiten</button>
+                            <button type="button" class="btn btn-default" <%--data-dismiss="modal"--%>>Goedkeuren</button>
                         </div>
                     </div>
                 </div>
