@@ -33,40 +33,22 @@ namespace ProjectGroenBos.Restaurant
         protected global::System.Web.UI.WebControls.Label lbltafel;
 
         /// <summary>
-        /// lblnummer control.
+        /// GvOrder control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblnummer;
+        protected global::System.Web.UI.WebControls.GridView GvOrder;
 
         /// <summary>
-        /// GridView1 control.
+        /// factuurregels control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
-
-        /// <summary>
-        /// SqlDataSource1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
-
-        /// <summary>
-        /// lblTotaal control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTotaal;
+        protected global::System.Web.UI.WebControls.SqlDataSource factuurregels;
 
         /// <summary>
         /// GridViewTotaal control.
@@ -112,5 +94,14 @@ namespace ProjectGroenBos.Restaurant
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button BtnContant;
+
+        /// <summary>
+        /// LblSucces control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblSucces;
     }
 }
