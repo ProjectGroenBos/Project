@@ -1,10 +1,10 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Restaurant/Restaurant.Master" AutoEventWireup="true" CodeBehind="BestellenFood.aspx.cs" Inherits="ProjectGroenBos.Restaurant.BestellenFood" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Restaurant/Restaurant.Master" AutoEventWireup="true" CodeBehind="BestellenNonFood.aspx.cs" Inherits="ProjectGroenBos.Restaurant.BestellenNonFood" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-             <link rel="stylesheet" href="css/BestellenVoorraad.css" />
-     </asp:Content>
+    <link rel="stylesheet" href="css/BestellenVoorraad.css" />
+</asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
      <div>
-        <h1>Bestellen Food artikelen</h1> 
+        <h1>Bestellen Non-Food artikelen</h1> 
 
            <div>
                <br />
@@ -65,7 +65,7 @@
                         <asp:Label ID="lblLeverancier" runat="server" Text="Kies leverancier"></asp:Label>
         <asp:DropDownList ID="ddlLeverancier" runat="server" DataSourceID="SqlDataSource2" DataTextField="Naam" DataValueField="ID">
         </asp:DropDownList>
-        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT [ID], [Naam] FROM [Leverancier] WHERE Naam='Sligro'"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT [ID], [Naam] FROM [Leverancier] WHERE Naam='Ikea'"></asp:SqlDataSource>
             <asp:ScriptManager ID="ToolkitScriptManager1" runat="server">
             </asp:ScriptManager>
 
@@ -115,5 +115,5 @@
         <asp:Label ID ="lblSuccessMessage" Text="" runat="server" ForeColor="Green" />
         <asp:Label ID ="lblErrorMessage" Text="" runat="server" ForeColor="Red" />
 
-               <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT * FROM Voorraad WHERE Omschrijving = 'Frisdranken' OR Omschrijving = 'Voedsel'"></asp:SqlDataSource>
-               </asp:Content>
+               <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT * FROM Voorraad WHERE Omschrijving = 'Inventaris'"></asp:SqlDataSource>
+</asp:Content>

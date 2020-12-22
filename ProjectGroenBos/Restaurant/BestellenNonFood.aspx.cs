@@ -8,12 +8,10 @@ using System.Data;
 using System.Configuration;
 using System.Data.SqlClient;
 
-
 namespace ProjectGroenBos.Restaurant
 {
-    public partial class BestellenFood : System.Web.UI.Page
+    public partial class BestellenNonFood : System.Web.UI.Page
     {
-
         string connectionString = ConfigurationManager.ConnectionStrings["dbconnectie"].ToString(); // connection string
 
         DataTable dta;
@@ -129,18 +127,19 @@ namespace ProjectGroenBos.Restaurant
                 {
                     // Maak Inkooporder aan
                     sqlCon.Open();
-                    String query = "INSERT INTO VoedselRestaurantInkoopOrder (LeverancierID, Datum, Bestelnummer, Aanvraagstatus) VALUES (@Leveranciernummer, @Datum, @Bestelnummer, @Aanvraagstatus)";
+                    String query = "INSERT INTO InkoopOrderAanvraag (LeverancierID, Datum, Bestelnummer, InkoopOrderAanvraagStatusID, AfdelingID) VALUES (@Leveranciernummer, @Datum, @Bestelnummer, @Aanvraagstatus, @afdelingid)";
                     SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
                     sqlCmd.Parameters.AddWithValue("@Leveranciernummer", Leveranciernummer);
                     SqlParameter sqlParameter0 = sqlCmd.Parameters.AddWithValue("@Datum", DateTime.Now);
                     SqlParameter sqlParameter1 = sqlCmd.Parameters.AddWithValue("@Bestelnummer", num);
-                    SqlParameter sqlParameter2 = sqlCmd.Parameters.AddWithValue("@Aanvraagstatus", "2".Trim());
+                    SqlParameter sqlParameter2 = sqlCmd.Parameters.AddWithValue("@Aanvraagstatus", "1".Trim());
+                    SqlParameter sqlParameter3 = sqlCmd.Parameters.AddWithValue("@afdelingid", "4".Trim());
                     sqlCmd.ExecuteNonQuery();
                     sqlCon.Close();
 
                     // Haal zojuist aangemaakt Inkooporder op om ID uit te halen
                     sqlCon.Open();
-                    string selectquery = "SELECT TOP 1 Nummer FROM [dbo].[VoedselRestaurantInkoopOrder] ORDER BY Nummer DESC";
+                    string selectquery = "SELECT TOP 1 Nummer FROM [dbo].[InkoopOrderAanvraag] ORDER BY Nummer DESC";
                     SqlCommand sqlComd = new SqlCommand(selectquery, sqlCon);
                     SqlDataReader r;
                     r = sqlComd.ExecuteReader();
@@ -162,17 +161,17 @@ namespace ProjectGroenBos.Restaurant
 
 
                         sqlCon.Open();
-                        String orderregels = "INSERT INTO VoedselRestaurantAanvraagRegels (VoorraadID,Aantal,VoedselOrderAanvraag) VALUES (@VoorraadID,@Aantal,@VoedselOrderAanvraag)";
+                        String orderregels = "INSERT INTO VoedselRestaurantAanvraagRegels (VoorraadID,Aantal,InkoopOrderAanvraagNummer) VALUES (@VoorraadID,@Aantal,@VoedselOrderAanvraag)";
                         SqlCommand sqlCemd = new SqlCommand(orderregels, sqlCon);
                         sqlCemd.Parameters.AddWithValue("@VoorraadID", PK_Product);
                         sqlCemd.Parameters.AddWithValue("@Aantal", Hoeveelheid);
-                        sqlCemd.Parameters.AddWithValue("@VoedselOrderAanvraag", ordernummer);
+                        sqlCemd.Parameters.AddWithValue("@InkoopOrderAanvraagNummer", ordernummer);
                         sqlCemd.ExecuteNonQuery();
                         sqlCon.Close();
                     }
                 }
 
-                Response.Redirect("BestellenFood.aspx");
+                Response.Redirect("BestellenNonFood.aspx");
 
 
 
@@ -186,9 +185,5 @@ namespace ProjectGroenBos.Restaurant
 
 
         }
-
     }
 }
-
-
-

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Financien/Financien.Master" AutoEventWireup="true" CodeBehind="OrderPagina.aspx.cs" Inherits="ProjectGroenBos.Restaurant.OrderPagina" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Restaurant/Restaurant.Master" AutoEventWireup="true" CodeBehind="OrderPagina.aspx.cs" Inherits="ProjectGroenBos.Restaurant.OrderPagina" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
         @media print {
@@ -479,10 +479,8 @@ margin-top: 10%
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="header">Reserveringen</div>
+    <div class="header">Orderpagina</div>
     <div class="container" runat="server" id="pdfbody">
-        <h2>Orderpagina</h2>
-
 
         <asp:GridView ID="gvOrderBekijken" DataKeyNames="Nummer" CssClass="content-table tweedetable" GridLines="None" runat="server" AutoGenerateColumns="false" DataSourceID="SqlDataSource6">
             <Columns>
