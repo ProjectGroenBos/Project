@@ -19,7 +19,7 @@
                     <EditItemTemplate>
                         <asp:TextBox ID="TBnaam" runat="server" Text='<%# Bind("Naam") %>'></asp:TextBox>
                             <asp:RequiredFieldValidator ID="Naam" runat="server" ErrorMessage="*" ControlToValidate="TBnaam" ForeColor="red" ValidationGroup="Validation" Display="Dynamic"></asp:RequiredFieldValidator>
-                        <asp:RegularExpressionValidator ID="Naam1" runat="server" ErrorMessage="Bijv. Cor Netto" ControlToValidate="TBnaam" ForeColor="Red" ValidationExpression="[a-zA-Z\.\'\-_\s]{1,40}" ValidationGroup="Validation" Display="Dynamic"></asp:RegularExpressionValidator>                    
+                        <asp:RegularExpressionValidator ID="Naam1" runat="server" ErrorMessage="Bijv. Cor Netto" ControlToValidate="TBnaam" ForeColor="Red" ValidationExpression="[a-zA-Z\.\'\-_\s]+[ëäÄÉéöÖüÜß\w-]{1,40}" ValidationGroup="Validation" Display="Dynamic"></asp:RegularExpressionValidator>                    
                     </EditItemTemplate>
                     <ItemTemplate>
                         <asp:Label ID="Label1" runat="server" Text='<%# Bind("Naam") %>'></asp:Label>
@@ -49,22 +49,44 @@
                     </ItemTemplate>
                 </asp:TemplateField>
 
-                <asp:BoundField DataField="Functie" HeaderText="Functie" SortExpression="Functie" ReadOnly="True" />
-                <asp:BoundField DataField="Afdeling" HeaderText="Afdeling" SortExpression="Afdeling" ReadOnly="True" />
-                <asp:CommandField ShowEditButton="True" ValidationGroup="Validation" />
+                <asp:TemplateField HeaderText="Functie" SortExpression="Functie">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="TBFC" runat="server" Text='<%# Bind("Functie") %>'></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="Functie" runat="server" ErrorMessage="*" ControlToValidate="TBFC" ForeColor="red" ValidationGroup="Validation" Display="Dynamic"></asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="Functie1" runat="server" ErrorMessage="bijv. Medewerker Inkoop" ControlToValidate="TBFC" ForeColor="Red" ValidationExpression="[a-zA-Z\.\'\-_\s]+[ëäÄÉéöÖüÜß\w-]{1,40}" ValidationGroup="Validation" Display="Dynamic"></asp:RegularExpressionValidator>                    
+                    </EditItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label4" runat="server" Text='<%# Bind("Functie") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+
+                <asp:TemplateField HeaderText="Afdeling" SortExpression="Afdeling">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="TBAFD" runat="server" Text='<%# Bind("Afdeling") %>'></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="Afdeling" runat="server" ErrorMessage="*" ControlToValidate="TBAFD" ForeColor="red" ValidationGroup="Validation" Display="Dynamic"></asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="Afdeling1" runat="server" ErrorMessage="bijv. Recreatie" ControlToValidate="TBAFD" ForeColor="Red" ValidationExpression="[a-zA-Z\.\'\-_\s]+[ëäÄÉéöÖüÜß\w-]{1,40}" ValidationGroup="Validation" Display="Dynamic"></asp:RegularExpressionValidator>                    
+                    </EditItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label5" runat="server" Text='<%# Bind("Afdeling") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+
+                <asp:CommandField ShowEditButton="True" ValidationGroup="Validation"/>
                 <asp:TemplateField></asp:TemplateField>
             </Columns>
         </asp:GridView>
 
         <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT Med.Nummer, Med.Naam, Med.Geboortedatum, Med.[In dienst sinds] AS In_dienst_sinds, Med.[Salaris per maand] AS Salaris_per_maand, Fun.naam as Functie, Afd.Naam as Afdeling FROM (( dbo.Medewerker Med  inner join dbo.Functie Fun on Med.FunctieID = Fun.ID) inner join dbo.Afdeling Afd on Med.AfdelingID= Afd.ID) where Med.FunctieID= Fun.ID and Med.AfdelingID= Afd.ID" UpdateCommand="
 Update dbo.Medewerker 
-Set [Salaris per maand] = @Salaris_per_maand, [Naam] = @Naam, [Geboortedatum] = convert(datetime,@Geboortedatum,104) Where [Nummer] = @Nummer">
+Set [Salaris per maand] = @Salaris_per_maand, [Naam] = @Naam, [Geboortedatum] = convert(datetime,@Geboortedatum,104), [FunctieID] = (SELECT ID FROM dbo.Functie WHERE naam = '@Functie'), [AfdelingID] = (SELECT ID FROM dbo.Afdeling WHERE Naam = '@Afdeling') Where [Nummer] = @Nummer">
 
             <UpdateParameters>
                 <asp:Parameter Name="Naam" />
                 <asp:Parameter Name="Geboortedatum" />
                 <asp:Parameter Name="Salaris_per_maand" />
                 <asp:Parameter Name="Nummer" />
+                <asp:Parameter Name="Functie" />
+                <asp:Parameter Name="Afdeling" />
             </UpdateParameters>
 
         </asp:SqlDataSource>
