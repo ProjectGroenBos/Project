@@ -91,6 +91,7 @@
     <Content Include="Financien\InkoopAanvraagBestelScherm.aspx" />
     <Content Include="Financien\Inlogscherm.aspx" />
     <Content Include="Financien\InzienInkoopTraject.aspx" />
+    <Content Include="Financien\Leverancier.aspx" />
     <Content Include="Financien\nietgeautoriseerd.aspx" />
     <Content Include="Financien\Overzicht.aspx" />
     <Content Include="Financien\Prijstabel.aspx" />
@@ -767,6 +768,13 @@
     </Compile>
     <Compile Include="Financien\InzienInkoopTraject.aspx.designer.cs">
       <DependentUpon>InzienInkoopTraject.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Financien\Leverancier.aspx.cs">
+      <DependentUpon>Leverancier.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Financien\Leverancier.aspx.designer.cs">
+      <DependentUpon>Leverancier.aspx</DependentUpon>
     </Compile>
     <Compile Include="Financien\nietgeautoriseerd.aspx.cs">
       <DependentUpon>nietgeautoriseerd.aspx</DependentUpon>
