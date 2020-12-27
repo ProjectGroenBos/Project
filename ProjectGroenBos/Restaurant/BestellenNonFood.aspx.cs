@@ -161,7 +161,7 @@ namespace ProjectGroenBos.Restaurant
 
 
                         sqlCon.Open();
-                        String orderregels = "INSERT INTO VoedselRestaurantAanvraagRegels (VoorraadID,Aantal,InkoopOrderAanvraagNummer) VALUES (@VoorraadID,@Aantal,@VoedselOrderAanvraag)";
+                        String orderregels = "INSERT INTO InkoopAanvraagRegels (VoorraadID,Aantal,InkoopOrderAanvraagNummer) VALUES (@VoorraadID,@Aantal,@InkoopOrderAanvraagNummer)";
                         SqlCommand sqlCemd = new SqlCommand(orderregels, sqlCon);
                         sqlCemd.Parameters.AddWithValue("@VoorraadID", PK_Product);
                         sqlCemd.Parameters.AddWithValue("@Aantal", Hoeveelheid);
