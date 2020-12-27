@@ -17,7 +17,7 @@ namespace ProjectGroenBos.Restaurant
             }
         }
 
-        protected void btnUitloggen_Click(object sender, EventArgs e)
+        protected void BtnUitloggen_Click(object sender, EventArgs e)
         {
             Session["Login"] = null;
             Response.Redirect("~/inlogscherm.aspx");
