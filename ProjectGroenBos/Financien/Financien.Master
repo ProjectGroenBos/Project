@@ -34,6 +34,7 @@
 
                             <li><a href="/Financien/Personeeloverzicht.aspx">Personeel-overzicht</a></li>
                             <li><a href="/Financien/Prijstabel.aspx">Prijsmanagement</a></li>
+                             <li><a href="/Financien/Leverancier.aspx">Leveranciersoverzicht</a></li>
                             <li><a href="/Financien/Reserveringen.aspx">Reserveringen-overzicht</a></li>
                             <li><a href="/Financien/Rekeningen.aspx">Rekening-overzicht</a></li>
                         </ul>
