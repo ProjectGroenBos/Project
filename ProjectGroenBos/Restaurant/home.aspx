@@ -2,5 +2,10 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <h1>HOME PAGINA</h1>
+    <style>
+        h1{
+            text-align:center;
+        }
+    </style> 
+    <h1>Welkom</h1>
 </asp:Content>
