@@ -440,6 +440,8 @@
     <Content Include="Reservering\ReserveringenMedewerkerGelukt.aspx" />
     <Content Include="Reservering\ReserveringMedewerkerNachtregister.aspx" />
     <Content Include="Reservering\test.aspx" />
+    <Content Include="Restaurant\BestellenFood.aspx" />
+    <Content Include="Restaurant\BestellenNonFood.aspx" />
     <Content Include="Restaurant\Bestelling.aspx" />
     <Content Include="Restaurant\Bestellingenoverzicht.aspx" />
     <Content Include="Restaurant\bestellinggelukt.aspx" />
@@ -469,8 +471,14 @@
     <Content Include="Restaurant\img\productimg\Sprite.png" />
     <Content Include="Restaurant\img\productimg\tomatensoep.png" />
     <Content Include="Restaurant\img\productimg\varkenshaas.png" />
+    <Content Include="Restaurant\Keukenoverzicht.aspx" />
     <Content Include="Restaurant\opnemenbestelling.aspx" />
+    <Content Include="Restaurant\OrderGoedkeur.aspx" />
+    <Content Include="Restaurant\OrderPagina.aspx" />
+    <Content Include="Restaurant\reserveren.aspx" />
     <Content Include="Restaurant\tafeloverzicht.aspx" />
+    <Content Include="Restaurant\Voorraad.aspx" />
+    <Content Include="Restaurant\VoorraadZien.aspx" />
     <Content Include="Schoonmaak en Onderhoud\InventarisOverzicht.aspx" />
     <Content Include="Schoonmaak en Onderhoud\OffertesOverzicht.aspx" />
     <Content Include="Schoonmaak en Onderhoud\OnderhoudsOverzicht.aspx" />
@@ -944,6 +952,20 @@
     <Compile Include="Reservering\test.aspx.designer.cs">
       <DependentUpon>test.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Restaurant\BestellenFood.aspx.cs">
+      <DependentUpon>BestellenFood.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Restaurant\BestellenFood.aspx.designer.cs">
+      <DependentUpon>BestellenFood.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Restaurant\BestellenNonFood.aspx.cs">
+      <DependentUpon>BestellenNonFood.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Restaurant\BestellenNonFood.aspx.designer.cs">
+      <DependentUpon>BestellenNonFood.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Restaurant\Bestelling.aspx.cs">
       <DependentUpon>Bestelling.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -979,12 +1001,40 @@
     <Compile Include="Restaurant\home.aspx.designer.cs">
       <DependentUpon>home.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Restaurant\Keukenoverzicht.aspx.cs">
+      <DependentUpon>Keukenoverzicht.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Restaurant\Keukenoverzicht.aspx.designer.cs">
+      <DependentUpon>Keukenoverzicht.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Restaurant\opnemenbestelling.aspx.cs">
       <DependentUpon>opnemenbestelling.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Restaurant\opnemenbestelling.aspx.designer.cs">
       <DependentUpon>opnemenbestelling.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Restaurant\OrderGoedkeur.aspx.cs">
+      <DependentUpon>OrderGoedkeur.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Restaurant\OrderGoedkeur.aspx.designer.cs">
+      <DependentUpon>OrderGoedkeur.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Restaurant\OrderPagina.aspx.cs">
+      <DependentUpon>OrderPagina.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Restaurant\OrderPagina.aspx.designer.cs">
+      <DependentUpon>OrderPagina.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Restaurant\reserveren.aspx.cs">
+      <DependentUpon>reserveren.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Restaurant\reserveren.aspx.designer.cs">
+      <DependentUpon>reserveren.aspx</DependentUpon>
     </Compile>
     <Compile Include="Restaurant\Restaurant.Master.cs">
       <DependentUpon>Restaurant.Master</DependentUpon>
@@ -999,6 +1049,20 @@
     </Compile>
     <Compile Include="Restaurant\tafeloverzicht.aspx.designer.cs">
       <DependentUpon>tafeloverzicht.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Restaurant\Voorraad.aspx.cs">
+      <DependentUpon>Voorraad.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Restaurant\Voorraad.aspx.designer.cs">
+      <DependentUpon>Voorraad.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Restaurant\VoorraadZien.aspx.cs">
+      <DependentUpon>VoorraadZien.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Restaurant\VoorraadZien.aspx.designer.cs">
+      <DependentUpon>VoorraadZien.aspx</DependentUpon>
     </Compile>
     <Compile Include="Schoonmaak en Onderhoud\InventarisOverzicht.aspx.cs">
       <DependentUpon>InventarisOverzicht.aspx</DependentUpon>

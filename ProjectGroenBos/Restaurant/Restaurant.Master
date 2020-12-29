@@ -65,8 +65,8 @@
                             <li><a href="#">Reserveringen</a></li>
                             <li><a href="#">Recreatie</a></li>
                             <li><a href="#">Schoonmaak</a></li>
-                            <li><a href="#">Financiën</a></li>
-                            <asp:Button ID="btnUitloggen" runat="server" CssClass="btnUitloggen" Text="Uitloggen" OnClick="BtnUitloggen_Click" />
+                            <li><a href="/Financien/Home.aspx">Financiën</a></li>
+                            <asp:Button ID="btnUitloggen" runat="server" CssClass="btnUitloggen" Text="Uitloggen" OnClick="btnUitloggen_Click" />
                         </ul>
                     </nav>
                 </div>
