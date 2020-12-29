@@ -174,6 +174,8 @@ namespace ProjectGroenBos.Reservering
 
                 double prijs = GetPrijs(reserveringnummer);
 
+                double prijs2 = prijs;
+
                 prijs = prijs / 10;
 
                 if (prijs < 100)
@@ -189,7 +191,8 @@ namespace ProjectGroenBos.Reservering
 
                 InsTransactie(vandaag, aan, prijs, reserveringnummer, debifactuur, rekeningnummer, typeID);
 
-                Session["prijs"] = prijs.ToString();
+                Session["prijs"] = prijs2.ToString();
+                Session["betaald"] = prijs.ToString();
                 Session["personen"] = txbAantalPersonen.Text;
                 Session["reserveringnummer"] = reserveringnummer;
                 Session["aankomstdatum"] = aankomst2;
@@ -197,7 +200,7 @@ namespace ProjectGroenBos.Reservering
                 Session["achternaam"] = achternaam;
                 Session["email"] = (string)GridView2.DataKeys[0]["Email"].ToString();
 
-                Response.Redirect("Nachtregister.aspx");
+                Response.Redirect("NachtregisterInvullen.aspx");
             }
             catch
             {

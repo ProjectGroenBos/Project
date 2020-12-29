@@ -17,7 +17,7 @@ namespace ProjectGroenBos.Reservering
             {
                 lbluitkomst.Text = "De klacht van de gast is succesvol opgeslagen.";
             }
-            else if (Session["controle4"] != null)
+            else if (int.Parse(Session["controle4"].ToString()) ==1)
             {
                 lbluitkomst.Text = "De reservering is aangemaakt.";
             }

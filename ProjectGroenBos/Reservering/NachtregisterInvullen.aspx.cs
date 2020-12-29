@@ -99,65 +99,16 @@ namespace ProjectGroenBos.Reservering
                 }
             }
 
-            GridView2.DataBind();
+            GridView1.DataBind();
         }
 
         protected void btnBevestigen_Click(object sender, EventArgs e)
         {
             reserveringnummer = int.Parse(lblReserveringnummer.Text);
-            StuurMail();
-            Session["controle4"] = 1;
-
-            Response.Redirect("home.aspx");
+            Session["reserveringnummer300"] = reserveringnummer;
+            Response.Redirect("NachtregisterChecken.aspx");
         }
 
-        private void StuurMail()
-        {
-            string ontvanger = Session["Email"].ToString();
-
-            //Mail opzetten
-            MailMessage mailMessage = new MailMessage("groenbosreservations@gmail.com", ontvanger);
-            mailMessage.Subject = "Uw reservering is geplaatst!";
-            mailMessage.Body = CreateBody();
-            mailMessage.IsBodyHtml = true;
-
-            //Credentails
-            SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
-            smtpClient.Credentials = new System.Net.NetworkCredential()
-            {
-                UserName = "groenbosreservations@gmail.com",
-                Password = "MarionenAndries"
-            };
-            smtpClient.EnableSsl = true;
-
-            //Versturen mail
-
-            smtpClient.Send(mailMessage);
-
-        }
-
-        private string CreateBody()
-        {
-            {
-                //lezen mail.html
-                string body = string.Empty;
-                using (StreamReader reader = new StreamReader(Server.MapPath("ReserveringAanmaken.html")))
-                {
-                    body = reader.ReadToEnd();
-                }
-
-                //parameters html pagina
-                body = body.Replace("{reserveringsnummer}", reserveringnummer.ToString());
-                body = body.Replace("{achternaam}", Session["achternaam"].ToString());
-                body = body.Replace("{aankomstdatum}", Session["aankomstdatum"].ToString());
-                body = body.Replace("{vertrekdatum}", Session["vertrekdatum"].ToString());
-                body = body.Replace("{personen}", Session["personen"].ToString());
-                body = body.Replace("{email}", Session["email"].ToString());
-                //body = body.Replace("{prijs}", Session["prijs"].ToString());
-
-                return body;
-            }
-
-        }
+       
     }
 }

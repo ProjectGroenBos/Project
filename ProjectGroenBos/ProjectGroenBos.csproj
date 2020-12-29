@@ -97,9 +97,11 @@
     <Content Include="Reservering\GastWijzigen.aspx" />
     <Content Include="Reservering\MailHuisReserveringGeannuleerd.html" />
     <Content Include="Reservering\MailReserveringGewijzigd.html" />
-    <Content Include="Reservering\Nachtregister.aspx" />
+    <Content Include="Reservering\NachtregisterChecken.aspx" />
+    <Content Include="Reservering\NachtregisterInvullen.aspx" />
     <Content Include="Reservering\ReserveringAanmaken.aspx" />
     <Content Include="Reservering\ReserveringAanmaken.html" />
+    <Content Include="Reservering\ReserveringCompleet.aspx" />
     <Content Include="Reservering\ReserveringOverzicht.aspx" />
     <Content Include="Reservering\ReserveringAnnuleren.aspx" />
     <Content Include="Reservering\ReserveringenWijzigenOverzicht.aspx" />
@@ -454,12 +456,19 @@
     <Compile Include="Reservering\GastWijzigen.aspx.designer.cs">
       <DependentUpon>GastWijzigen.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Reservering\Nachtregister.aspx.cs">
-      <DependentUpon>Nachtregister.aspx</DependentUpon>
+    <Compile Include="Reservering\NachtregisterChecken.aspx.cs">
+      <DependentUpon>NachtregisterChecken.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Reservering\Nachtregister.aspx.designer.cs">
-      <DependentUpon>Nachtregister.aspx</DependentUpon>
+    <Compile Include="Reservering\NachtregisterChecken.aspx.designer.cs">
+      <DependentUpon>NachtregisterChecken.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reservering\NachtregisterInvullen.aspx.cs">
+      <DependentUpon>NachtregisterInvullen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reservering\NachtregisterInvullen.aspx.designer.cs">
+      <DependentUpon>NachtregisterInvullen.aspx</DependentUpon>
     </Compile>
     <Compile Include="Reservering\ReserveringAanmaken.aspx.cs">
       <DependentUpon>ReserveringAanmaken.aspx</DependentUpon>
@@ -467,6 +476,13 @@
     </Compile>
     <Compile Include="Reservering\ReserveringAanmaken.aspx.designer.cs">
       <DependentUpon>ReserveringAanmaken.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reservering\ReserveringCompleet.aspx.cs">
+      <DependentUpon>ReserveringCompleet.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reservering\ReserveringCompleet.aspx.designer.cs">
+      <DependentUpon>ReserveringCompleet.aspx</DependentUpon>
     </Compile>
     <Compile Include="Reservering\ReserveringOverzicht.aspx.cs">
       <DependentUpon>ReserveringOverzicht.aspx</DependentUpon>
