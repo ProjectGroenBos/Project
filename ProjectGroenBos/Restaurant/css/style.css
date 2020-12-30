@@ -123,167 +123,10 @@ body {
             margin-bottom: 20px;
         }
 
-.container {
-    background-color: #f3f5f9;
-    width: 90%;
-    height: auto;
-    border: 1px solid rgba(14,98,81,1);
-    border-radius: 15px;
-    text-align: center;
-    margin-left: 5%;
-    margin-top: 20px;
-    min-height: 100px;
-}
-
-    .container h2 {
-        margin-top: 5px;
-        color: rgba(14,98,81,1);
-        margin-bottom: 5px;
-    }
-
 .center {
     text-align: center;
 }
 
-/* table */
-.content-table {
-    border-collapse: collapse;
-    margin: 25px 0;
-    font-size: 0.9em;
-    min-width: 400px;
-    border-radius: 5px 5px 0 0;
-    overflow: hidden;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-
-    margin-left: auto;
-    margin-right: auto;
-}
-
-    .content-table tbody tr th {
-        background-color: #009879;
-        color: #ffffff;
-        text-align: center;
-        font-weight: bold;
-    }
-
-    .content-table th,
-    .content-table td {
-        padding: 12px 15px;
-    }
-
-    .content-table tbody tr {
-        border-bottom: 1px solid #dddddd;
-    }
-
-        .content-table tbody tr:nth-of-type(even) {
-            background-color: #f3f3f3;
-        }
-
-
-        .content-table tbody tr:last-of-type {
-            border-bottom: 2px solid #009879;
-        }
-
-        .content-table tbody tr:hover {
-            font-weight: bold;
-            color: #009879;
-        }
-
-        .content-table tbody tr td a {
-            background-color: rgba(20,143,119,1);
-            border-radius: 5px;
-            color: #ffffff;
-            padding: .5em;
-            text-decoration: none;
-        }
-
-            .content-table tbody tr td a:nth-child(2) {
-                background-color: #C0392B;
-                border-radius: 5px;
-                color: #ffffff;
-                padding: .5em;
-                text-decoration: none;
-            }
-
-                .content-table tbody tr td a:nth-child(2):hover {
-                    background-color: #CD6155;
-                    color: #ffffff;
-                }
-
-            .content-table tbody tr td a:hover {
-                background-color: #009879;
-                color: #ffffff;
-            }
-
-                tr > td:last-of-type {
-                width: 50px;
-                    }
-
-.eerstetable {
-    width: 60%;
-    margin-left: 20%;
-}
-
-.tweedetable {
-    width: 80%;
-    margin-left: 10%;
-}
-
-        .hideGridColumn {
-            display: none;
-        }
-
-
-.mainpanel {
-    width: 70%;
-    height: auto;
-    min-height: 100px;
-
-    margin-left: 5%;
-    margin-top: 5%;
-
-    display: inline-block;
-    vertical-align: top;
-}
-
-.sidepanel {
-    width: 20%; 
-    
-    height: auto;
-    min-height: 100px;
-    
-    display: inline-block;
-    vertical-align: top;
-
-    margin-top: 5%;
-}
-
-/* BUTTONS */
-.btnToevoegen {
-    width: 100%;
-    height: 50px;
-    margin-top: 10px;
-    background-color: rgba(20,143,119,1);
-    border-radius: 5px;
-    color: #ffffff;
-    padding: .5em;
-}
-
-.buttongreen {
-    background-color: rgba(20,143,119,1);
-}
-
-.buttonred {
-    background-color: orangered;
-}
-
-    .button:active {
-        background-color: ghostwhite;
-        box-shadow: 0 5px #666;
-        transform: translateY(4px);
-    }
-
-/*Navigator*/
 .navigator {
     height: 120px;
     background: linear-gradient(160deg, rgba(14,98,81,1) 0%, rgba(20,143,119,1) 100%);
@@ -347,16 +190,16 @@ nav {
             text-decoration: none;
         }
 
-        .uitloggen{
-            color: rgba(14,98,81,1);
-            background-color: #fff;
-            border-radius: 25px;
-        }
+.uitloggen {
+    color: rgba(14,98,81,1);
+    background-color: #fff;
+    border-radius: 25px;
+}
 
-    nav ul {
-        list-style-type: none;
-        overflow: hidden;
-    }
+nav ul {
+    list-style-type: none;
+    overflow: hidden;
+}
 
 
 .btnUitloggen {
@@ -373,9 +216,23 @@ nav {
     border-color: #fff;
 }
 
-.btnUitloggen:hover {
-    background-color: transparent;
-    color: #fff;
+    .btnUitloggen:hover {
+        background-color: transparent;
+        color: #fff;
+    }
+
+
+/*ZELF ERBIJ GEVOEGD (ontbreekt bij andere groepen)*/
+
+.werkgebied {
+    padding: 20px 20px 20px 20px;
 }
 
-/* wekgebied */
+.paginatitel {
+    color: #343434;
+    font-size: 50px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/*-------------------------------------------------*/

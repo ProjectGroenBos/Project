@@ -11,7 +11,7 @@ namespace ProjectGroenBos.Restaurant
 {
 
 
-    public partial class WebForm1
+    public partial class WebForm5
     {
 
         /// <summary>

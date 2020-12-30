@@ -21,17 +21,6 @@ namespace ProjectGroenBos.Restaurant
 
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void Button2_Click(object sender, EventArgs e)
-        {
-            // haal de kleur van de tafel af
-
-        }
-
         protected void btntafel2_Click(object sender, EventArgs e)
         {
             //Hier open je de pop up om de bestelling op de tafel te kunnen zetten of kan kiezen voor afrekenen voor de tafel
@@ -126,5 +115,81 @@ namespace ProjectGroenBos.Restaurant
 
             // geef de tafel een andere kleur om aan te geven dat hij bezet is
         }
+
+        protected void Afreken3_Click(object sender, EventArgs e)
+        {
+            //Neem tafelnummer mee
+            Session["Tafelnr"] = lbltafel3popup.Text;
+            // verstuur mensen naar het plaatsen van een bestelling
+            Response.Redirect("Afrekenen.aspx");
+        }
+
+        protected void Afreken5_Click(object sender, EventArgs e)
+        {
+            //Neem tafelnummer mee
+            Session["Tafelnr"] = lbltafel5popup.Text;
+            // verstuur mensen naar het plaatsen van een bestelling
+            Response.Redirect("Afrekenen.aspx");
+        }
+
+        protected void Afreken4_Click(object sender, EventArgs e)
+        {           
+            //Neem tafelnummer mee
+            Session["Tafelnr"] = lbltafel4popup.Text;
+            // verstuur mensen naar het plaatsen van een bestelling
+            Response.Redirect("Afrekenen.aspx");
+
+        }
+
+        protected void Afreken2_Click(object sender, EventArgs e)
+        {
+            //Neem tafelnummer mee
+            Session["Tafelnr"] = lbltafel2popup.Text;
+            // verstuur mensen naar het plaatsen van een bestelling
+            Response.Redirect("Afrekenen.aspx");
+        }
+
+        protected void Afreken1_Click(object sender, EventArgs e)
+        {
+            //Neem tafelnummer mee
+            Session["Tafelnr"] = lbltafel1popup.Text;
+            // verstuur mensen naar het plaatsen van een bestelling
+            Response.Redirect("Afrekenen.aspx");
+        }
+
+        protected void Reserveer1_Click(object sender, EventArgs e)
+        {
+            Session["Tafelnr"] = lbltafel1popup.Text;
+          
+            Response.Redirect("reserveren.aspx");
+
+        }
+
+        protected void Reserveer2_Click(object sender, EventArgs e)
+        {
+            Session["Tafelnr"] = lbltafel2popup.Text;
+
+            Response.Redirect("reserveren.aspx");
+        }
+        protected void Reserveer3_Click(object sender, EventArgs e)
+        {
+            Session["Tafelnr"] = lbltafel3popup.Text;
+
+            Response.Redirect("reserveren.aspx");
+        }
+        protected void Reserveer4_Click(object sender, EventArgs e)
+        {
+            Session["Tafelnr"] = lbltafel4popup.Text;
+
+            Response.Redirect("reserveren.aspx");
+        }
+        protected void Reserveer5_Click(object sender, EventArgs e)
+        {
+            Session["Tafelnr"] = lbltafel5popup.Text;
+
+            Response.Redirect("reserveren.aspx");
+        }
+
+       
     }
 }
