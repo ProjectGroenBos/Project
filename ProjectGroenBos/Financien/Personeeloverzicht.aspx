@@ -119,7 +119,7 @@ Set [Salaris per maand] = @Salaris_per_maand, [Naam] = @Naam, [Geboortedatum] = 
                     <p style="margin-top: 1rem; margin-bottom: 0;" >Postcode</p>
                     <asp:TextBox ID="txbPostcode" placeholder="ABCD12" Style="text-align: center" Height="50px" Width="100%" runat="server"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="Postcode" runat="server" ErrorMessage="*" ControlToValidate="txbPostcode" ForeColor="red" ValidationGroup="Validation" Display="Dynamic"></asp:RequiredFieldValidator>
-                    <asp:RegularExpressionValidator ID="Postcode1" runat="server" ErrorMessage="Bijv. ANCD12" ControlToValidate="txbPostcode" ForeColor="Red" ValidationExpression="^[a-zA-Z0-9]+$" ValidationGroup="Validation" Display="Dynamic"></asp:RegularExpressionValidator>                    
+                    <asp:RegularExpressionValidator ID="Postcode1" runat="server" ErrorMessage="Bijv. 2020AB" ControlToValidate="txbPostcode" ForeColor="Red" ValidationExpression="^[1-9][0-9]{3}\s?[a-zA-Z]{2}$" ValidationGroup="Validation" Display="Dynamic"></asp:RegularExpressionValidator>                    
 
                     <p style="margin-top: 1rem; margin-bottom: 0;" >Functie</p>
                     <asp:DropDownList ID="dlFunctie" Style="text-align: center;" Height="50px" Width="100%" runat="server"></asp:DropDownList>
