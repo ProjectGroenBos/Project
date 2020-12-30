@@ -11,7 +11,20 @@ namespace ProjectGroenBos.Reservering
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["reserveringnummer300"] != null)
+            {
+                lblReserveringNummer.Text = Session["reserveringnummer300"].ToString();
+                GridView2.DataBind();
+            }
+            else
+            {
+                Response.Redirect("GastSelecteren.aspx");
+            }
+        }
 
+        protected void btnBevestigen_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ReserveringCompleet.aspx");
         }
     }
 }

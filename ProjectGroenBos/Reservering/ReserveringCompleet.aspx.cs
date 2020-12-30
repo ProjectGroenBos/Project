@@ -13,28 +13,37 @@ namespace ProjectGroenBos.Reservering
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            double totaal = double.Parse(Session["prijs"].ToString());
-            double betaald = double.Parse(Session["betaald"].ToString());
+            if (Session["prijs"] != null)
+            {
+                double totaal = double.Parse(Session["prijs"].ToString());
+                double betaald = double.Parse(Session["betaald"].ToString());
 
-            lblTotaal.Text = totaal.ToString();
-            lblBetalen.Text = betaald.ToString();
+                lblTotaal.Text = totaal.ToString();
+                lblBetalen.Text = betaald.ToString();
 
-            double later = totaal - betaald;
+                double later = totaal - betaald;
 
-            lblTotaal.Text = later.ToString();
+                lblLater.Text = later.ToString();
 
-            lblReservering.Text = Session["reserveringnummer300"].ToString();
-            lblPersonen.Text = Session["personen"].ToString();
-            lblAankomst.Text = Session["aankomstdatum"].ToString();
-            lblVertrek.Text = Session["vertrekdatum"].ToString();
-            lblEmail.Text = Session["email"].ToString();
+                lblReservering.Text = Session["reserveringnummer300"].ToString();
+                lblPersonen.Text = Session["personen"].ToString();
+                lblAankomst.Text = Session["aankomstdatum"].ToString();
+                lblVertrek.Text = Session["vertrekdatum"].ToString();
+                lblEmail.Text = Session["email"].ToString();
+            }
+            else
+            {
+                Response.Redirect("home.aspx");
+            }
         }
+
+
 
         protected void btnBevestigen_Click(object sender, EventArgs e)
         {
             StuurMail();
-
-
+            //Session[""] = ;
+            Response.Redirect("home.aspx");
         }
 
         private void StuurMail()

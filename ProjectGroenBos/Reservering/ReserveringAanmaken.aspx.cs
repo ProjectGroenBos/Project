@@ -174,7 +174,7 @@ namespace ProjectGroenBos.Reservering
 
                 double prijs = GetPrijs(reserveringnummer);
 
-                double prijs2 = prijs;
+                double prijs2 = GetPrijs(reserveringnummer);
 
                 prijs = prijs / 10;
 
@@ -462,7 +462,7 @@ namespace ProjectGroenBos.Reservering
 
                 cmd.Parameters.AddWithValue("@nummer", reserveringnummer);
 
-                double prijs = cmd.ExecuteNonQuery();
+                double prijs = double.Parse(cmd.ExecuteScalar().ToString());
 
                 con.Close();
 
