@@ -31,14 +31,15 @@ namespace ProjectGroenBos.Reservering
                 btnBevestigen.Visible = false;
                 lblOutput.Text = "Geregistreerde bezoekers:";
                 btnToevoegen.Visible = true;
+                lblControle.Text = DateTime.Today.ToShortDateString();
                 //GridView1.DataBind();
                 //GridView1.Visible = false;
 
 
-                if (this.PreviousPage == null || this.PreviousPage.ToString() == "ReserveringAanmaken.aspx")
-                {
-                    count = 0;
-                }
+                //if (this.PreviousPage == null || this.PreviousPage.ToString() == "ReserveringAanmaken.aspx")
+                //{
+                //    count = 0;
+                //}
 
             }
             else
@@ -46,11 +47,7 @@ namespace ProjectGroenBos.Reservering
                 Response.Redirect("GastSelecteren.aspx");
             }
 
-            if (count > aantalPersonen)
-            {
-                btnBevestigen.Visible = true;
-                btnToevoegen.Visible = false;
-            }
+
         }
 
         protected void btnToevoegen_Click1(object sender, EventArgs e)
@@ -62,14 +59,7 @@ namespace ProjectGroenBos.Reservering
             string geboortedatum = TxBGeboortedatum.Text;
             int reserveringnummer = int.Parse(Session["reserveringnummer"].ToString());
 
-            aantalPersonen = int.Parse(Session["personen"].ToString()) - 2;
-
-            if (count == aantalPersonen)
-            {
-                btnBevestigen.Visible = true;
-                btnToevoegen.Visible = false;
-            }
-            count++;
+            aantalPersonen = int.Parse(Session["personen"].ToString()) - 1;
 
             using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["2020-BIM02-P1-P2-GroenbosConnectionString"].ConnectionString))
             {
@@ -97,67 +87,26 @@ namespace ProjectGroenBos.Reservering
                 {
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Er ging iets mis, neem contact met ons op.')", true);
                 }
-            }
 
-            GridView2.DataBind();
+
+                GridView1.DataBind();
+            }
+            count++;
+
+            if (count == aantalPersonen)
+            {
+                btnBevestigen.Visible = true;
+                btnToevoegen.Visible = false;
+            }
         }
 
         protected void btnBevestigen_Click(object sender, EventArgs e)
         {
             reserveringnummer = int.Parse(lblReserveringnummer.Text);
-            StuurMail();
-            Session["controle4"] = 1;
-
-            Response.Redirect("home.aspx");
+            Session["reserveringnummer300"] = reserveringnummer;
+            Response.Redirect("NachtregisterChecken.aspx");
         }
 
-        private void StuurMail()
-        {
-            string ontvanger = Session["Email"].ToString();
 
-            //Mail opzetten
-            MailMessage mailMessage = new MailMessage("groenbosreservations@gmail.com", ontvanger);
-            mailMessage.Subject = "Uw reservering is geplaatst!";
-            mailMessage.Body = CreateBody();
-            mailMessage.IsBodyHtml = true;
-
-            //Credentails
-            SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
-            smtpClient.Credentials = new System.Net.NetworkCredential()
-            {
-                UserName = "groenbosreservations@gmail.com",
-                Password = "MarionenAndries"
-            };
-            smtpClient.EnableSsl = true;
-
-            //Versturen mail
-
-            smtpClient.Send(mailMessage);
-
-        }
-
-        private string CreateBody()
-        {
-            {
-                //lezen mail.html
-                string body = string.Empty;
-                using (StreamReader reader = new StreamReader(Server.MapPath("ReserveringAanmaken.html")))
-                {
-                    body = reader.ReadToEnd();
-                }
-
-                //parameters html pagina
-                body = body.Replace("{reserveringsnummer}", reserveringnummer.ToString());
-                body = body.Replace("{achternaam}", Session["achternaam"].ToString());
-                body = body.Replace("{aankomstdatum}", Session["aankomstdatum"].ToString());
-                body = body.Replace("{vertrekdatum}", Session["vertrekdatum"].ToString());
-                body = body.Replace("{personen}", Session["personen"].ToString());
-                body = body.Replace("{email}", Session["email"].ToString());
-                //body = body.Replace("{prijs}", Session["prijs"].ToString());
-
-                return body;
-            }
-
-        }
     }
 }

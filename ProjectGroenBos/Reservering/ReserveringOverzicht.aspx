@@ -39,14 +39,13 @@
                 <asp:BoundField DataField="Nummer van reservering" HeaderText="Nummer van reservering" InsertVisible="False" ReadOnly="True" SortExpression="Nummer van reservering" />
                 <asp:BoundField DataField="Achternaam" HeaderText="Achternaam" SortExpression="Achternaam" />
                 <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" />
-                <asp:BoundField DataField="Telefoonnummer" HeaderText="Telefoonnummer" SortExpression="Telefoonnummer" />
                 <asp:BoundField DataField="Aantal personen" HeaderText="Aantal personen" SortExpression="Aantal personen" />
-                <asp:BoundField DataField="Aankomstdatum" DataFormatString="{0:dd/MM/yyyy}" HeaderText="Aankomstdatum" SortExpression="Aankomstdatum" />
-                <asp:BoundField DataField="Vertrekdatum" DataFormatString="{0:dd/MM/yyyy}" HeaderText="Vertrekdatum" SortExpression="Vertrekdatum" />
+                <asp:BoundField DataField="Aankomstdatum" HeaderText="Aankomstdatum" SortExpression="Aankomstdatum" DataFormatString="{0:dd-MM-yyyy}" />
+                <asp:BoundField DataField="Vertrekdatum" DataFormatString="{0:dd-MM-yyyy}" HeaderText="Vertrekdatum" SortExpression="Vertrekdatum" />
             </Columns>
             <HeaderStyle ForeColor="White" />
         </asp:GridView>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:2020-BIM02-P1-P2-GroenbosConnectionString %>" SelectCommand="select res.Nummer as [Nummer van reservering], gst.Achternaam, gst.Email, gst.Telefoonnummer,  res.Aantal_personen as [Aantal personen], res.Aankomstdatum, res.Vertrekdatum from Gast gst inner join Reservering res on gst.Nummer = res.GastNummer inner join Adres adr on adr.GastNummer = gst.Nummer where gst.Achternaam like @zoek and Aankomstdatum &gt;= convert(date, GETDATE()) and Aankomstdatum &lt;= @datum and ReserveringsstatusID != 5 order by res.Nummer">
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:2020-BIM02-P1-P2-GroenbosConnectionString %>" SelectCommand="select res.Nummer as [Nummer van reservering], gst.Achternaam, gst.Email, res.Aantal_personen as [Aantal personen], res.Aankomstdatum, res.Vertrekdatum from Gast gst inner join Reservering res on gst.Nummer = res.GastNummer inner join Adres adr on adr.GastNummer = gst.Nummer where gst.Achternaam like @zoek and Aankomstdatum &gt;= convert(date, GETDATE()) and Aankomstdatum &lt;= @datum and ReserveringsstatusID != 5 order by res.Nummer">
             <SelectParameters>
                 <asp:ControlParameter ControlID="txbAchternaam" Name="zoek" PropertyName="Text" />
                 <asp:ControlParameter ControlID="txbDatum" Name="datum" PropertyName="Text" />

@@ -29,6 +29,10 @@ namespace ProjectGroenBos.Reservering
             {
                 lbluitkomst.Text = "De reservering is gewijzigd.";
             }
+            else
+            {
+                lbluitkomst.Text = "";
+            }
 
 
             if (GridView3.Rows.Count==0)
