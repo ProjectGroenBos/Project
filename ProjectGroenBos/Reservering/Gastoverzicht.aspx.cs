@@ -21,6 +21,14 @@ namespace ProjectGroenBos.Reservering
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
         {
             Session["gastnummer"] = (string)GridView1.SelectedRow.Cells[1].Text;
+            Session["voornaam"] = (string)GridView1.SelectedRow.Cells[2].Text;
+            Session["tussenvoegsel"] = (string)GridView1.SelectedRow.Cells[3].Text;
+            Session["achternaam"] = (string)GridView1.SelectedRow.Cells[4].Text;
+            Session["telefoonnummer"] = (string)GridView1.SelectedRow.Cells[5].Text;
+            Session["email"] = (string)GridView1.SelectedRow.Cells[6].Text;
+            Session["geboortedatum"] = (string)GridView1.SelectedRow.Cells[7].Text;
+
+
             Response.Redirect("GastWijzigen.aspx");
         }
     }

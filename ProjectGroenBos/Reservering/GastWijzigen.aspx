@@ -130,7 +130,7 @@
                     <asp:Label ID="Label11" runat="server" Text="Woonplaats:" CssClass="labelsnieuw"></asp:Label>
                 </td>
                 <td style="width: 15%">
-                    <asp:TextBox ID="txbWoonplaats" runat="server" CssClass="textboxchaos"></asp:TextBox>
+                    <asp:TextBox ID="txbWoonplaats" runat="server" CssClass="textboxchaos" AutoPostBack="True"></asp:TextBox>
                 </td>
                 <td style="width: 40%"></td>
             </tr>
@@ -140,6 +140,8 @@
         <br />
         <br />
         <asp:Button ID="btnWijzigen" runat="server" Text="Wijzigen" CssClass="btnUitloggen" Style="background-color: #009879; color: #fff" class="btn" OnClick="btnWijzigen_Click" />
+
+        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Button" />
 
         <br />
         <br />
