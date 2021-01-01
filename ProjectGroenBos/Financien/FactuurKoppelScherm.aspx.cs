@@ -247,22 +247,22 @@ namespace ProjectGroenBos.Financien
             /// <param name="sender"></param>
             /// <param name="e"></param>
         {
-            if (e.Row.RowType == DataControlRowType.Header)
-            {
-                foreach (TableCell tc in e.Row.Cells)
-                {
-                    if (tc.HasControls())
-                    {
+          ///  if (e.Row.RowType == DataControlRowType.Header)
+           // {
+           //     foreach (TableCell tc in e.Row.Cells)
+             //   {
+              //      if (tc.HasControls())
+               //     {
                         
-                            Image icon = new Image();
-                            icon.ImageUrl = "~/img/angle.png.jpg";
+                   //         Image icon = new Image();
+                    //        icon.ImageUrl = "~/img/angle.jpg";
                             
-                                tc.Controls.Add(new LiteralControl(" "));
-                                tc.Controls.Add(icon);
+                     //           tc.Controls.Add(new LiteralControl(" "));
+                      //          tc.Controls.Add(icon);
                            
-                    }
-                }
-            }
+                  //  }
+              //  }
+           // }
         }
 
     }
