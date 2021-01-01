@@ -255,7 +255,7 @@ namespace ProjectGroenBos.Financien
                     {
                         
                             Image icon = new Image();
-                            icon.ImageUrl = "~/img/angle.png";
+                            icon.ImageUrl = "~/img/angle.png.jpg";
                             
                                 tc.Controls.Add(new LiteralControl(" "));
                                 tc.Controls.Add(icon);
