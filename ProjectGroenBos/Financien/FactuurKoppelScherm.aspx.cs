@@ -240,6 +240,31 @@ namespace ProjectGroenBos.Financien
             Response.End();
         }
 
+        protected void gvInkooporderaanvragerMain_RowCreated(object sender, GridViewRowEventArgs e)
+            /// <summary>
+            /// Adds an icon next to the title of the column to display the sort direction
+            /// </summary>
+            /// <param name="sender"></param>
+            /// <param name="e"></param>
+        {
+            if (e.Row.RowType == DataControlRowType.Header)
+            {
+                foreach (TableCell tc in e.Row.Cells)
+                {
+                    if (tc.HasControls())
+                    {
+                        
+                            Image icon = new Image();
+                            icon.ImageUrl = "~/img/angle.png";
+                            
+                                tc.Controls.Add(new LiteralControl(" "));
+                                tc.Controls.Add(icon);
+                           
+                    }
+                }
+            }
+        }
+
     }
 }
 

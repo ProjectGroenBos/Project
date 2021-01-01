@@ -47,6 +47,7 @@
         }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
     <script>
         function Bestelsuccess() {
             Swal.fire({
@@ -83,14 +84,14 @@
         <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT [Naam] FROM [Afdeling] union
 SELECT 'Alle Afdelingen' AS [Naam]"></asp:SqlDataSource>
 
-        <asp:GridView ID="gvInkooporderaanvragerMain" CssClass="content-table tweedetable" GridLines="None" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" DataKeyNames="Nummer" AllowSorting="True">
+        <asp:GridView ID="gvInkooporderaanvragerMain" CssClass="content-table tweedetable" GridLines="None" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" DataKeyNames="Nummer" AllowSorting="True" OnRowCreated="gvInkooporderaanvragerMain_RowCreated">
             <Columns>
 
                 <asp:BoundField DataField="Nummer" HeaderText="Nummer" ReadOnly="True" SortExpression="Nummer" />
                 <asp:BoundField DataField="Naam" HeaderText="Afdeling" SortExpression="Naam" />
                 <asp:BoundField DataField="Datum" DataFormatString="{0:d}" HeaderText="Datum" SortExpression="Datum" />
                 <asp:BoundField DataField="Leverancier" HeaderText="Leverancier" SortExpression="Leverancier" />
-                <asp:BoundField DataField="Status" HeaderText="Status" SortExpression="Status" />
+                <asp:BoundField DataField="Status" HeaderText="Status" SortExpression="Status"  />
                 <asp:TemplateField>
                     <ItemTemplate>
                         <button type="button" style="background-color: #009879; color: #fff" class="btn" data-toggle="modal" data-target="#modal<%# Eval("Nummer") %>">Toevoegen Factuur</button>
