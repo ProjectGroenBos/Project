@@ -53,7 +53,7 @@
                 <td style="width: 40%">
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="TxBGeboortedatum" ErrorMessage="Dit veld is verplicht." ForeColor="red" Display="Dynamic"></asp:RequiredFieldValidator>
                     <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ErrorMessage="Datum moet ingevult zijn als  jjjj-mm-dd." ControlToValidate="TxBGeboortedatum" ValidationExpression="^(19|20)?\d\d[-](0[1-9]|1[012])[-](0[1-9]|[12][0-9]|3[01])$" Display="Dynamic" ForeColor="Red"></asp:RegularExpressionValidator>
-                    <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="TxBGeboortedatum" Display="Dynamic" ErrorMessage="Degene kan niet in de toekomst geboren zijn." ForeColor="Red" MaximumValue="DateTime.Today" Type="Date"></asp:RangeValidator>
+                    <asp:CustomValidator ID="CustomValidator1" runat="server" ControlToValidate="TxBGeboortedatum" ErrorMessage="Geboortedatum kan niet in de toekomst zijn." ForeColor="Red"></asp:CustomValidator>
                 </td>
             </tr>
             <tr>
