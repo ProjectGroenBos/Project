@@ -247,6 +247,7 @@ namespace ProjectGroenBos.Reservering
         {
             Response.Redirect("ReserveringOverzicht.aspx");
             RequiredFieldValidator1.Enabled = false;
+
         }
 
         protected void txbAantalPersonen_TextChanged(object sender, EventArgs e)
