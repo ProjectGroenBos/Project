@@ -43,11 +43,11 @@ SELECT 'Alle Afdelingen' AS [Naam]"></asp:SqlDataSource>
         <asp:GridView ID="gvInkooporderaanvragerMain" CssClass="content-table tweedetable" GridLines="None" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" DataKeyNames="Nummer" AllowSorting="True">
             <Columns>
 
-                <asp:BoundField DataField="Nummer" HeaderText="Aanvraagnummer" ReadOnly="True" SortExpression="Nummer" />
-                <asp:BoundField DataField="Naam" HeaderText="Afdeling" SortExpression="Naam" />
-                <asp:BoundField DataField="Datum" DataFormatString="{0:d}" HeaderText="Datum" SortExpression="Datum" />
-                <asp:BoundField DataField="Leverancier" HeaderText="Leverancier" SortExpression="Leverancier" />
-                <asp:BoundField DataField="Status" HeaderText="Status" SortExpression="Status" />
+                <asp:BoundField DataField="Nummer" HeaderText="Aanvraagnummer▼ " ReadOnly="True" SortExpression="Nummer" />
+                <asp:BoundField DataField="Naam" HeaderText="Afdeling▼ " SortExpression="Naam" />
+                <asp:BoundField DataField="Datum" DataFormatString="{0:d}" HeaderText="Datum▼ " SortExpression="Datum" />
+                <asp:BoundField DataField="Leverancier" HeaderText="Leverancier▼ " SortExpression="Leverancier" />
+                <asp:BoundField DataField="Status" HeaderText="Status▼ " SortExpression="Status" />
                 <asp:TemplateField>
                     <ItemTemplate>
                         <button type="button" style="background-color: #009879; color: #fff" class="btn" data-toggle="modal" data-target="#modal<%# Eval("Nummer") %>">Inzien Inkoop aanvraag</button>
