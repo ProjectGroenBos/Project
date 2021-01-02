@@ -127,6 +127,30 @@ namespace ProjectGroenBos.Restaurant
 			
 		}
 
+		private int BungalowresID()
+		{
+			using (SqlConnection connection = new SqlConnection(connectionString))
+			{
+				int nummer = Convert.ToInt16(Session["tafelnr"].ToString());
+				// Haal ID van de reservering op het park op
+
+				connection.Open();
+				string selectquery = "Select top (1) [BunglowreserveringsID] from RestaurantReservering inner join [dbo].[Item_RestaurantReservering] ON [RestaurantReserveringID] = [ID] where Tafelnr = " + nummer + " Order by Begintijd DESC";
+				SqlCommand sqlComd = new SqlCommand(selectquery, connection);
+				SqlDataReader r;
+				r = sqlComd.ExecuteReader();
+
+				int ResrID = 0;
+
+				while (r.Read())
+				{
+					ResrID = (int)r[0];
+				}
+				connection.Close();
+				return ResrID;
+			}
+		}
+
 		private void statusverandering()
 		{
 			using (SqlConnection connection = new SqlConnection(connectionString))
@@ -164,6 +188,7 @@ namespace ProjectGroenBos.Restaurant
 
 				//resrervereringsnummer van de klant ophalen
 				int Resnummer;
+				Resnummer = BungalowresID();
 
 				// Verbinding met de database maken en een factuur aanmaken voor op rekening
 				connection.Open();
