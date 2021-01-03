@@ -247,6 +247,9 @@ namespace ProjectGroenBos.Restaurant
 			//factuurregels laten aanmaken
 			Factuurregelsmaken();
 
+			//transactieregel invoegen voor financiën
+			transactieregel();
+
 			//status veranderen
 			statusverandering();
 
@@ -285,11 +288,46 @@ namespace ProjectGroenBos.Restaurant
 			//factuurregels laten aanmaken
 			Factuurregelsmaken();
 
+			//transactieregel invoegen voor financiën
+			transactieregel();
+
 			//status veranderen
 			statusverandering();
 
 			LblSucces.Text = " SUBMIT SUCCESSFULLY";
 
+		}
+
+		private void transactieregel()
+		{
+			using (SqlConnection connection = new SqlConnection(connectionString))
+			{
+				//totaalbedrag ophalen
+				string Totaalbedrag = (string)GridViewTotaal.DataKeys[0]["TotaalBedrag"].ToString();
+				double Tot = Convert.ToDouble(Totaalbedrag);
+
+				//Debiteurennummer ophalen
+				int debID;
+				debID = debiteurennummer();
+
+				// verbinding maken om de factuur af te maken voor contant
+				connection.Open();
+				string cmdText = "INSERT INTO [dbo].[Debiteurenfactuur] ([Datum],[Aan],[Bedrag],[Omschrijving],[DebiteurenfactuurNummer],[BankrekeningBanknummer],[TypeID]) VALUES" +
+					"(@Datum, @Aan, @Bedrag, @Omschrijving, @DebiteurenfactuurNummer, @BankrekeningBanknummer, @TypeID)";
+				SqlCommand command = new SqlCommand(cmdText, connection);
+				command.Parameters.AddWithValue("@Datum", DateTime.Now);
+				command.Parameters.AddWithValue("@Aan", "Groenbos");
+				command.Parameters.AddWithValue("@Bedrag", Totaalbedrag);
+				command.Parameters.AddWithValue("@Omschrijving", "Restaurant");
+				command.Parameters.AddWithValue("@DebiteurenfactuurNummer", debID);
+				command.Parameters.AddWithValue("@BankrekeningBanknummer", "NL32 RABO 0220.96.13.200");
+				command.Parameters.AddWithValue("@TypeID", "2");
+
+				connection.Open();
+
+				command.ExecuteNonQuery();
+				connection.Close();
+			}
 		}
 	}
 }
