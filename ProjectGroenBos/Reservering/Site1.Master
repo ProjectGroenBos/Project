@@ -46,6 +46,9 @@
                                 </ul>
 
                                 <li><a href="NachtregisterOverzicht.aspx"><i class="fas fa-user"></i>Nachtregister</a></li>
+                                <ul class="submenu">
+                                    <li><a href="NachtregisterOverzicht.aspx">Nachtregister overzicht</a></li>
+                                </ul>
 
                             </li>
                     <%--<li><a href="#"><i class="fas fa-user"></i>Optie</a>

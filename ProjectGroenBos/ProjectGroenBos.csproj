@@ -99,6 +99,7 @@
     <Content Include="Reservering\MailReserveringGewijzigd.html" />
     <Content Include="Reservering\NachtregisterChecken.aspx" />
     <Content Include="Reservering\NachtregisterInvullen.aspx" />
+    <Content Include="Reservering\NachtregisterWijzigen.aspx" />
     <Content Include="Reservering\ReserveringAanmaken.aspx" />
     <Content Include="Reservering\ReserveringAanmaken.html" />
     <Content Include="Reservering\ReserveringCompleet.aspx" />
@@ -469,6 +470,13 @@
     </Compile>
     <Compile Include="Reservering\NachtregisterInvullen.aspx.designer.cs">
       <DependentUpon>NachtregisterInvullen.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reservering\NachtregisterWijzigen.aspx.cs">
+      <DependentUpon>NachtregisterWijzigen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reservering\NachtregisterWijzigen.aspx.designer.cs">
+      <DependentUpon>NachtregisterWijzigen.aspx</DependentUpon>
     </Compile>
     <Compile Include="Reservering\ReserveringAanmaken.aspx.cs">
       <DependentUpon>ReserveringAanmaken.aspx</DependentUpon>

@@ -11,7 +11,14 @@ namespace ProjectGroenBos.Reservering
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            
+        }
 
+        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string volgnummer = (string)GridView1.SelectedRow.Cells[0].ToString();
+            Session["Volgnummer"] = volgnummer;
+            Response.Redirect("NachtregisterWijzigen.aspx");
         }
     }
 }
