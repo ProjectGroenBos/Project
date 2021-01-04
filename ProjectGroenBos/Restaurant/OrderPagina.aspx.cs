@@ -45,5 +45,40 @@ namespace ProjectGroenBos.Restaurant
                 con.Close();
             }
         }
+
+        private void InsertInfo()
+        {
+
+
+            SqlConnection conn = new SqlConnection(constr);
+            string sql = "INSERT INTO TableName ([Datum],[Totaal bedrag],[Termijn],[Omschrijving betaalcondities]) VALUES (@Val1,@Val2,@Val3)";
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@Val1", TextBox1.Text);
+                cmd.Parameters.AddWithValue("@Val2", TextBox2.Text);
+                cmd.Parameters.AddWithValue("@Val3", Label1.Text);
+                cmd.CommandType = CommandType.Text;
+                cmd.ExecuteNonQuery();
+            }
+            catch (System.Data.SqlClient.SqlException ex)
+            {
+                string msg = "Insert Error:";
+                msg += ex.Message;
+                throw new Exception(msg);
+
+
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        protected void btnGoedkeuren_Click(object sender, EventArgs e)
+        {
+            InsertInfo();
+        }
     }
 }
