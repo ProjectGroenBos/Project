@@ -101,6 +101,7 @@
     <Content Include="Financien\Rekeningen.aspx" />
     <Content Include="Financien\Reserveringen.aspx" />
     <Content Include="Financien\InkoopAanvraagScherm.aspx" />
+    <Content Include="Financien\TransactieHistory.aspx" />
     <Content Include="Gerechten overzicht.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Images\deleteRow.png" />
@@ -833,6 +834,13 @@
     </Compile>
     <Compile Include="Financien\InkoopAanvraagScherm.aspx.designer.cs">
       <DependentUpon>InkoopAanvraagScherm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Financien\TransactieHistory.aspx.cs">
+      <DependentUpon>TransactieHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Financien\TransactieHistory.aspx.designer.cs">
+      <DependentUpon>TransactieHistory.aspx</DependentUpon>
     </Compile>
     <Compile Include="Gerechten overzicht.aspx.cs">
       <DependentUpon>Gerechten overzicht.aspx</DependentUpon>
