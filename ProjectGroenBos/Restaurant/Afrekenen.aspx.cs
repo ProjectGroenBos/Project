@@ -152,18 +152,18 @@ namespace ProjectGroenBos.Restaurant
 
 				int ResrID = 0;
 
-				// als er geen id is wordt het null ( op het momentliujkt hij geen gebruik temaken van de if statement)
-				if (r == null)
-				{
-					connection.Close();
-					return ResrID;
-				}
-				else
+				// als er geen id is wordt het null
+				try
 				{
 					while (r.Read())
 					{
 						ResrID = (int)r[0];
 					}
+					connection.Close();
+					return ResrID;
+				}
+				catch
+				{
 					connection.Close();
 					return ResrID;
 				}
@@ -239,13 +239,39 @@ namespace ProjectGroenBos.Restaurant
 		protected void btnBetalen_Click(object sender, EventArgs e)
 		{
 
+			using (SqlConnection connection = new SqlConnection(connectionString))
+			{
+				//ReserveringsID ophalen
+				int resID;
+				resID = ReserveringsIDopzoeken();
 
+				// verbinding maken om de factuur af te maken voor contant
+				connection.Open();
+				string cmdText = "INSERT INTO [dbo].[Debiteurenfactuur] ([Datum],[BetaalmethodeID],[BetaalstatusID],[FactuurtypeID],[RestaurantReserveringID]) VALUES" +
+					"(@Datum, @BetaalmethodeID, @BetaalstatusID, @FactuurtypeID, @RestaurantReserveringID)";
+				SqlCommand command = new SqlCommand(cmdText, connection);
+				command.Parameters.AddWithValue("@Datum", DateTime.Now);
+				command.Parameters.AddWithValue("@BetaalmethodeID", "2");
+				command.Parameters.AddWithValue("@BetaalstatusID", "2");
+				command.Parameters.AddWithValue("@FactuurtypeID", "4");
+				command.Parameters.AddWithValue("@RestaurantReserveringID", resID);
 
+				connection.Open();
+
+				command.ExecuteNonQuery();
+				connection.Close();
+			}
+			//factuurregels laten aanmaken
+			Factuurregelsmaken();
 
 			//transactieregel invoegen voor financiën
 			transactieregel();
 
+			//status veranderen
+			statusverandering();
+
 			LblSucces.Text = " SUBMIT SUCCESSFULLY";
+
 
 		}
 
@@ -309,7 +335,7 @@ namespace ProjectGroenBos.Restaurant
 				SqlCommand command = new SqlCommand(cmdText, connection);
 				command.Parameters.AddWithValue("@Datum", DateTime.Now);
 				command.Parameters.AddWithValue("@Aan", "Groenbos");
-				command.Parameters.AddWithValue("@Bedrag", Totaalbedrag);
+				command.Parameters.AddWithValue("@Bedrag", Tot);
 				command.Parameters.AddWithValue("@Omschrijving", "Restaurant");
 				command.Parameters.AddWithValue("@DebiteurenfactuurNummer", debID);
 				command.Parameters.AddWithValue("@BankrekeningBanknummer", "NL32 RABO 0220.96.13.200");
