@@ -35,7 +35,17 @@ namespace ProjectGroenBos.Restaurant
 			factuurregels.SelectCommand = "SELECT [Hoeveel], [Naam], [Prijs], [RegelTotaal], [Item_ID] FROM [RestaurantAfrekenOvericht] WHERE Status = 'Gereed' and Tafelnr =" + nummer + "";
 			SqlDataSourceTotaal.SelectCommand = "SELECT cast(SUM(RegelTotaal) AS DECIMAL(18,2)) AS Totaalbedrag FROM RestaurantAfrekenOvericht WHERE Status = 'Gereed' and Tafelnr =" + nummer + "";
 
-			
+			//kijken of het op rekening mag of niet
+			if (BungalowresID() >= '1')
+			{
+				btnRekening.Visible = true;
+			}
+			else
+			{
+				btnRekening.Visible = false;
+			}
+
+
 		}
 
 		private int debiteurennummer()
@@ -142,12 +152,21 @@ namespace ProjectGroenBos.Restaurant
 
 				int ResrID = 0;
 
-				while (r.Read())
+				// als er geen id is wordt het null ( op het momentliujkt hij geen gebruik temaken van de if statement)
+				if (r == null)
 				{
-					ResrID = (int)r[0];
+					connection.Close();
+					return ResrID;
 				}
-				connection.Close();
-				return ResrID;
+				else
+				{
+					while (r.Read())
+					{
+						ResrID = (int)r[0];
+					}
+					connection.Close();
+					return ResrID;
+				}
 			}
 		}
 
@@ -222,36 +241,9 @@ namespace ProjectGroenBos.Restaurant
 
 
 
-			using (SqlConnection connection = new SqlConnection(connectionString))
-			{
-				//ReserveringsID ophalen
-				int resID;
-				resID = ReserveringsIDopzoeken();
-
-				// Verbinding met de database voor een pin betaling tussen de facatures
-				connection.Open();
-				string cmdText = "INSERT INTO [dbo].[Debiteurenfactuur] ([Datum],[BetaalmethodeID],[BetaalstatusID],[FactuurtypeID],[RestaurantReserveringID]) VALUES" +
-					"(@Datum, @BetaalmethodeID, @BetaalstatusID, @FactuurtypeID, @RestaurantReserveringID)";
-				SqlCommand command = new SqlCommand(cmdText, connection);
-				command.Parameters.AddWithValue("@Datum", DateTime.Now);
-				command.Parameters.AddWithValue("@BetaalmethodeID", "2");
-				command.Parameters.AddWithValue("@BetaalstatusID", "2");
-				command.Parameters.AddWithValue("@FactuurtypeID", "4");
-				command.Parameters.AddWithValue("@RestaurantReserveringID", resID);
-
-				connection.Open();
-
-				command.ExecuteNonQuery();
-				connection.Close();
-			}
-			//factuurregels laten aanmaken
-			Factuurregelsmaken();
 
 			//transactieregel invoegen voor financiën
 			transactieregel();
-
-			//status veranderen
-			statusverandering();
 
 			LblSucces.Text = " SUBMIT SUCCESSFULLY";
 
@@ -302,7 +294,7 @@ namespace ProjectGroenBos.Restaurant
 		{
 			using (SqlConnection connection = new SqlConnection(connectionString))
 			{
-				//totaalbedrag ophalen
+				//totaalbedrag ophalen ( heeft hier problemen mee omdat het een real in de databse is)
 				string Totaalbedrag = (string)GridViewTotaal.DataKeys[0]["TotaalBedrag"].ToString();
 				double Tot = Convert.ToDouble(Totaalbedrag);
 
@@ -312,7 +304,7 @@ namespace ProjectGroenBos.Restaurant
 
 				// verbinding maken om de factuur af te maken voor contant
 				connection.Open();
-				string cmdText = "INSERT INTO [dbo].[Debiteurenfactuur] ([Datum],[Aan],[Bedrag],[Omschrijving],[DebiteurenfactuurNummer],[BankrekeningBanknummer],[TypeID]) VALUES" +
+				string cmdText = "INSERT INTO [dbo].[Transactie] ([Datum],[Aan],[Bedrag],[Omschrijving],[DebiteurenfactuurNummer],[BankrekeningBanknummer],[TypeID]) VALUES" +
 					"(@Datum, @Aan, @Bedrag, @Omschrijving, @DebiteurenfactuurNummer, @BankrekeningBanknummer, @TypeID)";
 				SqlCommand command = new SqlCommand(cmdText, connection);
 				command.Parameters.AddWithValue("@Datum", DateTime.Now);
@@ -322,8 +314,6 @@ namespace ProjectGroenBos.Restaurant
 				command.Parameters.AddWithValue("@DebiteurenfactuurNummer", debID);
 				command.Parameters.AddWithValue("@BankrekeningBanknummer", "NL32 RABO 0220.96.13.200");
 				command.Parameters.AddWithValue("@TypeID", "2");
-
-				connection.Open();
 
 				command.ExecuteNonQuery();
 				connection.Close();
