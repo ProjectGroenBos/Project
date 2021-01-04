@@ -115,8 +115,22 @@
         <asp:Button ID="btnWijzigen" runat="server" Text="Wijzigen" CssClass="btnUitloggen" Style="background-color: #009879; color: #fff" class="btn" OnClick="btnWijzigen_Click" />
         <asp:Button ID="btnTerug" runat="server" Style="background-color: #009879; color: #fff" class="btn" CssClass="btnUitloggen" Text="Terug" OnClick="btnTerug_Click" ValidateRequestMode="Disabled" />
         <br />
-        <asp:GridView ID="GridView1" runat="server" DataKeyNames="Nummer,Aankomstdatum,Vertrekdatum,Aantal_personen,GastNummer,Opmerking,Voornaam,Tussenvoegsel,Achternaam,Email,Telefoonnummer,Straatnaam,Huisnummer,Postcode,Land">
+        <asp:GridView ID="GridView1" runat="server" DataKeyNames="Nummer,Aankomstdatum,Vertrekdatum,Aantal_personen,Opmerking,Achternaam,Email" EnableViewState="False" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
+            <Columns>
+                <asp:BoundField DataField="Nummer" HeaderText="Nummer" InsertVisible="False" ReadOnly="True" SortExpression="Nummer" />
+                <asp:BoundField DataField="Aankomstdatum" DataFormatString="{0:dd-MM-yyyy}" HeaderText="Aankomstdatum" SortExpression="Aankomstdatum" />
+                <asp:BoundField DataField="Vertrekdatum" DataFormatString="{0:dd-MM-yyyy}" HeaderText="Vertrekdatum" SortExpression="Vertrekdatum" />
+                <asp:BoundField DataField="Aantal_personen" HeaderText="Aantal personen" SortExpression="Aantal_personen" />
+                <asp:BoundField DataField="Opmerking" HeaderText="Opmerking" SortExpression="Opmerking" />
+                <asp:BoundField DataField="Achternaam" HeaderText="Achternaam" SortExpression="Achternaam" />
+                <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" />
+            </Columns>
         </asp:GridView>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:2020-BIM02-P1-P2-GroenbosConnectionString %>" SelectCommand=" select res.Nummer, res.Aankomstdatum, res.Vertrekdatum, res.Aantal_personen, res.Opmerking, gst.Achternaam, gst.Email from Gast as gst inner join Reservering as res on gst.Nummer = res.GastNummer  where res.Nummer = @nummer">
+            <SelectParameters>
+                <asp:ControlParameter ControlID="lblReserveringsnummer" Name="nummer" PropertyName="Text" />
+            </SelectParameters>
+        </asp:SqlDataSource>
         <br />
         <br />
 

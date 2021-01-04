@@ -26,101 +26,26 @@ namespace ProjectGroenBos.Reservering
             }
             else
             {
-                GridView1.Visible = false;
+
                 //sessions ophalen voor het vullen van de vakjes
                 reserveringsnummer = Session["reserveringsnummer"].ToString();
+                //txbAankomstdatum.Text = Session["Aankomstdatum"].ToString();
+                //txbAantalPersonen.Text = Session["AantalPersonen"].ToString();
+                //txbVertrekdatum.Text = Session["Vertrekdatum"].ToString();
 
-                using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["2020-BIM02-P1-P2-GroenbosConnectionString"].ConnectionString))
-                {
 
-                    query1 = "select res.Nummer, res.Aankomstdatum, res.Vertrekdatum, res.Aantal_personen, res.GastNummer, res.Opmerking, gst.Voornaam, gst.Tussenvoegsel, gst.Achternaam, gst.Email, gst.Telefoonnummer, adr.Straatnaam, adr.Huisnummer, adr.Postcode, adr.Land from Reservering res inner join Gast gst on res.GastNummer = gst.Nummer inner join Adres adr on adr.GastNummer = gst.Nummer where res.Nummer = @nummer";
+                lblReserveringsnummer.Text = Session["reserveringsnummer"].ToString();
+                txbAantalPersonen.Text = (string)GridView1.DataKeys[0]["Aantal_personen"].ToString();
+                txbOpmerkingen.Text = (string)GridView1.DataKeys[0]["Opmerking"].ToString();
+                txbAankomstdatum.Text = (string)GridView1.DataKeys[0]["Aankomstdatum"].ToString();
+                txbVertrekdatum.Text = (string)GridView1.DataKeys[0]["Vertrekdatum"].ToString();
 
-                    DataSet ds = Data();
-
-                    GridView1.DataSource = ds;
-                    GridView1.DataBind();
-                }
-
-                //lblGastnummer.Text = (string)GridView1.DataKeys[0]["GastNummer"].ToString();
-                ////txbVoornaam.Text = (string)GridView1.DataKeys[0]["Voornaam"].ToString();
-                ////txbTussenvoegsel.Text = (string)GridView1.DataKeys[0]["Tussenvoegsel"].ToString();
-                ////txbAchternaam.Text = (string)GridView1.DataKeys[0]["Achternaam"].ToString();
-                //txbEmail.Text = (string)GridView1.DataKeys[0]["Email"].ToString();
-                ////txbTelefoonnummer.Text = (string)GridView1.DataKeys[0]["Telefoonnummer"].ToString();
-                lblReserveringsnummer.Text = (string)GridView1.DataKeys[0]["Nummer"].ToString();
-                //txbAantalPersonen.Text = (string)GridView1.DataKeys[0]["Aantal_personen"].ToString();
-                //txbOpmerkingen.Text = (string)GridView1.DataKeys[0]["Opmerking"].ToString();
-                //txbAankomstdatum.Text = (string)GridView1.DataKeys[0]["Aankomstdatum"].ToString();
-                //txbVertrekdatum.Text = (string)GridView1.DataKeys[0]["Vertrekdatum"].ToString();
-                ////txtStraat.Text = (string)GridView1.DataKeys[0]["Straatnaam"].ToString();
-                ////txbHuisnummer.Text = (string)GridView1.DataKeys[0]["Huisnummer"].ToString();
-                ////txbPostcode.Text = (string)GridView1.DataKeys[0]["Postcode"].ToString();
-                ////txbLand.Text = (string)GridView1.DataKeys[0]["Land"].ToString();
-
-                ////lblAankomstdatum.Text = (string)GridView1.DataKeys[0]["Aankomstdatum"].ToString();
-                ////lblVertrekdatum.Text = (string)GridView1.DataKeys[0]["Vertrekdatum"].ToString();
 
 
 
             }
 
         }
-
-        protected DataSet Data()
-        {
-            //dataset om de gridview te vullen
-            using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["2020-BIM02-P1-P2-GroenbosConnectionString"].ConnectionString))
-            {
-                con.Open();
-                SqlDataAdapter query = new SqlDataAdapter(query1, con);
-
-                //parameters
-                query.SelectCommand.Parameters.AddWithValue("@nummer", reserveringsnummer);
-
-                DataSet set = new DataSet();
-                query.Fill(set);
-
-                var tussen1 = "";
-                var tussen2 = "";
-
-
-                //clonen van tabel
-                DataSet trueset = set.Clone();
-
-                //change kolom datatype
-                trueset.Tables[0].Columns[1].DataType = typeof(string);
-                trueset.Tables[0].Columns[2].DataType = typeof(string);
-
-
-                //data importen
-                foreach (DataRow row in set.Tables[0].Rows)
-                {
-                    trueset.Tables[0].ImportRow(row);
-                }
-
-                //elke rij veranderen
-                foreach (DataRow row in trueset.Tables[0].Rows)
-                {
-                    //pak var
-                    DateTime dt1 = DateTime.Parse(row[1].ToString());
-                    DateTime dt2 = DateTime.Parse(row[2].ToString());
-
-                    //pas aan
-                    tussen1 = dt1.ToShortDateString();
-                    tussen2 = dt2.ToShortDateString();
-
-                    //adjust
-                    row[1] = tussen1;
-                    row[2] = tussen2;
-
-                }
-
-                con.Close();
-
-                return trueset;
-            }
-        }
-
 
 
         protected void btnWijzigen_Click(object sender, EventArgs e)
@@ -131,7 +56,7 @@ namespace ProjectGroenBos.Reservering
                 {
                     DateTime tussen1 = DateTime.Parse(txbAankomstdatum.Text);
                     DateTime tussen2 = DateTime.Parse(txbVertrekdatum.Text);
-                 
+
 
                     string reserveringsnummer = lblReserveringsnummer.Text;
                     int aantalPersonen = int.Parse(txbAantalPersonen.Text);
@@ -148,13 +73,12 @@ namespace ProjectGroenBos.Reservering
                     con.Open();
 
                     //string query2 =
-                    //@"UPDATE Reservering set Aantal_personen = @personen, Opmerking = @opmerking,
+                    //"UPDATE Reservering set Aantal_personen = @personen, Opmerking = @opmerking,
                     //Vertrekdatum = @vertrekdatum, Aankomstdatum = @aankomstdatum where Nummer = @reserveringsnummer";
 
 
 
-                    SqlCommand cmd2 = new SqlCommand(@"UPDATE Reservering set Aantal_personen = @aantalPersonen, Opmerking = @opmerkingen,
-                    Vertrekdatum = @vertrekdatum, Aankomstdatum = @aankomstdatum where Nummer = @reserveringsnummer", con);
+                    SqlCommand cmd2 = new SqlCommand("UPDATE Reservering set Aantal_personen = @aantalPersonen, Opmerking = @opmerkingen, Vertrekdatum = @vertrekdatum, Aankomstdatum = @aankomstdatum where Nummer = @reserveringsnummer", con);
 
 
 
@@ -189,7 +113,7 @@ namespace ProjectGroenBos.Reservering
             {
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Er ging iets mis')", true);
             }
-           
+
         }
 
 
@@ -247,10 +171,14 @@ namespace ProjectGroenBos.Reservering
         {
             Response.Redirect("ReserveringOverzicht.aspx");
             RequiredFieldValidator1.Enabled = false;
-
         }
 
         protected void txbAantalPersonen_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void txbAantalPersonen_TextChanged1(object sender, EventArgs e)
         {
 
         }
