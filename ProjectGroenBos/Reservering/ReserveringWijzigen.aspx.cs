@@ -41,25 +41,12 @@ namespace ProjectGroenBos.Reservering
                     GridView1.DataBind();
                 }
 
-                //lblGastnummer.Text = (string)GridView1.DataKeys[0]["GastNummer"].ToString();
-                ////txbVoornaam.Text = (string)GridView1.DataKeys[0]["Voornaam"].ToString();
-                ////txbTussenvoegsel.Text = (string)GridView1.DataKeys[0]["Tussenvoegsel"].ToString();
-                ////txbAchternaam.Text = (string)GridView1.DataKeys[0]["Achternaam"].ToString();
-                //txbEmail.Text = (string)GridView1.DataKeys[0]["Email"].ToString();
-                ////txbTelefoonnummer.Text = (string)GridView1.DataKeys[0]["Telefoonnummer"].ToString();
+                
                 lblReserveringsnummer.Text = (string)GridView1.DataKeys[0]["Nummer"].ToString();
-                //txbAantalPersonen.Text = (string)GridView1.DataKeys[0]["Aantal_personen"].ToString();
-                //txbOpmerkingen.Text = (string)GridView1.DataKeys[0]["Opmerking"].ToString();
-                //txbAankomstdatum.Text = (string)GridView1.DataKeys[0]["Aankomstdatum"].ToString();
-                //txbVertrekdatum.Text = (string)GridView1.DataKeys[0]["Vertrekdatum"].ToString();
-                ////txtStraat.Text = (string)GridView1.DataKeys[0]["Straatnaam"].ToString();
-                ////txbHuisnummer.Text = (string)GridView1.DataKeys[0]["Huisnummer"].ToString();
-                ////txbPostcode.Text = (string)GridView1.DataKeys[0]["Postcode"].ToString();
-                ////txbLand.Text = (string)GridView1.DataKeys[0]["Land"].ToString();
 
-                ////lblAankomstdatum.Text = (string)GridView1.DataKeys[0]["Aankomstdatum"].ToString();
-                ////lblVertrekdatum.Text = (string)GridView1.DataKeys[0]["Vertrekdatum"].ToString();
+                lblReserveringsnummer.Text = int.Parse((string)GridView1.DataKeys[0]["Nummer"]).ToString();
 
+                txbAankomstdatum.Text = (string)GridView1.SelectedRow.Cells[1].ToString();
 
 
             }
@@ -132,11 +119,9 @@ namespace ProjectGroenBos.Reservering
                     DateTime tussen1 = DateTime.Parse(txbAankomstdatum.Text);
                     DateTime tussen2 = DateTime.Parse(txbVertrekdatum.Text);
                  
-
                     string reserveringsnummer = lblReserveringsnummer.Text;
                     int aantalPersonen = int.Parse(txbAantalPersonen.Text);
                     string opmerkingen = txbOpmerkingen.Text;
-
 
                     DateTime aankomstdatum = new DateTime();
                     DateTime vertrekdatum = new DateTime();
@@ -147,17 +132,7 @@ namespace ProjectGroenBos.Reservering
 
                     con.Open();
 
-                    //string query2 =
-                    //@"UPDATE Reservering set Aantal_personen = @personen, Opmerking = @opmerking,
-                    //Vertrekdatum = @vertrekdatum, Aankomstdatum = @aankomstdatum where Nummer = @reserveringsnummer";
-
-
-
-                    SqlCommand cmd2 = new SqlCommand(@"UPDATE Reservering set Aantal_personen = @aantalPersonen, Opmerking = @opmerkingen,
-                    Vertrekdatum = @vertrekdatum, Aankomstdatum = @aankomstdatum where Nummer = @reserveringsnummer", con);
-
-
-
+                    SqlCommand cmd2 = new SqlCommand("UPDATE Reservering set Aantal_personen = @aantalPersonen, Opmerking = @opmerkingen,Vertrekdatum = @vertrekdatum, Aankomstdatum = @aankomstdatum where Nummer = @reserveringsnummer", con);
 
                     cmd2.Parameters.AddWithValue("@aantalPersonen", aantalPersonen);
                     cmd2.Parameters.AddWithValue("@opmerkingen", opmerkingen);
@@ -165,20 +140,12 @@ namespace ProjectGroenBos.Reservering
                     cmd2.Parameters.AddWithValue("@aankomstdatum", aankomstdatum);
                     cmd2.Parameters.AddWithValue("@reserveringsnummer", reserveringsnummer);
 
-
-
-
                     cmd2.CommandType = System.Data.CommandType.Text;
-
-
 
                     cmd2.ExecuteNonQuery();
 
-
                     con.Close();
-
-
-
+                    
                     StuurMail();
 
                     Session["controle6"] = 1;

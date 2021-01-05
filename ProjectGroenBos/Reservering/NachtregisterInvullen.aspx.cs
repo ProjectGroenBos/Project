@@ -33,8 +33,7 @@ namespace ProjectGroenBos.Reservering
                 btnToevoegen.Visible = true;
                 lblControle.Text = DateTime.Today.ToShortDateString();
 
-                CustomValidator1.Enabled = false;
-                CustomValidator1.Visible = false;
+               
 
             }
             else
@@ -47,6 +46,7 @@ namespace ProjectGroenBos.Reservering
 
         protected void btnToevoegen_Click1(object sender, EventArgs e)
         {
+            lblOutput.Text = "";
             string Voornaam = TxBNaam.Text;
             string Tussenvoegsel = TxBtussenvoegsel.Text;
             string Achternaam = TxBAchternaam.Text;
@@ -104,11 +104,14 @@ namespace ProjectGroenBos.Reservering
                     btnBevestigen.Visible = true;
                     btnToevoegen.Visible = false;
                 }
+
+                lblOutput.Text = "Persoon is toegevoegd.";
             }
             else
             {
                 CustomValidator1.Enabled = true;
                 CustomValidator1.Visible = true;
+                lblOutput.Text = "Persoon is niet toegevoegd, omdat je niet een datum in de toekomst kan weten.";
             }
 
            
