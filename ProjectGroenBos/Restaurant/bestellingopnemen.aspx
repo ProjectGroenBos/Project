@@ -4,8 +4,11 @@
     <link href="css/opnemenbestelling.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="werkgebied">
-        <h1 class="paginatitel">Bestelling opnemen</h1>
+    <header class="header">
+        Bestelling opnemen
+    </header>
+
+    <div class="cocacontainer">
 
         <!-- Winkelmandje -->
         <div class="winkelmandje" id="winkelmand">
@@ -14,8 +17,7 @@
                 <asp:Label ID="Label1" runat="server" Text="Tafel "></asp:Label>
                 <asp:Label ID="lblTafelnr" runat="server" Text="tafelnr"></asp:Label>
                 <br />
-                <asp:Label ID="lblBesteld" runat="server" Text="Besteld:"></asp:Label>
-                <br />
+                <asp:Label ID="lblBesteld" runat="server" Text="Besteld: "></asp:Label>
                 <asp:Label ID="lblSelectedProducts" runat="server" Font-Bold="True" Font-Size="X-Large" ForeColor="White"></asp:Label>
             </div>
 
@@ -45,8 +47,8 @@
                         </asp:CommandField>
                     </Columns>
                     <RowStyle CssClass="rijstyle" />
-                </asp:GridView>              
-                    <asp:Button ID="btnBestellen" class="bestelknop" runat="server" Text="Bestellen" OnClick="btnBestellen_Click" />
+                </asp:GridView>
+                <asp:Button ID="btnBestellen" class="bestelknop" runat="server" Text="Bestellen" OnClick="btnBestellen_Click" />
             </div>
 
 
@@ -155,5 +157,4 @@
         <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:2020-BIM02-P1-P2-GroenbosConnectionString %>" SelectCommand="SELECT * FROM [Item] WHERE Type = 'Hoofdgerecht'"></asp:SqlDataSource>
         <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:2020-BIM02-P1-P2-GroenbosConnectionString %>" SelectCommand="SELECT * FROM [Item] WHERE Type = 'Nagerecht'"></asp:SqlDataSource>
     </div>
-
 </asp:Content>
