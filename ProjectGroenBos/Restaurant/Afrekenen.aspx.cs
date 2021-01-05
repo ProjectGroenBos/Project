@@ -17,6 +17,7 @@ namespace ProjectGroenBos.Restaurant
 
 		protected void Page_Load(object sender, EventArgs e)
         {
+			functiescheiding();
 
 			// neem de tafel op vanuit het tafeloverzicht
 			if (Session["tafelnr"] != null)
@@ -46,6 +47,32 @@ namespace ProjectGroenBos.Restaurant
 			}
 
 
+		}
+
+		private void functiescheiding()
+		{
+			int functieID = int.Parse(Session["Functie"].ToString());
+
+			if (functieID == 48)
+			{
+
+			}
+			else if (functieID == 49)
+			{
+
+			}
+			else if (functieID == 57)
+			{
+
+			}
+			else if (functieID == 63)
+			{
+
+			}
+			else
+			{
+				Response.Redirect("~/Restaurant/home.aspx");
+			}
 		}
 
 		private int debiteurennummer()
