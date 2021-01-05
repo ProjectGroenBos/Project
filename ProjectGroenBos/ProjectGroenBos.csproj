@@ -71,7 +71,6 @@
   <ItemGroup>
     <Content Include="Financien\css\main.css" />
     <Content Include="Financien\Home.aspx" />
-    <Content Include="Financien\Inlogscherm.aspx" />
     <Content Include="Financien\Prijstabel.aspx" />
     <Content Include="Gerechten overzicht.aspx" />
     <Content Include="Global.asax" />
@@ -81,8 +80,8 @@
     <Content Include="Recreatie\ActiviteitOverzicht.aspx" />
     <Content Include="Recreatie\ActiviteitVerwijderen.aspx" />
     <Content Include="Recreatie\ActiviteitWijzigen.aspx" />
-    <Content Include="Recreatie\CSS\klantenpaginas.css" />
-    <Content Include="Recreatie\CSS\Stylerecreatiediehetgoeddoet.css" />
+    <Content Include="Recreatie\CSS\klanten.css" />
+    <Content Include="Recreatie\CSS\klantwebsite.css" />
     <Content Include="Recreatie\CSS\stylerecreatiedieweljuistis.css" />
     <Content Include="Recreatie\img\ascArrow.png" />
     <Content Include="Recreatie\img\descArrow.png" />
@@ -92,7 +91,6 @@
     <Content Include="Recreatie\InlogschermKlanten.aspx" />
     <Content Include="Recreatie\Klantenoverzichtaanmelding.aspx" />
     <Content Include="Recreatie\MijnAanmeldingen.aspx" />
-    <Content Include="Recreatie\Nieuwproductbestellen.aspx" />
     <Content Include="Recreatie\ProductPagina.aspx" />
     <Content Include="Recreatie\ProductPaginaInzien.aspx" />
     <Content Include="Recreatie\Voorraad.aspx" />
@@ -109,7 +107,6 @@
     <Content Include="Recreatie\Uitloggen.aspx" />
     <Content Include="Recreatie\VoorraadAfboeken.aspx" />
     <Content Include="Recreatie\Voorraadmuteren.aspx" />
-    <Content Include="Recreatie\ProductBestellenMedu.aspx" />
     <Content Include="Reservering\MailReserveringGewijzigd.html" />
     <Content Include="Reservering\ReserveringenOverzicht.aspx" />
     <Content Include="Reservering\NietGebruiken.aspx" />
@@ -397,13 +394,6 @@
     <Compile Include="Financien\Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Financien\Inlogscherm.aspx.cs">
-      <DependentUpon>Inlogscherm.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Financien\Inlogscherm.aspx.designer.cs">
-      <DependentUpon>Inlogscherm.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Financien\Prijstabel.aspx.cs">
       <DependentUpon>Prijstabel.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -499,13 +489,6 @@
     <Compile Include="Recreatie\MijnAanmeldingen.aspx.designer.cs">
       <DependentUpon>MijnAanmeldingen.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Recreatie\Nieuwproductbestellen.aspx.cs">
-      <DependentUpon>Nieuwproductbestellen.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Recreatie\Nieuwproductbestellen.aspx.designer.cs">
-      <DependentUpon>Nieuwproductbestellen.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Recreatie\ProductPagina.aspx.cs">
       <DependentUpon>ProductPagina.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -583,13 +566,6 @@
     </Compile>
     <Compile Include="Recreatie\Voorraadmuteren.aspx.designer.cs">
       <DependentUpon>Voorraadmuteren.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Recreatie\ProductBestellenMedu.aspx.cs">
-      <DependentUpon>ProductBestellenMedu.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Recreatie\ProductBestellenMedu.aspx.designer.cs">
-      <DependentUpon>ProductBestellenMedu.aspx</DependentUpon>
     </Compile>
     <Compile Include="Reservering\ReserveringenOverzicht.aspx.cs">
       <DependentUpon>ReserveringenOverzicht.aspx</DependentUpon>
