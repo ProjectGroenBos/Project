@@ -84,11 +84,12 @@ namespace ProjectGroenBos.Financien
             ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "emailsuccess();", true);
         }
 
-        protected void Email(int gridviewnr, string nummer, string totaal, string naam, string email, DateTime datum, string banknummer)
+        protected void Email(int gridviewnr, string nummer, string totaal, string naam, string email)
         {
 
             MailMessage mail = new MailMessage();
-
+            DateTime d = DateTime.Now;
+            string datum = d.ToString("dd/MM/yyyy");
 
             MailMessage mailMessage = new MailMessage("groenbosfinances@hotmail.com", email);
 
@@ -101,7 +102,7 @@ namespace ProjectGroenBos.Financien
             sbEmailBody.Append("Wij hebben uw reservering doen vervallen.");
             sbEmailBody.Append("Op grond van ons reglement ontvangt u 40% van de huursom verminderd met de aanbetaling retour. ");
             sbEmailBody.Append("De hoogte van dit bedrag gelieve u aan te treffen aan de onderzijde van dit schrijven.");
-            sbEmailBody.Append("Wij hebben het restitutiebedrag heden gestort op bankrekening nummer "+ banknummer +".");
+            sbEmailBody.Append("Wij hebben het restitutiebedrag heden gestort op bankrekening nummer "+ "NL77RABO2342114488" +".");
             sbEmailBody.Append("<br/><br/>");
             sbEmailBody.Append("Het spijt ons zeer u niet te kunnen verwelkomen op ons park.");
             sbEmailBody.Append("<br/><br/>");

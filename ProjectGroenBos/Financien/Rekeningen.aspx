@@ -174,7 +174,9 @@
 
                                     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="select Naam, Prijs, Aantal, (Prijs * Aantal) AS 'Totaal' from RekeningAct where ReserveringNummer = @Nummer
                                     union
-                                select Naam, Prijs, Aantal, (Prijs * Aantal) AS 'Totaal' from RekeningHuur where Reserveringnummer = @Nummer">
+                                select Naam, Prijs, Aantal, (Prijs * Aantal) AS 'Totaal' from RekeningHuur where Reserveringnummer = @Nummer
+								union
+								select Naam, Prijs, Aantal, Totaal from rekRes where ReserveringNummer = @Nummer">
                                         <SelectParameters>
                                             <asp:ControlParameter
                                                 Name="Nummer"
