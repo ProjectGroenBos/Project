@@ -27,18 +27,41 @@ namespace ProjectGroenBos.Reservering
             else
             {
 
-                //sessions ophalen voor het vullen van de vakjes
-                reserveringsnummer = Session["reserveringsnummer"].ToString();
-                //txbAankomstdatum.Text = Session["Aankomstdatum"].ToString();
-                //txbAantalPersonen.Text = Session["AantalPersonen"].ToString();
-                //txbVertrekdatum.Text = Session["Vertrekdatum"].ToString();
+                if (!IsPostBack)
+
+                {
+                    lblReserveringsnummer.Text = Session["reserveringsnummer"].ToString();
+                    //txbAantalPersonen.Text = GridView1.Rows[1].Cells[1].Text;
+                    //txbOpmerkingen.Text = (string)GridView1.DataKeys[0]["Opmerking"].ToString();
+                    //txbAankomstdatum.Text = (string)GridView1.DataKeys[0]["Aankomstdatum"].ToString();
+                    //txbVertrekdatum.Text = (string)GridView1.DataKeys[0]["Vertrekdatum"].ToString();
+
+                    //sessions ophalen voor het vullen van de vakjes
+                    reserveringsnummer = Session["reserveringsnummer"].ToString();
+                    //txbAankomstdatum.Text = Session["Aankomstdatum"].ToString();
+                    //txbAantalPersonen.Text = Session["AantalPersonen"].ToString();
+                    //txbVertrekdatum.Text = Session["Vertrekdatum"].ToString();
+
+                    RequiredFieldValidator1.Enabled = false;
+                    foreach (GridViewRow gr in GridView1.Rows)
+                    {
+                        lblReserveringsnummer.Text = Session["reserveringsnummer"].ToString();
+                        txbAantalPersonen.Text = gr.Cells[3].Text;
+                        txbOpmerkingen.Text = gr.Cells[4].Text;
+                        txbAankomstdatum.Text = gr.Cells[1].Text;
+                        txbVertrekdatum.Text = gr.Cells[2].Text;
+
+                        if (txbOpmerkingen.Text == "&nbsp;")
+                        {
+                            txbOpmerkingen.Text = "";
+                        }
+                    }
+
+                }
 
 
-                lblReserveringsnummer.Text = Session["reserveringsnummer"].ToString();
-                txbAantalPersonen.Text = (string)GridView1.DataKeys[0]["Aantal_personen"].ToString();
-                txbOpmerkingen.Text = (string)GridView1.DataKeys[0]["Opmerking"].ToString();
-                txbAankomstdatum.Text = (string)GridView1.DataKeys[0]["Aankomstdatum"].ToString();
-                txbVertrekdatum.Text = (string)GridView1.DataKeys[0]["Vertrekdatum"].ToString();
+
+
 
 
 
@@ -173,14 +196,6 @@ namespace ProjectGroenBos.Reservering
             RequiredFieldValidator1.Enabled = false;
         }
 
-        protected void txbAantalPersonen_TextChanged(object sender, EventArgs e)
-        {
 
-        }
-
-        protected void txbAantalPersonen_TextChanged1(object sender, EventArgs e)
-        {
-
-        }
     }
 }

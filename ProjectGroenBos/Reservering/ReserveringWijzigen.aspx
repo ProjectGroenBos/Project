@@ -1,6 +1,15 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="Site1.Master" AutoEventWireup="true" CodeBehind="ReserveringWijzigen.aspx.cs" Inherits="ProjectGroenBos.Reservering.test" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head2" runat="server">
+    <style type="text/css">
+        .auto-style1 {
+            position: relative;
+            display: inline-block;
+            width: 145px;
+            left: 0px;
+            top: 2px;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <div class="container">
@@ -67,7 +76,7 @@
                  <asp:Label ID="Label7" runat="server" Text="Aantal Personen:" CssClass="labelsnieuw"></asp:Label>
              </td>
              <td style="width: 15%">
-                 <asp:TextBox ID="txbAantalPersonen" runat="server" CssClass="textboxchaos"></asp:TextBox>
+                 <asp:TextBox ID="txbAantalPersonen" runat="server" CssClass="textboxchaos" EnableViewState="False"></asp:TextBox>
              </td>
              <td style="width: 40%">
                  <asp:RegularExpressionValidator ID="RegularExpressionValidator6" runat="server" ErrorMessage="Aantal personen is een even getal." ControlToValidate="txbAantalPersonen" ValidationExpression="^([246])$"></asp:RegularExpressionValidator>
@@ -79,7 +88,7 @@
                  <asp:Label ID="Label8" runat="server" Text="Opmerkingen" CssClass="labelsnieuw"></asp:Label>
              </td>
              <td style="width: 15%">
-                 <asp:TextBox ID="txbOpmerkingen" runat="server" CssClass="textboxchaos"></asp:TextBox>
+                 <asp:TextBox ID="txbOpmerkingen" runat="server" CssClass="auto-style1" EnableViewState="False"></asp:TextBox>
              </td>
              <td style="width: 40%"></td>
          </tr>
@@ -88,7 +97,7 @@
                  <asp:Label ID="Label9" runat="server" Text="Aankomstdatum:" CssClass="labelsnieuw"></asp:Label>
              </td>
              <td style="width: 15%">
-                 <asp:TextBox ID="txbAankomstdatum" runat="server" CssClass="textboxchaos"></asp:TextBox>
+                 <asp:TextBox ID="txbAankomstdatum" runat="server" CssClass="textboxchaos" EnableViewState="False"></asp:TextBox>
              </td>
              <td style="width: 40%"></td>
          </tr>
@@ -112,7 +121,7 @@
         <br />
         <br />
         <br />
-        <asp:Button ID="btnWijzigen" runat="server" Text="Wijzigen" CssClass="btnUitloggen" Style="background-color: #009879; color: #fff" class="btn" OnClick="btnWijzigen_Click" />
+        <asp:Button ID="btnWijzigen" runat="server" Text="Wijzigen" CssClass="btnUitloggen" Style="background-color: #009879; color: #fff" class="btn" OnClick="btnWijzigen_Click"  />
         <asp:Button ID="btnTerug" runat="server" Style="background-color: #009879; color: #fff" class="btn" CssClass="btnUitloggen" Text="Terug" OnClick="btnTerug_Click" ValidateRequestMode="Disabled" />
         <br />
         <asp:GridView ID="GridView1" runat="server" DataKeyNames="Nummer,Aankomstdatum,Vertrekdatum,Aantal_personen,Opmerking,Achternaam,Email" EnableViewState="False" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">

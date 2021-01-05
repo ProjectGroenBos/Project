@@ -7,6 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Text.RegularExpressions;
 
 namespace ProjectGroenBos.Reservering
 {
@@ -15,123 +16,231 @@ namespace ProjectGroenBos.Reservering
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
 
-            if (!Page.IsPostBack)
-            {
 
-                getData(this.User.Identity.Name);
-            }
+
 
             if (Session["gastnummer"] == null)
             {
                 Response.Redirect("Gastoverzicht.aspx");
-               
+
             }
             else
             {
                 int gastnummer = int.Parse(Session["gastnummer"].ToString());
 
                 lblGastnummer.Text = gastnummer.ToString();
-                
-                GridView1.DataBind();
 
-                //txbVoornaam.Text = (string)GridView1.DataKeys[0]["Voornaam"].ToString();
+                if (!Page.IsPostBack)
+                {
 
-                //txbTussenvoegsel.Text = (string)GridView1.DataKeys[0]["Tussenvoegsel"].ToString();
-                //txbAchternaam.Text = (string)GridView1.DataKeys[0]["Achternaam"].ToString();
-                //txbGeboortedatum.Text = (string)GridView1.DataKeys[0]["Achternaam"].ToString();
-                //txbIBAN.Text = (string)GridView1.DataKeys[0]["IBAN"].ToString();
+                    foreach (GridViewRow gr in GridView1.Rows)
+                    {
+
+                        txbVoornaam.Text = gr.Cells[1].Text;
+                        txbTussenvoegsel.Text = gr.Cells[2].Text;
+                        txbAchternaam.Text = gr.Cells[3].Text;
+                        txbGeboortedatum.Text = gr.Cells[0].Text;
+                        txbIBAN.Text = gr.Cells[6].Text;
+                        txbEmail.Text = gr.Cells[5].Text;
+                        txbStraatnaam.Text = gr.Cells[7].Text;
+                        txbHuisnummer.Text = gr.Cells[8].Text;
+                        txbPostcode.Text = gr.Cells[9].Text;
+                        DropDownList2.Text = gr.Cells[10].Text;
+                        txbWoonplaats.Text = gr.Cells[11].Text;
+
+                        if (txbTussenvoegsel.Text == "&nbsp;")
+                        {
+                            txbTussenvoegsel.Text = "";
+                        }
+
+                    }
 
 
-                //txbEmail.Text = (string)GridView1.DataKeys[0]["Email"].ToString();
-                //txbTelefoonnummer.Text = (string)GridView1.DataKeys[0]["Telefoonnummer"].ToString();
-
-                //txbStraatnaam.Text = (string)GridView1.DataKeys[0]["Straatnaam"].ToString();
-                //txbHuisnummer.Text = (string)GridView1.DataKeys[0]["Huisnummer"].ToString();
-                //txbPostcode.Text = (string)GridView1.DataKeys[0]["Postcode"].ToString();
-                //txbWoonplaats.Text = (string)GridView1.DataKeys[0]["Woonplaats"].ToString();
-
+                }
 
                 GridView1.Visible = false;
-                Button1_Click(Button1, null);
             }
-            
+
         }
 
         protected void btnWijzigen_Click(object sender, EventArgs e)
         {
+            string straatnaam = txbStraatnaam.Text;
+            string huisnummer = txbHuisnummer.Text;
+            string postcode = txbPostcode.Text;
+            string land = DropDownList2.Text;
+            string woonplaats = txbWoonplaats.Text;
+
             string voornaam = txbVoornaam.Text;
+            string tussenvoegsel = txbTussenvoegsel.Text;
+            string achternaam = txbAchternaam.Text;
+            string telefoonnummer = txbTelefoonnummer.Text;
+            string email = txbEmail.Text;
+            string iban = txbIBAN.Text;
+            int gastnummer = int.Parse(lblGastnummer.Text);
+            string controle = "";
 
-            using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["2020-BIM02-P1-P2-GroenbosConnectionString"].ConnectionString))
+
+            if (land == "--Selecteer--")
             {
-                con.Open();
-
-                string query = "update Gast set Voornaam = @voornaam, Tussenvoegsel = @tussenvoegsel, Achternaam = @achternaam, Telefoonnummer = @telefoonnummer, Email = @email, IBAN = @iban where Nummer = @gastnummer";
-                string query2 = "update Adres set Straatnaam =  @straat, Huisnummer = @huisnummer, Postcode = @postcode, Woonplaats = @woonplaats where GastNummer = @gastnummer";
-
-                SqlCommand cmd1 = new SqlCommand(query, con);
-                SqlCommand cmd2 = new SqlCommand(query2, con);
-
-                cmd1.Parameters.AddWithValue("@voornaam", txbVoornaam.Text);
-                cmd1.Parameters.AddWithValue("@tussenvoegsel", txbTussenvoegsel.Text);
-                cmd1.Parameters.AddWithValue("@achternaam", txbAchternaam.Text);
-                cmd1.Parameters.AddWithValue("@telefoonnummer", txbTelefoonnummer.Text);
-                cmd1.Parameters.AddWithValue("@email", txbEmail.Text);
-                cmd1.Parameters.AddWithValue("@iban", txbIBAN.Text);
-                cmd1.Parameters.AddWithValue("@gastnummer", lblGastnummer.Text);
-
-                cmd2.Parameters.AddWithValue("@straat", txbStraatnaam.Text);
-                cmd2.Parameters.AddWithValue("@huisnummer", txbHuisnummer.Text);
-                cmd2.Parameters.AddWithValue("@postcode", txbPostcode.Text);
-             //   cmd2.Parameters.AddWithValue("@land", land);
-                cmd2.Parameters.AddWithValue("@woonplaats", txbWoonplaats.Text);
-                cmd2.Parameters.AddWithValue("@gastnummer", lblGastnummer.Text);
-
-                cmd1.CommandType = System.Data.CommandType.Text;
-                cmd2.CommandType = System.Data.CommandType.Text;
-
-
-
-                cmd1.ExecuteNonQuery();
-                cmd2.ExecuteNonQuery();
-
-                con.Close();
-
+                CustomValidator1.IsValid = false;
             }
 
-            Response.Redirect("Gastoverzicht.aspx");
+            switch (DropDownList2.SelectedValue)
+            {
+                case "Nederland(+31)":
+                    controle = "+31";
+                    break;
+                case "Duitsland(+49)":
+                    controle = "+49";
+                    break;
+                case "Frankrijk(+33)":
+                    controle = "+33";
+                    break;
+                case "België(+32)":
+                    controle = "+32";
+                    break;
+            }
+            string telefoonnummereind = controle + telefoonnummer;
+
+
+            if (DropDownList2.SelectedValue == "Duitsland(+49)" || DropDownList2.SelectedValue == "Frankrijk(+33)")
+            {
+                if (txbPostcode.Text.Length != 5)
+                {
+                    CustomValidator1.IsValid = false;
+                }
+            }
+            else if (DropDownList2.SelectedValue == "België(+32)")
+            {
+                if (txbPostcode.Text.Length != 4)
+                {
+                    CustomValidator1.IsValid = false;
+                }
+            }
+            else if (DropDownList2.SelectedValue == "Nederland(+31)")
+            {
+                if (txbPostcode.Text.Length != 7)
+                {
+                    CustomValidator1.IsValid = false;
+                }
+            }
+            else if (DropDownList2.SelectedValue == "--Selecteer--")
+            {
+                CustomValidator1.IsValid = false;
+            }
+
+            if (CheckDatum() == true)
+            {
+                using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["2020-BIM02-P1-P2-GroenbosConnectionString"].ConnectionString))
+                {
+                    con.Open();
+
+                    string query = "update Gast set Voornaam = @voornaam, Tussenvoegsel = @tussenvoegsel, Achternaam = @achternaam, Telefoonnummer = @telefoonnummer, Email = @email, IBAN = @iban where Nummer = @gastnummer";
+                    string query2 = "update Adres set Straatnaam =  @straat, Huisnummer = @huisnummer, Postcode = @postcode, Woonplaats = @woonplaats where GastNummer = @gastnummer";
+
+                    SqlCommand cmd1 = new SqlCommand(query, con);
+                    SqlCommand cmd2 = new SqlCommand(query2, con);
+
+                    cmd1.Parameters.AddWithValue("@voornaam", voornaam);
+                    cmd1.Parameters.AddWithValue("@tussenvoegsel", tussenvoegsel);
+                    cmd1.Parameters.AddWithValue("@achternaam", achternaam);
+                    cmd1.Parameters.AddWithValue("@telefoonnummer", telefoonnummereind);
+                    cmd1.Parameters.AddWithValue("@email", email);
+                    cmd1.Parameters.AddWithValue("@iban", iban);
+                    cmd1.Parameters.AddWithValue("@gastnummer", gastnummer);
+
+                    cmd2.Parameters.AddWithValue("@straat", straatnaam);
+                    cmd2.Parameters.AddWithValue("@huisnummer", huisnummer);
+                    cmd2.Parameters.AddWithValue("@postcode", postcode);
+                    cmd2.Parameters.AddWithValue("@land", land);
+                    cmd2.Parameters.AddWithValue("@woonplaats", woonplaats);
+                    cmd2.Parameters.AddWithValue("@gastnummer", gastnummer);
+
+                    cmd1.CommandType = System.Data.CommandType.Text;
+                    cmd2.CommandType = System.Data.CommandType.Text;
+
+
+
+                    cmd1.ExecuteNonQuery();
+                    cmd2.ExecuteNonQuery();
+
+                    con.Close();
+
+                }
+
+                Response.Redirect("Gastoverzicht.aspx");
+            }
+
         }
-        private void getData(string user)
+
+
+        private bool CheckDatum()
         {
-            DataTable dt = new DataTable();
-            SqlConnection connection = new SqlConnection("Data Source=SQL.BIM.OSOX.NL;Initial Catalog=2020-BIM02-P1-P2-Groenbos;User ID=BIM022020;Password=BiM@IH2020");
-            connection.Open();
-            SqlCommand sqlCmd = new SqlCommand("SELECT * from Gast WHERE Nummer = @gastnummer", connection);
-            SqlDataAdapter sqlDa = new SqlDataAdapter(sqlCmd);
-
-
-            sqlCmd.Parameters.AddWithValue("@gastnummer", lblGastnummer.Text);
-            sqlDa.Fill(dt);
-            if (dt.Rows.Count > 0)
+            try
             {
-                txbVoornaam.Text = dt.Rows[0]["Voornaam"].ToString(); //Where ColumnName is the Field from the DB that you want to display
-                txbTussenvoegsel.Text = dt.Rows[0]["Tussenvoegsel"].ToString();
-                txbAchternaam.Text = dt.Rows[0]["Achternaam"].ToString();
-                txbGeboortedatum.Text = dt.Rows[0]["Geboortedatum"].ToString();
-                txbIBAN.Text = dt.Rows[0]["IBAN"].ToString();
+
+                DateTime control = new DateTime();
+                DateTime geboortedatum = new DateTime();
+
+                geboortedatum = DateTime.Parse(txbGeboortedatum.Text);
+                geboortedatum.ToShortDateString();
+
+                control = DateTime.Today;
+                control.AddYears(-18);
+                control.ToShortDateString();
+                DateTime control2 = control.AddYears(-18);
+
+                if (control2 >= geboortedatum)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
-            connection.Close();
+            catch
+            {
+                return false;
+            }
         }
+
+        protected void CustomValidator3_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            {
+                string expression = "";
+
+                switch (DropDownList2.SelectedValue)
+                {
+                    case "Nederland(+31)":
+                        expression = "^([0-9]{4}) {1}([A-Z]{2})$";
+                        break;
+                    case "Duitsland(+49)":
+                        expression = "^[0-9]{5}$";
+                        break;
+                    case "Frankrijk(+33)":
+                        expression = "^[0-9]{5}$";
+                        break;
+                    case "België(+32)":
+                        expression = "^(?:(?:[1-9])(?:[0-9]{3}))$";
+                        break;
+
+                }
+
+
+                if (Regex.IsMatch(txbPostcode.Text, expression, RegexOptions.IgnoreCase))
+                    args.IsValid = true;
+                else
+                    args.IsValid = false;
+            }
+        }
+
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            txbVoornaam.Text = Session["voornaam"].ToString();
-            txbTussenvoegsel.Text = Session["tussenvoegsel"].ToString();
-            txbAchternaam.Text = Session["achternaam"].ToString();
-            txbTelefoonnummer.Text = Session["telefoonnummer"].ToString();
-            txbEmail.Text = Session["email"].ToString();
-            txbGeboortedatum.Text = Session["geboortedatum"].ToString();
+
 
         }
     }
