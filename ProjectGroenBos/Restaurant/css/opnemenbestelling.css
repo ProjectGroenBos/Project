@@ -20,7 +20,7 @@
     text-align: center;
     background-color: #148f77;
     border: none;
-    border-radius: 100px;
+    border-radius: 15px;
     font-size: 20px;
     margin-bottom: 52px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
@@ -52,7 +52,7 @@
     color: #343434;
     background-color: #148f77;
     border: #148f77;
-    border-radius: 50px;
+    border-radius: 15px;
     padding: 20px 20px 20px 20px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
@@ -73,7 +73,7 @@
     width: 100%;
     height: 60px;
     padding: 10px;
-    border-radius: 50px;
+    border-radius: 15px;
 }
 
 .productimg{
@@ -96,7 +96,7 @@
     border: none;
     font-size: 20px;
     color: #fff;
-    border-radius: 50px;
+    border-radius: 15px;
 }
 
     .toevoegen:hover {
@@ -116,7 +116,7 @@
     height: 700px;
     background: #fff;
     border: 2px solid #148f77;
-    border-radius: 52px;
+    border-radius: 15px;
     display: flex;
     flex-direction: column;
     float: right;
@@ -134,7 +134,7 @@
     font-size: 20px;
     font-weight: 400;
 
-    border-radius: 50px;
+    border-radius: 15px;
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
 }
@@ -150,7 +150,7 @@
     
     padding: 10px 0px 10px 0px;
 
-    border-radius: 50px;
+    border-radius: 15px;
     border-top-left-radius: 0px;
     border-top-right-radius: 0px;
 }
