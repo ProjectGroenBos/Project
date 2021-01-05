@@ -54,27 +54,27 @@ namespace ProjectGroenBos.Restaurant
 			//controleren of de ingelogde persoon geautoriseerd is om af te mogen rekenen
 			int functieID = int.Parse(Session["Functie"].ToString());
 
-			if (functieID == 49)
+			if (functieID == 5)
 			{
 
 			}
-			else if (functieID == 50)
+			else if (functieID == 6)
 			{
 
 			}
-			else if (functieID == 57)
+			else if (functieID == 10)
 			{
 
 			}
-			else if (functieID == 63)
+			else if (functieID == 8)
 			{
 
 			}
-			else if (functieID == 65)
+			else if (functieID == 11)
 			{
 
 			}
-			else if (functieID == 66)
+			else if (functieID == 12)
 			{
 
 			}
