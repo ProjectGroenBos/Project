@@ -22,7 +22,7 @@ namespace ProjectGroenBos.Reservering
         {
             //sessions aanmaken om op de volgende pagina gegevens mee in te vullen
 
-            
+
         }
 
         protected void btnZoek_Click(object sender, EventArgs e)
@@ -35,7 +35,7 @@ namespace ProjectGroenBos.Reservering
 
         protected void btnToWijzigen_Click(object sender, EventArgs e)
         {
-            
+
             if (Session["reserveringsnummer"] == null)
             {
                 lblUitkomst.Text = "Selecteer een reservering.";
@@ -61,6 +61,11 @@ namespace ProjectGroenBos.Reservering
         protected void GridView1_SelectedIndexChanged1(object sender, EventArgs e)
         {
             Session["reserveringsnummer"] = (string)GridView1.SelectedRow.Cells[1].Text;
+            Session["Aankomstdatum"]= (string)GridView1.SelectedRow.Cells[5].Text;
+            Session["AantalPersonen"]= (string)GridView1.SelectedRow.Cells[4].Text;
+            Session["Vertrekdatum"]= (string)GridView1.SelectedRow.Cells[6].Text;
+            Session["email"]= (string)GridView1.SelectedRow.Cells[3].Text;
+            Session["achternaam"]= (string)GridView1.SelectedRow.Cells[2].Text;
 
             btnToAnnuleren.Enabled = true;
             btnToWijzigen.Enabled = true;
