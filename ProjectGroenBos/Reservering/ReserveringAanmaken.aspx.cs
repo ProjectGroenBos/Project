@@ -130,6 +130,7 @@ namespace ProjectGroenBos.Reservering
             int betaalmethode = 1;
             int betaalstatus = 8;
             int factuurtype = 2;
+            int factuurtype2 = 1;
 
             //standaardwaardes transactie
             string aan = "Groenbos";
@@ -157,6 +158,8 @@ namespace ProjectGroenBos.Reservering
                 ReserveerderToevoegen(voornaam, tussenvoegsel, achternaam, geboortedatum, reserveringnummer);
 
                 InsDebiteurenFactuur(vandaag, betaalmethode, betaalstatus, factuurtype, reserveringnummer);
+                InsDebiteurenFactuur(vandaag, betaalmethode, betaalstatus, factuurtype2, reserveringnummer);
+
                 int debifactuur = GetDebiNummer();
 
                 int feestdag = GetFeestdag(reserveringnummer);
