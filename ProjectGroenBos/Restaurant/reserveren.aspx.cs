@@ -48,16 +48,18 @@ namespace ProjectGroenBos.Restaurant
                 lblOutput.Text = "U kunt niet in het verleden reserveren";
                 return;
             }
-        
 
-           
+            int BungalowreserveringsID;
+            BungalowreserveringsID = Ophalen();
+
+
 
 
 
             // String constring ="Data Source = SQL.BIM.OSOX.NL; Initial Catalog = 2020 - BIM02 - P1 - P2 - Groenbos; Persist Security Info = True; User ID = BIM022020; Password = BiM@IH2020";
             String constring = "Data Source=SQL.BIM.OSOX.NL;Initial Catalog=2020-BIM02-P1-P2-Groenbos;Persist Security Info=True;User ID=BIM022020;Password=BiM@IH2020";
             SqlConnection sqlcon = new SqlConnection(constring);
-            String pname = "RestaurantReserveringGoed"; ;
+            String pname = "RestaurantReserveringGoed";
             sqlcon.Open();
             SqlCommand com = new SqlCommand(pname, sqlcon);
             com.CommandType = CommandType.StoredProcedure;
@@ -71,6 +73,7 @@ namespace ProjectGroenBos.Restaurant
             com.Parameters.AddWithValue("@Achternaam", txtAchternaam.Text);
             com.Parameters.AddWithValue("@Tussenvoegsel", txtTussenvoegsel.Text);
             com.Parameters.AddWithValue("@Email", txtEmail.Text);
+            com.Parameters.AddWithValue("@BunglowreserveringsID", BungalowreserveringsID);
 
 
 
@@ -102,7 +105,7 @@ namespace ProjectGroenBos.Restaurant
             con.Open();
             if (txtBungalownummer.Text != "")
             {
-                SqlCommand cmd = new SqlCommand("SELECT Gast.Voornaam, Gast.Tussenvoegsel, Gast.Achternaam FROM Reservering INNER JOIN Reservering_Bungalow ON Reservering.Nummer = Reservering_Bungalow.ReserveringNummer INNER JOIN Bungalow ON Reservering_Bungalow.BungalowNummer = Bungalow.Nummer INNER JOIN Gast ON Reservering.GastNummer = Gast.Nummer where Bungalow.Nummer = @BungalowNummer and Aankomstdatum <= getdate() and Vertrekdatum >= getdate()",con);
+                SqlCommand cmd = new SqlCommand("SELECT Gast.Voornaam, Gast.Tussenvoegsel, Gast.Achternaam FROM Reservering INNER JOIN Gast on reservering.gastnummer = gast.nummer INNER JOIN Reservering_Bungalow ON Reservering.Nummer = Reservering_Bungalow.ReserveringNummer INNER JOIN Bungalow ON Reservering_Bungalow.BungalowNummer = Bungalow.Nummer where Bungalow.Nummer = @Bungalownummer and Aankomstdatum <= getdate() and Vertrekdatum >= getdate()", con);
                 cmd.Parameters.AddWithValue("@Bungalownummer", int.Parse(txtBungalownummer.Text));
                 SqlDataReader da = cmd.ExecuteReader();
                 while (da.Read())
@@ -112,6 +115,33 @@ namespace ProjectGroenBos.Restaurant
                     txtAchternaam.Text = da.GetValue(2).ToString();
                 }
                 con.Close();
+
+            }
+            Ophalen();
+        }
+        private int Ophalen()
+        {
+            using (SqlConnection connection = new SqlConnection("Data Source=SQL.BIM.OSOX.NL;Initial Catalog=2020-BIM02-P1-P2-Groenbos;Persist Security Info=True;User ID=BIM022020;Password=BiM@IH2020"))
+            {
+
+
+
+                connection.Open();
+                string selectquery = "select resbun.ReserveringNummer from Reservering_bungalow resbun inner join Reservering res on res.Nummer = resbun.ReserveringNummer  where GETDATE() >= res.Aankomstdatum and Getdate() < res.Vertrekdatum and resbun.BungalowNummer = @Bungalownummer";
+
+                SqlCommand sqlComd = new SqlCommand(selectquery, connection);
+                sqlComd.Parameters.AddWithValue("@Bungalownummer", int.Parse(txtBungalownummer.Text));
+                SqlDataReader r;
+                r = sqlComd.ExecuteReader();
+
+                int ReserveringNummer = 0;
+
+                while (r.Read())
+                {
+                    ReserveringNummer = (int)r[0];
+                }
+                connection.Close();
+                return ReserveringNummer;
             }
         }
     }
