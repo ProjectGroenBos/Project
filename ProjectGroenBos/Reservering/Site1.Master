@@ -42,7 +42,7 @@
                             </ul>
                             <li><a href="#"><i class="fas fa-user"></i>Klachten</a>
                                 <ul class="submenu">
-                                    <li><a href="KlachtenOVerzicht.aspx">Klachten overzicht</a></li>
+                                    <li><a href="KlachtenOverzicht.aspx">Klachten overzicht</a></li>
                                     <li><a href="KlachtenAfhandeling.aspx">Klacht afhandeling</a></li>
                                 </ul>
 
