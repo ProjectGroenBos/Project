@@ -65,9 +65,9 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="header">Rekeningen</div>
+    <div class="header">Rekeningen-overzicht</div>
     <div class="container" runat="server" id="pdfbody">
-        <h2>Rekeningen-overzicht</h2>
+        <h2>Rekeningen</h2>
         <p>Dit is een overzicht van alle opstaande rekeningen van gasten die aanwezig zijn in het park bij recreatiepark Groenbos.</p>
 
         <asp:GridView ID="gvRekeningen" runat="server" CssClass="content-table tweedetable" GridLines="None" AutoGenerateColumns="False" DataSourceID="SqlDataSource6" DataKeyNames="Gastnummer">
@@ -98,7 +98,6 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h4 class="modal-title">Rekeningen <%# Eval("Naam") %></h4>
-                                <asp:Button runat="server" CssClass="btn btn-primary" Text="Sluiten"></asp:Button>
                             </div>
                             <div class="modal-body">
                                 <div class="factuur" id="printModal<%# Eval("Nummer") %>">

@@ -59,8 +59,10 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="header">Alle inkoopaanvragen en bestellingen</div>
+    <div class="header">Inzien inkooptraject</div>
     <div class="container">
+        <h2>Alle inkoopaanvragen en bestellingen</h2>
+            <p>Overzicht van alle inkoopaanvragen en bestellingen die geplaats zijn.</p>
         <div class="d-flex justify-content-center h-100" style="margin-top: 20px">
             <div class="searchbar">
                 <asp:TextBox ID="TextBox1" runat="server" placeholder="Zoeken op bestelnummer..." CssClass="search_input" Style="color: #fff" AutoPostBack="True" BorderStyle="Solid" OnTextChanged="TextBox1_TextChanged"></asp:TextBox>
@@ -113,7 +115,6 @@ SELECT 'Alle Statussen' AS [Status]"></asp:SqlDataSource>
 
                         <div class="modal-header">
                             <h4 class="modal-title">Inkooporderaanvraag <%# Eval("Nummer") %> </h4>
-                            <asp:Button runat="server" CssClass="btn btn-primary" Text="Sluiten"></asp:Button>
                         </div>
 
                         <div class="modal-body">

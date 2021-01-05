@@ -68,10 +68,12 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="header">Factuur-Koppel pagina</div>
+    <div class="header">Factuur Koppelen</div>
+            
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <div class="container">
-
+        <h2>Factuur koppelen</h2>
+            <p>Hier worden inkomende facturen gekoppeld met de bijbehorende bestelling.</p>
         <div class="d-flex justify-content-center h-100" style="margin-top: 20px">
             <div class="searchbar">
                 <asp:TextBox ID="TextBox1" runat="server" placeholder="Zoeken op bestelnummer..." CssClass="search_input" AutoPostBack="True" BorderStyle="Solid" OnTextChanged="TextBox1_TextChanged"></asp:TextBox>
@@ -86,7 +88,7 @@ SELECT 'Alle Afdelingen' AS [Naam]"></asp:SqlDataSource>
         <asp:GridView ID="gvInkooporderaanvragerMain" CssClass="content-table tweedetable" GridLines="None" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" DataKeyNames="Nummer" AllowSorting="True">
             <Columns>
 
-                <asp:BoundField DataField="Nummer" HeaderText="Nummer" ReadOnly="True" SortExpression="Nummer" />
+                <asp:BoundField DataField="Nummer" HeaderText="Factuurnummer" ReadOnly="True" SortExpression="Nummer" />
                 <asp:BoundField DataField="Naam" HeaderText="Afdeling" SortExpression="Naam" />
                 <asp:BoundField DataField="Datum" DataFormatString="{0:d}" HeaderText="Datum" SortExpression="Datum" />
                 <asp:BoundField DataField="Leverancier" HeaderText="Leverancier" SortExpression="Leverancier" />

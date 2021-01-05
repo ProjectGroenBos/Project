@@ -4,9 +4,9 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <%-- Main grid --%>
-    <div class="header">Leverancierlijst</div>
+    <div class="header">Leveranciersoverzicht</div>
     <div class="container">
-        <h2>leverancier scherm 2020</h2>
+        <h2>leveranciers</h2>
         <p>Dit zijn de leveranciers van recreatiepark Groenbos.</p>
 
         <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#ToevoegenModal">Leverancier toevoegen</button>
@@ -98,7 +98,6 @@
 
                         <div class="modal-header">
                             <h4 class="modal-title">Leverancierdetails <%# Eval("ID") %> </h4>
-                            <asp:Button runat="server" CssClass="btn btn-primary" Text="Sluiten"></asp:Button>
                         </div>
 
                         <div class="modal-body">

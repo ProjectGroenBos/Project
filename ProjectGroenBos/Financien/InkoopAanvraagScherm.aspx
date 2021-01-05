@@ -23,10 +23,11 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="header">Inkoop Aanvragen Overzicht</div>
+    <div class="header">Inkoopaanvragen controleren</div>
 
     <div class="container">
-
+                <h2>Inkoopaanvragen overzicht</h2>
+        <p>Overzicht van alle inkoopaanvragen die wachten op goedkeuring.</p>
         <asp:DropDownList ID="DropDownList1" AutoPostBack="true" runat="server" DataSourceID="SqlDataSource2" DataTextField="Naam" DataValueField="Naam" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" CssClass="DropDownAfdeling"></asp:DropDownList>
 
         <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT [Naam] FROM [Afdeling] union
@@ -62,7 +63,6 @@ SELECT 'Alle Afdelingen' AS [Naam]"></asp:SqlDataSource>
 
                         <div class="modal-header">
                             <h4 class="modal-title">Inkooporderaanvraag <%# Eval("Nummer") %> </h4>
-                            <asp:Button runat="server" CssClass="btn btn-primary" Text="Sluiten"></asp:Button>
                         </div>
 
                         <div class="modal-body">
@@ -141,7 +141,6 @@ SELECT 'Alle Afdelingen' AS [Naam]"></asp:SqlDataSource>
 
                             <div class="modal-header">
                                 <h4 class="modal-title">Afkeuren inkooporderaanvraag <%# Eval("Nummer") %></h4>
-                                <asp:Button runat="server" CssClass="btn btn-primary" Text="Sluiten"></asp:Button>
                             </div>
 
                             <div class="modal-body">
@@ -163,7 +162,6 @@ SELECT 'Alle Afdelingen' AS [Naam]"></asp:SqlDataSource>
 
                             <div class="modal-header">
                                 <h4 class="modal-title">Goedkeuren inkooporderaanvraag <%# Eval("Nummer") %></h4>
-                                <asp:Button runat="server" CssClass="btn btn-primary" Text="Sluiten"></asp:Button>
                             </div>
 
                             <div class="modal-body">
