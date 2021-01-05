@@ -4,10 +4,10 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <%-- Main grid --%>
-    <div class="header">Personeellijst</div>
+    <div class="header">Personeel-overzicht</div>
     <div class="container">
-        <h2>Personeelscherm 2020</h2>
-        <p>Dit is de indeling van alle werknemers bij recreatiepark Groenbos periode 2020/2021.</p>
+        <h2>Personeelscherm</h2>
+        <p>Dit is de indeling van alle werknemers bij recreatiepark Groenbos.</p>
 
         <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#ToevoegenModal">Personeel toevoegen</button>
 
@@ -49,44 +49,22 @@
                     </ItemTemplate>
                 </asp:TemplateField>
 
-                <asp:TemplateField HeaderText="Functie" SortExpression="Functie">
-                    <EditItemTemplate>
-                        <asp:TextBox ID="TBFC" runat="server" Text='<%# Bind("Functie") %>'></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="Functie" runat="server" ErrorMessage="*" ControlToValidate="TBFC" ForeColor="red" ValidationGroup="Validation" Display="Dynamic"></asp:RequiredFieldValidator>
-                        <asp:RegularExpressionValidator ID="Functie1" runat="server" ErrorMessage="bijv. Medewerker Inkoop" ControlToValidate="TBFC" ForeColor="Red" ValidationExpression="[a-zA-Z\.\'\-_\s]+[ëäÄÉéöÖüÜß\w-]{1,40}" ValidationGroup="Validation" Display="Dynamic"></asp:RegularExpressionValidator>                    
-                    </EditItemTemplate>
-                    <ItemTemplate>
-                        <asp:Label ID="Label4" runat="server" Text='<%# Bind("Functie") %>'></asp:Label>
-                    </ItemTemplate>
-                </asp:TemplateField>
+                <asp:BoundField DataField="Functie" HeaderText="Functie" SortExpression="Functie" ReadOnly="True" />
+                <asp:BoundField DataField="Afdeling" HeaderText="Afdeling" SortExpression="Afdeling" ReadOnly="True" />
 
-                <asp:TemplateField HeaderText="Afdeling" SortExpression="Afdeling">
-                    <EditItemTemplate>
-                        <asp:TextBox ID="TBAFD" runat="server" Text='<%# Bind("Afdeling") %>'></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="Afdeling" runat="server" ErrorMessage="*" ControlToValidate="TBAFD" ForeColor="red" ValidationGroup="Validation" Display="Dynamic"></asp:RequiredFieldValidator>
-                        <asp:RegularExpressionValidator ID="Afdeling1" runat="server" ErrorMessage="bijv. Recreatie" ControlToValidate="TBAFD" ForeColor="Red" ValidationExpression="[a-zA-Z\.\'\-_\s]+[ëäÄÉéöÖüÜß\w-]{1,40}" ValidationGroup="Validation" Display="Dynamic"></asp:RegularExpressionValidator>                    
-                    </EditItemTemplate>
-                    <ItemTemplate>
-                        <asp:Label ID="Label5" runat="server" Text='<%# Bind("Afdeling") %>'></asp:Label>
-                    </ItemTemplate>
-                </asp:TemplateField>
-
-                <asp:CommandField ShowEditButton="True" ValidationGroup="Validation"/>
+                <asp:CommandField ShowEditButton="True"/>
                 <asp:TemplateField></asp:TemplateField>
             </Columns>
         </asp:GridView>
 
         <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT Med.Nummer, Med.Naam, Med.Geboortedatum, Med.[In dienst sinds] AS In_dienst_sinds, Med.[Salaris per maand] AS Salaris_per_maand, Fun.naam as Functie, Afd.Naam as Afdeling FROM (( dbo.Medewerker Med  inner join dbo.Functie Fun on Med.FunctieID = Fun.ID) inner join dbo.Afdeling Afd on Med.AfdelingID= Afd.ID) where Med.FunctieID= Fun.ID and Med.AfdelingID= Afd.ID" UpdateCommand="
 Update dbo.Medewerker 
-Set [Salaris per maand] = @Salaris_per_maand, [Naam] = @Naam, [Geboortedatum] = convert(datetime,@Geboortedatum,104), [FunctieID] = (SELECT ID FROM dbo.Functie WHERE naam = '@Functie'), [AfdelingID] = (SELECT ID FROM dbo.Afdeling WHERE Naam = '@Afdeling') Where [Nummer] = @Nummer">
-
+Set [Salaris per maand] = @Salaris_per_maand, [Naam] = @Naam, [Geboortedatum] = convert(datetime,@Geboortedatum,104)">
             <UpdateParameters>
                 <asp:Parameter Name="Naam" />
                 <asp:Parameter Name="Geboortedatum" />
                 <asp:Parameter Name="Salaris_per_maand" />
                 <asp:Parameter Name="Nummer" />
-                <asp:Parameter Name="Functie" />
-                <asp:Parameter Name="Afdeling" />
             </UpdateParameters>
 
         </asp:SqlDataSource>
@@ -119,7 +97,7 @@ Set [Salaris per maand] = @Salaris_per_maand, [Naam] = @Naam, [Geboortedatum] = 
                     <p style="margin-top: 1rem; margin-bottom: 0;" >Postcode</p>
                     <asp:TextBox ID="txbPostcode" placeholder="ABCD12" Style="text-align: center" Height="50px" Width="100%" runat="server"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="Postcode" runat="server" ErrorMessage="*" ControlToValidate="txbPostcode" ForeColor="red" ValidationGroup="Validation" Display="Dynamic"></asp:RequiredFieldValidator>
-                    <asp:RegularExpressionValidator ID="Postcode1" runat="server" ErrorMessage="Bijv. ANCD12" ControlToValidate="txbPostcode" ForeColor="Red" ValidationExpression="^[a-zA-Z0-9]+$" ValidationGroup="Validation" Display="Dynamic"></asp:RegularExpressionValidator>                    
+                    <asp:RegularExpressionValidator ID="Postcode1" runat="server" ErrorMessage="Bijv. 2020AB" ControlToValidate="txbPostcode" ForeColor="Red" ValidationExpression="^[1-9][0-9]{3}\s?[a-zA-Z]{2}$" ValidationGroup="Validation" Display="Dynamic"></asp:RegularExpressionValidator>                    
 
                     <p style="margin-top: 1rem; margin-bottom: 0;" >Functie</p>
                     <asp:DropDownList ID="dlFunctie" Style="text-align: center;" Height="50px" Width="100%" runat="server"></asp:DropDownList>

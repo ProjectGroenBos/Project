@@ -5,8 +5,8 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="header">Prijsmanagement</div>
     <div class="container">
-        <h2>Seizoensindeling 2020-2021</h2>
-        <p>Dit is de indeling van elk seizoen met zijn begin en einddatum van de periode 2020/2021.</p>
+        <h2>Seizoensindeling</h2>
+        <p>Dit is de indeling van elk seizoen met zijn begin en einddatum.</p>
         <asp:GridView ID="gvSeizoenen" CssClass="content-table eerstetable" GridLines="None" DataKeyNames="id" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
             <Columns>
                 <asp:BoundField DataField="id" HeaderText="" InsertVisible="False" ReadOnly="True" SortExpression="id" />
@@ -38,7 +38,7 @@
                 <asp:TemplateField></asp:TemplateField>
             </Columns>
         </asp:GridView>
-        <h2>Feestdagen 2020-2021</h2>
+        <h2>Feestdagen</h2>
         <asp:GridView ID="gvFeesdagen" CssClass="content-table eerstetable" GridLines="None" DataKeyNames="ID" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource4">
             <Columns>
                 <asp:BoundField DataField="ID" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="ID" />

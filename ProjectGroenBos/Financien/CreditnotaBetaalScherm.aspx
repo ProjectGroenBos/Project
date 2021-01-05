@@ -68,7 +68,7 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="header">Creditnota's</div>
+    <div class="header">Creditnota betalen</div>
     <div class="container" runat="server" id="pdfbody">
         <h2>Creditnota-overzicht</h2>
         <p>Dit is een overzicht van alle geannuleerde reserveringen bij recreatiepark Groenbos.</p>
@@ -106,7 +106,6 @@ FROM reserveringengv inner join Reserveringsstatus on reserveringengv.Reserverin
 
                         <div class="modal-header">
                             <h4 class="modal-title"><%# Eval("Nummer") %> | <%# Eval("Naam") %></h4>
-                            <asp:Button runat="server" CssClass="btn btn-primary" Text="Sluiten"></asp:Button>
                         </div>
 
                         <div class="modal-body">

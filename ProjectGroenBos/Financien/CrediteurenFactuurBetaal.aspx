@@ -90,9 +90,9 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="header">Inkoopfacturen</div>
+    <div class="header">Factuur betalen</div>
     <div class="container" runat="server" id="pdfbody">
-        <h2>Crediteuren Factuur Betaalscherm</h2>
+        <h2>Crediteuren-facturen</h2>
         <p>Overzicht van alle crediteurfacturen die nog betaald moeten worden.</p>
 
         <asp:GridView ID="gvRekeningen" runat="server" CssClass="content-table tweedetable" GridLines="None" AutoGenerateColumns="False" DataSourceID="SqlDataSource6" DataKeyNames="Nummer">
@@ -128,7 +128,6 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h4 class="modal-title">Inkoopfactuur <%# Eval("Naam") %></h4>
-                                <asp:Button runat="server" CssClass="btn btn-primary" Text="Sluiten"></asp:Button>
                             </div>
                             <div class="modal-body">
                                 <div class="factuur" id="printModal<%# Eval("Nummer") %>">

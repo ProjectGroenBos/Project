@@ -16,28 +16,43 @@ namespace ProjectGroenBos.Financien
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                Repeater();
+            }
+        }
+        public void Repeater()
+        {
+            using (SqlConnection con = new SqlConnection(constr))
+            {
+                con.Open();
 
+                SqlCommand cmd = new SqlCommand("SELECT * FROM LeverancierDetails", con);
+                DataSet ds = new DataSet();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(ds);
+                rpInzienLeverancier.DataSource = ds;
+                rpInzienLeverancier.DataBind();
+
+                con.Close();
+            }
         }
 
         protected void btnToevoegen_Click(object sender, EventArgs e)
         {
-            string commandText = "INSERT INTO [dbo].[Medewerker] ([Wachtwoord],[Contracturen per week],[In dienst sinds],[Uurloon], [Salaris per maand], [AfdelingID],[Naam],[Geboortedatum],[AdresHuisnummer],[AdresPostcode],[FunctieID]) VALUES" +
-                "(@Wachtwoord, @Contract_uren_per_week, convert(datetime,@in_dienst_sinds,104),@Uurloon, @Salaris_per_maand, @AfdelingID, @Naam, convert(datetime,@Geboortedatum,104), @AdresHuisnummer, @AdresPostcode, @FunctieID)";
+            string commandText = "INSERT INTO [dbo].[Leverancier] ([Naam],[Adres],[Contactpersoon],[Telefoonnummer],[Email],[Postcode],[Plaats]) VALUES" +
+                "(@Naam, @Adres,@Contactpersoon, @Telefoonnummer, @Email, @Postcode, @Plaats)";
 
             using (SqlConnection connection = new SqlConnection(constr))
             {
                 SqlCommand command = new SqlCommand(commandText, connection);
-                command.Parameters.AddWithValue("@Wachtwoord", "1");
-                command.Parameters.AddWithValue("@Contract_uren_per_week", txbContracturen.Text);
-                command.Parameters.AddWithValue("@in_dienst_sinds", txbInDienst.Text);
-                command.Parameters.AddWithValue("@Uurloon", "1");
-                command.Parameters.AddWithValue("@Salaris_per_maand", txbSalaris.Text);
-                command.Parameters.AddWithValue("@AfdelingID", dlAfdeling.SelectedValue);
                 command.Parameters.AddWithValue("@Naam", txbNaam.Text);
-                command.Parameters.AddWithValue("@Geboortedatum", txbGeboortedatum.Text);
-                command.Parameters.AddWithValue("@AdresHuisnummer", txbAdres.Text);
-                command.Parameters.AddWithValue("@AdresPostcode", txbPostcode.Text);
-                command.Parameters.AddWithValue("@FunctieID", dlFunctie.SelectedValue);
+                command.Parameters.AddWithValue("@Adres", txbAdres.Text);
+                command.Parameters.AddWithValue("@Contactpersoon", txbContactpersoon.Text);
+                command.Parameters.AddWithValue("@Telefoonnummer", txbTelefoonnummer.Text);
+                command.Parameters.AddWithValue("@Email", txbEmail.Text);
+                command.Parameters.AddWithValue("@Postcode", txbPostcode.Text);
+                command.Parameters.AddWithValue("@Plaats", txbPlaats.Text);
 
                 connection.Open();
 

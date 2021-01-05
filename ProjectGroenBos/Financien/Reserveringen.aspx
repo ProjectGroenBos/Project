@@ -68,9 +68,9 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="header">Reserveringen</div>
+    <div class="header">Reserveringen-overzicht</div>
     <div class="container" runat="server" id="pdfbody">
-        <h2>Reserveringen-overzicht</h2>
+        <h2>Reserveringen</h2>
         <p>Dit is een overzicht van alle reserveringen bij recreatiepark Groenbos.</p>
 
 
@@ -105,7 +105,6 @@ FROM reserveringengv WHERE ReserveringsstatusID != 5 AND ReserveringsstatusID !=
 
                         <div class="modal-header">
                             <h4 class="modal-title"><%# Eval("Nummer") %> | <%# Eval("Naam") %></h4>
-                            <asp:Button runat="server" CssClass="btn btn-primary" Text="Sluiten"></asp:Button>
                         </div>
 
                         <div class="modal-body">
@@ -266,7 +265,6 @@ FROM reserveringengv WHERE ReserveringsstatusID != 5 AND ReserveringsstatusID !=
                     <div class="modal-content">
                         <div class="modal-header">
                             <h4 class="modal-title">Transactiehistory Debiteurenfactuur nummer <%# Eval("fnummer") %></h4>
-                            <asp:Button runat="server" CssClass="btn btn-primary" Text="Sluiten"></asp:Button>
                         </div>
                         <div class="modal-body">
                             <asp:Label ID="lblNoRecords" Visible="false" runat="server" Text="Er zijn nog geen transacties bij dit factuur gevonden."></asp:Label>

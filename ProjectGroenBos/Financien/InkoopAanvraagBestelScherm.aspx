@@ -32,9 +32,10 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="header">Inkoop-Aanvragen Bestel-Overzicht</div>
+    <div class="header">Inkoopaanvragen Bestellen</div>
     <div class="container">
-
+            <h2>Inkoopaanvraag-bestel overzicht</h2>
+            <p>Overzicht van alle inkoopaanvragen die nog besteld moeten worden.</p>
         <asp:DropDownList ID="DropDownList1" AutoPostBack="True" runat="server" DataSourceID="SqlDataSource2" DataTextField="Naam" DataValueField="Naam" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" CssClass="DropDownAfdeling"></asp:DropDownList>
 
         <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT [Naam] FROM [Afdeling] union
@@ -69,7 +70,6 @@ SELECT 'Alle Afdelingen' AS [Naam]"></asp:SqlDataSource>
 
                         <div class="modal-header">
                             <h4 class="modal-title">Inkooporderaanvraag <%# Eval("Nummer") %> </h4>
-                            <asp:Button runat="server" CssClass="btn btn-primary" Text="Sluiten"></asp:Button>
                         </div>
 
                         <div class="modal-body">
@@ -148,7 +148,6 @@ SELECT 'Alle Afdelingen' AS [Naam]"></asp:SqlDataSource>
 
                         <div class="modal-header">
                             <h4 class="modal-title">Inkooporderaanvraag <%# Eval("Nummer") %> </h4>
-                            <asp:Button runat="server" CssClass="btn btn-primary" Text="Sluiten"></asp:Button>
                         </div>
 
                         <div class="modal-body">

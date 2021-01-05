@@ -29,7 +29,7 @@
                 <h3>Financiën</h3>
                 <ul>
                     <li><a href="/Financien/Home.aspx"><i class="fas fa-home"></i>Home</a></li>
-                    <li><a href="#"><i class="fas fa-user"></i>Administratie</a>
+                    <li style="color: #FFFFFF"><i class="fas fa-user"></i> Administratie
                         <ul class="submenu">
 
                             <li><a href="/Financien/Personeeloverzicht.aspx">Personeel-overzicht</a></li>
@@ -39,14 +39,14 @@
                             <li><a href="/Financien/Rekeningen.aspx">Rekening-overzicht</a></li>
                         </ul>
                     </li>
-                    <li><a href="#"><i class="fas fa-address-card"></i>Facturering</a>
+                    <li style="color: #FFFFFF"><i class="fas fa-address-card"></i> Facturering
                         <ul class="submenu">
                             <li><a href="/Financien/FactuurKoppelScherm.aspx">Factuur koppelen</a></li>
                             <li><a href="/Financien/CrediteurenFactuurBetaal.aspx">Factuur betalen</a></li>
                             <li><a href="/Financien/CreditnotaBetaalScherm.aspx">Creditnota betalen</a></li>
                         </ul>
                     </li>
-                    <li><a href="#"><i class="fas fa-project-diagram"></i>Inkoop</a>
+                    <li style="color: #FFFFFF"><i class="fas fa-project-diagram"></i> Inkoop
                         <ul class="submenu">
                             <li><a href="/Financien/InzienInkoopTraject.aspx">Inzien inkooptraject</a></li>
                             <li><a href="/Financien/InkoopAanvraagScherm.aspx">Inkoopaanvragen controleren</a></li>

@@ -60,33 +60,6 @@ namespace ProjectGroenBos.Financien
         protected global::System.Web.UI.WebControls.RegularExpressionValidator Naam1;
 
         /// <summary>
-        /// txbGeboortedatum control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txbGeboortedatum;
-
-        /// <summary>
-        /// Geboortedatum control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator Geboortedatum;
-
-        /// <summary>
-        /// Geboortedatum1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator Geboortedatum1;
-
-        /// <summary>
         /// txbAdres control.
         /// </summary>
         /// <remarks>
@@ -112,6 +85,87 @@ namespace ProjectGroenBos.Financien
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RegularExpressionValidator Adres1;
+
+        /// <summary>
+        /// txbContactpersoon control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txbContactpersoon;
+
+        /// <summary>
+        /// Contactpersoon control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator Contactpersoon;
+
+        /// <summary>
+        /// Contactpersoon1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator Contactpersoon1;
+
+        /// <summary>
+        /// txbTelefoonnummer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txbTelefoonnummer;
+
+        /// <summary>
+        /// Telefoonnummer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator Telefoonnummer;
+
+        /// <summary>
+        /// Telefoonnummer1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator Telefoonnummer1;
+
+        /// <summary>
+        /// txbEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txbEmail;
+
+        /// <summary>
+        /// Email control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator Email;
+
+        /// <summary>
+        /// Email1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator Email1;
 
         /// <summary>
         /// txbPostcode control.
@@ -141,103 +195,31 @@ namespace ProjectGroenBos.Financien
         protected global::System.Web.UI.WebControls.RegularExpressionValidator Postcode1;
 
         /// <summary>
-        /// dlFunctie control.
+        /// txbPlaats control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dlFunctie;
+        protected global::System.Web.UI.WebControls.TextBox txbPlaats;
 
         /// <summary>
-        /// dlAfdeling control.
+        /// Plaats control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dlAfdeling;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator Plaats;
 
         /// <summary>
-        /// txbSalaris control.
+        /// Plaats1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txbSalaris;
-
-        /// <summary>
-        /// Salaris control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator Salaris;
-
-        /// <summary>
-        /// Salaris1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator Salaris1;
-
-        /// <summary>
-        /// txbContracturen control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txbContracturen;
-
-        /// <summary>
-        /// Contracturen_per_week control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator Contracturen_per_week;
-
-        /// <summary>
-        /// Contracturen_per_week1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator Contracturen_per_week1;
-
-        /// <summary>
-        /// In_dienst_sinds control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator In_dienst_sinds;
-
-        /// <summary>
-        /// In_dienst_sinds1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator In_dienst_sinds1;
-
-        /// <summary>
-        /// txbInDienst control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txbInDienst;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator Plaats1;
 
         /// <summary>
         /// btnToevoegen control.
@@ -247,5 +229,14 @@ namespace ProjectGroenBos.Financien
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnToevoegen;
+
+        /// <summary>
+        /// rpInzienLeverancier control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rpInzienLeverancier;
     }
 }
