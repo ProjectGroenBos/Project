@@ -17,7 +17,7 @@
                 <asp:BoundField DataField="Tussenvoegsel" HeaderText="Tussenvoegsel" SortExpression="Tussenvoegsel" />
                 <asp:BoundField DataField="Achternaam" HeaderText="Achternaam" SortExpression="Achternaam" />
                 <asp:BoundField DataField="Geboortedatum" DataFormatString="{0:dd-MM-yyyy}" HeaderText="Geboortedatum" SortExpression="Geboortedatum" />
-                <asp:BoundField DataField="ReserveringNummer2" HeaderText="ReserveringNummer2" ReadOnly="True" SortExpression="ReserveringNummer2" />
+                <asp:BoundField DataField="ReserveringNummer2" HeaderText="Reserveringsnummer" ReadOnly="True" SortExpression="ReserveringNummer2" />
             </Columns>
         </asp:GridView>
         <asp:Button ID="btnTerug" runat="server" CssClass="btnUitloggen" Text="Terug" Style="background-color: #009879; color: #fff" class="btn" OnClick="btnTerug_Click"  />

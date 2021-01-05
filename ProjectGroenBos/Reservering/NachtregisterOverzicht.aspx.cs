@@ -20,5 +20,21 @@ namespace ProjectGroenBos.Reservering
             Session["Volgnummer"] = volgnummer;
             Response.Redirect("NachtregisterWijzigen.aspx");
         }
+
+        protected void BtnZoeken_Click(object sender, EventArgs e)
+        {
+            GridView1.DataBind();
+
+            if(GridView1.Rows.Count ==0)
+            {
+                lblUitkomst.Text = "Geen rijen gevonden";
+            }
+            else
+            {
+                lblUitkomst.Text = "";
+            }
+
+            
+        }
     }
 }
