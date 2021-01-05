@@ -178,12 +178,18 @@ namespace ProjectGroenBos.Restaurant
 
 
 				//Update de status naar klaar zijn
-				connection.Open();
-				string Updatequery = "UPDATE Item_RestaurantReservering SET Status = 'Afgerond' WHERE Status = 'Gereed' AND Tafelnr =" + nummer + "";
+
+				String myquery = "UPDATE Item_RestaurantReservering SET Status= '" + "Afgerond" + "' WHERE Status = 'Gereed' AND Tafelnr =" + nummer + ""; 
 				SqlCommand cmd = new SqlCommand();
-				cmd.CommandText = Updatequery;
+				cmd.CommandText = myquery;
+				cmd.Connection = connection;
+				SqlDataAdapter da = new SqlDataAdapter();
+				da.SelectCommand = cmd;
+				cmd.CommandText = myquery;
+				connection.Open();
 				cmd.ExecuteNonQuery();
 				connection.Close();
+
 			}
 		}
 
@@ -277,9 +283,6 @@ namespace ProjectGroenBos.Restaurant
 
 		protected void btnContant_Click(object sender, EventArgs e)
 		{
-
-
-
 
 			using (SqlConnection connection = new SqlConnection(connectionString))
 			{
