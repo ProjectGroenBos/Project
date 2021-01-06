@@ -32,24 +32,17 @@ namespace ProjectGroenBos.Recreatie.Klanten_Pagina_s
             using (SqlConnection sqlCon = new SqlConnection(connectionstring))
             {
 
-                var qry = "SELECT EindDatum FROM ReserveringHuurItem";
+                var sql = "UPDATE dbo.Huuritem SET ItemstatusID = 1 where ";
                 var cmd = new SqlCommand(qry, sqlCon);
+                var cmd2 = new SqlCommand(sql, sqlCon);
                 sqlCon.Open();
                 rdr = cmd.ExecuteReader();
+                cmd2.ExecuteNonQuery();
 
                 if (rdr.HasRows)
                 {
                     rdr.Read();
-                    einddatum = DateTime.Parse(rdr["EindDatum"].ToString());
 
-                    label3.Text = einddatum.ToString("dd/MM/yyyy");
-                    while (rdr.Read())
-                    {
-                        if (einddatum.ToString("dd/MM/yyyy") == DateTime.Now.ToString("dd/MM/yyyy"))
-                        {
-                            label3.Text = "TOTOTOTOTOTO";
-                        }
-                    }
                 }
             }
         }
