@@ -16,7 +16,7 @@ namespace ProjectGroenBos.Restaurant
 		string connectionString = ConfigurationManager.ConnectionStrings["dbconnectie"].ConnectionString;
 
 		protected void Page_Load(object sender, EventArgs e)
-		{
+        {
 			functiescheiding();
 
 			// neem de tafel op vanuit het tafeloverzicht
@@ -29,7 +29,7 @@ namespace ProjectGroenBos.Restaurant
 				Response.Redirect("tafeloverzicht.aspx");
 			}
 
-
+			
 
 			// Kijken welke totaalprijs hij moet berekenen
 			int nummer = Convert.ToInt16(Session["tafelnr"].ToString());
@@ -113,31 +113,31 @@ namespace ProjectGroenBos.Restaurant
 			{
 				using (SqlConnection sqlCon = new SqlConnection(connectionString))
 				{
-					for (int i = 0; i < GvOrder.Rows.Count; i++)
+					for (int i = 0; i < GvOrder.Rows.Count; i++) 
 					{
 
 						//uit de tabel de informatie halen die nodig is
-						int Aantal = (int)GvOrder.DataKeys[i]["Hoeveel"];
-						string Prijsstring = (string)GvOrder.DataKeys[i]["Prijs"].ToString();
-						int ID = (int)GvOrder.DataKeys[i]["Item_ID"];
+							int Aantal = (int)GvOrder.DataKeys[i]["Hoeveel"];
+							string Prijsstring = (string)GvOrder.DataKeys[i]["Prijs"].ToString();
+							int ID = (int)GvOrder.DataKeys[i]["Item_ID"];
 
 						//Prijs omzetten naar double
-						double Prijs = Convert.ToDouble(Prijsstring);
+							double Prijs = Convert.ToDouble(Prijsstring);
 
 						//Ophalen van de debiteurenfactuurnummer
-						int debnummer = debiteurennummer();
+							int debnummer = debiteurennummer();				
 
 						//Het aanmaken van de orderregel in de database
-						sqlCon.Open();
-						String factuurregels = "INSERT INTO [dbo].[Factuurregel] (DebiteurenfactuurNummer, Aantal, Prijs, RestaurantItemID) VALUES" + "(@debiteurfactuurnummer, @Aantal, @Prijs, @RestaurantItemID)";
-						SqlCommand command = new SqlCommand(factuurregels, sqlCon);
-						command.Parameters.AddWithValue("@debiteurfactuurnummer", debnummer);
-						command.Parameters.AddWithValue("@Aantal", Aantal);
-						command.Parameters.AddWithValue("@Prijs", Prijs);
-						command.Parameters.AddWithValue("@RestaurantItemID", ID);
+							sqlCon.Open();
+							String factuurregels = "INSERT INTO [dbo].[Factuurregel] (DebiteurenfactuurNummer, Aantal, Prijs, RestaurantItemID) VALUES" + "(@debiteurfactuurnummer, @Aantal, @Prijs, @RestaurantItemID)";
+							SqlCommand command = new SqlCommand(factuurregels, sqlCon);
+							command.Parameters.AddWithValue("@debiteurfactuurnummer", debnummer);
+							command.Parameters.AddWithValue("@Aantal", Aantal);
+							command.Parameters.AddWithValue("@Prijs", Prijs);
+							command.Parameters.AddWithValue("@RestaurantItemID", ID);
 
-						command.ExecuteNonQuery();
-						sqlCon.Close();
+							command.ExecuteNonQuery();
+							sqlCon.Close();
 					}
 				}
 			}
@@ -150,27 +150,27 @@ namespace ProjectGroenBos.Restaurant
 
 		private int ReserveringsIDopzoeken()
 		{
-			using (SqlConnection connection = new SqlConnection(connectionString))
-			{
-				int nummer = Convert.ToInt16(Session["tafelnr"].ToString());
-				// Haal aangemaakte ID van de reservering op
-
-				connection.Open();
-				string selectquery = "SELECT RestaurantReserveringID FROM Item_RestaurantReservering WHERE Tafelnr =" + nummer + "";
-				SqlCommand sqlComd = new SqlCommand(selectquery, connection);
-				SqlDataReader r;
-				r = sqlComd.ExecuteReader();
-
-				int ResrID = 0;
-
-				while (r.Read())
+				using (SqlConnection connection = new SqlConnection(connectionString))
 				{
-					ResrID = (int)r[0];
-				}
-				connection.Close();
-				return ResrID;
-			}
+					int nummer = Convert.ToInt16(Session["tafelnr"].ToString());
+					// Haal aangemaakte ID van de reservering op
+					
+					connection.Open();
+					string selectquery = "SELECT RestaurantReserveringID FROM Item_RestaurantReservering WHERE Tafelnr =" + nummer + "";
+					SqlCommand sqlComd = new SqlCommand(selectquery, connection);
+					SqlDataReader r;
+					r = sqlComd.ExecuteReader();
 
+					int ResrID = 0;
+
+					while (r.Read())
+                    {
+                      ResrID = (int)r[0];
+                    }
+                    connection.Close();
+					return ResrID;
+				}
+			
 		}
 
 		private int BungalowresID()
@@ -215,7 +215,7 @@ namespace ProjectGroenBos.Restaurant
 
 				//Update de status naar klaar zijn
 
-				String myquery = "UPDATE Item_RestaurantReservering SET Status= '" + "Afgerond" + "' WHERE Status = 'Gereed' AND Tafelnr =" + nummer + "";
+				String myquery = "UPDATE Item_RestaurantReservering SET Status= '" + "Afgerond" + "' WHERE Status = 'Gereed' AND Tafelnr =" + nummer + ""; 
 				SqlCommand cmd = new SqlCommand();
 				cmd.CommandText = myquery;
 				cmd.Connection = connection;
