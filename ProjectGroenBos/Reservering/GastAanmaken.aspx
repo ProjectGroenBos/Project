@@ -60,32 +60,8 @@
                     <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="txbAchternaam" ErrorMessage="Alleen letters gebruiken a.u.b." ValidationExpression="^[a-zA-Z -]*$" ForeColor="Red" CssClass="validators" Display="Dynamic"></asp:RegularExpressionValidator>
                 </td>
             </tr>
-            <tr>
-                <td style="width: 15%">
-                    <asp:Label ID="Label12" runat="server" Text="Telefoonnummer*:" CssClass="labelsnieuw"></asp:Label>
-                </td>
-                <td style="width: 15%">
-                    <asp:TextBox ID="txbTelefoonnummer" runat="server" CssClass="textboxchaos"></asp:TextBox>
-                </td>
-                <td style="width: 40%">
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txbTelefoonnummer" ErrorMessage="Dit veld is verplicht." CssClass="validators" Display="Dynamic"></asp:RequiredFieldValidator>
+        
 
-                    <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ControlToValidate="txbTelefoonnummer" ErrorMessage="Eerste 0 weglaten en 9 cijfers gebruiken." ValidationExpression="^[0-9]{9}$" ForeColor="Red" CssClass="validators" Display="Dynamic"></asp:RegularExpressionValidator>
-                </td>
-            </tr>
-            <tr>
-                <td class="auto-style1">
-                    <asp:Label ID="Label6" runat="server" Text="E-mail*:" CssClass="labelsnieuw"></asp:Label>
-                </td>
-                <td class="auto-style1">
-                    <asp:TextBox ID="txbEmail" runat="server" CssClass="textboxchaos"></asp:TextBox>
-                </td>
-                <td class="auto-style2">
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txbEmail" ErrorMessage="Dit veld is verplicht." CssClass="validators" Display="Dynamic"></asp:RequiredFieldValidator>
-
-                    <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ControlToValidate="txbEmail" ErrorMessage="Email is niet geldig" ValidationExpression="[a-z0-9!#$%&'+/=?^_`{|}~-]+(?:.[a-z0-9!#$%&'+/=?^_`{|}~-]+)@(?:[a-z0-9](?:[a-z0-9-][a-z0-9])?.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?" ForeColor="Red" CssClass="validators" Display="Dynamic"></asp:RegularExpressionValidator>
-                </td>
-            </tr>
             <tr>
                 <td style="width: 15%">
                     <asp:Label ID="Label7" runat="server" Text="Geboortedatum*:" CssClass="labelsnieuw"></asp:Label>
@@ -98,10 +74,56 @@
                     <asp:CustomValidator ID="CustomValidator2" runat="server" ControlToValidate="txbGeboortedatum" ErrorMessage="U bent geen 18 jaar oud." ForeColor="Red" CssClass="validators" Display="Dynamic"></asp:CustomValidator>
                 </td>
             </tr>
+
+                   <tr>
+                <td style="width: 15%">
+                    <asp:Label ID="Label22" runat="server" Text="IBAN*:" CssClass="labelsnieuw"></asp:Label>
+                </td>
+                <td style="width: 15%">
+                    <asp:TextBox ID="TxbIBAN" runat="server" CssClass="textboxchaos"></asp:TextBox>
+                </td>
+                <td style="width: 40%">
+                </td>
+            </tr>
+
         </table>
         <br /><br />
     </div>
 
+     <div class="container">
+    <h2>Contactgegevens:</h2>
+         <table style="text-align: left; margin-left: 5%">
+
+                 <tr>
+                <td style="width: 15%">
+                    <asp:Label ID="Label14" runat="server" CssClass="labelsnieuw" Text="Telefoonnummer*:"></asp:Label>
+                </td>
+                <td style="width: 15%">
+                    <asp:TextBox ID="txbTelefoonnummer" runat="server" CssClass="textboxchaos"></asp:TextBox>
+                </td>
+                <td style="width: 40%">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txbTelefoonnummer" ErrorMessage="Dit veld is verplicht." CssClass="validators" Display="Dynamic"></asp:RequiredFieldValidator>
+
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ControlToValidate="txbTelefoonnummer" ErrorMessage="Eerste 0 weglaten en 9 cijfers gebruiken." ValidationExpression="^[0-9]{9}$" ForeColor="Red" CssClass="validators" Display="Dynamic"></asp:RegularExpressionValidator>
+                </td>
+            </tr>
+
+               <tr>
+                <td class="auto-style1">
+                    <asp:Label ID="Label6" runat="server" Text="E-mail*:" CssClass="labelsnieuw"></asp:Label>
+                </td>
+                <td class="auto-style1">
+                    <asp:TextBox ID="txbEmail" runat="server" CssClass="textboxchaos"></asp:TextBox>
+                </td>
+                <td class="auto-style2">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txbEmail" ErrorMessage="Dit veld is verplicht." CssClass="validators" Display="Dynamic"></asp:RequiredFieldValidator>
+
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ControlToValidate="txbEmail" ErrorMessage="Email is niet geldig" ValidationExpression="[a-z0-9!#$%&'+/=?^_`{|}~-]+(?:.[a-z0-9!#$%&'+/=?^_`{|}~-]+)@(?:[a-z0-9](?:[a-z0-9-][a-z0-9])?.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?" ForeColor="Red" CssClass="validators" Display="Dynamic"></asp:RegularExpressionValidator>
+                </td>
+            </tr>
+         </table>
+
+        </div>
 
     <div class="container">
         <h2>Adresgegevens:</h2>
