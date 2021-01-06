@@ -42,14 +42,10 @@
                             </ul>
                             <li><a href="#"><i class="fas fa-user"></i>Klachten</a>
                                 <ul class="submenu">
-                                    <li><a href="KlachtenAfhandeling.aspx">Aanmaken</a></li>
-                                    <li><a href="KlachtenOVerzicht.aspx">Overzicht</a></li>
+                                    <li><a href="KlachtenAfhandeling.aspx">Klacht afhandeling</a></li>
                                 </ul>
 
                                 <li><a href="NachtregisterOverzicht.aspx"><i class="fas fa-user"></i>Nachtregister</a></li>
-                                <ul class="submenu">
-                                    <li><a href="NachtregisterOverzicht.aspx">Nachtregister overzicht</a></li>
-                                </ul>
 
                             </li>
                     <%--<li><a href="#"><i class="fas fa-user"></i>Optie</a>

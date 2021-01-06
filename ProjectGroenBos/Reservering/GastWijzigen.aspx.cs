@@ -174,7 +174,7 @@ namespace ProjectGroenBos.Reservering
             }
             else
             {
-                lbluitkomst.Text = "U bent niet oud genoeg.";
+
             }
 
         }

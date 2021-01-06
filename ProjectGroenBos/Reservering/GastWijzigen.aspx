@@ -1,11 +1,22 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Reservering/Site1.Master" AutoEventWireup="true" CodeBehind="GastWijzigen.aspx.cs" Inherits="ProjectGroenBos.Reservering.KlantWijzigen" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head2" runat="server">
+    <style type="text/css">
+        .auto-style1 {
+            width: 15%;
+            height: 22px;
+        }
+
+        .auto-style2 {
+            width: 40%;
+            height: 22px;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <div class="container">
         <script type="text/javascript">
-            <%--$(function () {
+            $(function () {
                 var date = new Date();
                 var currentMonth = date.getMonth(); // huidige maand
                 var currentDate = date.getDate(); // huidige datum
@@ -16,42 +27,20 @@
                     maxDate: new Date(currentYear, currentMonth, currentDate),
                     dateFormat: 'dd/mm/yy',
                     beforeShowDay: function (date) {
-                        if (date.getDay() == 0 || date.getDay() == 1 || date.getDay() == 2 || date.getDay() == 3 || date.getDay() == 4 || date.getDay() == 5 || date.getDay() == 6)
-                        {
-                    return [true, ''];
-                } else {
-                    return [false, ''];
-                }
-            }
-                });
-            });--%>
-
-            <%--$(document).ready(function () {
-                var date = new Date();
-                var currentMonth = date.getMonth(); // huidige maand
-                var currentDate = date.getDate(); // huidige datum
-                var currentYear = date.getFullYear(); // dit jaar
-                $(function () {
-                    $("#<%= txbGeboortedatum.ClientID %>").datepicker();
-                    maxDate: new Date(currentYear, currentMonth, currentDate),
-                });
-            }) --%>
-
-            $(document).ready(function () {
-                $(function () {
-                    $("#<%= txbGeboortedatum.ClientID %>").datepicker({
-                        changeYear: true,
-                        changeMonth: true,
-                        minDate: '10/19/1940',
-                        maxDate: 0,
-                    });
+                        if (date.getDay() == 0 || date.getDay() == 1 || date.getDay() == 2 || date.getDay() == 3 || date.getDay() == 4 || date.getDay() == 5 || date.getDay() == 6) {
+                            return [true, ''];
+                        } else {
+                            return [false, ''];
+                        }
+                    }
                 });
             });
-
         </script>
-        +-
+        <h2>Gast aanmaken</h2>
+        <p>Vul hier de gegevens van de gast in om deze in de database neer te zetten.</p>
         <h2>Persoonsgegevens:</h2>
-        <table>
+        <p>&nbsp;</p>
+        <table style="text-align: left; margin-left: 5%">
 
             <tr>
                 <td style="width: 15%">
@@ -60,9 +49,7 @@
                 <td style="width: 15%">
                     <asp:Label ID="lblGastnummer" runat="server" CssClass="textboxchaos"></asp:Label>
                 </td>
-                <td style="width: 40%">
-
-                </td>
+                <td style="width: 40%"></td>
             </tr>
 
             <tr>
@@ -72,7 +59,11 @@
                 <td style="width: 15%">
                     <asp:TextBox ID="txbVoornaam" runat="server" CssClass="textboxchaos"></asp:TextBox>
                 </td>
-                <td style="width: 40%"></td>
+                <td style="width: 40%">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txbVoornaam" ErrorMessage="Dit veld is verplicht." CssClass="validators" Display="Dynamic"></asp:RequiredFieldValidator>
+
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txbVoornaam" ErrorMessage="Alleen letters gebruiken a.u.b." ValidationExpression="^[a-zA-Z -]*$" ForeColor="Red" CssClass="validators" Display="Dynamic"></asp:RegularExpressionValidator>
+                </td>
             </tr>
 
             <tr>
@@ -82,17 +73,22 @@
                 <td style="width: 15%">
                     <asp:TextBox ID="txbTussenvoegsel" runat="server" CssClass="textboxchaos"></asp:TextBox>
                 </td>
-                <td style="width: 40%"></td>
+                <td style="width: 40%">
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txbTussenvoegsel" ErrorMessage="In een tussenvoegsel kunnen geen cijfers zitten." ValidationExpression="^[a-zA-Z -]*$" ForeColor="Red" CssClass="validators" Display="Dynamic"></asp:RegularExpressionValidator>
+                </td>
             </tr>
 
             <tr>
-                <td style="width: 15%">
+                <td class="auto-style1">
                     <asp:Label ID="Label4" runat="server" Text="Achternaam:" CssClass="labelsnieuw"></asp:Label>
                 </td>
-                <td style="width: 15%">
+                <td class="auto-style1">
                     <asp:TextBox ID="txbAchternaam" runat="server" CssClass="textboxchaos"></asp:TextBox>
                 </td>
-                <td style="width: 40%"></td>
+                <td class="auto-style2">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txbAchternaam" ErrorMessage="Dit veld is verplicht." CssClass="validators" Display="Dynamic"></asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="txbAchternaam" ErrorMessage="Alleen letters gebruiken a.u.b." ValidationExpression="^[a-zA-Z -]*$" ForeColor="Red" CssClass="validators" Display="Dynamic"></asp:RegularExpressionValidator>
+                </td>
             </tr>
 
             <tr>
@@ -100,9 +96,12 @@
                     <asp:Label ID="Label5" runat="server" Text="Geboortedatum:" CssClass="labelsnieuw"></asp:Label>
                 </td>
                 <td style="width: 15%">
-                    <asp:TextBox ID="txbGeboortedatum" runat="server" CssClass="textboxchaos" ></asp:TextBox>
+                    <asp:TextBox ID="txbGeboortedatum" runat="server" CssClass="textboxchaos"></asp:TextBox>
                 </td>
-                <td style="width: 40%"></td>
+                <td style="width: 40%">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txbGeboortedatum" ErrorMessage="Dit veld is verplicht." CssClass="validators" Display="Dynamic"></asp:RequiredFieldValidator>
+                    <asp:CustomValidator ID="CustomValidator2" runat="server" ControlToValidate="txbGeboortedatum" ErrorMessage="U bent geen 18 jaar oud." ForeColor="Red" CssClass="validators" Display="Dynamic"></asp:CustomValidator>
+                </td>
             </tr>
 
             <tr>
@@ -116,8 +115,10 @@
             </tr>
 
         </table>
+        <br />
         <h2>Contactgegevens:</h2>
-        <table>
+        <br />
+        <table style="text-align: left; margin-left: 5%">
             <tr>
                 <td style="width: 15%">
                     <asp:Label ID="Label6" runat="server" Text="Telefoonnumer:" CssClass="labelsnieuw"></asp:Label>
@@ -125,7 +126,11 @@
                 <td style="width: 15%">
                     <asp:TextBox ID="txbTelefoonnummer" runat="server" CssClass="textboxchaos"></asp:TextBox>
                 </td>
-                <td style="width: 40%"></td>
+                <td style="width: 40%">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txbTelefoonnummer" ErrorMessage="Dit veld is verplicht." CssClass="validators" Display="Dynamic"></asp:RequiredFieldValidator>
+
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ControlToValidate="txbTelefoonnummer" ErrorMessage="Eerste 0 weglaten en 9 cijfers gebruiken." ValidationExpression="^[0-9]{9}$" ForeColor="Red" CssClass="validators" Display="Dynamic"></asp:RegularExpressionValidator>
+                </td>
             </tr>
 
             <tr>
@@ -135,51 +140,19 @@
                 <td style="width: 15%">
                     <asp:TextBox ID="txbEmail" runat="server" CssClass="textboxchaos"></asp:TextBox>
                 </td>
-                <td style="width: 40%"></td>
+                <td style="width: 40%">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txbEmail" ErrorMessage="Dit veld is verplicht." CssClass="validators" Display="Dynamic"></asp:RequiredFieldValidator>
+
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ControlToValidate="txbEmail" ErrorMessage="Email is niet geldig" ValidationExpression="[a-z0-9!#$%&'+/=?^_`{|}~-]+(?:.[a-z0-9!#$%&'+/=?^_`{|}~-]+)@(?:[a-z0-9](?:[a-z0-9-][a-z0-9])?.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?" ForeColor="Red" CssClass="validators" Display="Dynamic"></asp:RegularExpressionValidator>
+                </td>
             </tr>
 
 
         </table>
-
+        <br />
         <h2>Adresgegevens:</h2>
-        <table>
-            <tr>
-                <td style="width: 15%">
-                    <asp:Label ID="Label8" runat="server" Text="Straatnaam:" CssClass="labelsnieuw"></asp:Label>
-                </td>
-                <td style="width: 15%">
-                    <asp:TextBox ID="txbStraatnaam" runat="server" CssClass="textboxchaos"></asp:TextBox>
-                </td>
-                <td style="width: 40%"></td>
-            </tr>
-
-            <tr>
-                <td style="width: 15%">
-                    <asp:Label ID="Label9" runat="server" Text="Huisnummer + Toevoegingen:" CssClass="labelsnieuw"></asp:Label>
-                </td>
-                <td style="width: 15%">
-                    <asp:TextBox ID="txbHuisnummer" runat="server" CssClass="textboxchaos"></asp:TextBox>
-                </td>
-                <td style="width: 40%"></td>
-            </tr>
-            <tr>
-                <td style="width: 15%">
-                    <asp:Label ID="Label10" runat="server" Text="Postcode:" CssClass="labelsnieuw"></asp:Label>
-                </td>
-                <td style="width: 15%">
-                    <asp:TextBox ID="txbPostcode" runat="server" CssClass="textboxchaos"></asp:TextBox>
-                </td>
-                <td style="width: 40%"></td>
-            </tr>
-            <tr>
-                <td style="width: 15%">
-                    <asp:Label ID="Label11" runat="server" Text="Woonplaats:" CssClass="labelsnieuw"></asp:Label>
-                </td>
-                <td style="width: 15%">
-                    <asp:TextBox ID="txbWoonplaats" runat="server" CssClass="textboxchaos"></asp:TextBox>
-                </td>
-                <td style="width: 40%"></td>
-            </tr>
+        <br />
+        <table style="text-align: left; margin-left: 5%">
             <tr>
                 <td style="width: 15%">
                     <asp:Label ID="Label1" runat="server" Text="Land" CssClass="labelsnieuw"></asp:Label>
@@ -197,12 +170,63 @@
                     <asp:CustomValidator ID="CustomValidator1" runat="server" ControlToValidate="DropDownList2" ErrorMessage="Er moet een land geselecteerd zijn." ValidateEmptyText="True" CssClass="validators" Display="Dynamic"></asp:CustomValidator>
                 </td>
             </tr>
+            <tr>
+                <td style="width: 15%">
+                    <asp:Label ID="Label11" runat="server" Text="Woonplaats:" CssClass="labelsnieuw"></asp:Label>
+                </td>
+                <td style="width: 15%">
+                    <asp:TextBox ID="txbWoonplaats" runat="server" CssClass="textboxchaos"></asp:TextBox>
+                </td>
+                <td style="width: 40%">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="txbWoonplaats" ErrorMessage="Dit veld is verplicht." CssClass="validators" Display="Dynamic"></asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator6" runat="server" ControlToValidate="txbWoonplaats" ErrorMessage="Alleen letters gebruiken a.u.b." ValidationExpression="^[a-zA-Z -]*$" ForeColor="Red" CssClass="validators" Display="Dynamic"></asp:RegularExpressionValidator>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style1">
+                    <asp:Label ID="Label8" runat="server" Text="Straat:" CssClass="labelsnieuw"></asp:Label>
+                </td>
+                <td class="auto-style1">
+                    <asp:TextBox ID="txbStraatnaam" runat="server" CssClass="textboxchaos"></asp:TextBox>
+                </td>
+                <td class="auto-style2">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="txbStraatnaam" ErrorMessage="Dit veld is verplicht." CssClass="validators" Display="Dynamic"></asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator7" runat="server" ControlToValidate="txbStraatnaam" ErrorMessage="Alleen letters gebruiken a.u.b." ValidationExpression="^[a-zA-Z -]*$" ForeColor="Red" CssClass="validators" Display="Dynamic"></asp:RegularExpressionValidator>
+                </td>
+            </tr>
+
+            <tr>
+                <td style="width: 15%">
+                    <asp:Label ID="Label9" runat="server" Text="Huisnummer + Toevoegingen:" CssClass="labelsnieuw"></asp:Label>
+                </td>
+                <td style="width: 15%">
+                    <asp:TextBox ID="txbHuisnummer" runat="server" CssClass="textboxchaos"></asp:TextBox>
+                </td>
+                <td style="width: 40%">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="txbHuisnummer" ErrorMessage="Dit veld is verplicht." CssClass="validators" Display="Dynamic"></asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator8" runat="server" ControlToValidate="txbHuisnummer" ErrorMessage="Huisnummer bestaat uit getallen en letters." ValidationExpression="^[A-Za-z0-9 ]+$" ForeColor="Red" CssClass="validators" Display="Dynamic"></asp:RegularExpressionValidator>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 15%">
+                    <asp:Label ID="Label10" runat="server" Text="Postcode:" CssClass="labelsnieuw"></asp:Label>
+                </td>
+                <td style="width: 15%">
+                    <asp:TextBox ID="txbPostcode" runat="server" CssClass="textboxchaos"></asp:TextBox>
+                </td>
+                <td style="width: 40%">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ControlToValidate="txbPostcode" ErrorMessage="Dit veld is verplicht." CssClass="validators" Display="Dynamic"></asp:RequiredFieldValidator>
+                    <asp:CustomValidator ID="CustomValidator3" runat="server" ControlToValidate="txbPostcode" CssClass="validators" Display="Dynamic" ErrorMessage="Postcode niet geldig i.c.m. het land." ForeColor="Red" OnServerValidate="CustomValidator3_ServerValidate"></asp:CustomValidator>
+                </td>
+            </tr>
+
+
         </table>
 
         <br />
         <br />
         <br />
-        <asp:Button ID="btnWijzigen" runat="server" Text="Wijzigen" CssClass="btnUitloggen" Style="background-color: #009879; color: #fff" class="btn" OnClick="btnWijzigen_Click"/>
+        <asp:Button ID="btnWijzigen" runat="server" Text="Wijzigen" CssClass="btnUitloggen" Style="background-color: #009879; color: #fff" class="btn" OnClick="btnWijzigen_Click" />
 
         <br />
         <br />
@@ -230,8 +254,7 @@ FROM     Gast INNER JOIN
                 <asp:ControlParameter ControlID="lblGastnummer" Name="nummer" PropertyName="Text" />
             </SelectParameters>
         </asp:SqlDataSource>
-        <asp:Label ID="lbluitkomst" runat="server" Text=""></asp:Label>
 
     </div>
-  
+
 </asp:Content>

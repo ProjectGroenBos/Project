@@ -15,23 +15,21 @@ namespace ProjectGroenBos.Reservering
         {
             if (Session["prijs"] != null)
             {
-                //double totaal = double.Parse(Session["prijs"].ToString());
-                //double betaald = double.Parse(Session["betaald"].ToString());
+                double totaal = double.Parse(Session["prijs"].ToString());
+                double betaald = double.Parse(Session["betaald"].ToString());
 
-                //lblTotaal.Text = totaal.ToString();
-                //lblBetalen.Text = betaald.ToString();
+                lblTotaal.Text = totaal.ToString();
+                lblBetalen.Text = betaald.ToString();
 
-                //double later = totaal - betaald;
+                double later = totaal - betaald;
 
-                //lblLater.Text = later.ToString();
+                lblLater.Text = later.ToString();
 
-                //lblReserveringnummer.Text = Session["reserveringnummer300"].ToString();
                 lblReservering.Text = Session["reserveringnummer300"].ToString();
-                lblReservering.Visible = false;
-                //lblPersonen.Text = Session["personen"].ToString();
-                //lblAankomst.Text = Session["aankomstdatum"].ToString();
-                //lblVertrek.Text = Session["vertrekdatum"].ToString();
-                //lblEmail.Text = Session["email"].ToString();
+                lblPersonen.Text = Session["personen"].ToString();
+                lblAankomst.Text = Session["aankomstdatum"].ToString();
+                lblVertrek.Text = Session["vertrekdatum"].ToString();
+                lblEmail.Text = Session["email"].ToString();
             }
             else
             {

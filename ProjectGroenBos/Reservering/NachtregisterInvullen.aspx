@@ -20,7 +20,7 @@
                     <asp:TextBox ID="TxBNaam" runat="server" CssClass="textboxchaos"></asp:TextBox></td>
                 <td style="width: 40%">
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TxBNaam" ErrorMessage="Dit veld is verplicht." Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
-                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Gebruik alleen letters." ControlToValidate="TxBNaam" ValidationExpression="^[a-zA-Z -]*$" Display="Dynamic" ForeColor="Red"></asp:RegularExpressionValidator>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="In een naam kunnen geen getallen of leestekens zitten." ControlToValidate="TxBNaam" ValidationExpression="^[a-zA-Z -]*$" Display="Dynamic" ForeColor="Red"></asp:RegularExpressionValidator>
                 </td>
 
             </tr>
@@ -30,7 +30,7 @@
                 <td>
                     <asp:TextBox ID="TxBtussenvoegsel" runat="server" CssClass="textboxchaos"></asp:TextBox></td>
                 <td style="width: 40%">
-                    <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="Gebruik alleen letters." ControlToValidate="TxBtussenvoegsel" ValidationExpression="^[a-zA-Z -]*$" Display="Dynamic" ForeColor="Red"></asp:RegularExpressionValidator></td>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="In een tussenvoegsel kunnen alleen letters komen te staan." ControlToValidate="TxBtussenvoegsel" ValidationExpression="^[a-zA-Z -]*$" Display="Dynamic" ForeColor="Red"></asp:RegularExpressionValidator></td>
 
             </tr>
             <tr>
@@ -41,7 +41,7 @@
                     <asp:TextBox ID="TxBAchternaam" runat="server" CssClass="textboxchaos"></asp:TextBox></td>
                 <td style="width: 40%">
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="TxBAchternaam" ErrorMessage="Dit veld is verplicht." Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
-                    <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="Gebruik alleen letters." ControlToValidate="TxBAchternaam" ValidationExpression="^[a-zA-Z -]*$" Display="Dynamic" ForeColor="Red"></asp:RegularExpressionValidator>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="In een achternaam kunnen geen getallen zitten." ControlToValidate="TxBAchternaam" ValidationExpression="^[a-zA-Z -]*$" Display="Dynamic" ForeColor="Red"></asp:RegularExpressionValidator>
                 </td>
             </tr>
             <tr>
@@ -53,7 +53,7 @@
                 <td style="width: 40%">
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="TxBGeboortedatum" ErrorMessage="Dit veld is verplicht." ForeColor="red" Display="Dynamic"></asp:RequiredFieldValidator>
                     <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ErrorMessage="Datum moet ingevult zijn als  jjjj-mm-dd." ControlToValidate="TxBGeboortedatum" ValidationExpression="^(19|20)?\d\d[-](0[1-9]|1[012])[-](0[1-9]|[12][0-9]|3[01])$" Display="Dynamic" ForeColor="Red"></asp:RegularExpressionValidator>
-                    <asp:CustomValidator ID="CustomValidator1" runat="server" ControlToValidate="TxBGeboortedatum" ErrorMessage="Geboortedatum kan niet in de toekomst zijn." ForeColor="Red"></asp:CustomValidator>
+                    <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="TxBGeboortedatum" Display="Dynamic" ErrorMessage="Degene kan niet in de toekomst geboren zijn." ForeColor="Red" MaximumValue="DateTime.Today" Type="Date"></asp:RangeValidator>
                 </td>
             </tr>
             <tr>

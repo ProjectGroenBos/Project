@@ -32,8 +32,14 @@ namespace ProjectGroenBos.Reservering
                 lblOutput.Text = "Geregistreerde bezoekers:";
                 btnToevoegen.Visible = true;
                 lblControle.Text = DateTime.Today.ToShortDateString();
+                //GridView1.DataBind();
+                //GridView1.Visible = false;
 
-               
+
+                //if (this.PreviousPage == null || this.PreviousPage.ToString() == "ReserveringAanmaken.aspx")
+                //{
+                //    count = 0;
+                //}
 
             }
             else
@@ -46,75 +52,52 @@ namespace ProjectGroenBos.Reservering
 
         protected void btnToevoegen_Click1(object sender, EventArgs e)
         {
-            lblOutput.Text = "";
             string Voornaam = TxBNaam.Text;
             string Tussenvoegsel = TxBtussenvoegsel.Text;
             string Achternaam = TxBAchternaam.Text;
+            //DateTime Geboortedatum = new DateTime();
+            string geboortedatum = TxBGeboortedatum.Text;
+            int reserveringnummer = int.Parse(Session["reserveringnummer"].ToString());
 
-            DateTime geboortedatum = DateTime.Parse(TxBGeboortedatum.Text);
-            geboortedatum.ToShortDateString();
+            aantalPersonen = int.Parse(Session["personen"].ToString()) - 1;
 
-            DateTime control = new DateTime();
-            control = DateTime.Today;
-
-            bool check = CheckDatum(geboortedatum, control);
-
-            if(check == true)
+            using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["2020-BIM02-P1-P2-GroenbosConnectionString"].ConnectionString))
             {
-                CustomValidator1.Enabled = false;
-                CustomValidator1.Visible = false;
-                int reserveringnummer = int.Parse(Session["reserveringnummer"].ToString());
 
-                aantalPersonen = int.Parse(Session["personen"].ToString()) - 1;
-
-                using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["2020-BIM02-P1-P2-GroenbosConnectionString"].ConnectionString))
+                try
                 {
+                    con.Open();
 
-                    try
-                    {
-                        con.Open();
+                    SqlCommand sqlquery = new SqlCommand("[dbo].[InsertNachtRegister]");
 
-                        SqlCommand sqlquery = new SqlCommand("[dbo].[InsertNachtRegister]");
+                    sqlquery.Parameters.AddWithValue("@Voornaam", Voornaam);
+                    sqlquery.Parameters.AddWithValue("@Tussenvoegsel", Tussenvoegsel);
+                    sqlquery.Parameters.AddWithValue("@Achternaam", Achternaam);
+                    sqlquery.Parameters.AddWithValue("@Geboortedatum", geboortedatum);
+                    sqlquery.Parameters.AddWithValue("@ReserveringNummer2", reserveringnummer);
 
-                        sqlquery.Parameters.AddWithValue("@Voornaam", Voornaam);
-                        sqlquery.Parameters.AddWithValue("@Tussenvoegsel", Tussenvoegsel);
-                        sqlquery.Parameters.AddWithValue("@Achternaam", Achternaam);
-                        sqlquery.Parameters.AddWithValue("@Geboortedatum", geboortedatum);
-                        sqlquery.Parameters.AddWithValue("@ReserveringNummer2", reserveringnummer);
+                    sqlquery.CommandType = System.Data.CommandType.StoredProcedure;
+                    sqlquery.Connection = con;
+                    sqlquery.ExecuteNonQuery();
 
-                        sqlquery.CommandType = System.Data.CommandType.StoredProcedure;
-                        sqlquery.Connection = con;
-                        sqlquery.ExecuteNonQuery();
-
-                        con.Close();
-                    }
-
-                    catch
-                    {
-                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Er ging iets mis, neem contact met ons op.')", true);
-                    }
-
-
-                    GridView1.DataBind();
-                }
-                count++;
-
-                if (count == aantalPersonen)
-                {
-                    btnBevestigen.Visible = true;
-                    btnToevoegen.Visible = false;
+                    con.Close();
                 }
 
-                lblOutput.Text = "Persoon is toegevoegd.";
-            }
-            else
-            {
-                CustomValidator1.Enabled = true;
-                CustomValidator1.Visible = true;
-                lblOutput.Text = "Persoon is niet toegevoegd, omdat je niet een datum in de toekomst kan weten.";
-            }
+                catch
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Er ging iets mis, neem contact met ons op.')", true);
+                }
 
-           
+
+                GridView1.DataBind();
+            }
+            count++;
+
+            if (count == aantalPersonen)
+            {
+                btnBevestigen.Visible = true;
+                btnToevoegen.Visible = false;
+            }
         }
 
         protected void btnBevestigen_Click(object sender, EventArgs e)
@@ -124,16 +107,6 @@ namespace ProjectGroenBos.Reservering
             Response.Redirect("NachtregisterChecken.aspx");
         }
 
-        protected bool CheckDatum(DateTime geboortedatum, DateTime control)
-        {
-            if (geboortedatum <= control)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
+
     }
 }

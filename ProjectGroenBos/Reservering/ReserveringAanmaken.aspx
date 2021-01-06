@@ -66,7 +66,7 @@
                 <td style="width:15%">
                     <asp:TextBox ID="txbAantalPersonen" runat="server" CssClass="textboxchaos"></asp:TextBox></td>
                 <td style="width:40%">
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Dit veld is verplicht." ControlToValidate="txbAantalPersonen" Display="Dynamic" ForeColor="Red" ValidationGroup="Terug"></asp:RequiredFieldValidator></td>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Dit veld is verplicht." ControlToValidate="txbAantalPersonen" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator></td>
             </tr>
             <tr>
                 <td style="width:15%">
@@ -76,7 +76,7 @@
                     <asp:TextBox ID="txbAankomstdatum" runat="server" CssClass="textboxchaos"></asp:TextBox>
                     </td>
                 <td style="width:40%">
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Dit veld is verplicht." ControlToValidate="txbAankomstdatum" Display="Dynamic" ForeColor="Red" ValidationGroup="Terug"></asp:RequiredFieldValidator></td>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Dit veld is verplicht." ControlToValidate="txbAankomstdatum" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator></td>
             </tr>
             <tr>
                 <td style="width:15%">
@@ -84,7 +84,7 @@
                 <td style="width:15%">
                     <asp:TextBox ID="txbVertrekdatum" runat="server" CssClass="textboxchaos"></asp:TextBox></td>
                 <td style="width:40%">
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Dit veld is verplicht." ControlToValidate="txbVertrekdatum" Display="Dynamic" ForeColor="Red" ValidationGroup="Terug"></asp:RequiredFieldValidator></td>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Dit veld is verplicht." ControlToValidate="txbVertrekdatum" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator></td>
             </tr>
             <tr>
                 <td style="width:15%" >
@@ -106,8 +106,8 @@
 
 
         <br />
-        <asp:Button ID="btnZoek" runat="server" Text="Zoek bungalow" CssClass="btnUitloggen" Style="background-color: #009879; color: #fff" class="btn" OnClick="btnZoek_Click" ValidationGroup="Terug" />
-        <asp:Button ID="btnAanmaken" runat="server" Text="Aanmaken" CssClass="btnUitloggen" Style="background-color: #009879; color: #fff" class="btn" OnClick="btnAanmaken_Click" ValidationGroup="Terug" />
+        <asp:Button ID="btnZoek" runat="server" Text="Zoek bungalow" CssClass="btnUitloggen" Style="background-color: #009879; color: #fff" class="btn" OnClick="btnZoek_Click" />
+        <asp:Button ID="btnAanmaken" runat="server" Text="Aanmaken" CssClass="btnUitloggen" Style="background-color: #009879; color: #fff" class="btn" OnClick="btnAanmaken_Click" />
         <asp:Button ID="btnTerug" runat="server" CssClass="btnUitloggen" Style="background-color: #009879; color: #fff" class="btn" OnClick="btnTerug_Click" Text="Terug" />
         <br />
         <br />
