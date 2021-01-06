@@ -71,6 +71,7 @@ namespace ProjectGroenBos.Restaurant
             }
         }
 
+        //Deze berekent het totaalbedrag
         private string Totaalbedrag()
         {
             string Bestelnummer = "0";
@@ -81,24 +82,17 @@ namespace ProjectGroenBos.Restaurant
                 string selectquery = "SELECT  Totaalregel FROM InkoopOrderFoodView WHERE Bestelnummer = @nummer";
                 SqlCommand sqlComd = new SqlCommand(selectquery, connection);
                 SqlParameter sqlParameter0 = sqlComd.Parameters.AddWithValue("@Nummer", nummer);
-                //SqlDataReader r;
-                //r = sqlComd.ExecuteReader();
                 using (SqlDataReader sdr = sqlComd.ExecuteReader())
                 {
                     sdr.Read();
                     Bestelnummer = sdr["Totaalregel"].ToString();
                 }
-                //string Bestelnummer = 0;
-
-                //while (r.Read())
-                //{
-                //    Bestelnummer = (decimal)r[0];
-                //}
                 connection.Close();
                 return Bestelnummer;
             }
         }
         
+        //Deze haalt het bestelnummer op om te gebruiken
         private int ophalenbestelnummer()
         {
             using (SqlConnection connection = new SqlConnection(constr))
@@ -110,20 +104,14 @@ namespace ProjectGroenBos.Restaurant
                 SqlCommand sqlCmd = new SqlCommand(selectquery, connection);
                 SqlParameter sqlParameter0 = sqlCmd.Parameters.AddWithValue("@Nummer", nummer);
                 SqlDataReader r;
-                //r = sqlCmd.ExecuteReader();
                 string Bestelnummer2 = (string)sqlCmd.ExecuteScalar();
                 int Bestelnummer = int.Parse(Bestelnummer2);
-                //int Bestelnummer = 0;
-
-                //while (r.Read())
-                //{
-                //    Bestelnummer = (int)r[0];
-                //}
                 connection.Close();
                 return Bestelnummer;
             }
         }
 
+        //Deze haalt het ID uit de inkooporder tabel
         private int voedselorderid()
         {
             using (SqlConnection connection = new SqlConnection(constr))
@@ -146,47 +134,28 @@ namespace ProjectGroenBos.Restaurant
             }
         }
 
+        //Deze haalt het ID op uit de leveranciertabel
         private int leverancierid()
         {
             int leverancierid = 0;
             using (SqlConnection connection = new SqlConnection(constr))
             {
                 int nummer = ophalenbestelnummer();
-                //connection.Open();
-                //string selectquery = "SELECT ID FROM Leverancier WHERE Bestelnummer =" + nummer + "";
-                //SqlCommand sqlComd = new SqlCommand(selectquery, connection);
-                //SqlDataReader r;
-                //r = sqlComd.ExecuteReader();
-
-                //int leverancierid = 0;
-
-                //while (r.Read())
-                //{
-                //    leverancierid = (int)r[0];
-                //}
-                //connection.Close();
                 connection.Open();
                 string selectquery = "SELECT LeverancierID FROM InkoopOrderFoodView WHERE Bestelnummer = @nummer";
                 SqlCommand sqlComd = new SqlCommand(selectquery, connection);
                 SqlParameter sqlParameter0 = sqlComd.Parameters.AddWithValue("@Nummer", nummer);
-                //SqlDataReader r;
-                //r = sqlComd.ExecuteReader();
                 using (SqlDataReader sdr = sqlComd.ExecuteReader())
                 {
                     sdr.Read();
                     leverancierid = int.Parse(sdr["LeverancierID"].ToString());
                 }
-                //string Bestelnummer = 0;
-
-                //while (r.Read())
-                //{
-                //    Bestelnummer = (decimal)r[0];
-                //}
                 connection.Close();
                 return leverancierid;
             }
         }
 
+        //deze code maakt het factuur aan
         private void InsertInfo()
         {
             using (SqlConnection sqlCon = new SqlConnection(constr))
@@ -213,14 +182,12 @@ namespace ProjectGroenBos.Restaurant
             }
         }
 
+        //Dit stuk code verandert de status van de order
         private void statusverandering()
         {
             using (SqlConnection connection = new SqlConnection(constr))
             {
                 int nummer = ophalenbestelnummer();
-
-
-                //Update de status naar klaar zijn
 
                 String myquery = "UPDATE VoedselRestaurantInkoopOrder SET Aanvraagstatus='7' WHERE Bestelnummer =" + nummer + "";
                 SqlCommand cmd = new SqlCommand();
@@ -236,6 +203,7 @@ namespace ProjectGroenBos.Restaurant
             }
         }
 
+        //Dit geeft aan wat er gebeurt bij het drukken op de knop
         protected void btnGoedkeuren_Click(object sender, EventArgs e)
         {
             Button btn = sender as Button;

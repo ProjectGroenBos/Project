@@ -71,6 +71,7 @@ namespace ProjectGroenBos.Restaurant
             }
         }
 
+        //Deze haalt het bestelnummer op om te gebruiken
         private int ophalenbestelnummer()
         {
             using (SqlConnection connection = new SqlConnection(constr))
@@ -82,28 +83,19 @@ namespace ProjectGroenBos.Restaurant
                 SqlCommand sqlCmd = new SqlCommand(selectquery, connection);
                 SqlParameter sqlParameter0 = sqlCmd.Parameters.AddWithValue("@Nummer", nummer);
                 SqlDataReader r;
-                //r = sqlCmd.ExecuteReader();
                 string Bestelnummer2 = (string)sqlCmd.ExecuteScalar();
                 int Bestelnummer = int.Parse(Bestelnummer2);
-                //int Bestelnummer = 0;
-
-                //while (r.Read())
-                //{
-                //    Bestelnummer = (int)r[0];
-                //}
                 connection.Close();
                 return Bestelnummer;
             }
         }
 
+        //Dit stuk code verandert de status van de order
         private void statusverandering()
         {
             using (SqlConnection connection = new SqlConnection(constr))
             {
                 int nummer = ophalenbestelnummer();
-
-
-                //Update de status naar klaar zijn
 
                 String myquery = "UPDATE InkoopOrderAanvraag SET InkoopOrderAanvraagStatusID='5' WHERE Bestelnummer =" + nummer + "";
                 SqlCommand cmd = new SqlCommand();
@@ -119,6 +111,7 @@ namespace ProjectGroenBos.Restaurant
             }
         }
 
+        //Dit geeft aan wat er gebeurt bij het drukken op de knop
         protected void btnGoedkeuren_Click(object sender, EventArgs e)
         {
             Button btn = sender as Button;
