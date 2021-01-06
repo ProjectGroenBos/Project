@@ -629,7 +629,7 @@ FROM     VoedselRestaurantAanvraagRegels INNER JOIN
                         </div>
 
                         <div class="modal-footer">
-                            <asp:Button ID="BtnGoedkeuren" class="btn btn-default" runat="server" Text="Goedkeuren" OnClientClick="btnGoedkeuren_Click" />
+                            <asp:Button ID="BtnGoedkeuren" class="btn btn-default" runat="server" Text="Goedkeuren" onclick="btnGoedkeuren_Click" />
                         </div>
                     </div>
                 </div>
