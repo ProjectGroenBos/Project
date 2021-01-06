@@ -37,7 +37,9 @@
                 <td style="width: 15%">
                     <asp:Label ID="lblGastnummer" runat="server" CssClass="textboxchaos"></asp:Label>
                 </td>
-                <td style="width: 40%"></td>
+                <td style="width: 40%">
+
+                </td>
             </tr>
 
             <tr>
@@ -207,4 +209,5 @@ FROM     Gast INNER JOIN
         </asp:SqlDataSource>
 
     </div>
+  
 </asp:Content>

@@ -168,9 +168,13 @@ namespace ProjectGroenBos.Reservering
 
                     con.Close();
 
-                }
 
-                Response.Redirect("Gastoverzicht.aspx");
+                    Response.Redirect("Gastoverzicht.aspx");
+                }
+            }
+            else
+            {
+
             }
 
         }
