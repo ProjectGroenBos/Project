@@ -11,7 +11,7 @@ namespace ProjectGroenBos.Reservering
 {
 
 
-    public partial class WebForm1
+    public partial class KlachtenOverzicht
     {
 
         /// <summary>
@@ -24,13 +24,31 @@ namespace ProjectGroenBos.Reservering
         protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
-        /// txbReserveringsnummer control.
+        /// txbAchternaam control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txbReserveringsnummer;
+        protected global::System.Web.UI.WebControls.TextBox txbAchternaam;
+
+        /// <summary>
+        /// RequiredFieldValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+
+        /// <summary>
+        /// RegularExpressionValidator3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator3;
 
         /// <summary>
         /// Label2 control.
@@ -42,31 +60,22 @@ namespace ProjectGroenBos.Reservering
         protected global::System.Web.UI.WebControls.Label Label2;
 
         /// <summary>
-        /// txbAchternaam control.
+        /// DropDownCategorie control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txbAchternaam;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownCategorie;
 
         /// <summary>
-        /// lblUitkomst control.
+        /// btnZoek control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblUitkomst;
-
-        /// <summary>
-        /// btnZoeken control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnZoeken;
+        protected global::System.Web.UI.WebControls.Button btnZoek;
 
         /// <summary>
         /// GridView1 control.

@@ -92,6 +92,11 @@ namespace ProjectGroenBos.Reservering
                 //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('U kunt niet voor het verleden reserveren. Probeer het opnieuw.')", true);
                 lblUitkomst.Text = "U kunt niet voor het verleden reserveren. Probeer het opnieuw.";
             }
+
+            if (GridView1.Rows.Count == 0)
+            {
+                lblUitkomst.Text = "Geen beschikbare bungalows.";
+            }
         }
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
@@ -130,6 +135,7 @@ namespace ProjectGroenBos.Reservering
             int betaalmethode = 1;
             int betaalstatus = 8;
             int factuurtype = 2;
+            int factuurtype2 = 1;
 
             //standaardwaardes transactie
             string aan = "Groenbos";
@@ -157,6 +163,7 @@ namespace ProjectGroenBos.Reservering
                 ReserveerderToevoegen(voornaam, tussenvoegsel, achternaam, geboortedatum, reserveringnummer);
 
                 InsDebiteurenFactuur(vandaag, betaalmethode, betaalstatus, factuurtype, reserveringnummer);
+                InsDebiteurenFactuur(vandaag, betaalmethode, betaalstatus, factuurtype2, reserveringnummer);
                 int debifactuur = GetDebiNummer();
 
                 int feestdag = GetFeestdag(reserveringnummer);
@@ -541,7 +548,7 @@ namespace ProjectGroenBos.Reservering
 
         protected void btnTerug_Click(object sender, EventArgs e)
         {
-            Response.Redirect("GastAanmaken.aspx");
+            Response.Redirect("GastSelecteren.aspx");
         }
     }
 }

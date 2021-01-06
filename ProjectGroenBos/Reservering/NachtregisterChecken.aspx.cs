@@ -14,7 +14,7 @@ namespace ProjectGroenBos.Reservering
             if (Session["reserveringnummer300"] != null)
             {
                 lblReserveringNummer.Text = Session["reserveringnummer300"].ToString();
-                GridView2.DataBind();
+                
             }
             else
             {
