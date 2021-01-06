@@ -20,18 +20,24 @@
                 <asp:BoundField DataField="Opmerking" HeaderText="Opmerking" SortExpression="Opmerking" />
                 <asp:TemplateField>
                     <ItemTemplate>
-                        <button type="button" style="background-color: #009879; color: #fff" class="btn" data-toggle="modal" data-target="#ToevoegenModal">Meer...</button>
+                        <button type="button" style="background-color: #009879; color: #fff" class="btn" data-toggle="modal" data-target="#ToevoegenModal<%# Eval("ID") %>" OnClick="btnToevoegen2_Click">Meer...</button>
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>
         </asp:GridView>
 
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:2020-BIM02-P1-P2-GroenbosConnectionString %>" SelectCommand="select ID, Naam, Opmerking from InkoopAanvraagRegelNieuwProduct"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:2020-BIM02-P1-P2-GroenbosConnectionString %>" SelectCommand="select ID, Naam, Opmerking from InkoopAanvraagRegelNieuwProduct where Referentie IS NULL"></asp:SqlDataSource>
     </div>
+    <asp:Repeater ID="Rptoevoegen" runat="server">
 
-    <!-- Toevoegen Modal -->
-    <div id="ToevoegenModal" class="modal fade" role="dialog">
+       <ItemTemplate>
+    <div id="ToevoegenModal<%# Eval("ID") %>" class="modal fade" role="dialog">
         <div class="modal-dialog">
+             
+            <asp:HiddenField ID="Aantal" runat="server"
+                                    Value='<%# Eval("Aantal") %>' />
+            <asp:HiddenField ID="ID" runat="server"
+                                    Value='<%# Eval("ID") %>' />
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
@@ -53,8 +59,13 @@
                     <p style="margin-top: 1rem; margin-bottom: 0;">Omschrijving</p>
                     <asp:TextBox ID="txbOmschrijving" placeholder="Haarlem" runat="server" Style="text-align: center" Height="50px" Width="100%"></asp:TextBox>
                    
+                 <p style="margin-top: 1rem; margin-bottom: 0;">Omschrijving</p>
+                <asp:DropDownList ID="DropDownList1" runat="server" Style="text-align: center" Height="50px" Width="100%" DataSourceID="SqlDataSource2" DataValueField="ID" DataTextField="Naam"></asp:DropDownList>
 
-                    <asp:Button ID="btnToevoegen" ValidationGroup="Validation" CssClass="btnToevoegen" runat="server" Text="Toevoegen" OnClick="btnToevoegen_Click" />
+                <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:2020-BIM02-P1-P2-GroenbosConnectionString %>" SelectCommand="select ID, Naam from Leverancier"></asp:SqlDataSource>
+
+
+                    <asp:Button ID="btnToevoegen" CssClass="btnToevoegen" runat="server" CommandName="<%# Container.ItemIndex %>" Text="Toevoegen" OnClick="btnToevoegen_Click" />
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Sluiten</button>
@@ -62,70 +73,7 @@
             </div>
 
         </div>
-    </div>
-
-    <asp:Repeater ID="rpInzienLeverancier" runat="server">
-        <ItemTemplate>
-            <!-- Modal -->
-            <div id="modal<%# Eval("ID") %>" class="modal fade" role="dialog">
-                <div class="modal-dialog modal-lg">
-                    <!-- Modal content-->
-                    <div class="modal-content">
-
-                        <div class="modal-header">
-                            <h4 class="modal-title">Leverancierdetails <%# Eval("ID") %> </h4>
-                        </div>
-
-                        <div class="modal-body">
-                            <div class="inline-flex">
-                                <div>
-                                    <h4>Leverancier gegevens</h4>
-                                    <p>
-                                        <%# Eval("Naam") %><br />
-                                        <%# Eval("Plaats") %><br />
-                                        <%# Eval("Adres") %><br />
-                                        <%# Eval("Postcode") %><br />
-                                        <%# Eval("Telefoonnummer") %><br />
-                                        <%# Eval("Email") %>
-                                    </p>
-                                </div>
-                            </div>
-
-                            <hr />
-                            <br />
-                            <asp:GridView ID="gvLeverancierdetails" ShowHeaderWhenEmpty="True" EmptyDataText="Er zijn geen producten gevonden bij deze Leverancier." CssClass="content-table" GridLines="None" AutoGenerateColumns="False" Style="text-align: center; margin-left: auto; margin-right: auto" runat="server" DataSourceID="SqlDataSource2">
-                                <Columns>
-                                    <asp:BoundField DataField="Voorraad_Naam" HeaderText="Item" ReadOnly="True" SortExpression="Voorraad_Naam" />
-                                    <asp:BoundField DataField="Omschrijving" HeaderText="Omschrijving" ReadOnly="True" SortExpression="Omschrijving" />
-                                    <asp:BoundField DataField="Minimum_voorraad" HeaderText="Minimum Voorraad" ReadOnly="True" SortExpression="Minimum_voorraad" ItemStyle-Width="50px" />
-                                    <asp:BoundField DataField="Aantal" HeaderText="Huidige voorraad" HtmlEncode="False" ReadOnly="True" SortExpression="Aantal" ItemStyle-Width="50px" />
-                                    <asp:BoundField DataFormatString="{0:C}" DataField="Prijs" HeaderText="Prijs" ReadOnly="True" SortExpression="Prijs" />
-                                </Columns>
-                            </asp:GridView>
-
-
-                            <asp:HiddenField ID="ID" runat="server"
-                                Value='<%# Eval("ID") %>' />
-
-                            <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT Voorraad_Naam, Omschrijving, Minimum_voorraad, Aantal, Prijs from LeverancierDetails where ID = @ID">
-                                <SelectParameters>
-                                    <asp:ControlParameter
-                                        Name="ID"
-                                        ControlID="ID"
-                                        PropertyName="Value" />
-                                </SelectParameters>
-                            </asp:SqlDataSource>
-
-                        </div>
-
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Sluiten</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </ItemTemplate>
+            </ItemTemplate>
     </asp:Repeater>
 
 </asp:Content>
