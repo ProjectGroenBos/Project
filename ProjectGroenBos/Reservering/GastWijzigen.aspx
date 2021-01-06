@@ -37,11 +37,25 @@
                 });
             }) --%>
 
-            $('#<%= txbGeboortedatum.ClientID %>').datepicker({
-                changeMonth: true,
-                minDate: '10/19/2016',
-                maxDate: '+14D',
+            $(document).ready(function () {
+                $(function () {
+                    $("#<%= txbGeboortedatum.ClientID %>").datepicker({
+                        changeYear: true,
+                        changeMonth: true,
+                        minDate: '10/19/1940',
+                        maxDate: 0,
+                    });
+                });
             });
+
+            //$(document).ready(function () {
+            //    ('#txbGeboortedatum').datepicker({
+            //        changeMonth: true,
+            //        changeYear: true,
+            //        minDate: '10/19/2016',
+            //        maxDate: '+14D',
+            //    })
+            //});
         </script>
         +-
         <h2>Persoonsgegevens:</h2>
@@ -92,7 +106,7 @@
                     <asp:Label ID="Label5" runat="server" Text="Geboortedatum:" CssClass="labelsnieuw"></asp:Label>
                 </td>
                 <td style="width: 15%">
-                    <asp:TextBox ID="txbGeboortedatum" runat="server" CssClass="textboxchaos" TextMode="Date"></asp:TextBox>
+                    <asp:TextBox ID="txbGeboortedatum" runat="server" CssClass="textboxchaos" >></asp:TextBox>
                 </td>
                 <td style="width: 40%"></td>
             </tr>
