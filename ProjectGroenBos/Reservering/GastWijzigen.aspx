@@ -48,14 +48,6 @@
                 });
             });
 
-            //$(document).ready(function () {
-            //    ('#txbGeboortedatum').datepicker({
-            //        changeMonth: true,
-            //        changeYear: true,
-            //        minDate: '10/19/2016',
-            //        maxDate: '+14D',
-            //    })
-            //});
         </script>
         +-
         <h2>Persoonsgegevens:</h2>
@@ -210,7 +202,7 @@
         <br />
         <br />
         <br />
-        <asp:Button ID="btnWijzigen" runat="server" Text="Wijzigen" CssClass="btnUitloggen" Style="background-color: #009879; color: #fff" class="btn" OnClick="btnWijzigen_Click" OnClientClick="return confirm('Reservering is gewijzigd.');"/>
+        <asp:Button ID="btnWijzigen" runat="server" Text="Wijzigen" CssClass="btnUitloggen" Style="background-color: #009879; color: #fff" class="btn" OnClick="btnWijzigen_Click"/>
 
         <br />
         <br />
@@ -238,6 +230,7 @@ FROM     Gast INNER JOIN
                 <asp:ControlParameter ControlID="lblGastnummer" Name="nummer" PropertyName="Text" />
             </SelectParameters>
         </asp:SqlDataSource>
+        <asp:Label ID="lbluitkomst" runat="server" Text=""></asp:Label>
 
     </div>
   

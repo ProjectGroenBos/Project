@@ -35,19 +35,19 @@
         <asp:GridView ID="GridView1" runat="server" AllowSorting="True" AutoGenerateColumns="False" CssClass="content-table" DataKeyNames="volgnummer,ReserveringNummer2" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AllowPaging="True">
             <Columns>
                 <asp:CommandField ShowEditButton="True" />
-                <asp:BoundField DataField="volgnummer" HeaderText="Volgnummer" InsertVisible="False" ReadOnly="True" SortExpression="volgnummer" />
+                <asp:BoundField DataField="volgnummer" HeaderText="volgnummer" InsertVisible="False" ReadOnly="True" SortExpression="volgnummer" />
                 <asp:BoundField DataField="Voornaam" HeaderText="Voornaam" SortExpression="Voornaam" />
                 <asp:BoundField DataField="Tussenvoegsel" HeaderText="Tussenvoegsel" SortExpression="Tussenvoegsel" />
                 <asp:BoundField DataField="Achternaam" HeaderText="Achternaam" SortExpression="Achternaam" />
                 <asp:BoundField DataField="Geboortedatum" HeaderText="Geboortedatum" SortExpression="Geboortedatum" DataFormatString="{0:dd-MM-yyyy}" />
-                <asp:BoundField DataField="ReserveringNummer2" HeaderText="Reserveringsnummer" ReadOnly="True" SortExpression="ReserveringNummer2" />
+                <asp:BoundField DataField="ReserveringNummer2" HeaderText="ReserveringNummer2" ReadOnly="True" SortExpression="ReserveringNummer2" />
             </Columns>
             <HeaderStyle ForeColor="White" />
         </asp:GridView>
         <br />
         <br />
 
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:2020-BIM02-P1-P2-GroenbosConnectionString %>" SelectCommand="SELECT * FROM [Nachtregister] WHERE (([ReserveringNummer2] = @ReserveringNummer2) AND ([Achternaam] LIKE '%' + @Achternaam + '%'))" DeleteCommand="DELETE FROM [Nachtregister] WHERE [volgnummer] = @volgnummer AND [ReserveringNummer2] = @ReserveringNummer2" InsertCommand="INSERT INTO [Nachtregister] ([Voornaam], [Tussenvoegsel], [Achternaam], [Geboortedatum], [ReserveringNummer2]) VALUES (@Voornaam, @Tussenvoegsel, @Achternaam, @Geboortedatum, @ReserveringNummer2)" UpdateCommand="UPDATE [Nachtregister] SET [Voornaam] = @Voornaam, [Tussenvoegsel] = @Tussenvoegsel, [Achternaam] = @Achternaam, [Geboortedatum] = @Geboortedatum WHERE [volgnummer] = @volgnummer AND [ReserveringNummer2] = @ReserveringNummer2">
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:2020-BIM02-P1-P2-GroenbosConnectionString %>" SelectCommand="SELECT * FROM [Nachtregister] WHERE (([ReserveringNummer2] = @ReserveringNummer2) AND ([Achternaam] LIKE '%' + @Achternaam + '%')) OR (([ReserveringNummer2] = @ReserveringNummer2) OR([Achternaam] LIKE '%' + @Achternaam + '%'))" DeleteCommand="DELETE FROM [Nachtregister] WHERE [volgnummer] = @volgnummer AND [ReserveringNummer2] = @ReserveringNummer2" InsertCommand="INSERT INTO [Nachtregister] ([Voornaam], [Tussenvoegsel], [Achternaam], [Geboortedatum], [ReserveringNummer2]) VALUES (@Voornaam, @Tussenvoegsel, @Achternaam, @Geboortedatum, @ReserveringNummer2)" UpdateCommand="UPDATE [Nachtregister] SET [Voornaam] = @Voornaam, [Tussenvoegsel] = @Tussenvoegsel, [Achternaam] = @Achternaam, [Geboortedatum] = @Geboortedatum WHERE [volgnummer] = @volgnummer AND [ReserveringNummer2] = @ReserveringNummer2">
             <DeleteParameters>
                 <asp:Parameter Name="volgnummer" Type="Int32" />
                 <asp:Parameter Name="ReserveringNummer2" Type="Int32" />
