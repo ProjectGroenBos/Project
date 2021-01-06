@@ -92,6 +92,11 @@ namespace ProjectGroenBos.Reservering
                 //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('U kunt niet voor het verleden reserveren. Probeer het opnieuw.')", true);
                 lblUitkomst.Text = "U kunt niet voor het verleden reserveren. Probeer het opnieuw.";
             }
+
+            if(GridView1.Rows.Count == 0)
+            {
+                lblUitkomst.Text = "Geen beschikbare bungalows.";
+            }
         }
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
@@ -544,7 +549,8 @@ namespace ProjectGroenBos.Reservering
 
         protected void btnTerug_Click(object sender, EventArgs e)
         {
-            Response.Redirect("GastAanmaken.aspx");
+            
+            Response.Redirect("GastSelecteren.aspx");
         }
     }
 }

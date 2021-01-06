@@ -169,7 +169,7 @@ namespace ProjectGroenBos.Reservering
                     con.Close();
 
                 }
-
+                
                 Response.Redirect("Gastoverzicht.aspx");
             }
 

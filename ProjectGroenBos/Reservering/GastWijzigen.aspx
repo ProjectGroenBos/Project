@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <div class="container">
         <script type="text/javascript">
-            $(function () {
+            <%--$(function () {
                 var date = new Date();
                 var currentMonth = date.getMonth(); // huidige maand
                 var currentDate = date.getDate(); // huidige datum
@@ -24,6 +24,23 @@
                 }
             }
                 });
+            });--%>
+
+            <%--$(document).ready(function () {
+                var date = new Date();
+                var currentMonth = date.getMonth(); // huidige maand
+                var currentDate = date.getDate(); // huidige datum
+                var currentYear = date.getFullYear(); // dit jaar
+                $(function () {
+                    $("#<%= txbGeboortedatum.ClientID %>").datepicker();
+                    maxDate: new Date(currentYear, currentMonth, currentDate),
+                });
+            }) --%>
+
+            $('#<%= txbGeboortedatum.ClientID %>').datepicker({
+                changeMonth: true,
+                minDate: '10/19/2016',
+                maxDate: '+14D',
             });
         </script>
         +-
@@ -75,7 +92,7 @@
                     <asp:Label ID="Label5" runat="server" Text="Geboortedatum:" CssClass="labelsnieuw"></asp:Label>
                 </td>
                 <td style="width: 15%">
-                    <asp:TextBox ID="txbGeboortedatum" runat="server" CssClass="textboxchaos"></asp:TextBox>
+                    <asp:TextBox ID="txbGeboortedatum" runat="server" CssClass="textboxchaos" TextMode="Date"></asp:TextBox>
                 </td>
                 <td style="width: 40%"></td>
             </tr>
@@ -177,7 +194,7 @@
         <br />
         <br />
         <br />
-        <asp:Button ID="btnWijzigen" runat="server" Text="Wijzigen" CssClass="btnUitloggen" Style="background-color: #009879; color: #fff" class="btn" OnClick="btnWijzigen_Click" />
+        <asp:Button ID="btnWijzigen" runat="server" Text="Wijzigen" CssClass="btnUitloggen" Style="background-color: #009879; color: #fff" class="btn" OnClick="btnWijzigen_Click" OnClientClick="return confirm('Reservering is gewijzigd.');"/>
 
         <br />
         <br />

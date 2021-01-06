@@ -20,9 +20,9 @@
                     <asp:TextBox ID="txbVoornaam" runat="server" CssClass="textboxchaos"></asp:TextBox>
                 </td>
                 <td style="width: 40%">
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txbVoornaam" ErrorMessage="Dit veld is verplicht." CssClass="validators" Display="Dynamic"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txbVoornaam" ErrorMessage="Dit veld is verplicht." Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
 
-                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txbVoornaam" ErrorMessage="In een voornaam staan geen getallen." ValidationExpression="^[a-zA-Z -]*$" ForeColor="Red" CssClass="validators" Display="Dynamic"></asp:RegularExpressionValidator>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txbVoornaam" ErrorMessage="Gebruik alleen letters." ValidationExpression="^[a-zA-Z -]*$" ForeColor="Red" Display="Dynamic"></asp:RegularExpressionValidator>
                 </td>
             </tr>
 
@@ -34,7 +34,7 @@
                     <asp:TextBox ID="txbTussenvoegsel" runat="server" CssClass="textboxchaos"></asp:TextBox>
                 </td>
                 <td style="width: 40%">
-                    <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txbTussenvoegsel" ErrorMessage="In een tussenvoegsel kunnen geen cijfers zitten." ValidationExpression="^[a-zA-Z -]*$" ForeColor="Red" CssClass="validators" Display="Dynamic"></asp:RegularExpressionValidator>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txbTussenvoegsel" ErrorMessage="Gebruik alleen letters." ValidationExpression="^[a-zA-Z -]*$" ForeColor="Red" Display="Dynamic"></asp:RegularExpressionValidator>
                 </td>
             </tr>
 
@@ -46,8 +46,8 @@
                     <asp:TextBox ID="txbAchternaam" runat="server" CssClass="textboxchaos"></asp:TextBox>
                 </td>
                 <td style="width: 40%">
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txbAchternaam" ErrorMessage="Dit veld is verplicht." CssClass="validators" Display="Dynamic"></asp:RequiredFieldValidator>
-                    <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="txbAchternaam" ErrorMessage="In een achternaam staan geen getallen." ValidationExpression="^[a-zA-Z -]*$" ForeColor="Red" CssClass="validators" Display="Dynamic"></asp:RegularExpressionValidator>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txbAchternaam" ErrorMessage="Dit veld is verplicht." Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="txbAchternaam" ErrorMessage="Gebruik alleen letters." ValidationExpression="^[a-zA-Z -]*$" ForeColor="Red" Display="Dynamic"></asp:RegularExpressionValidator>
                 </td>
             </tr>
             <tr>
@@ -58,9 +58,9 @@
                     <asp:TextBox ID="txbTelefoonnummer" runat="server" CssClass="textboxchaos"></asp:TextBox>
                 </td>
                 <td style="width: 40%">
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txbTelefoonnummer" ErrorMessage="Dit veld is verplicht." CssClass="validators" Display="Dynamic"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txbTelefoonnummer" ErrorMessage="Dit veld is verplicht." Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
 
-                    <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ControlToValidate="txbTelefoonnummer" ErrorMessage="Eerste 0 weglaten en 9 cijfers gebruiken." ValidationExpression="^[0-9]{9}$" ForeColor="Red" CssClass="validators" Display="Dynamic"></asp:RegularExpressionValidator>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ControlToValidate="txbTelefoonnummer" ErrorMessage="Eerste 0 weglaten en 9 cijfers gebruiken." ValidationExpression="^[0-9]{9}$" ForeColor="Red" Display="Dynamic"></asp:RegularExpressionValidator>
                 </td>
             </tr>
             <tr>
@@ -71,9 +71,9 @@
                     <asp:TextBox ID="txbEmail" runat="server" CssClass="textboxchaos"></asp:TextBox>
                 </td>
                 <td style="width: 40%">
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txbEmail" ErrorMessage="Dit veld is verplicht." CssClass="validators" Display="Dynamic"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txbEmail" ErrorMessage="Dit veld is verplicht." Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
 
-                    <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ControlToValidate="txbEmail" ErrorMessage="Email is niet geldig" ValidationExpression="[a-z0-9!#$%&'+/=?^_`{|}~-]+(?:.[a-z0-9!#$%&'+/=?^_`{|}~-]+)@(?:[a-z0-9](?:[a-z0-9-][a-z0-9])?.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?" ForeColor="Red" CssClass="validators" Display="Dynamic"></asp:RegularExpressionValidator>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ControlToValidate="txbEmail" ErrorMessage="Email is niet geldig" ValidationExpression="[a-z0-9!#$%&'+/=?^_`{|}~-]+(?:.[a-z0-9!#$%&'+/=?^_`{|}~-]+)@(?:[a-z0-9](?:[a-z0-9-][a-z0-9])?.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?" ForeColor="Red" Display="Dynamic"></asp:RegularExpressionValidator>
                 </td>
             </tr>
             <tr>
@@ -84,8 +84,8 @@
                     <asp:TextBox ID="txbGeboortedatum" runat="server" TextMode="Date" CssClass="textboxchaos"></asp:TextBox>
                 </td>
                 <td style="width: 40%">
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txbGeboortedatum" ErrorMessage="Dit veld is verplicht." CssClass="validators" Display="Dynamic"></asp:RequiredFieldValidator>
-                    <asp:CustomValidator ID="CustomValidator2" runat="server" ControlToValidate="txbGeboortedatum" ErrorMessage="U bent geen 18 jaar oud." ForeColor="Red" CssClass="validators" Display="Dynamic"></asp:CustomValidator>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txbGeboortedatum" ErrorMessage="Dit veld is verplicht." Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <asp:CustomValidator ID="CustomValidator2" runat="server" ControlToValidate="txbGeboortedatum" ErrorMessage="U bent geen 18 jaar oud." ForeColor="Red" Display="Dynamic"></asp:CustomValidator>
                 </td>
             </tr>
         </table>
@@ -109,7 +109,7 @@
                     </asp:DropDownList>
                 </td>
                 <td style="width: 40%">
-                    <asp:CustomValidator ID="CustomValidator1" runat="server" ControlToValidate="DropDownList2" ErrorMessage="Er moet een land geselecteerd zijn." ValidateEmptyText="True" CssClass="validators" Display="Dynamic"></asp:CustomValidator>
+                    <asp:CustomValidator ID="CustomValidator1" runat="server" ControlToValidate="DropDownList2" ErrorMessage="Er moet een land geselecteerd zijn." ValidateEmptyText="True" Display="Dynamic" ForeColor="Red"></asp:CustomValidator>
                 </td>
             </tr>
             <tr>
@@ -120,8 +120,8 @@
                     <asp:TextBox ID="txbWoonplaats" runat="server" CssClass="textboxchaos"></asp:TextBox>
                 </td>
                 <td style="width: 40%">
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="txbWoonplaats" ErrorMessage="Dit veld is verplicht." CssClass="validators" Display="Dynamic"></asp:RequiredFieldValidator>
-                    <asp:RegularExpressionValidator ID="RegularExpressionValidator6" runat="server" ControlToValidate="txbWoonplaats" ErrorMessage="In een woonplaats staan geen getallen." ValidationExpression="^[a-zA-Z -]*$" ForeColor="Red" CssClass="validators" Display="Dynamic"></asp:RegularExpressionValidator>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="txbWoonplaats" ErrorMessage="Dit veld is verplicht." Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator6" runat="server" ControlToValidate="txbWoonplaats" ErrorMessage="Gebruik alleen letters." ValidationExpression="^[a-zA-Z -]*$" ForeColor="Red" Display="Dynamic"></asp:RegularExpressionValidator>
                 </td>
 
             </tr>
@@ -133,8 +133,8 @@
                     <asp:TextBox ID="txbStraatnaam" runat="server" CssClass="textboxchaos"></asp:TextBox>
                 </td>
                 <td style="width: 40%">
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="txbStraatnaam" ErrorMessage="Dit veld is verplicht." CssClass="validators" Display="Dynamic"></asp:RequiredFieldValidator>
-                    <asp:RegularExpressionValidator ID="RegularExpressionValidator7" runat="server" ControlToValidate="txbStraatnaam" ErrorMessage="In een straatnaam staan geen getallen." ValidationExpression="^[a-zA-Z -]*$" ForeColor="Red" CssClass="validators" Display="Dynamic"></asp:RegularExpressionValidator>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="txbStraatnaam" ErrorMessage="Dit veld is verplicht." Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator7" runat="server" ControlToValidate="txbStraatnaam" ErrorMessage="Gebruik alleen letters." ValidationExpression="^[a-zA-Z -]*$" ForeColor="Red" Display="Dynamic"></asp:RegularExpressionValidator>
                 </td>
             </tr>
             <tr>
@@ -145,8 +145,8 @@
                     <asp:TextBox ID="txbHuisnummer" runat="server" CssClass="textboxchaos"></asp:TextBox>
                 </td>
                 <td style="width: 40%">
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="txbHuisnummer" ErrorMessage="Dit veld is verplicht." CssClass="validators" Display="Dynamic"></asp:RequiredFieldValidator>
-                    <asp:RegularExpressionValidator ID="RegularExpressionValidator8" runat="server" ControlToValidate="txbHuisnummer" ErrorMessage="Huisnummer bestaat uit getallen en letters." ValidationExpression="^[A-Za-z0-9 ]+$" ForeColor="Red" CssClass="validators" Display="Dynamic"></asp:RegularExpressionValidator>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="txbHuisnummer" ErrorMessage="Dit veld is verplicht." Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator8" runat="server" ControlToValidate="txbHuisnummer" ErrorMessage="Huisnummer bestaat uit getallen en letters." ValidationExpression="^[A-Za-z0-9 ]+$" ForeColor="Red" Display="Dynamic"></asp:RegularExpressionValidator>
                 </td>
             </tr>
             <tr>
@@ -157,8 +157,8 @@
                 <asp:TextBox ID="txbPostcode" runat="server" CssClass="textboxchaos"></asp:TextBox>
                      </td>
                  <td style="width: 40%">
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ControlToValidate="txbPostcode" ErrorMessage="Dit veld is verplicht." CssClass="validators" Display="Dynamic"></asp:RequiredFieldValidator>
-                <asp:CustomValidator ID="CustomValidator3" runat="server" ControlToValidate="txbPostcode" CssClass="validators" Display="Dynamic" ErrorMessage="Postcode niet geldig i.c.m. het land." ForeColor="Red" OnServerValidate="CustomValidator3_ServerValidate"></asp:CustomValidator>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ControlToValidate="txbPostcode" ErrorMessage="Dit veld is verplicht." Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
+                <asp:CustomValidator ID="CustomValidator3" runat="server" ControlToValidate="txbPostcode" Display="Dynamic" ErrorMessage="Postcode niet geldig i.c.m. het land." ForeColor="Red" OnServerValidate="CustomValidator3_ServerValidate"></asp:CustomValidator>
                      </td>
             </tr>
             <asp:Label ID="lblUitkomst" runat="server" Text=""></asp:Label>
