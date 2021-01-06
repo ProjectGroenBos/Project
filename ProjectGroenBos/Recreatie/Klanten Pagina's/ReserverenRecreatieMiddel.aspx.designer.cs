@@ -7,30 +7,21 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ProjectGroenBos.Recreatie
+namespace ProjectGroenBos.Recreatie.Klanten_Pagina_s
 {
 
 
-    public partial class Reserverenfaciliteit
+    public partial class ReserverenRecreatieMiddel
     {
 
         /// <summary>
-        /// Calendar1 control.
+        /// Label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar Calendar1;
-
-        /// <summary>
-        /// Button1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
         /// Label2 control.
@@ -42,15 +33,6 @@ namespace ProjectGroenBos.Recreatie
         protected global::System.Web.UI.WebControls.Label Label2;
 
         /// <summary>
-        /// txtActiviteitNaam control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtActiviteitNaam;
-
-        /// <summary>
         /// Label3 control.
         /// </summary>
         /// <remarks>
@@ -58,15 +40,6 @@ namespace ProjectGroenBos.Recreatie
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label3;
-
-        /// <summary>
-        /// txtLocatie control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtLocatie;
 
         /// <summary>
         /// Label4 control.
@@ -78,15 +51,6 @@ namespace ProjectGroenBos.Recreatie
         protected global::System.Web.UI.WebControls.Label Label4;
 
         /// <summary>
-        /// txtInschrijfkosten control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtInschrijfkosten;
-
-        /// <summary>
         /// Label5 control.
         /// </summary>
         /// <remarks>
@@ -94,15 +58,6 @@ namespace ProjectGroenBos.Recreatie
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label5;
-
-        /// <summary>
-        /// txtMaximaalAantal control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtMaximaalAantal;
 
         /// <summary>
         /// Label6 control.
@@ -123,15 +78,6 @@ namespace ProjectGroenBos.Recreatie
         protected global::System.Web.UI.WebControls.Label Label7;
 
         /// <summary>
-        /// txtDatum control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDatum;
-
-        /// <summary>
         /// Label8 control.
         /// </summary>
         /// <remarks>
@@ -141,13 +87,31 @@ namespace ProjectGroenBos.Recreatie
         protected global::System.Web.UI.WebControls.Label Label8;
 
         /// <summary>
-        /// txtBegintijd control.
+        /// Txbnamen control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBegintijd;
+        protected global::System.Web.UI.WebControls.TextBox Txbnamen;
+
+        /// <summary>
+        /// GridView1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GridView1;
+
+        /// <summary>
+        /// BtnVoegtoe control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnVoegtoe;
 
         /// <summary>
         /// Label9 control.
@@ -159,13 +123,13 @@ namespace ProjectGroenBos.Recreatie
         protected global::System.Web.UI.WebControls.Label Label9;
 
         /// <summary>
-        /// txtEindtijd control.
+        /// Button1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEindtijd;
+        protected global::System.Web.UI.WebControls.Button Button1;
 
         /// <summary>
         /// Label10 control.
@@ -177,12 +141,12 @@ namespace ProjectGroenBos.Recreatie
         protected global::System.Web.UI.WebControls.Label Label10;
 
         /// <summary>
-        /// btnAanmelden control.
+        /// btnAanmeldenklant control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAanmelden;
+        protected global::System.Web.UI.WebControls.Button btnAanmeldenklant;
     }
 }

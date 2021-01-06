@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Recreatie/klant2.Master" AutoEventWireup="true" CodeBehind="Klantenoverzichtaanmelding.aspx.cs" Inherits="ProjectGroenBos.Recreatie.Klantenoverzichtaanmelding" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="klant2.Master" AutoEventWireup="true" CodeBehind="Klantenoverzichtaanmelding.aspx.cs" Inherits="ProjectGroenBos.Recreatie.Klantenoverzichtaanmelding" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script>function openModal(modalnaam) {
             $(modalnaam).modal('show');

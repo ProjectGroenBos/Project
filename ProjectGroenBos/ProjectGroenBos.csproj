@@ -71,26 +71,32 @@
   <ItemGroup>
     <Content Include="Financien\css\main.css" />
     <Content Include="Financien\Home.aspx" />
+    <Content Include="Financien\img\Logo.png" />
+    <Content Include="Financien\img\Logo3.png" />
     <Content Include="Financien\Prijstabel.aspx" />
     <Content Include="Gerechten overzicht.aspx" />
     <Content Include="Global.asax" />
-    <Content Include="Recreatie\Aanmeldenactiviteitklant.aspx" />
-    <Content Include="Recreatie\Aanmeldenactiviteitklant2.aspx" />
+    <Content Include="Recreatie\CSS\klantenpaginas.css" />
+    <Content Include="Recreatie\CSS\Stylerecreatiediehetgoeddoet.css" />
+    <Content Include="Recreatie\img\Logo.png" />
+    <Content Include="Recreatie\Klanten Pagina%27s\Aanmeldenactiviteitklant2.aspx" />
     <Content Include="Recreatie\ActiviteitInplannen.aspx" />
     <Content Include="Recreatie\ActiviteitOverzicht.aspx" />
     <Content Include="Recreatie\ActiviteitVerwijderen.aspx" />
     <Content Include="Recreatie\ActiviteitWijzigen.aspx" />
-    <Content Include="Recreatie\CSS\klanten.css" />
-    <Content Include="Recreatie\CSS\klantwebsite.css" />
     <Content Include="Recreatie\CSS\stylerecreatiedieweljuistis.css" />
     <Content Include="Recreatie\img\ascArrow.png" />
     <Content Include="Recreatie\img\descArrow.png" />
     <Content Include="Recreatie\img\Logo12.png" />
     <Content Include="Recreatie\img\Logo9.png" />
     <Content Include="Recreatie\InactiefmakenProductpagina.aspx" />
-    <Content Include="Recreatie\InlogschermKlanten.aspx" />
-    <Content Include="Recreatie\Klantenoverzichtaanmelding.aspx" />
-    <Content Include="Recreatie\MijnAanmeldingen.aspx" />
+    <Content Include="Recreatie\Klanten Pagina%27s\InlogschermKlanten.aspx" />
+    <Content Include="Recreatie\Klanten Pagina%27s\Klantenoverzichtaanmelding.aspx" />
+    <Content Include="Recreatie\Klanten Pagina%27s\MijnAanmeldingen.aspx" />
+    <Content Include="Recreatie\Klanten Pagina%27s\ReserverenRecreatieMiddel.aspx" />
+    <Content Include="Recreatie\Klanten Pagina%27s\OverzichtGehuurdeRecreatieMiddelen.aspx" />
+    <Content Include="Recreatie\Klanten Pagina%27s\OverzichtRecreatieMiddel.aspx" />
+    <Content Include="Recreatie\Nieuwproductbestellen.aspx" />
     <Content Include="Recreatie\ProductPagina.aspx" />
     <Content Include="Recreatie\ProductPaginaInzien.aspx" />
     <Content Include="Recreatie\Voorraad.aspx" />
@@ -412,18 +418,11 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Recreatie\Aanmeldenactiviteitklant.aspx.cs">
-      <DependentUpon>Aanmeldenactiviteitklant.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Recreatie\Aanmeldenactiviteitklant.aspx.designer.cs">
-      <DependentUpon>Aanmeldenactiviteitklant.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Recreatie\Aanmeldenactiviteitklant2.aspx.cs">
+    <Compile Include="Recreatie\Klanten Pagina%27s\Aanmeldenactiviteitklant2.aspx.cs">
       <DependentUpon>Aanmeldenactiviteitklant2.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Recreatie\Aanmeldenactiviteitklant2.aspx.designer.cs">
+    <Compile Include="Recreatie\Klanten Pagina%27s\Aanmeldenactiviteitklant2.aspx.designer.cs">
       <DependentUpon>Aanmeldenactiviteitklant2.aspx</DependentUpon>
     </Compile>
     <Compile Include="Recreatie\ActiviteitInplannen.aspx.cs">
@@ -461,33 +460,61 @@
     <Compile Include="Recreatie\InactiefmakenProductpagina.aspx.designer.cs">
       <DependentUpon>InactiefmakenProductpagina.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Recreatie\InlogschermKlanten.aspx.cs">
+    <Compile Include="Recreatie\Klanten Pagina%27s\InlogschermKlanten.aspx.cs">
       <DependentUpon>InlogschermKlanten.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Recreatie\InlogschermKlanten.aspx.designer.cs">
+    <Compile Include="Recreatie\Klanten Pagina%27s\InlogschermKlanten.aspx.designer.cs">
       <DependentUpon>InlogschermKlanten.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Recreatie\klant2.Master.cs">
+    <Compile Include="Recreatie\Klanten Pagina%27s\klant2.Master.cs">
       <DependentUpon>klant2.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Recreatie\klant2.Master.designer.cs">
+    <Compile Include="Recreatie\Klanten Pagina%27s\klant2.Master.designer.cs">
       <DependentUpon>klant2.Master</DependentUpon>
     </Compile>
-    <Compile Include="Recreatie\Klantenoverzichtaanmelding.aspx.cs">
+    <Compile Include="Recreatie\Klanten Pagina%27s\Klantenoverzichtaanmelding.aspx.cs">
       <DependentUpon>Klantenoverzichtaanmelding.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Recreatie\Klantenoverzichtaanmelding.aspx.designer.cs">
+    <Compile Include="Recreatie\Klanten Pagina%27s\Klantenoverzichtaanmelding.aspx.designer.cs">
       <DependentUpon>Klantenoverzichtaanmelding.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Recreatie\MijnAanmeldingen.aspx.cs">
+    <Compile Include="Recreatie\Klanten Pagina%27s\MijnAanmeldingen.aspx.cs">
       <DependentUpon>MijnAanmeldingen.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Recreatie\MijnAanmeldingen.aspx.designer.cs">
+    <Compile Include="Recreatie\Klanten Pagina%27s\MijnAanmeldingen.aspx.designer.cs">
       <DependentUpon>MijnAanmeldingen.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Recreatie\Klanten Pagina%27s\ReserverenRecreatieMiddel.aspx.cs">
+      <DependentUpon>ReserverenRecreatieMiddel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Recreatie\Klanten Pagina%27s\ReserverenRecreatieMiddel.aspx.designer.cs">
+      <DependentUpon>ReserverenRecreatieMiddel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Recreatie\Klanten Pagina%27s\OverzichtGehuurdeRecreatieMiddelen.aspx.cs">
+      <DependentUpon>OverzichtGehuurdeRecreatieMiddelen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Recreatie\Klanten Pagina%27s\OverzichtGehuurdeRecreatieMiddelen.aspx.designer.cs">
+      <DependentUpon>OverzichtGehuurdeRecreatieMiddelen.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Recreatie\Klanten Pagina%27s\OverzichtRecreatieMiddel.aspx.cs">
+      <DependentUpon>OverzichtRecreatieMiddel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Recreatie\Klanten Pagina%27s\OverzichtRecreatieMiddel.aspx.designer.cs">
+      <DependentUpon>OverzichtRecreatieMiddel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Recreatie\Nieuwproductbestellen.aspx.cs">
+      <DependentUpon>Nieuwproductbestellen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Recreatie\Nieuwproductbestellen.aspx.designer.cs">
+      <DependentUpon>Nieuwproductbestellen.aspx</DependentUpon>
     </Compile>
     <Compile Include="Recreatie\ProductPagina.aspx.cs">
       <DependentUpon>ProductPagina.aspx</DependentUpon>
@@ -774,7 +801,7 @@
     <Content Include="Scripts\jquery\jquery.min.map" />
     <Content Include="Scripts\jquery\jquery.slim.min.map" />
     <Content Include="Schoonmaak en Onderhoud\Schoonmaak.Master" />
-    <Content Include="Recreatie\klant2.Master" />
+    <Content Include="Recreatie\Klanten Pagina%27s\klant2.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
