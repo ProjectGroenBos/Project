@@ -74,7 +74,7 @@
         <p>Dit is een overzicht van alle reserveringen bij recreatiepark Groenbos.</p>
 
 
-        <asp:GridView ID="gvReserveringen" DataKeyNames="Nummer" CssClass="content-table tweedetable" GridLines="None" runat="server" AutoGenerateColumns="false" DataSourceID="SqlDataSource6">
+        <asp:GridView ID="gvReserveringen" DataKeyNames="Nummer" CssClass="content-table tweedetable" GridLines="None" runat="server" AutoGenerateColumns="false" DataSourceID="SqlDataSource6" AllowSorting="True">
             <Columns>
                 <asp:BoundField DataField="Nummer" HeaderText="Reserveringsnummer" InsertVisible="False" SortExpression="Nummer" ReadOnly="True" />
                 <asp:BoundField DataField="Naam" HeaderText="Naam" SortExpression="Naam" ReadOnly="True" />

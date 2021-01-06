@@ -95,7 +95,7 @@
         <h2>Crediteuren-facturen</h2>
         <p>Overzicht van alle crediteurfacturen die nog betaald moeten worden.</p>
 
-        <asp:GridView ID="gvRekeningen" runat="server" CssClass="content-table tweedetable" GridLines="None" AutoGenerateColumns="False" DataSourceID="SqlDataSource6" DataKeyNames="Nummer">
+        <asp:GridView ID="gvRekeningen" runat="server" CssClass="content-table tweedetable" GridLines="None" AutoGenerateColumns="False" DataSourceID="SqlDataSource6" DataKeyNames="Nummer" AllowSorting="True">
             <Columns>
                 <asp:BoundField DataField="Nummer" HeaderText="Factuurnummer" SortExpression="Nummer" ReadOnly="True" />
                 <asp:BoundField DataField="Naam" HeaderText="Naam" SortExpression="Naam" ReadOnly="True" />

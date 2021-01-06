@@ -7,7 +7,7 @@
     <div class="container">
         <h2>Seizoensindeling</h2>
         <p>Dit is de indeling van elk seizoen met zijn begin en einddatum.</p>
-        <asp:GridView ID="gvSeizoenen" CssClass="content-table eerstetable" GridLines="None" DataKeyNames="id" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
+        <asp:GridView ID="gvSeizoenen" CssClass="content-table eerstetable" GridLines="None" DataKeyNames="id" runat="server" AutoGenerateColumns="False" AllowSorting="True" DataSourceID="SqlDataSource1">
             <Columns>
                 <asp:BoundField DataField="id" HeaderText="" InsertVisible="False" ReadOnly="True" SortExpression="id" />
                 <asp:BoundField DataField="seizoen" InsertVisible="False" ReadOnly="True" HeaderText="Seizoen" SortExpression="seizoen" />

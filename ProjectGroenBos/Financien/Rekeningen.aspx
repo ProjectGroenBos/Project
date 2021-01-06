@@ -70,7 +70,7 @@
         <h2>Rekeningen</h2>
         <p>Dit is een overzicht van alle opstaande rekeningen van gasten die aanwezig zijn in het park bij recreatiepark Groenbos.</p>
 
-        <asp:GridView ID="gvRekeningen" runat="server" CssClass="content-table tweedetable" GridLines="None" AutoGenerateColumns="False" DataSourceID="SqlDataSource6" DataKeyNames="Gastnummer">
+        <asp:GridView ID="gvRekeningen" runat="server" CssClass="content-table tweedetable" GridLines="None" AutoGenerateColumns="False" DataSourceID="SqlDataSource6" DataKeyNames="Gastnummer" AllowSorting="True">
             <Columns>
                 <asp:BoundField DataField="Nummer" HeaderText="Reserveringsnummer" SortExpression="Nummer" ReadOnly="True" />
                 <asp:BoundField DataField="Naam" HeaderText="Naam" SortExpression="Naam" ReadOnly="True" />

@@ -76,13 +76,13 @@
 
         <asp:GridView ID="gvReserveringen" DataKeyNames="Nummer" CssClass="content-table tweedetable" GridLines="None" runat="server" AutoGenerateColumns="false" DataSourceID="SqlDataSource6" AllowSorting="True">
             <Columns>
-                <asp:BoundField DataField="Annuleringsdatum" DataFormatString="{0:d}" HeaderText="Annuleringsdatum▼ " SortExpression="Annuleringsdatum" />
-                <asp:BoundField DataField="Nummer" HeaderText="Reserveringsnummer▼ " InsertVisible="False" SortExpression="Nummer" ReadOnly="True" />
-                <asp:BoundField DataField="Naam" HeaderText="Naam▼ " SortExpression="Naam" ReadOnly="True" />
-                <asp:BoundField DataField="Aantal_personen" HeaderText="Aantal Personen▼ " SortExpression="Aantal_personen" />
-                <asp:BoundField DataField="Aankomstdatum" DataFormatString="{0:d}" HeaderText="Aankomstdatum▼ " SortExpression="Aankomstdatum" />
-                <asp:BoundField DataField="Vertrekdatum" DataFormatString="{0:d}" HeaderText="Vertrekdatum▼ " SortExpression="Vertrekdatum" />
-                <asp:BoundField DataField="Omschrijving" HeaderText="Betaalstatus▼ " SortExpression="Omschrijving" />
+                <asp:BoundField DataField="Annuleringsdatum" DataFormatString="{0:d}" HeaderText="Annuleringsdatum" SortExpression="Annuleringsdatum" />
+                <asp:BoundField DataField="Nummer" HeaderText="Reserveringsnummer" InsertVisible="False" SortExpression="Nummer" ReadOnly="True" />
+                <asp:BoundField DataField="Naam" HeaderText="Naam" SortExpression="Naam" ReadOnly="True" />
+                <asp:BoundField DataField="Aantal_personen" HeaderText="Aantal Personen" SortExpression="Aantal_personen" />
+                <asp:BoundField DataField="Aankomstdatum" DataFormatString="{0:d}" HeaderText="Aankomstdatum" SortExpression="Aankomstdatum" />
+                <asp:BoundField DataField="Vertrekdatum" DataFormatString="{0:d}" HeaderText="Vertrekdatum" SortExpression="Vertrekdatum" />
+                <asp:BoundField DataField="Omschrijving" HeaderText="Betaalstatus" SortExpression="Omschrijving" />
                 <asp:TemplateField>
                     <ItemTemplate>
                         <button type="button" style="background-color: #009879; color: #fff" class="btn" data-toggle="modal" data-target="#modal<%# Eval("Nummer") %>">Inzien reservering</button>

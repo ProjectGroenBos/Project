@@ -41,7 +41,7 @@
                 <asp:SqlDataSource ID="SqlDataSource8" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="select Inkooporderregel.InkooporderID as inkoopID,Voorraad.Naam as Naam, Voorraad.Omschrijving as Omschrijving, Inkooporderregel.Hoeveelheid as Hoeveelheid, Inkooporderregel.prijs as Prijs,Leverancier.Naam as Leverancier
 from Inkooporderregel cross join Leverancier left join Voorraad 
 on Inkooporderregel.VoorraadID= Voorraad.ID"></asp:SqlDataSource>
-                 <asp:GridView ID="GridView2" CssClass="content-table" GridLines="None" AutoGenerateColumns="False" Style="text-align: center; margin-left: auto; margin-right: auto; width:auto; height:100px; overflow:scroll"  runat="server" AutoGenerateSelectButton="True" OnSelectedIndexChanged="GridView2_SelectedIndexChanged" DataSourceID="SqlDataSource8">
+                 <asp:GridView ID="GridView2" CssClass="content-table" GridLines="None" AutoGenerateColumns="False" Style="text-align: center; margin-left: auto; margin-right: auto; width:auto; height:100px; overflow:scroll"  runat="server" AutoGenerateSelectButton="True" OnSelectedIndexChanged="GridView2_SelectedIndexChanged" AllowSorting="True" DataSourceID="SqlDataSource8">
                                     <Columns>
                                         <asp:BoundField DataField="inkoopID" HeaderText="inkoopID" ReadOnly="True" SortExpression="inkoopID" />
                                         <asp:BoundField DataField="Naam" HeaderText="Naam" ReadOnly="True" SortExpression="Naam" />
