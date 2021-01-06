@@ -11,22 +11,6 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
 
-    <script>$(document).ready(function () {
-    var date = date.getDate();
-    var maand = date.getMonth();
-    var jaar = date.getFullYear();
-
-                $(function () {
-                    $("#<%= txbDatum.ClientID %>").datepicker({
-                        changeYear: true,
-                        changeMonth: true,
-                        minDate: new Date(jaar, maand, date),
-                        maxDate: 0,
-                    });
-                });
-});
-
-    </script>
 
     <div class="container">
 
@@ -43,7 +27,7 @@
         <br />
         <br />
         <asp:Label ID="Label2" runat="server" Text="Datum tot en met:" CssClass="labelsnieuw"></asp:Label>
-        <asp:TextBox ID="txbDatum" runat="server" CssClass="auto-style1"></asp:TextBox>
+        <asp:TextBox ID="txbDatum" runat="server" CssClass="auto-style1" TextMode="Date"></asp:TextBox>
         <br />
 
         <asp:Button ID="btnZoek" runat="server" Text="Zoek" CssClass="btnUitloggen" OnClick="btnZoek_Click" Style="background-color: #009879; color: #fff" class="btn" />
