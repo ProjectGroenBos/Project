@@ -41,13 +41,16 @@ namespace ProjectGroenBos.Recreatie.Klanten_Pagina_s
                 {
                     rdr.Read();
                     einddatum = DateTime.Parse(rdr["EindDatum"].ToString());
-                    label3.Text = einddatum.ToString();
-                    if (einddatum == DateTime.Now)
-                    {
-                        label3.Text = "TOTOTOTOTOTO";
-                    }
-;                }
 
+                    label3.Text = einddatum.ToString("dd/MM/yyyy");
+                    while (rdr.Read())
+                    {
+                        if (einddatum.ToString("dd/MM/yyyy") == DateTime.Now.ToString("dd/MM/yyyy"))
+                        {
+                            label3.Text = "TOTOTOTOTOTO";
+                        }
+                    }
+                }
             }
         }
         private string SortDirection
