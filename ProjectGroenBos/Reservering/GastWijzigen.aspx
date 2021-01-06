@@ -100,7 +100,7 @@
                     <asp:Label ID="Label5" runat="server" Text="Geboortedatum:" CssClass="labelsnieuw"></asp:Label>
                 </td>
                 <td style="width: 15%">
-                    <asp:TextBox ID="txbGeboortedatum" runat="server" CssClass="textboxchaos" >></asp:TextBox>
+                    <asp:TextBox ID="txbGeboortedatum" runat="server" CssClass="textboxchaos" ></asp:TextBox>
                 </td>
                 <td style="width: 40%"></td>
             </tr>
