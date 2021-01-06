@@ -76,10 +76,17 @@
                         <asp:Label class="productnaam" ID="lblProdnaam" runat="server" Text='<%# Eval("Naam") %>' Font-Bold="True" Font-Size="XX-Large"></asp:Label>
                         <asp:Label ID="Euro" runat="server" Text='€' Font-Size="XX-Large"></asp:Label>
                         <asp:Label ID="lblProdprijs" runat="server" Font-Size="XX-Large" Text='<%# Eval("Prijs") %>'></asp:Label>
-                        <asp:DropDownList ID="ddlHoeveel" runat="server">
+                        <asp:DropDownList ID="ddlHoeveel" runat="server" class="ddlHoeveelheid">
                             <asp:ListItem>1</asp:ListItem>
                             <asp:ListItem>2</asp:ListItem>
                             <asp:ListItem>3</asp:ListItem>
+                            <asp:ListItem>4</asp:ListItem>
+                            <asp:ListItem>5</asp:ListItem>
+                            <asp:ListItem>6</asp:ListItem>
+                            <asp:ListItem>7</asp:ListItem>
+                            <asp:ListItem>8</asp:ListItem>
+                            <asp:ListItem>9</asp:ListItem>
+                            <asp:ListItem>10</asp:ListItem>
                         </asp:DropDownList>
                         <asp:Button class="toevoegen" ID="btnProdtoevoegen" runat="server" Text="Toevoegen" CommandArgument='<%# Eval("ID")%>' CommandName="toevoegen" />
                     </div>
@@ -97,10 +104,17 @@
                         <asp:Label class="productnaam" ID="lblProdnaam" runat="server" Text='<%# Eval("Naam") %>' Font-Bold="True" Font-Size="XX-Large"></asp:Label>
                         <asp:Label ID="Euro" runat="server" Text='€' Font-Size="XX-Large"></asp:Label>
                         <asp:Label ID="lblProdprijs" runat="server" Font-Size="XX-Large" Text='<%# Eval("Prijs") %>'></asp:Label>
-                        <asp:DropDownList ID="ddlHoeveel" runat="server">
+                        <asp:DropDownList ID="ddlHoeveel" runat="server" class="ddlHoeveelheid">
                             <asp:ListItem>1</asp:ListItem>
                             <asp:ListItem>2</asp:ListItem>
                             <asp:ListItem>3</asp:ListItem>
+                            <asp:ListItem>4</asp:ListItem>
+                            <asp:ListItem>5</asp:ListItem>
+                            <asp:ListItem>6</asp:ListItem>
+                            <asp:ListItem>7</asp:ListItem>
+                            <asp:ListItem>8</asp:ListItem>
+                            <asp:ListItem>9</asp:ListItem>
+                            <asp:ListItem>10</asp:ListItem>
                         </asp:DropDownList>
                         <asp:Button class="toevoegen" ID="btnProdtoevoegen" runat="server" Text="Toevoegen" CommandArgument='<%# Eval("ID")%>' CommandName="toevoegen" />
                     </div>
@@ -118,10 +132,17 @@
                         <asp:Label class="productnaam" ID="lblProdnaam" runat="server" Text='<%# Eval("Naam") %>' Font-Bold="True" Font-Size="XX-Large"></asp:Label>
                         <asp:Label ID="Euro" runat="server" Text='€' Font-Size="XX-Large"></asp:Label>
                         <asp:Label ID="lblProdprijs" runat="server" Font-Size="XX-Large" Text='<%# Eval("Prijs") %>'></asp:Label>
-                        <asp:DropDownList ID="ddlHoeveel" runat="server">
+                        <asp:DropDownList ID="ddlHoeveel" runat="server" class="ddlHoeveelheid">
                             <asp:ListItem>1</asp:ListItem>
                             <asp:ListItem>2</asp:ListItem>
                             <asp:ListItem>3</asp:ListItem>
+                            <asp:ListItem>4</asp:ListItem>
+                            <asp:ListItem>5</asp:ListItem>
+                            <asp:ListItem>6</asp:ListItem>
+                            <asp:ListItem>7</asp:ListItem>
+                            <asp:ListItem>8</asp:ListItem>
+                            <asp:ListItem>9</asp:ListItem>
+                            <asp:ListItem>10</asp:ListItem>
                         </asp:DropDownList>
                         <asp:Button class="toevoegen" ID="btnProdtoevoegen" runat="server" Text="Toevoegen" CommandArgument='<%# Eval("ID")%>' CommandName="toevoegen" />
                     </div>
@@ -139,10 +160,17 @@
                         <asp:Label class="productnaam" ID="lblProdnaam" runat="server" Text='<%# Eval("Naam") %>' Font-Bold="True" Font-Size="XX-Large"></asp:Label>
                         <asp:Label ID="Euro" runat="server" Text='€' Font-Size="XX-Large"></asp:Label>
                         <asp:Label ID="lblProdprijs" runat="server" Font-Size="XX-Large" Text='<%# Eval("Prijs") %>'></asp:Label>
-                        <asp:DropDownList ID="ddlHoeveel" runat="server">
+                        <asp:DropDownList ID="ddlHoeveel" runat="server" class="ddlHoeveelheid">
                             <asp:ListItem>1</asp:ListItem>
                             <asp:ListItem>2</asp:ListItem>
                             <asp:ListItem>3</asp:ListItem>
+                            <asp:ListItem>4</asp:ListItem>
+                            <asp:ListItem>5</asp:ListItem>
+                            <asp:ListItem>6</asp:ListItem>
+                            <asp:ListItem>7</asp:ListItem>
+                            <asp:ListItem>8</asp:ListItem>
+                            <asp:ListItem>9</asp:ListItem>
+                            <asp:ListItem>10</asp:ListItem>
                         </asp:DropDownList>
                         <asp:Button class="toevoegen" ID="btnProdtoevoegen" runat="server" Text="Toevoegen" CommandArgument='<%# Eval("ID")%>' CommandName="toevoegen" />
                     </div>

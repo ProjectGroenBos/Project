@@ -22,7 +22,9 @@ namespace ProjectGroenBos.Restaurant
                 Response.Redirect("Tafeloverzicht.aspx");
             }
 
-
+            txtBungalownummer.Enabled = false;
+            btnJa.Enabled = true;
+            btnNee.Enabled = false;
 
         }
 
@@ -48,9 +50,9 @@ namespace ProjectGroenBos.Restaurant
                 lblOutput.Text = "U kunt niet in het verleden reserveren";
                 return;
             }
-        
 
-           
+
+
 
 
 
@@ -102,7 +104,7 @@ namespace ProjectGroenBos.Restaurant
             con.Open();
             if (txtBungalownummer.Text != "")
             {
-                SqlCommand cmd = new SqlCommand("SELECT Gast.Voornaam, Gast.Tussenvoegsel, Gast.Achternaam FROM Reservering INNER JOIN Reservering_Bungalow ON Reservering.Nummer = Reservering_Bungalow.ReserveringNummer INNER JOIN Bungalow ON Reservering_Bungalow.BungalowNummer = Bungalow.Nummer INNER JOIN Gast ON Reservering.GastNummer = Gast.Nummer where Bungalow.Nummer = @BungalowNummer and Aankomstdatum <= getdate() and Vertrekdatum >= getdate()",con);
+                SqlCommand cmd = new SqlCommand("SELECT Gast.Voornaam, Gast.Tussenvoegsel, Gast.Achternaam FROM Reservering INNER JOIN Reservering_Bungalow ON Reservering.Nummer = Reservering_Bungalow.ReserveringNummer INNER JOIN Bungalow ON Reservering_Bungalow.BungalowNummer = Bungalow.Nummer INNER JOIN Gast ON Reservering.GastNummer = Gast.Nummer where Bungalow.Nummer = @BungalowNummer and Aankomstdatum <= getdate() and Vertrekdatum >= getdate()", con);
                 cmd.Parameters.AddWithValue("@Bungalownummer", int.Parse(txtBungalownummer.Text));
                 SqlDataReader da = cmd.ExecuteReader();
                 while (da.Read())

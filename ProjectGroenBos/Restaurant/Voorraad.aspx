@@ -1,11 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Restaurant/Restaurant.Master" AutoEventWireup="true" CodeBehind="Voorraad.aspx.cs" Inherits="ProjectGroenBos.Restaurant.Voorraad" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <link rel="stylesheet" href="Voorraad.css">
+    <link rel="stylesheet" href="voorraad.css">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="werkgebied">
-        <h1>Voorraad overzicht</h1>
+        <h1>Voorraad Muteren</h1>
         <div>
             <%--Hier begint de zoekbalk--%>
             <p class="auto-style2">
@@ -18,19 +18,9 @@
             <%--Hier begint de gridview--%>
             <asp:GridView ID="gvBekijkenVoorraad" runat="server" AutoGenerateColumns="False" ShowFooter="true" DataKeyNames="ID" ShowHeaderWhenEmpty="true"
                 OnRowCommand="gvBekijkenVoorraad_rowcommand" OnRowEditing="gvBekijkenVoorraad_rowediting" OnRowCancelingEdit="gvBekijkenVoorraad_rowcancelingedit" OnRowUpdating="gvBekijkenVoorraad_rowupdating" OnRowDeleting="gvBekijkenVoorraad_rowdeleting"
-                CellPadding="4" ForeColor="#333333" GridLines="none" Width="90%" Align="center" OnSelectedIndexChanged="gvBekijkenVoorraad_selectedindexchanged" CssClass="auto-style1">
+                CellPadding="4" ForeColor="#333333" GridLines="none" Width="90%" Align="center" OnSelectedIndexChanged="gvBekijkenVoorraad_selectedindexchanged" CssClass="content-table">
 
-                <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
-                <EditRowStyle BackColor="#999999" />
-                <FooterStyle BackColor="#10715e" Font-Bold="True" ForeColor="White" />
-                <HeaderStyle BackColor="#10715e" Font-Bold="True" ForeColor="White" />
-                <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
-                <RowStyle BackColor="#7fb241" ForeColor="#333333" />
-                <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
-                <SortedAscendingCellStyle BackColor="#e9e7e2" />
-                <SortedAscendingHeaderStyle BackColor="#506C8C" />
-                <SortedDescendingCellStyle BackColor="#FFFDF8" />
-                <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+                
 
 
                 <Columns>
@@ -135,10 +125,9 @@
             </asp:GridView>
 
             <%--Hier beginnnen de labels die onder de gridview staan--%>
-            <asp:Label ID="Label1" runat="server" Text="Het BTW tarief is onderverdeeld onder 2 catogorieën 1 is het hoge tarief en 2 is het lage tarief"></asp:Label>
-
-
-            <br />
+            BTW Tarief legenda:<br />
+            Tarief 1 = Hoge tarief(21%)<br />
+            Tarief 2 = Lage tarief(9%)<br />
             <asp:Label ID="lblSuccessMessage" Text="" runat="server" ForeColor="Green" />
             <br />
 

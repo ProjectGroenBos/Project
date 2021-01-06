@@ -21,6 +21,30 @@ namespace ProjectGroenBos.Restaurant
             {
                 InvullenGridview();
             }
+            functiescheiding();
+        }
+
+        private void functiescheiding()
+        {
+            //controleren of de ingelogde persoon geautoriseerd is om af te mogen rekenen
+            int functieID = int.Parse(Session["Functie"].ToString());
+
+            if (functieID == 5)
+            {
+
+            }
+            else if (functieID == 6)
+            {
+
+            }
+            else if (functieID == 10)
+            {
+
+            }
+            else
+            {
+                Response.Redirect("~/Restaurant/home.aspx");
+            }
         }
 
         protected void btnBevestig_Click(object sender, EventArgs e)
@@ -99,7 +123,7 @@ namespace ProjectGroenBos.Restaurant
                     using (SqlConnection sqlCon = new SqlConnection(connectionString))
                     {
                         sqlCon.Open();
-                        String query = "INSERT INTO Voorraad (Aantal, Naam, Prijs, [Minimum voorraad], [BTW tariefID], Omschrijving) VALUES (@aantal,@naam,@prijs,@minimumvoorraad,@btwtarief,@omschrijving)";
+                        String query = "INSERT INTO Voorraad (Aantal, Naam, Prijs, [Minimum voorraad], [BTW tariefID], Omschrijving, LeverancierID) VALUES (@aantal,@naam,@prijs,@minimumvoorraad,@btwtarief,@omschrijving,@LeverancierID)";
                         SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
                         sqlCmd.Parameters.AddWithValue("@aantal", (gvBekijkenVoorraad.FooterRow.FindControl("txtAantalVoorraadFooter") as TextBox).Text.Trim());
                         sqlCmd.Parameters.AddWithValue("@naam", (gvBekijkenVoorraad.FooterRow.FindControl("txtProductNaamFooter") as TextBox).Text.Trim());
@@ -107,6 +131,7 @@ namespace ProjectGroenBos.Restaurant
                         sqlCmd.Parameters.AddWithValue("@minimumvoorraad", (gvBekijkenVoorraad.FooterRow.FindControl("txtMinimumVoorraadFooter") as TextBox).Text.Trim());
                         sqlCmd.Parameters.AddWithValue("@btwtarief", (gvBekijkenVoorraad.FooterRow.FindControl("txtBTWTariefFooter") as TextBox).Text.Trim());
                         SqlParameter sqlParameter = sqlCmd.Parameters.AddWithValue("@omschrijving", "Voedsel".Trim());
+                        SqlParameter sqlParameter1 = sqlCmd.Parameters.AddWithValue("@LeverancierID", "4".Trim());
                         sqlCmd.ExecuteNonQuery();
                         InvullenGridview();
                         lblSuccessMessage.Text = "Product toegevoegd aan voorraad";
@@ -191,6 +216,6 @@ namespace ProjectGroenBos.Restaurant
                 lblErrorMessage.Text = ex.Message;
                 throw;
             }
-}
+        }
     }
 }

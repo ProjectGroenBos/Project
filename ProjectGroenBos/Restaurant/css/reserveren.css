@@ -16,7 +16,8 @@
     padding: 20px;
     background-color: #148f77;
     border: #148f77;
-    border-radius: 52px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
 .contentvak2 {
@@ -29,7 +30,8 @@
     padding: 20px;
     background-color: #148f77;
     border: #148f77;
-    border-radius: 52px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
 .informatietitel {
@@ -53,12 +55,22 @@
     width: 40%;
     font-size: x-large;
     border: 2px solid #343434;
+    border-radius: 15px;
+}
+
+.aspNetDisabled{
+    width: 40%;
+    font-size: x-large;
+    border: 2px solid #343434;
+    border-radius: 15px;
+    opacity: 50;
 }
 
 .DropDown {
     width: 40%;
     font-size: x-large;
     border: 2px solid #343434;
+    border-radius: 15px;
 }
 
 .reserveerknop {
@@ -67,10 +79,29 @@
     text-align: center;
     background-color: #148f77;
     border: none;
-    border-radius: 52px;
+    border-radius: 15px;
     font-weight: bold;
     font-size: xx-large;
     padding: 20px 20px 20px 20px;
-    margin-top: 20px;
+    margin-top: 10px;
     float: right;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.cocacontainer{
+    height: 540px;
+}
+
+#btnJa,
+#btnNee,
+#ContentPlaceHolder1_btnJa,
+#ContentPlaceHolder1_btnNee {
+    border: 2px solid #343434;
+    border-radius: 15px;
+    width: 17%;
+}
+
+#btnNee,
+#ContentPlaceHolder1_btnNee {
+    margin-left: 5%;
 }

@@ -11,43 +11,43 @@ namespace ProjectGroenBos.Restaurant
 {
 
 
-    public partial class Voorraad
+    public partial class OrderPaginaNonFood
     {
 
         /// <summary>
-        /// txbZoeken control.
+        /// pdfbody control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txbZoeken;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pdfbody;
 
         /// <summary>
-        /// gvBekijkenVoorraad control.
+        /// gvOrderBekijken control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvBekijkenVoorraad;
+        protected global::System.Web.UI.WebControls.GridView gvOrderBekijken;
 
         /// <summary>
-        /// lblSuccessMessage control.
+        /// SqlDataSource6 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSuccessMessage;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource6;
 
         /// <summary>
-        /// lblErrorMessage control.
+        /// rpReservering control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblErrorMessage;
+        protected global::System.Web.UI.WebControls.Repeater rpReservering;
     }
 }
