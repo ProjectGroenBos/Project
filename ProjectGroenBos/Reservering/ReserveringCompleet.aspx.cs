@@ -15,21 +15,7 @@ namespace ProjectGroenBos.Reservering
         {
             if (Session["prijs"] != null)
             {
-                double totaal = double.Parse(Session["prijs"].ToString());
-                double betaald = double.Parse(Session["betaald"].ToString());
 
-                lblTotaal.Text = totaal.ToString();
-                lblBetalen.Text = betaald.ToString();
-
-                double later = totaal - betaald;
-
-                lblLater.Text = later.ToString();
-
-                lblReservering.Text = Session["reserveringnummer300"].ToString();
-                lblPersonen.Text = Session["personen"].ToString();
-                lblAankomst.Text = Session["aankomstdatum"].ToString();
-                lblVertrek.Text = Session["vertrekdatum"].ToString();
-                lblEmail.Text = Session["email"].ToString();
             }
             else
             {

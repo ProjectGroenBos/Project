@@ -42,6 +42,7 @@ namespace ProjectGroenBos.Reservering
             string straat = txbStraatnaam.Text;
             string huisnummer = txbHuisnummer.Text;
             string postcode = txbPostcode.Text;
+            string iban = txbIBAN.Text;
 
             DateTime geboortedatum = new DateTime();
 
@@ -108,7 +109,7 @@ namespace ProjectGroenBos.Reservering
             {
                 try
                 {
-                    InsGast(voornaam, tussenvoegsel, achternaam, email, telefoonnummereind, geboortedatum);
+                    InsGast(voornaam, tussenvoegsel, achternaam, email, telefoonnummereind, geboortedatum, iban);
                     int gastnummer = GetNummer(achternaam);
 
                     if (gastnummer == 0)
@@ -160,7 +161,7 @@ namespace ProjectGroenBos.Reservering
             }
         }
 
-        private void InsGast(string voornaam, string tussenvoegsel, string achternaam, string email, string telefoonnummer, DateTime geboortedatum)
+        private void InsGast(string voornaam, string tussenvoegsel, string achternaam, string email, string telefoonnummer, DateTime geboortedatum, string iban)
         {
             using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["2020-BIM02-P1-P2-GroenbosConnectionString"].ConnectionString))
             {
@@ -177,6 +178,7 @@ namespace ProjectGroenBos.Reservering
                     cmd.Parameters.AddWithValue("@Achternaam", achternaam);
                     cmd.Parameters.AddWithValue("@Telefoonnummer", telefoonnummer);
                     cmd.Parameters.AddWithValue("@Email", email);
+                    cmd.Parameters.AddWithValue("@iban", iban);
                     cmd.Parameters.AddWithValue("@Geboortedatum", geboortedatum);
 
                     cmd.CommandType = System.Data.CommandType.StoredProcedure;

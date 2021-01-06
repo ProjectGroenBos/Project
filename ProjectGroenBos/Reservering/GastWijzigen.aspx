@@ -16,7 +16,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <div class="container">
         
-        <h2>Gast aanmaken</h2>
+        <h2>Gast wijzigen</h2>
         <p>Vul hier de gegevens van de gast in om deze in de database neer te zetten.</p>
         <h2>Persoonsgegevens:</h2>
         <p></p>
@@ -204,6 +204,7 @@
         </table>
 
         <br />
+        <asp:Label ID="lblUitkomst" runat="server" Text="Label"></asp:Label>
         <br />
         <br />
         <asp:Button ID="btnWijzigen" runat="server" Text="Wijzigen" CssClass="btnUitloggen" Style="background-color: #009879; color: #fff" class="btn" OnClick="btnWijzigen_Click" />

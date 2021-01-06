@@ -429,6 +429,15 @@ namespace ProjectGroenBos.Reservering
         protected global::System.Web.UI.WebControls.CustomValidator CustomValidator3;
 
         /// <summary>
+        /// lblUitkomst control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblUitkomst;
+
+        /// <summary>
         /// btnWijzigen control.
         /// </summary>
         /// <remarks>
