@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Financien/Financien.Master" AutoEventWireup="true" CodeBehind="OrderPagina.aspx.cs" Inherits="ProjectGroenBos.Restaurant.OrderPagina" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Financien/Financien.Master" AutoEventWireup="true" CodeBehind="OrderPaginaNonFood.aspx.cs" Inherits="ProjectGroenBos.Restaurant.OrderPaginaNonFood" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
         @media print {
@@ -479,7 +479,7 @@ margin-top: 10%
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="header">Goedkeuring Food orders</div>
+    <div class="header">Goedkeuring Non-Food orders</div>
     <div class="container" runat="server" id="pdfbody">
 
         <asp:GridView ID="gvOrderBekijken" DataKeyNames="Nummer" CssClass="content-table tweedetable" GridLines="None" runat="server" AutoGenerateColumns="false" DataSourceID="SqlDataSource6">
@@ -495,7 +495,7 @@ margin-top: 10%
             </Columns>
         </asp:GridView>
 
-        <asp:SqlDataSource ID="SqlDataSource6" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="select * from VoedselRestaurantInkoopOrder inner join Leverancier on Leverancier.ID = VoedselRestaurantInkoopOrder.LeverancierID WHERE Aanvraagstatus = 4"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSource6" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="select * from InkoopOrderAanvraag INNER JOIN Leverancier ON InkoopOrderAanvraag.LeverancierID = Leverancier.ID WHERE InkoopOrderAanvraagstatusID = 4"></asp:SqlDataSource>
         <br />
     </div>
 
@@ -582,10 +582,10 @@ margin-top: 10%
                                 </table>--%>
 
                                 <asp:SqlDataSource ID="SqlDataSource7" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT *
-FROM     VoedselRestaurantAanvraagRegels INNER JOIN
-                  VoedselRestaurantInkoopOrder ON VoedselRestaurantAanvraagRegels.VoedselOrderAanvraag = VoedselRestaurantInkoopOrder.Nummer INNER JOIN
-                  InkoopOrderAanvraagStatus ON VoedselRestaurantInkoopOrder.Aanvraagstatus = InkoopOrderAanvraagStatus.ID INNER JOIN
-                  Voorraad ON VoedselRestaurantAanvraagRegels.VoorraadID = Voorraad.ID where nummer = @nummer">
+FROM     InkoopAanvraagRegels INNER JOIN
+                  InkoopOrderAanvraag ON InkoopAanvraagRegels.InkoopOrderAanvraagNummer = InkoopOrderAanvraag.Nummer INNER JOIN
+                  InkoopOrderAanvraagStatus ON InkoopOrderAanvraag.InkoopOrderAanvraagStatusID = InkoopOrderAanvraagStatus.ID INNER JOIN
+                  Voorraad ON InkoopAanvraagRegels.VoorraadID = Voorraad.ID where nummer = @nummer">
                                     <SelectParameters>
                                         <asp:ControlParameter
                                             Name="Nummer"

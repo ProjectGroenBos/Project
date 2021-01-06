@@ -18,12 +18,37 @@ namespace ProjectGroenBos.Restaurant
     {
         //Connectionstring
         string constr = System.Configuration.ConfigurationManager.ConnectionStrings["dbconnectie"].ConnectionString;
+        int gridviewnr;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 Repeater();
+            }
+            functiescheiding();
+        }
+
+        private void functiescheiding()
+        {
+            //controleren of de ingelogde persoon geautoriseerd is om af te mogen rekenen
+            int functieID = int.Parse(Session["Functie"].ToString());
+
+            if (functieID == 5)
+            {
+
+            }
+            else if (functieID == 6)
+            {
+
+            }
+            else if (functieID == 10)
+            {
+
+            }
+            else
+            {
+                Response.Redirect("~/Restaurant/home.aspx");
             }
         }
 
@@ -46,23 +71,29 @@ namespace ProjectGroenBos.Restaurant
             }
         }
 
-        private int Totaalbedrag()
+        private string Totaalbedrag()
         {
+            string Bestelnummer = "0";
             using (SqlConnection connection = new SqlConnection(constr))
             {
                 int nummer = ophalenbestelnummer();
                 connection.Open();
-                string selectquery = "SELECT cast(SUM(RegelTotaal) AS DECIMAL(18,2)) AS Totaalbedrag FROM InkoopOrderFoodView WHERE Bestelnummer =" + nummer + "";
+                string selectquery = "SELECT  Totaalregel FROM InkoopOrderFoodView WHERE Bestelnummer = @nummer";
                 SqlCommand sqlComd = new SqlCommand(selectquery, connection);
-                SqlDataReader r;
-                r = sqlComd.ExecuteReader();
-
-                int Bestelnummer = 0;
-
-                while (r.Read())
+                SqlParameter sqlParameter0 = sqlComd.Parameters.AddWithValue("@Nummer", nummer);
+                //SqlDataReader r;
+                //r = sqlComd.ExecuteReader();
+                using (SqlDataReader sdr = sqlComd.ExecuteReader())
                 {
-                    Bestelnummer = (int)r[0];
+                    sdr.Read();
+                    Bestelnummer = sdr["Totaalregel"].ToString();
                 }
+                //string Bestelnummer = 0;
+
+                //while (r.Read())
+                //{
+                //    Bestelnummer = (decimal)r[0];
+                //}
                 connection.Close();
                 return Bestelnummer;
             }
@@ -72,19 +103,22 @@ namespace ProjectGroenBos.Restaurant
         {
             using (SqlConnection connection = new SqlConnection(constr))
             {
-
+                HiddenField nummer2 = (HiddenField)rpReservering.Items[gridviewnr].FindControl("Nummer");
+                string nummer = nummer2.Value;
                 connection.Open();
-                string selectquery = "SELECT Bestelnummer FROM VoedselRestaurantAanvraagRegels INNER JOIN VoedselRestaurantInkoopOrder ON VoedselRestaurantAanvraagRegels.VoedselOrderAanvraag = VoedselRestaurantInkoopOrder.Nummer INNER JOIN InkoopOrderAanvraagStatus ON VoedselRestaurantInkoopOrder.Aanvraagstatus = InkoopOrderAanvraagStatus.ID INNER JOIN Voorraad ON VoedselRestaurantAanvraagRegels.VoorraadID = Voorraad.ID where nummer = @nummer";
-                SqlCommand sqlComd = new SqlCommand(selectquery, connection);
+                string selectquery = "SELECT distinct Bestelnummer FROM VoedselRestaurantAanvraagRegels INNER JOIN VoedselRestaurantInkoopOrder ON VoedselRestaurantAanvraagRegels.VoedselOrderAanvraag = VoedselRestaurantInkoopOrder.Nummer INNER JOIN InkoopOrderAanvraagStatus ON VoedselRestaurantInkoopOrder.Aanvraagstatus = InkoopOrderAanvraagStatus.ID INNER JOIN Voorraad ON VoedselRestaurantAanvraagRegels.VoorraadID = Voorraad.ID where nummer = @nummer";
+                SqlCommand sqlCmd = new SqlCommand(selectquery, connection);
+                SqlParameter sqlParameter0 = sqlCmd.Parameters.AddWithValue("@Nummer", nummer);
                 SqlDataReader r;
-                r = sqlComd.ExecuteReader();
+                //r = sqlCmd.ExecuteReader();
+                string Bestelnummer2 = (string)sqlCmd.ExecuteScalar();
+                int Bestelnummer = int.Parse(Bestelnummer2);
+                //int Bestelnummer = 0;
 
-                int Bestelnummer = 0;
-
-                while (r.Read())
-                {
-                    Bestelnummer = (int)r[0];
-                }
+                //while (r.Read())
+                //{
+                //    Bestelnummer = (int)r[0];
+                //}
                 connection.Close();
                 return Bestelnummer;
             }
@@ -114,21 +148,40 @@ namespace ProjectGroenBos.Restaurant
 
         private int leverancierid()
         {
+            int leverancierid = 0;
             using (SqlConnection connection = new SqlConnection(constr))
             {
                 int nummer = ophalenbestelnummer();
+                //connection.Open();
+                //string selectquery = "SELECT ID FROM Leverancier WHERE Bestelnummer =" + nummer + "";
+                //SqlCommand sqlComd = new SqlCommand(selectquery, connection);
+                //SqlDataReader r;
+                //r = sqlComd.ExecuteReader();
+
+                //int leverancierid = 0;
+
+                //while (r.Read())
+                //{
+                //    leverancierid = (int)r[0];
+                //}
+                //connection.Close();
                 connection.Open();
-                string selectquery = "SELECT ID FROM Leverancier WHERE Bestelnummer =" + nummer + "";
+                string selectquery = "SELECT LeverancierID FROM InkoopOrderFoodView WHERE Bestelnummer = @nummer";
                 SqlCommand sqlComd = new SqlCommand(selectquery, connection);
-                SqlDataReader r;
-                r = sqlComd.ExecuteReader();
-
-                int leverancierid = 0;
-
-                while (r.Read())
+                SqlParameter sqlParameter0 = sqlComd.Parameters.AddWithValue("@Nummer", nummer);
+                //SqlDataReader r;
+                //r = sqlComd.ExecuteReader();
+                using (SqlDataReader sdr = sqlComd.ExecuteReader())
                 {
-                    leverancierid = (int)r[0];
+                    sdr.Read();
+                    leverancierid = int.Parse(sdr["LeverancierID"].ToString());
                 }
+                //string Bestelnummer = 0;
+
+                //while (r.Read())
+                //{
+                //    Bestelnummer = (decimal)r[0];
+                //}
                 connection.Close();
                 return leverancierid;
             }
@@ -138,7 +191,7 @@ namespace ProjectGroenBos.Restaurant
         {
             using (SqlConnection sqlCon = new SqlConnection(constr))
             {
-                int Totaalbedragen = Totaalbedrag();
+                string Totaalbedragen = Totaalbedrag();
                 double Tot = Convert.ToDouble(Totaalbedragen);
 
                 int voedselorder = voedselorderid();
@@ -185,8 +238,14 @@ namespace ProjectGroenBos.Restaurant
 
         protected void btnGoedkeuren_Click(object sender, EventArgs e)
         {
+            Button btn = sender as Button;
+
+            gridviewnr = int.Parse(btn.CommandName);
             InsertInfo();
             statusverandering();
+            gvOrderBekijken.DataBind();
         }
+        
+
     }
 }

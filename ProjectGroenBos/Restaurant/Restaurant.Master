@@ -47,7 +47,8 @@
                         <li><a href="Voorraad.aspx">Voorraad Muteren</a></li>
                         <li><a href="BestellenFood.aspx">Bestellen Food</a></li>
                         <li><a href="BestellenNonFood.aspx">Bestellen Non-Food</a></li>
-                        <li><a href="OrderPagina.aspx">Order</a></li>
+                        <li><a href="OrderPagina.aspx">Order Food</a></li>
+                        <li><a href="OrderPaginaNonFood.aspx">Order Non-Food</a></li>
                         </ul>
                     </li>
                 </ul>
