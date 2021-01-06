@@ -257,6 +257,11 @@ body {
     vertical-align: top;
     margin-top: 5%;
 }
+th.sortasc a {
+    display: block;
+    padding: 0 4px 0 15px;
+    background: url(img/angle.jpg) no-repeat;
+}
 
 /* BUTTONS */
 .btnToevoegen {

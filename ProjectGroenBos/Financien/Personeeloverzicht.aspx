@@ -18,8 +18,8 @@
                 <asp:TemplateField HeaderText="Naam" SortExpression="Naam">
                     <EditItemTemplate>
                         <asp:TextBox ID="TBnaam" runat="server" Text='<%# Bind("Naam") %>'></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="Naam" runat="server" ErrorMessage="*" ControlToValidate="TBnaam" ForeColor="red" ValidationGroup="Validation" Display="Dynamic"></asp:RequiredFieldValidator>
-                        <asp:RegularExpressionValidator ID="Naam1" runat="server" ErrorMessage="Bijv. Cor Netto" ControlToValidate="TBnaam" ForeColor="Red" ValidationExpression="[a-zA-Z\.\'\-_\s]+[ëäÄÉéöÖüÜß\w-]{1,40}" ValidationGroup="Validation" Display="Dynamic"></asp:RegularExpressionValidator>                    
+                            <asp:RequiredFieldValidator ID="Naam" runat="server" ErrorMessage="*" ControlToValidate="TBnaam" ForeColor="red" ValidationGroup="Validation1" Display="Dynamic"></asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="Naam1" runat="server" ErrorMessage="Bijv. Cor Netto" ControlToValidate="TBnaam" ForeColor="Red" ValidationExpression="[a-zA-Z\.\'\-_\s]+[ëäÄÉéöÖüÜß\w-]{1,40}" ValidationGroup="Validation1" Display="Dynamic"></asp:RegularExpressionValidator>                    
                     </EditItemTemplate>
                     <ItemTemplate>
                         <asp:Label ID="Label1" runat="server" Text='<%# Bind("Naam") %>'></asp:Label>
@@ -28,9 +28,9 @@
                
                 <asp:TemplateField HeaderText="Geboortedatum" SortExpression="Geboortedatum">
                     <EditItemTemplate>
-                        <asp:TextBox ID="TBGB" runat="server" Text='<%# Bind("Geboortedatum", "{0:dd/MM/yyyy}") %>'></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="Geboortedatum" runat="server" ErrorMessage="*" ControlToValidate="TBGB" ForeColor="red" ValidationGroup="Validation" Display="Dynamic"></asp:RequiredFieldValidator>
-                        <asp:RegularExpressionValidator ID="Geboortedatum1" runat="server" ErrorMessage="dd/MM/yyyy" ControlToValidate="TBGB" ForeColor="Red" ValidationExpression="(^((((0[1-9])|([1-2][0-9])|(3[0-1]))|([1-9]))-(((0[1-9])|(1[0-2]))|([1-9]))-(([0-9]{2})|(((19)|([2]([0]{1})))([0-9]{2}))))$)" ValidationGroup="Validation" Display="Dynamic"></asp:RegularExpressionValidator>
+                        <asp:TextBox ID="TBGB" runat="server" Text='<%# Bind("Geboortedatum", "{0:dd/MM/yyyy}") %>' ></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="Geboortedatum" runat="server" ErrorMessage="*" ControlToValidate="TBGB" ForeColor="red" ValidationGroup="Validation1" Display="Dynamic"></asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="Geboortedatum1" runat="server" ErrorMessage="dd/MM/yyyy" ControlToValidate="TBGB" ForeColor="Red" ValidationExpression="(^((((0[1-9])|([1-2][0-9])|(3[0-1]))|([1-9]))-(((0[1-9])|(1[0-2]))|([1-9]))-(([0-9]{2})|(((19)|([2]([0]{1})))([0-9]{2}))))$)" ValidationGroup="Validation1" Display="Dynamic"></asp:RegularExpressionValidator>
                     </EditItemTemplate>
                     <ItemTemplate>
                         <asp:Label ID="Label2" runat="server" Text='<%# Bind("Geboortedatum", "{0:dd/MM/yyyy}") %>'></asp:Label>
@@ -40,9 +40,9 @@
               
                 <asp:TemplateField HeaderText="Salaris" SortExpression="Salaris">
                     <EditItemTemplate>
-                        <asp:TextBox ID="TBspm" runat="server" Text='<%# Bind("Salaris_per_maand") %>'></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="Salaris" runat="server" ErrorMessage="*" ControlToValidate="TBspm" ForeColor="red" ValidationGroup="Validation" Display="Dynamic"></asp:RequiredFieldValidator>
-                        <asp:RegularExpressionValidator ID="Salaris1" runat="server" ErrorMessage="bijv. 5000" ControlToValidate="TBspm" ForeColor="Red" ValidationExpression="^\d{0,8}(\,\d{1,4})?$" ValidationGroup="Validation" Display="Dynamic"></asp:RegularExpressionValidator>                    
+                        <asp:TextBox ID="TBspm" runat="server" Text='<%# Bind("Salaris_per_maand") %>' ></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="Salaris" runat="server" ErrorMessage="*" ControlToValidate="TBspm" ForeColor="red" ValidationGroup="Validation1" Display="Dynamic"></asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="Salaris1" runat="server" ErrorMessage="bijv. 5000" ControlToValidate="TBspm" ForeColor="Red" ValidationExpression="^\d{0,8}(\,\d{1,4})?$" ValidationGroup="Validation1" Display="Dynamic"></asp:RegularExpressionValidator>                    
                     </EditItemTemplate>
                     <ItemTemplate>
                         <asp:Label ID="Label3" runat="server" Text='<%# Bind("Salaris_per_maand") %>'></asp:Label>
@@ -52,14 +52,14 @@
                 <asp:BoundField DataField="Functie" HeaderText="Functie" SortExpression="Functie" ReadOnly="True" />
                 <asp:BoundField DataField="Afdeling" HeaderText="Afdeling" SortExpression="Afdeling" ReadOnly="True" />
 
-                <asp:CommandField ShowEditButton="True"/>
+                <asp:CommandField ShowEditButton="True" ValidationGroup="Validation1"/>
                 <asp:TemplateField></asp:TemplateField>
             </Columns>
         </asp:GridView>
 
         <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT Med.Nummer, Med.Naam, Med.Geboortedatum, Med.[In dienst sinds] AS In_dienst_sinds, Med.[Salaris per maand] AS Salaris_per_maand, Fun.naam as Functie, Afd.Naam as Afdeling FROM (( dbo.Medewerker Med  inner join dbo.Functie Fun on Med.FunctieID = Fun.ID) inner join dbo.Afdeling Afd on Med.AfdelingID= Afd.ID) where Med.FunctieID= Fun.ID and Med.AfdelingID= Afd.ID" UpdateCommand="
 Update dbo.Medewerker 
-Set [Salaris per maand] = @Salaris_per_maand, [Naam] = @Naam, [Geboortedatum] = convert(datetime,@Geboortedatum,104)">
+Set [Salaris per maand] = @Salaris_per_maand, [Naam] = @Naam, [Geboortedatum] = convert(datetime,@Geboortedatum,104) where Nummer = @Nummer ">
             <UpdateParameters>
                 <asp:Parameter Name="Naam" />
                 <asp:Parameter Name="Geboortedatum" />
