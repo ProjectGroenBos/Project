@@ -110,6 +110,15 @@
              </td>
              <td style="width: 40%"></td>
          </tr>
+         <tr>
+             <td style="width: 15%">
+                 <asp:Label ID="Label1" runat="server" Text="Bungalownummer:" CssClass="labelsnieuw"></asp:Label>
+             </td>
+             <td style="width: 15%">
+                 <asp:Label ID="lblHuisjenummer" runat="server" Text=""></asp:Label>
+             </td>
+             <td style="width: 40%"></td>
+         </tr>
 
      </table>
 
@@ -119,8 +128,10 @@
 
 
         <br />
+        <asp:Label ID="lblUitkomst" runat="server" Text=""></asp:Label>
         <br />
         <br />
+        <asp:Button ID="btnZoeken" runat="server" Text="Zoek nieuwe bungalow" CssClass="btnUitloggen" Style="background-color: #009879; color: #fff" class="btn" OnClick="btnZoeken_Click"/>
         <asp:Button ID="btnWijzigen" runat="server" Text="Wijzigen" CssClass="btnUitloggen" Style="background-color: #009879; color: #fff" class="btn" OnClick="btnWijzigen_Click"  />
         <asp:Button ID="btnTerug" runat="server" Style="background-color: #009879; color: #fff" class="btn" CssClass="btnUitloggen" Text="Terug" OnClick="btnTerug_Click" ValidateRequestMode="Disabled" />
         <br />
@@ -134,6 +145,8 @@
                 <asp:BoundField DataField="Achternaam" HeaderText="Achternaam" SortExpression="Achternaam" />
                 <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" />
             </Columns>
+        </asp:GridView>
+        <asp:GridView ID="GridView2" runat="server" AutoGenerateSelectButton="True" CssClass="content-table" OnSelectedIndexChanged="GridView2_SelectedIndexChanged">
         </asp:GridView>
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:2020-BIM02-P1-P2-GroenbosConnectionString %>" SelectCommand=" select res.Nummer, res.Aankomstdatum, res.Vertrekdatum, res.Aantal_personen, res.Opmerking, gst.Achternaam, gst.Email from Gast as gst inner join Reservering as res on gst.Nummer = res.GastNummer  where res.Nummer = @nummer">
             <SelectParameters>

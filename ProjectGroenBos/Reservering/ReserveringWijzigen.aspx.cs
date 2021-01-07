@@ -16,6 +16,9 @@ namespace ProjectGroenBos.Reservering
     {
         string reserveringsnummer;
         string query1;
+        DateTime aankomstDatum;
+        DateTime vertrekDatum;
+        DateTime vandaag = DateTime.Today;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -42,7 +45,8 @@ namespace ProjectGroenBos.Reservering
                     //txbAantalPersonen.Text = Session["AantalPersonen"].ToString();
                     //txbVertrekdatum.Text = Session["Vertrekdatum"].ToString();
                     GridView1.Visible = false;
-
+                    GridView2.Visible = false;
+                    btnWijzigen.Enabled = false;
                     RequiredFieldValidator1.Enabled = false;
                     foreach (GridViewRow gr in GridView1.Rows)
                     {
@@ -59,13 +63,6 @@ namespace ProjectGroenBos.Reservering
                     }
 
                 }
-
-
-
-
-
-
-
 
             }
 
@@ -85,6 +82,7 @@ namespace ProjectGroenBos.Reservering
                     string reserveringsnummer = lblReserveringsnummer.Text;
                     int aantalPersonen = int.Parse(txbAantalPersonen.Text);
                     string opmerkingen = txbOpmerkingen.Text;
+                    int bungalow = int.Parse(lblHuisjenummer.Text);
 
 
                     DateTime aankomstdatum = new DateTime();
@@ -100,12 +98,11 @@ namespace ProjectGroenBos.Reservering
                     //"UPDATE Reservering set Aantal_personen = @personen, Opmerking = @opmerking,
                     //Vertrekdatum = @vertrekdatum, Aankomstdatum = @aankomstdatum where Nummer = @reserveringsnummer";
 
-
-
+                    SqlCommand cmd = new SqlCommand("update Reservering_Bungalow set BungalowNummer = @bungalow where ReserveringNummer = @reservering", con);
                     SqlCommand cmd2 = new SqlCommand("UPDATE Reservering set Aantal_personen = @aantalPersonen, Opmerking = @opmerkingen, Vertrekdatum = @vertrekdatum, Aankomstdatum = @aankomstdatum where Nummer = @reserveringsnummer", con);
 
-
-
+                    cmd.Parameters.AddWithValue("@bungalow", bungalow);
+                    cmd.Parameters.AddWithValue("@reservering", reserveringsnummer);
 
                     cmd2.Parameters.AddWithValue("@aantalPersonen", aantalPersonen);
                     cmd2.Parameters.AddWithValue("@opmerkingen", opmerkingen);
@@ -113,24 +110,18 @@ namespace ProjectGroenBos.Reservering
                     cmd2.Parameters.AddWithValue("@aankomstdatum", aankomstdatum);
                     cmd2.Parameters.AddWithValue("@reserveringsnummer", reserveringsnummer);
 
-
-
-
                     cmd2.CommandType = System.Data.CommandType.Text;
-
-
+                    cmd.CommandType = CommandType.Text;
+                    cmd.ExecuteNonQuery();
 
                     cmd2.ExecuteNonQuery();
-
-
                     con.Close();
-
-
 
                     StuurMail();
 
                     Session["controle6"] = 1;
                     Response.Redirect("ReserveringOverzicht.aspx");
+                    //Response.Redirect("ReserveringNachtregisterWijzigen.aspx");
                 }
             }
             catch
@@ -197,6 +188,77 @@ namespace ProjectGroenBos.Reservering
             RequiredFieldValidator1.Enabled = false;
         }
 
+        protected void btnZoeken_Click(object sender, EventArgs e)
+        {
+            //variabelen voor controles
+            string aankomst = txbAankomstdatum.Text;
+            string aankomst2 = aankomst.Replace("/", "-");
 
+            string vertrek = txbVertrekdatum.Text;
+            string vertrek2 = vertrek.Replace("/", "-");
+
+            aankomstDatum = DateTime.Parse(aankomst2);
+            vertrekDatum = DateTime.Parse(vertrek2);
+
+            aankomstDatum.ToShortDateString();
+            vertrekDatum.ToShortDateString();
+            vandaag.ToShortDateString();
+
+            int aantalPersonen = int.Parse(txbAantalPersonen.Text);
+
+            if (aankomstDatum < vertrekDatum && aankomstDatum > vandaag && vertrekDatum > vandaag)
+            {
+
+                //dataset om de gridview te vullen
+                using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["2020-BIM02-P1-P2-GroenbosConnectionString"].ConnectionString))
+                {
+                    con.Open();
+                    string query = "select * from  [dbo].[ZoekHuisjes](@GewensteAankomstDatum, @GewensteVertrekDatum, @personen)";
+
+                    SqlCommand cmd = new SqlCommand(query, con);
+                    cmd.Parameters.AddWithValue("@GewensteAankomstDatum", aankomstDatum);
+                    cmd.Parameters.AddWithValue("@GewensteVertrekDatum", vertrekDatum);
+                    cmd.Parameters.AddWithValue("@personen", aantalPersonen);
+                    cmd.ExecuteNonQuery();
+
+                    DataTable dt = new DataTable();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(dt);
+                    GridView2.DataSource = dt;
+                    GridView2.DataBind();
+                    con.Close();
+                    GridView2.Visible = true;
+                    GridView1.Visible = false;
+
+                }
+            }
+            else if (aankomstDatum == vandaag || vertrekDatum == vandaag)
+            {
+                //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('U kunt niet vertrekken of aankomen op de dag van reservering.')", true);
+                lblUitkomst.Text = "U kunt niet vertrekken of aankomen op de dag van reservering.";
+            }
+            else if (vertrekDatum == aankomstDatum)
+            {
+                //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Vertrekdatum is later als de aankomstdatum. Controleer deze nog even alstublieft.')", true);
+                lblUitkomst.Text = "Vertrekdatum is later als de aankomstdatum. Controleer deze nog even alstublieft.";
+            }
+            else
+            {
+                //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('U kunt niet voor het verleden reserveren. Probeer het opnieuw.')", true);
+                lblUitkomst.Text = "U kunt niet voor het verleden reserveren. Probeer het opnieuw.";
+            }
+
+            if (GridView2.Rows.Count == 0)
+            {
+                lblUitkomst.Text = "Geen beschikbare bungalows.";
+            }
+        }
+
+        protected void GridView2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lblHuisjenummer.Text = (string)GridView2.SelectedRow.Cells[1].Text;
+            GridView1.Visible = false;
+            btnWijzigen.Enabled = true;
+        }
     }
 }
