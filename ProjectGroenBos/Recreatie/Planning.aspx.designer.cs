@@ -42,6 +42,7 @@ namespace recreatie.paginas
         protected global::System.Web.UI.WebControls.TextBox TxbActiviteit;
 
         /// <summary>
+<<<<<<< HEAD
         /// RegularExpressionValidator1 control.
         /// </summary>
         /// <remarks>
@@ -60,6 +61,8 @@ namespace recreatie.paginas
         protected global::System.Web.UI.WebControls.RequiredFieldValidator Activiteitvalidator;
 
         /// <summary>
+=======
+>>>>>>> ReserveringTeam/Noah
         /// SqlDataSource1 control.
         /// </summary>
         /// <remarks>
@@ -87,6 +90,7 @@ namespace recreatie.paginas
         protected global::System.Web.UI.WebControls.TextBox txbLocatie;
 
         /// <summary>
+<<<<<<< HEAD
         /// RegularExpressionValidator2 control.
         /// </summary>
         /// <remarks>
@@ -105,6 +109,8 @@ namespace recreatie.paginas
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorLocatie;
 
         /// <summary>
+=======
+>>>>>>> ReserveringTeam/Noah
         /// Label5 control.
         /// </summary>
         /// <remarks>
@@ -123,6 +129,7 @@ namespace recreatie.paginas
         protected global::System.Web.UI.WebControls.TextBox TxbAantal;
 
         /// <summary>
+<<<<<<< HEAD
         /// RegularExpressionValidator3 control.
         /// </summary>
         /// <remarks>
@@ -141,6 +148,8 @@ namespace recreatie.paginas
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorBegeleider;
 
         /// <summary>
+=======
+>>>>>>> ReserveringTeam/Noah
         /// GridView2 control.
         /// </summary>
         /// <remarks>
@@ -168,6 +177,7 @@ namespace recreatie.paginas
         protected global::System.Web.UI.WebControls.DropDownList TxbMedewerker;
 
         /// <summary>
+<<<<<<< HEAD
         /// RequiredFieldValidator2 control.
         /// </summary>
         /// <remarks>
@@ -177,6 +187,8 @@ namespace recreatie.paginas
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
 
         /// <summary>
+=======
+>>>>>>> ReserveringTeam/Noah
         /// SqlDataSource3 control.
         /// </summary>
         /// <remarks>
@@ -204,6 +216,7 @@ namespace recreatie.paginas
         protected global::System.Web.UI.WebControls.TextBox TxbDatum;
 
         /// <summary>
+<<<<<<< HEAD
         /// Datevalidator control.
         /// </summary>
         /// <remarks>
@@ -222,6 +235,8 @@ namespace recreatie.paginas
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorDatum;
 
         /// <summary>
+=======
+>>>>>>> ReserveringTeam/Noah
         /// Label7 control.
         /// </summary>
         /// <remarks>
@@ -240,6 +255,7 @@ namespace recreatie.paginas
         protected global::System.Web.UI.WebControls.TextBox TxbBegintijd;
 
         /// <summary>
+<<<<<<< HEAD
         /// RequiredFieldValidator3 control.
         /// </summary>
         /// <remarks>
@@ -249,6 +265,8 @@ namespace recreatie.paginas
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
 
         /// <summary>
+=======
+>>>>>>> ReserveringTeam/Noah
         /// Label8 control.
         /// </summary>
         /// <remarks>
@@ -267,6 +285,7 @@ namespace recreatie.paginas
         protected global::System.Web.UI.WebControls.TextBox TxbEindtijd;
 
         /// <summary>
+<<<<<<< HEAD
         /// RequiredFieldValidator4 control.
         /// </summary>
         /// <remarks>
@@ -294,6 +313,8 @@ namespace recreatie.paginas
         protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidatorEindtijd;
 
         /// <summary>
+=======
+>>>>>>> ReserveringTeam/Noah
         /// Label10 control.
         /// </summary>
         /// <remarks>
@@ -312,6 +333,7 @@ namespace recreatie.paginas
         protected global::System.Web.UI.WebControls.TextBox txbInschrijfkosten;
 
         /// <summary>
+<<<<<<< HEAD
         /// RangeValidator1 control.
         /// </summary>
         /// <remarks>
@@ -330,6 +352,8 @@ namespace recreatie.paginas
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator5;
 
         /// <summary>
+=======
+>>>>>>> ReserveringTeam/Noah
         /// Label11 control.
         /// </summary>
         /// <remarks>
@@ -357,6 +381,7 @@ namespace recreatie.paginas
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource4;
 
         /// <summary>
+<<<<<<< HEAD
         /// RequiredFieldValidator1 control.
         /// </summary>
         /// <remarks>
@@ -366,6 +391,8 @@ namespace recreatie.paginas
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
 
         /// <summary>
+=======
+>>>>>>> ReserveringTeam/Noah
         /// btnActiviteitInplannen control.
         /// </summary>
         /// <remarks>
@@ -384,12 +411,17 @@ namespace recreatie.paginas
         protected global::System.Web.UI.WebControls.Label LblBevestiging;
 
         /// <summary>
+<<<<<<< HEAD
         /// GridView1 control.
+=======
+        /// Calendar1 control.
+>>>>>>> ReserveringTeam/Noah
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
+<<<<<<< HEAD
         protected global::System.Web.UI.WebControls.GridView GridView1;
 
         /// <summary>
@@ -412,20 +444,37 @@ namespace recreatie.paginas
 
         /// <summary>
         /// Button2 control.
+=======
+        protected global::System.Web.UI.WebControls.Calendar Calendar1;
+
+        /// <summary>
+        /// GridView1 control.
+>>>>>>> ReserveringTeam/Noah
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
+<<<<<<< HEAD
         protected global::System.Web.UI.WebControls.Button Button2;
 
         /// <summary>
         /// Button3 control.
+=======
+        protected global::System.Web.UI.WebControls.GridView GridView1;
+
+        /// <summary>
+        /// SqlDataSource2 control.
+>>>>>>> ReserveringTeam/Noah
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
+<<<<<<< HEAD
         protected global::System.Web.UI.WebControls.Button Button3;
+=======
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource2;
+>>>>>>> ReserveringTeam/Noah
     }
 }

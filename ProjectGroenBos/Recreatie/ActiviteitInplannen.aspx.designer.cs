@@ -7,84 +7,72 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace recreatie.paginas
+namespace ProjectGroenBos.Reservering
 {
 
 
-    public partial class ActiviteitInplannen
+    public partial class test
     {
 
         /// <summary>
+<<<<<<< HEAD
         /// FaciliteitID control.
+=======
+        /// Label11 control.
+>>>>>>> ReserveringTeam/Noah
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
+<<<<<<< HEAD
         protected global::System.Web.UI.WebControls.HiddenField FaciliteitID;
 
         /// <summary>
         /// MedewerkerID control.
+=======
+        protected global::System.Web.UI.WebControls.Label Label11;
+
+        /// <summary>
+        /// lblGastnummer control.
+>>>>>>> ReserveringTeam/Noah
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
+<<<<<<< HEAD
         protected global::System.Web.UI.WebControls.HiddenField MedewerkerID;
 
         /// <summary>
         /// GvActiviteitInplannen control.
+=======
+        protected global::System.Web.UI.WebControls.Label lblGastnummer;
+
+        /// <summary>
+        /// Label1 control.
+>>>>>>> ReserveringTeam/Noah
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
+<<<<<<< HEAD
         protected global::System.Web.UI.WebControls.GridView GvActiviteitInplannen;
 
         /// <summary>
         /// SqlDataSource2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource2;
+=======
+        protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
-        /// btnNieuwActiviteit control.
+        /// txbVoornaam control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnNieuwActiviteit;
-
-        /// <summary>
-        /// Label2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
-
-        /// <summary>
-        /// txtActiviteitNaam control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtActiviteitNaam;
-
-        /// <summary>
-        /// RequiredFieldValidator2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
+        protected global::System.Web.UI.WebControls.TextBox txbVoornaam;
 
         /// <summary>
         /// RegularExpressionValidator1 control.
@@ -96,130 +84,340 @@ namespace recreatie.paginas
         protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
 
         /// <summary>
-        /// Label3 control.
+        /// RequiredFieldValidator2 control.
+>>>>>>> ReserveringTeam/Noah
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
+<<<<<<< HEAD
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource2;
+
+        /// <summary>
+        /// btnNieuwActiviteit control.
+=======
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
+
+        /// <summary>
+        /// Label2 control.
+>>>>>>> ReserveringTeam/Noah
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+<<<<<<< HEAD
+        protected global::System.Web.UI.WebControls.Button btnNieuwActiviteit;
+
+        /// <summary>
+        /// Label2 control.
+=======
+        protected global::System.Web.UI.WebControls.Label Label2;
+
+        /// <summary>
+        /// txbTussenvoegsel control.
+>>>>>>> ReserveringTeam/Noah
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+<<<<<<< HEAD
+        protected global::System.Web.UI.WebControls.Label Label2;
+
+        /// <summary>
+        /// txtActiviteitNaam control.
+=======
+        protected global::System.Web.UI.WebControls.TextBox txbTussenvoegsel;
+
+        /// <summary>
+        /// RegularExpressionValidator2 control.
+>>>>>>> ReserveringTeam/Noah
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+<<<<<<< HEAD
+        protected global::System.Web.UI.WebControls.TextBox txtActiviteitNaam;
+
+        /// <summary>
+        /// RequiredFieldValidator2 control.
+=======
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator2;
+
+        /// <summary>
+        /// Label3 control.
+>>>>>>> ReserveringTeam/Noah
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+<<<<<<< HEAD
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
+
+        /// <summary>
+        /// RegularExpressionValidator1 control.
+=======
+        protected global::System.Web.UI.WebControls.Label Label3;
+
+        /// <summary>
+        /// txbAchternaam control.
+>>>>>>> ReserveringTeam/Noah
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+<<<<<<< HEAD
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
+
+        /// <summary>
+        /// Label3 control.
+=======
+        protected global::System.Web.UI.WebControls.TextBox txbAchternaam;
+
+        /// <summary>
+        /// RegularExpressionValidator3 control.
+>>>>>>> ReserveringTeam/Noah
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+<<<<<<< HEAD
         protected global::System.Web.UI.WebControls.Label Label3;
 
         /// <summary>
         /// txtLocatie control.
+=======
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator3;
+
+        /// <summary>
+        /// RequiredFieldValidator4 control.
+>>>>>>> ReserveringTeam/Noah
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
+<<<<<<< HEAD
         protected global::System.Web.UI.WebControls.TextBox txtLocatie;
 
         /// <summary>
         /// RequiredFieldValidator3 control.
+=======
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator4;
+
+        /// <summary>
+        /// Label4 control.
+>>>>>>> ReserveringTeam/Noah
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
+<<<<<<< HEAD
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
 
         /// <summary>
         /// RegularExpressionValidator2 control.
+=======
+        protected global::System.Web.UI.WebControls.Label Label4;
+
+        /// <summary>
+        /// txbEmail control.
+>>>>>>> ReserveringTeam/Noah
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
+<<<<<<< HEAD
         protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator2;
 
         /// <summary>
         /// Label4 control.
+=======
+        protected global::System.Web.UI.WebControls.TextBox txbEmail;
+
+        /// <summary>
+        /// RegularExpressionValidator4 control.
+>>>>>>> ReserveringTeam/Noah
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
+<<<<<<< HEAD
         protected global::System.Web.UI.WebControls.Label Label4;
 
         /// <summary>
         /// txtInschrijfkosten control.
+=======
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator4;
+
+        /// <summary>
+        /// RequiredFieldValidator3 control.
+>>>>>>> ReserveringTeam/Noah
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
+<<<<<<< HEAD
         protected global::System.Web.UI.WebControls.TextBox txtInschrijfkosten;
 
         /// <summary>
         /// RequiredFieldValidator4 control.
+=======
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
+
+        /// <summary>
+        /// Label5 control.
+>>>>>>> ReserveringTeam/Noah
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
+<<<<<<< HEAD
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator4;
 
         /// <summary>
         /// RegularExpressionValidator3 control.
+=======
+        protected global::System.Web.UI.WebControls.Label Label5;
+
+        /// <summary>
+        /// txbTelefoonnummer control.
+>>>>>>> ReserveringTeam/Noah
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
+<<<<<<< HEAD
         protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator3;
 
         /// <summary>
         /// Label5 control.
+=======
+        protected global::System.Web.UI.WebControls.TextBox txbTelefoonnummer;
+
+        /// <summary>
+        /// RegularExpressionValidator5 control.
+>>>>>>> ReserveringTeam/Noah
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
+<<<<<<< HEAD
         protected global::System.Web.UI.WebControls.Label Label5;
 
         /// <summary>
         /// txtMaximaalAantal control.
+=======
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator5;
+
+        /// <summary>
+        /// RequiredFieldValidator6 control.
+>>>>>>> ReserveringTeam/Noah
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
+<<<<<<< HEAD
         protected global::System.Web.UI.WebControls.TextBox txtMaximaalAantal;
 
         /// <summary>
         /// RequiredFieldValidator5 control.
+=======
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator6;
+
+        /// <summary>
+        /// Label6 control.
+>>>>>>> ReserveringTeam/Noah
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
+<<<<<<< HEAD
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator5;
 
         /// <summary>
         /// RegularExpressionValidator4 control.
+=======
+        protected global::System.Web.UI.WebControls.Label Label6;
+
+        /// <summary>
+        /// lblReserveringsnummer control.
+>>>>>>> ReserveringTeam/Noah
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
+<<<<<<< HEAD
         protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator4;
 
         /// <summary>
         /// Label6 control.
+=======
+        protected global::System.Web.UI.WebControls.Label lblReserveringsnummer;
+
+        /// <summary>
+        /// Label7 control.
+>>>>>>> ReserveringTeam/Noah
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
+<<<<<<< HEAD
         protected global::System.Web.UI.WebControls.Label Label6;
 
         /// <summary>
         /// ddlOmschrijving control.
+=======
+        protected global::System.Web.UI.WebControls.Label Label7;
+
+        /// <summary>
+        /// txbAantalPersonen control.
+>>>>>>> ReserveringTeam/Noah
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
+<<<<<<< HEAD
         protected global::System.Web.UI.WebControls.DropDownList ddlOmschrijving;
+=======
+        protected global::System.Web.UI.WebControls.TextBox txbAantalPersonen;
+
+        /// <summary>
+        /// RegularExpressionValidator6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator6;
+
+        /// <summary>
+        /// RequiredFieldValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+>>>>>>> ReserveringTeam/Noah
 
         /// <summary>
         /// Label7 control.
@@ -231,31 +429,62 @@ namespace recreatie.paginas
         protected global::System.Web.UI.WebControls.Label Label7;
 
         /// <summary>
+<<<<<<< HEAD
         /// txtDatum control.
+=======
+        /// txbOpmerkingen control.
+>>>>>>> ReserveringTeam/Noah
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
+<<<<<<< HEAD
         protected global::System.Web.UI.WebControls.TextBox txtDatum;
 
         /// <summary>
         /// RequiredFieldValidator6 control.
+=======
+        protected global::System.Web.UI.WebControls.TextBox txbOpmerkingen;
+
+        /// <summary>
+        /// Label9 control.
+>>>>>>> ReserveringTeam/Noah
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
+<<<<<<< HEAD
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator6;
 
         /// <summary>
         /// CompareValidator1 control.
+=======
+        protected global::System.Web.UI.WebControls.Label Label9;
+
+        /// <summary>
+        /// txbAankomstdatum control.
+>>>>>>> ReserveringTeam/Noah
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
+<<<<<<< HEAD
         protected global::System.Web.UI.WebControls.CompareValidator CompareValidator1;
+=======
+        protected global::System.Web.UI.WebControls.TextBox txbAankomstdatum;
+
+        /// <summary>
+        /// lblAankomstdatum control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAankomstdatum;
+>>>>>>> ReserveringTeam/Noah
 
         /// <summary>
         /// Label8 control.
@@ -267,102 +496,198 @@ namespace recreatie.paginas
         protected global::System.Web.UI.WebControls.Label Label8;
 
         /// <summary>
+<<<<<<< HEAD
         /// txtBegintijd control.
+=======
+        /// txbVertrekdatum control.
+>>>>>>> ReserveringTeam/Noah
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
+<<<<<<< HEAD
         protected global::System.Web.UI.WebControls.TextBox txtBegintijd;
 
         /// <summary>
         /// RequiredFieldValidator7 control.
+=======
+        protected global::System.Web.UI.WebControls.TextBox txbVertrekdatum;
+
+        /// <summary>
+        /// lblVertrekdatum control.
+>>>>>>> ReserveringTeam/Noah
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
+<<<<<<< HEAD
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator7;
 
         /// <summary>
         /// Label9 control.
+=======
+        protected global::System.Web.UI.WebControls.Label lblVertrekdatum;
+
+        /// <summary>
+        /// Label12 control.
+>>>>>>> ReserveringTeam/Noah
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
+<<<<<<< HEAD
         protected global::System.Web.UI.WebControls.Label Label9;
 
         /// <summary>
         /// txtEindtijd control.
+=======
+        protected global::System.Web.UI.WebControls.Label Label12;
+
+        /// <summary>
+        /// txtStraat control.
+>>>>>>> ReserveringTeam/Noah
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
+<<<<<<< HEAD
         protected global::System.Web.UI.WebControls.TextBox txtEindtijd;
 
         /// <summary>
         /// RequiredFieldValidator8 control.
+=======
+        protected global::System.Web.UI.WebControls.TextBox txtStraat;
+
+        /// <summary>
+        /// Label13 control.
+>>>>>>> ReserveringTeam/Noah
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
+<<<<<<< HEAD
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator8;
 
         /// <summary>
         /// CompareValidator2 control.
+=======
+        protected global::System.Web.UI.WebControls.Label Label13;
+
+        /// <summary>
+        /// txbHuisnummer control.
+>>>>>>> ReserveringTeam/Noah
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
+<<<<<<< HEAD
         protected global::System.Web.UI.WebControls.CompareValidator CompareValidator2;
 
         /// <summary>
         /// Label10 control.
+=======
+        protected global::System.Web.UI.WebControls.TextBox txbHuisnummer;
+
+        /// <summary>
+        /// Label14 control.
+>>>>>>> ReserveringTeam/Noah
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
+<<<<<<< HEAD
         protected global::System.Web.UI.WebControls.Label Label10;
 
         /// <summary>
         /// ddlMedewerker control.
+=======
+        protected global::System.Web.UI.WebControls.Label Label14;
+
+        /// <summary>
+        /// txbPostcode control.
+>>>>>>> ReserveringTeam/Noah
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
+<<<<<<< HEAD
         protected global::System.Web.UI.WebControls.DropDownList ddlMedewerker;
 
         /// <summary>
         /// SqlDataSource1 control.
+=======
+        protected global::System.Web.UI.WebControls.TextBox txbPostcode;
+
+        /// <summary>
+        /// Label15 control.
+>>>>>>> ReserveringTeam/Noah
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
+<<<<<<< HEAD
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
 
         /// <summary>
         /// SqlDataSource3 control.
+=======
+        protected global::System.Web.UI.WebControls.Label Label15;
+
+        /// <summary>
+        /// txbLand control.
+>>>>>>> ReserveringTeam/Noah
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
+<<<<<<< HEAD
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource3;
 
         /// <summary>
         /// btnInplannen control.
+=======
+        protected global::System.Web.UI.WebControls.TextBox txbLand;
+
+        /// <summary>
+        /// btnWijzigen control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnWijzigen;
+
+        /// <summary>
+        /// btnTerug control.
+>>>>>>> ReserveringTeam/Noah
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+<<<<<<< HEAD
         protected global::System.Web.UI.WebControls.Button btnInplannen;
+=======
+        protected global::System.Web.UI.WebControls.Button btnTerug;
+
+        /// <summary>
+        /// GridView1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GridView1;
+>>>>>>> ReserveringTeam/Noah
     }
 }

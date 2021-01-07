@@ -1,70 +1,89 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="Site1.Master" AutoEventWireup="true" CodeBehind="Voorraad.aspx.cs" Inherits="recreatie.paginas.Beheer" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <script>function openModal(modalnaam) {
-            $(modalnaam).modal('show');
-        }</script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<<<<<<< HEAD
     <div class="header">Producten bestellen</div>
 
     <asp:Label ID="Label3" runat="server" Text="Zoeken:" CssClass="labelVoorraadzoeken"></asp:Label>
+=======
+<link href="CSS/stylevoorraad.css" rel="stylesheet" />
+    <asp:Label ID="Label3" runat="server" Text="Zoeken:" CssClass="labelvoorraad"></asp:Label>
+>>>>>>> ReserveringTeam/Noah
     <asp:Image ID="Image2" runat="server" CssClass="imagevoorraad" Height="171px" ImageUrl="~/Recreatie/img/Logo1.png" Width="212px" />
-    <asp:TextBox ID="txtZoekbalk" runat="server" Width="300px" placeholder="Zoek op Artikelnaam of Omschrijving..." OnTextChanged="txtZoeken_TextChanged"  AutoPostBack="True" CssClass="txtZoekbalk"></asp:TextBox>
-     <asp:GridView ID="GridView1" runat="server">
-    </asp:GridView>
-     <asp:Button ID="btnSelecteren" runat="server" OnClick="btnSelecteren_Click" Text="Producten selecteren" CssClass="btnSelecterenproductenvoorraad" ForeColor="White" />
-    <asp:Button ID="BtnBestellen" runat="server" Text="Bestellen" OnClick="BtnBestellen_Click" type="button" style="background-color: #009879; color: #fff" class="btn" data-toggle="modal" data-target="#Popup" CssClass="BtnBestellenVooraad"/>
+    <asp:TextBox ID="txtZoekbalk" runat="server" Width="300px" placeholder="Zoek op Artikelnaam of Omschrijving..." OnTextChanged="txtZoeken_TextChanged"  AutoPostBack="True" CssClass="textboxvoorraad"></asp:TextBox>
     <asp:GridView ID="gvVoorraad" runat="server" AutoGenerateColumns="False" AllowSorting="true" OnSorting="OnSorting" ShowFooter="true" DataKeyNames="ID" ShowHeaderWhenEmpty="true"
             OnRowCommand="gvVoorraad_RowCommand" OnRowEditing="gvVoorraad_RowEditing" OnRowCancelingEdit="gvVoorraad_RowCancelingEdit" OnRowUpdating="gvVoorraad_RowUpdating" OnRowDeleting="gvVoorraad_RowDeleting"
-            CellPadding="4" ForeColor="#333333" GridLines="none" Width="80%" OnSelectedIndexChanged="gvVoorraad_SelectedIndexChanged" CssClass="content-table3" >
+            CellPadding="4" ForeColor="#333333" GridLines="none" Width="80%" OnSelectedIndexChanged="gvVoorraad_SelectedIndexChanged" CssClass="gridviewvoorraad">
 
-          
-          
+           <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+           <EditRowStyle BackColor="#999999" />
+           <FooterStyle BackColor="#7fb241" Font-Bold="True" ForeColor="White" />
+           <HeaderStyle BackColor="#7fb241" Font-Bold="True" ForeColor="White" />
+           <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+           <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+           <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+           <SortedAscendingCellStyle BackColor="#E9E7E2" />
+           <SortedAscendingHeaderStyle BackColor="#E9E7E2" CssClass="sortasc"/>
+           <SortedDescendingCellStyle BackColor="#FFFDF8" />
+           <SortedDescendingHeaderStyle BackColor="#E9E7E2" CssClass="sortdesc" /> 
+            
+
 
             <Columns>
-                <asp:TemplateField HeaderText="Artikelnummer" SortExpression="ID" Visible ="True" HeaderStyle-ForeColor="White">
+                <asp:TemplateField HeaderText="Artikelnummer" SortExpression="ID">
                     <ItemTemplate>
-                        <asp:Label  ID="Label1" Text='<%# Eval("ID") %>' runat="server"/>
-                    </ItemTemplate>                     
+                        <asp:Label Text='<%# Eval("ID") %>' runat="server"/>
+                    </ItemTemplate>
+                    <%--  %><EditItemTemplate>
+                        <asp:TextBox ID="txtNaamRestaurant" Text='<%# Eval("NaamRestaurant") %>' runat="server" />
+                    </EditItemTemplate> --%>
                 </asp:TemplateField>
 
+<<<<<<< HEAD
 
                 <asp:TemplateField HeaderText="Artikelnaam | Omschrijving " SortExpression="Artikelnaam" HeaderStyle-ForeColor="White">  
                     <ItemTemplate>                        <asp:Label Text='<%# Eval("Artikelnaam") %>' runat="server" />
+=======
+                <asp:TemplateField HeaderText="Naam " SortExpression="Artikelnaam" >  
+                    <ItemTemplate>
+                        <asp:Label Text='<%# Eval("Artikelnaam") %>' runat="server" />
+>>>>>>> ReserveringTeam/Noah
                     </ItemTemplate>
                 </asp:TemplateField>
 
-                <asp:TemplateField HeaderText="Aantal" SortExpression="Aantal" HeaderStyle-ForeColor="White">
+                <asp:TemplateField HeaderText="Aantal" SortExpression="Aantal">
                     <ItemTemplate>
                         <asp:Label Text='<%# Eval("Aantal") %>' runat="server" />
                     </ItemTemplate>
                 </asp:TemplateField>
 
-                <asp:TemplateField HeaderText="In gebruik" SortExpression="Ingebruik" HeaderStyle-ForeColor="White">
+                <asp:TemplateField HeaderText="In gebruik" SortExpression="Ingebruik">
                     <ItemTemplate>
                         <asp:Label Text='<%# Eval("Ingebruik") %>' runat="server" />
                     </ItemTemplate>
                 </asp:TemplateField>
 
-                <asp:TemplateField HeaderText="Beschikbaar" SortExpression="Beschikbaar" HeaderStyle-ForeColor="White">
+                <asp:TemplateField HeaderText="Beschikbaar" SortExpression="Beschikbaar">
                     <ItemTemplate>
                         <asp:Label Text='<%# Eval("Beschikbaar") %>' runat="server" />
                     </ItemTemplate>
                 </asp:TemplateField>
 
-                <asp:TemplateField HeaderText="Minimale voorraad" SortExpression="[Minimum voorraad]" HeaderStyle-ForeColor="White">
+                <asp:TemplateField HeaderText="Minimale voorraad" SortExpression="[Minimum voorraad]">
                     <ItemTemplate>
                         <asp:Label Text='<%# Eval("[Minimum voorraad]") %>' runat="server" />
                     </ItemTemplate>
                 </asp:TemplateField>
 
-                <asp:TemplateField HeaderText="Product selecteren"  Visible="False" HeaderStyle-ForeColor="White">
+                <asp:TemplateField HeaderText="Actie">
                     <ItemTemplate>
-                        <asp:CheckBox ID="cbGeselecteerd" runat="server" />
-                    </ItemTemplate>
+                        <asp:ImageButton ImageUrl="~/img/winkelwagen.png" runat="server" CommandName="Edit" ToolTip="Bewerken" Width="20px" Height="20px" />
+                    </ItemTemplate> 
                 </asp:TemplateField>
-        </Columns>           
+            </Columns>
         </asp:GridView>
+<<<<<<< HEAD
     
     <div id="Popup" class="modal fade" role="dialog">
                 <div class="modal-dialog">
@@ -128,3 +147,6 @@
                 </div>
             </div>
 </asp:Content>
+=======
+</asp:Content>
+>>>>>>> ReserveringTeam/Noah

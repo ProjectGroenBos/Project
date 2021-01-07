@@ -1,31 +1,59 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.Master.cs" Inherits="ProjectGroenBos.Reservering.Site1"  %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.Master.cs" Inherits="ProjectGroenBos.Reservering.Site1" %>
 
 <!DOCTYPE html>
 
 <html>
 <head runat="server">
     <title></title>
-   
+
     <link href="css/Stylejuist.css" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="head2" runat="server">
     </asp:ContentPlaceHolder>
+
+    <%---javascript voor textboxen met datum ---%>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
 </head>
 <body>
     <form id="form2" runat="server">
-    <div class="wrapper">
-                <div class="sidebar">
-                    <h2>&nbsp;</h2>
-                    <h3>
-                        <asp:Image ID="Image1" runat="server" CssClass="logo" Height="95px" ImageUrl="~/Recreatie/img/Logo6.png" Width="156px" />
-                        </h3>
-                    <ul>
-                        <li><a href="home.aspx"><i class="fas fa-home"></i>Home</a></li>
-                        <li><a href="#"><i class="fas fa-user"></i>Reserveren</a>
+        <div class="wrapper">
+            <div class="sidebar">
+                <h2>&nbsp;</h2>
+                <h3>
+                    <asp:Image ID="Image1" runat="server" CssClass="logo" Height="95px" ImageUrl="~/Recreatie/img/Logo6.png" Width="156px" />
+                </h3>
+                <ul>
+                    <li><a href="home.aspx"><i class="fas fa-home"></i>Home</a></li>
+                    <li><a href="#"><i class="fas fa-user"></i>Reservering</a>
+                        <ul class="submenu">
+                            <li><a href="GastSelecteren.aspx">Aanmaken</a></li>
+                            <li><a href="ReserveringOverzicht.aspx">Overzicht</a></li>
+
+                        </ul>
+                        <li><a href="#"><i class="fas fa-user"></i>Gasten</a>
                             <ul class="submenu">
-                                <li><a href="Huisjemedewerker.aspx">Reservering plaatsen</a></li>
+                                <li><a href="GastAanmaken.aspx">Aanmaken</a></li>
+                                <li><a href="Gastoverzicht.aspx">Overzicht</a></li>
+
+
+                            </ul>
+                            <li><a href="#"><i class="fas fa-user"></i>Klachten</a>
+                                <ul class="submenu">
+                                    <li><a href="KlachtenAfhandeling.aspx">Aanmaken</a></li>
+                                    <li><a href="KlachtenOverzicht.aspx">Overzicht</a></li>
                                 </ul>
-                                </li>
-                        <li><a href="#"><i class="fas fa-user"></i>Optie</a>
+                            </li>
+
+                            <li><a href="NachtregisterOverzicht.aspx"><i class="fas fa-user"></i>Nachtregister</a></li>
+                            <ul class="submenu">
+                                <li><a href="NachtregisterOverzicht.aspx">Overzicht</a></li>
+                            </ul>
+
+                        </li>
+                    <%--<li><a href="#"><i class="fas fa-user"></i>Optie</a>
                             <ul class="submenu">
                                 <li><a href="#">optie 1</a></li>
                                 <li><a href="#">optie 2</a>
@@ -36,33 +64,34 @@
                                 </li>
                                 <li><a href="#">optie 3</a></li>
                             </ul>
-                        </li>
-                    </ul>
-                    <div class="terug">
-                        <a href="#">&#8249; Terug naar home</a>
-                    </div>
+                        </li>--%>
+                </ul>
+                <div class="terug">
+                    <a href="home.aspx">&#8249; Terug naar home</a>
                 </div>
-                <div class="main_content">
-                    <div class="navigator">
-                        <nav>
-                            <ul>
-                                <li><a href="#">Home</a></li>
-                                <li><a href="/Recreatie/Overzicht.aspx">Recreatie</a></li>
-                                <li><a href="/Restaurant/home.aspx">Restaurant</a></li>
-                                <li class="selected"><a href="/Reservering/home.aspx">Reserveringen & Balie</a></li>
-                                <li><a href="/Financien/Home.aspx">Financiën</a></li>
-                                <li><a href="/Schoonmaak en Onderhoud/InventarisOverzicht.aspx">Schoonmaak</a></li>
-                                <asp:Button ID="btnUitloggen" runat="server" CssClass="btnUitloggen" Text="Uitloggen" />
-                            </ul>
-                        </nav>
-                        </div>
-        <div class="werkgebied">
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
-            </asp:ContentPlaceHolder>
-            
-             </div>
-             </div>
-             </div>
+            </div>
+            <div class="main_content">
+                <div class="navigator">
+                    <nav>
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="/Recreatie/Overzicht.aspx">Recreatie</a></li>
+                            <li><a href="/Schoonmaak en Onderhoud/InventarisOverzicht.aspx">Schoonmaak</a></li>
+                            <li><a href="/Restaurant/home.aspx">Restaurant</a></li>
+                            <li class="selected"><a href="/Reservering/home.aspx">Reserveringen & Balie</a></li>
+                            <li><a href="/Financien/Home.aspx">Financiën</a></li>
+
+                            <asp:Button ID="btnUitloggen" runat="server" CssClass="btnUitloggen" Text="Uitloggen" />
+                        </ul>
+                    </nav>
+                </div>
+                <div class="werkgebied">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+                    </asp:ContentPlaceHolder>
+
+                </div>
+            </div>
+        </div>
     </form>
 </body>
 </html>

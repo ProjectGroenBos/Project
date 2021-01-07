@@ -14,8 +14,8 @@ namespace recreatie.paginas
 {
     public partial class Beheer : System.Web.UI.Page
     {
-        DataTable dt = new DataTable();
-        string connectionstring = ConfigurationManager.ConnectionStrings["dbconnectie"].ToString();
+        DataTable dt;
+        //string cnn = new SqlConnection(ProjectGroenBos.Recreatie.Helper.HelperClass.DatabaseConnectieString);
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -33,7 +33,7 @@ namespace recreatie.paginas
         void InvullenGridview(string sortExpression = null)
         {
             DataTable dtbl = new DataTable();
-            using (SqlConnection sqlCon = new SqlConnection(connectionstring))
+            using (SqlConnection sqlCon = new SqlConnection(ProjectGroenBos.Recreatie.Helper.HelperClass.DatabaseConnectieString))
             {
                 sqlCon.Open();
                 SqlDataAdapter sqlDa = new SqlDataAdapter("SELECT * FROM vVoorraadRecreatie", sqlCon);
@@ -122,12 +122,10 @@ namespace recreatie.paginas
         {
             if (gvVoorraad.Columns[6].Visible == true)
             {
-                gvVoorraad.Columns[0].Visible = false;
                 gvVoorraad.Columns[6].Visible = false;
             }
             else
             {
-                gvVoorraad.Columns[0].Visible = true;
                 gvVoorraad.Columns[6].Visible = true;
             }
 
@@ -135,11 +133,15 @@ namespace recreatie.paginas
 
         protected void BtnBestellen_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             DataTable Aanvraag = new DataTable();
             Aanvraag.Columns.Add(new DataColumn("ID", typeof(int)));
             Aanvraag.Columns.Add(new DataColumn("Naam", typeof(string)));
             Aanvraag.Columns.Add(new DataColumn("LeverancierID", typeof(int)));
 
+=======
+            int count = 0;
+>>>>>>> ReserveringTeam/Noah
             foreach (GridViewRow item in gvVoorraad.Rows)
             {
                 if (item.RowType == DataControlRowType.DataRow)
@@ -147,6 +149,7 @@ namespace recreatie.paginas
                     CheckBox chk = (item.FindControl("cbGeselecteerd") as CheckBox);
                     if (chk.Checked)
                     {
+<<<<<<< HEAD
 
                         using (SqlConnection sqlCon = new SqlConnection(connectionstring))  
                         {
@@ -164,10 +167,14 @@ namespace recreatie.paginas
                             Session["Aanvraag"] = Aanvraag;
                         }
 
+=======
+                        Label3.Text = item.RowIndex.ToString();
+>>>>>>> ReserveringTeam/Noah
 
                     }
                 }
             }
+<<<<<<< HEAD
 
 
             gvOrderaanvragen.DataBind();
@@ -230,6 +237,8 @@ namespace recreatie.paginas
                 }
 
             }
+=======
+>>>>>>> ReserveringTeam/Noah
         }
     }
 }

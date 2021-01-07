@@ -92,6 +92,14 @@ namespace ProjectGroenBos.Reservering
                 //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('U kunt niet voor het verleden reserveren. Probeer het opnieuw.')", true);
                 lblUitkomst.Text = "U kunt niet voor het verleden reserveren. Probeer het opnieuw.";
             }
+<<<<<<< HEAD
+=======
+
+            if (GridView1.Rows.Count == 0)
+            {
+                lblUitkomst.Text = "Geen beschikbare bungalows.";
+            }
+>>>>>>> ReserveringTeam/Noah
         }
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
@@ -130,29 +138,52 @@ namespace ProjectGroenBos.Reservering
             int betaalmethode = 1;
             int betaalstatus = 8;
             int factuurtype = 2;
+<<<<<<< HEAD
+=======
+            int factuurtype2 = 1;
+>>>>>>> ReserveringTeam/Noah
 
             //standaardwaardes transactie
             string aan = "Groenbos";
             string rekeningnummer = "NL32 RABO 0220.96.13.200";
             int typeID = 2;
 
+<<<<<<< HEAD
           
+=======
+            try
+            {
+>>>>>>> ReserveringTeam/Noah
                 //invullen database
                 InsReservering(personen, opmerking, vandaag, vertrekDatum, aankomstDatum, reserveringsStatus, gastnummer);
                 int reserveringnummer = GetReservering();
                 InsReserveringBungalow(reserveringnummer, bungalownummer);
                 GetKlantgegevens(gastnummer);
 
+<<<<<<< HEAD
                 string voornaam = (string)GridView2.DataKeys[0]["Voornaam"];
                 string tussenvoegsel = (string)GridView2.DataKeys[0]["Tussenvoegsel"];
                 string achternaam = (string)GridView2.DataKeys[0]["Achternaam"];
                 DateTime geboortedatum = (DateTime)GridView2.DataKeys[0]["Geboortedatum"];
+=======
+                string voornaam = (string)GridView2.DataKeys[0]["Voornaam"].ToString();
+                string tussenvoegsel = (string)GridView2.DataKeys[0]["Tussenvoegsel"].ToString();
+                string achternaam = (string)GridView2.DataKeys[0]["Achternaam"].ToString();
+                string gb = (string)GridView2.DataKeys[0]["Geboortedatum"].ToString();
+
+                DateTime geboortedatum = new DateTime();
+                geboortedatum = Convert.ToDateTime(gb);
+>>>>>>> ReserveringTeam/Noah
 
                 geboortedatum.ToShortDateString();
 
                 ReserveerderToevoegen(voornaam, tussenvoegsel, achternaam, geboortedatum, reserveringnummer);
 
                 InsDebiteurenFactuur(vandaag, betaalmethode, betaalstatus, factuurtype, reserveringnummer);
+<<<<<<< HEAD
+=======
+                InsDebiteurenFactuur(vandaag, betaalmethode, betaalstatus, factuurtype2, reserveringnummer);
+>>>>>>> ReserveringTeam/Noah
                 int debifactuur = GetDebiNummer();
 
                 int feestdag = GetFeestdag(reserveringnummer);
@@ -170,6 +201,11 @@ namespace ProjectGroenBos.Reservering
 
                 double prijs = GetPrijs(reserveringnummer);
 
+<<<<<<< HEAD
+=======
+                double prijs2 = GetPrijs(reserveringnummer);
+
+>>>>>>> ReserveringTeam/Noah
                 prijs = prijs / 10;
 
                 if (prijs < 100)
@@ -185,11 +221,29 @@ namespace ProjectGroenBos.Reservering
 
                 InsTransactie(vandaag, aan, prijs, reserveringnummer, debifactuur, rekeningnummer, typeID);
 
+<<<<<<< HEAD
                 Session["prijs"] = prijs.ToString();
                 Session["personen"] = txbAantalPersonen.Text;
                 Session["reserveringnummer"] = reserveringnummer;
                 Response.Redirect("Nachtregister.aspx");
 
+=======
+                Session["prijs"] = prijs2.ToString();
+                Session["betaald"] = prijs.ToString();
+                Session["personen"] = txbAantalPersonen.Text;
+                Session["reserveringnummer"] = reserveringnummer;
+                Session["aankomstdatum"] = aankomst2;
+                Session["vertrekdatum"] = vertrek2;
+                Session["achternaam"] = achternaam;
+                Session["email"] = (string)GridView2.DataKeys[0]["Email"].ToString();
+
+                Response.Redirect("NachtregisterInvullen.aspx");
+            }
+            catch
+            {
+                lblUitkomst.Text = "Er ging iets mis.";
+            }
+>>>>>>> ReserveringTeam/Noah
         }
 
         private void InsReservering(int personen, string opmerking, DateTime plaatsing, DateTime vertrekdatum, DateTime aankomstdatum, int reserveringsStatus, int gastnummer)
@@ -446,7 +500,11 @@ namespace ProjectGroenBos.Reservering
 
                 cmd.Parameters.AddWithValue("@nummer", reserveringnummer);
 
+<<<<<<< HEAD
                 double prijs = cmd.ExecuteNonQuery();
+=======
+                double prijs = double.Parse(cmd.ExecuteScalar().ToString());
+>>>>>>> ReserveringTeam/Noah
 
                 con.Close();
 
@@ -479,7 +537,11 @@ namespace ProjectGroenBos.Reservering
             {
                 con.Open();
 
+<<<<<<< HEAD
                 string query = "select Voornaam, Tussenvoegsel, Achternaam, Geboortedatum from Gast where Nummer = @nummer";
+=======
+                string query = "select Voornaam, Tussenvoegsel, Achternaam, Geboortedatum, Email from Gast where Nummer = @nummer";
+>>>>>>> ReserveringTeam/Noah
 
                 SqlCommand cmd = new SqlCommand(query, con);
 
@@ -525,7 +587,11 @@ namespace ProjectGroenBos.Reservering
 
         protected void btnTerug_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             Response.Redirect("GastAanmaken.aspx");
+=======
+            Response.Redirect("GastSelecteren.aspx");
+>>>>>>> ReserveringTeam/Noah
         }
     }
 }
