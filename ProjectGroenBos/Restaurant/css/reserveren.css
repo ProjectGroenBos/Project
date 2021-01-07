@@ -58,7 +58,7 @@
     border-radius: 15px;
 }
 
-.aspNetDisabled{
+.aspNetDisabled {
     width: 40%;
     font-size: x-large;
     border: 2px solid #343434;
@@ -88,7 +88,7 @@
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
-.cocacontainer{
+.cocacontainer {
     height: 540px;
 }
 
@@ -99,6 +99,13 @@
     border: 2px solid #343434;
     border-radius: 15px;
     width: 17%;
+}
+
+#BtnOphalen,
+#ContentPlaceHolder1_BtnOphalen {
+    border: 2px solid #343434;
+    border-radius: 15px;
+    width: 30%;
 }
 
 #btnNee,

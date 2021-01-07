@@ -6,10 +6,10 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <header class="header">
         Reserveren
+   
     </header>
 
     <div class="cocacontainer">
-
         <div class="werkgebied">
 
             <div class="contentbak">
@@ -21,7 +21,7 @@
                         <div class="tekstlabel">
                             <label>Bungalow</label>
                         </div>
-                         
+
                         <asp:Button ID="btnJa" runat="server" OnClick="btnJa_Click" Text="Ja" />
                         <asp:Button ID="btnNee" runat="server" Text="Nee" OnClick="btnNee_Click" />
 
@@ -32,8 +32,12 @@
                             <label>nummer</label>
                         </div>
                         <asp:TextBox class="tekstbox" ID="txtBungalownummer"
-                            runat="server" placeholder="" OnTextChanged="txtBungalownummer_TextChanged"></asp:TextBox>
+                            runat="server" placeholder="" Width="61px"></asp:TextBox>
+
+                        <asp:Button ID="BtnOphalen" runat="server" OnClick="Button1_Click" Text="Ophalen" />
                     </div>
+
+
 
                     <div class="contentrij">
                         <div class="tekstlabel">
@@ -139,5 +143,4 @@
                 runat="server" placeholder=""></asp:Label>
         </div>
     </div>
-
 </asp:Content>

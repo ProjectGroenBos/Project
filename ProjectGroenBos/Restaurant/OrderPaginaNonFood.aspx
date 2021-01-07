@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Financien/Financien.Master" AutoEventWireup="true" CodeBehind="OrderPaginaNonFood.aspx.cs" Inherits="ProjectGroenBos.Restaurant.OrderPaginaNonFood" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Restaurant/Restaurant.Master" AutoEventWireup="true" CodeBehind="OrderPaginaNonFood.aspx.cs" Inherits="ProjectGroenBos.Restaurant.OrderPaginaNonFood" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
         @media print {
@@ -498,7 +498,7 @@ margin-top: 10%
         <asp:SqlDataSource ID="SqlDataSource6" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="select * from InkoopOrderAanvraag INNER JOIN Leverancier ON InkoopOrderAanvraag.LeverancierID = Leverancier.ID WHERE InkoopOrderAanvraagstatusID = 4"></asp:SqlDataSource>
         <br />
     </div>
-    
+
     <asp:Repeater ID="rpReservering" runat="server">
         <ItemTemplate>
             <!-- Modal -->

@@ -1,5 +1,4 @@
 ﻿body {
- 
 }
 
 .keuken {
@@ -49,10 +48,10 @@
 }
 
 .center {
-    margin:auto;
+    margin: auto;
 }
 
-.close{
+.close {
     background-color: red;
     float: left;
     width: 30px;
@@ -106,7 +105,7 @@
     box-sizing: border-box;
 }
 
-.Tafelpopup{
+.Tafelpopup {
     float: left;
     width: 326px;
 }

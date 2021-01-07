@@ -83,6 +83,8 @@ namespace ProjectGroenBos.Financien
                         Session["Functie"] = functie;
                         Response.Redirect("Restaurant/home.aspx");
                     }
+
+
                 }
                 dr.Close();
             }
