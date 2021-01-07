@@ -27,8 +27,12 @@
                         <label>nummer</label>
                     </div>
                     <asp:TextBox class="tekstbox" ID="txtBungalownummer"
-                        runat="server" placeholder="" OnTextChanged="txtBungalownummer_TextChanged"></asp:TextBox>
+                        runat="server" placeholder="" Width="61px"></asp:TextBox>
+                    
+                    <asp:Button ID="BtnOphalen" runat="server" OnClick="Button1_Click" Text="Ophalen" />
                 </div>
+                
+               
 
                 <div class="contentrij">
                     <div class="tekstlabel">
@@ -127,10 +131,9 @@
 
             </div>
 
-            <asp:Button class="reserveerknop" ID="btnReserveer" runat="server" placeholder="" Text="Reserveer" OnClick="btnReserveer_Click"></asp:Button>
+        <asp:Button class="reserveerknop" ID="btnReserveer" runat="server" placeholder="" Text="Reserveer" OnClick="btnReserveer_Click"></asp:Button>
 
-        </div>
-        <asp:Label CssClass="form-control" ID="lblGelukt"
-            runat="server" placeholder=""></asp:Label>
     </div>
+        <asp:Label CssClass="form-control" ID="lblGelukt"
+                        runat="server" placeholder=""></asp:Label>
 </asp:Content>

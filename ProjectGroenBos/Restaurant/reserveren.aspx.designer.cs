@@ -42,6 +42,15 @@ namespace ProjectGroenBos.Restaurant
         protected global::System.Web.UI.WebControls.TextBox txtBungalownummer;
 
         /// <summary>
+        /// BtnOphalen control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnOphalen;
+
+        /// <summary>
         /// txtVoornaam control.
         /// </summary>
         /// <remarks>

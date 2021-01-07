@@ -7,20 +7,19 @@
     <title>Groenbos</title>
     <link rel="stylesheet" href="css/style.css">
 
-    <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
-        <!--<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>-->
+         <!--<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>-->
         <div class="wrapper">
             <div class="sidebar">
                 <h2>
@@ -47,7 +46,8 @@
                         <li><a href="Voorraad.aspx">Voorraad Muteren</a></li>
                         <li><a href="BestellenFood.aspx">Bestellen Food</a></li>
                         <li><a href="BestellenNonFood.aspx">Bestellen Non-Food</a></li>
-                        <li><a href="OrderPagina.aspx">Order</a></li>
+                        <li><a href="OrderPagina.aspx">Order Food</a></li>
+                        <li><a href="OrderPaginaNonFood.aspx">Order Non-Food</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -65,7 +65,7 @@
                             <li><a href="#">Reserveringen</a></li>
                             <li><a href="#">Recreatie</a></li>
                             <li><a href="#">Schoonmaak</a></li>
-                            <li><a href="/Financien/Home.aspx">Financiën</a></li>
+                            <li><a href="#">Financiën</a></li>
                             <asp:Button ID="btnUitloggen" runat="server" CssClass="btnUitloggen" Text="Uitloggen" OnClick="btnUitloggen_Click" />
                         </ul>
                     </nav>
