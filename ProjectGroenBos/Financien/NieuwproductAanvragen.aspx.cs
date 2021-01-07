@@ -126,5 +126,26 @@ namespace ProjectGroenBos.Financien
         {
             Response.Redirect("~/Financien/Leverancier.aspx");
         }
+
+        protected void btnAfkeuren_Click(object sender, EventArgs e)
+        {
+                Button btn = sender as Button;
+
+            using (SqlConnection connection = new SqlConnection(constr))
+            {
+                connection.Open();
+
+                int gridviewnr = int.Parse(btn.CommandName);
+                
+                HiddenField ID2 = (HiddenField)Rptoevoegen.Items[gridviewnr].FindControl("ID");
+                string ID = ID2.Value;
+
+                SqlCommand cmd = new SqlCommand("UPDATE InkoopAanvraagRegelNieuwProduct SET Referentie= '0' WHERE ID = @nummer", connection);
+                cmd.Parameters.AddWithValue("@nummer", ID);
+                cmd.ExecuteNonQuery();
+                connection.Close();
+            }
+                gvLeveranciersOverzicht.DataBind();    
+        }
     }
 }
