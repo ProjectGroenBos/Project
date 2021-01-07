@@ -37,6 +37,7 @@
                              <li><a href="/Financien/Leverancier.aspx">Leveranciersoverzicht</a></li>
                             <li><a href="/Financien/Reserveringen.aspx">Reserveringen-overzicht</a></li>
                             <li><a href="/Financien/Rekeningen.aspx">Rekening-overzicht</a></li>
+                            <li><a href="/Financien/TransactieHistory.aspx">Transactie Historie</a></li>
                         </ul>
                     </li>
                     <li style="color: #FFFFFF"><i class="fas fa-address-card"></i> Facturering
