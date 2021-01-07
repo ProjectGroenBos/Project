@@ -232,12 +232,16 @@
 
                                     <asp:HiddenField ID="Nummer" runat="server"
                                         Value='<%# Eval("InkooporderID") %>' />
+                                    <asp:HiddenField ID="CreNummer" runat="server"
+                                        Value='<%# Eval("Nummer") %>' />
 
-                                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="select Naam, Prijs, Inkoopaantal, Inkoopaantal * Prijs as totaal from aanpassenprijs where Nummer = @Nummer">
+                                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="select aanpassenprijs.Naam, Prijs, Inkoopaantal, (Inkoopaantal * Prijs) as totaal from Crediteurenfactuur inner join aanpassenprijs on aanpassenprijs.Nummer = Crediteurenfactuur.InkooporderID where Crediteurenfactuur.Nummer = @CreNummer
+UNION all
+select aanpassenvoedsel.Naam, Prijs, Inkoopaantal, (Inkoopaantal * Prijs) as totaal from Crediteurenfactuur inner join aanpassenvoedsel on aanpassenvoedsel.Nummer = Crediteurenfactuur.VoedselorderID where Crediteurenfactuur.Nummer = @CreNummer">
                                         <SelectParameters>
                                             <asp:ControlParameter
-                                                Name="Nummer"
-                                                ControlID="Nummer"
+                                                Name="CreNummer"
+                                                ControlID="CreNummer"
                                                 PropertyName="Value" />
                                         </SelectParameters>
                                     </asp:SqlDataSource>

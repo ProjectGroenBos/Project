@@ -49,6 +49,7 @@
                     <li style="color: #FFFFFF"><i class="fas fa-project-diagram"></i> Inkoop
                         <ul class="submenu">
                             <li><a href="/Financien/InzienInkoopTraject.aspx">Inzien inkooptraject</a></li>
+                            <li><a href="/Financien/NieuwproductAanvragen.aspx">Aanvragen nieuwe producten</a></li>
                             <li><a href="/Financien/InkoopAanvraagScherm.aspx">Inkoopaanvragen controleren</a></li>
                             <li><a href="/Financien/InkoopAanvraagBestelScherm.aspx">Inkoopaanvragen Bestellen</a></li>
                         </ul>
