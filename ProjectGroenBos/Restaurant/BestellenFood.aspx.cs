@@ -31,6 +31,30 @@ namespace ProjectGroenBos.Restaurant
                 gvInkoopOrderregel.DataSource = dta;
                 gvInkoopOrderregel.DataBind();
             }
+            functiescheiding();
+        }
+
+        private void functiescheiding()
+        {
+            //controleren of de ingelogde persoon geautoriseerd is om af te mogen rekenen
+            int functieID = int.Parse(Session["Functie"].ToString());
+
+            if (functieID == 5)
+            {
+
+            }
+            else if (functieID == 6)
+            {
+
+            }
+            else if (functieID == 10)
+            {
+
+            }
+            else
+            {
+                Response.Redirect("~/Restaurant/home.aspx");
+            }
         }
 
 
@@ -134,7 +158,7 @@ namespace ProjectGroenBos.Restaurant
                     sqlCmd.Parameters.AddWithValue("@Leveranciernummer", Leveranciernummer);
                     SqlParameter sqlParameter0 = sqlCmd.Parameters.AddWithValue("@Datum", DateTime.Now);
                     SqlParameter sqlParameter1 = sqlCmd.Parameters.AddWithValue("@Bestelnummer", num);
-                    SqlParameter sqlParameter2 = sqlCmd.Parameters.AddWithValue("@Aanvraagstatus", "2".Trim());
+                    SqlParameter sqlParameter2 = sqlCmd.Parameters.AddWithValue("@Aanvraagstatus", "4".Trim());
                     sqlCmd.ExecuteNonQuery();
                     sqlCon.Close();
 

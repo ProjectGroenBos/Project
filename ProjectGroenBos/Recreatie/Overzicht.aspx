@@ -1,7 +1,6 @@
 ﻿<%@ Page Language="C#" MasterPageFile="Site1.Master"  AutoEventWireup="true" CodeBehind="Overzicht.aspx.cs" Inherits="ProjectGroenBos.Recreatie.Overzicht" %>
 
 <asp:Content runat="server" ContentPlaceHolderID="head">
-    <link href="CSS/styleoverzicht.css" rel="stylesheet" />
 </asp:Content>
 <asp:content id="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 <<<<<<< HEAD
@@ -12,11 +11,11 @@
             <asp:Label ID="lblActiviteiten" runat="server" Text="Geplande Activiteiten" CssClass="lblgeplandeactiviteiten"></asp:Label>
             <asp:Label ID="lblDatum" runat="server" Text="Datum:" CssClass="lbldatum"></asp:Label>
             <asp:Label ID="lbldatumNu" runat="server" Text="" CssClass="lbldatumnu"></asp:Label>
-            <asp:Button ID="backwards" runat="server" CssClass="vorigeknop" OnClick="OnButtonPress" Text="&lt;" />
+            <asp:Button ID="backwards" runat="server" CssClass="vorigeknop" OnClick="OnButtonPress" Text="&lt;" type="button" style="background-color: #009879; color: #fff" class="btn"/>
 
             <asp:CheckBox ID="CbWeekOverzicht" runat="server" AutoPostBack="True" OnCheckedChanged="CbWeekOverzicht_CheckedChanged" Text="WeekOverzicht" CssClass="weekcb" />
 
-            <asp:Button ID="Forward" runat="server" CssClass="volgendeknop" OnClick="OnButtonPress" Text="&gt;" />
+            <asp:Button ID="Forward" runat="server" CssClass="volgendeknop" OnClick="OnButtonPress" Text="&gt;" type="button" style="background-color: #009879; color: #fff" class="btn" />
 
 <<<<<<< HEAD
             <asp:GridView ID="gvActiveiten" runat="server" DataSourceID="SqlDataSource1" Height="215px" width="70%" CssClass="gridviewoverzicht" AutoGenerateColumns="False">

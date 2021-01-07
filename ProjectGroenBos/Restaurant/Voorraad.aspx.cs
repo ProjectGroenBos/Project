@@ -21,6 +21,30 @@ namespace ProjectGroenBos.Restaurant
             {
                 InvullenGridview();
             }
+            functiescheiding();
+        }
+
+        private void functiescheiding()
+        {
+            //controleren of de ingelogde persoon geautoriseerd is om af te mogen rekenen
+            int functieID = int.Parse(Session["Functie"].ToString());
+
+            if (functieID == 5)
+            {
+
+            }
+            else if (functieID == 6)
+            {
+
+            }
+            else if (functieID == 10)
+            {
+
+            }
+            else
+            {
+                Response.Redirect("~/Restaurant/home.aspx");
+            }
         }
 
         protected void btnBevestig_Click(object sender, EventArgs e)

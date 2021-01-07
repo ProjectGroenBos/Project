@@ -479,7 +479,7 @@ margin-top: 10%
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="header">Orderpagina</div>
+    <div class="header">Goedkeuring Food orders</div>
     <div class="container" runat="server" id="pdfbody">
 
         <asp:GridView ID="gvOrderBekijken" DataKeyNames="Nummer" CssClass="content-table tweedetable" GridLines="None" runat="server" AutoGenerateColumns="false" DataSourceID="SqlDataSource6">
@@ -495,7 +495,7 @@ margin-top: 10%
             </Columns>
         </asp:GridView>
 
-        <asp:SqlDataSource ID="SqlDataSource6" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="select * from VoedselRestaurantInkoopOrder inner join Leverancier on Leverancier.ID = VoedselRestaurantInkoopOrder.LeverancierID"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSource6" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="select * from VoedselRestaurantInkoopOrder inner join Leverancier on Leverancier.ID = VoedselRestaurantInkoopOrder.LeverancierID WHERE Aanvraagstatus = 4"></asp:SqlDataSource>
         <br />
     </div>
 
@@ -542,6 +542,7 @@ margin-top: 10%
                                         <asp:BoundField DataField="Prijs" HeaderText="Prijs per stuk" ReadOnly="True" SortExpression="Prijs" DataFormatString="{0:C}" />
                                         <asp:BoundField DataField="Aantal" HeaderText="Aantal" ReadOnly="True" SortExpression="Aantal" />
                                         <asp:BoundField DataField="Bestelnummer" HeaderText="Bestelnummer" ReadOnly="True" SortExpression="Bestelnummer" />
+                                        <asp:BoundField DataField="Omschrijving" HeaderText="Status" ReadOnly="True" SortExpression="Omschrijving" />
                                     </Columns>
                                     <EditRowStyle BackColor="#009879" ForeColor="White" />
                                     <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
@@ -581,9 +582,10 @@ margin-top: 10%
                                 </table>--%>
 
                                 <asp:SqlDataSource ID="SqlDataSource7" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT *
-FROM     Voorraad INNER JOIN
-                  VoedselRestaurantAanvraagRegels ON Voorraad.ID = VoedselRestaurantAanvraagRegels.VoorraadID INNER JOIN
-                  VoedselRestaurantInkoopOrder ON VoedselRestaurantAanvraagRegels.VoedselOrderAanvraag = VoedselRestaurantInkoopOrder.Nummer where Nummer = @Nummer">
+FROM     VoedselRestaurantAanvraagRegels INNER JOIN
+                  VoedselRestaurantInkoopOrder ON VoedselRestaurantAanvraagRegels.VoedselOrderAanvraag = VoedselRestaurantInkoopOrder.Nummer INNER JOIN
+                  InkoopOrderAanvraagStatus ON VoedselRestaurantInkoopOrder.Aanvraagstatus = InkoopOrderAanvraagStatus.ID INNER JOIN
+                  Voorraad ON VoedselRestaurantAanvraagRegels.VoorraadID = Voorraad.ID where nummer = @nummer">
                                     <SelectParameters>
                                         <asp:ControlParameter
                                             Name="Nummer"
@@ -627,7 +629,7 @@ FROM     Voorraad INNER JOIN
                         </div>
 
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-default" <%--data-dismiss="modal"--%>>Goedkeuren</button>
+                            <asp:Button ID="BtnGoedkeuren" class="btn btn-default" runat="server" Text="Goedkeuren" CommandName="<%# Container.ItemIndex %>" onclick="btnGoedkeuren_Click" />
                         </div>
                     </div>
                 </div>
