@@ -4,9 +4,9 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <%-- Main grid --%>
-    <div class="header">Nieuwe productaanvraagoverzicht</div>
+    <div class="header">Aanvragen nieuwe producten</div>
     <div class="container">
-        <h2>Nieuwe producten</h2>
+        <h2>Nieuwe producten-overzicht</h2>
         <p>Dit zijn de aanvragen voor nieuwe producten.</p>
 
 
@@ -65,7 +65,9 @@
 
 
                     <asp:Button ID="btnToevoegen" CssClass="btnToevoegen" runat="server" CommandName="<%# Container.ItemIndex %>" Text="Toevoegen" OnClick="btnToevoegen_Click" />
-                <asp:Button ID="Button1" CssClass="btnToevoegen" runat="server" CommandName="<%# Container.ItemIndex %>" Text="Leverancier Toevoegen" OnClick="btnToevoegen2_Click" />
+                    <asp:Button ID="Button2" CssClass="btnToevoegen" runat="server" CommandName="<%# Container.ItemIndex %>" Text="Afwijzen" OnClick="btnAfkeuren_Click" BackColor="#FF5050" />
+                    <asp:Button ID="Button1" CssClass="btnToevoegen" runat="server" CommandName="<%# Container.ItemIndex %>" Text="Leverancier Toevoegen" OnClick="btnToevoegen2_Click" />
+                    
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Sluiten</button>

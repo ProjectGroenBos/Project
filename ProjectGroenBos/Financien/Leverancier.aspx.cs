@@ -61,5 +61,22 @@ namespace ProjectGroenBos.Financien
 
             gvLeveranciersOverzicht.DataBind();
         }
+
+        protected void TextBox1_TextChanged(object sender, EventArgs e)
+        {
+            if (TextBox1.Text != "")
+            {
+                SqlDataSource1.SelectCommand =
+                "SELECT DISTINCT Leverancier.* FROM Leverancier LEFT JOIN Voorraad ON Leverancier.ID = Voorraad.LeverancierID WHERE Voorraad.Naam LIKE '%" + TextBox1.Text + "%'";
+                gvLeveranciersOverzicht.DataBind();
+            }
+
+            else
+            {
+                SqlDataSource1.SelectCommand =
+                    "select * from Leverancier";
+                gvLeveranciersOverzicht.DataBind();
+            }
+        }
     }
 }
