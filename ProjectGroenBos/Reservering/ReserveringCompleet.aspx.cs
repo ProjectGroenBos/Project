@@ -17,6 +17,7 @@ namespace ProjectGroenBos.Reservering
             {
                 lblReservering.Text = Session["reserveringnummer"].ToString();
                 lblReservering.Visible = false;
+                
             }
             else
             {

@@ -92,6 +92,7 @@
     <Content Include="Recreatie\Overzicht.aspx" />
     <Content Include="Recreatie\Uitloggen.aspx" />
     <Content Include="Reservering\Images\checksymbol.png" />
+    <Content Include="Reservering\Images\framed-portrait.png" />
     <Content Include="Reservering\KlachtenAfhandeling.aspx" />
     <Content Include="Reservering\Gastoverzicht.aspx" />
     <Content Include="Reservering\GastWijzigen.aspx" />

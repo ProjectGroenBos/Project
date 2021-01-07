@@ -30,7 +30,6 @@ namespace ProjectGroenBos.Reservering
             Session["omschrijving"] = (string)GridView1.SelectedRow.Cells[7].Text;
             Session["gastnummer"] = (string)GridView1.SelectedRow.Cells[8].Text;
 
-
             Response.Redirect("KlachtenAfhandeling.aspx");
         }
 

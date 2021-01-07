@@ -37,11 +37,11 @@ namespace ProjectGroenBos.Reservering
 
             if (GridView3.Rows.Count==0)
             {
-                lblAankomend.Text = "Vandaag komen er geen gasten binnen.";
+                lblAankomend.Text = "De komende 3 dagen komen er geen gasten binnen.";
             }
             if (GridView4.Rows.Count == 0)
             {
-                lblVertrekkend.Text = "Vandaag gaan er geen gasten vertrekken.";
+                lblVertrekkend.Text = "De komende 3 dagen gaan er geen gasten vertrekken.";
             }
             
         }

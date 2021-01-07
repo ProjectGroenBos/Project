@@ -53,8 +53,10 @@
 
         <asp:GridView ID="GridView1" CssClass="content-table" runat="server" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="Klacht nummer" DataSourceID="SqlDataSource1" SelectedIndexChanged="GridView1_SelectedIndexChanged" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AllowPaging="True">
             <Columns>
+                <asp:BoundField DataField="incidentdatum" HeaderText="Datum" SortExpression="incidentdatum" DataFormatString="{0:dd-MM-yyyy}"/>
                 <asp:BoundField DataField="Klacht nummer" HeaderText="Klacht nummer" InsertVisible="False" ReadOnly="True" SortExpression="Klacht nummer" />
                 <asp:BoundField DataField="Gastnummer" HeaderText="Gastnummer" SortExpression="Gastnummer" />
+                <%--                <asp:BoundField DataField="Resnummer" HeaderText="Reserveringsnummer" SortExpression="ResNummer" />--%>
                 <asp:BoundField DataField="Voornaam" HeaderText="Voornaam" SortExpression="Voornaam" />
                 <asp:BoundField DataField="Tussenvoegsel" HeaderText="Tussenvoegsel" SortExpression="Tussenvoegsel" />
                 <asp:BoundField DataField="Achternaam" HeaderText="Achternaam" SortExpression="Achternaam" />
@@ -66,8 +68,12 @@
         </asp:GridView>
 
 
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:2020-BIM02-P1-P2-GroenbosConnectionString %>" SelectCommand="SELECT Nummer AS [Klacht nummer],Gastnummer, Voornaam, Tussenvoegsel, Achternaam, Email AS [E-mail], Categorie, Omschrijving FROM Klacht where (Achternaam like '%' + @Achternaam + '%' AND Categorie LIKE '%' + @Categorie + '%') or (Achternaam like '%' + @Categorie + '%' AND Categorie LIKE '%' + @Achternaam + '%') ORDER BY [Klacht nummer] ASC">
+        <%--        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:2020-BIM02-P1-P2-GroenbosConnectionString %>" SelectCommand="SELECT Nummer AS [Klacht nummer],Gastnummer, Resnummer, Voornaam, Tussenvoegsel, Achternaam, Email AS [E-mail], Categorie, Omschrijving FROM Klacht where (Achternaam like '%' + @Achternaam + '%' AND Categorie LIKE '%' + @Categorie + '%' AND Resnummer like '%' + @resnummer + '%') or (Achternaam like '%' + @Categorie + '%' AND Categorie LIKE '%' + @Achternaam + '%') ORDER BY [Klacht nummer] ASC">--%>
+
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:2020-BIM02-P1-P2-GroenbosConnectionString %>" SelectCommand="SELECT Nummer AS [Klacht nummer],Gastnummer, Voornaam, Tussenvoegsel, Achternaam, Email AS [E-mail], incidentdatum, Categorie, Omschrijving FROM Klacht where (Achternaam like '%' + @Achternaam + '%' AND Categorie LIKE '%' + @Categorie + '%') or (Achternaam like '%' + @Categorie + '%' AND Categorie LIKE '%' + @Achternaam + '%') ORDER BY [incidentdatum] ASC">
+
             <SelectParameters>
+                <%--                <asp:ControlParameter ControlID="txbResNummer" DefaultValue="%" Name="Reserveringsnummer" PropertyName="Text" />--%>
                 <asp:ControlParameter ControlID="txbAchternaam" DefaultValue="%" Name="achternaam" PropertyName="Text" />
                 <asp:ControlParameter ControlID="DropDownCategorie" DefaultValue="%" Name="Categorie" PropertyName="Text" />
             </SelectParameters>

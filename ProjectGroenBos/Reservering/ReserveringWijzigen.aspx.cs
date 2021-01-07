@@ -34,16 +34,10 @@ namespace ProjectGroenBos.Reservering
 
                 {
                     lblReserveringsnummer.Text = Session["reserveringsnummer"].ToString();
-                    //txbAantalPersonen.Text = GridView1.Rows[1].Cells[1].Text;
-                    //txbOpmerkingen.Text = (string)GridView1.DataKeys[0]["Opmerking"].ToString();
-                    //txbAankomstdatum.Text = (string)GridView1.DataKeys[0]["Aankomstdatum"].ToString();
-                    //txbVertrekdatum.Text = (string)GridView1.DataKeys[0]["Vertrekdatum"].ToString();
 
                     //sessions ophalen voor het vullen van de vakjes
                     reserveringsnummer = Session["reserveringsnummer"].ToString();
-                    //txbAankomstdatum.Text = Session["Aankomstdatum"].ToString();
-                    //txbAantalPersonen.Text = Session["AantalPersonen"].ToString();
-                    //txbVertrekdatum.Text = Session["Vertrekdatum"].ToString();
+
                     GridView1.Visible = false;
                     GridView2.Visible = false;
                     btnWijzigen.Visible = false;
@@ -116,7 +110,6 @@ namespace ProjectGroenBos.Reservering
                     {
                         cmd.ExecuteNonQuery();
                     }
-                    
 
                     cmd2.ExecuteNonQuery();
                     con.Close();
@@ -131,6 +124,7 @@ namespace ProjectGroenBos.Reservering
             catch
             {
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Er ging iets mis')", true);
+                GridView1.Visible = false;
             }
 
         }
@@ -256,6 +250,7 @@ namespace ProjectGroenBos.Reservering
             {
                 lblUitkomst.Text = "Geen beschikbare bungalows.";
             }
+            btnWijzigen.Visible = true;
         }
 
         protected void GridView2_SelectedIndexChanged(object sender, EventArgs e)
@@ -282,7 +277,7 @@ namespace ProjectGroenBos.Reservering
                 txbAankomstdatum.Enabled = true;
                 txbVertrekdatum.Enabled = true;
                 txbAantalPersonen.Enabled = true;
-                
+
             }
             foreach (GridViewRow gr in GridView1.Rows)
             {

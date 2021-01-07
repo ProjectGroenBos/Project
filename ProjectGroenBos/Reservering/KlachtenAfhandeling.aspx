@@ -85,6 +85,17 @@
             </tr>
             <tr>
                 <td style="width: 15%">
+                    <asp:Label ID="label4" runat="server" Text="Datum van incident" CssClass="labelsnieuw"></asp:Label></td>
+                <td style="width: 15%">
+                    <asp:TextBox ID="TxbDatum" runat="server" CssClass="textboxchaos" TextMode="Date"></asp:TextBox></td>
+                <td style="width: 40%">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="TxbDatum" ErrorMessage="Dit veld is verplicht." ForeColor="red" Display="Dynamic"></asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator6" runat="server" ErrorMessage="Datum moet ingevult zijn als  jjjj-mm-dd." ControlToValidate="TxBDatum" ValidationExpression="^(19|20)?\d\d[-](0[1-9]|1[012])[-](0[1-9]|[12][0-9]|3[01])$" Display="Dynamic" ForeColor="Red"></asp:RegularExpressionValidator>
+                    <asp:CustomValidator ID="CustomValidator1" runat="server" ControlToValidate="TxbDatum" ErrorMessage="Incident datum kan niet in de toekomst voorkomen" ForeColor="Red"></asp:CustomValidator>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 15%">
                     <asp:Label CssClass="labelsnieuw" runat="server" Text="Klacht"></asp:Label></td>
                 <td style="width: 15%">
                     <asp:TextBox ID="txbKlacht" CssClass="textboxchaos" runat="server" TextMode="MultiLine" Height="200px" Width="300px"></asp:TextBox></td>

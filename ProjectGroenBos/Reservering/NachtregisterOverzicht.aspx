@@ -20,13 +20,7 @@
                     <asp:TextBox ID="txbReserveringsnummer" runat="server"></asp:TextBox></td>
                 <td style="width: 40%"></td>
             </tr>
-            <tr>
-                <td style="width: 15%">
-                    <asp:Label ID="Label2" runat="server" Text="Label">Achternaam</asp:Label></td>
-                <td style="width: 15%">
-                    <asp:TextBox ID="txbAchternaam" runat="server"></asp:TextBox></td>
-                <td style="width: 40%"></td>
-            </tr>
+
         </table>
         <br />
         <asp:Label ID="lblUitkomst" runat="server" Text=""></asp:Label>
@@ -35,7 +29,7 @@
         <asp:Button ID="btnZoeken" runat="server" Text="Zoeken" Style="background-color: #009879; color: #fff" class="btn" OnClick="BtnZoeken_Click" CssClass="btnUitloggen" />
         <br />
         <asp:GridView ID="GridView1" runat="server" AllowSorting="True" AutoGenerateColumns="False" CssClass="content-table" DataKeyNames="volgnummer,ReserveringNummer2" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AllowPaging="True">
-            
+
             <Columns>
                 <asp:CommandField ShowEditButton="True" />
                 <asp:BoundField DataField="volgnummer" HeaderText="volgnummer" InsertVisible="False" ReadOnly="True" SortExpression="volgnummer" />

@@ -50,6 +50,7 @@ namespace ProjectGroenBos.Reservering
                 string tussenvoegsel = txbTussenvoegsel.Text;
                 string achternaam = txbAchternaam.Text;
                 string email = txbEmail.Text;
+                string incidentdatum = TxbDatum.Text;
                 string categorie = ddlCategorie.Text;
                 string klacht = txbKlacht.Text;
 
@@ -59,9 +60,10 @@ namespace ProjectGroenBos.Reservering
                     con.Open();
 
 
-                    string query = "insert into Klacht (Categorie, Omschrijving, Voornaam, Achternaam, Tussenvoegsel, Email)values(@categorie, @klachtomschrijving, @voornaam, @tussenvoegsel, @achternaam, @email)";
+                    string query = "insert into Klacht (incidentdatum, Categorie, Omschrijving, Voornaam, Achternaam, Tussenvoegsel, Email)values(@incidentdatum, @categorie, @klachtomschrijving, @voornaam, @tussenvoegsel, @achternaam, @email)";
 
                     SqlCommand cmd = new SqlCommand(query, con);
+                    cmd.Parameters.AddWithValue("@incidentdatum", incidentdatum);
                     cmd.Parameters.AddWithValue("@categorie", categorie);
                     cmd.Parameters.AddWithValue("@klachtomschrijving", klacht);
                     cmd.Parameters.AddWithValue("@voornaam", voornaam);
@@ -75,7 +77,7 @@ namespace ProjectGroenBos.Reservering
 
                     con.Close();
                     Session["controle"] = 100;
-                    Response.Redirect("home.aspx");
+                    Response.Redirect("KlachtenOverzicht.aspx");
 
                 }
                 else
@@ -86,13 +88,14 @@ namespace ProjectGroenBos.Reservering
                     con.Open();
 
 
-                    string query = "insert into Klacht (Categorie, Omschrijving, GastNummer, Voornaam, Tussenvoegsel, Achternaam)values(@categorie, @klachtomschrijving, @gastnummer, @voornaam, @tussenvoegsel, @achternaam)";
+                    string query = "insert into Klacht (incidentdatum, Categorie, Omschrijving, GastNummer, Voornaam, Tussenvoegsel, Achternaam)values(@incidentdatum, @categorie, @klachtomschrijving, @gastnummer, @voornaam, @tussenvoegsel, @achternaam)";
 
                     SqlCommand cmd = new SqlCommand(query, con);
-
+                    cmd.Parameters.AddWithValue("@incidentdatum", incidentdatum);
                     cmd.Parameters.AddWithValue("@categorie", categorie);
                     cmd.Parameters.AddWithValue("@klachtomschrijving", klacht);
                     cmd.Parameters.AddWithValue("@gastnummer", gastnummer);
+                    //cmd.Parameters.AddWithValue("@resnummer", gastnummer);
                     cmd.Parameters.AddWithValue("@voornaam", voornaam);
                     cmd.Parameters.AddWithValue("@tussenvoegsel", tussenvoegsel);
                     cmd.Parameters.AddWithValue("@achternaam", achternaam);
@@ -101,7 +104,7 @@ namespace ProjectGroenBos.Reservering
 
                     con.Close();
                     Session["controle2"] = 99;
-                    Response.Redirect("home.aspx");
+                    Response.Redirect("KlachtenOverzicht.aspx");
                 }
 
             }

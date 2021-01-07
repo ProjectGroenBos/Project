@@ -184,7 +184,7 @@
                 </td>
                 <td style="width: 40%">
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="txbHuisnummer" ErrorMessage="Dit veld is verplicht." ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
-                    <asp:RegularExpressionValidator ID="RegularExpressionValidator8" runat="server" ControlToValidate="txbHuisnummer" ErrorMessage="Huisnummer bestaat uit getallen en letters." ValidationExpression="^[A-Za-z0-9 ]+$" ForeColor="Red"  Display="Dynamic"></asp:RegularExpressionValidator>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator8" runat="server" ControlToValidate="txbHuisnummer" ErrorMessage="Huisnummer bestaat uit getallen en letters." ValidationExpression="^([0-9]+ ?[a-zA-Z]?)$" ForeColor="Red"  Display="Dynamic"></asp:RegularExpressionValidator>
                 </td>
             </tr>
             <tr>
