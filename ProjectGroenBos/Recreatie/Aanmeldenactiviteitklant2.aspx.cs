@@ -24,6 +24,7 @@ namespace ProjectGroenBos.Recreatie
             if (!IsPostBack)
             {
                 InvullenGridview();
+                int i = int.Parse((string)Session["GastNummer"]);
 
             }
         }
@@ -77,7 +78,7 @@ namespace ProjectGroenBos.Recreatie
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal('#Popup');", true);
+           
         }
 
         protected void GvAanmeldenActiviteit_PageIndexChanged(object sender, EventArgs e)
@@ -119,7 +120,7 @@ namespace ProjectGroenBos.Recreatie
 
         protected void GvAanmeldenActiviteit_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal('#Popup');", true);
         }
 
         protected void GvAanmeldenActiviteit_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
@@ -130,6 +131,32 @@ namespace ProjectGroenBos.Recreatie
         protected void GvAanmeldenActiviteit_Sorting(object sender, GridViewSortEventArgs e)
         {
             InvullenGridview(e.SortExpression);
+        }
+
+        protected void btnAanmelden_Click(object sender, EventArgs e)
+        {
+            using (SqlConnection sqlCon = new SqlConnection(connectionstring))
+            {
+               
+                DataTable Activiteit = new DataTable();
+                Activiteit.Columns.Add(new DataColumn("Nummer", typeof(int)));
+                Activiteit.Columns.Add(new DataColumn("Activiteitnaam", typeof(string)));
+                Activiteit.Columns.Add(new DataColumn("Datum", typeof(DateTime)));
+                Activiteit.Columns.Add(new DataColumn("Begintijd", typeof(TimeSpan)));
+                Activiteit.Columns.Add(new DataColumn("Eindtijd", typeof(TimeSpan)));
+                Activiteit.Columns.Add(new DataColumn("Naam", typeof(string)));
+                Activiteit.Columns.Add(new DataColumn("Inschrijfkosten", typeof(Double)));
+                SqlCommand cmd = new SqlCommand("Select [Nummer], [Activiteitnaam],[Datum],[Begintijd],[Eindtijd],[Naam],[Inschrijfkosten],[Locatie],[Maximaal aantal],[Omschrijving] FROM vActiviteit where Nummer= @Nummer", sqlCon);
+                cmd.Parameters.AddWithValue("Nummer", int.Parse(GvAanmeldenActiviteit.DataKeys[GvAanmeldenActiviteit.SelectedIndex].Value.ToString()));
+                sqlCon.Open();
+                cmd.ExecuteNonQuery();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(Activiteit);
+                Session["Nummer"] = GvAanmeldenActiviteit.DataKeys[GvAanmeldenActiviteit.SelectedIndex].Value;
+                Session["Activiteit"] = Activiteit;
+                Response.Redirect("MijnAanmeldingen.aspx");
+            }
+
         }
     }
 }

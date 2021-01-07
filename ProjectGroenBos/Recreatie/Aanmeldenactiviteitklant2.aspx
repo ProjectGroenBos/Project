@@ -5,11 +5,11 @@
      <script>function openModal(modalnaam) {
              $(modalnaam).modal('show');
          }</script>
-    <div class="header">Aanmelden voor activiteit</div>
+    <div class="header">Overzicht Activiteiten</div>
      <br />
-    <asp:GridView ID="GvAanmeldenActiviteit" runat="server" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" CssClass="content-table" DataKeyNames="Nummer" ForeColor="#333333" GridLines="None" ShowFooter="True" ShowHeaderWhenEmpty="True" Width="80%" AllowPaging="True" OnPageIndexChanged="GvAanmeldenActiviteit_PageIndexChanged" OnPageIndexChanging="GvAanmeldenActiviteit_PageIndexChanging" OnRowCancelingEdit="GvAanmeldenActiviteit_RowCancelingEdit" OnRowCommand="GvAanmeldenActiviteit_RowCommand" OnRowDeleting="GvAanmeldenActiviteit_RowDeleting" OnRowEditing="GvAanmeldenActiviteit_RowEditing" OnSelectedIndexChanged="GvAanmeldenActiviteit_SelectedIndexChanged" OnSelectedIndexChanging="GvAanmeldenActiviteit_SelectedIndexChanging" OnSorting="GvAanmeldenActiviteit_Sorting" >
+    <asp:GridView ID="GvAanmeldenActiviteit" runat="server" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" CssClass="content-table" DataKeyNames="Nummer" ForeColor="#333333" GridLines="None" ShowFooter="True" ShowHeaderWhenEmpty="True" Width="80%" AllowPaging="True" OnPageIndexChanged="GvAanmeldenActiviteit_PageIndexChanged" OnPageIndexChanging="GvAanmeldenActiviteit_PageIndexChanging" OnRowCancelingEdit="GvAanmeldenActiviteit_RowCancelingEdit" OnRowCommand="GvAanmeldenActiviteit_RowCommand" OnRowDeleting="GvAanmeldenActiviteit_RowDeleting" OnRowEditing="GvAanmeldenActiviteit_RowEditing" OnSelectedIndexChanged="GvAanmeldenActiviteit_SelectedIndexChanged" OnSelectedIndexChanging="GvAanmeldenActiviteit_SelectedIndexChanging" OnSorting="GvAanmeldenActiviteit_Sorting">
         <Columns>
-            <asp:BoundField DataField="Nummer" HeaderText="Nummer" HeaderStyle-ForeColor="White"  ReadOnly="True" SortExpression="Nummer"  >
+            <asp:BoundField DataField="Nummer" HeaderText="Nummer" HeaderStyle-ForeColor="White"  ReadOnly="True" SortExpression="Nummer" Visible="False">
 <HeaderStyle ForeColor="White"></HeaderStyle>
             </asp:BoundField>
             <asp:TemplateField HeaderText="Activiteitnaam" SortExpression="Activiteitnaam">
@@ -43,17 +43,21 @@
             <asp:BoundField DataField="Eindtijd" HeaderText="Eindtijd" HeaderStyle-ForeColor="White"  ReadOnly="True" SortExpression="Eindtijd" >
 <HeaderStyle ForeColor="White"></HeaderStyle>
             </asp:BoundField>
-            <asp:BoundField DataField="Naam" HeaderText="Naam" HeaderStyle-ForeColor="White"  SortExpression="Naam" >
+            <asp:BoundField DataField="Naam" HeaderText="Naam" HeaderStyle-ForeColor="White"  SortExpression="Naam" Visible="False" >
 <HeaderStyle ForeColor="White"></HeaderStyle>
             </asp:BoundField>
-            <asp:BoundField DataField="MedewerkerID" HeaderText="MedewerkerID" HeaderStyle-ForeColor="White"  SortExpression="MedewerkerID" >
+            <asp:BoundField DataField="MedewerkerID" HeaderText="MedewerkerID" HeaderStyle-ForeColor="White"  SortExpression="MedewerkerID" Visible="False" >
 <HeaderStyle ForeColor="White"></HeaderStyle>
             </asp:BoundField>
+                 <asp:CommandField ShowSelectButton="True" ItemStyle-ForeColor="White">
+<ItemStyle ForeColor="White"></ItemStyle>
+            </asp:CommandField>
+            
         </Columns>
 
      </asp:GridView>
      <br />
-    <asp:Button ID="Button1" runat="server" Text="Aanmelden" OnClick="Button1_Click"/>
+   
 
     <div id="Popup" class="modal fade" role="dialog">
 
@@ -71,40 +75,10 @@
 
                          <div class="modal-body">
 
-                             <asp:Label ID="Label2" runat="server" Text="ActiviteitNaam"></asp:Label>
-                             <asp:TextBox ID="txtActiviteitNaam" runat="server" CssClass="txbActiviteitnaam" ></asp:TextBox>
+                             <asp:Label ID="Label2" runat="server" Text="Weet u zeker dat u deze activiteit wilt selecteren?"></asp:Label>
+                          
                              
-                             <br />
-                             <br />
-                             <asp:Label ID="Label3" runat="server" Text="Locatie"></asp:Label>
-                             <asp:TextBox ID="txtLocatie" runat="server" CssClass="txblocatieactivitieit"></asp:TextBox>
-                             <br />
-                             <br />
-                             <asp:Label ID="Label4" runat="server" Text="Inschrijfkosten"></asp:Label>
-                             <asp:TextBox ID="txtInschrijfkosten" runat="server" CssClass="txbInschrijfkostenactivitieit"></asp:TextBox>
-                             <br />
-                             <br />
-                             <asp:Label ID="Label5" runat="server" Text="Maximaal Aantal"></asp:Label>
-                             <asp:TextBox ID="txtMaximaalAantal" runat="server" CssClass="txbMaximaalaantalactivitieit"></asp:TextBox>
-                             <br />
-                             <br />
-                             <asp:Label ID="Label6" runat="server" Text='Omschrijving'></asp:Label>
-                             <br />
-                             <br />
-
-                             <asp:Label ID="Label7" runat="server" Text="Datum"></asp:Label>
-                             <asp:TextBox ID="txtDatum" runat="server" CssClass="txbDatumactivitieit"></asp:TextBox>
-                             <br />
-                             <br />
-                             <asp:Label ID="Label8" runat="server" Text="Begintijd"></asp:Label>
-                             <asp:TextBox ID="txtBegintijd" runat="server" TextMode="Time" CssClass="txbBegintijdactivitieit"></asp:TextBox>
-                             <br />
-                             <br />
-                             <asp:Label ID="Label9" runat="server" Text="Eindtijd"></asp:Label>
-                             <asp:TextBox ID="txtEindtijd" runat="server" TextMode="Time" CssClass="txbEindtijdactivitieit"></asp:TextBox>
-                             <br />
-                             <br />
-                             <asp:Label ID="Label10" runat="server" Text="Medewerker"></asp:Label>
+                             
 
                       
                              
@@ -115,7 +89,7 @@
 
                          <div class="modal-footer">
 
-                             <asp:Button ID="btnAanmelden" runat="server" Style="max-width: 80%; margin-left: auto; margin-right: auto;" class="btn btn-primary btn-lg btn-block" Text="Aanmelden"/>
+                             <asp:Button ID="btnAanmelden" runat="server" Style="max-width: 80%; margin-left: auto; margin-right: auto;" class="btn btn-primary btn-lg btn-block" Text="Aanmelden" OnClick="btnAanmelden_Click"/>
                              <button type="button" class="btn btn-default" data-dismiss="modal">Sluiten</button>
 
 
