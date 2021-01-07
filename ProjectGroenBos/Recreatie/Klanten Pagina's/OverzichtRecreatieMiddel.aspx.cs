@@ -28,22 +28,13 @@ namespace ProjectGroenBos.Recreatie.Klanten_Pagina_s
 
             }
 
-            SqlDataReader rdr;
             using (SqlConnection sqlCon = new SqlConnection(connectionstring))
             {
 
-                var sql = "UPDATE dbo.Huuritem SET ItemstatusID = 1 where ";
-                var cmd = new SqlCommand(qry, sqlCon);
+                var sql = "UPDATE dbo.Huuritem SET ItemstatusID = 1 FROM dbo.Huuritem H INNER JOIN dbo.ReserveringHuuritem R ON R.HuuritemNummer = H.Nummer WHERE R.Einddatum = (SELECT CAST (GETDATE()AS Date))";
                 var cmd2 = new SqlCommand(sql, sqlCon);
                 sqlCon.Open();
-                rdr = cmd.ExecuteReader();
                 cmd2.ExecuteNonQuery();
-
-                if (rdr.HasRows)
-                {
-                    rdr.Read();
-
-                }
             }
         }
         private string SortDirection
