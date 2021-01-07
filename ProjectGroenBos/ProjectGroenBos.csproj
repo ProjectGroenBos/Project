@@ -69,12 +69,20 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Financien\CrediteurenFactuurBetaal.aspx" />
     <Content Include="Financien\css\main.css" />
+    <Content Include="Financien\Factuurtoevoegen.aspx" />
+    <Content Include="Financien\Financien.Master" />
     <Content Include="Financien\Home.aspx" />
     <Content Include="Financien\img\Logo.png" />
     <Content Include="Financien\img\Logo3.png" />
+    <Content Include="Financien\InkoopAanvraagScherm.aspx" />
     <Content Include="Financien\Inlogscherm.aspx" />
+    <Content Include="Financien\Overzicht.aspx" />
+    <Content Include="Financien\Personeeloverzicht.aspx" />
     <Content Include="Financien\Prijstabel.aspx" />
+    <Content Include="Financien\Rekeningen.aspx" />
+    <Content Include="Financien\Reserveringen.aspx" />
     <Content Include="Gerechten overzicht.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Recreatie\CSS\klantenpaginas.css" />
@@ -392,6 +400,20 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Financien\CrediteurenFactuurBetaal.aspx.cs">
+      <DependentUpon>CrediteurenFactuurBetaal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Financien\CrediteurenFactuurBetaal.aspx.designer.cs">
+      <DependentUpon>CrediteurenFactuurBetaal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Financien\Factuurtoevoegen.aspx.cs">
+      <DependentUpon>Factuurtoevoegen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Financien\Factuurtoevoegen.aspx.designer.cs">
+      <DependentUpon>Factuurtoevoegen.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Financien\Financien.Master.cs">
       <DependentUpon>Financien.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -406,6 +428,13 @@
     <Compile Include="Financien\Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Financien\InkoopAanvraagScherm.aspx.cs">
+      <DependentUpon>InkoopAanvraagScherm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Financien\InkoopAanvraagScherm.aspx.designer.cs">
+      <DependentUpon>InkoopAanvraagScherm.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Financien\Inlogscherm.aspx.cs">
       <DependentUpon>Inlogscherm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -413,12 +442,40 @@
     <Compile Include="Financien\Inlogscherm.aspx.designer.cs">
       <DependentUpon>Inlogscherm.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Financien\Overzicht.aspx.cs">
+      <DependentUpon>Overzicht.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Financien\Overzicht.aspx.designer.cs">
+      <DependentUpon>Overzicht.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Financien\Personeeloverzicht.aspx.cs">
+      <DependentUpon>Personeeloverzicht.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Financien\Personeeloverzicht.aspx.designer.cs">
+      <DependentUpon>Personeeloverzicht.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Financien\Prijstabel.aspx.cs">
       <DependentUpon>Prijstabel.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Financien\Prijstabel.aspx.designer.cs">
       <DependentUpon>Prijstabel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Financien\Rekeningen.aspx.cs">
+      <DependentUpon>Rekeningen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Financien\Rekeningen.aspx.designer.cs">
+      <DependentUpon>Rekeningen.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Financien\Reserveringen.aspx.cs">
+      <DependentUpon>Reserveringen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Financien\Reserveringen.aspx.designer.cs">
+      <DependentUpon>Reserveringen.aspx</DependentUpon>
     </Compile>
     <Compile Include="Gerechten overzicht.aspx.cs">
       <DependentUpon>Gerechten overzicht.aspx</DependentUpon>
@@ -840,7 +897,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Financien\Financien.Master" />
     <Content Include="libman.json" />
     <None Include="packages.config" />
     <Content Include="Recreatie\Site1.Master" />

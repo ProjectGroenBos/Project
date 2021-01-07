@@ -6,7 +6,7 @@
             $(modalnaam).modal('show');
         }</script>
 
-    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Nummer" DataSourceID="SqlDataSource1" Height="217px" Width="954px" AutoGenerateSelectButton="True" OnSelectedIndexChanged="Aids">
+    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Nummer" DataSourceID="SqlDataSource1" Height="217px" Width="954px" AutoGenerateSelectButton="True" OnSelectedIndexChanged="Aids" CssClass="content-table" GridLines="None">
         <Columns>
             <asp:BoundField DataField="Nummer" HeaderText="Nummer" ReadOnly="True" SortExpression="Nummer" />
             <asp:BoundField DataField="Naam" HeaderText="Naam" SortExpression="Naam" />

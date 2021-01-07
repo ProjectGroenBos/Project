@@ -21,6 +21,7 @@ namespace ProjectGroenBos.Recreatie
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            Security();
             cmdDag = new SqlCommand("sp_Recreatie_VulDagLijst", cnn);
             cmdWeek = new SqlCommand("sp_Recreatie_VulWeekLijst", cnn);
             if (Session["datacount"] == null && Session["achteruit"] == null)
@@ -28,6 +29,7 @@ namespace ProjectGroenBos.Recreatie
                 Session["datacount"] = 0;
                 Session["achteruit"] = 0;
             }
+
 
             if (!IsPostBack)
             {
@@ -45,6 +47,21 @@ namespace ProjectGroenBos.Recreatie
             lbldatumNu.Text = DateTime.Now.ToString("dd" + "-" + "MM" + "-" + "yy");
         }
 
+            protected void Security()
+            {
+                string functie = (string)Session["Functie"];
+                if (functie == "13" || functie == "1")
+                {
+                    if (functie == "1")
+                    {
+                    }
+                }
+
+                else
+                {
+                    Response.Redirect("~/Financien/Inlogscherm.aspx");
+                }
+            }
         protected void OnButtonPress(object sender, EventArgs e)
         {
 

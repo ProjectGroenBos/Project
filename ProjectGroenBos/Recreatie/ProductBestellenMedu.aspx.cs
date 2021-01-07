@@ -11,6 +11,24 @@ namespace ProjectGroenBos.Recreatie
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Security();
+        }
+
+        protected void Security()
+        {
+            string functie = (string)Session["Functie"];
+            if (functie == "13" || functie == "1")
+            {
+                if (functie == "1")
+                {
+                    Response.Redirect("~/Recreatie/Overzicht.aspx");
+                }
+            }
+
+            else
+            {
+                Response.Redirect("~/Financien/Inlogscherm.aspx");
+            }
         }
 
         protected void Button1_Click1(object sender, EventArgs e)

@@ -9,6 +9,7 @@
     
     <asp:RadioButton ID="RdbLeverancier" Text="Leverancier" runat="server" GroupName="Productzoeken" CssClass="ckbLeverancierProductpaginainactief"/>
     <asp:RadioButton ID="RdbCategorie" Text="Categorie" runat="server" GroupName="Productzoeken" CssClass="ckbCategorieProductpaginainactief"/>
+    <div class="container">
     <asp:GridView ID="GVProductpagInzien" runat="server" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" CssClass="content-table6" DataKeyNames="Nummer" ForeColor="#333333" GridLines="None" ShowFooter="True" OnSelectedIndexChanged="GVProductpagInzien_SelectedIndexChanged" OnSorting="GVProductpagInzien_Sorting">
          <Columns>
 
@@ -122,6 +123,7 @@
              
              </Columns>
              </asp:GridView>
+        </div>
     <asp:Button ID="BtnProductpaginaInzienWijzigen" runat="server" Text="Wijzigen" CssClass="BtnProductpaginaInzienWijzigen" OnClick="BtnProductpaginaInzienWijzigen_Click1" />
     <asp:Button ID="BtnProductpaginaInzieninactief" runat="server" Text="Inactief maken" OnClick="BtnProductpaginaInzieninactief_Click" CssClass="BtnProductpaginaInzieninactief"/>
 </asp:Content>

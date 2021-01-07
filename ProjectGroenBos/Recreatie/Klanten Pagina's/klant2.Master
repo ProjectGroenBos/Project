@@ -38,7 +38,10 @@
                             <ul>
                             <li><a href="OverzichtGehuurdeRecreatieMiddelen.aspx">Overzicht Recreatie Middel</a></li>
                             </ul></li>
-                            <li><a href="#">Faciliteit</a></li>
+                            <li><a href="Reserverenfacilitieit.aspx">Faciliteit</a>
+                            <ul>
+                            <li><a href="Klantenoverzichtfaciliteit.aspx">Overzicht Recreatie Middel</a></li>
+                            </ul></li>
                             <li><a href="#">Over ons</a></li>
                             <li><a href="#">Contact</a></li>
                             <li><a href="#">Mijn profiel</a></li>

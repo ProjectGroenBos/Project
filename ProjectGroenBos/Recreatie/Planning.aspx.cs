@@ -23,6 +23,7 @@ namespace recreatie.paginas
         {
             if (!IsPostBack)
             {
+                Security();
                 dt.Columns.AddRange(new DataColumn[1] { new DataColumn("Naam") });
                 //dt.Rows.Add("Yes");
                 ViewState["Medewerker"] = dt;
@@ -34,6 +35,24 @@ namespace recreatie.paginas
                 ViewState["Medewerker"] = dt;
             }
         }
+
+        protected void Security()
+        {
+            string functie = (string)Session["Functie"];
+            if (functie == "13" || functie == "1")
+            {
+                if (functie == "1")
+                {
+                    
+                }
+            }
+
+            else
+            {
+                Response.Redirect("~/Financien/Inlogscherm.aspx");
+            }
+        }
+
 
         protected void BindGrid()
         {

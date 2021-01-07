@@ -7,9 +7,6 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="header">Activiteit Wijzigen</div>
-    <div class ="container">
-         <h2>Activiteiten 2020-2021</h2>
-        <p>Dit is de indeling van elk seizoen met zijn begin en einddatum van de periode 2020/2021.</p>
         <asp:GridView ID="GridView1"  CssClass="content-table4" runat="server" AutoGenerateColumns="False" DataKeyNames="Nummer"  DataSourceID="SqlDataSource5" AllowPaging="True" GridLines="None">
             <Columns>
                 <asp:BoundField DataField="Nummer" HeaderText="Nummer" ReadOnly="True" SortExpression="Nummer" />
@@ -112,7 +109,6 @@
                 <asp:BoundField DataField="FaciliteitID" HeaderText="FaciliteitID" Visible="False" />
             </Columns>
         </asp:GridView>
-        </div>
 
     <asp:HiddenField ID="MedewerkerID" runat="server"
                                     Value='' />

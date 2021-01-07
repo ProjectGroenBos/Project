@@ -11,7 +11,28 @@ namespace recreatie
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+          
         }
+
+        protected void Security()
+        {
+            string functie = (string)Session["functie"];
+            if (functie != "13" || functie != "1")
+            {
+                Response.Redirect("~/Financien/Inlogscherm.aspx");
+            }
+
+            if (functie == "1")
+            {
+                
+            }
+
+            if (functie == "13")
+            {
+
+            }
+        }
+
+        
     }
 }
