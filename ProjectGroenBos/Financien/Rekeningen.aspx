@@ -39,6 +39,7 @@
         }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
     <script>
         function emailsuccess() {
             Swal.fire({
@@ -65,12 +66,12 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="header">Rekeningen</div>
+    <div class="header">Rekeningen-overzicht</div>
     <div class="container" runat="server" id="pdfbody">
-        <h2>Rekeningen-overzicht</h2>
+        <h2>Rekeningen</h2>
         <p>Dit is een overzicht van alle opstaande rekeningen van gasten die aanwezig zijn in het park bij recreatiepark Groenbos.</p>
 
-        <asp:GridView ID="gvRekeningen" runat="server" CssClass="content-table tweedetable" GridLines="None" AutoGenerateColumns="False" DataSourceID="SqlDataSource6" DataKeyNames="Gastnummer">
+        <asp:GridView ID="gvRekeningen" runat="server" CssClass="content-table tweedetable" GridLines="None" AutoGenerateColumns="False" DataSourceID="SqlDataSource6" DataKeyNames="Gastnummer" AllowSorting="True">
             <Columns>
                 <asp:BoundField DataField="Nummer" HeaderText="Reserveringsnummer" SortExpression="Nummer" ReadOnly="True" />
                 <asp:BoundField DataField="Naam" HeaderText="Naam" SortExpression="Naam" ReadOnly="True" />
@@ -81,7 +82,7 @@
                 <asp:BoundField DataField="Omschrijving" HeaderText="Status" SortExpression="Omschrijving" />
                 <asp:TemplateField>
                     <ItemTemplate>
-                        <button type="button" style="background-color: #009879; color: #fff" class="btn" data-toggle="modal" data-target="#modal<%# Eval("Nummer") %>">Zie rekeningen</button>
+                        <button type="button" style="background-color: #009879; color: #fff" class="btn" data-toggle="modal" data-target="#modal<%# Eval("Nummer") %>"><i class="fas fa-ellipsis-h"></i></button>
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>
@@ -93,12 +94,11 @@
             <ItemTemplate>
                 <!-- Modal -->
                 <div id="modal<%# Eval("Nummer") %>" class="modal fade" role="dialog">
-                    <div class="modal-dialog">
+                    <div class="modal-dialog modal-lg">
                         <!-- Modal content-->
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h4 class="modal-title">Rekeningen <%# Eval("Naam") %></h4>
-                                <asp:Button runat="server" CssClass="btn btn-primary" Text="Sluiten"></asp:Button>
                             </div>
                             <div class="modal-body">
                                 <div class="factuur" id="printModal<%# Eval("Nummer") %>">
@@ -175,7 +175,9 @@
 
                                     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="select Naam, Prijs, Aantal, (Prijs * Aantal) AS 'Totaal' from RekeningAct where ReserveringNummer = @Nummer
                                     union
-                                select Naam, Prijs, Aantal, (Prijs * Aantal) AS 'Totaal' from RekeningHuur where Reserveringnummer = @Nummer">
+                                select Naam, Prijs, Aantal, (Prijs * Aantal) AS 'Totaal' from RekeningHuur where Reserveringnummer = @Nummer
+								union
+								select Naam, Prijs, Aantal, Totaal from rekRes where ReserveringNummer = @Nummer">
                                         <SelectParameters>
                                             <asp:ControlParameter
                                                 Name="Nummer"

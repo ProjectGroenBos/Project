@@ -40,6 +40,7 @@
     </style>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
     <script>
         function emailsuccess() {
             Swal.fire({
@@ -68,30 +69,30 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="header">Reserveringen</div>
+    <div class="header">Reserveringen-overzicht</div>
     <div class="container" runat="server" id="pdfbody">
-        <h2>Reserveringen-overzicht</h2>
+        <h2>Reserveringen</h2>
         <p>Dit is een overzicht van alle reserveringen bij recreatiepark Groenbos.</p>
 
 
-        <asp:GridView ID="gvReserveringen" DataKeyNames="Nummer" CssClass="content-table tweedetable" GridLines="None" runat="server" AutoGenerateColumns="false" DataSourceID="SqlDataSource6">
+        <asp:GridView ID="gvReserveringen" DataKeyNames="Nummer" CssClass="content-table tweedetable" GridLines="None" runat="server" AutoGenerateColumns="false" DataSourceID="SqlDataSource6" AllowSorting="True">
             <Columns>
                 <asp:BoundField DataField="Nummer" HeaderText="Reserveringsnummer" InsertVisible="False" SortExpression="Nummer" ReadOnly="True" />
                 <asp:BoundField DataField="Naam" HeaderText="Naam" SortExpression="Naam" ReadOnly="True" />
                 <asp:BoundField DataField="Aantal_personen" HeaderText="Aantal Personen" SortExpression="Aantal_personen" />
                 <asp:BoundField DataField="Aankomstdatum" DataFormatString="{0:d}" HeaderText="Aankomstdatum" SortExpression="Aankomstdatum" />
                 <asp:BoundField DataField="Vertrekdatum" DataFormatString="{0:d}" HeaderText="Vertrekdatum" SortExpression="Vertrekdatum" />
-                <asp:BoundField DataField="Omschrijving" HeaderText="Status" SortExpression="Omschrijving" />
+                <asp:BoundField DataField="Omschrijving" HeaderText="Betaalstatus" SortExpression="Omschrijving" />
                 <asp:TemplateField>
                     <ItemTemplate>
-                        <button type="button" style="background-color: #009879; color: #fff" class="btn" data-toggle="modal" data-target="#modal<%# Eval("Nummer") %>">Inzien reservering</button>
+                        <button type="button" style="background-color: #009879; color: #fff" class="btn" data-toggle="modal" data-target="#modal<%# Eval("Nummer") %>"><i class="fas fa-ellipsis-h"></i></button>
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>
         </asp:GridView>
 
         <asp:SqlDataSource ID="SqlDataSource6" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT Nummer, [Naam], [Aantal_personen], [Aankomstdatum], [Vertrekdatum], Omschrijving
-FROM reserveringengv"></asp:SqlDataSource>
+FROM reserveringengv WHERE ReserveringsstatusID != 5 AND ReserveringsstatusID != 6"></asp:SqlDataSource>
         <br />
     </div>
 
@@ -105,7 +106,6 @@ FROM reserveringengv"></asp:SqlDataSource>
 
                         <div class="modal-header">
                             <h4 class="modal-title"><%# Eval("Nummer") %> | <%# Eval("Naam") %></h4>
-                            <asp:Button runat="server" CssClass="btn btn-primary" Text="Sluiten"></asp:Button>
                         </div>
 
                         <div class="modal-body">
@@ -194,6 +194,12 @@ FROM reserveringengv"></asp:SqlDataSource>
                                 <asp:HiddenField ID="Emailgast" runat="server"
                                     Value='<%# Eval("Email") %>' />
 
+                                <asp:HiddenField ID="Betaald" runat="server"
+                                    Value='<%# Eval("Totaal") %>' />
+
+                                <asp:HiddenField ID="Nogbetalen" runat="server"
+                                    Value='<%# Eval("Nogtebetalen") %>' />
+
                                 <asp:SqlDataSource ID="SqlDataSource7" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="select ('Bungalow Type ' + Code) AS 'Naam', Prijs, Naam AS 'Periode',  Seizoen, 1 AS 'Aantal', Prijs AS 'Totaal' from ReserveringHuis where Nummer = @Nummer
                                 union
                                 select Naam, Prijs, Periode, Seizoen, Aantal, (Prijs * Aantal) AS 'Totaal' from ReserveringWens where Nummer = @Nummer
@@ -260,7 +266,6 @@ FROM reserveringengv"></asp:SqlDataSource>
                     <div class="modal-content">
                         <div class="modal-header">
                             <h4 class="modal-title">Transactiehistory Debiteurenfactuur nummer <%# Eval("fnummer") %></h4>
-                            <asp:Button runat="server" CssClass="btn btn-primary" Text="Sluiten"></asp:Button>
                         </div>
                         <div class="modal-body">
                             <asp:Label ID="lblNoRecords" Visible="false" runat="server" Text="Er zijn nog geen transacties bij dit factuur gevonden."></asp:Label>

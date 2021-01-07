@@ -3,28 +3,83 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
     <div class="header">Prijsmanagement</div>
     <div class="container">
-        <h2>Seizoensindeling 2020-2021</h2>
-        <p>Dit is de indeling van elk seizoen met zijn begin en einddatum van de periode 2020/2021.</p>
-        <asp:GridView ID="gvSeizoenen" CssClass="content-table eerstetable" GridLines="None" DataKeyNames="id" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
+        <h2>Seizoensindeling</h2>
+        <p>Dit is de indeling van elk seizoen met zijn begin en einddatum.</p>
+        <asp:GridView ID="gvSeizoenen" CssClass="content-table eerstetable" GridLines="None" DataKeyNames="id" runat="server" AutoGenerateColumns="False" AllowSorting="True" DataSourceID="SqlDataSource1">
             <Columns>
                 <asp:BoundField DataField="id" HeaderText="" InsertVisible="False" ReadOnly="True" SortExpression="id" />
                 <asp:BoundField DataField="seizoen" InsertVisible="False" ReadOnly="True" HeaderText="Seizoen" SortExpression="seizoen" />
-                <asp:BoundField DataField="begindatum" ApplyFormatInEditMode="true" DataFormatString="{0:dd/MM/yyyy}" HeaderText="Begindatum" SortExpression="begindatum" />
-                <asp:BoundField DataField="einddatum" ApplyFormatInEditMode="true" DataFormatString="{0:dd/MM/yyyy}" HeaderText="Einddatum" SortExpression="einddatum" />
-                <asp:CommandField ShowEditButton="True" />
+
+                <asp:TemplateField HeaderText="Begindatum" SortExpression="begindatum">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="TBbegind" runat="server" Text='<%# Bind("begindatum", "{0:dd/MM/yyyy}") %>'  CausesValidation="True"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="begindatum" runat="server" ErrorMessage="*" ControlToValidate="TBbegind" ForeColor="Red" ValidationGroup="Validation" Display="Dynamic"></asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="begindatum1" runat="server" ErrorMessage="dd/MM/yyyy" ControlToValidate="TBbegind" ForeColor="Red" ValidationExpression="(^((((0[1-9])|([1-2][0-9])|(3[0-1]))|([1-9]))-(((0[1-9])|(1[0-2]))|([1-9]))-(([0-9]{2})|(((19)|([2]([0]{1})))([0-9]{2}))))$)" ValidationGroup="Validation" Display="Dynamic"></asp:RegularExpressionValidator>
+                    </EditItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label2" runat="server" Text='<%# Bind("begindatum", "{0:dd/MM/yyyy}") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+
+                <asp:TemplateField HeaderText="Einddatum" SortExpression="einddatum">
+                    <EditItemTemplate>
+                        <asp:RequiredFieldValidator ID="einddatum" runat="server" ErrorMessage="*" ControlToValidate="TBeindd" ForeColor="Red" ValidationGroup="Validation" Display="Dynamic"></asp:RequiredFieldValidator>                       
+                        <asp:TextBox ID="TBeindd" runat="server" Text='<%# Bind("einddatum", "{0:dd/MM/yyyy}") %>'></asp:TextBox>
+                        <asp:RegularExpressionValidator ID="einddatum1" runat="server" ErrorMessage="dd/MM/yyyy" ControlToValidate="TBeindd" ForeColor="Red" ValidationExpression="(^((((0[1-9])|([1-2][0-9])|(3[0-1]))|([1-9]))-(((0[1-9])|(1[0-2]))|([1-9]))-(([0-9]{2})|(((19)|([2]([0]{1})))([0-9]{2}))))$)" ValidationGroup="Validation" Display="Dynamic"></asp:RegularExpressionValidator>
+                    </EditItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label1" runat="server" Text='<%# Bind("einddatum", "{0:dd/MM/yyyy}") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+
+                <asp:CommandField ShowEditButton="True" EditText="<i aria-hidden='true' class='fas fa-pencil-alt '></i>" ValidationGroup="Validation"/>
+                <asp:TemplateField></asp:TemplateField>
             </Columns>
         </asp:GridView>
-        <h2>Feestdagen 2020-2021</h2>
+        <h2>Feestdagen</h2>
         <asp:GridView ID="gvFeesdagen" CssClass="content-table eerstetable" GridLines="None" DataKeyNames="ID" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource4">
             <Columns>
                 <asp:BoundField DataField="ID" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="ID" />
                 <asp:BoundField DataField="Naam" HeaderText="Naam" SortExpression="Naam"  ReadOnly="True" />
-                <asp:BoundField DataField="Opslagfactor" HeaderText="Opslagfactor" SortExpression="Opslagfactor" />
-                <asp:BoundField DataField="Begindatum" HeaderText="Begindatum" SortExpression="Begindatum" DataFormatString="{0:dd/MM/yyyy}" ApplyFormatInEditMode="true"/>
-                <asp:BoundField DataField="Einddatum" HeaderText="Einddatum" SortExpression="Einddatum" DataFormatString="{0:dd/MM/yyyy}" ApplyFormatInEditMode="true"/>
-                <asp:CommandField ShowEditButton="True" />
+
+                <asp:TemplateField HeaderText="Opslagfactor" SortExpression="Opslagfactor">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="TxtOpslag" runat="server" Text='<%# Bind("Opslagfactor") %>'></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="Opslagfactor" runat="server" ErrorMessage="*" ControlToValidate="TxtOpslag" ForeColor="Red" ValidationGroup="Validation" Display="Dynamic"></asp:RequiredFieldValidator>                       
+                        <asp:RegularExpressionValidator ID="Opslagfactor1" runat="server" ErrorMessage="bijv. 1.17" ControlToValidate="TxtOpslag" ForeColor="Red" ValidationExpression="^\d{0,8}(\.\d{1,4})?$" ValidationGroup="Validation" Display="Dynamic"></asp:RegularExpressionValidator>
+                    </EditItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label1" runat="server" Text='<%# Bind("Opslagfactor") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+
+                <asp:TemplateField HeaderText="Begindatum" SortExpression="Begindatum">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="TxtBegind" runat="server" Text='<%# Bind("Begindatum", "{0:dd/MM/yyyy}") %>'></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="Begindatum" runat="server" ErrorMessage="*" ControlToValidate="TxtBegind" ForeColor="Red" ValidationGroup="Validation" Display="Dynamic"></asp:RequiredFieldValidator>                         
+                        <asp:RegularExpressionValidator ID="Beginddatum1" runat="server" ErrorMessage="dd/MM/yyyy" ControlToValidate="TxtBegind" ForeColor="Red" ValidationExpression="(^((((0[1-9])|([1-2][0-9])|(3[0-1]))|([1-9]))-(((0[1-9])|(1[0-2]))|([1-9]))-(([0-9]{2})|(((19)|([2]([0]{1})))([0-9]{2}))))$)" ValidationGroup="Validation" Display="Dynamic"></asp:RegularExpressionValidator>
+                    </EditItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label2" runat="server" Text='<%# Bind("Begindatum", "{0:dd/MM/yyyy}") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+
+                <asp:TemplateField HeaderText="Einddatum" SortExpression="Einddatum">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="TxtEind" runat="server" Text='<%# Bind("Einddatum", "{0:dd/MM/yyyy}") %>'></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="Einddatum" runat="server" ErrorMessage="*" ControlToValidate="TxtEind" ForeColor="Red" ValidationGroup="Validation" Display="Dynamic"></asp:RequiredFieldValidator>                       
+                        <asp:RegularExpressionValidator ID="Einddatum1" runat="server" ErrorMessage="dd/MM/yyyy" ControlToValidate="TxtEind" ForeColor="Red" ValidationExpression="(^((((0[1-9])|([1-2][0-9])|(3[0-1]))|([1-9]))-(((0[1-9])|(1[0-2]))|([1-9]))-(([0-9]{2})|(((19)|([2]([0]{1})))([0-9]{2}))))$)" ValidationGroup="Validation" Display="Dynamic"></asp:RegularExpressionValidator>
+                    </EditItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label3" runat="server" Text='<%# Bind("Einddatum", "{0:dd/MM/yyyy}") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+
+                <asp:CommandField ShowEditButton="True" EditText="<i aria-hidden='true' class='fas fa-pencil-alt '></i>" ValidationGroup="Validation" />
+                <asp:TemplateField></asp:TemplateField>
             </Columns>
         </asp:GridView>
 
@@ -62,10 +117,42 @@
             <Columns>
                 
                 <asp:BoundField DataField="Code" HeaderText="Code" ReadOnly="True" SortExpression="Code" />
-                <asp:BoundField DataField="Prijs_per_Week" HeaderText="Prijs per Week" SortExpression="Prijs_per_Week" DataFormatString="{0:C}" />
-                <asp:BoundField DataField="Prijs_per_Midweek" HeaderText="Prijs per Midweek" SortExpression="Prijs_per_Midweek" DataFormatString="{0:C}" />
-                <asp:BoundField DataField="Prijs_per_weekend" HeaderText="Prijs per weekend" SortExpression="Prijs_per_weekend" DataFormatString="{0:C}" />
-                <asp:CommandField ShowEditButton="True"  />
+
+                <asp:TemplateField HeaderText="Prijs per Week" SortExpression="Prijs_per_Week">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="TxtPPW" runat="server" Text='<%# Bind("Prijs_per_Week") %>'></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="Prijs_per_Week" runat="server" ErrorMessage="*" ControlToValidate="TxtPPW" ForeColor="Red" ValidationGroup="Validation" Display="Dynamic"></asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="Prijs_per_Week1" runat="server" ErrorMessage="bijv. 345,90" ControlToValidate="TxtPPW" ForeColor="Red" ValidationExpression="^\d{0,8}(\,\d{1,4})?$" ValidationGroup="Validation" Display="Dynamic"></asp:RegularExpressionValidator>
+                    </EditItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label1" runat="server" Text='<%# Bind("Prijs_per_Week", "{0:C}") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+
+                <asp:TemplateField HeaderText="Prijs per Midweek" SortExpression="Prijs_per_Midweek">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="TxtPPM" runat="server" Text='<%# Bind("Prijs_per_Midweek") %>'></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="Prijs_per_Midweek" runat="server" ErrorMessage="*" ControlToValidate="TxtPPM" ForeColor="Red" ValidationGroup="Validation" Display="Dynamic"></asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="Prijs_per_Midweek1" runat="server" ErrorMessage="bijv. 345,90" ControlToValidate="TxtPPM" ForeColor="Red" ValidationExpression="^\d{0,8}(\,\d{1,4})?$" ValidationGroup="Validation" Display="Dynamic"></asp:RegularExpressionValidator>                    
+                    </EditItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label2" runat="server" Text='<%# Bind("Prijs_per_Midweek", "{0:C}") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+
+                <asp:TemplateField HeaderText="Prijs per weekend" SortExpression="Prijs_per_weekend">
+                    <EditItemTemplate>
+                        <asp:RequiredFieldValidator ID="Prijs_per_weekend" runat="server" ErrorMessage="*" ControlToValidate="TxtPPWEEKEND" ForeColor="Red" ValidationGroup="Validation" Display="Dynamic"></asp:RequiredFieldValidator>
+                        <asp:TextBox ID="TxtPPWEEKEND" runat="server" Text='<%# Bind("Prijs_per_weekend") %>'></asp:TextBox>
+                        <asp:RegularExpressionValidator ID="Prijs_per_weekend1" runat="server" ErrorMessage="bijv. 345,90" ControlToValidate="TxtPPWEEKEND" ForeColor="Red" ValidationExpression="^\d{0,8}(\,\d{1,4})?$" ValidationGroup="Validation" Display="Dynamic"></asp:RegularExpressionValidator>
+                    </EditItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label3" runat="server" Text='<%# Bind("Prijs_per_weekend", "{0:C}") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+
+                <asp:CommandField ShowEditButton="True" EditText="<i aria-hidden='true' class='fas fa-pencil-alt '></i>" ValidationGroup="Validation" />
+                <asp:TemplateField></asp:TemplateField>
             </Columns>
         </asp:GridView>
 
@@ -94,14 +181,48 @@
         <asp:GridView ID="gvSeizoentoeslag" CssClass="content-table tweedetable" GridLines="None" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource3"  DataKeyNames="ID">
             <Columns>
                 <asp:BoundField DataField="BungalowtypeCode" HeaderText="Bungalowtype" SortExpression="BungalowtypeCode" ReadOnly="True"/>
-                <asp:BoundField DataField="SeizoenID" HeaderText="SeizoenID" SortExpression="SeizoenID" ReadOnly="True" ItemStyle-CssClass="hideGridColumn" HeaderStyle-CssClass="hideGridColumn"/>
+                <asp:BoundField DataField="SeizoenID" HeaderText="SeizoenID" SortExpression="SeizoenID" ReadOnly="True" ItemStyle-CssClass="hideGridColumn" HeaderStyle-CssClass="hideGridColumn">
+<HeaderStyle CssClass="hideGridColumn"></HeaderStyle>
+
+<ItemStyle CssClass="hideGridColumn"></ItemStyle>
+                </asp:BoundField>
                 <asp:BoundField DataField="Seizoen" HeaderText="Seizoen" SortExpression="Seizoen" ReadOnly="True"/>
-                <asp:BoundField DataField="Toeslag_week" HeaderText="Toeslag week" SortExpression="Toeslag_week" DataFormatString="{0:C}" />
+               
+                <asp:TemplateField HeaderText="Toeslag week" SortExpression="Toeslag_week">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="TBtoeslag" runat="server" Text='<%# Bind("Toeslag_week") %>'></asp:TextBox>
+                       <asp:RequiredFieldValidator ID="Toeslag_week" runat="server" ErrorMessage="*" ControlToValidate="TBtoeslag" ForeColor="Red" ValidationGroup="Validation" Display="Dynamic"></asp:RequiredFieldValidator>                       
+                        <asp:RegularExpressionValidator ID="Toeslag_week1" runat="server" ErrorMessage="bijv. 345,90" ControlToValidate="TBtoeslag" ForeColor="Red" ValidationExpression="^\d{0,8}(\,\d{1,4})?$" ValidationGroup="Validation" Display="Dynamic"></asp:RegularExpressionValidator>
+                     </EditItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label1" runat="server" Text='<%# Bind("Toeslag_week", "{0:C}") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
                 
-                <asp:BoundField DataField="Toeslag_midweek" HeaderText="Toeslag midweek" SortExpression="Toeslag_midweek" DataFormatString="{0:C}"  />
-                <asp:BoundField DataField="Toeslag_weekend" HeaderText="Toeslag weekend" SortExpression="Toeslag_weekend" DataFormatString="{0:C}"  />
+                <asp:TemplateField HeaderText="Toeslag midweek" SortExpression="Toeslag_midweek">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="TBtoeslagM" runat="server" Text='<%# Bind("Toeslag_midweek") %>'></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="Toeslag_midweek" runat="server" ErrorMessage="*" ControlToValidate="TBtoeslagM" ForeColor="Red" ValidationGroup="Validation" Display="Dynamic"></asp:RequiredFieldValidator>                       
+                        <asp:RegularExpressionValidator ID="Toeslag_midweek1" runat="server" ErrorMessage="bijv. 345,90" ControlToValidate="TBtoeslagM" ForeColor="Red" ValidationExpression="^\d{0,8}(\,\d{1,4})?$" ValidationGroup="Validation" Display="Dynamic"></asp:RegularExpressionValidator>
+                    </EditItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label2" runat="server" Text='<%# Bind("Toeslag_midweek", "{0:C}") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
                 
-                <asp:CommandField ShowEditButton="True" />
+                <asp:TemplateField HeaderText="Toeslag weekend" SortExpression="Toeslag_weekend">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="ToeslagW" runat="server" Text='<%# Bind("Toeslag_weekend") %>'></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="Toeslag_weekend" runat="server" ErrorMessage="*" ControlToValidate="ToeslagW" ForeColor="Red" ValidationGroup="Validation" Display="Dynamic"></asp:RequiredFieldValidator>                       
+                        <asp:RegularExpressionValidator ID="Toeslag_weekend1" runat="server" ErrorMessage="bijv. 345,90" ControlToValidate="ToeslagW" ForeColor="Red" ValidationExpression="^\d{0,8}(\,\d{1,4})?$" ValidationGroup="Validation" Display="Dynamic"></asp:RegularExpressionValidator>
+                    </EditItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label3" runat="server" Text='<%# Bind("Toeslag_weekend", "{0:C}") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                
+                <asp:CommandField ShowEditButton="True" EditText="<i aria-hidden='true' class='fas fa-pencil-alt '></i>" ValidationGroup="Validation" />
+                <asp:TemplateField></asp:TemplateField>
             </Columns>
         </asp:GridView>
         <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT [ID], [BungalowtypeCode], [SeizoenID], [Seizoen], [Toeslag week] AS Toeslag_week, [Toeslag midweek] AS Toeslag_midweek, [Toeslag weekend] AS Toeslag_weekend FROM [Seizoensopslag]" DeleteCommand="DELETE FROM [Seizoensopslag] WHERE [ID] = @original_ID AND [BungalowtypeCode] = @original_BungalowtypeCode AND [SeizoenID] = @original_SeizoenID AND [Seizoen] = @original_Seizoen AND [Toeslag week] = @original_Toeslag_week AND (([Toeslag midweek] = @original_Toeslag_midweek) OR ([Toeslag midweek] IS NULL AND @original_Toeslag_midweek IS NULL)) AND (([Toeslag weekend] = @original_Toeslag_weekend) OR ([Toeslag weekend] IS NULL AND @original_Toeslag_weekend IS NULL))" InsertCommand="INSERT INTO [Seizoensopslag] ([BungalowtypeCode], [SeizoenID], [Seizoen], [Toeslag week], [Toeslag midweek], [Toeslag weekend]) VALUES (@BungalowtypeCode, @SeizoenID, @Seizoen, @Toeslag_week, @Toeslag_midweek, @Toeslag_weekend)" UpdateCommand="UPDATE [Seizoensopslag] SET [Toeslag week] = @Toeslag_week, [Toeslag midweek] = @Toeslag_midweek, [Toeslag weekend] = @Toeslag_weekend WHERE [ID] = @original_ID AND [BungalowtypeCode] = @original_BungalowtypeCode AND [SeizoenID] = @original_SeizoenID AND [Seizoen] = @original_Seizoen AND [Toeslag week] = @original_Toeslag_week AND (([Toeslag midweek] = @original_Toeslag_midweek) OR ([Toeslag midweek] IS NULL AND @original_Toeslag_midweek IS NULL)) AND (([Toeslag weekend] = @original_Toeslag_weekend) OR ([Toeslag weekend] IS NULL AND @original_Toeslag_weekend IS NULL))" OldValuesParameterFormatString="original_{0}" ConflictDetection="CompareAllValues">

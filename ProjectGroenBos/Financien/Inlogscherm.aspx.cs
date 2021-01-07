@@ -59,16 +59,32 @@ namespace ProjectGroenBos.Financien
                 {
 
                     string functie = dr["FunctieID"].ToString();
-                    if (functie == "1" || functie == "13")
+                    if (functie == "2")
                     {
-                        Session["Persoon"] = Id;
+                        Session["Login"] = Id;
                         Session["Functie"] = functie;
-                        Response.Redirect("~/Recreatie/Overzicht.aspx");
+                        Response.Redirect("Home.aspx");
                     }
+
+                    if (functie == "7")
+                    {
+                        Session["Login"] = Id;
+                        Session["Functie"] = functie;
+                        Response.Redirect("Schoonmaak en Onderhoud/Home.aspx");
+                    }
+                    if (functie == "4")
+                    {
+                        Session["Login"] = Id;
+                        Session["Functie"] = functie;
+                        Response.Redirect("Restaurant/home.aspx");
+                    }
+
                     else
                     {
                         Session["Login"] = Id;
+                        Session["Functie"] = functie;
                         Response.Redirect("Home.aspx");
+                        
                     }
                     ////////////////////////
 

@@ -21,6 +21,11 @@ namespace ProjectGroenBos.Financien
 
         protected void Page_Load(object sender, EventArgs e)
         {
+         //   if (int.Parse(Session["Functie"].ToString()) != 2 | int.Parse(Session["Functie"].ToString()) != 3)
+         //   {
+        //        Response.Redirect("Home.aspx");
+//}
+
             if (!IsPostBack)
             {
                 Repeater();
@@ -67,8 +72,14 @@ namespace ProjectGroenBos.Financien
             HiddenField fNummers = (HiddenField)rpReservering.Items[gridviewnr].FindControl("fnummer");
             string fnummer = fNummers.Value;
 
+            HiddenField Betalen = (HiddenField)rpReservering.Items[gridviewnr].FindControl("Betaald");
+            string betaald = Betalen.Value;
 
-            Email(gridviewnr, nummer, Totaalbedrag, Naam, email);
+            HiddenField nogbetalen = (HiddenField)rpReservering.Items[gridviewnr].FindControl("Nogbetalen");
+            string albetaald = nogbetalen.Value;
+
+
+            Email(gridviewnr, nummer, Totaalbedrag, Naam, email, betaald, albetaald);
 
             using (SqlConnection con = new SqlConnection(constr))
             {
@@ -87,55 +98,78 @@ namespace ProjectGroenBos.Financien
             ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "emailsuccess();", true);
         }
 
-        protected void Email(int gridviewnr, string nummer, string totaal, string naam, string email)
+        protected void Email(int gridviewnr, string nummer, string totaal, string naam, string email, string betaald, string albetaald)
         {
+            //Fetching Settings from WEB.CONFIG file.  
+            string emailSender = "groenbosfinances@hotmail.com";
+            string emailSenderPassword = "MarionenAndries";
+            string emailSenderHost = "smtp.live.com";
+            int emailSenderPort = 587;
+            Boolean emailIsSSL = true;
 
-            MailMessage mail = new MailMessage();
+
+            //Fetching Email Body Text from EmailTemplate File.  
+            string userPath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+
+            string FilePath = Path.Combine(userPath, "Documents\\GitHub\\Project\\ProjectGroenBos\\Financien\\EmailTemplates\\Reservering.html");
+
+            StreamReader str = new StreamReader(FilePath);
+            string MailText = str.ReadToEnd();
+            str.Close();
+
+            DateTime today = DateTime.Today;
+
+            //Repalce [newusername] = signup user name   
+            MailText = MailText.Replace("[Voornaam]", naam);
+            MailText = MailText.Replace("[nummer]", nummer);
+            MailText = MailText.Replace("[Datum]", today.ToString("dd/MM/yyyy"));
+            MailText = MailText.Replace("[Rij]", GetGridviewData((GridView)rpReservering.Items[gridviewnr].FindControl("gvFactuurreservering"))).ToString();
+            MailText = MailText.Replace("[Totaalbedrag]", '€' + totaal);
+            MailText = MailText.Replace("[Totaalbedrag]", '€' + betaald);
+            MailText = MailText.Replace("[Totaalbedrag]", '€' + albetaald);
 
 
-            MailMessage mailMessage = new MailMessage("groenbosfinances@hotmail.com", email);
+            string subject = "Uw rekeningfactuur van Groenbos";
 
-            // email body tekst
-            StringBuilder sbEmailBody = new StringBuilder();
-            sbEmailBody.Append("Hallo " + naam + ",");
-            sbEmailBody.Append("<br/><br/>");
-            sbEmailBody.Append("hierbij sturen wij de factuur van de reservering die u heeft gemaakt op.");
-            //link veranderen als website wordt gehost.
-            sbEmailBody.Append("<br/><br/>");
-            sbEmailBody.Append(GetGridviewData((GridView)rpReservering.Items[gridviewnr].FindControl("gvFactuurreservering")));
-            sbEmailBody.Append("<br/><br/>");
-            sbEmailBody.Append("<h4>Te betalen bedrag: " + totaal + "</h4>");
-            sbEmailBody.Append("<br/><br/>");
-            sbEmailBody.Append("Wij verzoeken u vriendelijk het bedrag van " + totaal + " euro voor aanvang van uw bezoek over te maken naar rekeningnummer NL32 RABO 0220.96.13.200 onder vermelding van reserveringsnummer " + nummer + ".");
-            sbEmailBody.Append("<br/><br/>");
-            sbEmailBody.Append("Wij hopen u hierbij voldoende geïnformeerd te hebben. Als u vragen heeft kunt u deze email beantwoorden.");
-            sbEmailBody.Append("<br/><br/>");
-            sbEmailBody.Append("Met vriendelijke groeten,");
-            sbEmailBody.Append("<br/><br/>");
-            sbEmailBody.Append("<b>Groenbos recreatie b.v.</b>");
-            sbEmailBody.Append("<br/>");
-            sbEmailBody.Append("Noorderpark 12, 6755 VB Aalterveld");
-            sbEmailBody.Append("<br/>");
-            sbEmailBody.Append("<img src='https://cdn.discordapp.com/attachments/749932863847137304/762614070687825950/Logo3.png' width='150' height='150'>");
+            //Base class for sending email  
+            MailMessage _mailmsg = new MailMessage();
 
-            mailMessage.IsBodyHtml = true;
-            //body naar email tekst
-            mailMessage.Body = sbEmailBody.ToString();
-            mailMessage.Subject = "Reservering Factuur " + nummer;
-            SmtpClient smtpClient = new SmtpClient("smtp.live.com", 587);
+            //Make TRUE because our body text is html  
+            _mailmsg.IsBodyHtml = true;
 
-            //email login
-            smtpClient.Credentials = new System.Net.NetworkCredential()
-            {
-                UserName = "groenbosfinances@hotmail.com",
-                Password = "MarionenAndries"
-            };
+            //Set From Email ID  
+            _mailmsg.From = new MailAddress(emailSender);
 
-            //email wordt verzonden
-            smtpClient.EnableSsl = true;
-            smtpClient.Send(mailMessage);
+            //Set To Email ID  
+            _mailmsg.To.Add(email);
 
+            //Set Subject  
+            _mailmsg.Subject = subject;
+
+            //Set Body Text of Email   
+            _mailmsg.Body = MailText;
+
+
+            //Now set your SMTP   
+            SmtpClient _smtp = new SmtpClient();
+
+            //Set HOST server SMTP detail  
+            _smtp.Host = emailSenderHost;
+
+            //Set PORT number of SMTP  
+            _smtp.Port = emailSenderPort;
+
+            //Set SSL --> True / False  
+            _smtp.EnableSsl = emailIsSSL;
+
+            //Set Sender UserEmailID, Password  
+            NetworkCredential _network = new NetworkCredential(emailSender, emailSenderPassword);
+            _smtp.Credentials = _network;
+
+            //Send Method will send your MailMessage create above.  
+            _smtp.Send(_mailmsg);
         }
+
 
         public string GetGridviewData(GridView gv)
         {
@@ -201,5 +235,7 @@ namespace ProjectGroenBos.Financien
             }
 
         }
+
+
     }
 }

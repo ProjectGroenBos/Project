@@ -15,6 +15,21 @@ namespace ProjectGroenBos.Financien
         string constr = System.Configuration.ConfigurationManager.ConnectionStrings["dbconnectie"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
+            int functieID = int.Parse(Session["Functie"].ToString());
+
+            if (functieID == 2)
+            {
+                
+            }
+            else if (functieID == 10)
+            {
+
+            }
+            else
+            {
+                Response.Redirect("~/Financien/nietgeautoriseerd.aspx");
+            }
+
             if (!IsPostBack)
             {
                 Repeater();
@@ -29,7 +44,7 @@ namespace ProjectGroenBos.Financien
             {
                 con.Open();
 
-                SqlCommand cmd = new SqlCommand("select * from Crediteurenfactuur inner join Leverancier on Leverancier.Naam = Crediteurenfactuur.[Betalen aan] union select Crediteurenfactuur.*, 1 as ID, Naam, Adres, Contactpersoon, Telefoonnummer, Email, Postcode, Plaats from Crediteurenfactuur inner join Aannemers on Aannemers.Naam = Crediteurenfactuur.[Betalen aan]", con);
+                SqlCommand cmd = new SqlCommand("select Crediteurenfactuur.Nummer, Crediteurenfactuur.Datum, [Totaalprijs], Termijn, [Omschrijving betaalcondities], OfferteNummer, InkooporderID, FactuurstatusID, IBAN, Crediteurenfactuur.LeverancierID, Crediteurenfactuur.Data, ContentType, Leverancier.* from Crediteurenfactuur inner join Leverancier on Crediteurenfactuur.LeverancierID = Leverancier.ID  inner join InkoopOrderAanvraag on Crediteurenfactuur.InkooporderID = InkoopOrderAanvraag.Nummer  inner join InkooporderaanvraagItemsTotaalprijs on InkoopOrderAanvraag.Nummer = InkooporderaanvraagItemsTotaalprijs.InkoopOrderAanvraagNummer union select Crediteurenfactuur.Nummer, Crediteurenfactuur.Datum, [Totaalprijs], Termijn, [Omschrijving betaalcondities], OfferteNummer, InkooporderID, FactuurstatusID, IBAN, Crediteurenfactuur.LeverancierID, Crediteurenfactuur.Data, ContentType, Leverancier.* from Crediteurenfactuur inner join Leverancier on Crediteurenfactuur.LeverancierID = Leverancier.ID inner join VoedselRestaurantInkoopOrder on Crediteurenfactuur.VoedselorderID = VoedselRestaurantInkoopOrder.Nummer inner join voedseltotaalview on VoedselRestaurantInkoopOrder.Nummer = voedseltotaalview.VoedselOrderAanvraag", con);
                 DataSet ds = new DataSet();
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 da.Fill(ds);
@@ -104,6 +119,47 @@ namespace ProjectGroenBos.Financien
         {
             string modal = "#modal2" + ((Button)sender).CommandArgument;
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal('" + modal + "');", true);
+        }
+
+        protected void DownloadFile(object sender, EventArgs e)
+        {
+            try
+            {
+                int id = int.Parse((sender as LinkButton).CommandArgument);
+                byte[] bytes;
+                string fileName, contentType;
+                using (SqlConnection con = new SqlConnection(constr))
+                {
+                    using (SqlCommand cmd = new SqlCommand())
+                    {
+                        cmd.CommandText = "select Naam, Data, ContentType from Crediteurenfactuur where Nummer=@Id";
+                        cmd.Parameters.AddWithValue("@Id", id);
+                        cmd.Connection = con;
+                        con.Open();
+                        using (SqlDataReader sdr = cmd.ExecuteReader())
+                        {
+                            sdr.Read();
+                            bytes = (byte[])sdr["Data"];
+                            contentType = sdr["ContentType"].ToString();
+                            fileName = sdr["Naam"].ToString();
+                        }
+                        con.Close();
+                    }
+                }
+                Response.Clear();
+                Response.Buffer = true;
+                Response.Charset = "";
+                Response.Cache.SetCacheability(HttpCacheability.NoCache);
+                Response.ContentType = contentType;
+                Response.AppendHeader("Content-Disposition", "attachment; filename=" + fileName);
+                Response.BinaryWrite(bytes);
+                Response.Flush();
+                Response.End();
+            }
+            catch
+            {
+                ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "Downloadfout();", true);
+            }
         }
     }
 }

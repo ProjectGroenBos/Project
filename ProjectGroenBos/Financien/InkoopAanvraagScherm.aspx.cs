@@ -11,12 +11,29 @@ using System.Web.UI.WebControls;
 
 namespace ProjectGroenBos.Financien
 {
+    
     public partial class WebForm5 : System.Web.UI.Page
     {
         string constr = System.Configuration.ConfigurationManager.ConnectionStrings["dbconnectie"].ConnectionString;
 
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            int functieID = int.Parse(Session["Functie"].ToString());
+
+            if (functieID == 4)
+            {
+
+            }
+            else if (functieID == 10)
+            {
+
+            }
+            else
+            {
+                Response.Redirect("~/Financien/nietgeautoriseerd.aspx");
+            }
+
             if (!IsPostBack)
             {
                 Repeater();
@@ -58,7 +75,7 @@ namespace ProjectGroenBos.Financien
 
                 TextBox afkeurTextBox = (TextBox)rpInkoopOrderAanvragen.Items[repeaternummer].FindControl("txbInkoopOrderAfkeuren");
 
-                SqlCommand cmd = new SqlCommand("UPDATE InkoopOrderAanvraag SET Opmerking = @textbox, InkoopOrderAanvraagStatusID = 3 WHERE Nummer = @nummer", con);
+                SqlCommand cmd = new SqlCommand("UPDATE InkoopOrderAanvraag SET Opmerking = @textbox, InkoopOrderAanvraagStatusID = 3, LaatsteUpdate = GETDATE() WHERE Nummer = @nummer", con);
                 cmd.Parameters.AddWithValue("@nummer", nummer);
                 cmd.Parameters.AddWithValue("@textbox", afkeurTextBox.Text);
                 cmd.ExecuteNonQuery();
@@ -79,7 +96,7 @@ namespace ProjectGroenBos.Financien
                 int nummer = int.Parse(((Button)sender).CommandArgument);
 
 
-                SqlCommand cmd = new SqlCommand("UPDATE InkoopOrderAanvraagSET InkoopOrderAanvraagStatusID = 2 WHERE Nummer = @nummer; ", con);
+                SqlCommand cmd = new SqlCommand("UPDATE InkoopOrderAanvraag SET InkoopOrderAanvraagStatusID = 2, LaatsteUpdate = GETDATE() WHERE Nummer = @nummer; ", con);
                 cmd.Parameters.AddWithValue("@nummer", nummer);
                 cmd.ExecuteNonQuery();
 
@@ -90,28 +107,51 @@ namespace ProjectGroenBos.Financien
             ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "goedkeursuccess();", true);
         }
 
-        protected void btnTest_OnClick(object sender, EventArgs e)
-        {
-            SqlDataSource1.SelectCommand =
-                "select * from inkooporderaanvraagmain where Naam = 'reserveringen' order by datum DESC, opmerking DESC";
-            gvInkooporderaanvragerMain.DataBind();
-        }
-
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (DropDownList1.Text == "Alle Afdelingen")
+            DropdownResults();
+        }
+    
+
+    protected void DropDownList2_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        DropdownResults();
+    }
+
+
+
+        private void DropdownResults()
+        {
+            if (DropDownList1.Text == "Alle Afdelingen" && DropDownList2.Text == "Alle Statussen")
             {
                 SqlDataSource1.SelectCommand =
-                "select * from inkooporderaanvraagmain order by datum DESC, opmerking DESC";
+                "select * from inkooporderaanvraagmainLev where Status = 'Wachten op goedkeuring' or Status = 'Geweigerd' order by datum DESC, opmerking DESC ";
+                gvInkooporderaanvragerMain.DataBind();
+            }
+
+            else if (DropDownList1.Text != "Alle Afdelingen" && DropDownList2.Text == "Alle Statussen")
+            {
+                SqlDataSource1.SelectCommand =
+                "select * from inkooporderaanvraagmainLev where Naam = '" + DropDownList1.Text + "' order by datum DESC, opmerking DESC";
+                gvInkooporderaanvragerMain.DataBind();
+            }
+
+            else if (DropDownList1.Text == "Alle Afdelingen" && DropDownList2.Text != "Alle Statussen")
+            {
+                SqlDataSource1.SelectCommand =
+                "select * from inkooporderaanvraagmainLev where Status = '" + DropDownList2.Text + "' order by datum DESC, opmerking DESC";
                 gvInkooporderaanvragerMain.DataBind();
             }
 
             else
             {
                 SqlDataSource1.SelectCommand =
-                    "select * from inkooporderaanvraagmain where Naam = '" + DropDownList1.Text + "' order by datum DESC, opmerking DESC";
+                "select * from inkooporderaanvraagmainLev where Status = '" + DropDownList2.Text + "' AND Naam = '" + DropDownList1.Text + "' order by datum DESC, opmerking DESC";
                 gvInkooporderaanvragerMain.DataBind();
             }
         }
+
     }
+
+
 }

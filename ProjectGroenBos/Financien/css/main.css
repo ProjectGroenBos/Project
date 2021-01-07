@@ -152,7 +152,7 @@ body {
     border-collapse: collapse;
     margin: 25px 0;
     font-size: 0.9em;
-    min-width: 400px;
+    min-width: 655px;
     border-radius: 5px 5px 0 0;
     overflow: hidden;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
@@ -229,6 +229,7 @@ body {
     width: 60%;
     margin-left: auto;
     margin-right: auto;
+   
 }
 
 .tweedetable {
@@ -255,6 +256,11 @@ body {
     display: inline-block;
     vertical-align: top;
     margin-top: 5%;
+}
+th.sortasc a {
+    display: block;
+    padding: 0 4px 0 15px;
+    background: url(img/angle.jpg) no-repeat;
 }
 
 /* BUTTONS */
@@ -705,23 +711,13 @@ nav ul {
     }
 
 .DropDownAfdeling {
-    list-style: none;
-    font-weight: 400;
-    display: inline-block;
-    padding: 0;
-    cursor: pointer;
-    width: 400px;
-    background: rgba(14,98,81,1);
-    border-radius: 5px;
-    line-height: 55px;
-    font-size: 20px;
-    font-weight: 500;
+    margin-top: 10px;
     color: #fff;
-    padding: 0 20px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 20px
-
+    font-size: 20px;
+    padding: 5px 10px;
+    border-radius: 5px 12px;
+    background-color: #009879;
+    font-weight: bold;
 }
 
     .DropDownAfdeling Option {
@@ -732,3 +728,143 @@ nav ul {
     background: rgba(14,98,81,1);
     color: #fff;
 }
+
+
+
+
+.content-table2 {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    min-width: 400px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+    .content-table2 tbody tr th {
+        background-color: #ffffff;
+        color: #007bff !important;
+        text-align: center;
+        font-weight: bold;
+    }
+
+        .content-table2 tbody tr th a {
+            color: #ffffff !important;
+        }
+
+    .content-table2 th,
+    .content-table2 td {
+        padding: 12px 15px;
+    }
+
+    .content-table2 tbody tr {
+        border-bottom: 1px solid #dddddd;
+    }
+
+        .content-table2 tbody tr:nth-of-type(even) {
+            background-color: #f3f3f3;
+        }
+
+
+        .content-table2 tbody tr:last-of-type {
+            border-bottom: 2px solid #007bff;
+        }
+
+        .content-table2 tbody tr:hover {
+            font-weight: bold;
+            color: #007bff !important;
+        }
+
+        .content-table2 tbody tr td a {
+            background-color: rgba(20,143,119,1);
+            border-radius: 5px;
+            color: #ffffff;
+            padding: .5em;
+            text-decoration: none;
+        }
+
+        .content-table2 tbody tr td p {
+            margin-bottom: 0 !important;
+        }
+
+        .content-table2 tbody tr td a:nth-child(2) {
+            background-color: #C0392B;
+            border-radius: 5px;
+            color: #ffffff;
+            padding: .5em;
+            text-decoration: none;
+        }
+
+            .content-table2 tbody tr td a:nth-child(2):hover {
+                background-color: #CD6155;
+                color: #ffffff;
+            }
+
+        .content-table2 tbody tr td a:hover {
+            background-color: #009879;
+            color: #ffffff;
+        }
+
+
+.dropdownFilter .dropdownFilterWrapper ul li a .icon {
+    height: 40px;
+    width: 40px;
+    margin-right: 13px;
+    background: #ffffff1a;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    border-radius: 50%;
+}
+
+    .dropdownFilter .dropdownFilterWrapper ul li a .icon span {
+        line-height: 40px;
+        font-size: 20px;
+        color: #b0b3b8;
+    }
+
+.dropdownFilter .dropdownFilterWrapper ul li a i {
+    position: absolute;
+    right: 10px;
+    font-size: 25px;
+    pointer-events: none;
+}
+
+.dropdownFilter .dropdownFilterWrapper ul.setting-drop,
+.dropdownFilter .dropdownFilterWrapper ul.help-drop {
+    display: none;
+}
+
+.dropdownFilter .dropdownFilterWrapper .arrow {
+    padding-left: 10px;
+    font-size: 20px;
+    font-weight: 500;
+    color: #b0b3b8;
+    cursor: pointer;
+}
+
+    .dropdownFilter .dropdownFilterWrapper .arrow span {
+        margin-right: 15px;
+    }
+
+.DropDownAfdeling {
+    margin-top: 10px;
+    color: #fff;
+    font-size: 20px;
+    padding: 5px 10px;
+    border-radius: 5px 12px;
+    background-color: #009879;
+    font-weight: bold;
+}
+
+    .DropDownAfdeling Option {
+        background-color: rgba(20,143,119,1);
+    }
+
+        .DropDownAfdeling Option:hover {
+            background: rgba(14,98,81,1);
+            color: #fff;
+        }
