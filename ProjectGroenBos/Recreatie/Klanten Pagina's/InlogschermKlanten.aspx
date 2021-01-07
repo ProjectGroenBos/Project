@@ -39,7 +39,7 @@
 <body style="height: 448px">
     <form id="form1" runat="server">
         <div class="logo">
-            <img src="../Financien/img/Logo.png" alt="Logo" height="150" />
+            <img src="../img/logo.png" alt="Logo" height="150" />
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:2020-BIM02-P1-P2-GroenbosConnectionString %>" SelectCommand="SELECT Gast.Nummer, Gast.Voornaam, Gast.Tussenvoegsel, Gast.Achternaam, Gast.Email, GastAccount.Wachtwoord
 FROM   Gast INNER JOIN
              GastAccount

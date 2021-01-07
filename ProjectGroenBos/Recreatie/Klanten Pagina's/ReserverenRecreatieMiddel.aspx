@@ -1,40 +1,32 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="klant2.Master" AutoEventWireup="true" CodeBehind="MijnAanmeldingen.aspx.cs" Inherits="ProjectGroenBos.Recreatie.MijnAanmeldingen" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Recreatie/Klanten Pagina's/klant2.Master" AutoEventWireup="true" CodeBehind="ReserverenRecreatieMiddel.aspx.cs" Inherits="ProjectGroenBos.Recreatie.Klanten_Pagina_s.ReserverenRecreatieMiddel" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <script>function openModal(modalnaam) {
             $(modalnaam).modal('show');
         }</script>
-    <div class="header">Aanmelden activiteit</div>
+    <div class="header">Reserveren Recreatie Middelen</div>
     <br />
     <asp:Label ID="Label1" runat="server" Text="" BorderStyle="Solid" style="font-size:25px; border-color:rgba(20,143,119,1); padding:5px 5px 5px 5px;"></asp:Label>
     <br />
     <br />
-    <asp:Label ID="Label2" runat="server" Text="Locatie: "></asp:Label>
+    <br />
+    <asp:Label ID="Label3" runat="server" Text="Omschrijving: "></asp:Label>
     <br />
     <br />
-    <asp:Label ID="Label3" runat="server" Text="Inschrijfkosten: "></asp:Label>
+    <asp:Label ID="Label4" runat="server" Text="Categorie: "></asp:Label>
     <br />
     <br />
-    <asp:Label ID="Label4" runat="server" Text="Maximaal Aantal: "></asp:Label>
+    <asp:Label ID="Label5" runat="server" Text="Huurtarief: "></asp:Label>
     <br />
     <br />
-    <asp:Label ID="Label5" runat="server" Text="Omschrijving: "></asp:Label>
+    <asp:Label ID="Label6" runat="server" Text="Begin datum: "></asp:Label>
     <br />
     <br />
-    <asp:Label ID="Label6" runat="server" Text="Datum: "></asp:Label>
+    <asp:Label ID="Label7" runat="server" Text="Eind datum: "></asp:Label>
     <br />
     <br />
-    <asp:Label ID="Label7" runat="server" Text="Begintijd: "></asp:Label>
-    <br />
-    <br />
-    <asp:Label ID="Label8" runat="server" Text="Eindtijd: "></asp:Label>
-    
-    <asp:TextBox ID="Txbnamen" runat="server" OnTextChanged="Txbnamen_TextChanged" CssClass="txbnamenmijnaanmelding"></asp:TextBox>
-    <asp:GridView ID="GridView1" runat="server" CssClass="content-table2"></asp:GridView>
     <asp:Button ID="BtnVoegtoe" runat="server" CssClass="btnVoegtoemijnaanmelding" Text="Voeg toe" OnClick="BtnVoegtoe_Click"/>
-    <asp:Label ID="Label9" runat="server" Text="Naam" CssClass="lblnaammijnaanmelding"></asp:Label>
-    <asp:Button ID="Button1" runat="server" CssClass="btnAanmeldenmijnaanmelding" Text="Aanmelden" OnClick="Button1_Click" />
     
     
     <div id="Popup" class="modal fade" role="dialog">
@@ -47,13 +39,13 @@
 
                          <div class="modal-header">
 
-                             <h4 class="modal-title">Aanmelden actviteit</h4>
+                             <h4 class="modal-title">Reserveren RecreatieMiddel</h4>
 
                          </div>
 
                          <div class="modal-body">
 
-                             <asp:Label ID="Label10" runat="server" Text="Weet u zeker dat u wilt aanmelden?"></asp:Label>
+                             <asp:Label ID="Label10" runat="server" Text="Weet u zeker dat u deze wilt reserveren?"></asp:Label>
                           
                              
                              
@@ -83,3 +75,4 @@
     
 
 </asp:Content>
+
