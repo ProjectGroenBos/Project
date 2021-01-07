@@ -61,7 +61,16 @@
         <h1>Reservering wijzigen</h1>
         &nbsp;
     
-     <table>
+     <table style="text-align: left; margin-left: 5%">
+         <tr>
+             <td style="width: 15%">
+                 <asp:Label ID="Label2" runat="server" Text="Huisje behouden:" CssClass="labelsnieuw"></asp:Label>
+             </td>
+             <td style="width: 15%">
+                 <asp:CheckBox ID="chbHuisje" runat="server" OnCheckedChanged="chbHuisje_CheckedChanged" Text="Aangevinkt betekent ja" AutoPostBack="True" />
+             </td>
+             <td style="width: 40%"></td>
+         </tr>
          <tr>
              <td style="width: 15%">
                  <asp:Label ID="Label6" runat="server" Text="Reseveringsnummer:" CssClass="labelsnieuw"></asp:Label>
@@ -79,8 +88,8 @@
                  <asp:TextBox ID="txbAantalPersonen" runat="server" CssClass="textboxchaos" EnableViewState="False"></asp:TextBox>
              </td>
              <td style="width: 40%">
-                 <asp:RegularExpressionValidator ID="RegularExpressionValidator6" runat="server" ErrorMessage="Aantal personen is een even getal." ControlToValidate="txbAantalPersonen" ValidationExpression="^([246])$"></asp:RegularExpressionValidator>
-                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Dit veld is verplicht." ControlToValidate="txbAantalPersonen"></asp:RequiredFieldValidator>
+                 <asp:RegularExpressionValidator ID="RegularExpressionValidator6" runat="server" ErrorMessage="Aantal personen is een even getal." ControlToValidate="txbAantalPersonen" ValidationExpression="^([246])$" ForeColor="Red"></asp:RegularExpressionValidator>
+                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Dit veld is verplicht." ControlToValidate="txbAantalPersonen" ForeColor="Red"></asp:RequiredFieldValidator>
              </td>
          </tr>
          <tr>
@@ -119,6 +128,7 @@
              </td>
              <td style="width: 40%"></td>
          </tr>
+         
 
      </table>
 

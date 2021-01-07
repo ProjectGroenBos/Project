@@ -103,6 +103,7 @@
     <Content Include="Reservering\ReserveringAanmaken.aspx" />
     <Content Include="Reservering\ReserveringAanmaken.html" />
     <Content Include="Reservering\ReserveringCompleet.aspx" />
+    <Content Include="Reservering\ReserveringNachtregisterWijzigen.aspx" />
     <Content Include="Reservering\ReserveringOverzicht.aspx" />
     <Content Include="Reservering\ReserveringAnnuleren.aspx" />
     <Content Include="Reservering\ReserveringenWijzigenOverzicht.aspx" />
@@ -491,6 +492,13 @@
     </Compile>
     <Compile Include="Reservering\ReserveringCompleet.aspx.designer.cs">
       <DependentUpon>ReserveringCompleet.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reservering\ReserveringNachtregisterWijzigen.aspx.cs">
+      <DependentUpon>ReserveringNachtregisterWijzigen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reservering\ReserveringNachtregisterWijzigen.aspx.designer.cs">
+      <DependentUpon>ReserveringNachtregisterWijzigen.aspx</DependentUpon>
     </Compile>
     <Compile Include="Reservering\ReserveringOverzicht.aspx.cs">
       <DependentUpon>ReserveringOverzicht.aspx</DependentUpon>

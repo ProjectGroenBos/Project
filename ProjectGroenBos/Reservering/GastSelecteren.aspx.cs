@@ -20,7 +20,7 @@ namespace ProjectGroenBos
             btnGastAanmaken.Visible = true;
             if (Session["controle3"] != null)
             {
-                lblUitkomst.Text = "De gast is toegevoegd aan de database.";
+                //lblUitkomst.Text = "De gast is toegevoegd aan de database.";
             }
         }
 

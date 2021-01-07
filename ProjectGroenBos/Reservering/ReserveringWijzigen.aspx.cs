@@ -46,15 +46,15 @@ namespace ProjectGroenBos.Reservering
                     //txbVertrekdatum.Text = Session["Vertrekdatum"].ToString();
                     GridView1.Visible = false;
                     GridView2.Visible = false;
-                    btnWijzigen.Enabled = false;
+                    btnWijzigen.Visible = false;
                     RequiredFieldValidator1.Enabled = false;
                     foreach (GridViewRow gr in GridView1.Rows)
                     {
                         lblReserveringsnummer.Text = Session["reserveringsnummer"].ToString();
                         txbAantalPersonen.Text = gr.Cells[3].Text;
-                        txbOpmerkingen.Text = gr.Cells[4].Text;
                         txbAankomstdatum.Text = gr.Cells[1].Text;
                         txbVertrekdatum.Text = gr.Cells[2].Text;
+                        txbOpmerkingen.Text = gr.Cells[4].Text;
 
                         if (txbOpmerkingen.Text == "&nbsp;")
                         {
@@ -112,7 +112,11 @@ namespace ProjectGroenBos.Reservering
 
                     cmd2.CommandType = System.Data.CommandType.Text;
                     cmd.CommandType = CommandType.Text;
-                    cmd.ExecuteNonQuery();
+                    if (chbHuisje.Checked == false)
+                    {
+                        cmd.ExecuteNonQuery();
+                    }
+                    
 
                     cmd2.ExecuteNonQuery();
                     con.Close();
@@ -259,6 +263,34 @@ namespace ProjectGroenBos.Reservering
             lblHuisjenummer.Text = (string)GridView2.SelectedRow.Cells[1].Text;
             GridView1.Visible = false;
             btnWijzigen.Enabled = true;
+        }
+
+        protected void chbHuisje_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chbHuisje.Checked == true)
+            {
+                btnZoeken.Visible = false;
+                btnWijzigen.Visible = true;
+                txbAankomstdatum.Enabled = false;
+                txbVertrekdatum.Enabled = false;
+                txbAantalPersonen.Enabled = false;
+            }
+            else
+            {
+                btnZoeken.Visible = true;
+                btnWijzigen.Visible = false;
+                txbAankomstdatum.Enabled = true;
+                txbVertrekdatum.Enabled = true;
+                txbAantalPersonen.Enabled = true;
+                
+            }
+            foreach (GridViewRow gr in GridView1.Rows)
+            {
+                txbAantalPersonen.Text = gr.Cells[3].Text;
+                txbAankomstdatum.Text = gr.Cells[1].Text;
+                txbVertrekdatum.Text = gr.Cells[2].Text;
+                GridView1.Visible = false;
+            }
         }
     }
 }
