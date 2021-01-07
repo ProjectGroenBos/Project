@@ -11,48 +11,18 @@
      <asp:TextBox ID="Einddatumsofzo" runat="server" TextMode="Date"></asp:TextBox>
     <asp:GridView ID="GvAanmeldenRecreatieMiddel" runat="server" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" CssClass="content-table" ForeColor="#333333" GridLines="None" ShowFooter="True" ShowHeaderWhenEmpty="True" Width="80%" AllowPaging="True" OnSelectedIndexChanged="GvAanmeldenRecreatieMiddel_SelectedIndexChanged" DataKeyNames="Nummer">
         <Columns>
-            <asp:BoundField DataField="Nummer" HeaderText="Nummer" HeaderStyle-ForeColor="White" SortExpression="Nummer" Visible="False">
-            <HeaderStyle ForeColor="White" />
-            </asp:BoundField>
-            <asp:BoundField DataField="Artikelnaam" HeaderText="Artikelnaam" HeaderStyle-ForeColor="White"  SortExpression="Artikelnaam" >
-            <HeaderStyle ForeColor="White" />
-            </asp:BoundField>
-            <asp:BoundField DataField="Omschrijving" HeaderText="Omschrijving" HeaderStyle-ForeColor="White"  SortExpression="Omschrijving" >
-            <HeaderStyle ForeColor="White" />
-            </asp:BoundField>
-            <asp:BoundField DataField="Prijs" HeaderText="Prijs" HeaderStyle-ForeColor="White" SortExpression="Prijs" Visible="False" >
-            <HeaderStyle ForeColor="White" />
-            </asp:BoundField>
-            <asp:BoundField DataField="Aantal" HeaderText="Aantal" HeaderStyle-ForeColor="White"  SortExpression="Aantal" Visible="False" >
-            <HeaderStyle ForeColor="White" />
-            </asp:BoundField>
-            <asp:BoundField DataField="Minimum voorraad" HeaderText="Minimum voorraad" HeaderStyle-ForeColor="White" SortExpression="Minimum voorraad" Visible="False" >
-            <HeaderStyle ForeColor="White" />
-            </asp:BoundField>
-            <asp:BoundField DataField="Naam Leverancier" HeaderText="Naam Leverancier" HeaderStyle-ForeColor="White" SortExpression="Naam Leverancier" Visible="False" >
-            <HeaderStyle ForeColor="White" />
-            </asp:BoundField>
-            <asp:BoundField DataField="Categorie" HeaderText="Categorie" HeaderStyle-ForeColor="White" SortExpression="Categorie" >
-            <HeaderStyle ForeColor="White" />
-            </asp:BoundField>
-            <asp:BoundField DataField="Huurtarief" HeaderText="Huurtarief" HeaderStyle-ForeColor="White"  SortExpression="Huurtarief" >
-            <HeaderStyle ForeColor="White" />
-            </asp:BoundField>
-            <asp:BoundField DataField="LeverancierID" HeaderText="LeverancierID" HeaderStyle-ForeColor="White"  SortExpression="LeverancierID" Visible="False" >
-            <HeaderStyle ForeColor="White" />
-            </asp:BoundField>
-                 <asp:BoundField DataField="CategorieID" HeaderText="CategorieID" SortExpression="CategorieID" Visible="False" />
-            <asp:CommandField ShowSelectButton="True" ItemStyle-ForeColor="White" SelectText="Selecteer" >
-            <ItemStyle ForeColor="White"></ItemStyle>
-             </asp:CommandField>
-            
+            <asp:BoundField DataField="Nummer" HeaderText="Nummer" ReadOnly="True" SortExpression="Nummer" />
+            <asp:BoundField DataField="Naam" HeaderText="Naam" SortExpression="Naam" />
+            <asp:BoundField DataField="Omschrijving" HeaderText="Omschrijving" SortExpression="Omschrijving" />
+            <asp:BoundField DataField="Categorie" HeaderText="Categorie" SortExpression="Categorie" />
+            <asp:BoundField DataField="Huurtarief" HeaderText="Huurtarief" SortExpression="Huurtarief" />
+            <asp:CommandField ShowSelectButton="True" ItemStyle-ForeColor="White">
+<ItemStyle ForeColor="White"></ItemStyle>
+            </asp:CommandField>
         </Columns>
 
      </asp:GridView>
-     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:2020-BIM02-P1-P2-GroenbosConnectionString %>" SelectCommand="SELECT [Artikelnaam], [Omschrijving], [Categorie], [Huurtarief], [Nummer] FROM [vRecreatieProductpagina] WHERE ([Nummer] = @Nummer)">
-         <SelectParameters>
-             <asp:ControlParameter ControlID="GvAanmeldenRecreatieMiddel" Name="Nummer" PropertyName="SelectedValue" Type="Int32" />
-         </SelectParameters>
+     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:2020-BIM02-P1-P2-GroenbosConnectionString %>" SelectCommand="SELECT [Nummer], [Naam], [Omschrijving], [Categorie], [Huurtarief] FROM [vBeschikbareHuuritems]">
      </asp:SqlDataSource>
      <br />
    

@@ -35,6 +35,7 @@ namespace ProjectGroenBos.Recreatie.Klanten_Pagina_s
                 var cmd2 = new SqlCommand(sql, sqlCon);
                 sqlCon.Open();
                 cmd2.ExecuteNonQuery();
+                sqlCon.Close();
             }
         }
         private string SortDirection
@@ -48,7 +49,7 @@ namespace ProjectGroenBos.Recreatie.Klanten_Pagina_s
             using (SqlConnection sqlCon = new SqlConnection(connectionstring))
             {
                 sqlCon.Open();
-                SqlDataAdapter sqlDa = new SqlDataAdapter("SELECT *  from vRecreatieProductPagina", sqlCon);
+                SqlDataAdapter sqlDa = new SqlDataAdapter("SELECT *  from vBeschikbareHuuritems", sqlCon);
                 sqlDa.Fill(dtbl);
                 Session["vaDB"] = dtbl;
             }
@@ -95,7 +96,7 @@ namespace ProjectGroenBos.Recreatie.Klanten_Pagina_s
                 RecreatieMiddel.Columns.Add(new DataColumn("Omschrijving", typeof(string)));
                 RecreatieMiddel.Columns.Add(new DataColumn("Categorie", typeof(string)));
                 RecreatieMiddel.Columns.Add(new DataColumn("Huurtarief", typeof(Double)));
-                SqlCommand cmd = new SqlCommand("SELECT [Artikelnaam], [Omschrijving], [Categorie], [Huurtarief], [Nummer] FROM [vRecreatieProductpagina] WHERE ([Nummer] = @Nummer)", sqlCon);
+                SqlCommand cmd = new SqlCommand("SELECT [Nummer], [Naam], [Omschrijving], [Categorie], [Huurtarief] FROM [vBeschikbareHuuritems] WHERE ([Nummer] = @Nummer)", sqlCon);
                 cmd.Parameters.AddWithValue("Nummer", int.Parse(GvAanmeldenRecreatieMiddel.DataKeys[GvAanmeldenRecreatieMiddel.SelectedIndex].Value.ToString()));
                 sqlCon.Open();
                 cmd.ExecuteNonQuery();

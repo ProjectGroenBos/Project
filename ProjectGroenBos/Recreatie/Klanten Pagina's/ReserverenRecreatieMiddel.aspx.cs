@@ -32,13 +32,12 @@ namespace ProjectGroenBos.Recreatie.Klanten_Pagina_s
                 //ViewState["Klanten"] = dt2;
                 this.BindGrid();
                 dt = (DataTable)Session["RecreatieMiddel"];
-                DateTime datum = DateTime.Parse(dt.Rows[0][2].ToString());
+
                 Label1.Text = Label1.Text + dt.Rows[0][1].ToString();
                 Label2.Text = Label2.Text + dt.Rows[0][7].ToString();
                 Label3.Text = Label3.Text + dt.Rows[0][6].ToString();
                 Label4.Text = Label4.Text + dt.Rows[0][8].ToString();
                 Label5.Text = Label5.Text + dt.Rows[0][9].ToString();
-                Label6.Text = Label6.Text + datum.ToString("dd/MM/yyyy");
                 Label7.Text = Label7.Text + dt.Rows[0][3].ToString();
                 Label8.Text = Label8.Text + dt.Rows[0][4].ToString();
 
