@@ -92,7 +92,7 @@ namespace ProjectGroenBos.Recreatie.Klanten_Pagina_s
 
                 DataTable RecreatieMiddel = new DataTable();
                 RecreatieMiddel.Columns.Add(new DataColumn("Nummer", typeof(int)));
-                RecreatieMiddel.Columns.Add(new DataColumn("Artikelnaam", typeof(string)));
+                RecreatieMiddel.Columns.Add(new DataColumn("Naam", typeof(string)));
                 RecreatieMiddel.Columns.Add(new DataColumn("Omschrijving", typeof(string)));
                 RecreatieMiddel.Columns.Add(new DataColumn("Categorie", typeof(string)));
                 RecreatieMiddel.Columns.Add(new DataColumn("Huurtarief", typeof(Double)));
@@ -102,6 +102,9 @@ namespace ProjectGroenBos.Recreatie.Klanten_Pagina_s
                 cmd.ExecuteNonQuery();
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 da.Fill(RecreatieMiddel);
+
+                Session["StartDatum"] = Begindatum.Text;
+                Session["EindDatum"] = Einddatumsofzo.Text;
                 Session["Nummer"] = GvAanmeldenRecreatieMiddel.DataKeys[GvAanmeldenRecreatieMiddel.SelectedIndex].Value;
                 Session["RecreatieMiddel"] = RecreatieMiddel;
                 Response.Redirect("ReserverenRecreatieMiddel.aspx");
