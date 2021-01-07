@@ -475,9 +475,9 @@
     <Content Include="Restaurant\img\productimg\tomatensoep.png" />
     <Content Include="Restaurant\img\productimg\varkenshaas.png" />
     <Content Include="Restaurant\Keukenoverzicht.aspx" />
-    <Content Include="Restaurant\opnemenbestelling.aspx" />
     <Content Include="Restaurant\OrderGoedkeur.aspx" />
     <Content Include="Restaurant\OrderPagina.aspx" />
+    <Content Include="Restaurant\OrderPaginaNonFood.aspx" />
     <Content Include="Restaurant\reserveren.aspx" />
     <Content Include="Restaurant\tafeloverzicht.aspx" />
     <Content Include="Restaurant\Voorraad.aspx" />
@@ -1032,13 +1032,6 @@
     <Compile Include="Restaurant\Keukenoverzicht.aspx.designer.cs">
       <DependentUpon>Keukenoverzicht.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Restaurant\opnemenbestelling.aspx.cs">
-      <DependentUpon>opnemenbestelling.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Restaurant\opnemenbestelling.aspx.designer.cs">
-      <DependentUpon>opnemenbestelling.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Restaurant\OrderGoedkeur.aspx.cs">
       <DependentUpon>OrderGoedkeur.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1052,6 +1045,12 @@
     </Compile>
     <Compile Include="Restaurant\OrderPagina.aspx.designer.cs">
       <DependentUpon>OrderPagina.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Restaurant\OrderPaginaNonFood.aspx.cs">
+      <DependentUpon>OrderPaginaNonFood.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Restaurant\OrderPaginaNonFood.aspx.designer.cs">
+      <DependentUpon>OrderPaginaNonFood.aspx</DependentUpon>
     </Compile>
     <Compile Include="Restaurant\reserveren.aspx.cs">
       <DependentUpon>reserveren.aspx</DependentUpon>
