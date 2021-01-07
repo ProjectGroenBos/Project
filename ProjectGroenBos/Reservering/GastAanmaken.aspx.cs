@@ -25,7 +25,7 @@ namespace ProjectGroenBos.Reservering
             }
             else
             {
-                txbAchternaam.Text = Session["achternaam"].ToString();
+                
             }
         }
 

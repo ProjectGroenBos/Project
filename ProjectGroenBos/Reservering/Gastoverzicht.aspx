@@ -56,7 +56,7 @@
     
 
 
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:2020-BIM02-P1-P2-GroenbosConnectionString %>" SelectCommand="SELECT TOP (10) Nummer AS [Gast nummer], Voornaam, Tussenvoegsel, Achternaam, Telefoonnummer, Email AS [E-mail], Geboortedatum FROM Gast where Achternaam like '%' + @achternaam + '%' ORDER BY [Gast nummer] DESC">
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:2020-BIM02-P1-P2-GroenbosConnectionString %>" SelectCommand="SELECT TOP (10) Nummer AS [Gast nummer], Voornaam, Tussenvoegsel, Achternaam, Telefoonnummer, Email AS [E-mail], Geboortedatum FROM Gast inner join Adres on Gast.Nummer = Adres.GastNummer where Achternaam like '%' + @achternaam + '%' ORDER BY [Gast nummer] DESC">
         <SelectParameters>
             <asp:ControlParameter ControlID="txbAchternaam" DefaultValue="%" Name="achternaam" PropertyName="Text" />
         </SelectParameters>
