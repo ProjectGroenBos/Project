@@ -15,15 +15,15 @@ namespace ProjectGroenBos.Financien
         string connetionString;
         SqlConnection cnn;
         private int IsManager;
-        
+
         protected void Page_Load(object sender, EventArgs e)
         {
             Session.Clear();
             connetionString = "Data Source=SQL.BIM.OSOX.NL;Initial Catalog=2020-BIM02-P1-P2-Groenbos;User ID=BIM022020;Password=BiM@IH2020";
-            
+
             cnn = new SqlConnection(connetionString);
         }
-            
+
         protected void TextBox1_TextChanged(object sender, EventArgs e)
         {
 
@@ -87,5 +87,4 @@ namespace ProjectGroenBos.Financien
         }
     }
 }
-
 
