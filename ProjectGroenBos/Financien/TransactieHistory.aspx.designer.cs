@@ -15,6 +15,42 @@ namespace ProjectGroenBos.Financien
     {
 
         /// <summary>
+        /// lblAlles control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lblAlles;
+
+        /// <summary>
+        /// lblOntvangsten control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lblOntvangsten;
+
+        /// <summary>
+        /// lblBetalingen control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lblBetalingen;
+
+        /// <summary>
+        /// txbZoeken control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txbZoeken;
+
+        /// <summary>
         /// gvTransacties control.
         /// </summary>
         /// <remarks>
