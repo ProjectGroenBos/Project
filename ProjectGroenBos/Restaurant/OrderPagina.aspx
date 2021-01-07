@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Financien/Financien.Master" AutoEventWireup="true" CodeBehind="OrderPagina.aspx.cs" Inherits="ProjectGroenBos.Restaurant.OrderPagina" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Restaurant/Restaurant.Master" AutoEventWireup="true" CodeBehind="OrderPagina.aspx.cs" Inherits="ProjectGroenBos.Restaurant.OrderPagina" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
         @media print {

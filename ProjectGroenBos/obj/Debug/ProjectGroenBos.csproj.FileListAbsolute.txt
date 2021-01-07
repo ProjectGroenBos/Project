@@ -244,3 +244,5 @@ C:\Users\telef\Documents\GitHub\Project\ProjectGroenBos\obj\Debug\ProjectGroenBo
 C:\Users\telef\Documents\GitHub\Project\ProjectGroenBos\obj\Debug\ProjectGroenBos.csproj.CopyComplete
 C:\Users\telef\Documents\GitHub\Project\ProjectGroenBos\obj\Debug\ProjectGroenBos.dll
 C:\Users\telef\Documents\GitHub\Project\ProjectGroenBos\obj\Debug\ProjectGroenBos.pdb
+C:\Users\Daan Vlaar\Documents\GitHub\Project\Project\ProjectGroenBos\bin\System.Data.SqlClient.dll
+C:\Users\Daan Vlaar\Documents\GitHub\Project\Project\ProjectGroenBos\bin\System.Data.SqlClient.xml

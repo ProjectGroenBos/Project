@@ -4,13 +4,16 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Data;
 using System.Data.SqlClient;
+using System.Configuration;
+using System.Data;
 
 namespace ProjectGroenBos.Restaurant
 {
     public partial class WebForm6 : System.Web.UI.Page
     {
+        //Connectionstring
+        string connectionString = ConfigurationManager.ConnectionStrings["dbconnectie"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["Tafelnr"] != null)
@@ -48,38 +51,64 @@ namespace ProjectGroenBos.Restaurant
                 lblOutput.Text = "U kunt niet in het verleden reserveren";
                 return;
             }
-        
 
-           
+            int BungalowreserveringsID;
+            if (txtBungalownummer.Enabled == true)
+            {
+                BungalowreserveringsID = Ophalen();
+                // String constring ="Data Source = SQL.BIM.OSOX.NL; Initial Catalog = 2020 - BIM02 - P1 - P2 - Groenbos; Persist Security Info = True; User ID = BIM022020; Password = BiM@IH2020";
+                String constring = "Data Source=SQL.BIM.OSOX.NL;Initial Catalog=2020-BIM02-P1-P2-Groenbos;Persist Security Info=True;User ID=BIM022020;Password=BiM@IH2020";
+                SqlConnection sqlcon = new SqlConnection(constring);
+                String pname = "RestaurantReserveringGoed";
+                sqlcon.Open();
+                SqlCommand com = new SqlCommand(pname, sqlcon);
+                com.CommandType = CommandType.StoredProcedure;
 
-
-
-            // String constring ="Data Source = SQL.BIM.OSOX.NL; Initial Catalog = 2020 - BIM02 - P1 - P2 - Groenbos; Persist Security Info = True; User ID = BIM022020; Password = BiM@IH2020";
-            String constring = "Data Source=SQL.BIM.OSOX.NL;Initial Catalog=2020-BIM02-P1-P2-Groenbos;Persist Security Info=True;User ID=BIM022020;Password=BiM@IH2020";
-            SqlConnection sqlcon = new SqlConnection(constring);
-            String pname = "RestaurantReserveringGoed"; ;
-            sqlcon.Open();
-            SqlCommand com = new SqlCommand(pname, sqlcon);
-            com.CommandType = CommandType.StoredProcedure;
-
-            com.Parameters.AddWithValue("@BeginTijd", dt);
-            com.Parameters.AddWithValue("@Datum", DateTime.Now);
-            com.Parameters.AddWithValue("@AantalPersonen", TxtAantalP.Text);
-            com.Parameters.AddWithValue("@Opmerking", TxtOpmerkingen.Text);
-            com.Parameters.AddWithValue("@Betaalt", "0");
-            com.Parameters.AddWithValue("@Voornaam", txtVoornaam.Text);
-            com.Parameters.AddWithValue("@Achternaam", txtAchternaam.Text);
-            com.Parameters.AddWithValue("@Tussenvoegsel", txtTussenvoegsel.Text);
-            com.Parameters.AddWithValue("@Email", txtEmail.Text);
-
-
+                com.Parameters.AddWithValue("@BeginTijd", dt);
+                com.Parameters.AddWithValue("@Datum", DateTime.Now);
+                com.Parameters.AddWithValue("@AantalPersonen", TxtAantalP.Text);
+                com.Parameters.AddWithValue("@Opmerking", TxtOpmerkingen.Text);
+                com.Parameters.AddWithValue("@Betaalt", "0");
+                com.Parameters.AddWithValue("@Voornaam", txtVoornaam.Text);
+                com.Parameters.AddWithValue("@Achternaam", txtAchternaam.Text);
+                com.Parameters.AddWithValue("@Tussenvoegsel", txtTussenvoegsel.Text);
+                com.Parameters.AddWithValue("@Email", txtEmail.Text);
+                com.Parameters.AddWithValue("@BunglowreserveringsID", BungalowreserveringsID);
 
 
-            com.ExecuteNonQuery();
-            sqlcon.Close(); ;
+
+
+                com.ExecuteNonQuery();
+                sqlcon.Close(); ;
+            }
+            else
+            {
+                // String constring ="Data Source = SQL.BIM.OSOX.NL; Initial Catalog = 2020 - BIM02 - P1 - P2 - Groenbos; Persist Security Info = True; User ID = BIM022020; Password = BiM@IH2020";
+                String constring = "Data Source=SQL.BIM.OSOX.NL;Initial Catalog=2020-BIM02-P1-P2-Groenbos;Persist Security Info=True;User ID=BIM022020;Password=BiM@IH2020";
+                SqlConnection sqlcon = new SqlConnection(constring);
+                String pname = "RestaurantReservering2";
+                sqlcon.Open();
+                SqlCommand com = new SqlCommand(pname, sqlcon);
+                com.CommandType = CommandType.StoredProcedure;
+
+                com.Parameters.AddWithValue("@BeginTijd", dt);
+                com.Parameters.AddWithValue("@Datum", DateTime.Now);
+                com.Parameters.AddWithValue("@AantalPersonen", TxtAantalP.Text);
+                com.Parameters.AddWithValue("@Opmerking", TxtOpmerkingen.Text);
+                com.Parameters.AddWithValue("@Betaalt", "0");
+                com.Parameters.AddWithValue("@Voornaam", txtVoornaam.Text);
+                com.Parameters.AddWithValue("@Achternaam", txtAchternaam.Text);
+                com.Parameters.AddWithValue("@Tussenvoegsel", txtTussenvoegsel.Text);
+                com.Parameters.AddWithValue("@Email", txtEmail.Text);
+
+
+
+
+                com.ExecuteNonQuery();
+                sqlcon.Close(); ;
+            }
 
             lblGelukt.Text = "Reservering is geslaagd";
-
         }
 
         protected void btnJa_Click(object sender, EventArgs e)
@@ -96,23 +125,65 @@ namespace ProjectGroenBos.Restaurant
             btnNee.Enabled = false;
         }
 
-        protected void txtBungalownummer_TextChanged(object sender, EventArgs e)
+
+        private int Ophalen()
         {
-            SqlConnection con = new SqlConnection("Data Source=SQL.BIM.OSOX.NL;Initial Catalog=2020-BIM02-P1-P2-Groenbos;Persist Security Info=True;User ID=BIM022020;Password=BiM@IH2020");
-            con.Open();
-            if (txtBungalownummer.Text != "")
+            using (SqlConnection connection = new SqlConnection("Data Source=SQL.BIM.OSOX.NL;Initial Catalog=2020-BIM02-P1-P2-Groenbos;Persist Security Info=True;User ID=BIM022020;Password=BiM@IH2020"))
             {
-                SqlCommand cmd = new SqlCommand("SELECT Gast.Voornaam, Gast.Tussenvoegsel, Gast.Achternaam FROM Reservering INNER JOIN Reservering_Bungalow ON Reservering.Nummer = Reservering_Bungalow.ReserveringNummer INNER JOIN Bungalow ON Reservering_Bungalow.BungalowNummer = Bungalow.Nummer INNER JOIN Gast ON Reservering.GastNummer = Gast.Nummer where Bungalow.Nummer = @BungalowNummer and Aankomstdatum <= getdate() and Vertrekdatum >= getdate()",con);
-                cmd.Parameters.AddWithValue("@Bungalownummer", int.Parse(txtBungalownummer.Text));
-                SqlDataReader da = cmd.ExecuteReader();
-                while (da.Read())
+
+
+
+                connection.Open();
+                string selectquery = "select resbun.ReserveringNummer from Reservering_bungalow resbun inner join Reservering res on res.Nummer = resbun.ReserveringNummer  where GETDATE() >= res.Aankomstdatum and Getdate() < res.Vertrekdatum and resbun.BungalowNummer = @Bungalownummer";
+                
+                SqlCommand sqlComd = new SqlCommand(selectquery, connection);
+                sqlComd.Parameters.AddWithValue("@Bungalownummer", int.Parse(txtBungalownummer.Text));
+                SqlDataReader r;
+                r = sqlComd.ExecuteReader();
+
+                int ReserveringNummer = 0;
+
+                while (r.Read())
                 {
-                    txtVoornaam.Text = da.GetValue(0).ToString();
-                    txtTussenvoegsel.Text = da.GetValue(1).ToString();
-                    txtAchternaam.Text = da.GetValue(2).ToString();
+                    ReserveringNummer = (int)r[0];
                 }
-                con.Close();
+                connection.Close();
+                return ReserveringNummer;
             }
         }
+
+
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            if (txtBungalownummer.Text != "")
+            {
+                using (SqlConnection sqlcon = new SqlConnection(connectionString))
+                {
+                    sqlcon.Open();
+
+                    DateTime formatedtoday = DateTime.Now.Date;
+                    String datumm = formatedtoday.ToString("yyyy-mm-dd hh:mm:ss");
+                    SqlCommand cmd = new SqlCommand("SELECT Gast.Voornaam, Gast.Achternaam, Gast.Tussenvoegsel, Gast.Telefoonnummer, Gast.Email FROM     Reservering INNER JOIN Gast ON Reservering.GastNummer = Gast.Nummer INNER JOIN Reservering_Bungalow ON Reservering.Nummer = Reservering_Bungalow.ReserveringNummer INNER JOIN Bungalow ON Reservering_Bungalow.BungalowNummer = Bungalow.Nummer where bungalow.nummer = @bungalownummer and aankomstdatum <= @datum and vertrekdatum >= @datum");
+                    cmd.Connection = sqlcon;
+                    cmd.Parameters.AddWithValue("@bungalownummer", int.Parse(txtBungalownummer.Text));
+                    SqlParameter sqlparameter0 = cmd.Parameters.AddWithValue("@datum", formatedtoday);
+                    //cmd.executenonquery();
+                    SqlDataReader da = cmd.ExecuteReader();
+                    while (da.Read())
+                    {
+                        txtVoornaam.Text = da.GetValue(0).ToString();
+                        txtTussenvoegsel.Text = da.GetValue(1).ToString();
+                        txtAchternaam.Text = da.GetValue(2).ToString();
+                        txtTelefoon.Text = da.GetValue(3).ToString();
+                        txtEmail.Text = da.GetValue(4).ToString();
+                    }
+                    sqlcon.Close();
+
+                }
+            }
+            Ophalen();
+        }
     }
+
 }
