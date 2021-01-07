@@ -41,6 +41,7 @@ namespace ProjectGroenBos.Reservering
                         txbTussenvoegsel.Text = gr.Cells[2].Text;
                         txbAchternaam.Text = gr.Cells[3].Text;
                         txbGeboortedatum.Text = gr.Cells[0].Text;
+                        txbTelefoonnummer.Text = gr.Cells[4].Text;
                         txbIBAN.Text = gr.Cells[6].Text;
                         txbEmail.Text = gr.Cells[5].Text;
                         txbStraatnaam.Text = gr.Cells[7].Text;

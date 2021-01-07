@@ -41,6 +41,7 @@ namespace ProjectGroenBos.Reservering
                     //txbAankomstdatum.Text = Session["Aankomstdatum"].ToString();
                     //txbAantalPersonen.Text = Session["AantalPersonen"].ToString();
                     //txbVertrekdatum.Text = Session["Vertrekdatum"].ToString();
+                    GridView1.Visible = false;
 
                     RequiredFieldValidator1.Enabled = false;
                     foreach (GridViewRow gr in GridView1.Rows)

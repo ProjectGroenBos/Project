@@ -14,8 +14,8 @@ namespace ProjectGroenBos.Reservering
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            btnToAnnuleren.Enabled = false;
-            btnToWijzigen.Enabled = false;
+            btnToAnnuleren.Visible = false;
+            btnToWijzigen.Visible = false;
         }
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
@@ -67,8 +67,8 @@ namespace ProjectGroenBos.Reservering
             Session["email"]= (string)GridView1.SelectedRow.Cells[3].Text;
             Session["achternaam"]= (string)GridView1.SelectedRow.Cells[2].Text;
 
-            btnToAnnuleren.Enabled = true;
-            btnToWijzigen.Enabled = true;
+            btnToAnnuleren.Visible = true;
+            btnToWijzigen.Visible = true;
         }
     }
 }
