@@ -28,6 +28,14 @@ namespace ProjectGroenBos.Reservering
         protected void btnZoek_Click(object sender, EventArgs e)
         {
             GridView1.DataBind();
+            if(GridView1.Rows.Count == 0)
+            {
+                lblUitkomst.Text = "Geen resultaten gevonden.";
+            }
+            else
+            {
+                lblUitkomst.Text = "";
+            }
 
             //btnToAnnuleren.Visible = true;
             //btnToWijzigen.Visible = true;

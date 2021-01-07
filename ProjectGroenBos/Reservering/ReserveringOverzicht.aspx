@@ -29,10 +29,11 @@
         <asp:Label ID="Label2" runat="server" Text="Datum tot en met:" CssClass="labelsnieuw"></asp:Label>
         <asp:TextBox ID="txbDatum" runat="server" CssClass="auto-style1" TextMode="Date"></asp:TextBox>
         <br />
+        <br />
 
         <asp:Button ID="btnZoek" runat="server" Text="Zoek" CssClass="btnUitloggen" OnClick="btnZoek_Click" Style="background-color: #009879; color: #fff" class="btn" />
 
-        <br />
+
         <br />
         <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" AutoGenerateSelectButton="True" CssClass="content-table" DataKeyNames="Nummer van reservering" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="GridView1_SelectedIndexChanged1">
             <Columns>
@@ -45,10 +46,10 @@
             </Columns>
             <HeaderStyle ForeColor="White" />
         </asp:GridView>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:2020-BIM02-P1-P2-GroenbosConnectionString %>" SelectCommand="select res.Nummer as [Nummer van reservering], gst.Achternaam, gst.Email, res.Aantal_personen as [Aantal personen], res.Aankomstdatum, res.Vertrekdatum from Gast gst inner join Reservering res on gst.Nummer = res.GastNummer inner join Adres adr on adr.GastNummer = gst.Nummer where gst.Achternaam like @zoek and Aankomstdatum &gt;= convert(date, GETDATE()) and Aankomstdatum &lt;= @datum and ReserveringsstatusID != 5 order by res.Nummer">
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:2020-BIM02-P1-P2-GroenbosConnectionString %>" SelectCommand="select res.Nummer as [Nummer van reservering], gst.Achternaam, gst.Email, res.Aantal_personen as [Aantal personen], res.Aankomstdatum, res.Vertrekdatum from Gast gst inner join Reservering res on gst.Nummer = res.GastNummer where gst.Achternaam like  '%'+ @zoek + '%' and Aankomstdatum &gt;= convert(date, GETDATE()) and Aankomstdatum &lt;= @datum and ReserveringsstatusID != 5 order by res.Nummer">
             <SelectParameters>
-                <asp:ControlParameter ControlID="txbAchternaam" Name="zoek" PropertyName="Text" />
-                <asp:ControlParameter ControlID="txbDatum" Name="datum" PropertyName="Text" />
+                <asp:ControlParameter ControlID="txbAchternaam" Name="zoek" PropertyName="Text" DefaultValue="%" />
+                <asp:ControlParameter ControlID="txbDatum" Name="datum" PropertyName="Text" DefaultValue="" />
             </SelectParameters>
         </asp:SqlDataSource>
 
