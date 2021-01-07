@@ -3,6 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
     <div class="header">Prijsmanagement</div>
     <div class="container">
         <h2>Seizoensindeling</h2>
@@ -34,7 +35,7 @@
                     </ItemTemplate>
                 </asp:TemplateField>
 
-                <asp:CommandField ShowEditButton="True" ValidationGroup="Validation"/>
+                <asp:CommandField ShowEditButton="True" EditText="<i aria-hidden='true' class='fas fa-pencil-alt '></i>" ValidationGroup="Validation"/>
                 <asp:TemplateField></asp:TemplateField>
             </Columns>
         </asp:GridView>
@@ -77,7 +78,7 @@
                     </ItemTemplate>
                 </asp:TemplateField>
 
-                <asp:CommandField ShowEditButton="True" ValidationGroup="Validation" />
+                <asp:CommandField ShowEditButton="True" EditText="<i aria-hidden='true' class='fas fa-pencil-alt '></i>" ValidationGroup="Validation" />
                 <asp:TemplateField></asp:TemplateField>
             </Columns>
         </asp:GridView>
@@ -150,7 +151,7 @@
                     </ItemTemplate>
                 </asp:TemplateField>
 
-                <asp:CommandField ShowEditButton="True" ValidationGroup="Validation" />
+                <asp:CommandField ShowEditButton="True" EditText="<i aria-hidden='true' class='fas fa-pencil-alt '></i>" ValidationGroup="Validation" />
                 <asp:TemplateField></asp:TemplateField>
             </Columns>
         </asp:GridView>
@@ -220,7 +221,7 @@
                     </ItemTemplate>
                 </asp:TemplateField>
                 
-                <asp:CommandField ShowEditButton="True" ValidationGroup="Validation" />
+                <asp:CommandField ShowEditButton="True" EditText="<i aria-hidden='true' class='fas fa-pencil-alt '></i>" ValidationGroup="Validation" />
                 <asp:TemplateField></asp:TemplateField>
             </Columns>
         </asp:GridView>

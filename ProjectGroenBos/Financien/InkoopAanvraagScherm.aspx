@@ -21,6 +21,7 @@
             })
         }
     </script>
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="header">Inkoopaanvragen controleren</div>
@@ -43,7 +44,7 @@ SELECT 'Alle Afdelingen' AS [Naam]"></asp:SqlDataSource>
                 <asp:BoundField DataField="Status" HeaderText="Status" SortExpression="Status" />
                 <asp:TemplateField>
                     <ItemTemplate>
-                        <button type="button" style="background-color: #009879; color: #fff" class="btn" data-toggle="modal" data-target="#modal<%# Eval("Nummer") %>">Inzien Inkoop aanvraag</button>
+                        <button type="button" style="background-color: #009879; color: #fff" class="btn" data-toggle="modal" data-target="#modal<%# Eval("Nummer") %>"><i class="fas fa-ellipsis-h"></i></button>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:BoundField DataField="Opmerking" HeaderText="Opmerking" ReadOnly="True" SortExpression="Opmerking" HtmlEncode="False" />

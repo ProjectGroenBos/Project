@@ -3,6 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
     <%-- Main grid --%>
     <div class="header">Personeel-overzicht</div>
     <div class="container">
@@ -52,7 +53,7 @@
                 <asp:BoundField DataField="Functie" HeaderText="Functie" SortExpression="Functie" ReadOnly="True" />
                 <asp:BoundField DataField="Afdeling" HeaderText="Afdeling" SortExpression="Afdeling" ReadOnly="True" />
 
-                <asp:CommandField ShowEditButton="True" ValidationGroup="Validation1"/>
+                <asp:CommandField buttontype="Link" ShowEditButton="True" EditText="<i aria-hidden='true' class='fas fa-pencil-alt '></i>"  ValidationGroup="Validation1"/>
                 <asp:TemplateField></asp:TemplateField>
             </Columns>
         </asp:GridView>

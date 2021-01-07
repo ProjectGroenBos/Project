@@ -57,6 +57,7 @@
             })
         }
     </script>
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="header">Inzien inkooptraject</div>
@@ -90,7 +91,7 @@ SELECT 'Alle Statussen' AS [Status]"></asp:SqlDataSource>
                 <asp:BoundField DataField="LaatsteUpdate" DataFormatString="" HeaderText="Laatste Update" SortExpression="LaatsteUpdate" />
                 <asp:TemplateField>
                     <ItemTemplate>
-                        <button type="button" style="background-color: #009879; color: #fff" class="btn" data-toggle="modal" data-target="#modal<%# Eval("Nummer") %>">Meer...</button>
+                        <button type="button" style="background-color: #009879; color: #fff" class="btn" data-toggle="modal" data-target="#modal<%# Eval("Nummer") %>"><i class="fas fa-ellipsis-h"></i></button>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:BoundField DataField="Bestelnummer" HeaderText="Bestelnummer" ReadOnly="True" SortExpression="Bestelnummer" />

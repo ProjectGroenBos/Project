@@ -3,6 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
     <%-- Main grid --%>
     <div class="header">Leveranciersoverzicht</div>
     <div class="container">
@@ -25,7 +26,7 @@
                 <asp:BoundField DataField="Plaats" HeaderText="Plaats" SortExpression="Plaats" />
                 <asp:TemplateField>
                     <ItemTemplate>
-                        <button type="button" style="background-color: #009879; color: #fff" class="btn" data-toggle="modal" data-target="#modal<%# Eval("ID") %>">Meer...</button>
+                        <button type="button" style="background-color: #009879; color: #fff" class="btn" data-toggle="modal" data-target="#modal<%# Eval("ID") %>"><i class="fas fa-ellipsis-h"></i></button>
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>
