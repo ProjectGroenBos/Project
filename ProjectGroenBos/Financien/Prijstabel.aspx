@@ -35,7 +35,7 @@
                     </ItemTemplate>
                 </asp:TemplateField>
 
-                <asp:CommandField ShowEditButton="True" ValidationGroup="Validation"/>
+                <asp:CommandField ShowEditButton="True" EditText="<i aria-hidden='true' class='fas fa-pencil-alt '></i>" ValidationGroup="Validation"/>
                 <asp:TemplateField></asp:TemplateField>
             </Columns>
         </asp:GridView>
@@ -78,7 +78,7 @@
                     </ItemTemplate>
                 </asp:TemplateField>
 
-                <asp:CommandField ShowEditButton="True" ValidationGroup="Validation" />
+                <asp:CommandField ShowEditButton="True" EditText="<i aria-hidden='true' class='fas fa-pencil-alt '></i>" ValidationGroup="Validation" />
                 <asp:TemplateField></asp:TemplateField>
             </Columns>
         </asp:GridView>
@@ -151,7 +151,7 @@
                     </ItemTemplate>
                 </asp:TemplateField>
 
-                <asp:CommandField ShowEditButton="True" ValidationGroup="Validation" />
+                <asp:CommandField ShowEditButton="True" EditText="<i aria-hidden='true' class='fas fa-pencil-alt '></i>" ValidationGroup="Validation" />
                 <asp:TemplateField></asp:TemplateField>
             </Columns>
         </asp:GridView>
@@ -221,7 +221,7 @@
                     </ItemTemplate>
                 </asp:TemplateField>
                 
-                <asp:CommandField ShowEditButton="True" ValidationGroup="Validation" />
+                <asp:CommandField ShowEditButton="True" EditText="<i aria-hidden='true' class='fas fa-pencil-alt '></i>" ValidationGroup="Validation" />
                 <asp:TemplateField></asp:TemplateField>
             </Columns>
         </asp:GridView>

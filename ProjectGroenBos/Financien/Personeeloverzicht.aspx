@@ -53,7 +53,7 @@
                 <asp:BoundField DataField="Functie" HeaderText="Functie" SortExpression="Functie" ReadOnly="True" />
                 <asp:BoundField DataField="Afdeling" HeaderText="Afdeling" SortExpression="Afdeling" ReadOnly="True" />
 
-                <asp:CommandField ShowEditButton="True" ValidationGroup="Validation1"/>
+                <asp:CommandField buttontype="Link" ShowEditButton="True" EditText="<i aria-hidden='true' class='fas fa-pencil-alt '></i>"  ValidationGroup="Validation1"/>
                 <asp:TemplateField></asp:TemplateField>
             </Columns>
         </asp:GridView>
