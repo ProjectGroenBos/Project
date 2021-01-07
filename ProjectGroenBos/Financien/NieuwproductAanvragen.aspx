@@ -50,14 +50,29 @@
 
                     <p style="margin-top: 1rem; margin-bottom: 0;">Prijs</p>
                     <asp:TextBox ID="txbPrijs" placeholder="32,95" Style="text-align: center" Height="50px" Width="100%" runat="server"></asp:TextBox>
-                    
+                    <asp:RequiredFieldValidator ID="Prijs" runat="server" ErrorMessage="*" ControlToValidate="txbPrijs" ForeColor="red" ValidationGroup='<%#Eval("ID")+"Validation"+ Eval("Naam")%>' Display="Dynamic"></asp:RequiredFieldValidator>
+                            <asp:RegularExpressionValidator ID="Prijs1" runat="server" ErrorMessage="Dit is niet een geldige prijs, e.g. 12.34" ControlToValidate="txbPrijs" ForeColor="Red" ValidationExpression="^([0-9]{0,2}((.)[0-9]{0,2}))$" ValidationGroup='<%#Eval("ID")+"Validation"+ Eval("Naam")%>' Display="Dynamic"></asp:RegularExpressionValidator>
 
                     <p style="margin-top: 1rem; margin-bottom: 0;">Minimum voorraad</p>
                     <asp:TextBox ID="txbMinimumVoorraad" placeholder="100" runat="server" Style="text-align: center" Height="50px" Width="100%"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="MinVoorraad" runat="server" ErrorMessage="*" ControlToValidate="txbMinimumVoorraad" ForeColor="red" ValidationGroup='<%#Eval("ID")+"Validation"+ Eval("Naam")%>' Display="Dynamic"></asp:RequiredFieldValidator>
+                            <asp:RegularExpressionValidator ID="MinVoorraad1"
+                                ControlToValidate="txbMinimumVoorraad" runat="server"
+                                ErrorMessage="Alleen nummers"
+                                ValidationExpression="\d+"
+                                ForeColor="red" ValidationGroup='<%#Eval("ID")+"Validation"+ Eval("Naam")%>' Display="Dynamic">
+                            </asp:RegularExpressionValidator>
 
                     <p style="margin-top: 1rem; margin-bottom: 0;">Omschrijving</p>
                     <asp:TextBox ID="txbOmschrijving" placeholder="Haarlem" runat="server" Style="text-align: center" Height="50px" Width="100%"></asp:TextBox>
-                   
+                    <asp:RequiredFieldValidator ID="Omschrijving" runat="server" ErrorMessage="*" ControlToValidate="txbOmschrijving" ForeColor="red" ValidationGroup='<%#Eval("ID")+"Validation"+ Eval("Naam")%>' Display="Dynamic"></asp:RequiredFieldValidator>
+                            <asp:RegularExpressionValidator ID="Omschrijving1"
+                                ControlToValidate="txbOmschrijving" runat="server"
+                                ErrorMessage="Alleen letters"
+                                ValidationExpression="[a-zA-Z]+"
+                                ForeColor="red" ValidationGroup='<%#Eval("ID")+"Validation"+ Eval("Naam")%>' Display="Dynamic">
+                            </asp:RegularExpressionValidator>
+
                  <p style="margin-top: 1rem; margin-bottom: 0;">Leverancier</p>
                 <asp:DropDownList ID="DropDownList1" runat="server" Style="text-align: center" Height="50px" Width="100%" DataSourceID="SqlDataSource2" DataValueField="ID" DataTextField="Naam"></asp:DropDownList>
 
