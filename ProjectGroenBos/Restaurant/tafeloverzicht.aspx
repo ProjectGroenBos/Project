@@ -8,7 +8,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <header class="header">
-        Bestelling opnemen
+        Tafel overzicht
     </header>
 
     <div class="cocacontainer">

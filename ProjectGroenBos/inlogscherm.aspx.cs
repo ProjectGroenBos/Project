@@ -62,25 +62,27 @@ namespace ProjectGroenBos.Financien
                     if (functie == "2")
                     {
                         Session["Login"] = Id;
+                        Session["Functie"] = functie;
                         Response.Redirect("Financien/Home.aspx");
                     }
                     if (functie == "7")
                     {
                         Session["Login"] = Id;
+                        Session["Functie"] = functie;
                         Response.Redirect("Schoonmaak en Onderhoud/Home.aspx");
                     }
                     if (functie == "4")
                     {
                         Session["Login"] = Id;
+                        Session["Functie"] = functie;
                         Response.Redirect("Restaurant/home.aspx");
                     }
                     else
                     {
                         Session["Login"] = Id;
+                        Session["Functie"] = functie;
                         Response.Redirect("Restaurant/home.aspx");
                     }
-                    ////////////////////////
-
                 }
                 dr.Close();
             }
