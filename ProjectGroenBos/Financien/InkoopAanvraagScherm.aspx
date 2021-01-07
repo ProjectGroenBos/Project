@@ -21,7 +21,6 @@
             })
         }
     </script>
-    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="header">Inkoopaanvragen controleren</div>
@@ -30,10 +29,15 @@
                 <h2>Inkoopaanvragen overzicht</h2>
         <p>Overzicht van alle inkoopaanvragen die wachten op goedkeuring.</p>
         <asp:DropDownList ID="DropDownList1" AutoPostBack="true" runat="server" DataSourceID="SqlDataSource2" DataTextField="Naam" DataValueField="Naam" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" CssClass="DropDownAfdeling"></asp:DropDownList>
+        <asp:DropDownList ID="DropDownList2" AutoPostBack="True" runat="server" DataSourceID="SqlDataSource3" DataTextField="Status" DataValueField="Status" OnSelectedIndexChanged="DropDownList2_SelectedIndexChanged" CssClass="DropDownAfdeling"></asp:DropDownList>
 
         <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT [Naam] FROM [Afdeling] union
 SELECT 'Alle Afdelingen' AS [Naam]"></asp:SqlDataSource>
-        
+
+<asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT [Omschrijving] AS [Status] FROM [InkoopOrderAanvraagStatus] where ID = 1 or ID = 3
+union 
+select 'Alle Statussen' as [Status] order by Status desc"></asp:SqlDataSource>
+
         <asp:GridView ID="gvInkooporderaanvragerMain" CssClass="content-table tweedetable" GridLines="None" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" DataKeyNames="Nummer" AllowSorting="True">
             <Columns>
 
@@ -44,7 +48,7 @@ SELECT 'Alle Afdelingen' AS [Naam]"></asp:SqlDataSource>
                 <asp:BoundField DataField="Status" HeaderText="Status" SortExpression="Status" />
                 <asp:TemplateField>
                     <ItemTemplate>
-                        <button type="button" style="background-color: #009879; color: #fff" class="btn" data-toggle="modal" data-target="#modal<%# Eval("Nummer") %>"><i class="fas fa-ellipsis-h"></i></button>
+                        <button type="button" style="background-color: #009879; color: #fff" class="btn" data-toggle="modal" data-target="#modal<%# Eval("Nummer") %>">Inzien Inkoop aanvraag</button>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:BoundField DataField="Opmerking" HeaderText="Opmerking" ReadOnly="True" SortExpression="Opmerking" HtmlEncode="False" />

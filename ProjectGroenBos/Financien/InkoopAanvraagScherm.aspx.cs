@@ -109,19 +109,49 @@ namespace ProjectGroenBos.Financien
 
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (DropDownList1.Text == "Alle Afdelingen")
+            DropdownResults();
+        }
+    
+
+    protected void DropDownList2_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        DropdownResults();
+    }
+
+
+
+        private void DropdownResults()
+        {
+            if (DropDownList1.Text == "Alle Afdelingen" && DropDownList2.Text == "Alle Statussen")
             {
                 SqlDataSource1.SelectCommand =
-                "select * from inkooporderaanvraagmainLev where [Status] = 'Geweigerd' OR [Status] = 'Wachten op goedkeuring' order by datum DESC, opmerking DESC";
+                "select * from inkooporderaanvraagmainLev where Status = 'Wachten op goedkeuring' or Status = 'Geweigerd' order by datum DESC, opmerking DESC ";
+                gvInkooporderaanvragerMain.DataBind();
+            }
+
+            else if (DropDownList1.Text != "Alle Afdelingen" && DropDownList2.Text == "Alle Statussen")
+            {
+                SqlDataSource1.SelectCommand =
+                "select * from inkooporderaanvraagmainLev where Naam = '" + DropDownList1.Text + "' order by datum DESC, opmerking DESC";
+                gvInkooporderaanvragerMain.DataBind();
+            }
+
+            else if (DropDownList1.Text == "Alle Afdelingen" && DropDownList2.Text != "Alle Statussen")
+            {
+                SqlDataSource1.SelectCommand =
+                "select * from inkooporderaanvraagmainLev where Status = '" + DropDownList2.Text + "' order by datum DESC, opmerking DESC";
                 gvInkooporderaanvragerMain.DataBind();
             }
 
             else
             {
                 SqlDataSource1.SelectCommand =
-                    "select * from inkooporderaanvraagmainLev where Naam = '" + DropDownList1.Text + "' AND [Status] = 'Geweigerd' OR [Status] = 'Wachten op goedkeuring' order by datum DESC, opmerking DESC";
+                "select * from inkooporderaanvraagmainLev where Status = '" + DropDownList2.Text + "' AND Naam = '" + DropDownList1.Text + "' order by datum DESC, opmerking DESC";
                 gvInkooporderaanvragerMain.DataBind();
             }
         }
+
     }
+
+
 }
