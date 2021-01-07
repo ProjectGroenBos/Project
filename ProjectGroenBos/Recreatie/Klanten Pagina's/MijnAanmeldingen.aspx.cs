@@ -106,37 +106,20 @@ namespace ProjectGroenBos.Recreatie
 
         protected void btnAanmeldenklant_Click(object sender, EventArgs e)
         {
-            try
-            {
-                con.Open();
-                SqlCommand cmd = new SqlCommand("sp_Recreatie_Aanmeldenactiviteitklant", con);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@ActiviteitNummer", (int)Session["Nummer"]);
-                cmd.Parameters.AddWithValue("@GastNummer", int.Parse((string)Session["GastNummer"]));
-                cmd.Parameters.AddWithValue("@Aantalpersonen", GridView1.Rows.Count);
-                cmd.Parameters.AddWithValue("@Nummer", counter());
-                cmd.ExecuteNonQuery();
-                con.Close();
-                Response.Redirect("Klantenoverzichtaanmelding.aspx");
-            }
-            catch
-            {
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal('#Popup2');", true);
-            }
-            finally
-            {
-                con.Close();
-            }
+            con.Open();
+            SqlCommand cmd = new SqlCommand("sp_Recreatie_Aanmeldenactiviteitklant", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@ActiviteitNummer", (int)Session["Nummer"]);
+            cmd.Parameters.AddWithValue("@GastNummer", int.Parse((string)Session["GastNummer"]));
+            cmd.Parameters.AddWithValue("@Aantalpersonen", GridView1.Rows.Count);
+            cmd.Parameters.AddWithValue("@Nummer", counter());
+            cmd.ExecuteNonQuery();
+            con.Close();
+            Response.Redirect("Klantenoverzichtaanmelding.aspx");
         }
-
-        protected void btnTerug_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("Aanmeldenactiviteitklant2.aspx");
-        }
-
         public int counter()
         {
-            string stmt = "SELECT MAX(Nummer) FROM Aanmelding"; 
+            string stmt = "select MAX(Nummer) from Aanmelding";
             int count = 0;
 
             using (SqlConnection thisConnection = new SqlConnection(connectionstring))
