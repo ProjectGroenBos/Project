@@ -4,8 +4,12 @@
     <link href="css/reserveren.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <header class="header">
+        Reserveren
+    </header>
+
+    <div class="cocacontainer">
     <div class="werkgebied">
-        <h1 class="paginatitel">Reserveren</h1>
 
         <div class="contentbak">
             <div class="contentvak">
@@ -136,4 +140,5 @@
     </div>
         <asp:Label CssClass="form-control" ID="lblGelukt"
                         runat="server" placeholder=""></asp:Label>
+        </div>
 </asp:Content>

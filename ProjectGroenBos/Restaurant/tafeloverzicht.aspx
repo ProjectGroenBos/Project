@@ -3,9 +3,14 @@
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link rel="stylesheet" href="css/tafeloverzicht.css">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <link rel="stylesheet" href="css/tafeloverzicht.css">
+    <header class="header">
+        Tafel overzicht
+    </header>
+
+    <div class="cocacontainer">
     <div class="werkgebied">
 
         <div class="tafels">
@@ -138,4 +143,5 @@
             <asp:Button ID="btnbar" class="bar" runat="server" Text="Bar" OnClick="btnbar_Click"/>
         </div>
     </div>
+        </div>
 </asp:Content>

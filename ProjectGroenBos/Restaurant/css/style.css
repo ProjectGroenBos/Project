@@ -236,3 +236,23 @@ nav ul {
 }
 
 /*-------------------------------------------------*/
+
+.header {
+    text-align: center;
+    font-size: 20px;
+    padding: 20px;
+    background: #fff;
+    color: rgba(14,98,81,1);
+    border-bottom: 1px solid rgba(14,98,81,1);
+}
+
+.cocacontainer {
+    background-color: #f3f5f9;
+    width: 90%;
+    border: 1px solid rgba(14,98,81,1);
+    border-radius: 15px;
+    text-align: center;
+    margin-left: 5%;
+    margin-top: 20px;
+    min-height: 100px;
+}

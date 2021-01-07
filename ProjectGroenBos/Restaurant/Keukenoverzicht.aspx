@@ -3,8 +3,12 @@
     <link href="css/bestellingenoverzicht.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <header class="header">
+        Keuken Overzicht
+    </header>
+
+    <div class="cocacontainer">
     <div class="werkgebied">
-        <h1 class="paginatitel">Keuken overzicht</h1>
 
         <div class="bestellingvak">
             <div class="tafelnummer">
@@ -184,5 +188,5 @@
         (SELECT MIN(Item_RestaurantReservering.Ronde) FROM Item_RestaurantReservering WHERE Status = 'Besteld' AND Item_RestaurantReservering.Ronde &gt;(SELECT MIN(Item_RestaurantReservering.Ronde) FROM Item_RestaurantReservering WHERE Status = 'Besteld' AND Item_RestaurantReservering.Ronde &gt;(SELECT MIN(Item_RestaurantReservering.Ronde) FROM Item_RestaurantReservering WHERE Status = 'Besteld')))))"></asp:SqlDataSource>
 
     </div>
-
+        </div>
 </asp:Content>

@@ -25,7 +25,9 @@ namespace ProjectGroenBos.Restaurant
                 Response.Redirect("Tafeloverzicht.aspx");
             }
 
-
+            txtBungalownummer.Enabled = false;
+            btnJa.Enabled = true;
+            btnNee.Enabled = false;
 
         }
 
