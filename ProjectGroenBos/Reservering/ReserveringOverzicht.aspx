@@ -45,7 +45,7 @@
             </Columns>
             <HeaderStyle ForeColor="White" />
         </asp:GridView>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:2020-BIM02-P1-P2-GroenbosConnectionString %>" SelectCommand="select res.Nummer as [Nummer van reservering], gst.Achternaam, gst.Email, res.Aantal_personen as [Aantal personen], res.Aankomstdatum, res.Vertrekdatum from Gast gst inner join Reservering res on gst.Nummer = res.GastNummer inner join Adres adr on adr.GastNummer = gst.Nummer where gst.Achternaam like @zoek and Aankomstdatum &gt;= convert(date, GETDATE()) and Aankomstdatum &lt;= @datum and ReserveringsstatusID != 5 order by res.Nummer">
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:2020-BIM02-P1-P2-GroenbosConnectionString %>" SelectCommand="select res.Nummer as [Nummer van reservering], gst.Achternaam, gst.Email, res.Aantal_personen as [Aantal personen], res.Aankomstdatum, res.Vertrekdatum from Gast gst inner join Reservering res on gst.Nummer = res.GastNummer where (gst.Achternaam like @zoek and Aankomstdatum &gt;= convert(date, GETDATE()) and Aankomstdatum &lt;= @datum and ReserveringsstatusID != 5) OR (gst.Achternaam like @zoek AND ReserveringsstatusID != 5 OR Aankomstdatum &gt;= convert(date, GETDATE()) and Aankomstdatum &lt;= @datum AND ReserveringsstatusID != 5) order by res.Nummer">
             <SelectParameters>
                 <asp:ControlParameter ControlID="txbAchternaam" Name="zoek" PropertyName="Text" />
                 <asp:ControlParameter ControlID="txbDatum" Name="datum" PropertyName="Text" />
