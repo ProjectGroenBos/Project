@@ -101,7 +101,7 @@
         <table style="text-align: left; margin-left: 5%">
             <tr>
                 <td style="width: 15%">
-                    <asp:Label ID="Label6" runat="server" Text="Telefoonnumer:" CssClass="labelsnieuw"></asp:Label>
+                    <asp:Label ID="Label6" runat="server" Text="Telefoonnummer:" CssClass="labelsnieuw"></asp:Label>
                 </td>
                 <td style="width: 15%">
                     <asp:TextBox ID="txbTelefoonnummer" runat="server" CssClass="textboxchaos"></asp:TextBox>
@@ -204,7 +204,7 @@
         </table>
 
         <br />
-        <asp:Label ID="lblUitkomst" runat="server" Text="Label"></asp:Label>
+        <asp:Label ID="lblUitkomst" runat="server" Text=""></asp:Label>
         <br />
         <br />
         <asp:Button ID="btnWijzigen" runat="server" Text="Wijzigen" CssClass="btnUitloggen" Style="background-color: #009879; color: #fff" class="btn" OnClick="btnWijzigen_Click" />

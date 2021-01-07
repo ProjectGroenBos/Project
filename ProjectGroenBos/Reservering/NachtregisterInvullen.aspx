@@ -123,9 +123,8 @@
         
 
         <br />
-        <asp:Button ID="btnBevestigen" runat="server" Click="btnBevestigen_Click1" Text="Bevestigen" OnClick="btnBevestigen_Click" CssClass="btnUitloggen" Style="background-color: #009879; color: #fff" class="btn" />
-
-        <asp:Button ID="btnToevoegen" runat="server" OnClick="btnToevoegen_Click1" Text="Toevoegen" CssClass="btnUitloggen" Style="background-color: #009879; color: #fff" class="btn" />
+        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Bevestigen" CssClass="btnUitloggen" Style="background-color: #009879; color: #fff" class="btn"/>
+        <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Toevoegen" CssClass="btnUitloggen" Style="background-color: #009879; color: #fff" class="btn" />
         <br />
         <br />
         

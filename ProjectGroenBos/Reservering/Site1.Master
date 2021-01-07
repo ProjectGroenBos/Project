@@ -27,7 +27,7 @@
                 </h3>
                 <ul>
                     <li><a href="home.aspx"><i class="fas fa-home"></i>Home</a></li>
-                    <li><a href="#"><i class="fas fa-user"></i>Reserveren</a>
+                    <li><a href="#"><i class="fas fa-user"></i>Reservering</a>
                         <ul class="submenu">
                             <li><a href="GastSelecteren.aspx">Aanmaken</a></li>
                             <li><a href="ReserveringOverzicht.aspx">Overzicht</a></li>

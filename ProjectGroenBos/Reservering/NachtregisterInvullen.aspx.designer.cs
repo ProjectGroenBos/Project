@@ -213,21 +213,21 @@ namespace ProjectGroenBos.Reservering
         protected global::System.Web.UI.WebControls.Label lblControle;
 
         /// <summary>
-        /// btnBevestigen control.
+        /// Button1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnBevestigen;
+        protected global::System.Web.UI.WebControls.Button Button1;
 
         /// <summary>
-        /// btnToevoegen control.
+        /// Button2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnToevoegen;
+        protected global::System.Web.UI.WebControls.Button Button2;
     }
 }

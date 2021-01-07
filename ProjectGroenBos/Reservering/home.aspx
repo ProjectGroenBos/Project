@@ -5,10 +5,8 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <div class="container">
         <h2>Homepagina</h2>
-        <br />
-        Meldingen:
-    <asp:Label ID="lbluitkomst" runat="server" Text=""></asp:Label>
-        <br />
+        
+       
         <br />
 
         <table>

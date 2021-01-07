@@ -28,9 +28,9 @@ namespace ProjectGroenBos.Reservering
                 lblReserveringnummer.Text = Session["reserveringnummer"].ToString();
                 reserveringnummer = int.Parse(lblReserveringnummer.Text);
 
-                btnBevestigen.Visible = false;
+                Button1.Visible = false;
                 lblOutput.Text = "Geregistreerde bezoekers:";
-                btnToevoegen.Visible = true;
+                Button2.Visible = true;
                 lblControle.Text = DateTime.Today.ToShortDateString();
 
 
@@ -43,7 +43,25 @@ namespace ProjectGroenBos.Reservering
 
         }
 
-        protected void btnToevoegen_Click1(object sender, EventArgs e)
+
+        protected bool CheckDatum(DateTime geboortedatum, DateTime control)
+        {
+            if (geboortedatum <= control)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("NachtregisterChecken.aspx");
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
         {
             lblOutput.Text = "";
             string Voornaam = TxBNaam.Text;
@@ -96,8 +114,8 @@ namespace ProjectGroenBos.Reservering
                 count++;
                 if (count == aantalPersonen)
                 {
-                    btnBevestigen.Visible = true;
-                    btnToevoegen.Visible = false;
+                    Button1.Visible = true;
+                    Button2.Visible = false;
                 }
                 lblOutput.Text = "Persoon is toegevoegd.";
             }
@@ -107,20 +125,6 @@ namespace ProjectGroenBos.Reservering
                 CustomValidator1.Visible = true;
                 lblOutput.Text = "Persoon is niet toegevoegd, omdat je niet een datum in de toekomst kan weten.";
             }
-
         }
-
-        protected bool CheckDatum(DateTime geboortedatum, DateTime control)
-        {
-            if (geboortedatum <= control)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
     }
 }

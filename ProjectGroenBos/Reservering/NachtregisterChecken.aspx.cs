@@ -11,9 +11,9 @@ namespace ProjectGroenBos.Reservering
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["reserveringnummer300"] != null)
+            if (Session["reserveringnummer"] != null)
             {
-                lblReserveringNummer.Text = Session["reserveringnummer300"].ToString();
+                lblReserveringNummer.Text = Session["reserveringnummer"].ToString();
                 
             }
             else

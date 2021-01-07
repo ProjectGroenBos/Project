@@ -15,15 +15,6 @@ namespace ProjectGroenBos.Reservering
     {
 
         /// <summary>
-        /// lbluitkomst control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbluitkomst;
-
-        /// <summary>
         /// lblAankomend control.
         /// </summary>
         /// <remarks>

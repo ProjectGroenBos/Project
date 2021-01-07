@@ -15,7 +15,8 @@ namespace ProjectGroenBos.Reservering
         {
             if (Session["prijs"] != null)
             {
-
+                lblReservering.Text = Session["reserveringnummer"].ToString();
+                lblReservering.Visible = false;
             }
             else
             {
@@ -28,7 +29,7 @@ namespace ProjectGroenBos.Reservering
         protected void btnBevestigen_Click(object sender, EventArgs e)
         {
             StuurMail();
-            //Session[""] = ;
+            
             Response.Redirect("home.aspx");
         }
 
@@ -68,7 +69,7 @@ namespace ProjectGroenBos.Reservering
                 }
 
                 //parameters html pagina
-                body = body.Replace("{reserveringsnummer}", Session["reserveringnummer300"].ToString());
+                body = body.Replace("{reserveringsnummer}", Session["reserveringnummer"].ToString());
                 body = body.Replace("{achternaam}", Session["achternaam"].ToString());
                 body = body.Replace("{aankomstdatum}", Session["aankomstdatum"].ToString());
                 body = body.Replace("{vertrekdatum}", Session["vertrekdatum"].ToString());
