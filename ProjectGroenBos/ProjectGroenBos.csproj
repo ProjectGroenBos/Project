@@ -96,6 +96,7 @@
     <Content Include="Financien\InzienInkoopTraject.aspx" />
     <Content Include="Financien\Leverancier.aspx" />
     <Content Include="Financien\nietgeautoriseerd.aspx" />
+    <Content Include="Financien\NieuwproductAanvragen.aspx" />
     <Content Include="Financien\Overzicht.aspx" />
     <Content Include="Financien\Prijstabel.aspx" />
     <Content Include="Financien\Personeeloverzicht.aspx" />
@@ -800,6 +801,13 @@
     </Compile>
     <Compile Include="Financien\nietgeautoriseerd.aspx.designer.cs">
       <DependentUpon>nietgeautoriseerd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Financien\NieuwproductAanvragen.aspx.cs">
+      <DependentUpon>NieuwproductAanvragen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Financien\NieuwproductAanvragen.aspx.designer.cs">
+      <DependentUpon>NieuwproductAanvragen.aspx</DependentUpon>
     </Compile>
     <Compile Include="Financien\Overzicht.aspx.cs">
       <DependentUpon>Overzicht.aspx</DependentUpon>
