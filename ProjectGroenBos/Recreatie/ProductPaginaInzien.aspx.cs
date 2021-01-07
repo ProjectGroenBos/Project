@@ -28,6 +28,24 @@ namespace ProjectGroenBos.Recreatie
             }
         }
 
+        protected void Security()
+        {
+            string functie = (string)Session["Functie"];
+            if (functie == "13" || functie == "1")
+            {
+                if (functie == "1")
+                {
+                    BtnProductpaginaInzieninactief.Enabled = false;
+                    BtnProductpaginaInzienWijzigen.Enabled = false;
+                }
+            }
+
+            else
+            {
+                Response.Redirect("~/Financien/Inlogscherm.aspx");
+            }
+        }
+
         private string SortDirection
         {
             get { return ViewState["SortDirection"] != null ? ViewState["SortDirection"].ToString() : "ASC"; }

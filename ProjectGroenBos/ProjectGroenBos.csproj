@@ -73,6 +73,8 @@
     <Content Include="Financien\Home.aspx" />
     <Content Include="Financien\img\Logo.png" />
     <Content Include="Financien\img\Logo3.png" />
+    <Content Include="Financien\InkoopAanvraagScherm.aspx" />
+    <Content Include="Financien\Inlogscherm.aspx" />
     <Content Include="Financien\Prijstabel.aspx" />
     <Content Include="Gerechten overzicht.aspx" />
     <Content Include="Global.asax" />
@@ -97,11 +99,10 @@
     <Content Include="Recreatie\Klanten Pagina%27s\OverzichtGehuurdeRecreatieMiddelen.aspx" />
     <Content Include="Recreatie\Klanten Pagina%27s\OverzichtRecreatieMiddel.aspx" />
     <Content Include="Recreatie\Nieuwproductbestellen.aspx" />
+    <Content Include="Recreatie\ProductBestellenMedu.aspx" />
     <Content Include="Recreatie\ProductPagina.aspx" />
     <Content Include="Recreatie\ProductPaginaInzien.aspx" />
     <Content Include="Recreatie\Voorraad.aspx" />
-    <Content Include="Recreatie\Documentatie.aspx" />
-    <Content Include="Recreatie\home.aspx" />
     <Content Include="Recreatie\img\Logo1.png" />
     <Content Include="Recreatie\img\Logo2.png" />
     <Content Include="Recreatie\img\Logo3.png" />
@@ -400,6 +401,20 @@
     <Compile Include="Financien\Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Financien\InkoopAanvraagScherm.aspx.cs">
+      <DependentUpon>InkoopAanvraagScherm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Financien\InkoopAanvraagScherm.aspx.designer.cs">
+      <DependentUpon>InkoopAanvraagScherm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Financien\Inlogscherm.aspx.cs">
+      <DependentUpon>Inlogscherm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Financien\Inlogscherm.aspx.designer.cs">
+      <DependentUpon>Inlogscherm.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Financien\Prijstabel.aspx.cs">
       <DependentUpon>Prijstabel.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -516,6 +531,13 @@
     <Compile Include="Recreatie\Nieuwproductbestellen.aspx.designer.cs">
       <DependentUpon>Nieuwproductbestellen.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Recreatie\ProductBestellenMedu.aspx.cs">
+      <DependentUpon>ProductBestellenMedu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Recreatie\ProductBestellenMedu.aspx.designer.cs">
+      <DependentUpon>ProductBestellenMedu.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Recreatie\ProductPagina.aspx.cs">
       <DependentUpon>ProductPagina.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -537,21 +559,7 @@
     <Compile Include="Recreatie\Voorraad.aspx.designer.cs">
       <DependentUpon>Voorraad.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Recreatie\Documentatie.aspx.cs">
-      <DependentUpon>Documentatie.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Recreatie\Documentatie.aspx.designer.cs">
-      <DependentUpon>Documentatie.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Recreatie\Helper\Helper.cs" />
-    <Compile Include="Recreatie\home.aspx.cs">
-      <DependentUpon>home.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Recreatie\home.aspx.designer.cs">
-      <DependentUpon>home.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Recreatie\Overzicht.aspx.cs">
       <DependentUpon>Overzicht.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

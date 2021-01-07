@@ -29,6 +29,23 @@ namespace recreatie.paginas
             }
         }
 
+        protected void Security()
+        {
+            string functie = (string)Session["Functie"];
+            if (functie == "13" || functie == "1")
+            {
+                if (functie == "1")
+                {
+                    Response.Redirect("~/Recreatie/Overzicht.aspx");
+                }
+            }
+
+            else
+            {
+                Response.Redirect("~/Financien/Inlogscherm.aspx");
+            }
+        }
+
         private string SortDirection
         {
             get { return ViewState["SortDirection"] != null ? ViewState["SortDirection"].ToString() : "ASC"; }

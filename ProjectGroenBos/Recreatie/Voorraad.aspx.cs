@@ -22,12 +22,32 @@ namespace recreatie.paginas
             if (!IsPostBack)
             {
                 InvullenGridview();
+                Security();
             }
         }
         private string SortDirection
         {
             get { return ViewState["SortDirection"] != null ? ViewState["SortDirection"].ToString() : "ASC"; }
             set { ViewState["SortDirection"] = value; }
+        }
+
+        protected void Security()
+        {
+            string functie = (string)Session["Functie"];
+            if (functie == "13" || functie == "1")
+            {
+                if (functie == "1")
+                {
+                    btnSelecteren.Enabled = false;
+                    BtnBestellen.Enabled = false;
+                    BtnAanvraag.Enabled = false;
+                }
+            }
+
+            else
+            {
+                Response.Redirect("~/Financien/Inlogscherm.aspx");
+            }
         }
 
         void InvullenGridview(string sortExpression = null)

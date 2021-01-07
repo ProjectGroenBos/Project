@@ -35,6 +35,23 @@ namespace recreatie.paginas
             }
         }
 
+        protected void Security()
+        {
+            string functie = (string)Session["Functie"];
+            if (functie == "13" || functie == "1")
+            {
+                if (functie == "1")
+                {
+                    
+                }
+            }
+
+            else
+            {
+                Response.Redirect("~/Financien/Inlogscherm.aspx");
+            }
+        }
+
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
         {
             DropDownList drp = sender as DropDownList;
