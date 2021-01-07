@@ -122,5 +122,9 @@ namespace ProjectGroenBos.Financien
             gvLeveranciersOverzicht.DataBind();
         }
 
+        protected void btnToevoegen2_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Financien/Leverancier.aspx");
+        }
     }
 }
