@@ -61,10 +61,10 @@
                     <nav class="navBar">
                         <ul>
                             <li><a href="/Financien/Home">Home</a></li>
-                            <li><a href="/Recreatie/Overzicht.aspx">Recreatie</a></li>
-                            <li><a href="#">Schoonmaak</a></li>
                             <li><a href="/Restaurant/home.aspx">Restaurant</a></li>
                             <li><a href="/Reservering/home.aspx">Reserveringen</a></li>
+                            <li><a href="/Recreatie/Overzicht.aspx">Recreatie</a></li>
+                            <li><a href="#"> Schoonmaak</a></li>
                             <li class="selected"><a href="/Financien/Home.aspx">Financiën</a></li>
                             <asp:Button ID="BtnUitloggen" runat="server" CssClass="btnUitloggen" Text="Uitloggen" OnClick="BtnUitloggen_Click" />
                         </ul>
