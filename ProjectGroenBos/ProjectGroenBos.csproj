@@ -91,10 +91,13 @@
     <Content Include="Recreatie\InactiefmakenProductpagina.aspx" />
     <Content Include="Recreatie\InlogschermKlanten.aspx" />
     <Content Include="Recreatie\Klantenoverzichtaanmelding.aspx" />
+    <Content Include="Recreatie\Klantenoverzichtfaciliteit.aspx" />
     <Content Include="Recreatie\MijnAanmeldingen.aspx" />
+    <Content Include="Recreatie\MijnGereserveerdeFaciliteit.aspx" />
     <Content Include="Recreatie\Nieuwproductbestellen.aspx" />
     <Content Include="Recreatie\ProductPagina.aspx" />
     <Content Include="Recreatie\ProductPaginaInzien.aspx" />
+    <Content Include="Recreatie\Reserverenfacilitieit.aspx" />
     <Content Include="Recreatie\Voorraad.aspx" />
     <Content Include="Recreatie\Documentatie.aspx" />
     <Content Include="Recreatie\home.aspx" />
@@ -492,12 +495,26 @@
     <Compile Include="Recreatie\Klantenoverzichtaanmelding.aspx.designer.cs">
       <DependentUpon>Klantenoverzichtaanmelding.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Recreatie\Klantenoverzichtfaciliteit.aspx.cs">
+      <DependentUpon>Klantenoverzichtfaciliteit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Recreatie\Klantenoverzichtfaciliteit.aspx.designer.cs">
+      <DependentUpon>Klantenoverzichtfaciliteit.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Recreatie\MijnAanmeldingen.aspx.cs">
       <DependentUpon>MijnAanmeldingen.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Recreatie\MijnAanmeldingen.aspx.designer.cs">
       <DependentUpon>MijnAanmeldingen.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Recreatie\MijnGereserveerdeFaciliteit.aspx.cs">
+      <DependentUpon>MijnGereserveerdeFaciliteit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Recreatie\MijnGereserveerdeFaciliteit.aspx.designer.cs">
+      <DependentUpon>MijnGereserveerdeFaciliteit.aspx</DependentUpon>
     </Compile>
     <Compile Include="Recreatie\Nieuwproductbestellen.aspx.cs">
       <DependentUpon>Nieuwproductbestellen.aspx</DependentUpon>
@@ -519,6 +536,13 @@
     </Compile>
     <Compile Include="Recreatie\ProductPaginaInzien.aspx.designer.cs">
       <DependentUpon>ProductPaginaInzien.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Recreatie\Reserverenfacilitieit.aspx.cs">
+      <DependentUpon>Reserverenfacilitieit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Recreatie\Reserverenfacilitieit.aspx.designer.cs">
+      <DependentUpon>Reserverenfacilitieit.aspx</DependentUpon>
     </Compile>
     <Compile Include="Recreatie\Voorraad.aspx.cs">
       <DependentUpon>Voorraad.aspx</DependentUpon>

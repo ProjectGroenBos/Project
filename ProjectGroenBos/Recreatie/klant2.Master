@@ -37,7 +37,8 @@
                             <li><a href="#">Reserveringen</a>
                             <ul>
                             <li><a href="#">Recreatiemiddelen</a></li>
-                            <li><a href="#">Faciliteit</a></li>
+                            <li><a href="/Recreatie/Reserverenfacilitieit.aspx">Faciliteit</a></li>
+                            <li><a href="/Recreatie/Klantenoverzichtfaciliteit.aspx">Mijn reserveringen faciliteiten</a></li>
                             </ul></li>
                             <li><a href="#">Over ons</a></li>
                             <li><a href="#">Contact</a></li>
