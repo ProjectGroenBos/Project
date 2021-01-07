@@ -3,6 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
     <%-- Main grid --%>
     <div class="header">Personeel-overzicht</div>
     <div class="container">

@@ -54,6 +54,7 @@
         }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
     <script>
         function betalingsuccess() {
             Swal.fire({
@@ -105,7 +106,7 @@
                 <asp:BoundField DataField="Omschrijving" HeaderText="Status" SortExpression="Omschrijving" />
                 <asp:TemplateField>
                     <ItemTemplate>
-                         <asp:Button ID="btnRekeningen" runat="server" OnClick="btnRekeningen_Click" style="background-color: #009879; color: #fff" class="btn"  CommandArgument='<%# Eval("Nummer")%>' Text="Zie Factuur" />
+<button type="button" style="background-color: #009879; color: #fff" class="btn" data-toggle="modal" data-target="#modal<%# Eval("Nummer") %>"><i class="fas fa-ellipsis-h"></i></button>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField ItemStyle-HorizontalAlign="Center" HeaderText="Factuur PDF">

@@ -66,6 +66,7 @@
             })
         }
     </script>
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="header">Factuur Koppelen</div>
