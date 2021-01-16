@@ -93,6 +93,7 @@
     <Content Include="Recreatie\Uitloggen.aspx" />
     <Content Include="Reservering\Images\checksymbol.png" />
     <Content Include="Reservering\Images\framed-portrait.png" />
+    <Content Include="Reservering\Inchecken.aspx" />
     <Content Include="Reservering\KlachtenAfhandeling.aspx" />
     <Content Include="Reservering\Gastoverzicht.aspx" />
     <Content Include="Reservering\GastWijzigen.aspx" />
@@ -118,6 +119,7 @@
     <Content Include="Reservering\ReserveringMedewerkerNachtregister.aspx" />
     <Content Include="Reservering\ReserveringWijzigen.aspx" />
     <Content Include="Reservering\NachtregisterOverzicht.aspx" />
+    <Content Include="Reservering\Uitchecken.aspx" />
     <Content Include="Schoonmaak en Onderhoud\InventarisOverzicht.aspx" />
     <Content Include="Schoonmaak en Onderhoud\OffertesOverzicht.aspx" />
     <Content Include="Schoonmaak en Onderhoud\OnderhoudsOverzicht.aspx" />
@@ -438,6 +440,13 @@
     <Compile Include="Recreatie\Uitloggen.aspx.designer.cs">
       <DependentUpon>Uitloggen.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Reservering\Inchecken.aspx.cs">
+      <DependentUpon>Inchecken.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reservering\Inchecken.aspx.designer.cs">
+      <DependentUpon>Inchecken.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Reservering\KlachtenAfhandeling.aspx.cs">
       <DependentUpon>KlachtenAfhandeling.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -584,6 +593,13 @@
     </Compile>
     <Compile Include="Reservering\NachtregisterOverzicht.aspx.designer.cs">
       <DependentUpon>NachtregisterOverzicht.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reservering\Uitchecken.aspx.cs">
+      <DependentUpon>Uitchecken.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reservering\Uitchecken.aspx.designer.cs">
+      <DependentUpon>Uitchecken.aspx</DependentUpon>
     </Compile>
     <Compile Include="Schoonmaak en Onderhoud\InventarisOverzicht.aspx.cs">
       <DependentUpon>InventarisOverzicht.aspx</DependentUpon>

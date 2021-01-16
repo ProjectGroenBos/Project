@@ -162,10 +162,6 @@ namespace ProjectGroenBos.Reservering
 
                 ReserveerderToevoegen(voornaam, tussenvoegsel, achternaam, geboortedatum, reserveringnummer);
 
-                InsDebiteurenFactuur(vandaag, betaalmethode, betaalstatus, factuurtype, reserveringnummer);
-                InsDebiteurenFactuur(vandaag, betaalmethode, betaalstatus, factuurtype2, reserveringnummer);
-                int debifactuur = GetDebiNummer();
-
                 int feestdag = GetFeestdag(reserveringnummer);
                 int lengte = GetLengte(reserveringnummer);
                 int seizoen = GetSeizoen(reserveringnummer);
@@ -182,6 +178,12 @@ namespace ProjectGroenBos.Reservering
                 double prijs = GetPrijs(reserveringnummer);
 
                 double prijs2 = GetPrijs(reserveringnummer);
+
+                double prijs3 = GetPrijs(reserveringnummer);
+
+                InsDebiteurenFactuur2(vandaag, betaalmethode, betaalstatus, factuurtype2, reserveringnummer);
+                InsDebiteurenFactuur(vandaag, prijs3, betaalmethode, betaalstatus, factuurtype, reserveringnummer);
+                int debifactuur = GetDebiNummer();
 
                 prijs = prijs / 10;
 
@@ -291,7 +293,38 @@ namespace ProjectGroenBos.Reservering
             }
         }
 
-        private void InsDebiteurenFactuur(DateTime vandaag, int betaalmethode, int betaalstatus, int factuurtype, int reserveringnummer)
+        private void InsDebiteurenFactuur(DateTime vandaag, double prijs, int betaalmethode, int betaalstatus, int factuurtype, int reserveringnummer)
+        {
+            using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["2020-BIM02-P1-P2-GroenbosConnectionString"].ConnectionString))
+            {
+
+                try
+                {
+                    con.Open();
+
+                    SqlCommand query = new SqlCommand("insert Debiteurenfactuur (Datum, Totaalbedrag, BetaalmethodeID, BetaalstatusID, FactuurtypeID, ReserveringNummer) values (@datum, @prijs, @methode, @betaal, @factuurtype, @resnummer)");
+
+                    query.Parameters.AddWithValue("@datum", vandaag);
+                    query.Parameters.AddWithValue("@prijs", prijs);
+                    query.Parameters.AddWithValue("@methode", betaalmethode);
+                    query.Parameters.AddWithValue("@betaal", betaalstatus);
+                    query.Parameters.AddWithValue("@factuurtype", factuurtype);
+                    query.Parameters.AddWithValue("@resnummer", reserveringnummer);
+
+                    query.CommandType = System.Data.CommandType.Text;
+                    query.Connection = con;
+                    query.ExecuteNonQuery();
+
+                    con.Close();
+                }
+                catch
+                {
+
+                }
+            }
+        }
+
+        private void InsDebiteurenFactuur2(DateTime vandaag, int betaalmethode, int betaalstatus, int factuurtype, int reserveringnummer)
         {
             using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["2020-BIM02-P1-P2-GroenbosConnectionString"].ConnectionString))
             {
