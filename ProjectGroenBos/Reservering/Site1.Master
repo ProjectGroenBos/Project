@@ -40,13 +40,14 @@
                             <li><a href="ReserveringOverzicht.aspx">Overzicht</a></li>
 
                         </ul>
+                        </li>
                         <li><a href="#"><i class="fas fa-user"></i>Gasten</a>
                             <ul class="submenu">
                                 <li><a href="GastAanmaken.aspx">Aanmaken</a></li>
                                 <li><a href="Gastoverzicht.aspx">Overzicht</a></li>
 
-
                             </ul>
+                            </li>
                             <li><a href="#"><i class="fas fa-user"></i>Klachten</a>
                                 <ul class="submenu">
                                     <li><a href="KlachtenAfhandeling.aspx">Aanmaken</a></li>
@@ -54,11 +55,16 @@
                                 </ul>
                             </li>
 
-                            <li><a href="NachtregisterOverzicht.aspx"><i class="fas fa-user"></i>Nachtregister</a></li>
+                            <li><a href="#"><i class="fas fa-user"></i>Nachtregister</a>
                             <ul class="submenu">
                                 <li><a href="NachtregisterOverzicht.aspx">Overzicht</a></li>
                             </ul>
-
+                            </li>
+                            <li><a href="#"><i class="fas fa-user"></i>Balie</a>
+                                <ul class="submenu">
+                                    <li><a href="Inchecken.aspx">Inchecken</a></li>
+                                    <li><a href="uitchecken.aspx">Uitchecken</a></li>
+                                </ul>
                         </li>
                     <%--<li><a href="#"><i class="fas fa-user"></i>Optie</a>
                             <ul class="submenu">
