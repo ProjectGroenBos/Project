@@ -1,0 +1,198 @@
+﻿
+.gridviewplanning {
+    position: absolute;
+    margin-top:2%;
+    margin-left: 5%;
+    font-size: 66%;
+}
+
+.gridviewbegeleider {
+    position: absolute;
+    float: right;
+    right: 0%;
+    top: 140%;
+    width: 10%;
+    height: 45%;
+}
+
+.textboxplanning {
+    
+}
+
+.textboxplanningb {
+    
+}
+
+.labelplanning {
+    position: absolute;
+    float: right;
+    right: 30%;
+    top: 100%;
+}
+
+.kalender{
+    top: 330%;
+    right: 16%; 
+    position:absolute;  
+    font-size:20px; 
+}
+
+
+
+.buttonplanning {
+    
+}
+
+
+.labelbevestiging {
+  
+}
+
+.labelplanningq {
+   
+}
+
+.textboxplanningactiviteit {
+    position: absolute;
+    float:right;
+    right: 10%;
+    top: 100%;
+}
+
+.labellocatie {
+    position: absolute;
+    float: right;
+    right: 30%;
+    top: 120%;
+}
+
+.labelaantal {
+    position: absolute;
+    float: right;
+    right: 30%;
+    top: 140%;
+    
+}
+.labelbegeleider {
+    position: absolute;
+    float: right;
+    right: 30%;
+    top: 180%;
+}
+
+.textboxaantal {
+    position: absolute;
+    float: right;
+    right: 20%;
+    top: 140%;
+    width: -5%;
+    height: 30%;
+}
+
+
+
+.labelbegintijd {
+    position: absolute;
+    float: right;
+    right: 30%;
+    top: 220%;
+}
+
+.labelplanningdatum {
+    position: absolute;
+    float: right;
+    right: 30%;
+    top: 200%;
+}
+
+.labeleindtijd {
+    position: absolute;
+    float: right;
+    right: 30%;
+    top: 240%;
+}
+.labelinschrijfkosten {
+    position: absolute;
+    float: right;
+    right: 30%;
+    top: 260%;
+}
+
+.labelfaciliteit {
+    position: absolute;
+    float: right;
+    right: 30%;
+    top: 280%;
+}
+
+.textboxlocatie {
+    position: absolute;
+    float: right;
+    right: 10%;
+    top: 120%;
+}
+
+.textboxbegeleider {
+    position: absolute;
+    float: right;
+    right: 10%;
+    top: 180%;
+}
+
+.textboxdatum {
+    position: absolute;
+    float: right;
+    right: 10%;
+    top: 200%;
+}
+
+.textboxbegintijd {
+    position: absolute;
+    float: right;
+    right: 10%;
+    top: 220%;
+}
+
+.textboxeindtijd {
+    position: absolute;
+    float: right;
+    right: 10%;
+    top: 240%;
+}
+
+.textboxinschrijfkosten {
+    position: absolute;
+    float: right;
+    right: 10%;
+    top: 260%;
+}
+
+.textboxfaciliteit {
+    position: absolute;
+    float: right;
+    right: 10%;
+    top: 280%;
+}
+
+.buttonactiviteiteninplannen {
+    position: absolute;
+    float: right;
+    right: 15%;
+    top: 300%;
+    font-size:25px; 
+}
+
+
+
+
+
+
+
+.plusknop {
+   
+}
+
+    .plusknop:hover {
+        background: #7fb241;
+    }
+
