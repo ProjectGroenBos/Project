@@ -7,12 +7,21 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace recreatie.paginas
+namespace ProjectGroenBos.Recreatie.Klanten_Pagina_s
 {
 
 
-    public partial class Beheer
+    public partial class ReserverenRecreatieMiddel
     {
+
+        /// <summary>
+        /// Label1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
         /// Label3 control.
@@ -24,75 +33,66 @@ namespace recreatie.paginas
         protected global::System.Web.UI.WebControls.Label Label3;
 
         /// <summary>
-        /// Image2 control.
+        /// Label4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image2;
+        protected global::System.Web.UI.WebControls.Label Label4;
 
         /// <summary>
-        /// txtZoekbalk control.
+        /// Label5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtZoekbalk;
+        protected global::System.Web.UI.WebControls.Label Label5;
 
         /// <summary>
-        /// GridView1 control.
+        /// Label6 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.Label Label6;
 
         /// <summary>
-        /// btnSelecteren control.
+        /// Label7 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSelecteren;
+        protected global::System.Web.UI.WebControls.Label Label7;
 
         /// <summary>
-        /// BtnBestellen control.
+        /// BtnVoegtoe control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnBestellen;
+        protected global::System.Web.UI.WebControls.Button BtnVoegtoe;
 
         /// <summary>
-        /// gvVoorraad control.
+        /// Label10 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvVoorraad;
+        protected global::System.Web.UI.WebControls.Label Label10;
 
         /// <summary>
-        /// gvOrderaanvragen control.
+        /// btnAanmeldenklant control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvOrderaanvragen;
-
-        /// <summary>
-        /// BtnAanvraag control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnAanvraag;
+        protected global::System.Web.UI.WebControls.Button btnAanmeldenklant;
     }
 }

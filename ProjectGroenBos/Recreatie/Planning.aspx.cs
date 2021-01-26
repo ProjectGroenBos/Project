@@ -17,6 +17,7 @@ namespace recreatie.paginas
         DataTable Activteit;
         int Currentactivity;
         DataTable dt = new DataTable();
+        private int index;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -64,9 +65,6 @@ namespace recreatie.paginas
                 SqlDataAdapter da = new SqlDataAdapter(sqlComd);
                 da.Fill(Activteit);
                 Session["Activiteit"] = Activteit;
-
-
-
             }
         }
 
@@ -152,17 +150,27 @@ namespace recreatie.paginas
                 TxbDatum.Text = "";
                 txbInschrijfkosten.Text = "";
 
-                LblBevestiging.Text = "Activiteit gewijziged";
+                LblBevestiging.Text = "Activiteit gewijzigd";
                 GridView1.DataBind();
                 GridView1.SelectedIndex = -1;
                 ViewState["Medewerker"] = null;
                 Activteit = (DataTable)ViewState["Medewerker"];
+
+                GridView2.DataSource = null;
+                ViewState["Medewerker"] = null;
+                GridView2.DataBind();
+                dt.Columns.AddRange(new DataColumn[1] { new DataColumn("Naam") });
+                ViewState["Medewerker"] = dt;
+                this.BindGrid();
+
+                btnActiviteitInplannen.Text = "Activiteit inplannen";
             }
         }
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            GetActivityData(int.Parse(GridView1.SelectedRow.Cells[0].Text));
+            index = int.Parse(GridView1.SelectedRow.Cells[0].Text);
+            GetActivityData(index);
             Textboxesvullen();
             btnActiviteitInplannen.Text = "Wijzigen";
 
@@ -181,19 +189,119 @@ namespace recreatie.paginas
 
         protected void GridView2_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-            if (GridView2.Rows.Count == 0)
-            {
-                GridView2.EmptyDataText = "Select medewerker";
-            }
-            else
+            try
             {
 
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception);
+                throw;
+            }
+
+            if (GridView2.Rows.Count < 0)
+            {
                 int index = int.Parse(GridView2.SelectedValue.ToString());
                 DataTable dt = (DataTable)ViewState["Medewerker"];
                 dt.Rows[index].Delete();
                 ViewState["Medewerker"] = dt;
+                BindGrid();
+              
+            }
+            else
+            {
+                GridView2.DataSource = null;
+                ViewState["Medewerker"] = null;
+                GridView2.DataBind();
+                dt.Columns.AddRange(new DataColumn[1] { new DataColumn("Naam") });
+                ViewState["Medewerker"] = dt;
                 this.BindGrid();
             }
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            TxbActiviteit.Text = "";
+            txbLocatie.Text = "";
+            TxbBegintijd.Text = "";
+            TxbEindtijd.Text = "";
+            TxbAantal.Text = "";
+            TxbDatum.Text = "";
+            txbInschrijfkosten.Text = "";
+
+            GridView2.DataSource = null;
+            ViewState["Medewerker"] = null;
+            GridView2.DataBind();
+            dt.Columns.AddRange(new DataColumn[1] { new DataColumn("Naam") });
+            ViewState["Medewerker"] = dt;
+            this.BindGrid();
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            TxbActiviteit.Text = "";
+            txbLocatie.Text = "";
+            TxbBegintijd.Text = "";
+            TxbEindtijd.Text = "";
+            TxbAantal.Text = "";
+            TxbDatum.Text = "";
+            txbInschrijfkosten.Text = "";
+
+            GridView1.SelectedIndex = -1;
+
+            GridView2.DataSource = null;
+            ViewState["Medewerker"] = null;
+            GridView2.DataBind();
+            dt.Columns.AddRange(new DataColumn[1] { new DataColumn("Naam") });
+            ViewState["Medewerker"] = dt;
+            this.BindGrid();
+
+            Activteit = (DataTable)ViewState["Medewerker"];
+
+            btnActiviteitInplannen.Text = "Activiteit inplannen";
+        }
+
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            TxbActiviteit.Text = "";
+            txbLocatie.Text = "";
+            TxbBegintijd.Text = "";
+            TxbEindtijd.Text = "";
+            TxbAantal.Text = "";
+            TxbDatum.Text = "";
+            txbInschrijfkosten.Text = "";
+
+            GridView2.DataSource = null;
+            ViewState["Medewerker"] = null;
+            GridView2.DataBind();
+            dt.Columns.AddRange(new DataColumn[1] { new DataColumn("Naam") });
+            ViewState["Medewerker"] = dt;
+            this.BindGrid();
+            Activteit = (DataTable)ViewState["Medewerker"];
+
+
+            using (SqlConnection Sqlcon = new SqlConnection(connectionstring))
+            {
+                Sqlcon.Open();
+                SqlDataAdapter ada = new SqlDataAdapter();
+
+                int  index2 = int.Parse(GridView1.SelectedRow.Cells[0].Text);
+
+                string sql = "UPDATE dbo.Activiteit SET ActiviteitActief = 0 WHERE Nummer = @Nummer";
+                GridView1.Rows[GridView1.SelectedIndex].Visible = false;
+                SqlCommand command = new SqlCommand(sql, Sqlcon);
+                command.Parameters.AddWithValue("@Nummer", Convert.ToInt32(index2));
+
+                command.ExecuteNonQuery();
+                GridView1.DataBind();
+                command.Dispose();
+                Sqlcon.Close();
+            }
+            GridView1.SelectedIndex = -1;
+        }
+
+        protected void ddlFaciliteit_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
     }

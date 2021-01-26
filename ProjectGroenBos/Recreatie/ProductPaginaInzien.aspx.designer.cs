@@ -7,92 +7,74 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace recreatie.paginas
+namespace ProjectGroenBos.Recreatie
 {
 
 
-    public partial class Beheer
+    public partial class ProductPaginaInzien
     {
 
         /// <summary>
-        /// Label3 control.
+        /// LblZoekenInactiefmakenproductpagina control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
+        protected global::System.Web.UI.WebControls.Label LblZoekenInactiefmakenproductpagina;
 
         /// <summary>
-        /// Image2 control.
+        /// TxbZoekenproductpagina control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image2;
+        protected global::System.Web.UI.WebControls.TextBox TxbZoekenproductpagina;
 
         /// <summary>
-        /// txtZoekbalk control.
+        /// RdbLeverancier control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtZoekbalk;
+        protected global::System.Web.UI.WebControls.RadioButton RdbLeverancier;
 
         /// <summary>
-        /// GridView1 control.
+        /// RdbCategorie control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.RadioButton RdbCategorie;
 
         /// <summary>
-        /// btnSelecteren control.
+        /// GVProductpagInzien control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSelecteren;
+        protected global::System.Web.UI.WebControls.GridView GVProductpagInzien;
 
         /// <summary>
-        /// BtnBestellen control.
+        /// BtnProductpaginaInzienWijzigen control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnBestellen;
+        protected global::System.Web.UI.WebControls.Button BtnProductpaginaInzienWijzigen;
 
         /// <summary>
-        /// gvVoorraad control.
+        /// BtnProductpaginaInzieninactief control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvVoorraad;
-
-        /// <summary>
-        /// gvOrderaanvragen control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvOrderaanvragen;
-
-        /// <summary>
-        /// BtnAanvraag control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnAanvraag;
+        protected global::System.Web.UI.WebControls.Button BtnProductpaginaInzieninactief;
     }
 }

@@ -7,92 +7,83 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace recreatie.paginas
+namespace ProjectGroenBos.Recreatie
 {
 
 
-    public partial class Beheer
+    public partial class InactiefmakenProductpagina
     {
 
         /// <summary>
-        /// Label3 control.
+        /// LblZoekenInactiefmakenproductpagina control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
+        protected global::System.Web.UI.WebControls.Label LblZoekenInactiefmakenproductpagina;
 
         /// <summary>
-        /// Image2 control.
+        /// txbZoekenProductpaginainactief control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image2;
+        protected global::System.Web.UI.WebControls.TextBox txbZoekenProductpaginainactief;
 
         /// <summary>
-        /// txtZoekbalk control.
+        /// RdbProductpaginaLeverancier control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtZoekbalk;
+        protected global::System.Web.UI.WebControls.RadioButton RdbProductpaginaLeverancier;
 
         /// <summary>
-        /// GridView1 control.
+        /// RdbProductpaginaCategorie control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.RadioButton RdbProductpaginaCategorie;
 
         /// <summary>
-        /// btnSelecteren control.
+        /// GVProductpaginaInactiefMaken control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSelecteren;
+        protected global::System.Web.UI.WebControls.GridView GVProductpaginaInactiefMaken;
 
         /// <summary>
-        /// BtnBestellen control.
+        /// Label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnBestellen;
+        protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
-        /// gvVoorraad control.
+        /// BtnDoorgaanproduct control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvVoorraad;
+        protected global::System.Web.UI.WebControls.Button BtnDoorgaanproduct;
 
         /// <summary>
-        /// gvOrderaanvragen control.
+        /// BtnAnnulerenProduct control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvOrderaanvragen;
-
-        /// <summary>
-        /// BtnAanvraag control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnAanvraag;
+        protected global::System.Web.UI.WebControls.Button BtnAnnulerenProduct;
     }
 }
