@@ -132,14 +132,14 @@ FROM     Reservering INNER JOIN
                                     <hr />
                                     <br />
                                     <table style="text-align: left; margin-left: 5%">
-                                        <%--<tr>
+                                        <tr>
                                             <td style="width: 15%">
                                                 <asp:Label ID="Label6" runat="server" Text="Al betaald: "></asp:Label></td>
                                             <td style="width: 15%">
                                                 <asp:Label ID="lblAanbetaling" runat="server" Text='<%#Eval("Ontvangsten") %>' Enabled="false"></asp:Label>
                                             </td>
 
-                                        </tr>--%>
+                                        </tr>
                                         <tr>
                                             <td style="width: 15%">
                                                 <asp:Label ID="Label3" runat="server" Text="Nog bij te betalen: "></asp:Label></td>

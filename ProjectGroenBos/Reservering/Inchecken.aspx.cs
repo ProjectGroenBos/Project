@@ -74,6 +74,8 @@ namespace ProjectGroenBos.Reservering
             int status = 9;
 
             UpdateReservering(nummer, status);
+            //Repeater();
+            Response.Redirect("Inchecken.aspx");
         }
 
         protected void btnBetalen_Click(object sender, EventArgs e)
@@ -117,10 +119,10 @@ namespace ProjectGroenBos.Reservering
 
             Label aanbetaling1 = (Label)rpReservering.Items[gridviewnr].FindControl("lblAanbetaling");
 
-            aanbetaling1.Text = een.ToString();
+            aanbetaling1.Text = drie;
             //Repeater();
 
-            ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "openModal(modalnaam)", true);
+            //ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "openModal(modalnaam)", true);
         }
 
         protected void btnSelecteer(object sender, EventArgs e)
