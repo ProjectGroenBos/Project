@@ -1,0 +1,80 @@
+﻿body {
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* make scrollbar transparent */
+}
+
+.Factuurregelbak {
+    display: block;
+    margin: auto;
+    overflow-y: scroll;
+    height: auto;
+    width: auto;
+    align-content: center;
+    color: #343434;
+    border: #148f77;
+    margin-bottom: 10px;
+}
+
+.lblTafel {
+    font-size: x-large;
+    color: #148f77;
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+.buttons {
+    width: 20%;
+    margin: 0 40%;
+}
+
+.buttongreen {
+    width: 32%;
+    height: 50px;
+    text-align: center;
+    background-color: #148f77;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    color: #fff;
+}
+
+#btnBetalen,
+#BtnContant {
+    margin-left: 2%;
+}
+
+.lblTotaal {
+    display: block;
+    margin-left: 25%;
+    margin-right: auto;
+}
+
+.Gdvtotaal {
+    width: 20%;
+    margin: 0 40%;
+    border: 2px solid #148f77;
+    border-radius: 5px 5px 0px 0px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.btnbak {
+    gin: 0 40%;
+}
+
+.GvOrder {
+    width: 20%;
+    margin: 0 40%;
+    border: 2px solid #148f77;
+    border-radius: 5px 5px 0px 0px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.GdvHeader {
+    background-color: #148f77;
+    color: white;
+    overflow: hidden;
+}
