@@ -38,7 +38,7 @@ namespace ProjectGroenBos.Reservering
 
             if(GridView2.Rows.Count == 0)
             {
-                Label5.Text = "Geen gasten die moeten inchecken gevonden.";
+                Label5.Text = "Geen gasten die moeten inchecken gevonden. Zijn achternaam en geboortedatum correct ingevuld?";
             }
             else
             {
@@ -135,6 +135,7 @@ namespace ProjectGroenBos.Reservering
             Label aanbetaling1 = (Label)rpReservering.Items[gridviewnr].FindControl("lblAanbetaling");
             Label tebetalen = (Label)rpReservering.Items[gridviewnr].FindControl("lblBijbetalen");
             
+            string drie = twee.Text;
             string vier = twee.Text;
             double aanbetaling = double.Parse(vier);
 
@@ -147,6 +148,11 @@ namespace ProjectGroenBos.Reservering
             else if (aanbetaling >= 100)
             {
 
+            }
+            else if(aanbetaling == double.Parse(drie))
+            {
+                aanbetaling1.Text = twee.Text;
+                tebetalen.Text = "0";
             }
 
             double betalen = double.Parse(vier);

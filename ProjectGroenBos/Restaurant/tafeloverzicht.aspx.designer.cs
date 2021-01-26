@@ -42,15 +42,6 @@ namespace ProjectGroenBos.Restaurant
         protected global::System.Web.UI.ScriptManager ToolkitScriptManager1;
 
         /// <summary>
-        /// popuptafel1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::AjaxControlToolkit.ModalPopupExtender popuptafel1;
-
-        /// <summary>
         /// modelpantafel1 control.
         /// </summary>
         /// <remarks>
@@ -85,15 +76,6 @@ namespace ProjectGroenBos.Restaurant
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btntafel2;
-
-        /// <summary>
-        /// popuptafel2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::AjaxControlToolkit.ModalPopupExtender popuptafel2;
 
         /// <summary>
         /// modelpantafel2 control.
@@ -132,15 +114,6 @@ namespace ProjectGroenBos.Restaurant
         protected global::System.Web.UI.WebControls.Button btntafel3;
 
         /// <summary>
-        /// popuptafel3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::AjaxControlToolkit.ModalPopupExtender popuptafel3;
-
-        /// <summary>
         /// modelpantafel3 control.
         /// </summary>
         /// <remarks>
@@ -177,15 +150,6 @@ namespace ProjectGroenBos.Restaurant
         protected global::System.Web.UI.WebControls.Button btntafel4;
 
         /// <summary>
-        /// popuptafel4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::AjaxControlToolkit.ModalPopupExtender popuptafel4;
-
-        /// <summary>
         /// modelpantafel4 control.
         /// </summary>
         /// <remarks>
@@ -220,15 +184,6 @@ namespace ProjectGroenBos.Restaurant
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btntafel5;
-
-        /// <summary>
-        /// popuptafel5 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::AjaxControlToolkit.ModalPopupExtender popuptafel5;
 
         /// <summary>
         /// modelpantafel5 control.

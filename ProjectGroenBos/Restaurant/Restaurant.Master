@@ -16,6 +16,44 @@
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+    <?xml version="1.0"?>
+    <configuration>
+    <appSettings/>
+    <system.web>
+        <compilation debug="true" targetFramework="4.5">
+            <assemblies>
+                <add assembly="System.Design, Version=4.0.0.0, Culture=neutral, PublicKeyToken=B03F5F7F11D50A3A"/>
+                <add assembly="System.Web.Extensions.Design, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35"/>
+                <add assembly="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=B77A5C561934E089"/>
+                <add assembly="AjaxControlToolkit"/>
+            </assemblies>
+        </compilation>
+        <httpRuntime/>
+        <pages controlRenderingCompatibilityVersion="4.0">
+            <controls>
+                <add tagPrefix="ajaxToolkit" assembly="AjaxControlToolkit, Version=4.5.7.1213, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e" namespace="AjaxControlToolkit"/>
+            </controls>
+        </pages>
+    </system.web>
+    <system.webServer>
+        <handlers>
+            <remove name="ExtensionlessUrlHandler-ISAPI-4.0_32bit"/>
+            <remove name="ExtensionlessUrlHandler-ISAPI-4.0_64bit"/>
+            <remove name="ExtensionlessUrlHandler-Integrated-4.0"/>
+            <add name="ExtensionlessUrlHandler-ISAPI-4.0_32bit" path="*." verb="GET,HEAD,POST,DEBUG,PUT,DELETE,PATCH,OPTIONS" modules="IsapiModule" scriptProcessor="%windir%\Microsoft.NET\Framework\v4.0.30319\aspnet_isapi.dll" preCondition="classicMode,runtimeVersionv4.0,bitness32" responseBufferLimit="0"/>
+            <add name="ExtensionlessUrlHandler-ISAPI-4.0_64bit" path="*." verb="GET,HEAD,POST,DEBUG,PUT,DELETE,PATCH,OPTIONS" modules="IsapiModule" scriptProcessor="%windir%\Microsoft.NET\Framework64\v4.0.30319\aspnet_isapi.dll" preCondition="classicMode,runtimeVersionv4.0,bitness64" responseBufferLimit="0"/>
+            <add name="ExtensionlessUrlHandler-Integrated-4.0" path="*." verb="GET,HEAD,POST,DEBUG,PUT,DELETE,PATCH,OPTIONS" type="System.Web.Handlers.TransferRequestHandler" preCondition="integratedMode,runtimeVersionv4.0"/>
+        </handlers>
+    </system.webServer>
+    <runtime>
+        <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
+            <dependentAssembly>
+                <assemblyIdentity name="Microsoft.WindowsAzure.Storage" publicKeyToken="31bf3856ad364e35" culture="neutral"/>
+                <bindingRedirect oldVersion="0.0.0.0-2.1.0.4" newVersion="2.1.0.4"/>
+            </dependentAssembly>
+        </assemblyBinding>
+    </runtime>
+</configuration>
 </head>
 <body>
     <form id="form1" runat="server">

@@ -132,9 +132,10 @@ FROM     Reservering INNER JOIN
                                     <hr />
                                     <br />
                                     <table style="text-align: left; margin-left: 5%">
+                                        
                                         <tr>
                                             <td style="width: 15%">
-                                                <asp:Label ID="Label6" runat="server" Text="Al betaald: "></asp:Label></td>
+                                                <asp:Label ID="Label6" runat="server" Text="Reeds betaald: "></asp:Label></td>
                                             <td style="width: 15%">
                                                 <asp:Label ID="lblAanbetaling" runat="server" Text='<%#Eval("Ontvangsten") %>' Enabled="false"></asp:Label>
                                             </td>
@@ -142,7 +143,7 @@ FROM     Reservering INNER JOIN
                                         </tr>
                                         <tr>
                                             <td style="width: 15%">
-                                                <asp:Label ID="Label3" runat="server" Text="Nog bij te betalen: "></asp:Label></td>
+                                                <asp:Label ID="Label3" runat="server" Text="Te betalen: "></asp:Label></td>
                                             <td style="width: 15%">
                                                 <asp:Label ID="lblBijbetalen" runat="server" Text='<%#Eval("Nogtebetalen") %> ' Enabled="false"></asp:Label>
                                             </td>
@@ -150,7 +151,7 @@ FROM     Reservering INNER JOIN
                                         </tr>
                                         <tr>
                                             <td style="width: 15%">
-                                                <asp:Label ID="Label4" runat="server" Text="Straks totaal betaalde bedrag: "></asp:Label></td>
+                                                <asp:Label ID="Label4" runat="server" Text="Totaalbedrag: "></asp:Label></td>
                                             <td style="width: 15%">
                                                 <asp:Label ID="lblTotaal" runat="server" Text='<%#Eval("Totaalbedrag") %>' Enabled="false"></asp:Label>
                                             </td>

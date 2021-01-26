@@ -17,32 +17,32 @@ namespace ProjectGroenBos.Restaurant
         protected void btntafel1_Click(object sender, EventArgs e)
         {
             //Hier open je de pop up om de bestelling op de tafel te kunnen zetten of kan kiezen voor afrekenen voor de tafel
-            popuptafel1.Show();
+            //popuptafel1.Show();
 
         }
 
         protected void btntafel2_Click(object sender, EventArgs e)
         {
             //Hier open je de pop up om de bestelling op de tafel te kunnen zetten of kan kiezen voor afrekenen voor de tafel
-            popuptafel2.Show();
+            //popuptafel2.Show();
         }
 
         protected void btntafel3_Click(object sender, EventArgs e)
         {
             //Hier open je de pop up om de bestelling op de tafel te kunnen zetten of kan kiezen voor afrekenen voor de tafel
-            popuptafel3.Show();
+            //popuptafel3.Show();
         }
 
         protected void btntafel4_Click(object sender, EventArgs e)
         {
             //Hier open je de pop up om de bestelling op de tafel te kunnen zetten of kan kiezen voor afrekenen voor de tafel
-            popuptafel4.Show();
+            //popuptafel4.Show();
         }
 
         protected void btntafel5_Click(object sender, EventArgs e)
         {
             //Hier open je de pop up om de bestelling op de tafel te kunnen zetten of kan kiezen voor afrekenen voor de tafel
-            popuptafel5.Show();
+            //popuptafel5.Show();
         }
 
         protected void btnkeuken_Click(object sender, EventArgs e)

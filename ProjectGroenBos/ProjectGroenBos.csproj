@@ -42,6 +42,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=20.1.0.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <HintPath>packages\AjaxControlToolkit.20.1.0\lib\net40\AjaxControlToolkit.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=3.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
@@ -65,8 +68,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Financien\css\main.css" />
-    <Content Include="Financien\FactuurKoppelScherm.aspx" />
-    <Content Include="Financien\Factuurtoevoegen.aspx" />
     <Content Include="Financien\Home.aspx" />
     <Content Include="Financien\Prijstabel.aspx" />
     <Content Include="Financien\Rekeningen.aspx" />
@@ -124,6 +125,58 @@
     <Content Include="Reservering\ReserveringWijzigen.aspx" />
     <Content Include="Reservering\NachtregisterOverzicht.aspx" />
     <Content Include="Reservering\Uitchecken.aspx" />
+    <Content Include="Restaurant\Afrekenen.aspx" />
+    <Content Include="Restaurant\BestellenFood.aspx" />
+    <Content Include="Restaurant\BestellenNonFood.aspx" />
+    <Content Include="Restaurant\Bestelling.aspx" />
+    <Content Include="Restaurant\Bestellingenoverzicht.aspx" />
+    <Content Include="Restaurant\bestellinggelukt.aspx" />
+    <Content Include="Restaurant\bestellingopnemen.aspx" />
+    <Content Include="Restaurant\css\Afrekenen.css" />
+    <Content Include="Restaurant\css\BestellenVoorraad.css" />
+    <Content Include="Restaurant\css\bestellingenoverzicht.css" />
+    <Content Include="Restaurant\css\opnemenbestelling.css" />
+    <Content Include="Restaurant\css\reserveren.css" />
+    <Content Include="Restaurant\css\style.css" />
+    <Content Include="Restaurant\css\tafeloverzicht.css" />
+    <Content Include="Restaurant\css\test.css" />
+    <Content Include="Restaurant\css\voorraad.css" />
+    <Content Include="Restaurant\home.aspx" />
+    <Content Include="Restaurant\img\addnew.png" />
+    <Content Include="Restaurant\img\cancel.png" />
+    <Content Include="Restaurant\img\delete.png" />
+    <Content Include="Restaurant\img\deleteRow.png" />
+    <Content Include="Restaurant\img\edit.png" />
+    <Content Include="Restaurant\img\Logo1.png" />
+    <Content Include="Restaurant\img\Logo2.png" />
+    <Content Include="Restaurant\img\Logo3.png" />
+    <Content Include="Restaurant\img\Logo4.png" />
+    <Content Include="Restaurant\img\Logo5.png" />
+    <Content Include="Restaurant\img\Logo6.png" />
+    <Content Include="Restaurant\img\productimg\broodplankje.png" />
+    <Content Include="Restaurant\img\productimg\carpaccio.png" />
+    <Content Include="Restaurant\img\productimg\champignonsoep.png" />
+    <Content Include="Restaurant\img\productimg\chocoladetaart.png" />
+    <Content Include="Restaurant\img\productimg\Cola.png" />
+    <Content Include="Restaurant\img\productimg\cremebrulee.png" />
+    <Content Include="Restaurant\img\productimg\Fanta.png" />
+    <Content Include="Restaurant\img\productimg\patat.png" />
+    <Content Include="Restaurant\img\productimg\sate.png" />
+    <Content Include="Restaurant\img\productimg\schnitzel.png" />
+    <Content Include="Restaurant\img\productimg\spareribs.png" />
+    <Content Include="Restaurant\img\productimg\Sprite.png" />
+    <Content Include="Restaurant\img\productimg\tomatensoep.png" />
+    <Content Include="Restaurant\img\productimg\varkenshaas.png" />
+    <Content Include="Restaurant\img\save.png" />
+    <Content Include="Restaurant\Keukenoverzicht.aspx" />
+    <Content Include="Restaurant\OrderGoedkeur.aspx" />
+    <Content Include="Restaurant\OrderPagina.aspx" />
+    <Content Include="Restaurant\OrderPaginaNonFood.aspx" />
+    <Content Include="Restaurant\reserveren.aspx" />
+    <Content Include="Restaurant\Restaurant.Master" />
+    <Content Include="Restaurant\tafeloverzicht.aspx" />
+    <Content Include="Restaurant\Voorraad.aspx" />
+    <Content Include="Restaurant\VoorraadZien.aspx" />
     <Content Include="Schoonmaak en Onderhoud\InventarisOverzicht.aspx" />
     <Content Include="Schoonmaak en Onderhoud\OffertesOverzicht.aspx" />
     <Content Include="Schoonmaak en Onderhoud\OnderhoudsOverzicht.aspx" />
@@ -348,20 +401,6 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Financien\FactuurKoppelScherm.aspx.cs">
-      <DependentUpon>FactuurKoppelScherm.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Financien\FactuurKoppelScherm.aspx.designer.cs">
-      <DependentUpon>FactuurKoppelScherm.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Financien\Factuurtoevoegen.aspx.cs">
-      <DependentUpon>Factuurtoevoegen.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Financien\Factuurtoevoegen.aspx.designer.cs">
-      <DependentUpon>Factuurtoevoegen.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Financien\Financien.Master.cs">
       <DependentUpon>Financien.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -625,6 +664,125 @@
     </Compile>
     <Compile Include="Reservering\Uitchecken.aspx.designer.cs">
       <DependentUpon>Uitchecken.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Restaurant\Afrekenen.aspx.cs">
+      <DependentUpon>Afrekenen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Restaurant\Afrekenen.aspx.designer.cs">
+      <DependentUpon>Afrekenen.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Restaurant\BestellenFood.aspx.cs">
+      <DependentUpon>BestellenFood.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Restaurant\BestellenFood.aspx.designer.cs">
+      <DependentUpon>BestellenFood.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Restaurant\BestellenNonFood.aspx.cs">
+      <DependentUpon>BestellenNonFood.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Restaurant\BestellenNonFood.aspx.designer.cs">
+      <DependentUpon>BestellenNonFood.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Restaurant\Bestelling.aspx.cs">
+      <DependentUpon>Bestelling.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Restaurant\Bestelling.aspx.designer.cs">
+      <DependentUpon>Bestelling.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Restaurant\Bestellingenoverzicht.aspx.cs">
+      <DependentUpon>Bestellingenoverzicht.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Restaurant\Bestellingenoverzicht.aspx.designer.cs">
+      <DependentUpon>Bestellingenoverzicht.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Restaurant\bestellinggelukt.aspx.cs">
+      <DependentUpon>bestellinggelukt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Restaurant\bestellinggelukt.aspx.designer.cs">
+      <DependentUpon>bestellinggelukt.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Restaurant\bestellingopnemen.aspx.cs">
+      <DependentUpon>bestellingopnemen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Restaurant\bestellingopnemen.aspx.designer.cs">
+      <DependentUpon>bestellingopnemen.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Restaurant\home.aspx.cs">
+      <DependentUpon>home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Restaurant\home.aspx.designer.cs">
+      <DependentUpon>home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Restaurant\Keukenoverzicht.aspx.cs">
+      <DependentUpon>Keukenoverzicht.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Restaurant\Keukenoverzicht.aspx.designer.cs">
+      <DependentUpon>Keukenoverzicht.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Restaurant\OrderGoedkeur.aspx.cs">
+      <DependentUpon>OrderGoedkeur.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Restaurant\OrderGoedkeur.aspx.designer.cs">
+      <DependentUpon>OrderGoedkeur.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Restaurant\OrderPagina.aspx.cs">
+      <DependentUpon>OrderPagina.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Restaurant\OrderPagina.aspx.designer.cs">
+      <DependentUpon>OrderPagina.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Restaurant\OrderPaginaNonFood.aspx.cs">
+      <DependentUpon>OrderPaginaNonFood.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Restaurant\OrderPaginaNonFood.aspx.designer.cs">
+      <DependentUpon>OrderPaginaNonFood.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Restaurant\reserveren.aspx.cs">
+      <DependentUpon>reserveren.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Restaurant\reserveren.aspx.designer.cs">
+      <DependentUpon>reserveren.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Restaurant\Restaurant.Master.cs">
+      <DependentUpon>Restaurant.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Restaurant\Restaurant.Master.designer.cs">
+      <DependentUpon>Restaurant.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Restaurant\tafeloverzicht.aspx.cs">
+      <DependentUpon>tafeloverzicht.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Restaurant\tafeloverzicht.aspx.designer.cs">
+      <DependentUpon>tafeloverzicht.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Restaurant\Voorraad.aspx.cs">
+      <DependentUpon>Voorraad.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Restaurant\Voorraad.aspx.designer.cs">
+      <DependentUpon>Voorraad.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Restaurant\VoorraadZien.aspx.cs">
+      <DependentUpon>VoorraadZien.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Restaurant\VoorraadZien.aspx.designer.cs">
+      <DependentUpon>VoorraadZien.aspx</DependentUpon>
     </Compile>
     <Compile Include="Schoonmaak en Onderhoud\InventarisOverzicht.aspx.cs">
       <DependentUpon>InventarisOverzicht.aspx</DependentUpon>

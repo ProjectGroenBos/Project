@@ -31,11 +31,14 @@
         <br />
         <asp:Button ID="btnZoek" runat="server" Text="Zoek" OnClick="btnZoek_Click" CssClass="btnUitloggen" Style="background-color: #009879; color: #fff" class="btn" />
         <br />
+        <br />
+        <asp:Label ID="Label5" runat="server" Text=""></asp:Label>
+        <br />
         <asp:GridView ID="GridView1" runat="server" AllowCustomPaging="True" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CssClass="content-table" DataKeyNames="Nummer" DataSourceID="SqlDataSource1">
             <Columns>
                 <asp:TemplateField>
                     <ItemTemplate>
-                        <button type="button" style="background-color: #009879; color: #fff" class="btnUitloggen" data-toggle="modal" data-target="#modal<%# Eval("Nummer") %>">Selecteren</button>
+                        <button type="button" style="background-color: #009879; color: #fff" class="btnUitloggen" data-toggle="modal" data-target="#modal<%# Eval("Nummer") %>" onclick="btnSelecteer">Selecteren</button>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:BoundField DataField="Nummer" HeaderText="Nummer" InsertVisible="False" ReadOnly="True" SortExpression="Nummer" />
@@ -55,7 +58,7 @@ FROM     Reservering INNER JOIN
             <Columns>
                 <asp:TemplateField>
                     <ItemTemplate>
-                        <button type="button" style="background-color: #009879; color: #fff" class="btnUitloggen" data-toggle="modal" data-target="#modal<%# Eval("Nummer") %>">Selecteren</button>
+                        <button type="button" style="background-color: #009879; color: #fff" class="btnUitloggen" data-toggle="modal" data-target="#modal<%# Eval("Nummer") %>" onclick="btnSelecteer">Selecteren</button>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:BoundField DataField="Nummer" HeaderText="Nummer" InsertVisible="False" ReadOnly="True" SortExpression="Nummer" />
@@ -106,10 +109,7 @@ where Nummer = @nummer
                                         <div>
                                             <h4>Reserverings gegevens</h4>
                                             <p>
-                                                #<%# Eval("Nummer") %>
-                                                <br />
-                                                <%# Eval("Naam") %><br />
-                                                <%# Eval("Aantal_personen") %> personen
+                                                #<%# Eval("Nummer") %><br /><%# Eval("Naam") %><br /><%# Eval("Aantal_personen") %>personen
                                 <br />
                                                 Van <%# Eval("Aankomstdatum", "{0: dd/MM/yyyy}") %>
                                                 <br />
@@ -131,8 +131,7 @@ where Nummer = @nummer
                                             </p>
                                         </div>
                                     </div>
-                                    <asp:HiddenField ID="Nummer" runat="server"
-                                        Value='<%# Eval("Nummer") %>' />
+                                    
                                     <hr />
                                     <br />
                                     <table>
@@ -165,7 +164,7 @@ where Nummer = @nummer
                                             </tr>
                                         </tbody>
                                     </table>
-                                     <%--<asp:HiddenField ID="DebiteurNr" runat="server"
+                                     <asp:HiddenField ID="DebiteurenFactuurNummer" runat="server"
                                         Value='<%# Eval("DebiteurenFactuurNummer") %>' />
                                     <asp:HiddenField ID="Nummer" runat="server"
                                         Value='<%# Eval("Nummer") %>' />
@@ -174,7 +173,7 @@ where Nummer = @nummer
                                     <asp:HiddenField ID="Naamgast" runat="server"
                                         Value='<%# Eval("Naam") %>' />
                                     <asp:HiddenField ID="Emailgast" runat="server"
-                                        Value='<%# Eval("Email") %>' />--%>
+                                        Value='<%# Eval("Email") %>' />
 
                                         <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="select Naam, Prijs, Aantal, (Prijs * Aantal) AS 'Totaal' from RekeningAct where ReserveringNummer = @Nummer
                                     union
@@ -188,6 +187,13 @@ where Nummer = @nummer
                                                 PropertyName="Value" />
                                         </SelectParameters>
                                     </asp:SqlDataSource>
+
+                                        <tr>
+                                            <td>
+                                                <asp:Button ID="btnBetalen" runat="server" Text="Betalen" CssClass="btnUitloggen" Style="background-color: #009879; color: #fff" class="btn" OnClick="btnBetalen_Click" CommandName="<%# Container.ItemIndex %>"/></td>
+                                            <td>
+                                                <asp:Button ID="btnUitchecken" runat="server" Text="Uitchecken"  CssClass="btnUitloggen" Style="background-color: #009879; color: #fff" class="btn" OnClick="btnUitchecken_Click" CommandName="<%# Container.ItemIndex %>"/></td>
+                                        </tr>
                                     </table>
 
 

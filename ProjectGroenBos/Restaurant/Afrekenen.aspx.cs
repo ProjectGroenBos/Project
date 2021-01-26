@@ -74,6 +74,10 @@ namespace ProjectGroenBos.Restaurant
 			{
 
 			}
+			else if (functieID == 9)
+			{
+
+			}
 			else if (functieID == 12)
 			{
 
@@ -337,7 +341,7 @@ namespace ProjectGroenBos.Restaurant
 				command.Parameters.AddWithValue("@FactuurtypeID", "4");
 				command.Parameters.AddWithValue("@RestaurantReserveringID", resID);
 
-				connection.Open();
+				
 
 				command.ExecuteNonQuery();
 				connection.Close();
