@@ -35,6 +35,15 @@ namespace ProjectGroenBos.Reservering
             GridView1.Visible = false;
             GridView2.Visible = true;
             GridView2.DataBind();
+
+            if(GridView2.Rows.Count == 0)
+            {
+                Label5.Text = "Geen gasten die moeten inchecken gevonden.";
+            }
+            else
+            {
+                Label5.Text = "";
+            }
         }
 
         public void Repeater()
@@ -90,7 +99,7 @@ namespace ProjectGroenBos.Reservering
             int resNummer = int.Parse(zeven);
             int fNummer = int.Parse(acht);
 
-            double nuPayen = betalen;
+            double nuPayen = betalen - 100;
 
             DateTime vandaag = DateTime.Today;
 
@@ -105,6 +114,10 @@ namespace ProjectGroenBos.Reservering
             btninchecken.Visible = true;
 
             twee.Text = "0";
+
+            Label aanbetaling1 = (Label)rpReservering.Items[gridviewnr].FindControl("lblAanbetaling");
+
+            aanbetaling1.Text = een.ToString();
             //Repeater();
 
             ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "openModal(modalnaam)", true);
@@ -116,9 +129,29 @@ namespace ProjectGroenBos.Reservering
 
             int gridviewnr = int.Parse(btn.CommandName);
 
-            HiddenField twee = (HiddenField)rpReservering.Items[gridviewnr].FindControl("Nogtebetalen");
-            string vier = twee.Value;
+            Label twee = (Label)rpReservering.Items[gridviewnr].FindControl("lblTotaal");
+            Label aanbetaling1 = (Label)rpReservering.Items[gridviewnr].FindControl("lblAanbetaling");
+            Label tebetalen = (Label)rpReservering.Items[gridviewnr].FindControl("lblBijbetalen");
+            
+            string vier = twee.Text;
+            double aanbetaling = double.Parse(vier);
+
+            aanbetaling = aanbetaling / 10;
+
+            if (aanbetaling < 100)
+            {
+                aanbetaling = 100;
+            }
+            else if (aanbetaling >= 100)
+            {
+
+            }
+
             double betalen = double.Parse(vier);
+            betalen = betalen - aanbetaling;
+
+            string alBetaald = aanbetaling1.Text;
+            aanbetaling1.Text = vier;
 
             if (betalen == 0)
             {

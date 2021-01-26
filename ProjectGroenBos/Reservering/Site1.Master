@@ -47,6 +47,8 @@
                         <ul class="submenu">
                             <li><a href="GastSelecteren.aspx">Aanmaken</a></li>
                             <li><a href="ReserveringOverzicht.aspx">Overzicht</a></li>
+                            <li><a href="Inchecken.aspx">Inchecken</a></li>
+                            <li><a href="uitchecken.aspx">Uitchecken</a></li>
 
                         </ul>
                         </li>
@@ -69,12 +71,7 @@
                                 <li><a href="NachtregisterOverzicht.aspx">Overzicht</a></li>
                             </ul>
                             </li>
-                            <li><a href="#"><i class="fas fa-user"></i>Balie</a>
-                                <ul class="submenu">
-                                    <li><a href="Inchecken.aspx">Inchecken</a></li>
-                                    <li><a href="uitchecken.aspx">Uitchecken</a></li>
-                                </ul>
-                        </li>
+                            
                     <%--<li><a href="#"><i class="fas fa-user"></i>Optie</a>
                             <ul class="submenu">
                                 <li><a href="#">optie 1</a></li>

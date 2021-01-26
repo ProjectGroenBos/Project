@@ -14,9 +14,11 @@
         <h2>Inchecken</h2>
         <br />
 
-        <p>Gasten die aankomen bij het park moeten gecontroleerd worden
+        <p>
+            Gasten die aankomen bij het park moeten gecontroleerd worden
             <br />
-            of het huurbedrag van het huisje volledig is betaald.</p>
+            of het huurbedrag van het huisje volledig is betaald.
+        </p>
 
         <br />
         <table style="text-align: left; margin-left: 5%">
@@ -38,6 +40,9 @@
 
         <br />
         <asp:Button ID="btnZoek" runat="server" Text="Zoek" CssClass="btnUitloggen" Style="background-color: #009879; color: #fff" class="btn" OnClick="btnZoek_Click" />
+        <br />
+        <br />
+        <asp:Label ID="Label5" runat="server" Text=""></asp:Label>
         <br />
 
         <asp:GridView ID="GridView1" runat="server" AllowCustomPaging="True" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CssClass="content-table" DataKeyNames="Nummer" DataSourceID="SqlDataSource1">
@@ -127,6 +132,14 @@ FROM     Reservering INNER JOIN
                                     <hr />
                                     <br />
                                     <table style="text-align: left; margin-left: 5%">
+                                        <%--<tr>
+                                            <td style="width: 15%">
+                                                <asp:Label ID="Label6" runat="server" Text="Al betaald: "></asp:Label></td>
+                                            <td style="width: 15%">
+                                                <asp:Label ID="lblAanbetaling" runat="server" Text='<%#Eval("Ontvangsten") %>' Enabled="false"></asp:Label>
+                                            </td>
+
+                                        </tr>--%>
                                         <tr>
                                             <td style="width: 15%">
                                                 <asp:Label ID="Label3" runat="server" Text="Nog bij te betalen: "></asp:Label></td>
@@ -137,24 +150,24 @@ FROM     Reservering INNER JOIN
                                         </tr>
                                         <tr>
                                             <td style="width: 15%">
-                                                <asp:Label ID="Label4" runat="server" Text="Straks totaal betaalde bedrag"></asp:Label></td>
+                                                <asp:Label ID="Label4" runat="server" Text="Straks totaal betaalde bedrag: "></asp:Label></td>
                                             <td style="width: 15%">
-                                                <asp:Label ID="lblTotaal" runat="server" Text= '<%#Eval("Totaalbedrag") %>' Enabled="false"></asp:Label>
+                                                <asp:Label ID="lblTotaal" runat="server" Text='<%#Eval("Totaalbedrag") %>' Enabled="false"></asp:Label>
                                             </td>
 
                                         </tr>
                                         <tr>
                                             <td>
-                                                <asp:Button ID="btnBetalen" runat="server" Text="Betaal restbedrag" CssClass="btnUitloggen" Style="background-color: #009879; color: #fff" class="btn" OnClick="btnBetalen_Click" CommandName="<%# Container.ItemIndex %>"/></td>
+                                                <asp:Button ID="btnBetalen" runat="server" Text="Betaal restbedrag" CssClass="btnUitloggen" Style="background-color: #009879; color: #fff" class="btn" OnClick="btnBetalen_Click" CommandName="<%# Container.ItemIndex %>" /></td>
                                             <td>
-                                                <asp:Button ID="btnInchecken" runat="server" Text="Check Gast in" CssClass="btnUitloggen" Style="background-color: #009879; color: #fff" class="btn" OnClick="btnInchecken_Click" CommandName="<%# Container.ItemIndex %>"/></td>
+                                                <asp:Button ID="btnInchecken" runat="server" Text="Check Gast in" CssClass="btnUitloggen" Style="background-color: #009879; color: #fff" class="btn" OnClick="btnInchecken_Click" Visible="false" CommandName="<%# Container.ItemIndex %>" /></td>
                                         </tr>
                                     </table>
 
                                     <asp:HiddenField ID="ReserveringNummer" runat="server"
-                                    Value='<%# Eval("ReserveringNummer") %>' />
-                                <asp:HiddenField ID="fNummer" runat="server"
-                                    Value='<%# Eval("fNummer") %>' />
+                                        Value='<%# Eval("ReserveringNummer") %>' />
+                                    <asp:HiddenField ID="fNummer" runat="server"
+                                        Value='<%# Eval("fNummer") %>' />
 
                                 </div>
                             </div>
@@ -163,6 +176,5 @@ FROM     Reservering INNER JOIN
                 </div>
             </ItemTemplate>
         </asp:Repeater>
-
     </div>
 </asp:Content>

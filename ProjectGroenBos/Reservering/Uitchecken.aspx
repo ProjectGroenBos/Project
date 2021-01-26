@@ -130,9 +130,9 @@ where Nummer = @nummer
                                     <table>
                                         <tr>
                                             <td>
-                                                <asp:Label ID="Label3" runat="server" Text="Totale gemaakte kosten: "></asp:Label></td>
+                                                Gehuurd van recreatie: 
                                             <td>
-                                               
+                                                <asp:GridView ID="GridView3" runat="server" DataSource="SqlDatasource3"></asp:GridView>
                                             </td>
 
                                         </tr>
