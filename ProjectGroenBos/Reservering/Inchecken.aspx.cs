@@ -122,7 +122,7 @@ namespace ProjectGroenBos.Reservering
             aanbetaling1.Text = drie;
             //Repeater();
 
-            //ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "openModal(modalnaam)", true);
+            ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "openModal('<%# Eval('Nummer') %>')", true);
         }
 
         protected void btnSelecteer(object sender, EventArgs e)
