@@ -445,3 +445,17 @@ nav ul {
     top: 0px;
     left: 40%;
 }
+
+.modal-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.inline-flex {
+    display: flex;
+    justify-content: center;
+}
+
+    .inline-flex > div {
+        text-align: center;
+    }

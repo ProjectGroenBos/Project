@@ -65,6 +65,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Financien\css\main.css" />
+    <Content Include="Financien\FactuurKoppelScherm.aspx" />
+    <Content Include="Financien\Factuurtoevoegen.aspx" />
     <Content Include="Financien\Home.aspx" />
     <Content Include="Financien\Prijstabel.aspx" />
     <Content Include="Financien\Reserveringen.aspx" />
@@ -93,6 +95,7 @@
     <Content Include="Recreatie\Uitloggen.aspx" />
     <Content Include="Reservering\Images\checksymbol.png" />
     <Content Include="Reservering\Images\framed-portrait.png" />
+    <Content Include="Reservering\Images\Logo3.png" />
     <Content Include="Reservering\Inchecken.aspx" />
     <Content Include="Reservering\KlachtenAfhandeling.aspx" />
     <Content Include="Reservering\Gastoverzicht.aspx" />
@@ -344,6 +347,20 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Financien\FactuurKoppelScherm.aspx.cs">
+      <DependentUpon>FactuurKoppelScherm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Financien\FactuurKoppelScherm.aspx.designer.cs">
+      <DependentUpon>FactuurKoppelScherm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Financien\Factuurtoevoegen.aspx.cs">
+      <DependentUpon>Factuurtoevoegen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Financien\Factuurtoevoegen.aspx.designer.cs">
+      <DependentUpon>Factuurtoevoegen.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Financien\Financien.Master.cs">
       <DependentUpon>Financien.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
