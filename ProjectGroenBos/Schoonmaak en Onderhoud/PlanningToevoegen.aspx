@@ -82,7 +82,11 @@
                     <td class="auto-style3">&nbsp;</td>
                     <td class="auto-style4">
 
+<<<<<<< HEAD
+                        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT [Nummer], [Naam] FROM [Medewerker]"></asp:SqlDataSource>
+=======
                         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:con %>" SelectCommand="SELECT [Nummer], [Naam] FROM [Medewerker]"></asp:SqlDataSource>
+>>>>>>> RecreatieTeam/DaanHeemskerk
                      </td>
                      <td class="auto-style2">
 

@@ -25,8 +25,8 @@
         </asp:GridView>
 
         <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:dbconnectie %>" SelectCommand="SELECT Med.Nummer, Med.Naam, Med.Geboortedatum, Med.[In dienst sinds] AS In_dienst_sinds, Med.[Salaris per maand] AS Salaris_per_maand, Fun.naam as Functie, Afd.Naam as Afdeling FROM (( dbo.Medewerker Med  inner join dbo.Functie Fun on Med.FunctieID = Fun.ID) inner join dbo.Afdeling Afd on Med.AfdelingID= Afd.ID) where Med.FunctieID= Fun.ID and Med.AfdelingID= Afd.ID" UpdateCommand="
-Update dbo.Medewerker 
-Set [Salaris per maand] = @Salaris_per_maand, [Naam] = @Naam, [Geboortedatum] = convert(datetime,@Geboortedatum,104) Where [Nummer] = @Nummer">
+Update dbo.Medewerker
+Set [Salaris per maand] = @Salaris_per_maand, [Naam] = @Naam, [Geboortedatum] = convert(datetime,@Geboortedatum,104), Where [Nummer] = @Nummer">
 
             <UpdateParameters>
                 <asp:Parameter Name="Naam" />
@@ -47,24 +47,22 @@ Set [Salaris per maand] = @Salaris_per_maand, [Naam] = @Naam, [Geboortedatum] = 
                     <h4 class="modal-title">Personeel toevoegen</h4>
                 </div>
                 <div class="modal-body">
-                    <p style="margin-top: 1rem; margin-bottom: 0;" >Naam</p>
-                    <asp:TextBox ID="txbNaam" runat="server" Style="text-align: center" Height="50px" Width="100%"></asp:TextBox> 
-                    <p style="margin-top: 1rem; margin-bottom: 0;" >Geboortedatum</p>
-                    <asp:TextBox ID="txbGeboortedatum" placeholder="DD-MM-YYYY" Style="text-align: center" Height="50px" Width="100%" runat="server"></asp:TextBox>
-                    <p style="margin-top: 1rem; margin-bottom: 0;" >Adres</p>
-                    <asp:TextBox ID="txbAdres" placeholder="Straatnaam 123" Style="text-align: center" Height="50px" Width="100%" runat="server"></asp:TextBox>
-                    <p style="margin-top: 1rem; margin-bottom: 0;" >Postcode</p>
-                    <asp:TextBox ID="txbPostcode" placeholder="ABCD12" Style="text-align: center" Height="50px" Width="100%" runat="server"></asp:TextBox>
-                    <p style="margin-top: 1rem; margin-bottom: 0;" >Functie</p>
-                    <asp:DropDownList ID="dlFunctie" Style="text-align: center;" Height="50px" Width="100%" runat="server"></asp:DropDownList>
-                    <p style="margin-top: 1rem; margin-bottom: 0;" >Afdeling</p>
-                    <asp:DropDownList ID="dlAfdeling" Style="text-align: center;" Height="50px" Width="100%" runat="server"></asp:DropDownList>
-                    <p style="margin-top: 1rem; margin-bottom: 0;" >Salaris</p>
-                    <asp:TextBox ID="txbSalaris" Style="text-align: center" Height="50px" Width="100%" runat="server"></asp:TextBox>
-                    <p style="margin-top: 1rem; margin-bottom: 0;" >Contracturen per week</p>
+                    <p>Naam</p>
+                    <asp:TextBox ID="txbNaam" runat="server" Style="text-align: center" Height="50px" Width="100%"></asp:TextBox>
+                    <p>Geboortedatum</p>
+                    <asp:TextBox ID="txbGeboortedatum" Style="text-align: center" Height="50px" Width="100%" runat="server"></asp:TextBox>
+                    <p>Adres</p>
+                    <asp:TextBox ID="txbAdres" Style="text-align: center" Height="50px" Width="100%" runat="server"></asp:TextBox>
+                    <p>Postcode</p>
+                    <asp:TextBox ID="txbPostcode" Style="text-align: center" Height="50px" Width="100%" runat="server"></asp:TextBox>
+                    <p>Functie</p>
+                    <asp:DropDownList ID="dlFunctie" Style="text-align: center; margin-top: 10px;" Height="50px" Width="100%" runat="server"></asp:DropDownList>
+                    <p>Afdeling</p>
+                    <asp:DropDownList ID="dlAfdeling" Style="text-align: center; margin-top: 10px;" Height="50px" Width="100%" runat="server"></asp:DropDownList>
+                    <p>Contracturen per week</p>
                     <asp:TextBox ID="txbContracturen" Style="text-align: center" Height="50px" Width="100%" runat="server"></asp:TextBox>
-                    <p style="margin-top: 1rem; margin-bottom: 0;" >In dienst sinds</p>
-                    <asp:TextBox ID="txbInDienst" placeholder="DD-MM-YYYY" Style="text-align: center" Height="50px" Width="100%" runat="server"></asp:TextBox>
+                    <p>In dienst sinds</p>
+                    <asp:TextBox ID="txbInDienst" Style="text-align: center" Height="50px" Width="100%" runat="server"></asp:TextBox>
                     <asp:Button ID="btnToevoegen" CssClass="btnToevoegen" runat="server" Text="Toevoegen" OnClick="btnToevoegen_Click" />
                 </div>
                 <div class="modal-footer">
